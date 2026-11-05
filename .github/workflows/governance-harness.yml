@@ -47,9 +47,11 @@ jobs:
       - name: Install harness dependencies
         # pyproject.toml declares the tool dependencies: pyyaml for the
         # validators and deliverables check; the ci extra adds pytest,
-        # pytest-xdist and numpy (tools/retrieval imports it, so those tests
-        # stay gated here rather than skipping).
+        # pytest-xdist, ruff and numpy (tools/retrieval imports it, so those
+        # tests stay gated here rather than skipping).
         run: python3 -m pip install --quiet ".[ci]"
+      - name: Python lint (pyflakes rules)
+        run: ruff check .
       - name: Deliverable dependency structure
         if: steps.selection.outputs.deliverables == 'true'
         run: python3 -m tools.deliverables --project . check

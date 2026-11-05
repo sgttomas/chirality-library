@@ -35,7 +35,7 @@ import csv
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List
 
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
@@ -103,7 +103,6 @@ def find_nearest_term(text: str, match_start: int, match_end: int) -> str:
     # Search in a window around the match
     window_start = max(0, match_start - 80)
     window_end = min(len(text), match_end + 80)
-    context = text[window_start:window_end]
 
     # Remove the matched portion conceptually; find word clusters
     words_before = text[window_start:match_start].strip()

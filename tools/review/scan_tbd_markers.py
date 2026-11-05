@@ -37,7 +37,7 @@ import csv
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Dict, List, Optional, Tuple
 
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
@@ -252,7 +252,6 @@ def main() -> int:
     text = read_text(draft_path)
     lines = text.splitlines()
 
-    current_section_heading = ""
     current_section_id = ""
     markers: List[Dict[str, str]] = []
     seen_markers: set = set()  # Deduplicate: (line_no, marker_type)
@@ -261,7 +260,6 @@ def main() -> int:
         heading_match = HEADING_RE.match(line)
         if heading_match:
             heading_text = heading_match.group(2).strip()
-            current_section_heading = heading_text
             # Try to extract SectionID from heading
             sid_match = SECTION_ID_RE.search(heading_text)
             if sid_match:

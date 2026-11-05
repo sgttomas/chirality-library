@@ -271,7 +271,7 @@ def render_eq_chunk(
             + (f'<div class="bcdesc"><b>Original note:</b> {bc_desc}</div>' if bc_desc else "")
             + (f'<div class="bcdesc"><b>Previous LaTeX:</b> <code>{bc_prev}</code></div>' if bc_prev else "")
             + (f'<div class="bcdesc">{reject_btn}</div>' if reject_btn else "")
-            + f'</div>'
+            + '</div>'
         )
 
     crop_block = ""
