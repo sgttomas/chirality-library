@@ -369,7 +369,7 @@ def test_standalone_validators_share_name_and_deny_all_contract(tmp_path):
     assert validate_workflow_dir(workflow, tmp_path)["valid"]
 
 
-def test_exact_central_refs_and_public_export_exclusion():
+def test_exact_central_refs_and_retired_methods_absent():
     registry = json.loads((ROOT / "agents/registry.json").read_text())
     assert registry["workflow_catalog"] == {
         "schema": "chirality-method-index/v1",
@@ -378,11 +378,7 @@ def test_exact_central_refs_and_public_export_exclusion():
     }
     index = validate_and_build(ROOT)
     assert index["centralWorkflowNames"] == list(CENTRAL)
-    exported = validate_and_build(ROOT, public_export=True)
-    assert exported["methods"] == index["methods"]
     assert not any(item["name"] in {"change", "chirality-change"} for item in index["methods"])
-    assert not any(item["kind"] == "skill" and item["name"] == "chirality-change" for item in exported["methods"])
-    assert not any("chirality-change" in str(item) for item in exported.get("diagnostics", []))
 
 
 def test_shared_discovery_fixture_contract():
@@ -424,13 +420,11 @@ def test_canonical_skill_has_no_task_specific_companions(tmp_path):
     assert validate_skill_dir(skill, tmp_path, legacy_task_contract=True)["valid"]
 
 
-def test_retained_root_only_skill_export_guard(tmp_path):
+def test_bundled_skill_takes_the_library_identity(tmp_path):
     root = _fixture_root(tmp_path)
     skill = root / ".agents/skills/chirality-change"
     skill.mkdir(parents=True)
-    (skill / "SKILL.md").write_text("---\nname: chirality-change\ndescription: Historical Root-only fixture\n---\n")
-    internal = validate_and_build(root)
-    external = validate_and_build(root, public_export=True)
-    descriptor = next(item for item in internal["methods"] if item["name"] == "chirality-change")
-    assert descriptor["source"] == "project"
-    assert not any(item["name"] == "chirality-change" for item in external["methods"])
+    (skill / "SKILL.md").write_text("---\nname: chirality-change\ndescription: Fixture skill\n---\n")
+    index = validate_and_build(root)
+    descriptor = next(item for item in index["methods"] if item["name"] == "chirality-change")
+    assert (descriptor["source"], descriptor["sourceRootId"]) == (index["library"]["source"], index["library"]["sourceRootId"])

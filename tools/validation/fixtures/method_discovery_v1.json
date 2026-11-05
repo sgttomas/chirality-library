@@ -121,11 +121,6 @@
       "id": "flat-project-markdown-is-document-only",
       "projectFiles": ["WORKFLOW.md", "notes/workflow.md"],
       "expected": {"discovered": [], "error": null}
-    },
-    {
-      "id": "public-export-exclusion",
-      "input": {"kind": "skill", "name": "chirality-change", "source": "project", "sourceRootId": "chirality-root-project"},
-      "expected": {"included": false, "missingDiagnostic": false}
     }
   ]
 }

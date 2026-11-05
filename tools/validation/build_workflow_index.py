@@ -249,7 +249,7 @@ def parse_execution(package_root: Path, repo_root: Path, required: bool) -> dict
     return normalized
 
 
-def validate_and_build(root: Path, public_export: bool = False) -> dict:
+def validate_and_build(root: Path) -> dict:
     root = root.resolve()
     workflows = root / "workflows"
     catalog = _load_catalog(workflows / "catalog.yaml")
@@ -268,7 +268,7 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
     navigation = parse_navigation(catalog["navigation"])
     descriptors = []
     seen = set()
-    package_dirs = [p for p in workflows.iterdir() if p.is_dir() and not p.name.startswith(".") and p.name != "chirality-change"]
+    package_dirs = [p for p in workflows.iterdir() if p.is_dir() and not p.name.startswith(".")]
     missing_entrypoints = [p.name for p in package_dirs if not (p / "WORKFLOW.md").is_file()]
     if missing_entrypoints:
         raise ValueError(f"workflow package directories missing WORKFLOW.md: {sorted(missing_entrypoints)}")
@@ -318,7 +318,7 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
         for resource in resources:
             _contained_file(package_root, resource)
         descriptors.append(_descriptor(entry, library, name in central_names, placement))
-    folders = {p.name for p in workflows.iterdir() if p.is_dir() and (p / "WORKFLOW.md").is_file() and p.name != "chirality-change"}
+    folders = {p.name for p in workflows.iterdir() if p.is_dir() and (p / "WORKFLOW.md").is_file()}
     names = {item["name"] for item in descriptors}
     if names != folders:
         raise ValueError(f"catalog/folder disagreement: missing={sorted(folders-names)}, extra={sorted(names-folders)}")
@@ -353,11 +353,9 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
             for resource in resources:
                 _contained_file(package_root, resource)
             execution = parse_execution(package_root, root, required=False)
-            method_source = "project" if folder.name == "chirality-change" else library["source"]
-            method_root = "chirality-root-project" if folder.name == "chirality-change" else library["sourceRootId"]
             descriptor = {
                 "kind": "skill", "name": folder.name,
-                "source": method_source, "sourceRootId": method_root,
+                "source": library["source"], "sourceRootId": library["sourceRootId"],
                 "description": metadata["description"], "central": False,
                 "compatibility": "canonical",
                 "executionRoleIds": execution["compatibleRoles"] if execution is not None else list(ROLES),
@@ -367,8 +365,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
                 descriptor["execution"] = execution
             descriptors.append(descriptor)
 
-    if public_export:
-        descriptors = [item for item in descriptors if not (item["kind"] == "skill" and item["name"] == "chirality-change")]
     return {
         "schema": INDEX_SCHEMA,
         "library": library,
@@ -382,7 +378,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
             "malformedHigherPrecedence": "block-identity",
             "collisionHandling": "expose-all-qualified-candidates",
             "resourceContainment": "realpath-within-package-root",
-            "publicExportExclusions": [{"kind": "skill", "name": "chirality-change"}],
         },
     }
 
@@ -417,12 +412,11 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--bootstrap", action="store_true", help="one-time migration from legacy WORKFLOW.md frontmatter")
     parser.add_argument("--check", action="store_true", help="fail if generated index is stale")
-    parser.add_argument("--public-export", action="store_true", help="omit project-only methods from public bundle output")
     args = parser.parse_args()
     try:
         if args.bootstrap:
             bootstrap(args.root)
-        index = validate_and_build(args.root, public_export=args.public_export)
+        index = validate_and_build(args.root)
         destination = args.root.resolve() / "workflows" / "index.json"
         rendered = json.dumps(index, indent=2, sort_keys=False) + "\n"
         if args.check:

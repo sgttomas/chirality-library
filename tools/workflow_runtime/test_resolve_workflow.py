@@ -84,6 +84,17 @@ def test_cli_fingerprints_both_brief_surfaces_and_policy(root,tmp_path):
     assert result['brief']['Tasks']==['bounded work']
 
 
+def test_cli_brief_loads_under_python_m(root):
+    import subprocess
+    import sys
+    repo=Path(__file__).resolve().parents[2]
+    brief=root/'inline.json'
+    brief.write_text(json.dumps({'ScopePath':str(root),'Tasks':['bounded work']}))
+    proc=subprocess.run([sys.executable,'-m','tools.workflow_runtime.resolve_workflow','--root',str(root),'--role','TASK','--repo-root',str(root),'--brief',str(brief)],cwd=repo,text=True,capture_output=True)
+    assert proc.returncode==0,proc.stderr
+    assert json.loads(proc.stdout)['brief']['Tasks']==['bounded work']
+
+
 def test_dot_target_cannot_escape_command_scope(root):
     result=resolve(root,'TASK','example',policy=policy())
     assert not command_allowed(result['effective_tools']['commands'],'python3','tools/run.py',['output/../outside/a'])
@@ -231,6 +242,8 @@ def test_removed_change_methods_do_not_resolve():
         with pytest.raises(ValueError, match='missing or escaping resource'):
             resolve(source, 'WORKING_ITEMS', workflow=selection)
     with pytest.raises(ValueError, match='missing or escaping resource'):
+        resolve(source, 'WORKING_ITEMS', methods=[{'kind': 'skill', 'name': 'chirality-change'}])
+    with pytest.raises(ValueError, match='outside the declared Root catalog'):
         resolve(source, 'WORKING_ITEMS', methods=['chirality-root-project:project:skill:chirality-change'])
     ordinary = resolve(source, 'WORKING_ITEMS')
     assert ordinary['methods'] == []
