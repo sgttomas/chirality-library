@@ -4,11 +4,6 @@
   "description": "Path-selected tool regression tests. Repository hygiene checks run separately. Unknown tool inputs and unavailable diffs select the full estate; unrelated prose selects none.",
   "always_checks": [],
   "checks": {
-    "analysis": {
-      "pytest_paths": [
-        "tools/analysis"
-      ]
-    },
     "coordination": {
       "pytest_paths": [
         "tools/coordination"
@@ -22,16 +17,6 @@
     "pdf2md": {
       "pytest_paths": [
         "tools/pdf2md"
-      ]
-    },
-    "practitioner_harness": {
-      "pytest_paths": [
-        "tools/practitioner_harness"
-      ]
-    },
-    "publication": {
-      "pytest_paths": [
-        "tools/publication"
       ]
     },
     "release": {
@@ -103,14 +88,6 @@
   "path_rules": [
     {
       "paths": [
-        "tools/analysis/*"
-      ],
-      "checks": [
-        "analysis"
-      ]
-    },
-    {
-      "paths": [
         "tools/coordination/*"
       ],
       "checks": [
@@ -131,14 +108,6 @@
       ],
       "checks": [
         "pdf2md"
-      ]
-    },
-    {
-      "paths": [
-        "tools/publication/*"
-      ],
-      "checks": [
-        "publication"
       ]
     },
     {
@@ -207,12 +176,9 @@
         "tools/*/conftest.py"
       ],
       "checks": [
-        "analysis",
         "coordination",
         "decomp",
         "pdf2md",
-        "practitioner_harness",
-        "publication",
         "release",
         "reporting",
         "retrieval",
@@ -264,15 +230,6 @@
     },
     {
       "paths": [
-        "tools/practitioner_harness/**",
-        "projects/chirality-app-dev/_harness/**"
-      ],
-      "checks": [
-        "practitioner_harness"
-      ]
-    },
-    {
-      "paths": [
         "tools/validation/**",
         "AGENTS.md",
         "agents/**",
@@ -296,6 +253,14 @@
       ],
       "checks": [
         "undertaking_evaluation"
+      ]
+    },
+    {
+      "paths": [
+        "tools/validation/check_amendment_reopen.py"
+      ],
+      "checks": [
+        "scaffolding"
       ]
     }
   ]

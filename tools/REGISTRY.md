@@ -59,11 +59,9 @@ Profile-driven deterministic support for WORKING_ITEMS software activations. `to
 | `validate_path_anchors.py` | Python 3 | Validate live agent instruction and executable handoff surfaces for literal machine-local home-dir absolute paths while ignoring archives, run records, generated decomposition/source provenance, exports, and plans | [repo_root], [--json], [--text] | PASS/FAIL text or JSON report; exit 0/1 |
 | `validate_candidate_whitespace.py` | Python 3 | Optional local diagnostic: preserve Git whitespace checks for tracked candidates and scan non-ignored, non-binary untracked text candidates for trailing whitespace and surplus terminal blank lines without mutation | `[--repo-root]`, `[--base-ref REF]`, `[--paths PATH ...]`, `[--no-untracked]` | Exact path/line findings; exit 0 clean / 1 findings / 2 operational error |
 | `validate_conflict_markers.py` | Python 3 | Detect added unresolved Git conflict markers without blocking cosmetic whitespace | `--base REF`, `[--head REF]` | PASS or conflict diagnostics; exit 0 clean / 1 markers or Git error |
-| `validate_build_hypergraph_fixture.py` | Python 3 | Regression check for `tools/aggregation/build_hypergraph.py` using bundled fixtures at `tools/aggregation/testdata/`. Verifies determinism, clean-run PASS coverage, warning detection, ledger/objectives path coverage, semicolon-list normalization equivalence, and `UNIT_MULTIPLE_CATEGORIES` blocker detection | [--keep-tmp] | PASS/FAIL summary (exit 0/1) |
 | `validate_kty_remediation_manifest.py` | Python 3 | Validate SCOPE_CHANGE `KTY_Remediation_Manifest.csv` rows for required schema, dispatch mapping, content-action assignment, evidence paths, closure states, factual-use gates, and optional `.Archive/` leakage in downstream input files. Accepts foreign-key `SourceActionRef` of the form `<AmendmentID>:<ActionSeq>` (e.g. `SCA-004:1`) in addition to bare `ActionSeq`/`D-NNN` forms; resolves manifest-relative `EvidencePaths`/`ArchivePath` against the snapshot folder first and falls back to the auto-detected DOMAIN package root (nearest ancestor with `_Sources/` or `_Decomposition/`) or an explicit `--workspace-root` override | `--manifest`, `[--amendment-actions]`, repeatable `[--downstream-input]`, `[--workspace-root]`, `[--output-findings]` | PASS/finding summary to stdout; optional findings CSV; exit 0/1/2 |
 | `check_amendment_reopen.py` | Python 3 | Decide whether an accepted scope-change amendment authorizes reopening an ISSUED deliverable (SPEC §3.3, D-GOV-50/51): a group-3 decision snapshot (`{ID}_GROUP-3_[AMENDMENT-K_]YYYY-MM-DD[_N]`) whose first-line heading reads `… checkpoint group 3 — accepted`; the action register bound by SHA-256 in the governing (latest) group-2 `ACCEPTED_MANIFEST.csv` and unchanged; no `REMOVE` of the deliverable and a `DELIVERABLE` row with `MODIFY`, or `RECLASSIFY` with `ScopeChanging` `YES` (legacy registers without the column: `RECLASSIFY` refused); with `--status-file`, no reopening already recorded under the amendment. `--at-commit <sha>` reads every record from that commit (an ancestor of HEAD) via git; without it the working tree is read and the result is marked unanchored (inspection only). Reads only the `_ScopeChange/` of the deliverable's execution root; refuses path and symlink escapes. Importable `check_reopen(at_commit=…, status_file=…)`; run by `write_status.sh --amendment` in at-commit mode only | `--deliverable <DEL-ID or folder>`, `--amendment <ID or snapshot path>`, `[--at-commit <sha>]`, `[--status-file <_STATUS.md>]`, `[--scope-change-root]`, `[--project-root]`, `[--json]` | `ADMIT`/`REFUSE <CODE>: <reason>` or JSON decision (with `mode`, `anchored`, `at_commit`); exit 0 admitted / 1 refused / 2 usage-operational |
 | `validate_domain_decomposition_integrity.py` | Python 3 | Validate DOMAIN decomposition annex referential integrity, lifecycle/cardinality constraints, coverage telemetry reconciliation, active snapshot artifact completeness, `_LATEST.md` parity, and KTY remediation rollup consistency. Optional `--package-subfolder NAME` flag for transitional dual-layout support; auto-descends into a single eligible subfolder when annexes not at root | `--decomposition-root`, `[--scope-change-snapshot]`, `--output-report`, `--output-findings`, `[--package-subfolder]` | DOMAIN integrity report markdown + findings CSV; exit 0/1/2 |
-| `validate_domain_engine_profile.py` | Python 3 | Validate a DomainEngineProfile YAML against the canonical profile contract: required fields, path taxonomy, declared deterministic tools, enums, operation proposal contract, and professional boundary | `profile_yaml`, `--output-report`, `[--repo-root]` | VALID/INVALID exit code plus machine-readable JSON report under `<repo-root>/_DomainEngines/` (the tool still requires that layout; this repository no longer holds it); exit 0/1/2 |
 
 ## Deliverable Scope of Work — Active transition
 
@@ -96,11 +94,10 @@ change, ISSUED replacement, integration, or legacy retirement.
 | `merge_equipment_costing_csv.py` | Python 3 | Merge per-KTY Equipment_Costing_Extract CSV files into a single consolidated CSV | OUTPUT_CSV, INPUT_DIR, [--sort-by COLUMN] | Consolidated Equipment_Costing_Extract.csv |
 | `synthesize_domain_coverage_json.py` | Python 3 | Serialize DOMAIN `annex_coverage_telemetry.csv` plus optional SCA KTY remediation manifest rollup into governed pre/post coverage JSON for SCOPE_CHANGE baselines. Optional `--package-subfolder NAME` flag for transitional dual-layout support; auto-descends into a single eligible subfolder when annexes not at root | `--decomposition-root`, `--output-json`, `[--scope-change-snapshot]`, `[--missing-manifest-state]`, `[--note]`, `[--package-subfolder]` | `Pre_Change_Coverage.json` or `Post_Change_Coverage.json`; exit 0/1 |
 
-## Runtime analysis
+## Runtime telemetry
 
 | Name | Language | Purpose | Inputs | Outputs |
 |------|----------|---------|--------|---------|
-| `analysis/analyze_agentic_runtime.py` | Python 3 | Deterministically inventory governed package/child records, aggregate command-level check durations and exits, bind a curated abnormal-event catalog to exact evidence text, calculate descriptive rates/Wilson intervals, and derive Git-bounded wave envelopes without modifying source truth | `--repo-root`, `--run-root`, `--event-catalog`, `--output-dir`, optional `--skip-git-runtime` | `summary.json`, normalized `events.csv`, `report.md`, `MANIFEST.tsv`; idempotent; exit 0 success / 1 invalid evidence / 2 operational error |
 | `workflow_runtime/runtime_telemetry.py` | Python 3 | Append concurrency-safe, run-contained session/check/retry/remediation events and summarize durations, failure categories, reason codes, and native context-occupancy availability without inferring missing telemetry | `record` or `summarize`, `--run-root`, stable event/session/instance IDs, event type/outcome, optional package/member/attempt/reason/token fields | `RUNTIME_EVENTS.jsonl`, `RUNTIME_SUMMARY.json`; exit 0 complete / 1 incomplete session pairs / 2 invalid or operational input |
 
 ## PDF-to-Markdown
@@ -129,6 +126,17 @@ The equation-audit, drawing-extraction (equipment, sheet inventory and P&ID
 valve), pipe-spec and domain-extraction tools, with the workflows that used
 them, were removed from this repository on 2026-11-04. They are preserved in
 the private `sgttomas/chirality` repository.
+
+The practitioner harness (frozen App v3/PEC/Piping observation CLI), the
+publication tools that served the removed DBM workflows, the aggregation
+hypergraph builder and its fixture check, the runtime-analysis inventory, the
+domain-engine profile validator, the AgentRuns archiver, the Chirality
+self-domain Gate 3–5 and batch adapters (`propose_gate4_kty.py`,
+`refine_gate3_categories.py`, `build_gate5_coverage.py`,
+`build_skill_pack_batch.py`, `build_manifest_domain_adapter.py`), the piping KA
+coverage audit and the App v3 harness-contract pull check were removed on
+2026-11-05 (owner item #35). They remain recoverable from this repository's Git
+history.
 
 ## Decomposition
 
@@ -163,16 +171,6 @@ Per-source skeleton lift, dispatch-unit planning, HTML rendering, and atom/vocab
 
 ---
 
-## Aggregation
-
-| Name | Language | Purpose | Inputs | Outputs |
-|------|----------|---------|--------|---------|
-| `build_hypergraph.py` | Python 3 | Build DOMAIN hypergraph from staging CSVs: deterministic SHA1-based HyperedgeID generation, 9 QA checks, optional delta vs prior snapshot. Reads 8 Evidence CSVs (2 required, 6 conditional); writes nodes/hyperedges/incidence tables + hypergraph.json + QA_Report.md | `--staging-dir`, `--output-dir`, `--run-label`, `--execution-root`, `--scope`, [`--normalize-ids`], [`--edgeset`], [`--variant`], [`--prior-snapshot`] | `nodes.csv`, `hyperedges.csv`, `incidence.csv`, `hypergraph.json`, `QA_Report.md` |
-
-**Determinism:** same staging inputs → byte-identical CSVs + canonical JSON (excluding `generated_at` timestamp).
-
----
-
 ## Evaluation
 
 Canonical versions at `tools/evaluation/`. Project-specific variants may also exist at `{EXECUTION_ROOT}/_Evaluation/tools/`.
@@ -186,21 +184,6 @@ Canonical versions at `tools/evaluation/`. Project-specific variants may also ex
 | `extract_agent_output.py` | Python 3 | Extract final assistant text from Claude agent JSONL output files | agent_output_file, [output_file] | Extracted text |
 
 ---
-
-## Publication
-
-| Name | Language | Purpose | Inputs | Outputs |
-|------|----------|---------|--------|---------|
-| `build_section_map.py` | Python 3 | First publication step: generate candidate `Section_Map.csv` from approved `Publication_Schema.md` selectors and the frozen `Publication_Input_Manifest.md`, or run governed dry-run sizing before schema approval; validates selector coverage, lifecycle/tombstone findings, duplicate artifact rows, and section load without interpreting free-text inclusion/exclusion prose | `--schema`, `--manifest`, `[--output-csv]`, `--report-md`, `[--dry-run]` | Candidate `Section_Map.csv` + coverage/sizing report markdown; dry-run writes report only |
-| `extract_concordance_evidence.py` | Python 3 | **LEGACY** — Pre-authoring concordance evidence extraction; no longer dispatched in the post-authoring model | `--manifest`, `--schema`, `--section-map`, `--output-atoms-csv`, `--risk-inventory-csv`, `--coverage-md` | Legacy concordance evidence atoms and risk inventory |
-| `validate_concordance_register_coverage.py` | Python 3 | **LEGACY** — Pre-authoring concordance register coverage validation; no longer dispatched in the post-authoring model | `--risk-inventory`, `--register`, `--section-map`, `--manifest`, `[--supersession-map]`, `--output-report`, `--output-findings` | Legacy concordance register coverage report and findings |
-| `build_section_context_packets.py` | Python 3 | Gate 4 deterministic reporting step: generate one structural context packet per approved DBM section from frozen manifest/register/section-map inputs; performs no prose synthesis or semantic classification | `--manifest`, `--schema`, `--section-map`, `--concordance-register`, `--risk-inventory`, `[--supersession-map]`, `[--open-issues]`, `[--hypergraph-use-mode]`, `--output-dir` | `_Planning/section-context/SEC-##_Context.md` packets |
-| `build_concordance_candidates.py` | Python 3 | Archived/superseded publication helper retained for old run documentation; new runs use `extract_concordance_evidence.py` instead (the `dbm-concordance-seed` workflow was removed) | legacy `--manifest`, `--schema`, `--section-map`, `--output-csv`, `--coverage-md` | legacy `Publication_Concordance_Candidates.csv` + coverage markdown |
-| `render_dispatch_briefs.py` | Python 3 | Third publication step: read frozen planning artifacts plus workflow contracts, render deterministic INIT-TASK briefs for approved publication sections and package gates, inject section context packet paths when present, validate rendered briefs, pre-create section/package output directories, and emit `DISPATCH_INDEX.csv` | `--publication-root`, `--input-manifest`, `--schema`, `--section-map`, `--rules`, `--concordance-register`, `[--section-context-root]`, `--dispatch-root`, `--sections-root`, `--package-root`, `--package-snapshot-name`, `[--workflows-root]`, `[--section-ids]`, `[--render-package yes|no]` | Section/package INIT-TASK briefs + `DISPATCH_INDEX.csv` + directory scaffolding |
-| `assemble_publication.py` | Python 3 | Fourth publication step: read publication-root planning artifacts plus approved section outputs, assemble package-level publication artifacts, run deterministic completeness/trace/coverage/open-items reporting, and optionally update `_LATEST.md`; writes only the package snapshot outputs in `--output-dir` plus optional `_LATEST.md` and returns exit `2` when blocking completeness/trace findings remain | `--publication-root`, `--input-manifest`, `--schema`, `--section-map`, `--rules`, `--sections-root`, `--output-dir`, `[--latest-pointer]` | `Rewritten_DBM.md`, `Trace_Appendix.md`, `Publication_Manifest.md`, `Publication_QA.md`, `Publication_Knowledge_Coverage.md`, `Publication_Open_Items.md`, optional `_LATEST.md` |
-| `check_concordance.py` | Python 3 | **LEGACY** — Pre-authoring deterministic concordance checking; no longer dispatched in the post-authoring model | `--register`, `--sections-root`, `--output-report`, `--output-findings` | Legacy concordance report and findings |
-| `validate_source_supersession.py` | Python 3 | Package QA helper: validate source-fidelity-critical section assertions against the admitted source authority and supersession bindings | `--register`, `--sections-root`, `--source-root`, `--supersession-map`, `--output-report`, `--output-findings`, `[--root-name]`, `[--facility-id]` | `Source_Supersession_Report.md` + `Source_Supersession_Findings.csv` |
-
 
 ## Review
 
@@ -226,12 +209,6 @@ Canonical versions at `tools/evaluation/`. Project-specific variants may also ex
 | `build_source_database.py` | Python 3 | Build a domain-local V2 source catalog snapshot over filesystem artifacts or a source manifest. Manifest-backed rows reference live repo files as `@repo/<RepoRelPath>` plus SHA-256 and do not copy source assets. Excludes archive paths unless archive metadata is explicitly requested | `[--domain-root]`, `[--out-root]`, `[--repo-root]`, `[--source-manifest]`, `[--include-archive-metadata]` | `<domain-root>/_LocalIndexes/snapshots/SRCIDX_<UTC>/{catalog.sqlite,SourceDocs.csv,Artifacts.csv,AuditState.csv,Chunks.csv,meta.json,QA_Report.md}` and `_LocalIndexes/_LATEST.md` |
 | `validate_source_database.py` | Python 3 | Validate a V2 source catalog snapshot: schema, exports, counts, path existence, `@repo/` path resolution, hash freshness, FK integrity, chunk hashes, audit surface warnings, and source-copy policy | `[--snapshot]`, `[--domain-root]`, `[--repo-root]`, `[--skip-hash-verify]`, `[--json]` | PASS/FAIL summary or JSON findings; exit 0/1/2 |
 | `check_snapshot_freshness.py` | Python 3 | Compare a snapshot's recorded artifact SHA-256s against the current live source tree and report changed/missing/unchanged counts plus a FRESH\|STALE verdict, without rebuilding (honours "no silent refresh"). Answers "is the retrieval evidence still current?" before it enters authority | `--snapshot`, `[--domain-root]`, `[--repo-root]`, `[--json]`, `[--csv]`, `[--skip-hash-verify]` | JSON/CSV drift report + FRESH\|STALE verdict; exit 0 fresh / 1 stale / 2 invalid |
-
-## Practitioner Harness
-
-| Name | Language | Purpose | Inputs | Outputs |
-|------|----------|---------|--------|---------|
-| `practitioner_harness/harness.py` | Python 3 | Governed read-mostly observation CLI over the pilot roots (adapter manifests at `projects/*/_harness/adapter.yaml`). Subcommands: `status` (one-page sourced posture view of a project or `--domain-engines`), `drift` (`**Current State:**` vs last state-bearing history assertion via the versioned prose-bullet-v1 parser; baseline quoted as trend only), `self-check` (consistency audit: stale-ruling annotations, title-vs-body contradictions, stale DRAFT directives, filename/header/banner/head-tail conflicts, abs-path leaks per SPEC §0.2.4, `Ruling SHA: TBD` conditionals per D-GOV-02, generated-output labeling, root governance status facts, unresolved source refs, stale open issues vs later rulings per [K-STALE-2 (historical)](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md), draft-basis-used-as-binding per K-CLAIM-1, and the D-44 piping plus D-APP-57 app-dev receipt contracts), `brief` (CANDIDATE tranche brief, source-cited, never adopted by the tool — adoption is a human edit + commit per D-GOV-04). Identity-dependent checks refuse (exit 2) without `docs/governance_harness/human_actors.md`. Every output is a labeled generated view (D-GOV-01); all file writes contained to `_harness_generated/` only | subcommand + `[--repo-root]`, `[--strict]`, `[--json-report PATH]`, `[--out-dir PATH]`; per-command: `[--project app-dev\|piping]`, `[--domain-engines]`, `[--all]`, `[--include-domain-engines]`, `[--root PATH]`, `[--deliverable DEL-NN-MM]`, `[--objective]`, `[--tranche-id]` | Markdown report to stdout; optional JSON report + brief `.md`/`.json` under `_harness_generated/` only; exit 0 no-BLOCK / 1 BLOCK (or REVIEW with `--strict`) / 2 operational-refusal |
 
 ## Backlog (CREATE LATER)
 
@@ -268,8 +245,5 @@ For invocation and returned policy semantics, see `tools/workflow_runtime/README
 campaign brief, including its campaign-specific model and dispatch parameters.
 Its bytes remain historical evidence; current PDF work selects
 `workflows/pdf2md-orchestration/WORKFLOW.md`.
-`build_skill_pack_batch.py`, `refine_gate3_categories.py`, and
-`propose_gate4_kty.py` retain the accepted Batch 4 / Gate 3–4 source taxonomy for
-reproducing those historical packages. Their embedded skill ontology does not
-supply the current workflow inventory. Current inventory comes from immediate
-`workflows/*/WORKFLOW.md` packages.
+Current workflow inventory comes from immediate `workflows/*/WORKFLOW.md`
+packages.

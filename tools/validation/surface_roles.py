@@ -16,8 +16,6 @@ from enum import Enum
 from pathlib import Path, PurePosixPath
 from typing import Iterable
 
-from agent_runs_archive import archive_tag
-
 
 MACHINE_ABS_PATH_RE = re.compile(
     r"(?<![A-Za-z0-9_.{-])"
@@ -255,10 +253,6 @@ def _parse_entries(
             relpath, raw["sha256"], raw["entry_type"], expected_role,
             raw["reason"].strip(), raw["authority"].strip())
         target = repo_root / relpath
-        if not target.exists() and archive_tag(repo_root, relpath):
-            # D-GOV-45: archived run records are history and are not re-linted,
-            # so their historical abs-path exceptions need no re-verification.
-            continue
         if not target.is_file() or target.is_symlink():
             issues.append(_issue(
                 "PORTABILITY_POLICY_TARGET_MISSING",

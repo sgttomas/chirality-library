@@ -26,7 +26,7 @@ test = [
     "pytest>=8.0",
     "pytest-xdist>=3.5",
 ]
-# tools/retrieval source index and tools/decomp proposal scoring.
+# tools/retrieval source index.
 retrieval = ["numpy>=1.26"]
 # tools/pdf2md table export, page-asset images and PDF rasterization.
 pdf = [
