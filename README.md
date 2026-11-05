@@ -64,7 +64,7 @@ applicable [license notices](LICENSE.md). Record the selected tag or full source
 revision alongside your project's existing instructions or source record, and
 mark local adaptations. You can use selected material without adopting the whole
 library. Your project keeps its own authority and operating instructions;
-The Library's `AGENTS.md` and execution rules govern work on this repository.
+the Library's `AGENTS.md` and execution rules govern work on this repository.
 
 ### 3. Stay informed
 
