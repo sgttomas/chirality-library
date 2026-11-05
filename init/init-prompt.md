@@ -1,6 +1,6 @@
 <init-prompt>
 Resolve `REPO_ROOT` with `git rev-parse --show-toplevel`.
-Verify that `{REPO_ROOT}` is a checkout of the Chirality library (`sgttomas/chirality`).
+Verify that `{REPO_ROOT}` is a checkout of the Chirality library (`sgttomas/chirality-library`).
 
 Read `{REPO_ROOT}/AGENTS.md`.
 Read `{REPO_ROOT}/agents/AGENT_HELP_HUMAN.md`.

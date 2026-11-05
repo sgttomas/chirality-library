@@ -26,7 +26,7 @@ The steps below are for using library material in your own work or project.
 
 ### 1. Choose a version
 
-Use the [latest published Chirality library edition](https://github.com/sgttomas/chirality/releases/latest).
+Use the [latest published Chirality library edition](https://github.com/sgttomas/chirality-library/releases/latest).
 Its release page provides the source download, checksum, change account and
 limitations. Follow the release's tag to browse that edition on GitHub without
 installing anything.
@@ -64,12 +64,12 @@ Root's `AGENTS.md` and execution rules govern work on this repository.
 
 Choose whichever route suits you:
 
-- **GitHub notifications:** sign in, open [this repository](https://github.com/sgttomas/chirality),
+- **GitHub notifications:** sign in, open [this repository](https://github.com/sgttomas/chirality-library),
   select **Watch → Custom → Releases → Apply**. If you already watch it, the
   button may show your current notification setting. Delivery follows your
   [GitHub notification settings](https://github.com/settings/notifications).
-- **Feed reader:** subscribe to the [releases Atom feed](https://github.com/sgttomas/chirality/releases.atom).
-- **Check manually:** visit the [Releases page](https://github.com/sgttomas/chirality/releases)
+- **Feed reader:** subscribe to the [releases Atom feed](https://github.com/sgttomas/chirality-library/releases.atom).
+- **Check manually:** visit the [Releases page](https://github.com/sgttomas/chirality-library/releases)
   and read the edition's notes and source identity.
 
 These routes announce repository releases; check the release subject for the
@@ -96,7 +96,7 @@ Historical manual editions remain discoverable through the
 List recent publications with the GitHub CLI:
 
 ```sh
-gh release list --repo sgttomas/chirality --limit 20
+gh release list --repo sgttomas/chirality-library --limit 20
 ```
 
 An empty successful listing means no releases were returned; a failed query does
@@ -169,7 +169,7 @@ To work on an application, use that application's repository and its instruction
 This repository contains ongoing development and historical evidence as well as
 the current library.
 
-[Discuss changes](https://github.com/sgttomas/chirality/issues) · [Work with us](https://chirality.ai/contact)
+[Discuss changes](https://github.com/sgttomas/chirality-library/issues) · [Work with us](https://chirality.ai/contact)
 
 ## License
 
