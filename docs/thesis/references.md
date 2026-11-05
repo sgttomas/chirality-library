@@ -1,6 +1,6 @@
 # References
 
-References are organized by category. The original bibliographic verification pass was applied on 2026-07-02. The October revision adds identified engineering reports and research, and corrects the NSPE revision date against its official page. The October 30 evidence review also corrects the author metadata of the Newcomb–Ochoa and Hohma et al. papers and the authors and venue of Perboli et al. in Chapter 2 against publisher records. This is not an exhaustive currency review of every source. Symbolic keys (`[Key]`) are citation targets for `[CITE:Key]` markers. A citation supports the associated bounded claim, not every inference drawn in this thesis.
+References are organized by category. The original bibliographic verification pass was applied on 2026-07-02. The October revision adds identified engineering reports and research, and corrects the NSPE revision date against its official page. The October 30 evidence review also corrects the author metadata of the Newcomb–Ochoa and Hohma et al. papers and the authors and venue of Perboli et al. in Chapter 2 against publisher records. This is not an exhaustive currency review of every source. Symbolic keys (`[Key]`) are citation targets for `[CITE:Key]` markers; every chapter, including Chapter 2 (whose former section-local numbered lists were merged here on 2026-11-04), cites this list. The four 2026 agent-engineering and preprint sources were rechecked against their publisher pages on 2026-11-04. A citation supports the associated bounded claim, not every inference drawn in this thesis.
 
 ---
 
@@ -30,6 +30,16 @@ References are organized by category. The original bibliographic verification pa
 
 [EU_AIAct2024] European Parliament and the Council of the European Union, "Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," Official Journal of the European Union, L Series, 2024. [Online]. Available: https://eur-lex.europa.eu/
 
+[PEO2025] Professional Engineers Ontario (PEO), "Knowledge Centre — Practice Advice Resources and Guidelines," Toronto, ON: PEO, 2025. [Online]. Available: https://www.peo.on.ca/knowledge-centre/practice-advice-resources-and-guidelines/practice-guidelines. [Note: PEO references EGBC advisory; no Ontario-specific AI guideline issued as of Mar. 2026.]
+
+[ASCE_PS573] American Society of Civil Engineers (ASCE), "Policy Statement 573 — Artificial Intelligence and Engineering Responsibility," Reston, VA: ASCE, adopted Jul. 18, 2024. [Online]. Available: https://www.asce.org/advocacy/policy-statements/ps573---artificial-intelligence-and-engineering-responsibility.
+
+[NSPE_BER2024] National Society of Professional Engineers (NSPE), "Use of Artificial Intelligence in Engineering Practice," Board of Ethical Review Case, Alexandria, VA: NSPE, 2024. [Online]. Available: https://www.nspe.org/career-growth/ethics/board-ethical-review-cases/use-artificial-intelligence-engineering-practice.
+
+[EngAus2022] Engineers Australia, *Code of Ethics and Guidelines on Professional Conduct*. Canberra, ACT: Engineers Australia, 2022. [Online]. Available: https://www.engineersaustralia.org.au/about-us/professional-standards-framework. [Note: no normative AI practice standard as of Jul. 2026; see also Institution of Engineers Australia, "The impact of AI and generative technologies on the engineering profession," research report, Jan. 2025, ISBN 978-1-925627-92-3.]
+
+[DSIT2024] Department for Science, Innovation and Technology (UK), *Implementing the UK's AI Regulatory Principles: Initial Guidance for Regulators*, UK Government, London: DSIT, Feb. 2024. [Online]. Available: https://assets.publishing.service.gov.uk/media/65c0b6bd63a23d0013c821a0/implementing_the_uk_ai_regulatory_principles_guidance_for_regulators.pdf.
+
 ---
 
 ## AI Agent Architectures and Multi-Agent Systems
@@ -48,15 +58,25 @@ References are organized by category. The original bibliographic verification pa
 
 [HuangJT2024] J. Huang, J. Zhou, T. Jin, X. Zhou, Z. Chen, W. Wang, Y. Yuan, M. R. Lyu, and M. Sap, "On the Resilience of LLM-Based Multi-Agent Collaboration with Faulty Agents," *arXiv preprint arXiv:2408.00989*, 2024. [Online]. Available: https://arxiv.org/abs/2408.00989
 
-[Xu2025] Q. Xu, X. Wen, C. Xu, Z. Li, and J. Zhong, "From Craft to Constitution: A Governance-First Paradigm for Principled Agent Engineering," *arXiv preprint arXiv:2510.13857*, Oct. 2025. [Online]. Available: https://arxiv.org/abs/2510.13857
+[Xu2025] Q. Xu, X. Wen, C. Xu, Z. Li, and J. Zhong, "From Craft to Constitution: A Governance-First Paradigm for Principled Agent Engineering," *arXiv preprint arXiv:2510.13857*, Oct. 2025 (verified 2026-11-04). [Online]. Available: https://arxiv.org/abs/2510.13857
+
+[Wei2022] J. Wei, X. Wang, D. Schuurmans, M. Bosma, B. Ichter, F. Xia, E. H. Chi, Q. V. Le, and D. Zhou, "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 35, New Orleans, LA, USA, 2022. [Online]. Available: https://arxiv.org/abs/2201.11903
+
+[Hong2024] S. Hong, M. Zhuge, J. Chen, X. Zheng, Y. Cheng, C. Zhang, J. Wang, Z. Wang, S. K. S. Yau, Z. Lin, L. Zhou, C. Ran, L. Xiao, C. Wu, and J. Schmidhuber, "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework," in *Proc. 12th Int. Conf. Learning Representations (ICLR)*, Vienna, Austria, 2024. [Online]. Available: https://arxiv.org/abs/2308.00352
+
+[LangGraph2024] LangChain Inc., "LangGraph: Build Resilient Language Agents as Graphs," open-source software library, 2024. [Online]. Available: https://github.com/langchain-ai/langgraph
+
+[WangL2024] L. Wang, C. Ma, X. Feng, Z. Zhang, H. Yang, J. Zhang, Z. Chen, J. Tang, X. Chen, Y. Lin, W. X. Zhao, Z. Wei, and J.-R. Wen, "A Survey on Large Language Model based Autonomous Agents," *Frontiers of Computer Science*, vol. 18, no. 6, 2024. doi: 10.1007/s11704-024-40231-1. [Online]. Available: https://arxiv.org/abs/2308.11432
+
+[Shavit2023] Y. Shavit, S. Agarwal, et al., "Practices for Governing Agentic AI Systems," OpenAI Technical Report, Dec. 2023. [Online]. Available: https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf
 
 ---
 
 ## Agent Engineering and Evaluation, 2026
 
-[OpenAI2026Prompts] E. Provencher, "Rethinking skills and prompts for GPT-6 Astra," OpenAI Developers, Sep. 11, 2026. https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra. Engineering guidance, not a controlled evaluation of Chirality.
+[OpenAI2026Prompts] E. Provencher, "Rethinking skills and prompts for GPT-6 Astra," OpenAI Developers, Sep. 11, 2026. https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra (title, author and date verified 2026-11-04). Engineering guidance, not a controlled evaluation of Chirality.
 
-[Anthropic2026Managed] Anthropic, "Scaling Managed Agents: Decoupling the brain from the hands," Apr. 8, 2026. https://www.anthropic.com/engineering/managed-agents. Engineering report describing model-dependent harness assumptions and infrastructure boundaries.
+[Anthropic2026Managed] L. Martin, G. Cemaj, and M. Cohen, "Scaling Managed Agents: Decoupling the brain from the hands," Anthropic Engineering, Apr. 8, 2026. https://www.anthropic.com/engineering/managed-agents (verified 2026-11-04). Engineering report describing model-dependent harness assumptions and infrastructure boundaries.
 
 [Kim2026Scaling] Y. Kim et al., "Towards a Science of Scaling Agent Systems," arXiv:2512.08296v3, Apr. 8, 2026. https://arxiv.org/abs/2512.08296v3. Controlled benchmark comparisons of 260 configurations across six benchmarks; not evidence for a universal orchestration topology or Chirality's productivity.
 
@@ -74,7 +94,19 @@ References are organized by category. The original bibliographic verification pa
 
 [Min2023] S. Min, K. Krishna, X. Lyu, M. Lewis, W.-T. Yih, P. W. Koh, M. Iyyer, L. Zettlemoyer, and H. Hajishirzi, "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation," in *Proc. 2023 Conf. Empirical Methods in Natural Language Processing (EMNLP)*, Singapore, 2023, pp. 12076–12100. [Online]. Available: https://arxiv.org/abs/2305.14251
 
-[Natangelo2025] S. Natangelo, "Externalising Epistemic Governance for Stateless Large Language Models: The CUL/TCL Architecture," Zenodo preprint, Dec. 16, 2025. doi: 10.5281/zenodo.17953956
+[Natangelo2025] S. Natangelo, "Externalising Epistemic Governance for Stateless Large Language Models: The CUL/TCL Architecture," Zenodo preprint (v1), Dec. 16, 2025. doi: 10.5281/zenodo.17953956 (record verified 2026-11-04; a later version exists)
+
+[Maynez2020] J. Maynez, S. Narayan, B. Bohnet, and R. McDonald, "On Faithfulness and Factuality in Abstractive Summarization," in *Proc. 58th Annual Meeting of the Association for Computational Linguistics (ACL)*, Online, 2020, pp. 1906–1919. doi: 10.18653/v1/2020.acl-main.173
+
+[Guo2017] C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, "On Calibration of Modern Neural Networks," in *Proc. 34th Int. Conf. Machine Learning (ICML)*, Sydney, Australia, 2017, pp. 1321–1330. [Online]. Available: https://proceedings.mlr.press/v70/guo17a.html
+
+---
+
+## Professional Regulation and Accountability Literature
+
+[Perboli2025] G. Perboli, N. Simionato, and S. Pratali, "Navigating the AI Regulatory Landscape: Balancing Innovation, Ethics, and Global Governance," *Economic and Political Studies*, vol. 13, no. 4, pp. 367–397, 2025. DOI: 10.1080/20954816.2025.2569584.
+
+[Hohma2023] E. Hohma, A. Boch, R. Trauth, and C. Lütge, "Investigating Accountability for Artificial Intelligence Through Risk Governance: A Workshop-Based Exploratory Study," *Frontiers in Psychology*, vol. 14, article 1073686, 2023. DOI: 10.3389/fpsyg.2023.1073686. PMC9905430.
 
 ---
 
@@ -104,6 +136,18 @@ References are organized by category. The original bibliographic verification pa
 
 [MacKenzie2001] D. MacKenzie, *Mechanizing Proof: Computing, Risk, and Trust*, Cambridge, MA, USA: MIT Press, 2001. ISBN: 978-0-262-13393-7.
 
+[Hoare1969] C. A. R. Hoare, "An Axiomatic Basis for Computer Programming," *Communications of the ACM*, vol. 12, no. 10, pp. 576–580, Oct. 1969. DOI: 10.1145/363235.363259.
+
+[Clarke1999] E. M. Clarke, O. Grumberg, and D. Peled, *Model Checking*. Cambridge, MA: MIT Press, 1999. ISBN: 9780262032704.
+
+[NASA_NFM] NASA Langley Research Center, "NASA Formal Methods Symposium (NFM) Proceedings Series," published annually since 2009 in Springer *Lecture Notes in Computer Science*. Most recent: NFM 2024 (16th), Moffett Field, CA, Jun. 2024. DOI: 10.1007/978-3-031-60698-4.
+
+[Lamport2002] L. Lamport, *Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers*. Boston, MA: Addison-Wesley, 2002. [Online]. Available: https://lamport.azurewebsites.net/tla/book.html. ISBN: 9780321143068.
+
+[Hou2025] Z. Hou et al., "Position: Trustworthy AI Agents Require the Integration of Large Language Models and Formal Methods," in *Proc. 42nd Int. Conf. on Machine Learning (ICML 2025)*, Vancouver, Canada, Jul. 2025. [Online]. Available: https://zhehou.github.io/papers/Position-Trustworthy-AI-Agents-Require-the-Integration-of-Large-Language-Models-and-Formal-Methods.pdf.
+
+[Newcomb2026] A. Newcomb and O. Ochoa, "Formal Methods for Safety-Critical Machine Learning: A Systematic Literature Review," *Frontiers in Artificial Intelligence*, vol. 9, article 1749956, 2026. DOI: 10.3389/frai.2026.1749956.
+
 ---
 
 ## Epistemic Frameworks and Knowledge Engineering
@@ -119,6 +163,22 @@ References are organized by category. The original bibliographic verification pa
 [Toulmin1958] S. E. Toulmin, *The Uses of Argument*, Cambridge, UK: Cambridge University Press, 1958. (Updated ed. 2003, ISBN: 978-0-521-53483-3.)
 
 [Naur1985] P. Naur, "Programming as Theory Building," *Microprocessing and Microprogramming*, vol. 15, no. 5, pp. 253–261, May 1985. doi: 10.1016/0165-6074(85)90032-8. (Reprinted in P. Naur, *Computing: A Human Activity*, New York, NY, USA: ACM Press/Addison-Wesley, 1992, pp. 37–49.)
+
+[W3C_PROV_Overview2013] L. Moreau and P. Missier, Eds., "PROV-Overview: An Overview of the PROV Family of Documents," W3C Working Group Note, World Wide Web Consortium, 30 Apr. 2013. [Online]. Available: https://www.w3.org/TR/prov-overview/
+
+[Buneman2001] P. Buneman, S. Khanna, and W.-C. Tan, "Why and Where: A Characterization of Data Provenance," in *Proc. 8th Int. Conf. Database Theory (ICDT 2001)*, London, UK, Jan. 2001, pp. 316–330, Lecture Notes in Computer Science, vol. 1973. doi: 10.1007/3-540-44503-X_20
+
+[Cheney2009] J. Cheney, L. Chiticariu, and W.-C. Tan, "Provenance in Databases: Why, How, and Where," *Foundations and Trends in Databases*, vol. 1, no. 4, pp. 379–474, 2009. doi: 10.1561/1900000006
+
+[Wand_Weber1995] Y. Wand and R. Weber, "On the Deep Structure of Information Systems," *Inf. Syst. J.*, vol. 5, no. 3, pp. 203–223, 1995. doi: 10.1111/j.1365-2575.1995.tb00108.x
+
+[Goldman1986] A. I. Goldman, *Epistemology and Cognition*. Cambridge, MA, USA: Harvard University Press, 1986. ISBN: 978-0-674-25895-2.
+
+[Goldman1999] A. I. Goldman, *Knowledge in a Social World*. Oxford, UK: Clarendon Press, 1999. ISBN: 978-0-198-23777-8.
+
+[Halpern1990] J. Y. Halpern and Y. Moses, "Knowledge and Common Knowledge in a Distributed Environment," *J. ACM*, vol. 37, no. 3, pp. 549–587, Jul. 1990. doi: 10.1145/79147.79161
+
+[Jacovi2021] A. Jacovi, A. Marasović, T. Miller, and Y. Goldberg, "Formalizing Trust in Artificial Intelligence: Prerequisites, Causes and Goals of Human Trust in AI," in *Proc. 2021 ACM Conf. Fairness, Accountability, and Transparency (FAccT '21)*, Virtual Event, Canada, Mar. 2021, pp. 624–635. doi: 10.1145/3442188.3445923
 
 ---
 
@@ -189,7 +249,7 @@ The Chirality Framework," Internal Document, Chirality Repository, maintained ex
 
 [Chirality_DBM] Chirality Project, "docs/DBM_Agent_Instruction_Architecture.md — Design Basis Memorandum: Agent Instruction Architecture," Internal Document, Chirality Repository, 2024–2026.
 
-[Chirality_SE] Chirality Project, "docs/thesis/SE_Design_Analysis.md — Systems Engineering Design Analysis," Internal Document, Chirality Repository, 2024–2026 (relocated from `docs/`, 2026-08-02).
+[Chirality_SE] Chirality Project, "Systems Engineering Design Analysis," Internal Document, Chirality Repository, 2024–2026 (relocated from `docs/`, 2026-08-02; consolidated into Chapter 7, `docs/thesis/07_se_design_analysis.md`, 2026-11-04).
 
 [Chirality_PE] Chirality AI Ltd., "Professional Engineering with Agentic AI in Regulated Practice," Professional Practice Standard, maintained in the firm's quality management system, 2026 (formerly `PROFESSIONAL_ENGINEERING.md` at the repository root; pre-relocation text in git history).
 
