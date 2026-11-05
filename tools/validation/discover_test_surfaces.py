@@ -123,7 +123,7 @@ def discover(repo_root: Path) -> dict:
     surfaces = [
         surface(
             surface_id="tools-python",
-            label="Root deterministic tool Python tests",
+            label="Library deterministic tool Python tests",
             runner="pytest",
             root=tools_root,
             repo_root=repo_root,

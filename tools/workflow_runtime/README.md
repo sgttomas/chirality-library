@@ -1,4 +1,4 @@
-# Root workflow runtime utilities
+# Library workflow runtime utilities
 
 `agents/registry.json` declares the four roles. `resolve_workflow.py` resolves
 ordered method selections, the `Workflow` compatibility field, and requested
@@ -14,7 +14,8 @@ python3 /declared/instruction/root/tools/workflow_runtime/resolve_workflow.py \
 The JSON result includes the role, selected definition and resources with
 SHA-256 hashes, execution configuration, effective tools, and absolute tool
 paths. `--workflow` (or a brief's `Workflow`) names a workflow in the declared
-Root; a source-qualified identity must belong to that Root. `--method` accepts
+Library catalog (source root `chirality-root`); a source-qualified identity must
+belong to it. `--method` accepts
 ordered JSON references or source-qualified identities; distinct ordered methods
 stay ordered, and a `Workflow` equal to a listed method resolves once. Results
 record original fields, mapping decisions, normalized methods, and fully

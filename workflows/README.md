@@ -39,7 +39,7 @@ inside the package after real-path resolution.
 set of central workflows shown by selectors. `workflows/index.json` is
 generated from package metadata with
 `python3 tools/validation/build_workflow_index.py`. Consumers use the index or
-parse the canonical frontmatter and execution metadata themselves; Root's Python command is an
+parse the canonical frontmatter and execution metadata themselves; the Library's Python command is an
 authoring and validation tool, not a production parser.
 
 Optional `execution.json` provides compatible roles and capability/command
@@ -75,9 +75,9 @@ briefs, snapshots, and pinned evidence retain their original identifiers.
 
 The `change` workflow and Root-only `chirality-change` skill are retired from
 active discovery. They have no replacement Git method. Use an ordinary authorized
-brief and the repository's own conventions; Root's surviving conventions are in
+brief and the repository's own conventions; the Library's surviving conventions are in
 [AGENTS.md](../AGENTS.md#standing-git-grant), with holding recovery/custody in its
-[working instructions](../AGENTS.md#holding-changes-and-recovery). Root's grant
+[working instructions](../AGENTS.md#holding-changes-and-recovery). The Library's grant
 never transfers to a consumer. The legacy `CHANGE` name and explicit
 removed-package selections fail. No automatic skill substitution or consumer
 repin occurs.
@@ -112,7 +112,7 @@ name fails. Its last revision is `d1166698d433da2fefbb6e3caee68b7d7910f27d` in
 the private `sgttomas/chirality` repository.
 
 HELPS_HUMANS helps develop or revise workflows; WORKING_ITEMS coordinates their
-implementation. Validate a package with the Root workflow validator and review
+implementation. Validate a package with the Library workflow validator and review
 whether its particular method, outputs, and recovery fit its intended use.
 
 Consumers select their own source basis and adoption. Copy a workflow's complete

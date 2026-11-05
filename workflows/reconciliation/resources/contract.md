@@ -59,7 +59,7 @@
   (workflow: review); other review acts route to a bounded independent TASK
   review with a named output, or to the owner or engineering holder. Git
   closeout remains with the responsible implementation owner under the
-  project's authorization and Git conventions (AGENTS.md for Chirality Root).
+  project's authorization and Git conventions (AGENTS.md for the Chirality Library).
   Workflow-component findings route to HELPS_HUMANS.
 - **One execution record.** In an adopting local-graph loop, the authorized
   graph carries executable work; no new Remaining seeding or duplicate residual

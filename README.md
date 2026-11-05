@@ -10,6 +10,12 @@ revision as experience shows what serves the work and what does not.
 
 [Website](https://chirality.ai) · [Thesis](docs/thesis/README.md) · [Books and reflection](docs/alignment-manual/README.md)
 
+This repository is the Chirality **Library**: the shared roles, workflows, tools
+and references projects draw on. Chirality **Root**, a separate private
+repository, reflects on the wider undertaking and holds no authority over the
+Library or other projects. Records written before 2026-11-05 call this
+repository "Root".
+
 <a id="the-shared-library"></a>
 <a id="obtain-and-use-the-library"></a>
 
@@ -58,7 +64,7 @@ applicable [license notices](LICENSE.md). Record the selected tag or full source
 revision alongside your project's existing instructions or source record, and
 mark local adaptations. You can use selected material without adopting the whole
 library. Your project keeps its own authority and operating instructions;
-Root's `AGENTS.md` and execution rules govern work on this repository.
+The Library's `AGENTS.md` and execution rules govern work on this repository.
 
 ### 3. Stay informed
 
