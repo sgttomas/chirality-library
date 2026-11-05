@@ -129,6 +129,7 @@ def test_runner_routing_infrastructure_change_selects_everything():
     for trigger in ("tools/tools-test-routing.json",
                     "tools/run_affected_tests.py",
                     ".github/workflows/governance-harness.yml",
+                    "pyproject.toml",
                     "tools/validation/conftest.py"):
         selection = _dry_run("--paths", trigger)
         assert set(selection["checks"]) == set(profile["checks"]), trigger

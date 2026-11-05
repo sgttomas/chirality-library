@@ -207,7 +207,7 @@ Once trained, zingg's model is deterministic and scalable. The LLM's judgment is
 **PDF2MD** (native pipeline agent — Step 0):
 
 ```
-pip install pymupdf
+pip install ".[pdf]"    # from the repository root; pymupdf, openpyxl and pillow
 ```
 
 No VLM API key required — uses Claude Code's built-in multimodal vision. Invoke with `--agent PDF2MD` or let PROJECT_SETUP spawn it.

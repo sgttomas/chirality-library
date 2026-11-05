@@ -209,6 +209,7 @@
     {
       "paths": [
         ".github/workflows/governance-harness.yml",
+        "pyproject.toml",
         "tools/tools-test-routing.json",
         "tools/run_affected_tests.py",
         "tools/software_workflow/*",

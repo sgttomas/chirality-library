@@ -166,6 +166,10 @@ The [Library PRD](docs/PRD.md) defines the accepted library scope.
 For agent-assisted work in this repository, start from [AGENTS.md](AGENTS.md).
 To work on an application, use that application's repository and its instructions.
 
+The Python tools run in place from a checkout. `pyproject.toml` declares their
+dependencies: `python3 -m pip install ".[ci]"` installs what CI uses, and
+`".[all]"` adds the optional PDF and data-application dependencies.
+
 This repository contains ongoing development and historical evidence as well as
 the current library.
 
