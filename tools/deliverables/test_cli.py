@@ -235,6 +235,24 @@ def test_dag_diff_tracks_conditions_and_gating_but_not_folder_moves(repo, capsys
     assert result['removed'][0]['condition'] == 'v1'
 
 
+def test_dag_diff_records_non_utf8_baseline_blob_as_file_error(repo, capsys):
+    put(repo, 'DEL-01-01', [{'from': 'external:vendor', 'condition': 'v1'}])
+    bad = repo / 'project' / 'execution' / 'DEL-01-02' / 'deliverable.yaml'
+    bad.parent.mkdir(parents=True)
+    bad.write_bytes(b'id: DEL-01-02\nneeds: []\nname: \xff\n')
+    git(repo, 'add', '.')
+    git(repo, 'commit', '-qm', 'baseline')
+    git(repo, 'tag', 'baseline')
+    bad.unlink()
+    code, result = query(capsys, 'dag-diff', 'baseline')
+    assert code == 2
+    assert len(result['errors']) == 1
+    assert result['errors'][0].startswith('project/execution/DEL-01-02/deliverable.yaml: ')
+    assert result['baseline']['reference'] == 'baseline'
+    assert result['added'] == result['removed'] == []
+    assert result['removed_deliverables'] == []
+
+
 def test_escaped_paths_and_symlinks_are_not_read(repo, capsys):
     put(repo, 'DEL-01-01', code_paths=['../private/**'])
     code, result = query(capsys, 'check')

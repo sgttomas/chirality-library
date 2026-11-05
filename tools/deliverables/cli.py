@@ -44,12 +44,16 @@ def unique_mapping(loader, node, deep=False):
 UniqueLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping)
 
 
-def run(args, cwd):
-    # Decode without universal-newline translation: Git paths may contain CR.
+def run_bytes(args, cwd):
     process = subprocess.run(args, cwd=cwd, capture_output=True)
     if process.returncode:
         raise Invalid(process.stderr.decode('utf-8', errors='replace').strip() or f"command failed: {args[0]}")
-    return process.stdout.decode('utf-8')
+    return process.stdout
+
+
+def run(args, cwd):
+    # Decode without universal-newline translation: Git paths may contain CR.
+    return run_bytes(args, cwd).decode('utf-8')
 
 
 def revision(repo, ref):
@@ -118,7 +122,11 @@ def load(repo, project, ref=None):
                 if not info.startswith('100'):
                     errors.append(f'{path}: metadata must be a regular file')
                 else:
-                    sources.append((path, run(['git', 'show', f'{ref}:{path}'], repo)))
+                    blob = run_bytes(['git', 'show', f'{ref}:{path}'], repo)
+                    try:
+                        sources.append((path, blob.decode('utf-8')))
+                    except UnicodeError as exc:
+                        errors.append(f'{path}: {exc}')
     else:
         sources = []
         for path in sorted(project.rglob('deliverable.yaml')):
