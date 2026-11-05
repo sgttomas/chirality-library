@@ -16,8 +16,7 @@ remains accountable for acceptance and reliance.
 | Root: shared instructions, workflows, skills, tools and CI | `execution/_Coordination/LOOP_INIT.md` | Work as steered |
 | App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Development resumed (owner, 2026-10-28); consult its local instructions |
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Active; consult its local instructions |
-| App v3, Runtime | [Recovery](projects/FROZEN.md) | Frozen; no development or verification without explicit reactivation |
-| `_DomainEngines/` | Owning project's instructions | Write only under a steer for that work |
+| App v3, Runtime | Archived in the private `sgttomas/chirality` repository | Frozen; no development or verification without explicit reactivation |
 
 ## Coordination between projects
 
@@ -70,9 +69,8 @@ Before relocating or retiring a holding, inspect relevant uses and establish its
 replacement or historical standing, recoverable source and removal authority.
 Resume from actual work/operation state and current authority, not history alone.
 Silence or elapsed time grants no right to discard work. Procedural coordination
-is not enforced exclusion. For interrupted work or exceptional custody, use
-[maintenance recovery](docs/MAINTENANCE_RECOVERY.md) to establish the usable result,
-open conditions, holder and authorized release/recovery. Publication and update
+is not enforced exclusion. For interrupted work or exceptional custody, establish
+the usable result, open conditions, holder and authorized release/recovery. Publication and update
 inspection follow the existing [consumer route](README.md#obtain-and-use-the-library).
 
 ## Deliverables and records
@@ -87,8 +85,8 @@ retain their actual product/source homes, referenced from the locality. The
 consumer states its needs; tools derive reverse links and graphs.
 
 App v4 and SWBPIPE use `Work/`; their older references to a deliverable's
-`Design/` mean its `Work/`. Root's pre-library execution is archived; recovery
-is described in [projects/FROZEN.md](projects/FROZEN.md#pre-library-root-execution).
+`Design/` mean its `Work/`. Root's pre-library execution is archived in
+the private `sgttomas/chirality` repository.
 The accepted [Library PRD](docs/PRD.md) and
 [final decomposition](execution/_Decomposition/_LATEST_ACCEPTED.md) supply the
 basis for the current Root localities. Read the selected ScopeOfWork, Work and
@@ -151,15 +149,6 @@ every operation; repository authority cannot expand them.
 Root's product commitments are in the accepted [Library PRD](docs/PRD.md).
 Product commitments live in the project's PRD, named companions and ScopeOfWork.
 Its adopted work locality holds the related technical and execution material.
-Consult these shared references where applicable:
-
-- [Product boundaries](docs/PRODUCT_BOUNDARIES.md): professional accountability,
-  domain ownership, protected writes and human acceptance. Frozen Runtime
-  contracts apply only upon explicit reactivation.
-- [Agent and workflow runtime](docs/AGENT_WORKFLOW_RUNTIME.md): product interface
-  reference, only where adopted by the current product.
-- [Compatibility formats](docs/COMPATIBILITY_FORMATS.md): containment and legacy
-  formats still consumed by tools.
 
 ## Roles and workflows
 

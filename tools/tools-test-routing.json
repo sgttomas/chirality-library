@@ -19,16 +19,6 @@
         "tools/decomp"
       ]
     },
-    "drawing_extract": {
-      "pytest_paths": [
-        "tools/drawing_extract"
-      ]
-    },
-    "equation_audit": {
-      "pytest_paths": [
-        "tools/equation_audit"
-      ]
-    },
     "pdf2md": {
       "pytest_paths": [
         "tools/pdf2md"
@@ -77,11 +67,6 @@
     "source_catalog": {
       "pytest_paths": [
         "tools/source_catalog"
-      ]
-    },
-    "taskmgmt": {
-      "pytest_paths": [
-        "tools/taskmgmt"
       ]
     },
     "validation": {
@@ -151,22 +136,6 @@
     },
     {
       "paths": [
-        "tools/drawing_extract/*"
-      ],
-      "checks": [
-        "drawing_extract"
-      ]
-    },
-    {
-      "paths": [
-        "tools/equation_audit/*"
-      ],
-      "checks": [
-        "equation_audit"
-      ]
-    },
-    {
-      "paths": [
         "tools/pdf2md/*"
       ],
       "checks": [
@@ -231,14 +200,6 @@
     },
     {
       "paths": [
-        "tools/taskmgmt/*"
-      ],
-      "checks": [
-        "taskmgmt"
-      ]
-    },
-    {
-      "paths": [
         "tools/workflow_runtime/*"
       ],
       "checks": [
@@ -257,8 +218,6 @@
         "analysis",
         "coordination",
         "decomp",
-        "drawing_extract",
-        "equation_audit",
         "pdf2md",
         "practitioner_harness",
         "publication",
@@ -269,7 +228,6 @@
         "software_workflow",
         "source_audit",
         "source_catalog",
-        "taskmgmt",
         "validation",
         "workflow_runtime",
         "evaluation",

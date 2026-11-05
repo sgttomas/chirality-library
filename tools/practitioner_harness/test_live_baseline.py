@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""LIVE-tree baseline tests (skippable when the live roots are absent or when
-CHIRALITY_SKIP_LIVE_TESTS=1). Pins the ruled drift baseline (piping 0/101,
+"""LIVE-tree baseline tests (skippable with CHIRALITY_SKIP_LIVE_TESTS=1; the
+retained _DomainEngines/ stale-surface fixtures were removed with that tree). Pins the ruled drift baseline (piping 0/101,
 app-dev 0/54 — conscious pin update 2026-07-02: the original 92/101 class was
 resolved by the owner's class-wide K-CONFLICT-1 ruling, header IN_PROGRESS
 authoritative, recorded at projects/chirality-piping/execution/_Reconciliation/
@@ -33,10 +33,9 @@ LIVE_REPO = Path(__file__).resolve().parents[2]
 # then the hosted self-check gate (no separate CLI step), so they must fail
 # rather than skip when the live roots are unexpectedly absent.
 live = pytest.mark.skipif(
-    os.environ.get("CHIRALITY_REQUIRE_LIVE_TESTS") != "1" and (
-    os.environ.get("CHIRALITY_SKIP_LIVE_TESTS") == "1"
-    or not (LIVE_REPO / "_DomainEngines").is_dir()),
-    reason="live Root control area absent (or live tests disabled by env)",
+    os.environ.get("CHIRALITY_REQUIRE_LIVE_TESTS") != "1"
+    and os.environ.get("CHIRALITY_SKIP_LIVE_TESTS") == "1",
+    reason="live tests disabled by env",
 )
 
 
@@ -46,42 +45,6 @@ def live_self_check():
     read-only and the tree cannot change mid-run, so per-test re-runs (each a
     full repo scan) would assert against byte-identical reports."""
     return cmd_self_check.run_self_check(LIVE_REPO)
-
-
-@live
-def test_live_self_check_catches_the_three_retained_surfaces(live_self_check):
-    # Conscious pin update (owner ruling 2026-07-02, in-session): the D-T0
-    # stale-title/TBD-SHA drift was cleaned and backfilled to the tier-0
-    # publication commit 6e70b5aace4a3a7c4ebb20490a3bf57bfd912f45 per the
-    # D-GOV pattern (f1549afb1). The D-T0-16 PEC harness tranche removed the
-    # DOMAIN_ENGINE_INDEX stale PEC-proposal annotation; the remaining live
-    # fixture surfaces MUST keep firing (asserted individually below, then
-    # pinned as exact counts).
-    report, refusal = live_self_check
-    assert refusal is None
-    keyed = {(f.code, f.source_path, f.source_line) for f in report.findings}
-    assert ("STALE_RULING_ANNOTATION",
-            "_DomainEngines/_DECISIONS/D-T0-06_profile_adoption_lifecycle.md",
-            1) in keyed
-    assert ("TITLE_CONTRADICTS_RULING",
-            "_DomainEngines/_DECISIONS/D-T0-06_profile_adoption_lifecycle.md",
-            1) in keyed
-    assert ("STALE_DRAFT_DIRECTIVE",
-            "_DomainEngines/RULINGS_PUBLISHED.md", 20) in keyed
-    # Post-cleanup exact counts: ONLY the retained surfaces remain. The seven
-    # other D-T0 titles now read "(RULED 2026-06-21)"; all eight records'
-    # Ruling SHA fields are backfilled to the publication commit;
-    # RULINGS_PUBLISHED.md:3 was reworded with the dated note; and the
-    # D-GOV-02:36 backtick-QUOTED `Ruling SHA: TBD` mention is excluded by
-    # the GEN-2 quotation suppression (prose quoting the rule, not a live
-    # field).
-    counts: dict[str, int] = {}
-    for f in report.findings:
-        counts[f.code] = counts.get(f.code, 0) + 1
-    assert counts.get("STALE_RULING_ANNOTATION", 0) == 1
-    assert counts.get("TITLE_CONTRADICTS_RULING", 0) == 1
-    assert counts.get("STALE_DRAFT_DIRECTIVE", 0) == 1
-    assert counts.get("RULING_SHA_TBD", 0) == 0
 
 
 @live

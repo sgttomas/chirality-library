@@ -101,16 +101,14 @@ instructions are examined under their preceding basis and do not authorize their
 
 Use the local ScopeOfWork's output and evaluation criteria and the proportionate
 verification rule in AGENTS.md. Reuse evidence where it supports the actual
-claim, and identify what remains unverified. [CI selection](../../docs/CI_SELECTION.md)
-provides the tool-check route and required hosted result; the
+claim, and identify what remains unverified. `tools/run_affected_tests.py`
+selects the tool checks and CI supplies the required hosted result; the
 [workflow guide](../../workflows/README.md) covers checking and regenerating
 consumed indexes when their sources change.
 
 App v4 and SWBPIPE own adoption and product work in their repositories; Root's
 instructions and Git grant do not transfer to them. Follow AGENTS.md for any
-needed coordination. App v3 and Runtime remain frozen, and additional
-archival or `_DomainEngines/` work retains its existing scope and authority limits.
-The [recovery reference](../../projects/FROZEN.md#pre-library-root-execution)
-preserves old execution as history, not a standing backlog. Private information
+needed coordination. App v3 and Runtime remain frozen. Old execution is
+preserved in the private `sgttomas/chirality` repository as history, not a standing backlog. Private information
 stays outside this public library. Acceptance and release remain owner acts;
 initialization alone assigns no undertaking.

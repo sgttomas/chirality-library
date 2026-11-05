@@ -19,6 +19,13 @@ from render_dispatch_briefs import (  # noqa: E402
 from build_section_map import parse_manifest  # noqa: E402
 
 
+_DBM_CONTRACTS = Path(__file__).resolve().parents[2] / "workflows" / "dbm-concordance-verify" / "CONTRACT.md"
+needs_dbm_contracts = pytest.mark.skipif(
+    not _DBM_CONTRACTS.exists(),
+    reason="DBM workflow contracts are not bundled with this library; the renderer takes an external workflow root",
+)
+
+
 def test_section_brief_required_fields(tmp_path):
     context_root = tmp_path / "_Planning" / "section-context"
     context_root.mkdir(parents=True)
@@ -66,6 +73,7 @@ def test_package_brief_supersession_propagation(tmp_path):
     assert "Publication_Content_Adequacy.md" in brief
 
 
+@needs_dbm_contracts
 def test_verify_brief_rendering(tmp_path):
     paths = {
         "sections_root": tmp_path / "sections",
@@ -113,6 +121,7 @@ def test_full_engineering_rules_reject_stale_compression(tmp_path):
 
 
 @pytest.mark.parametrize("legacy_register", [False, True])
+@needs_dbm_contracts
 def test_renderer_scratch_full_engineering_dispatch(monkeypatch, tmp_path, legacy_register):
     execution_root = tmp_path / "Root"
     publication_root = execution_root / "_Publication" / "DBM"

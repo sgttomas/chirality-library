@@ -117,6 +117,10 @@ def parse_method_reference(value):
 
 
 def load_legacy_methods(root: Path):
+    # An absent ledger means no converted aliases: every name resolves as a
+    # canonical workflow and legacy-only names fail as unknown.
+    if not (root / 'workflows/legacy-methods.json').exists():
+        return None, {}
     path = contained(root, 'workflows/legacy-methods.json')
     document = json.loads(path.read_text())
     aliases = document.get('convertedWorkflowAliases') if isinstance(document, dict) else None
@@ -257,7 +261,8 @@ def resolve(root: Path, role: str, workflow=None, task_skill=None, resources=(),
     alias = None
     retired_route = None
     if legacy_agent:
-        aliases = json.loads(contained(root, 'workflows/legacy-agents.json').read_text())
+        ledger = root / 'workflows/legacy-agents.json'
+        aliases = json.loads(contained(root, 'workflows/legacy-agents.json').read_text()) if ledger.exists() else {'aliases': {}}
         alias = aliases['aliases'].get(legacy_agent)
         if alias is None or alias['role'] != role:
             raise ValueError('unknown legacy agent or incompatible target role')

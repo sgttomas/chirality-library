@@ -20,29 +20,21 @@ CENTRAL = (
     "project-setup",
     "project-decomp",
     "software-decomp",
-    "domain-decomp",
-    "research-orchestration",
     "scope-change",
 )
 # Ordered core navigation set: the central workflows, with software-prd ahead
-# of software-decomp (core in navigation but not central), and the three
-# everyday project workflows the App shows at first glance.
+# of software-decomp (core in navigation but not central), and the
+# reconciliation workflow the App shows at first glance.
 CORE = (
     "create-workflow",
     "project-setup",
     "project-decomp",
     "software-prd",
     "software-decomp",
-    "domain-decomp",
-    "research-orchestration",
     "scope-change",
-    "task-management",
-    "review",
     "reconciliation",
 )
 CORE_DISPLAY_NAMES = {
-    "task-management": "Manage tasks",
-    "review": "Lifecycle transition review",
     "reconciliation": "Run corpus concordance program",
 }
 NAVIGATION_CATEGORIES = ("core", "specialist", "superseded")
@@ -275,7 +267,9 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
     if not isinstance(central_names, list) or tuple(central_names) != CENTRAL:
         raise ValueError("centralWorkflowNames must equal the ordered central workflows")
     navigation = parse_navigation(catalog["navigation"])
-    methods = _load_json(workflows / "legacy-methods.json")
+    # Absent legacy ledgers mean no converted or retired names remain.
+    methods = (_load_json(workflows / "legacy-methods.json") if (workflows / "legacy-methods.json").exists()
+               else {"schema": LEGACY_SCHEMA, "convertedWorkflowAliases": {}, "historicalOnly": [], "unknownLegacyBehavior": "error"})
     required_method_keys = {"schema", "convertedWorkflowAliases", "historicalOnly", "unknownLegacyBehavior"}
     if methods.get("schema") != LEGACY_SCHEMA or set(methods) != required_method_keys:
         raise ValueError("invalid legacy-method ledger")
@@ -386,7 +380,8 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
         raise ValueError("unconverted legacy methods must remain historical and unknown selection must error")
     if any(not isinstance(name, str) or not NAME_RE.fullmatch(name) for name in methods["historicalOnly"]):
         raise ValueError("historical-only methods must have valid names")
-    retired = _load_json(workflows / "legacy-agents.json")
+    retired = (_load_json(workflows / "legacy-agents.json") if (workflows / "legacy-agents.json").exists()
+               else {"schema_version": 1, "aliases": {}})
     if retired.get("schema_version") != 1 or not isinstance(retired.get("aliases"), dict):
         raise ValueError("invalid retired-role ledger")
     for alias, mapping in retired["aliases"].items():
