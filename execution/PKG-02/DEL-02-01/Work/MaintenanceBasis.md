@@ -1,5 +1,10 @@
 # Maintenance route and evidence limits
 
+> **Naming (2026-11-05):** "Root" in this record means what is now the
+> Chirality Library (`sgttomas/chirality-library`). Chirality Root is now the
+> separate private `sgttomas/chirality`. See
+> [AGENTS.md](../../../../AGENTS.md#library-and-root).
+
 For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
 Earlier case/basis statements below retain their recorded subjects and limits.
 

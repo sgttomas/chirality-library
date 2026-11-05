@@ -1,9 +1,14 @@
 # Chirality library development
 
+This entry belongs to the Chirality Library (`sgttomas/chirality-library`).
+Chirality Root is the separate private `sgttomas/chirality`; records here
+written before 2026-11-05 use "Root" for the Library. See
+[AGENTS.md](../../AGENTS.md#library-and-root).
+
 Develop the library so people and agents can use its contents to maintain and
 improve those same contents, and other projects can rely on identified material
 under their own authority. Principles and publications, roles and workflows,
-tools and their instructions, shared references and Root's own execution are
+tools and their instructions, shared references and the Library's own execution are
 all holdings in this work. The [accepted PRD](../../docs/PRD.md) defines the
 objectives and the evidence required of the result.
 
@@ -44,7 +49,7 @@ Consumer adoption and reliance remain independent.
 
 ## Find and carry the work
 
-Read [Root AGENTS.md](../../AGENTS.md) for standing instructions, roles and
+Read [Library AGENTS.md](../../AGENTS.md) for standing instructions, roles and
 authority. The conversation supplies the undertaking. From its purpose or the
 affected holding, locate the relevant ScopeOfWork under
 `execution/PKG-nn/DEL-nn-nn/`. Search the scopes' purposes and outputs when the
@@ -106,7 +111,7 @@ selects the tool checks and CI supplies the required hosted result; the
 [workflow guide](../../workflows/README.md) covers checking and regenerating
 consumed indexes when their sources change.
 
-App v4 and SWBPIPE own adoption and product work in their repositories; Root's
+App v4 and SWBPIPE own adoption and product work in their repositories; the Library's
 instructions and Git grant do not transfer to them. Follow AGENTS.md for any
 needed coordination. App v3 and Runtime remain frozen. Old execution is
 preserved in the private `sgttomas/chirality` repository as history, not a standing backlog. Private information

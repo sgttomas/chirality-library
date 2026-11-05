@@ -24,7 +24,7 @@ before editing. Registered project-specific methods live at
 `<project>/.chirality/workflows/<name>/WORKFLOW.md`; personal methods useful
 across projects live at `~/.chirality/workflows/<name>/WORKFLOW.md`. Resolve the actual
 project or user root from the available host context. Editing a bundled library
-is a separate library-maintenance scope; Root's bundled source is `workflows/`.
+is a separate library-maintenance scope; the Library's bundled source is `workflows/`.
 Do not infer permission to change an installed bundle from permission to save a
 personal or project workflow.
 
@@ -110,8 +110,8 @@ deny rather than grant capability. Metadata never proves host enforcement.
 Optional resources must resolve inside the package; link them at the point of
 use and load only what the stage needs. A draft for App registration contains
 no symbolic or hard links. In a library maintained directly as files, such as
-Root's bundled source, a symlink is tolerated only when its real path stays
-inside the package, which Root's index builder checks.
+the Library's bundled source, a symlink is tolerated only when its real path stays
+inside the package, which the Library's index builder checks.
 
 A flat Markdown document is not a discoverable package. For project and personal
 libraries, after the reviewed package is registered, re-query the effective workflow
@@ -119,9 +119,9 @@ catalog through available host capabilities and inspect its qualified entry.
 Do not claim a refresh or successful discovery without observing it. If the
 host cannot expose the catalog, report that verification as outstanding.
 
-For an authorized Root bundled-library edit, present the exact candidate as a
-committed proposal or pull-request diff; Root's `.chirality/` is ignored by Git,
-so a draft there is not a reviewable bundled candidate. Review the bundled edit under Root `AGENTS.md`; the PR is its change record.
+For an authorized Library bundled edit, present the exact candidate as a
+committed proposal or pull-request diff; the Library's `.chirality/` is ignored by Git,
+so a draft there is not a reviewable bundled candidate. Review the bundled edit under the Library's `AGENTS.md`; the PR is its change record.
 Register the package in
 `workflows/catalog.yaml` navigation, regenerate `workflows/index.json` with
 `python3 tools/validation/build_workflow_index.py` from that source root, and
@@ -140,13 +140,13 @@ a representative use, including a plausible failure or interruption, to check
 that the inputs, outputs, decisions, and recovery are usable. Scale further
 execution checks to the method; distinguish a walkthrough from a real run.
 
-In the Root source tree, useful references are `workflows/README.md`,
+In the Library source tree, useful references are `workflows/README.md`,
 `workflows/catalog.schema.json` and `tools/workflow_runtime/README.md`. Focused structural checks are
 `python3 tools/validation/validate_workflow_metadata.py`, which checks the
 folder `name`, the `description`, optional `execution.json`, and index
 freshness but not links, and
 `python3 tools/validation/build_workflow_index.py --check`, which also rejects
-missing or escaping package files. Check links by reading. These are Root
+missing or escaping package files. Check links by reading. These are Library
 source tools, not assumed App tools; use the selected host's actual validation
 capabilities for project and personal libraries.
 

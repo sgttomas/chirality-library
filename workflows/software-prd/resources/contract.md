@@ -3,7 +3,7 @@
 This contract states what a run needs, what it produces and where, and what
 the accepted basis hands to `software-decomp`. Field names and illustrative IDs
 are local to this workflow, not additions to Chirality's global schemas or
-decomposition identifiers. No Root tool reads these files; check them by
+decomposition identifiers. No Library tool reads these files; check them by
 reading and by recomputing hashes.
 
 ## Inputs

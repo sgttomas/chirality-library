@@ -1,4 +1,4 @@
-"""Root shared-library required aggregate remains fail-closed after product extraction."""
+"""Library required aggregate remains fail-closed after product extraction."""
 
 from pathlib import Path
 

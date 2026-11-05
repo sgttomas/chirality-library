@@ -1,6 +1,6 @@
 # Chirality repository instructions
 
-This repository owns the Chirality library: the shared roles, workflows, tools
+This repository owns the Chirality Library: the shared roles, workflows, tools
 and tool-use instructions its products and projects consume. Enter through
 `execution/_Coordination/LOOP_INIT.md`. The conversation supplies the
 undertaking; initialization alone starts none.
@@ -9,20 +9,33 @@ Work toward the owner's intended result within the authority given in the
 conversation. Roles describe contributions; workflows supply methods. The owner
 remains accountable for acceptance and reliance.
 
+<a id="library-and-root"></a>
+**Library and Root.** This repository is the Chirality **Library**
+(`sgttomas/chirality-library`): the shared roles, workflows, tools and
+references that projects use. Chirality **Root** is the separate private
+repository `sgttomas/chirality`, which reflects on the wider undertaking across
+Root, the Library, App and SWBPIPE; that reflection grants Root no authority
+over another project's work. Accepted commitments, decomposition, Work and
+other records written before 2026-11-05 use "Root" for what is now the
+Library; read them that way. Mapping of DEL-04-02 and exact holding ownership
+between the two remains open; this naming does not move them.
+
 ## Where work happens
 
 | Scope | Entry | Standing |
 |---|---|---|
-| Root: shared instructions, workflows, skills, tools and CI | `execution/_Coordination/LOOP_INIT.md` | Work as steered |
+| Library: shared instructions, workflows, skills, tools and CI | `execution/_Coordination/LOOP_INIT.md` | Work as steered |
+| Root: reflection on the wider undertaking | Private `sgttomas/chirality` | Its own instructions; no authority over other projects' work |
 | App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Development resumed (owner, 2026-10-28); consult its local instructions |
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Active; consult its local instructions |
 | App v3, Runtime | Archived in the private `sgttomas/chirality` repository | Frozen; no development or verification without explicit reactivation |
 
 ## Coordination between projects
 
-Chirality Root (`sgttomas/chirality-library`), App v4 (`sgttomas/chirality-app`) and
-SWBPIPE (`sgttomas/SWBPIPE`) each have one top-level Agent 0, working in its own
-T3 Code session. When work here needs App v4 or SWBPIPE, such as a shared interface, a
+The Chirality Library (`sgttomas/chirality-library`), Chirality Root (private
+`sgttomas/chirality`), App v4 (`sgttomas/chirality-app`) and SWBPIPE
+(`sgttomas/SWBPIPE`) each have one top-level Agent 0, working in its own
+T3 Code session. When work here needs Root, App v4 or SWBPIPE, such as a shared interface, a
 library change a consumer will adopt, a defect found in the other project, or a
 shared release gate, this project's Agent 0 messages that project's Agent 0
 directly in T3 Code. Read the recipient's session first to confirm that it is
@@ -39,7 +52,7 @@ owner. Do not message a project the work does not affect.
 
 1. Take the objective, limits and authorization from the conversation. Do not
    reconstruct a standing backlog from archived plans or records.
-2. Locate the affected deliverable or shared Root component. Read its current
+2. Locate the affected deliverable or shared Library component. Read its current
    commitments and design; consult the PRD and companions for the requirements
    and interfaces this work involves.
 3. Query the relevant inputs, consumers and changes. Read what this slice needs;
@@ -85,11 +98,11 @@ retain their actual product/source homes, referenced from the locality. The
 consumer states its needs; tools derive reverse links and graphs.
 
 App v4 and SWBPIPE use `Work/`; their older references to a deliverable's
-`Design/` mean its `Work/`. Root's pre-library execution is archived in
-the private `sgttomas/chirality` repository.
+`Design/` mean its `Work/`. Pre-library execution is archived in the private
+Root repository, `sgttomas/chirality`.
 The accepted [Library PRD](docs/PRD.md) and
 [final decomposition](execution/_Decomposition/_LATEST_ACCEPTED.md) supply the
-basis for the current Root localities. Read the selected ScopeOfWork, Work and
+basis for the current Library localities. Read the selected ScopeOfWork, Work and
 consumer-local needs for their commitments, maturity and unresolved conditions;
 setup does not establish product fulfillment or acceptance.
 
@@ -146,7 +159,7 @@ every operation; repository authority cannot expand them.
 
 ## Current contracts
 
-Root's product commitments are in the accepted [Library PRD](docs/PRD.md).
+The Library's product commitments are in the accepted [Library PRD](docs/PRD.md).
 Product commitments live in the project's PRD, named companions and ScopeOfWork.
 Its adopted work locality holds the related technical and execution material.
 

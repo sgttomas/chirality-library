@@ -64,7 +64,7 @@ support several objectives, and an objective may require several deliverables.
   revising those maintenance instructions and tools.
 - Scope-bounded reconciliation of instructions, executable behavior, shared
   definitions and publication content affected by the work.
-- An accepted decomposition and fresh setup of Root's own maintenance execution,
+- An accepted decomposition and fresh setup of the Library's own maintenance execution,
   using the library's existing methods and tools.
 - Consumer-local dependency declarations, query use and recoverable working
   material supporting the resulting local goals.
@@ -82,8 +82,10 @@ new permanent register.
 
 - Principles, thesis, manuals and courses remain maintained holdings. Their
   authoring work can live in execution; their sources retain their actual homes.
-- Root's execution, repository grants and host coordination rules are scoped
-  Root holdings. Library consumption does not transfer them to other projects.
+- The Library's execution, repository grants and host coordination rules are
+  scoped Library holdings. Library consumption does not transfer them to other
+  projects. Chirality Root, the separate private `sgttomas/chirality`, is not a
+  Library holding; records before 2026-11-05 used "Root" for the Library.
 - App v4 and SWBPIPE remain independent. Their production adoption and release
   are not prerequisites for accepting a verified library interface.
 - App v3 and Runtime remain frozen. Recovery does not reactivate them.
@@ -364,7 +366,7 @@ invalidate an earlier accepted edition or authorize a successor release.
 | Input | Intended use and condition |
 |---|---|
 | Owner steering and this PRD | Accepted scope and objectives for decomposition; unresolved scope remains explicit |
-| `AGENTS.md`, active role instructions and Root entry | Current authority and maintenance route; remain usable until replacements are checked and adopted |
+| `AGENTS.md`, active role instructions and Library entry | Current authority and maintenance route; remain usable until replacements are checked and adopted |
 | Existing workflows and tools | Reuse for decomposition, setup, authoring, review, queries and publication; inspect the selected method's actual applicability and dependencies |
 | Maintained holdings and their references | Source basis for affected changes; preserve meanings, editions, required resources and identified consumer uses |
 | Consumer inventory and actual consumer contracts | Locate affected interfaces and provenance; inventory is bounded evidence, not a current global census or an adoption instruction |
@@ -386,7 +388,7 @@ only where a selected consumer need requires it; its availability is not assumed
 
 ### 6.2 Decomposition and setup contract
 
-Use the Root library's `project-decomp`, then `project-setup` on the accepted
+Use the Library's `project-decomp`, then `project-setup` on the accepted
 decomposition. `scope-of-work` initializes objective-grounded local contracts;
 `dependency-extract` authors actual consumer-local needs after scope exists.
 `construct-local-work-graph` supports subsequent inquiry and sequencing.

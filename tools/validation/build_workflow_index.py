@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Author and validate Root workflow metadata; never used as a runtime parser."""
+"""Author and validate Library workflow metadata; never used as a runtime parser."""
 from __future__ import annotations
 
 import argparse
@@ -57,7 +57,7 @@ def _load_json(path: Path) -> dict:
 
 
 def _load_catalog(path: Path) -> dict:
-    # JSON is a YAML 1.2 subset. Root emits that strict subset so authoring and
+    # JSON is a YAML 1.2 subset. The Library emits that strict subset so authoring and
     # validation require no second YAML parser implementation.
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):

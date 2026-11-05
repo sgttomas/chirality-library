@@ -42,7 +42,7 @@ retains Git's unresolved-conflict-marker protection without gating whitespace. T
 removed; clones configured with `core.hooksPath=.githooks` no longer invoke it.
 No Git configuration change is required.
 
-Root `.editorconfig` settings may trim trailing whitespace in compatible
+The Library's `.editorconfig` settings may trim trailing whitespace in compatible
 editors. Preserve intentional Markdown hard breaks and raw evidence bytes;
 formatting alone does not warrant an evidence-repair or approval cycle.
 
@@ -50,9 +50,9 @@ formatting alone does not warrant an evidence-repair or approval cycle.
 
 Run `python3 tools/validation/validate_agent_instructions.py --json` and
 `python3 tools/validation/validate_workflow_metadata.py --json` for the current
-Root contract. Agent runtime configuration lives in `agents/registry.json`;
+Library contract. Agent runtime configuration lives in `agents/registry.json`;
 workflow resources are optional and restrictions live in `execution.json`.
 The agent validator requires that registry; read historical instruction
 snapshots at their recorded revision. Explicit historical skill directories
-retain their old reader contract. Root G2/G3/G4 checks recognize `workflows/` as an
+retain their old reader contract. Library G2/G3/G4 checks recognize `workflows/` as an
 instruction surface alongside historical `skills/` inputs.

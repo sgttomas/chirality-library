@@ -27,7 +27,7 @@ Plan the smallest useful route to the intended result. Name outcomes, relevant
 deliverables, required inputs, write boundaries and meaningful checks in the
 assignment. Use one integration owner and disjoint concurrent writes. Apply
 `coordinated-knowledge-work` where contributions need coordination. Verification
-and independent scrutiny follow the consequences under Root `AGENTS.md`.
+and independent scrutiny follow the consequences under the Library's `AGENTS.md`.
 
 Update scope, work material or dependency conditions in their source files when the
 work changes them, obtaining owner decisions for reserved commitments or
