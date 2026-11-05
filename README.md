@@ -47,7 +47,6 @@ is not a new library edition.
 | Choose an agent's contribution | [Roles](agents/) | Read the relevant role: HELP_HUMAN, HELPS_HUMANS, WORKING_ITEMS or TASK. |
 | Use a repeatable method | [Workflow guide](workflows/README.md) | Select a workflow and retain its complete package and required resources. |
 | Run a library tool | [Workflow resolver](tools/workflow_runtime/README.md), [deliverable queries](tools/deliverables/README.md), or [other tools](tools/) | Follow the selected tool's guide for commands, dependencies, outputs and limits. |
-| Understand a shared contract | [Product boundaries](docs/PRODUCT_BOUNDARIES.md), [agent/workflow interface](docs/AGENT_WORKFLOW_RUNTIME.md), [compatibility formats](docs/COMPATIBILITY_FORMATS.md) | Check the reference's applicability before adopting it in your project. |
 
 Read on GitHub, download the source archive from the release, or clone the
 repository. Reading alone needs no Git installation. Tools have their own
@@ -88,8 +87,8 @@ revision, use its merged PR description as the change account.
 
 GitHub's comparison view or `git diff` can show the differences. A failed comparison
 is not “no change”; a path-limited comparison says nothing about other material.
-Historical sources and editions remain discoverable through
-[Frozen products](projects/FROZEN.md) and the [manual index](docs/alignment-manual/README.md).
+Historical manual editions remain discoverable through the
+[manual index](docs/alignment-manual/README.md).
 
 <details>
 <summary>Optional command-line discovery and comparison</summary>
@@ -159,8 +158,7 @@ its own instructions, releases and support:
 - [SWBPIPE](https://github.com/sgttomas/SWBPIPE): an analysis-grade piping design
   engine and stress-model authoring environment.
 
-Earlier products (App v3 and Runtime) are archived; [Frozen products](projects/FROZEN.md)
-explains how to recover their source.
+Earlier products (App v3 and Runtime) are archived and are not part of this library.
 
 ## Develop and contribute
 

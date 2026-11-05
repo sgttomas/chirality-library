@@ -262,9 +262,9 @@ def test_task_still_cannot_delegate_under_broader_host_policy():
 
 def test_root_change_retirement_has_no_implicit_successor():
     source = Path(__file__).resolve().parents[2]
-    alias = json.loads((source / 'workflows/legacy-agents.json').read_text())['aliases']['CHANGE']
-    assert alias['workflow'] == 'change' and 'canonical_successor' not in alias
-    with pytest.raises(ValueError, match='retired without a canonical successor.*ordinary authorized brief'):
+    # The retired-role ledger was removed, so a retired role name is unknown.
+    assert not (source / 'workflows/legacy-agents.json').exists()
+    with pytest.raises(ValueError, match='unknown legacy agent'):
         resolve(source, 'WORKING_ITEMS', legacy_agent='CHANGE')
     for selection in ('change', 'chirality-root:bundled:workflow:change'):
         with pytest.raises(ValueError, match='missing or escaping resource'):

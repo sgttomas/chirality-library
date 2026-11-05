@@ -14,8 +14,6 @@
     "project-setup",
     "project-decomp",
     "software-decomp",
-    "domain-decomp",
-    "research-orchestration",
     "scope-change"
   ],
   "methods": [
@@ -251,49 +249,6 @@
     },
     {
       "kind": "workflow",
-      "name": "aggregation",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Combine selected records into a traceable cross-scope view, including estimate collation.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 6,
-        "group": {
-          "key": "plan-organize",
-          "label": "Plan & organize",
-          "order": 0
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
       "name": "analysis-binding",
       "source": "bundled",
       "sourceRootId": "chirality-root",
@@ -320,7 +275,7 @@
         "group": {
           "key": "build-maintain-software",
           "label": "Build & maintain software",
-          "order": 4
+          "order": 3
         }
       },
       "execution": {
@@ -330,92 +285,6 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "audit-agents",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Assess role instructions against a named design basis and propose evidence-linked repairs.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 1,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "audit-decomp",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Reconcile accepted decomposition with materialized scope and current derivative evidence.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 2,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
       }
     },
     {
@@ -436,11 +305,11 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 3,
+        "order": 1,
         "group": {
           "key": "review-check",
           "label": "Review & check",
-          "order": 6
+          "order": 5
         }
       },
       "execution": {
@@ -448,49 +317,6 @@
         "compatibleRoles": [
           "TASK"
         ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "audit-epistemic",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Inspect what claims assert, what warrants them, and what uncertainty or conflict affects reliance.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 4,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
       }
     },
     {
@@ -513,98 +339,11 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 5,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "audit-hypergraph-closure",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Assess whether a graph snapshot\u2019s structure and coverage match its declared source basis.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 6,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "audit-scope-closure",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Follow an accepted amendment through implementation, reruns, and remaining closure obligations.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/current-project.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
         "order": 2,
         "group": {
-          "key": "manage-changes",
-          "label": "Manage changes",
-          "order": 7
+          "key": "review-check",
+          "label": "Review & check",
+          "order": 5
         }
       },
       "execution": {
@@ -647,7 +386,7 @@
         "group": {
           "key": "review-check",
           "label": "Review & check",
-          "order": 6
+          "order": 5
         }
       }
     },
@@ -682,46 +421,6 @@
     },
     {
       "kind": "workflow",
-      "name": "content-digest",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Read one deliverable folder and produce a structured 7-section content digest summarizing identity, scope, document kit, dependencies, references, semantic framework, and quality observations.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 5,
-        "group": {
-          "key": "research-understand",
-          "label": "Research & understand",
-          "order": 1
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
       "name": "coordinated-knowledge-work",
       "source": "bundled",
       "sourceRootId": "chirality-root",
@@ -741,7 +440,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 7,
+        "order": 4,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -801,7 +500,7 @@
         "group": {
           "key": "build-maintain-software",
           "label": "Build & maintain software",
-          "order": 4
+          "order": 3
         }
       },
       "execution": {
@@ -858,7 +557,7 @@
         "group": {
           "key": "build-maintain-software",
           "label": "Build & maintain software",
-          "order": 4
+          "order": 3
         }
       },
       "execution": {
@@ -868,298 +567,6 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-concordance-seed",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Transform raw concordance evidence atoms and risk inventory rows into typed publication concordance candidates for register freeze review.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 5,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-concordance-verify",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Review semantic consistency across an authored DBM's sections, using current text and available review evidence; supports publication packages and standalone drafts.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 6,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-draft-review",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Review a human-prepared draft DBM against the governed knowledge base \u2014 build review substrate, prepare candidate findings for human disposition.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 2,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": [
-            "python3 tools/review/scan_section_coverage.py:*",
-            "python3 tools/review/extract_claims.py:*",
-            "python3 tools/review/scan_tbd_markers.py:*",
-            "python3 tools/review/check_body_thinness.py:*"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-postauthor-concordance",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Post-authoring evidence bundle and review for pipeline-produced DBM sections \u2014 build review substrate, prepare candidate findings for human readiness judgment.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 7,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": [
-            "python3 tools/review/scan_section_coverage.py:*",
-            "python3 tools/review/extract_claims.py:*",
-            "python3 tools/review/scan_tbd_markers.py:*",
-            "python3 tools/review/check_body_thinness.py:*"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-publish",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Assemble the full rewritten DBM package from approved section outputs and produce package QA artifacts.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 3,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": [
-            "python3 tools/publication/assemble_publication.py:*",
-            "python3 tools/publication/validate_source_supersession.py:*"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-publisher",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Develop and publish one engineering Design Basis Memorandum from accepted domain state, with frozen planning, section production, post-authoring review, and human acceptance.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "ACCEPTANCE.md",
-        "CONTRACT.md",
-        "PROCEDURE.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 0,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ]
-      },
-      "metadata": {
-        "category": "Documents and drawings",
-        "applicability": "Develop and publish one Design Basis Memorandum from accepted domain state."
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "dbm-section-publish",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Publish exactly one rewritten DBM section from approved mapped DOMAIN inputs and emit fixed QA artifacts.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 4,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
       }
     },
     {
@@ -1185,11 +592,11 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 7,
+        "order": 3,
         "group": {
           "key": "review-check",
           "label": "Review & check",
-          "order": 6
+          "order": 5
         }
       },
       "execution": {
@@ -1253,7 +660,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 10,
+        "order": 4,
         "group": {
           "key": "extract-documents",
           "label": "Extract from documents",
@@ -1266,213 +673,6 @@
           "TASK",
           "WORKING_ITEMS",
           "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "domain-decomp",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Develop a coherent domain ontology while preserving source meaning, identity, and disagreement.",
-      "central": true,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "core",
-        "tier": "primary",
-        "order": 5
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "delegate_agent",
-            "report_coordination_notice",
-            "send_agent_update",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "domain-documents",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Draft knowledge-artifact document set for a DOMAIN Knowledge Type deliverable. Produces KA-* files per the variable artifact schema. DOMAIN pipeline only.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 1,
-        "group": {
-          "key": "create-publish-documents",
-          "label": "Create & publish documents",
-          "order": 3
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "domain-engine",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Integrate a deterministic domain engine with explicit computational coverage and human judgment.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 1,
-        "group": {
-          "key": "research-understand",
-          "label": "Research & understand",
-          "order": 1
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "delegate_agent",
-            "report_coordination_notice",
-            "send_agent_update",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "domain-hypergraph",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Discover source-backed domain entities and build a traceable graph projection.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 0,
-        "group": {
-          "key": "research-understand",
-          "label": "Research & understand",
-          "order": 1
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "domain-knowledge-intake",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Turn domain sources and expert input into an identified, warranted domain knowledge pack (criteria, methods and their applicability, parameter tables, assumptions, definitions and caveats), reconciled, examined by a competent domain reviewer and accepted for a stated scope of use by data-application specifications.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "HELP_HUMAN",
-        "HELPS_HUMANS",
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 3,
-        "group": {
-          "key": "build-maintain-software",
-          "label": "Build & maintain software",
-          "order": 4
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "HELP_HUMAN",
-          "HELPS_HUMANS",
-          "WORKING_ITEMS"
         ]
       }
     },
@@ -1499,7 +699,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 13,
+        "order": 6,
         "group": {
           "key": "extract-documents",
           "label": "Extract from documents",
@@ -1538,83 +738,6 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 12,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "drawing-extract",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Extract target-specific evidence from engineering drawings through coverage design, bounded visual extraction, deterministic QA, assembly, and recovery.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "ACCEPTANCE.md",
-        "CONTRACT.md",
-        "EXTENDING.md",
-        "PROCEDURE.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 4,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ]
-      },
-      "metadata": {
-        "category": "Documents and drawings",
-        "applicability": "Extract target-specific structured evidence from engineering drawing sets."
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "drawing-extract-page",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Per-page bounded extraction of structured data from a single engineering drawing page image, using crop-first multiblock VLM reasoning. Drawing-type-aware (PFD implemented; P_AND_ID, ISOMETRIC, GA stubbed). Invoked by the drawing-extract orchestrator for per-page fanout.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
         "order": 5,
         "group": {
           "key": "extract-documents",
@@ -1628,245 +751,7 @@
           "TASK",
           "WORKING_ITEMS",
           "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "drawing-titleblock-page",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Per-page titleblock extraction from drawing sheets using four corner crops and a full-page thumbnail; emits a governed sheet-inventory stub.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 6,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "equation-audit",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Review extracted display equations with the human, interpret correction notes, apply validated fixes, backcheck changes, and close an immutable audit snapshot.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "ACCEPTANCE.md",
-        "CONTRACT.md",
-        "PROCEDURE.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 7,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
         ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "equation-bbox-detect",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Detect display-equation bounding boxes on one rasterized page PNG using multimodal vision and emit normalized coordinates for downstream cropping. Per-page bounded dispatch invoked by equation-audit during Phase 1 when per-equation crops are enabled.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 8,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "equation-flag-interpret",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Convert one human-written natural-language correction note about one display equation into a corrected LaTeX expression. Per-flag bounded dispatch invoked by equation-audit during Phase 3a, one TASK per flagged entry whose `description` is prose rather than LaTeX.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 9,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "equipment-costing-extract",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Extract costing-relevant design basis parameters for equipment matching a target module type list from KA files in a single KTY folder. Use when building equipment costing registers for cost estimation.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 2,
-        "group": {
-          "key": "estimate-cost",
-          "label": "Estimate & cost",
-          "order": 5
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "equipment-extract",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Extract discrete physical equipment items from Knowledge Artifact files within a single DOMAIN Knowledge Type folder. Use when building per-KTY equipment registers from KA production documents.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 11,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
-        }
       }
     },
     {
@@ -1899,7 +784,7 @@
         "group": {
           "key": "estimate-cost",
           "label": "Estimate & cost",
-          "order": 5
+          "order": 4
         }
       },
       "execution": {
@@ -1938,7 +823,7 @@
         "group": {
           "key": "estimate-cost",
           "label": "Estimate & cost",
-          "order": 5
+          "order": 4
         }
       },
       "execution": {
@@ -1955,164 +840,6 @@
             "bash tools/scaffolding/update_latest_pointer.sh:*"
           ]
         }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "evaluate-repository-change",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Examine identified repository state changes, the conditions under which they justify effort, and bounded hypotheses for improving the means of work.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "HELP_HUMAN",
-        "HELPS_HUMANS",
-        "WORKING_ITEMS",
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 11,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "evaluation-protocol",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Coordinate evidence-grounded evaluation, bounded audits, optional scoring, and remediation handoffs.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/contract.md",
-        "resources/method.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 8,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "delegate_agent",
-            "report_coordination_notice",
-            "send_agent_update",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "evaluation-report",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Evaluate one dimension against an accepted rubric and return a supported score.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 9,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 6
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "four-documents",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Maintain and enrich an existing transitional LEGACY_FOUR_DOC kit for a PROJECT or SOFTWARE deliverable through rollback. Never initialize a new production contract.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 4,
-        "group": {
-          "key": "plan-organize",
-          "label": "Plan & organize",
-          "order": 0
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
       }
     },
     {
@@ -2141,196 +868,6 @@
           "key": "plan-organize",
           "label": "Plan & organize",
           "order": 0
-        }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "kty-content-remediate",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Archive, tombstone, verify, and emit disposition evidence for DOMAIN KTY content after an approved scope change without rewriting active Knowledge Artifact content.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 1,
-        "group": {
-          "key": "manage-changes",
-          "label": "Manage changes",
-          "order": 7
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "kty-metadata-align",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Review and optionally align one DOMAIN Knowledge Type folder's metadata surfaces to approved decomposition truth without rewriting Scoping.md or KA content. Use after regeneration or scope change when `_CONTEXT.md`, `_STATUS.md`, or `_REFERENCES.md` may have drifted.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 5,
-        "group": {
-          "key": "plan-organize",
-          "label": "Plan & organize",
-          "order": 0
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "lens-register",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Generate a matrix-organized, coverage-complete semantic lensing register (_SEMANTIC_LENSING.md) from _SEMANTIC.md + production documents. Setup-pipeline companion to the interactive semantic-lensing workflow.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 2,
-        "group": {
-          "key": "research-understand",
-          "label": "Research & understand",
-          "order": 1
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "pandid-valve-symbol-instance",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Extract pixel-anchored P&ID valve symbol instances from prepared tiles using isolated-crop classification before any row may count.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 14,
-        "group": {
-          "key": "extract-documents",
-          "label": "Extract from documents",
-          "order": 2
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "pandid-valve-tile",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "OBSOLETE legacy per-tile P&ID valve candidate extraction retained for historical readability; new runs use pandid-valve-symbol-instance.",
-      "central": false,
-      "compatibility": "legacy",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "CONTRACT.md",
-        "WORKFLOW.md",
-        "execution.json"
-      ],
-      "navigation": {
-        "category": "superseded",
-        "tier": "primary",
-        "order": 0,
-        "supersededBy": "pandid-valve-symbol-instance"
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ],
-        "tools": {
-          "commands": []
         }
       }
     },
@@ -2479,7 +1016,7 @@
       "navigation": {
         "category": "superseded",
         "tier": "primary",
-        "order": 1,
+        "order": 0,
         "supersededBy": "pdf2md-page-full"
       },
       "execution": {
@@ -2515,7 +1052,7 @@
       "navigation": {
         "category": "superseded",
         "tier": "primary",
-        "order": 2,
+        "order": 1,
         "supersededBy": "pdf2md-page-full"
       },
       "execution": {
@@ -2663,7 +1200,7 @@
       "navigation": {
         "category": "core",
         "tier": "primary",
-        "order": 10,
+        "order": 6,
         "displayName": "Run corpus concordance program"
       },
       "execution": {
@@ -2708,11 +1245,11 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 10,
+        "order": 4,
         "group": {
           "key": "review-check",
           "label": "Review & check",
-          "order": 6
+          "order": 5
         }
       },
       "execution": {
@@ -2722,49 +1259,6 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "research-orchestration",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Coordinate bounded research streams, independent verification, recoverable evidence, and synthesis.",
-      "central": true,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/contract.md",
-        "resources/method.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "core",
-        "tier": "primary",
-        "order": 6
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "delegate_agent",
-            "report_coordination_notice",
-            "send_agent_update",
-            "ack_agent_update"
-          ]
-        }
       }
     },
     {
@@ -2789,46 +1283,12 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 7,
+        "order": 1,
         "group": {
           "key": "research-understand",
           "label": "Research & understand",
           "order": 1
         }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "review",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Guide evidence review and human disposition for a deliverable lifecycle transition.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "core",
-        "tier": "primary",
-        "order": 9,
-        "displayName": "Lifecycle transition review"
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ]
-      },
-      "metadata": {
-        "category": "Review and validation",
-        "applicability": "Review evidence and obtain human disposition for a deliverable lifecycle transition."
       }
     },
     {
@@ -2852,7 +1312,7 @@
       "navigation": {
         "category": "core",
         "tier": "primary",
-        "order": 7
+        "order": 5
       },
       "execution": {
         "schemaVersion": 1,
@@ -2899,7 +1359,7 @@
         "group": {
           "key": "manage-changes",
           "label": "Manage changes",
-          "order": 7
+          "order": 6
         }
       },
       "execution": {
@@ -2961,84 +1421,6 @@
             "python3 tools/scope_of_work/derive_review_checklist.py:{scope_path}/**"
           ]
         }
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "semantic-lensing",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Apply semantic lensing analysis to deliverable documents using _SEMANTIC.md matrices. Treats lensing entries as a candidate worklist, tags proposals with matrix coordinates, and optionally updates lens artifacts.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 3,
-        "group": {
-          "key": "research-understand",
-          "label": "Research & understand",
-          "order": 1
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
-      }
-    },
-    {
-      "kind": "workflow",
-      "name": "semantic-matrix-build",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Generate one deliverable-local semantic lens (_SEMANTIC.md) by adopting canonical matrices A and B and deriving C, F, D, K, G, X, T, and E with explicit semantic-algebra working.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK",
-        "WORKING_ITEMS",
-        "HELPS_HUMANS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/brief.md",
-        "resources/checks.md",
-        "resources/tools.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "supporting",
-        "order": 4,
-        "group": {
-          "key": "research-understand",
-          "label": "Research & understand",
-          "order": 1
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK",
-          "WORKING_ITEMS",
-          "HELPS_HUMANS"
-        ]
       }
     },
     {
@@ -3128,7 +1510,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 6,
+        "order": 0,
         "group": {
           "key": "research-understand",
           "label": "Research & understand",
@@ -3173,11 +1555,11 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 4,
+        "order": 3,
         "group": {
           "key": "build-maintain-software",
           "label": "Build & maintain software",
-          "order": 4
+          "order": 3
         }
       },
       "execution": {
@@ -3194,352 +1576,12 @@
           ]
         }
       }
-    },
-    {
-      "kind": "workflow",
-      "name": "task-management",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Assess supplied unallocated concerns, owner-selected register reviews or explicitly scoped legacy-source retirements, preserving human dispositions and routing work to its owner.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "WORKING_ITEMS"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "core",
-        "tier": "primary",
-        "order": 8,
-        "displayName": "Manage tasks"
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "WORKING_ITEMS"
-        ]
-      }
     }
   ],
   "legacy": {
-    "retiredRoles": {
-      "AGGREGATION": {
-        "role": "TASK",
-        "workflow": "aggregation"
-      },
-      "AUDIT_AGENTS": {
-        "role": "TASK",
-        "workflow": "audit-agents"
-      },
-      "AUDIT_DECOMP": {
-        "role": "TASK",
-        "workflow": "audit-decomp"
-      },
-      "AUDIT_DEP_CLOSURE": {
-        "role": "TASK",
-        "workflow": "audit-dep-closure"
-      },
-      "AUDIT_EPISTEMIC": {
-        "role": "TASK",
-        "workflow": "audit-epistemic"
-      },
-      "AUDIT_GOVERNANCE": {
-        "role": "TASK",
-        "workflow": "audit-governance"
-      },
-      "AUDIT_HYPERGRAPH_CLOSURE": {
-        "role": "TASK",
-        "workflow": "audit-hypergraph-closure"
-      },
-      "AUDIT_SCOPE_CLOSURE": {
-        "role": "TASK",
-        "workflow": "audit-scope-closure"
-      },
-      "CHANGE": {
-        "role": "WORKING_ITEMS",
-        "workflow": "change",
-        "compatibility_note": "Retired without a canonical successor. Historical CHANGE records retain this identity. For new work use an ordinary authorized brief and the applicable repository conventions; no Root-only skill is substituted. Recover the selected historical package from Git when reading old evidence."
-      },
-      "DBM_PUBLISHER": {
-        "role": "WORKING_ITEMS",
-        "workflow": "dbm-publisher"
-      },
-      "DOMAIN_DECOMP": {
-        "role": "WORKING_ITEMS",
-        "workflow": "domain-decomp"
-      },
-      "DOMAIN_ENGINE": {
-        "role": "WORKING_ITEMS",
-        "workflow": "domain-engine"
-      },
-      "DOMAIN_HYPERGRAPH": {
-        "role": "TASK",
-        "workflow": "domain-hypergraph"
-      },
-      "DRAWING_EXTRACT": {
-        "role": "WORKING_ITEMS",
-        "workflow": "drawing-extract"
-      },
-      "EQUATION_AUDIT": {
-        "role": "WORKING_ITEMS",
-        "workflow": "equation-audit"
-      },
-      "EVALUATION": {
-        "role": "WORKING_ITEMS",
-        "workflow": "evaluation-protocol"
-      },
-      "EVALUATION_DEPENDENCY_AUDIT": {
-        "role": "TASK",
-        "tool": "tools/evaluation/audit_dependencies.py"
-      },
-      "EVALUATION_REPORT": {
-        "role": "TASK",
-        "workflow": "evaluation-report"
-      },
-      "EVALUATION_STRUCTURE_AUDIT": {
-        "role": "TASK",
-        "tool": "tools/evaluation/audit_structure.py"
-      },
-      "PDF2MD": {
-        "role": "WORKING_ITEMS",
-        "workflow": "pdf2md-orchestration"
-      },
-      "PREPARATION": {
-        "role": "TASK",
-        "workflow": "preparation",
-        "canonical_successor": {
-          "kind": "skill",
-          "name": "preparation"
-        }
-      },
-      "PROJECT_DECOMP": {
-        "role": "WORKING_ITEMS",
-        "workflow": "project-decomp"
-      },
-      "PROJECT_SETUP": {
-        "role": "WORKING_ITEMS",
-        "workflow": "project-setup"
-      },
-      "RECONCILIATION": {
-        "role": "WORKING_ITEMS",
-        "workflow": "reconciliation"
-      },
-      "RESEARCH": {
-        "role": "WORKING_ITEMS",
-        "workflow": "research-orchestration"
-      },
-      "RESEARCHER": {
-        "role": "TASK",
-        "workflow": "researcher",
-        "canonical_successor": {
-          "kind": "skill",
-          "name": "researcher"
-        }
-      },
-      "REVIEW": {
-        "role": "WORKING_ITEMS",
-        "workflow": "review"
-      },
-      "SCOPE_CHANGE": {
-        "role": "WORKING_ITEMS",
-        "workflow": "scope-change"
-      },
-      "SOFTWARE_DECOMP": {
-        "role": "WORKING_ITEMS",
-        "workflow": "software-decomp"
-      },
-      "TASK_MANAGEMENT": {
-        "role": "WORKING_ITEMS",
-        "workflow": "task-management"
-      }
-    },
-    "convertedWorkflowAliases": {
-      "content-digest": {
-        "kind": "workflow",
-        "name": "content-digest"
-      },
-      "dbm-concordance-seed": {
-        "kind": "workflow",
-        "name": "dbm-concordance-seed"
-      },
-      "dbm-concordance-verify": {
-        "kind": "workflow",
-        "name": "dbm-concordance-verify"
-      },
-      "dbm-draft-review": {
-        "kind": "workflow",
-        "name": "dbm-draft-review"
-      },
-      "dbm-postauthor-concordance": {
-        "kind": "workflow",
-        "name": "dbm-postauthor-concordance"
-      },
-      "dbm-publish": {
-        "kind": "workflow",
-        "name": "dbm-publish"
-      },
-      "dbm-section-publish": {
-        "kind": "workflow",
-        "name": "dbm-section-publish"
-      },
-      "decomposition-package-review": {
-        "kind": "workflow",
-        "name": "decomposition-package-review"
-      },
-      "deliverable-consistency": {
-        "kind": "skill",
-        "name": "deliverable-consistency"
-      },
-      "domain-documents": {
-        "kind": "workflow",
-        "name": "domain-documents"
-      },
-      "domain-prose-validate": {
-        "kind": "workflow",
-        "name": "domain-prose-validate"
-      },
-      "domain-source-atomize": {
-        "kind": "workflow",
-        "name": "domain-source-atomize"
-      },
-      "drawing-extract-page": {
-        "kind": "workflow",
-        "name": "drawing-extract-page"
-      },
-      "drawing-titleblock-page": {
-        "kind": "skill",
-        "name": "drawing-titleblock-page"
-      },
-      "equation-bbox-detect": {
-        "kind": "workflow",
-        "name": "equation-bbox-detect"
-      },
-      "equation-flag-interpret": {
-        "kind": "workflow",
-        "name": "equation-flag-interpret"
-      },
-      "equipment-costing-extract": {
-        "kind": "workflow",
-        "name": "equipment-costing-extract"
-      },
-      "equipment-extract": {
-        "kind": "workflow",
-        "name": "equipment-extract"
-      },
-      "estimate-prep": {
-        "kind": "workflow",
-        "name": "estimate-prep"
-      },
-      "estimate-snapshot": {
-        "kind": "workflow",
-        "name": "estimate-snapshot"
-      },
-      "evaluation-protocol": {
-        "kind": "workflow",
-        "name": "evaluation-protocol"
-      },
-      "four-documents": {
-        "kind": "workflow",
-        "name": "four-documents"
-      },
-      "kty-content-remediate": {
-        "kind": "workflow",
-        "name": "kty-content-remediate"
-      },
-      "kty-metadata-align": {
-        "kind": "workflow",
-        "name": "kty-metadata-align"
-      },
-      "lens-register": {
-        "kind": "workflow",
-        "name": "lens-register"
-      },
-      "pandid-valve-symbol-instance": {
-        "kind": "workflow",
-        "name": "pandid-valve-symbol-instance"
-      },
-      "pandid-valve-tile": {
-        "kind": "workflow",
-        "name": "pandid-valve-tile"
-      },
-      "pdf2md": {
-        "kind": "workflow",
-        "name": "pdf2md"
-      },
-      "pdf2md-folio-extract": {
-        "kind": "workflow",
-        "name": "pdf2md-folio-extract"
-      },
-      "pdf2md-page": {
-        "kind": "workflow",
-        "name": "pdf2md-page"
-      },
-      "pdf2md-page-assets": {
-        "kind": "workflow",
-        "name": "pdf2md-page-assets"
-      },
-      "pdf2md-page-full": {
-        "kind": "workflow",
-        "name": "pdf2md-page-full"
-      },
-      "preparation": {
-        "kind": "skill",
-        "name": "preparation"
-      },
-      "proposal-format": {
-        "kind": "skill",
-        "name": "proposal-format"
-      },
-      "research-orchestration": {
-        "kind": "workflow",
-        "name": "research-orchestration"
-      },
-      "researcher": {
-        "kind": "skill",
-        "name": "researcher"
-      },
-      "scope-change-packet": {
-        "kind": "workflow",
-        "name": "scope-change-packet"
-      },
-      "scope-of-work": {
-        "kind": "workflow",
-        "name": "scope-of-work"
-      },
-      "semantic-lensing": {
-        "kind": "workflow",
-        "name": "semantic-lensing"
-      },
-      "semantic-matrix-build": {
-        "kind": "workflow",
-        "name": "semantic-matrix-build"
-      },
-      "software-code-review": {
-        "kind": "skill",
-        "name": "software-code-review"
-      },
-      "software-defect-diagnosis": {
-        "kind": "skill",
-        "name": "software-defect-diagnosis"
-      },
-      "software-repository-reconnaissance": {
-        "kind": "workflow",
-        "name": "software-repository-reconnaissance"
-      },
-      "software-test-planning": {
-        "kind": "workflow",
-        "name": "software-test-planning"
-      }
-    },
-    "historicalOnly": [
-      "software-bounded-implementation",
-      "change"
-    ],
+    "retiredRoles": {},
+    "convertedWorkflowAliases": {},
+    "historicalOnly": [],
     "unknownLegacyBehavior": "error"
   },
   "discoveryContract": {

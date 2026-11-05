@@ -49,7 +49,6 @@ def _fixture_root(tmp_path: Path) -> Path:
 
 
 SUPERSEDED = {
-    "pandid-valve-tile": "pandid-valve-symbol-instance",
     "pdf2md-page": "pdf2md-page-full",
     "pdf2md-page-assets": "pdf2md-page-full",
 }
@@ -58,7 +57,6 @@ SPECIALIST_GROUPS = [
     ("plan-organize", "Plan & organize"),
     ("research-understand", "Research & understand"),
     ("extract-documents", "Extract from documents"),
-    ("create-publish-documents", "Create & publish documents"),
     ("build-maintain-software", "Build & maintain software"),
     ("estimate-cost", "Estimate & cost"),
     ("review-check", "Review & check"),
@@ -85,7 +83,8 @@ def test_root_index_is_fresh_and_classification_is_bounded():
     assert all(item["compatibility"] == "canonical" for item in workflows if item["name"] not in SUPERSEDED)
     assert len(skills) == 7 and {item["compatibility"] for item in skills} == {"canonical"}
     assert not any("navigation" in item for item in skills)
-    assert index["legacy"]["convertedWorkflowAliases"]["deliverable-consistency"] == {"kind": "skill", "name": "deliverable-consistency"}
+    # The legacy ledgers were retired: no converted, retired or historical names remain.
+    assert index["legacy"] == {"retiredRoles": {}, "convertedWorkflowAliases": {}, "historicalOnly": [], "unknownLegacyBehavior": "error"}
     # Current dependency authoring has one native path, with no central-DAG
     # package or legacy dispatch alias silently restoring the former method.
     assert not {"project-dag", "scc-resolution-case"} & {item["name"] for item in workflows}
@@ -122,16 +121,15 @@ def test_root_navigation_partition_is_complete_and_ordered():
     assert {key: [name for _, name in sorted(entries)] for key, entries in members.items()} == catalog_members
     assert all(sorted(orders) == list(range(len(orders))) for orders in groups.values())
     assert group_identity == {key: {(label, order)} for order, (key, label) in enumerate(SPECIALIST_GROUPS)}
-    assert workflows["semantic-matrix-build"]["navigation"]["tier"] == "supporting"
+    assert workflows["pdf2md-page-full"]["navigation"]["tier"] == "supporting"
     assert workflows["scope-of-work"]["navigation"]["tier"] == "primary"
     retired = {"deliverable-consistency", "preparation", "proposal-format", "researcher", "software-code-review", "software-defect-diagnosis"}
     assert not retired & set(workflows)
-    assert all(index["legacy"]["convertedWorkflowAliases"][name] == {"kind": "skill", "name": name} for name in retired)
     assert workflows["construct-local-work-graph"]["navigation"]["group"]["key"] == "plan-organize"
     assert workflows["bounded-reconciliation"]["navigation"]["group"]["key"] == "review-check"
     superseded = {item["name"]: item for item in workflows.values() if item["navigation"]["category"] == "superseded"}
     assert {name: item["navigation"]["supersededBy"] for name, item in superseded.items()} == SUPERSEDED
-    assert sorted(item["navigation"]["order"] for item in superseded.values()) == [0, 1, 2]
+    assert sorted(item["navigation"]["order"] for item in superseded.values()) == list(range(len(SUPERSEDED)))
     assert all(item["compatibility"] == "legacy" for item in superseded.values())
     for replacement in SUPERSEDED.values():
         assert workflows[replacement]["navigation"]["category"] != "superseded"
@@ -217,11 +215,8 @@ def test_workflow_purpose_metadata_reaches_descriptors(tmp_path):
     index = validate_and_build(ROOT)
     workflows = {item["name"]: item for item in index["methods"] if item["kind"] == "workflow"}
     expected_categories = {
-        "review": "Review and validation",
         "reconciliation": "Review and validation",
         "pdf2md-orchestration": "Documents and drawings",
-        "drawing-extract": "Documents and drawings",
-        "dbm-publisher": "Documents and drawings",
     }
     for name, category in expected_categories.items():
         metadata = workflows[name]["metadata"]
@@ -433,16 +428,6 @@ def test_canonical_skill_has_no_task_specific_companions(tmp_path):
     for name in ("BRIEF_SCHEMA.md", "TOOL_POLICY.md", "QA_CHECKS.md"):
         (skill / name).write_text(f"# {name}\n")
     assert validate_skill_dir(skill, tmp_path, legacy_task_contract=True)["valid"]
-
-
-def test_research_uses_grouped_domain_acceptance_with_legacy_fallback():
-    contract = (ROOT / "workflows/research-orchestration/resources/contract.md").read_text()
-    method = (ROOT / "workflows/research-orchestration/resources/method.md").read_text()
-    assert "checkpoint_snapshots/_LATEST_ACCEPTED.md" in contract
-    assert "checkpoint_snapshots/_LATEST_ACCEPTED.md" in method
-    assert "LEGACY_ACCEPTED_GATE_POINTER" in contract
-    assert "Gate6_Publication_Manifest.csv" in contract
-    assert "clearly label that compatibility basis" in method
 
 
 def test_retired_role_workflow_requires_a_catalog_package_or_successor(tmp_path):

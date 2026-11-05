@@ -398,15 +398,15 @@ def main() -> int:
     args = parse_args()
     repo_root = Path(args.repo_root).resolve() if args.repo_root else Path(__file__).resolve().parents[2]
     try:
-        reference = repo_root / "docs" / "COMPATIBILITY_FORMATS.md"
-        if not reference.exists():
-            reference = repo_root / "docs" / "WORKFLOW_COMPONENT_STANDARD.md"
-        valid_r_ids = canonical_r_ids(reference)
         paths = resolve_paths(args, repo_root)
         if (repo_root / 'agents/registry.json').exists():
             findings = validate_registry(repo_root)
         else:
             # Explicit old snapshots remain readable under their historical contract.
+            reference = repo_root / "docs" / "COMPATIBILITY_FORMATS.md"
+            if not reference.exists():
+                reference = repo_root / "docs" / "WORKFLOW_COMPONENT_STANDARD.md"
+            valid_r_ids = canonical_r_ids(reference)
             findings = [finding for path in paths for finding in validate_file(path, repo_root, valid_r_ids)]
             roster_paths = sorted((repo_root / "agents").glob("AGENT_*.md"))
             findings.extend(validate_hierarchy(roster_paths, repo_root))
