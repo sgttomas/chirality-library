@@ -1,0 +1,84 @@
+{
+  "workflow_name": "software-prd",
+  "draft_version": 1,
+  "status": "DRAFT_FOR_HUMAN_REVIEW",
+  "host_route": "other-host inspectable export under create-workflow",
+  "saved_absolute_package_path": "/mnt/data/prd_workflow_design_v1/workflow-drafts/software-prd",
+  "entrypoint": "/mnt/data/prd_workflow_design_v1/workflow-drafts/software-prd/WORKFLOW.md",
+  "qualified_library_identity": {
+    "source": null,
+    "sourceRootId": null,
+    "kind": "workflow",
+    "name": "software-prd",
+    "state": "UNBOUND_PENDING_DESTINATION_AND_LIVE_CATALOG_CHECK",
+    "note": "The supplied authoring files have attachment provenance, not a verified live catalog descriptor."
+  },
+  "source_attachment_identities": [
+    {
+      "label": "create-workflow",
+      "file_id": "file_00000000667081f5b6d8642922b89c09",
+      "local_path": "/mnt/data/WORKFLOW.md",
+      "sha256": "7d4443b63c474a8727a1391dca2e4c20b3a81a04d344d575d862be8f8536cf10"
+    },
+    {
+      "label": "HELPS_HUMANS",
+      "file_id": "file_00000000657081f5858068413752649c",
+      "local_path": "/mnt/data/AGENT_HELPS_HUMANS.md",
+      "sha256": "a0c9fb9443d8671d694c1f7b24ff3c402ffd626c781a2739342c938f2f3c3d1e"
+    },
+    {
+      "label": "FEED workflows",
+      "file_id": "file_00000000af5481f5a3f2dde997ac0ee6",
+      "local_path": "/mnt/data/workflows-FEED.zip",
+      "sha256": "9335f244ac8a470edc45f5201c2aa55786f3e64dddc9e8c6dcde7864a61ae7dc"
+    },
+    {
+      "label": "DBM workflows",
+      "file_id": "file_00000000267481f5901bd12a4b7333ee",
+      "local_path": "/mnt/data/workflows-DBM.zip",
+      "sha256": "d65882f07255327a149a4466302ea99c26c7826e7ea205bfbc825ea5c1de255b"
+    },
+    {
+      "label": "Semantic workflows",
+      "file_id": "file_000000007c5881f5bed56c284136fc19",
+      "local_path": "/mnt/data/workflows-semantics.zip",
+      "sha256": "baf25e62b00c0fcff765f39bcbccc2b135a4a31a89524e0df9872c176dd3fb56"
+    },
+    {
+      "label": "FEED tools",
+      "file_id": "file_000000000fc881f5951b06acb279e67e",
+      "local_path": "/mnt/data/tools-FEED.zip",
+      "sha256": "acf0e47d944237417d04f4aa106be1231355c6c1d453a343ec3b44bd015f6189"
+    },
+    {
+      "label": "Chapter 2 baseline",
+      "file_id": "file_00000000d53481f5906b24abb4ac6219",
+      "local_path": "/mnt/data/PM_Manual_Phase_02_v2.md",
+      "sha256": "f584b04b097aafb260a6bd2883e42eb13731d22e39c6e946c20246c67e592af3"
+    }
+  ],
+  "performed": [
+    "Read supplied HELPS_HUMANS and create-workflow instructions",
+    "Inspected supplied DBM, FEED and semantic packages and relevant tool sources",
+    "Prepared three-file reusable workflow draft outside discovery",
+    "Read saved package back; 24 local structural checks passed",
+    "Inspected names of 17 supplied workflow packages; no software-prd collision in that set",
+    "Analytical tabletop walkthrough of 15 use/failure/recovery cases",
+    "Rewrote Chapter 2 after creating the workflow draft",
+    "Rendered and visually checked final 37-page manuscript"
+  ],
+  "not_performed": [
+    "Human acceptance of the new reusable method",
+    "Live project/personal/bundled catalog inspection or source qualification",
+    "Workflow registration or observed catalog discovery",
+    "Fresh-context independent review of the new workflow or revised chapter",
+    "Live PRD workflow execution, PRD acceptance, FEED execution or product implementation",
+    "Empirical evidence of successful reuse"
+  ],
+  "next_action": "Human review of the proposed method and revised chapter. Resolve destination and check live qualified identity only for a later authorised registration.",
+  "source_preservation": {
+    "chapter_2_markdown_matches_retained_baseline": true,
+    "authoring_method_matches_retained_source": true,
+    "role_matches_retained_source": true
+  }
+}

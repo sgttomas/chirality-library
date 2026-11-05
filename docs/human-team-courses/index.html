@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="32b6106e4d5977e0a60218fcbf9f44f8233b5dd7ced7382a4805a927e373f125">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Project Practice for Human-Agent Teams · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 7 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#how-the-series-is-built">How the series is built</a></li>
+<li><a href="#start-the-series">Start the series</a></li>
+<li><a href="#work-with-agents">Work with agents</a></li>
+<li><a href="#study-with-a-team">Study with a team</a></li>
+<li><a href="#study-with-an-agent-instructor">Study with an agent instructor</a></li>
+<li><a href="#assessment">Assessment</a></li>
+<li><a href="#sources-and-references">Sources and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#how-the-series-is-built">How the series is built</a></li>
+<li><a href="#start-the-series">Start the series</a></li>
+<li><a href="#work-with-agents">Work with agents</a></li>
+<li><a href="#study-with-a-team">Study with a team</a></li>
+<li><a href="#study-with-an-agent-instructor">Study with an agent instructor</a></li>
+<li><a href="#assessment">Assessment</a></li>
+<li><a href="#sources-and-references">Sources and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="README.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="project-practice-for-human-agent-teams">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="project-practice-for-human-agent-teams">Project Practice for Human-Agent Teams</h1>
+<p>This series has twelve courses in project management and project engineering for teams in which people work with AI agents. They run from your own professional practice to leading complex projects. They are written for physical engineering projects, where suppliers, fabrication, site work, and testing still set much of the pace.</p>
+<p>Use the courses to prepare, carry out, examine, and coordinate professional work. Develop your discipline's technical knowledge alongside them.</p>
+<p>The courses are written for you, the person learning project practice. The <a href="../alignment-manual/README.md">publication index</a> presents the reflective book for people and agents and retains the historical Project Management Manual v9 source. The courses' existing v9 references keep that basis. For work with an agent, select the applicable <a href="../../workflows/README.md">roles and methods</a> under your project's instructions, and supply the actual problem and circumstances; sharing a book alone does not establish shared understanding.</p>
+<p>Bring what you learn here into that work. Examine what the agent contributes, talk through the interpretations that matter, make the decisions that are yours, and have the agent carry the agreed work forward. You and your agent develop a shared way of working by producing, examining, and improving the result. When experience raises a question you need to understand, return to the lessons and the manuals.</p>
+<h2 id="how-the-series-is-built">How the series is built</h2>
+<p>Each course teaches established methods of project practice and examines the assumptions under which they help. These methods developed largely around human teams, already using tools, automation and divided production and review. Some simplified planning models associate production effort with the producer's attention; that relationship is not a guarantee of competence or understanding.</p>
+<p>Agents can change this relationship for much of a project's information work. An agent can often draft, compare, calculate, and search in minutes, and many agents can work at once. But agents cannot carry the responsibilities that a project appointment assigns, and the attention of the people who examine, decide, and accept their work does not grow with them. Agent production can change the relationship between production effort and accountable attention. The effect depends on the task, the system and the arrangement of examination.</p>
+<p>Engineers have met this kind of change before. Euler-Bernoulli beam theory neglects shear deformation, and for a slender beam that is the right simplification. In a short, thick beam, or a sandwich panel with a soft core, shear deformation becomes significant, so Timoshenko theory adds it. The extended theory does not discard the classical one: as the beam becomes slender, it gives the classical result.</p>
+<p>The analogy illustrates how a previously neglected term can become important. It does not prove that every proposed practice formally reduces to a classical method. Where agent use changes little, the arrangement is meant to retain the applicable conventional result. Where agents change production, examine the time and capacity needed for examination and decisions explicitly. Some of these improvements also help human-only teams.</p>
+<p>These are claims about how the costs of work are changing, not measurements of productivity. Agent capability and cost vary with the task and the system.</p>
+<p>The course introductions and “What it assumes” passages describe simplified working arrangements for comparison, not universal claims about the history or adequacy of professional practice. Test those assumptions against the work. The supplied Northbank facts and keyed answers remain the same whoever prepares an answer.</p>
+<p>Most lessons follow four steps:</p>
+<ol>
+<li><strong>The classical method:</strong> what it does and why it works.</li>
+<li><strong>What it assumes:</strong> the cost or limit the method was answering.</li>
+<li><strong>What changes with agents:</strong> which part of that assumption no longer holds, and which part still does.</li>
+<li><strong>The extended method:</strong> how you now carry out the practice, and what each choice gains and costs.</li>
+</ol>
+<p>Several courses end with a lesson that treats the arrangement of people and agents as a system to engineer, because the classical methods could leave that arrangement to habit.</p>
+<h2 id="start-the-series">Start the series</h2>
+<p>Read the courses in the order below. Each course contains lessons, a worked example, practice, a knowledge check, and an assessed assignment.</p>
+<p>The exercises use the <a href="case-study.html">Northbank case</a>, including its <a href="case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. The <a href="glossary.html">glossary</a> defines shared terms. Instructors use the <a href="instructor-guide.html">teaching guide</a>.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>Course</th>
+<th>Learning result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td><a href="courses/01-professional-practice.html">Professional Practice and Responsibility</a></td>
+<td>Explain responsibilities, competence limits, and decision rights, including what agents can contribute and what they cannot carry.</td>
+</tr>
+<tr>
+<td>02</td>
+<td><a href="courses/02-document-control.html">Document and Configuration Control</a></td>
+<td>Establish a controlled basis that people and agents work from, and trace a change.</td>
+</tr>
+<tr>
+<td>03</td>
+<td><a href="courses/03-information-evidence.html">Information Research and Evidence</a></td>
+<td>Prepare information that another person can find and examine, whoever gathered it.</td>
+</tr>
+<tr>
+<td>04</td>
+<td><a href="courses/04-requirements-interpretation.html">Interpreting Requirements and Obligations</a></td>
+<td>Establish which requirements apply and explain your interpretation.</td>
+</tr>
+<tr>
+<td>05</td>
+<td><a href="courses/05-reasoning-judgment.html">Reasoning, Uncertainty, and Professional Judgment</a></td>
+<td>Defend a recommendation and state its limits.</td>
+</tr>
+<tr>
+<td>06</td>
+<td><a href="courses/06-working-relationships.html">Communication and Working Relationships</a></td>
+<td>Establish understanding, decisions, and workable responsibilities among people and agents.</td>
+</tr>
+<tr>
+<td>07</td>
+<td><a href="courses/07-project-definition.html">Defining an Engineering Project</a></td>
+<td>Prepare a coherent basis and a division of work that people can examine.</td>
+</tr>
+<tr>
+<td>08</td>
+<td><a href="courses/08-project-execution.html">Planning and Managing Project Execution</a></td>
+<td>Maintain a credible plan, cost forecast, and response to change, and plan for examination capacity.</td>
+</tr>
+<tr>
+<td>09</td>
+<td><a href="courses/09-technical-integration.html">Project Engineering and Technical Integration</a></td>
+<td>Coordinate disciplines and assess interface changes.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="courses/10-assurance-handover.html">Assurance, Delivery, and Handover</a></td>
+<td>Establish the grounds for using the result and hand over continuing responsibilities.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="courses/11-complex-projects.html">Leading Complex Projects</a></td>
+<td>Diagnose a troubled project and defend its next direction.</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="courses/12-project-practicum.html">Integrated Project Practicum</a></td>
+<td>Deliver and defend a combined result as a human-agent team.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Courses 01 to 04 establish professional and information foundations. Courses 05 to 07 connect reasoning, relationships, and project definition. Courses 08 to 10 address execution, technical integration, and delivery. Courses 11 and 12 address complexity and integrated practice.</p>
+<p>The learning order is not a fixed sequence for running a project. Real projects develop their basis, plans, design, and assurance together.</p>
+<h2 id="work-with-agents">Work with agents</h2>
+<p>You work with real agents in the practice and assessed assignments. Use an agent system that your organization or instructor permits, and keep confidential information out of systems that are not approved for it.</p>
+<p>For each assessed output, keep your production direction, including consequential briefs an agent wrote under it, and a short record of what you checked in the returns you relied on, what you found, and what you changed. References to recoverable material can replace copies. Your instructor assesses that record and your own explanation of the work, not only the finished output.</p>
+<p>Assessing agent-assisted work is difficult, and the difficulty is part of what the series teaches. Your instructor is in the position of a sponsor or client who receives a finished package and must decide how far to rely on it, without seeing how much judgment went into it. Making that judgment visible is part of the practice.</p>
+<p>Give each defense live, by voice or in person, without consulting an agent, where you can. In text-only study, your instructor records that limit with the rating.</p>
+<h2 id="study-with-a-team">Study with a team</h2>
+<ol>
+<li>Read the lesson before the session.</li>
+<li>Discuss the worked example.</li>
+<li>Complete the practice without the instructor answers.</li>
+<li>Prepare the assessed assignment.</li>
+<li>Ask another participant to challenge its basis and conclusions.</li>
+<li>Repair the assignment where the challenge identifies a defect.</li>
+<li>Explain the repair and its effects on connected work.</li>
+</ol>
+<p>Keep your course outputs in one learning portfolio, with each output and its revision identified. Link to supporting evidence instead of copying it repeatedly.</p>
+<p>Use a mentor for individual study. The mentor can challenge your evidence, your interpretation, and the reliance you propose. Course 12 requires a human-agent team or a facilitated role exercise.</p>
+<h2 id="study-with-an-agent-instructor">Study with an agent instructor</h2>
+<p>An agent can teach the lessons, discuss the case, challenge your reasoning, and assess your work against the course criteria. Give it access to the <a href="instructor-guide.html">teaching guide</a>, the current course and its linked instructor companion, and the <a href="case-study.html">case records</a>. The guide explains how to support your learning while keeping your own contribution visible. For an agent with file access, use the maintained <a href="instructor-guide.md">Markdown teaching guide</a>, matching course and companion Markdown files, and <a href="case-study.md">case source</a>. HTML provides the reading editions.</p>
+<p>An agent instructor is itself an agent whose explanations you should examine before relying on them. Treat that as practice.</p>
+<p>You can begin with:</p>
+<blockquote>
+<p>Act as my instructor for this course series. Read the teaching guide and the relevant course, instructor companion, and case records before teaching. Start by establishing my purpose and experience, using what I have already told you. Work through manageable activities with me. Explain when I need help, let me attempt and defend the work, and assess my demonstrations against the stated criteria. Distinguish practice, worked examples, and assessment. Ask for any required material you cannot access.</p>
+</blockquote>
+<p>Bring your own questions, and ask for a different explanation when you need one. Keep the portfolio outputs you will use in later courses. The practicum's requirements for team or individual study and for independent examination still apply; the teaching guide explains how the agent should handle them.</p>
+<h2 id="assessment">Assessment</h2>
+<p>Each course states observable criteria for its assignment. The instructor uses three ratings: meets the criterion, needs repair, or has insufficient evidence.</p>
+<p>Meet every criterion before closing the assignment. A strong presentation does not make up for an unsupported conclusion. Correct the errors, then show the affected work again.</p>
+<p>More than one solution can satisfy a criterion. Whatever your solution, explain its sources, the authority behind it, your reasoning, its uncertainty, and its consequences.</p>
+<p>The series provides training materials. It does not grant professional authority or establish competence for every technical assignment. For real work, follow the actual jurisdiction, appointment, and professional requirements.</p>
+<h2 id="sources-and-references">Sources and references</h2>
+<p><a href="references.html">References</a> explains the role of each source and suggests further reading. This series adapts the project principles of the Chirality manuals for people who work with agents. The manuals keep their own editions; this series does not change their text or the repository's instructions.</p>
+<p>The instructor guides include answer guidance. Keep them separate from a learner's assessment when necessary.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="README.md">README.md</a><br><code>32b6106e4d5977e0a60218fcbf9f44f8233b5dd7ced7382a4805a927e373f125</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

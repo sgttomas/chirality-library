@@ -1,0 +1,7 @@
+--- a/.gitattributes
++++ b/.gitattributes
+@@ -9,3 +9,4 @@
+ # Unified-diff artifacts carry format-mandated blank context lines
+ # (a single space); disable whitespace checks for them entirely.
+ execution/_ScopeChange/**/*.diff -whitespace
++_DomainEngines/bridge/PEC_V2_PROFILE_LIVE_PIN_AMENDMENT_D-T0-28_2026-08-02/TEST_PIN_PATCH.diff -whitespace

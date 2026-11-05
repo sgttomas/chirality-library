@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chirality Program Architecture and Tandem Review Charter</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f4f1e9;
+      --surface: #fffdf7;
+      --surface-2: #ece8dd;
+      --ink: #17201d;
+      --muted: #5d6863;
+      --line: #c8c8bd;
+      --root: #255a54;
+      --root-soft: #dcebe7;
+      --operative: #315f7d;
+      --operative-soft: #dce8ef;
+      --situated: #8a542c;
+      --situated-soft: #f3e2d2;
+      --evidence: #625082;
+      --evidence-soft: #e8e1f0;
+      --human: #a16a00;
+      --human-soft: #f5e9c8;
+      --danger: #9d3c34;
+      --danger-soft: #f5dfdc;
+      --shadow: 0 12px 34px rgba(38, 43, 40, 0.08);
+      --radius: 18px;
+      --max: 1240px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111614;
+        --surface: #18201d;
+        --surface-2: #222b27;
+        --ink: #edf1ed;
+        --muted: #b2bdb7;
+        --line: #3b4741;
+        --root: #77b7ac;
+        --root-soft: #1d3934;
+        --operative: #84b6d2;
+        --operative-soft: #203846;
+        --situated: #d59b70;
+        --situated-soft: #473225;
+        --evidence: #b6a0d2;
+        --evidence-soft: #342c43;
+        --human: #e0b65e;
+        --human-soft: #41381f;
+        --danger: #e39187;
+        --danger-soft: #482b29;
+        --shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--root) 9%, transparent), transparent 28rem),
+        radial-gradient(circle at 95% 15%, color-mix(in srgb, var(--operative) 9%, transparent), transparent 32rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.56;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 30px 0 72px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 6vw, 70px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      top: -130px;
+      width: 360px;
+      height: 360px;
+      border: 70px solid color-mix(in srgb, var(--root) 13%, transparent);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--root);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 20px;
+      font-size: clamp(2.3rem, 6vw, 5rem);
+      font-weight: 650;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.12rem;
+    }
+
+    p { margin: 0 0 1rem; }
+
+    .lede {
+      max-width: 820px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.32rem);
+    }
+
+    .banner {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid color-mix(in srgb, var(--danger) 48%, var(--line));
+      border-radius: 999px;
+      background: var(--danger-soft);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contents a {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contents a:hover,
+    .contents a:focus-visible {
+      background: var(--surface-2);
+      color: var(--ink);
+      outline: 2px solid var(--root);
+      outline-offset: 2px;
+    }
+
+    main > section {
+      margin-top: 64px;
+      scroll-margin-top: 24px;
+    }
+
+    .section-intro {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .thesis {
+      margin: 28px 0;
+      padding: 22px 24px;
+      border-left: 5px solid var(--root);
+      background: var(--root-soft);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 5px 18px rgba(24, 30, 27, 0.04);
+    }
+
+    .card p:last-child,
+    .callout p:last-child { margin-bottom: 0; }
+
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .number {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--root);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .diagram-frame {
+      margin-top: 28px;
+      padding: clamp(12px, 2vw, 24px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .diagram-frame svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram-frame text {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      fill: var(--ink);
+    }
+
+    .diagram-frame .muted-text { fill: var(--muted); }
+    .diagram-frame .node { stroke-width: 2; }
+    .diagram-frame .node-root { fill: var(--root-soft); stroke: var(--root); }
+    .diagram-frame .node-operative { fill: var(--operative-soft); stroke: var(--operative); }
+    .diagram-frame .node-situated { fill: var(--situated-soft); stroke: var(--situated); }
+    .diagram-frame .node-evidence { fill: var(--evidence-soft); stroke: var(--evidence); }
+    .diagram-frame .node-human { fill: var(--human-soft); stroke: var(--human); }
+    .diagram-frame .edge { fill: none; stroke: var(--line); stroke-width: 2.2; }
+    .diagram-frame .edge-govern { stroke: var(--root); }
+    .diagram-frame .edge-operate { stroke: var(--operative); }
+    .diagram-frame .edge-evidence { stroke: var(--evidence); stroke-dasharray: 8 6; }
+    .diagram-frame .edge-human { stroke: var(--human); stroke-width: 2.8; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 16px 4px 2px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .legend-line {
+      width: 28px;
+      height: 0;
+      border-top: 3px solid var(--line);
+    }
+
+    .legend-line.govern { border-color: var(--root); }
+    .legend-line.operate { border-color: var(--operative); }
+    .legend-line.evidence { border-color: var(--evidence); border-top-style: dashed; }
+    .legend-line.human { border-color: var(--human); }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface-2);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    code {
+      padding: 0.1em 0.32em;
+      border-radius: 5px;
+      background: var(--surface-2);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status.accepted { background: var(--root-soft); color: var(--ink); }
+    .status.clarified { background: var(--operative-soft); color: var(--ink); }
+    .status.candidate { background: var(--human-soft); color: var(--ink); }
+    .status.open { background: var(--evidence-soft); color: var(--ink); }
+
+    .callout {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-2);
+    }
+
+    .callout.warning {
+      border-color: color-mix(in srgb, var(--human) 58%, var(--line));
+      background: var(--human-soft);
+    }
+
+    .callout.danger {
+      border-color: color-mix(in srgb, var(--danger) 58%, var(--line));
+      background: var(--danger-soft);
+    }
+
+    .lens-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 18px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .lens-button {
+      min-height: 40px;
+      padding: 8px 13px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .lens-button:hover { background: var(--surface-2); color: var(--ink); }
+
+    .lens-button[aria-pressed="true"] {
+      border-color: var(--root);
+      background: var(--root-soft);
+      color: var(--ink);
+    }
+
+    .lens-button:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--root) 68%, transparent);
+      outline-offset: 2px;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .review-item[hidden] { display: none; }
+
+    .review-item {
+      min-height: 100%;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .lens-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--root);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    ol.steps {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps li {
+      position: relative;
+      min-height: 62px;
+      margin-left: 24px;
+      padding: 0 0 28px 42px;
+      border-left: 2px solid var(--line);
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: -18px;
+      top: -4px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 2px solid var(--root);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--root);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+    .steps strong { display: block; margin-bottom: 4px; }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    ul.clean li { margin: 0.42rem 0; }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .route-step {
+      position: relative;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .route-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      z-index: 2;
+      color: var(--root);
+      font-size: 1.4rem;
+      transform: translateY(-50%);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    footer {
+      margin-top: 70px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 900px) {
+      .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 12; }
+      .review-grid { grid-template-columns: 1fr; }
+      .route { grid-template-columns: 1fr; }
+      .route-step:not(:last-child)::after {
+        content: "↓";
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -25px;
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(calc(100% - 20px), var(--max)); padding-top: 10px; }
+      .hero { padding: 24px 20px; border-radius: 20px; }
+      main > section { margin-top: 48px; }
+      .card { padding: 18px; }
+      th, td { padding: 11px 12px; }
+      .diagram-frame { overflow-x: auto; }
+      .diagram-frame svg { min-width: 740px; }
+    }
+
+    @media print {
+      :root {
+        --paper: #fff;
+        --surface: #fff;
+        --surface-2: #f2f2ef;
+        --ink: #111;
+        --muted: #444;
+        --line: #bbb;
+      }
+      body { background: #fff; }
+      .page { width: 100%; padding: 0; }
+      .hero, .diagram-frame, .card { box-shadow: none; }
+      .contents, .lens-controls { display: none; }
+      .review-item[hidden] { display: block; }
+      main > section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Chirality Program · working synthesis · 2026-07-25</p>
+      <h1>Program architecture and tandem review charter</h1>
+      <p class="lede">
+        A current interpretation of what the Chirality Program is, how Root,
+        shared capabilities, situated applications, domains, evidence, and
+        human judgment relate, and how two independent reviewers should test
+        the PRDs and deliverable scopes for Root, App, and PEC.
+      </p>
+      <span class="banner">Non-governing review plan · no authority or implementation mandate</span>
+      <div class="meta-row" aria-label="Document properties">
+        <span class="tag">Owner: Ryan Tufts</span>
+        <span class="tag">Status: active non-governing plan</span>
+        <span class="tag">Updated: 2026-07-26</span>
+        <span class="tag">Scope: Root · App · PEC review</span>
+        <span class="tag">Target: PRDs · decompositions · ScopeOfWork</span>
+      </div>
+      <ul class="contents" aria-label="Contents">
+        <li><a href="#thesis">Program thesis</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#ownership">Ownership</a></li>
+        <li><a href="#status">Assertion status</a></li>
+        <li><a href="#guidance">Reviewer guidance</a></li>
+        <li><a href="#review">Tandem review</a></li>
+        <li><a href="#sequence">Sequence</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <section id="thesis">
+        <p class="eyebrow">01 · Program thesis</p>
+        <h2>One continuing program; several distinct products and situated forms</h2>
+        <p class="section-intro">
+          “Program” names the continuing human-governed enterprise. “Root”
+          names its canonical generative product. App, PEC, shared runtime,
+          resource governance, domain applications, and domain engines occupy
+          distinct positions within that program; convergence does not erase
+          their ownership boundaries.
+        </p>
+
+        <div class="thesis">
+          The Chirality Program is the continuing human-governed program
+          through which Chirality Root, shared capabilities, situated
+          applications, and domain forms are developed, evaluated, and brought
+          into governed convergence.
+        </div>
+
+        <div class="grid">
+          <article class="card span-4">
+            <span class="number">Program</span>
+            <h3>The longitudinal enterprise</h3>
+            <p>
+              Holds continuity of human intention, the product family,
+              developmental inquiry, accumulated evidence, and decisions about
+              what should remain situated or converge toward Root.
+            </p>
+          </article>
+          <article class="card span-4">
+            <span class="number">Root</span>
+            <h3>The canonical generative product</h3>
+            <p>
+              Owns the common governing form: normative basis, reusable
+              instruction and method resources, shared runtime substrate,
+              developmental machinery, evidence conventions, and safe
+              self-application.
+            </p>
+          </article>
+          <article class="card span-4">
+            <span class="number">Products and situated forms</span>
+            <h3>Where the common form becomes usable or particular</h3>
+            <p>
+              App and PEC provide distinct reusable product capabilities.
+              Piping, future domain applications, domains, and working roots
+              specialize the common form according to product purpose and
+              professional circumstances.
+            </p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <strong>The monorepo is not identical to the Program.</strong>
+          It is the canonical record and principal development environment.
+          The Program also includes the human inquiry, judgments, uses, and
+          continuity that no directory tree can perform by itself.
+        </div>
+      </section>
+
+      <section id="architecture">
+        <p class="eyebrow">02 · Architecture</p>
+        <h2>A situated application is a declared composition, not a leaf in a hierarchy</h2>
+        <p class="section-intro">
+          The owner’s graph is best read as a capability wheel. A domain
+          application sits where Root, the reusable work surface, PEC,
+          optional resource governance, runtime execution, and domain truth are
+          composed.
+          The edges are first-class contracts, not accidental integration code.
+        </p>
+
+        <div class="diagram-frame">
+          <svg viewBox="0 0 1120 760" role="img" aria-labelledby="program-map-title program-map-desc">
+            <title id="program-map-title">Chirality Program capability and authority map</title>
+            <desc id="program-map-desc">
+              Chirality Root supplies the common governing form and owns the
+              shared runtime contract. Chirality App, PEC, and optional
+              resource governance remain distinct product capabilities that
+              connect to a situated environment containing a domain interface,
+              domain engine, and governed working state. Evidence passes
+              through human judgment before an accepted record can change an
+              owning product.
+            </desc>
+            <defs>
+              <marker id="arrow-root" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="var(--root)"></path>
+              </marker>
+              <marker id="arrow-operative" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="var(--operative)"></path>
+              </marker>
+              <marker id="arrow-evidence" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="var(--evidence)"></path>
+              </marker>
+              <marker id="arrow-human" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="var(--human)"></path>
+              </marker>
+            </defs>
+
+            <path class="edge edge-govern" marker-end="url(#arrow-root)" d="M500 140 C433 153,336 171,270 196"></path>
+            <path class="edge edge-govern" marker-end="url(#arrow-root)" d="M560 140 L560 190"></path>
+            <path class="edge edge-govern" marker-end="url(#arrow-root)" d="M620 140 C690 154,792 171,855 196"></path>
+            <path class="edge edge-govern" marker-end="url(#arrow-root)" d="M455 140 C405 218,380 286,385 360"></path>
+
+            <path class="edge edge-operate" marker-end="url(#arrow-operative)" d="M250 290 C296 331,342 351,408 382"></path>
+            <path class="edge edge-operate" marker-end="url(#arrow-operative)" d="M560 290 L560 360"></path>
+            <path class="edge edge-operate" marker-end="url(#arrow-operative)" d="M885 290 C825 333,772 352,709 382"></path>
+
+            <path class="edge edge-evidence" marker-end="url(#arrow-evidence)" d="M350 590 C294 622,244 639,201 650"></path>
+            <path class="edge edge-evidence" marker-end="url(#arrow-evidence)" d="M310 696 L430 696"></path>
+            <path class="edge edge-human" marker-end="url(#arrow-human)" d="M690 696 L810 696"></path>
+            <path class="edge edge-human" marker-end="url(#arrow-human)" d="M560 650 L560 592"></path>
+            <path class="edge edge-govern" marker-end="url(#arrow-root)" d="M930 650 C1082 512,1067 118,722 80"></path>
+
+            <rect class="node node-root" x="410" y="20" width="300" height="120" rx="20"></rect>
+            <text x="560" y="54" text-anchor="middle" font-size="21" font-weight="700">Chirality Root</text>
+            <text class="muted-text" x="560" y="80" text-anchor="middle" font-size="13">canonical governing and generative form</text>
+            <text class="muted-text" x="560" y="104" text-anchor="middle" font-size="13">shared runtime contract + operative substrate</text>
+            <text class="muted-text" x="560" y="124" text-anchor="middle" font-size="12">daemon · sessions · tools · engines</text>
+
+            <rect class="node node-operative" x="130" y="190" width="240" height="100" rx="18"></rect>
+            <text x="250" y="225" text-anchor="middle" font-size="18" font-weight="700">Chirality App</text>
+            <text class="muted-text" x="250" y="250" text-anchor="middle" font-size="13">standalone product + work surface</text>
+            <text class="muted-text" x="250" y="270" text-anchor="middle" font-size="13">human and agent access</text>
+
+            <rect class="node node-operative" x="445" y="190" width="230" height="100" rx="18"></rect>
+            <text x="560" y="225" text-anchor="middle" font-size="18" font-weight="700">PEC</text>
+            <text class="muted-text" x="560" y="250" text-anchor="middle" font-size="13">coordination · orientation · notices</text>
+            <text class="muted-text" x="560" y="270" text-anchor="middle" font-size="13">optional; never authority</text>
+
+            <rect class="node node-operative" x="760" y="190" width="250" height="100" rx="18"></rect>
+            <text x="885" y="225" text-anchor="middle" font-size="18" font-weight="700">Resource governance</text>
+            <text class="muted-text" x="885" y="248" text-anchor="middle" font-size="12">estimates · sequencing · locks / freeze</text>
+            <text class="muted-text" x="885" y="266" text-anchor="middle" font-size="12">budgets · usage · cost · forecast</text>
+            <text class="muted-text" x="885" y="283" text-anchor="middle" font-size="11">optional service</text>
+
+            <rect class="node node-situated" x="260" y="360" width="600" height="230" rx="24"></rect>
+            <text x="560" y="398" text-anchor="middle" font-size="21" font-weight="700">Situated application environment</text>
+            <text class="muted-text" x="560" y="423" text-anchor="middle" font-size="13">a declared composition for a particular form of professional work</text>
+
+            <rect class="node node-situated" x="300" y="475" width="160" height="78" rx="14"></rect>
+            <text x="380" y="507" text-anchor="middle" font-size="15" font-weight="700">Domain UI</text>
+            <text class="muted-text" x="380" y="531" text-anchor="middle" font-size="12">human-facing form</text>
+
+            <rect class="node node-situated" x="480" y="475" width="160" height="78" rx="14"></rect>
+            <text x="560" y="507" text-anchor="middle" font-size="15" font-weight="700">Domain engine</text>
+            <text class="muted-text" x="560" y="531" text-anchor="middle" font-size="12">domain truth + operations</text>
+
+            <rect class="node node-evidence" x="660" y="475" width="160" height="78" rx="14"></rect>
+            <text x="740" y="507" text-anchor="middle" font-size="15" font-weight="700">Working state</text>
+            <text class="muted-text" x="740" y="531" text-anchor="middle" font-size="12">files · evidence · records</text>
+
+            <rect class="node node-evidence" x="70" y="650" width="240" height="92" rx="18"></rect>
+            <text x="190" y="684" text-anchor="middle" font-size="18" font-weight="700">Program evidence</text>
+            <text class="muted-text" x="190" y="708" text-anchor="middle" font-size="13">friction · findings · successful patterns</text>
+            <text class="muted-text" x="190" y="728" text-anchor="middle" font-size="13">evidence is not authority</text>
+
+            <rect class="node node-human" x="430" y="650" width="260" height="92" rx="18"></rect>
+            <text x="560" y="684" text-anchor="middle" font-size="18" font-weight="700">Human judgment</text>
+            <text class="muted-text" x="560" y="708" text-anchor="middle" font-size="13">evaluate · accept · reject · redirect</text>
+            <text class="muted-text" x="560" y="728" text-anchor="middle" font-size="13">iterate · rely · release</text>
+
+            <rect class="node node-evidence" x="810" y="650" width="240" height="92" rx="18"></rect>
+            <text x="930" y="684" text-anchor="middle" font-size="18" font-weight="700">Accepted record</text>
+            <text class="muted-text" x="930" y="708" text-anchor="middle" font-size="13">scope · decisions · snapshots</text>
+            <text class="muted-text" x="930" y="728" text-anchor="middle" font-size="13">routes change to its semantic owner</text>
+          </svg>
+          <div class="legend" aria-label="Diagram legend">
+            <span class="legend-item"><span class="legend-line govern"></span>Constraint and accepted capability</span>
+            <span class="legend-item"><span class="legend-line operate"></span>Execution or consumption</span>
+            <span class="legend-item"><span class="legend-line evidence"></span>Evidence, finding, or candidate</span>
+            <span class="legend-item"><span class="legend-line human"></span>Human judgment</span>
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top: 18px;">
+          <article class="card span-6">
+            <span class="number">What the wheel preserves</span>
+            <h3>Reciprocity without automatic authority transfer</h3>
+            <p>
+              Situated applications consume common capabilities and return
+              evidence. Root, App, PEC, runtime, and resource governance also
+              need direct contracts with one another. Feedback may move in
+              every direction; authority moves only through attributable human
+              acts and accepted records.
+            </p>
+          </article>
+          <article class="card span-6">
+            <span class="number">What the wheel corrects</span>
+            <h3>No simple “platform above, app below” hierarchy</h3>
+            <p>
+              Piping or another domain product is a complete situated
+              environment with its own UI, engine, truth, users, and agent
+              hierarchy. It is neither a plugin nor an Agent 2. It composes
+              Root-governed capabilities while retaining domain ownership.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="ownership">
+        <p class="eyebrow">03 · Ownership and relationship contracts</p>
+        <h2>Every shared function needs one semantic owner</h2>
+        <p class="section-intro">
+          Code location, product ownership, client integration, and
+          professional authority are different facts. The review must prevent
+          temporary migration arrangements or implementation convenience from
+          turning into permanent divided ownership.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Part</th>
+                <th>Owns</th>
+                <th>Consumes</th>
+                <th>Must not become</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Chirality Root</strong></td>
+                <td>Normative basis, common generative form, root instruction resources, shared runtime contract, developmental machinery, evidence conventions</td>
+                <td>Situated evidence and governed promotion candidates</td>
+                <td>A monolithic owner of every domain product or UI</td>
+              </tr>
+              <tr>
+                <td><strong>Shared runtime</strong></td>
+                <td>Protocol, daemon, clients, sessions, locks, tools, delegation, credentials, engine adapters, model residency, conformance</td>
+                <td>Root authority contracts and registered project/client configuration</td>
+                <td>Project truth, professional authority, or an App-owned implementation detail</td>
+              </tr>
+              <tr>
+                <td><strong>Chirality App / work surface</strong></td>
+                <td>Human experience, reusable work-surface presentation, runtime-client integration, and faithful human/agent mediation</td>
+                <td>Root instruction basis, shared runtime contract, working-root records, optional shared services</td>
+                <td>The owner of Root doctrine, runtime semantics, PEC truth, or domain truth</td>
+              </tr>
+              <tr>
+                <td><strong>PEC</strong></td>
+                <td>Coordination projections, orientation, presence, notices, and evidence about concurrent work</td>
+                <td>File/Git coordination truth, runtime identities, accepted scope and work graphs</td>
+                <td>System of record, ruling surface, dispatcher, lock manager, or correctness dependency</td>
+              </tr>
+              <tr>
+                <td><strong>Resource governance</strong></td>
+                <td>Estimates, sequencing support, resource locks and freezes, budgets, usage and cost attribution, and forecast monitoring under accepted policy</td>
+                <td>Runtime events, stable work identities, accepted work state, system evidence, and budget and control policy</td>
+                <td>A system of record, a correctness dependency, or authority to set priorities, freeze work, invent budgets, authorize expenditure, or make financial commitments</td>
+              </tr>
+              <tr>
+                <td><strong>Domain application / engine</strong></td>
+                <td>Domain UI, domain workflows, protected artifacts, deterministic domain operations, domain truth and professional boundaries</td>
+                <td>Root capabilities, runtime execution, optional work surface, coordination and resource services</td>
+                <td>A silent fork of Root or a surrender of domain truth to generic infrastructure</td>
+              </tr>
+              <tr>
+                <td><strong>Human</strong></td>
+                <td>Consequential acceptance, rejection, redirection, reliance, issuance, iteration, and release judgments</td>
+                <td>Operative evidence, developmental evidence, findings, conflicts, and alternatives</td>
+                <td>A passive approval endpoint or another machine service</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warning">
+          <strong>Root runtime ownership is not optional.</strong>
+          The Root PRD already places <code>runtime/</code> in the operative
+          product. The Root decomposition must assign its contract and
+          continuing conformance work to a Root package and deliverables.
+          App, PEC, CLI, and domain applications own consumer integration.
+        </div>
+
+        <h3 style="margin-top: 36px;">Application environment profile — candidate architecture contract</h3>
+        <p class="section-intro">
+          A Chirality-enabled application should eventually declare the
+          subgraph it instantiates. This is a clarified design direction, not
+          yet treated here as an adopted universal requirement.
+        </p>
+        <div class="grid" style="margin-top: 18px;">
+          <article class="card span-4">
+            <span class="number">Basis</span>
+            <h3>Identity and compatibility</h3>
+            <ul class="clean">
+              <li>Root instruction-bundle identity</li>
+              <li>Runtime protocol version</li>
+              <li>Working-root contract</li>
+              <li>Application and domain profile</li>
+            </ul>
+          </article>
+          <article class="card span-4">
+            <span class="number">Capabilities</span>
+            <h3>Declared composition</h3>
+            <ul class="clean">
+              <li>Standalone, embedded, or sidecar work surface</li>
+              <li>PEC availability or requirement</li>
+              <li>Optional resource-governance service</li>
+              <li>Domain engine and operation interfaces</li>
+            </ul>
+          </article>
+          <article class="card span-4">
+            <span class="number">Boundaries</span>
+            <h3>Authority and fallback</h3>
+            <ul class="clean">
+              <li>Truth and evidence owner by function</li>
+              <li>Human gates</li>
+              <li>Optional-service degraded behavior</li>
+              <li>Migration and rollback posture</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="status">
+        <p class="eyebrow">04 · Assertion status</p>
+        <h2>Keep accepted architecture separate from emerging program insight</h2>
+        <p class="section-intro">
+          This document deliberately records confidence and authority status.
+          A useful interpretation must not silently become a requirement merely
+          because it is coherent.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Current understanding</th>
+                <th>Review consequence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="status accepted">Accepted basis</span></td>
+                <td>Root is the canonical human-governed application environment and generative operating form; human judgment is the hinge; Root serves situated variants; domain engines own domain truth.</td>
+                <td>Missing or contradictory decomposition/SOW coverage is a conformance finding.</td>
+              </tr>
+              <tr>
+                <td><span class="status accepted">Accepted basis</span></td>
+                <td>The root <code>runtime/</code> executable substrate is part of the Root operative product; its operational state is not project truth or authority.</td>
+                <td>Runtime ownership must land at Root; consumer products cannot redefine it silently.</td>
+              </tr>
+              <tr>
+                <td><span class="status clarified">Clarified framing</span></td>
+                <td>The Chirality App has two useful identities: standalone general application and reference/reusable human–agent work surface.</td>
+                <td>Test whether App PRD/SOWs support this without claiming it is already governed in exact terms.</td>
+              </tr>
+              <tr>
+                <td><span class="status clarified">Clarified framing</span></td>
+                <td>A situated domain application is a composition of shared capabilities, its own UI/engine, governed working state, and human judgment.</td>
+                <td>Look for an application-integration home; do not force one topology from the metaphor.</td>
+              </tr>
+              <tr>
+                <td><span class="status candidate">Candidate requirement</span></td>
+                <td>Every Chirality-enabled application declares an application environment profile and runtime/work-surface conformance.</td>
+                <td>If absent, route as a possible Root PRD amendment; do not invent it through decomposition.</td>
+              </tr>
+              <tr>
+                <td><span class="status candidate">Candidate capability</span></td>
+                <td>PEC and resource governance are optional services rather than correctness dependencies. Resource governance consumes accepted system information to provide estimates, sequencing support, locks and freezes, budgets, usage and cost attribution, and forecast monitoring.</td>
+                <td>PEC’s present product contract governs what exists. Resource governance needs its own service, authority, data, and degraded-mode contract before entering product scope; optionality must remain explicit.</td>
+              </tr>
+              <tr>
+                <td><span class="status open">Open design question</span></td>
+                <td>Physical bundling versus logical composition: embedded resources, companion process, sidecar, shared installation, or compatible client.</td>
+                <td>Require declared compatibility and one runtime owner; avoid duplicative daemon or governance forks.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="guidance">
+        <p class="eyebrow">05 · Reviewer guidance</p>
+        <h2>Use this as a challenge set, never as an additional accepted basis</h2>
+        <p class="section-intro">
+          This synthesis may help reviewers see relationships and failure modes
+          that are easy to miss when reading one product at a time. It must not
+          decide their findings in advance. Each reviewer first orients from
+          the exact frozen repository basis, forms an independent account, and
+          only then uses this document to challenge that account.
+        </p>
+
+        <div class="grid" style="margin-top: 22px;">
+          <article class="card span-4">
+            <span class="number">Orient</span>
+            <h3>Begin from governed records</h3>
+            <p>
+              Establish the accepted PRD, decomposition, registers, ScopeOfWork
+              files, decisions, and snapshots. Where this synthesis differs,
+              the governed record controls and the difference is itself useful
+              review evidence.
+            </p>
+          </article>
+          <article class="card span-4">
+            <span class="number">Challenge</span>
+            <h3>Probe without prescribing</h3>
+            <p>
+              Use the architecture and questions to test omissions,
+              contradictions, ambiguous ownership, hidden dependencies, and
+              cross-product consequences. Do not assume the suggested answer
+              is the correct one.
+            </p>
+          </article>
+          <article class="card span-4">
+            <span class="number">Route</span>
+            <h3>Keep new claims out of findings</h3>
+            <p>
+              A review may expose a candidate requirement, but it cannot create
+              one. Route genuinely new commitments through the owning PRD,
+              governance act, or scope-change workflow with human acceptance.
+            </p>
+          </article>
+        </div>
+
+        <h3 style="margin-top: 36px;">Permissible treatment follows assertion status</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Assertion status</th>
+                <th>What the reviewer may conclude</th>
+                <th>What the reviewer must not do</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="status accepted">Accepted basis</span></td>
+                <td>Return an evidence-linked conformance finding when accepted intent is missing, contradicted, or left without executable coverage.</td>
+                <td>Replace the accepted meaning with this document’s preferred interpretation.</td>
+              </tr>
+              <tr>
+                <td><span class="status clarified">Clarified framing</span></td>
+                <td>Return a concordance question, ambiguity, architectural risk, or recommendation for owner consideration.</td>
+                <td>Fail a product merely because it does not instantiate the clarified framing.</td>
+              </tr>
+              <tr>
+                <td><span class="status candidate">Candidate architecture</span></td>
+                <td>Return an evidence-linked proposal or owner-decision request when the candidate would resolve a demonstrated problem.</td>
+                <td>Count absence as a scope gap or introduce the candidate through decomposition or ScopeOfWork prose.</td>
+              </tr>
+              <tr>
+                <td><span class="status open">Open design question</span></td>
+                <td>Preserve viable alternatives, identify decision criteria, and show what downstream work each alternative affects.</td>
+                <td>Close the question through reviewer preference or implementation convenience.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Common ownership test:</strong>
+          for each shared function, identify its semantic owner, producers,
+          consumers, authoritative record, compatibility obligation, fallback
+          behavior, and routed change path. “Shared” describes use; it does not
+          authorize divided ownership.
+        </div>
+
+        <h3 style="margin-top: 36px;">Architectural challenges worth testing</h3>
+        <div class="grid" style="margin-top: 18px;">
+          <article class="card span-6">
+            <span class="number">Ownership and authority</span>
+            <ul class="clean">
+              <li>Has Root become the default owner merely because a function is shared?</li>
+              <li>Does every shared function have one semantic owner and one accepted record?</li>
+              <li>Has generic infrastructure absorbed domain truth or professional authority?</li>
+              <li>Can governed work remain intelligible and recoverable without PEC?</li>
+              <li>Can work continue safely without resource governance, and do its locks or freezes remain attributable to accepted human or workflow authority?</li>
+              <li>Has a machine gate, runtime service, or reviewer preference acquired human authority?</li>
+            </ul>
+          </article>
+          <article class="card span-6">
+            <span class="number">Composition and change</span>
+            <ul class="clean">
+              <li>Is App’s standalone-product role confused with its possible reusable-work-surface role?</li>
+              <li>Has logical composition been mistaken for mandatory physical bundling?</li>
+              <li>Are compatibility, semantic parity, migration, rollback, and degraded behavior owned?</li>
+              <li>Has a product commitment appeared only in decomposition or ScopeOfWork prose?</li>
+              <li>Are both reviewers independently testing the basis, or reproducing this synthesis?</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout warning">
+          <strong>Question, do not command.</strong>
+          “App shall provide the reusable work surface for every domain
+          application” would create scope. Instead ask whether the accepted
+          basis assigns ownership of such a surface and, if the scopes rely on
+          one without an owner or contract, classify the result as a
+          conformance gap, unresolved design question, or proposed PRD change.
+        </div>
+      </section>
+
+      <section id="review">
+        <p class="eyebrow">06 · Tandem review charter</p>
+        <h2>Two independent reviewers; one frozen basis; no consensus shortcut</h2>
+        <p class="section-intro">
+          A formal review should run under <code>EVALUATION</code> as the
+          read-only Agent 1 manager. It dispatches two sealed, independent
+          Agent 2 reviewers over the same complete corpus. Their first-pass
+          reports remain separate and immutable; reciprocal challenge begins
+          only after both returns are frozen.
+        </p>
+
+        <div class="grid" style="margin-top: 22px;">
+          <article class="card span-6">
+            <span class="number">Reviewer A · vertical lens</span>
+            <h3>Authority, intent, and traceability</h3>
+            <p>
+              Tests status and provenance; PRD commitment → objective → SOW →
+              package → deliverable trace; human gates; non-goals; falsifiers;
+              accepted-versus-proposed discipline; stable IDs; and whether the
+              decomposition preserved rather than replaced owner intent.
+            </p>
+          </article>
+          <article class="card span-6">
+            <span class="number">Reviewer B · horizontal lens</span>
+            <h3>Architecture, boundaries, and adversarial concordance</h3>
+            <p>
+              Tests Root/App/PEC/runtime/domain ownership; producer, consumer,
+              fallback, and degraded-mode relations; duplicated truth;
+              circular dependency; self-authorization; cross-product gaps; and
+              scope that has migrated to the wrong product.
+            </p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <strong>Both reviewers cover Root, App, and PEC.</strong>
+          Dividing products between reviewers would create coverage without
+          independence. The lenses differ; the reviewed corpus does not.
+          Both reviewers orient independently from the frozen repository basis
+          before consulting this synthesis. They may then use it as a common
+          challenge set, but neither may treat it as accepted evidence.
+        </div>
+
+        <div class="lens-controls" role="group" aria-label="Choose review lens">
+          <button class="lens-button" type="button" data-lens="all" aria-pressed="true">All review questions</button>
+          <button class="lens-button" type="button" data-lens="root" aria-pressed="false">Root</button>
+          <button class="lens-button" type="button" data-lens="app" aria-pressed="false">App</button>
+          <button class="lens-button" type="button" data-lens="pec" aria-pressed="false">PEC</button>
+          <button class="lens-button" type="button" data-lens="sow" aria-pressed="false">Deliverable SOW</button>
+        </div>
+        <p id="lens-summary" class="small" aria-live="polite">Showing the complete cross-product review set.</p>
+
+        <div class="review-grid">
+          <article class="review-item" data-lenses="root sow">
+            <span class="lens-label">Root</span>
+            <h3>Shared runtime ownership</h3>
+            <p>Does one Root package own runtime protocol, daemon, clients, sessions, tools, delegation, credentials, adapters, compatibility, security, migration, and release evidence?</p>
+          </article>
+          <article class="review-item" data-lenses="root app pec sow">
+            <span class="lens-label">Cross-product</span>
+            <h3>Producer, consumer, and fallback</h3>
+            <p>For every shared function, are the semantic owner, consuming products, accepted basis, fallback, and routed-change obligations explicit?</p>
+          </article>
+          <article class="review-item" data-lenses="root sow">
+            <span class="lens-label">Root</span>
+            <h3>Four-category coverage without folder mimicry</h3>
+            <p>Are normative, operative, developmental, and evidence functions covered or reasonedly deferred without simply creating four packages named after the categories?</p>
+          </article>
+          <article class="review-item" data-lenses="root app pec">
+            <span class="lens-label">Cross-product</span>
+            <h3>Application composition boundary</h3>
+            <p>Does the corpus provide a lawful home for reusable work-surface and application-integration contracts, or reveal a genuine PRD gap that decomposition may not invent?</p>
+          </article>
+          <article class="review-item" data-lenses="app sow">
+            <span class="lens-label">App</span>
+            <h3>Standalone product and reusable work surface</h3>
+            <p>Can the App remain a coherent standalone product while its human–agent surface is reused as embedded, companion, or sidecar capability without exporting incidental presentation assumptions?</p>
+          </article>
+          <article class="review-item" data-lenses="app sow">
+            <span class="lens-label">App</span>
+            <h3>Faithful human/agent mediation</h3>
+            <p>Do UI and direct-agent paths preserve prerequisites, authority, state effects, provenance, interruption, recovery, errors, and outcomes without either surface bypassing governance?</p>
+          </article>
+          <article class="review-item" data-lenses="app root sow">
+            <span class="lens-label">App ↔ Root</span>
+            <h3>Runtime client, not runtime authority</h3>
+            <p>Are App deliverables limited to client integration, presentation, packaging, and conformance rather than retaining permanent semantic ownership of the shared Root runtime?</p>
+          </article>
+          <article class="review-item" data-lenses="pec sow">
+            <span class="lens-label">PEC</span>
+            <h3>Coordination without authority</h3>
+            <p>Does PEC remain advisory, explainable, rebuildable, and file-fallback-safe—never a ruling surface, system of record, dispatcher, lock manager, or Git actor?</p>
+          </article>
+          <article class="review-item" data-lenses="pec root app">
+            <span class="lens-label">PEC ↔ environment</span>
+            <h3>Complexity-dependent availability</h3>
+            <p>Is PEC optional for correctness and available where concurrency warrants it, with declared identities and graceful absence rather than silent mandatory coupling?</p>
+          </article>
+          <article class="review-item" data-lenses="root app pec sow">
+            <span class="lens-label">Resource governance ↔ environment</span>
+            <h3>Optional planning and resource service</h3>
+            <p>Does resource governance consume accepted system information to provide estimates, sequencing, locks or freezes, budgets, usage, cost, and forecast monitoring while remaining optional, replaceable, and unable to create authority or become the system of record?</p>
+          </article>
+          <article class="review-item" data-lenses="root app pec sow">
+            <span class="lens-label">All</span>
+            <h3>Human judgment remains the hinge</h3>
+            <p>Do validators, runtime state, UI controls, coordination projections, cost thresholds, and agent capability remain evidence or objective gates rather than substitutes for acceptance, reliance, iteration, or release judgment?</p>
+          </article>
+          <article class="review-item" data-lenses="root app pec sow">
+            <span class="lens-label">All</span>
+            <h3>Domain truth remains situated</h3>
+            <p>Do Root, App, runtime, and PEC govern work around domain engines without absorbing protected domain state, deterministic domain acts, or professional authority?</p>
+          </article>
+          <article class="review-item" data-lenses="sow">
+            <span class="lens-label">Deliverable SOW</span>
+            <h3>Executable and warranted scope</h3>
+            <p>Does each SOW trace to accepted product scope, have one primary owner, name interfaces and evidence, fit its context envelope, and avoid introducing new product commitments through implementation prose?</p>
+          </article>
+        </div>
+
+        <h3 style="margin-top: 40px;">Formal two-pass protocol</h3>
+        <ol class="steps">
+          <li>
+            <strong>Freeze the review manifest.</strong>
+            Record exact SHAs or exact bytes for Root, App, and PEC PRDs;
+            accepted decompositions; SOWs; controlling decisions; companion
+            registers; and the review question set. Mutable pointers are
+            navigation only.
+          </li>
+          <li>
+            <strong>Seal two independent briefs.</strong>
+            Both reviewers receive the same complete corpus, scope, evidence
+            rules, output schema, read-only boundary, and decision criteria.
+            They do not receive one another’s reasoning or drafts.
+          </li>
+          <li>
+            <strong>Run independent pass 1.</strong>
+            Reviewer A applies the vertical authority/trace lens. Reviewer B
+            applies the horizontal boundary/adversarial lens. Both produce full
+            coverage and boundary matrices, not selected anecdotes.
+          </li>
+          <li>
+            <strong>Validate returns deterministically.</strong>
+            EVALUATION checks schema, evidence anchors, basis currency, coverage,
+            stable IDs, duplicate ownership, and missing outputs before either
+            report enters fan-in.
+          </li>
+          <li>
+            <strong>Run reciprocal challenge.</strong>
+            After pass-1 returns are frozen, each reviewer receives the other’s
+            report and marks every high-severity finding—and a recorded sample
+            of lower findings—as CONFIRM, REFUTE, NARROW, or
+            ADD-MISSING-EVIDENCE.
+          </li>
+          <li>
+            <strong>Fan in without averaging.</strong>
+            EVALUATION classifies each issue as AGREED,
+            RESOLVED_BY_EVIDENCE, STANDING_DIVERGENCE,
+            SHARED_BLIND_SPOT_RISK, or STALE_INPUT. Agreement is not proof;
+            disagreement is not failure.
+          </li>
+          <li>
+            <strong>Return consequential decisions to the human.</strong>
+            Agent 0 presents unresolved authority, scope, risk, ownership, and
+            acceptance questions. The review itself edits no PRD,
+            decomposition, or SOW.
+          </li>
+          <li>
+            <strong>Route the smallest governed action.</strong>
+            Accepted corrections go to the owning instrument: Root governance
+            or PRD, Root decomposition/SCOPE_CHANGE, App PRD/SCOPE_CHANGE, PEC
+            PRD/SCOPE_CHANGE, deliverable remediation, or derivative
+            regeneration.
+          </li>
+          <li>
+            <strong>Re-review only the affected basis.</strong>
+            Preserve prior findings and decisions, update the manifest to the
+            new accepted bytes, and rerun impacted trace and boundary rows.
+          </li>
+        </ol>
+
+        <h3 style="margin-top: 42px;">Required reviewer return</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Requirement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>FindingID</code></td>
+                <td>Stable within the review; never reused for a different finding.</td>
+              </tr>
+              <tr>
+                <td><code>Product / Surface</code></td>
+                <td>ROOT, APP, PEC, CROSS_PRODUCT, or a specific SOW/deliverable.</td>
+              </tr>
+              <tr>
+                <td><code>Assertion</code></td>
+                <td>One checkable claim, not a general impression.</td>
+              </tr>
+              <tr>
+                <td><code>EvidenceRefs</code></td>
+                <td>Exact file, section, row, ID, SHA, or validated tool output.</td>
+              </tr>
+              <tr>
+                <td><code>Class / Severity</code></td>
+                <td>Authority conflict, trace gap, ownership gap, semantic conflict, omission, overreach, observation; BLOCK/REVIEW/WARN/INFO within a declared observation boundary.</td>
+              </tr>
+              <tr>
+                <td><code>Consequence</code></td>
+                <td>Why the finding matters for reliance, implementation, compatibility, closure, or future change.</td>
+              </tr>
+              <tr>
+                <td><code>SmallestAction / Owner</code></td>
+                <td>The least expansive lawful correction and the instrument or workflow that owns it.</td>
+              </tr>
+              <tr>
+                <td><code>Confidence</code></td>
+                <td>Evidence-grounded confidence plus visible UNKNOWN where the basis cannot decide.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout danger">
+          <strong>Review closure is not product acceptance.</strong>
+          Close the review only when every admitted PRD commitment has a trace
+          disposition, every cross-product function has a declared truth and
+          authority owner plus fallback, every high-severity disagreement is
+          adjudicated or explicitly held, and the exact reviewed basis is
+          recorded. The human still decides what to accept.
+        </div>
+      </section>
+
+      <section id="sequence">
+        <p class="eyebrow">07 · Recommended sequence</p>
+        <h2>Use the current pause to preserve the right order</h2>
+        <p class="section-intro">
+          The architecture synthesis should guide review, not pre-empt the
+          Root decomposition or silently broaden the paused App parity work.
+        </p>
+
+        <div class="route" aria-label="Recommended review and change sequence">
+          <div class="route-step">
+            <span class="number">1</span>
+            <strong>Root SOWs land</strong>
+            <p class="small">Freeze the accepted Root PRD, decomposition, registers, and deliverable scopes.</p>
+          </div>
+          <div class="route-step">
+            <span class="number">2</span>
+            <strong>Tandem Root audit</strong>
+            <p class="small">Test runtime ownership, four-category coverage, application integration, evidence, and human-gated self-application.</p>
+          </div>
+          <div class="route-step">
+            <span class="number">3</span>
+            <strong>Route true gaps</strong>
+            <p class="small">Distinguish decomposition repair from a genuine Root PRD amendment; do not smuggle new architecture through SOW prose.</p>
+          </div>
+          <div class="route-step">
+            <span class="number">4</span>
+            <strong>Rebaseline App and PEC</strong>
+            <p class="small">Then resume App semantic-parity SCA planning and audit App/PEC against the accepted Root ownership model.</p>
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top: 26px;">
+          <article class="card span-6">
+            <span class="number">Immediate audit expectations</span>
+            <ul class="clean">
+              <li>Every PRD commitment and objective has coverage or a reasoned deferral.</li>
+              <li>The shared runtime contract has one Root owner.</li>
+              <li>App, PEC, CLI, and domain products remain consumers or situated owners.</li>
+              <li>Human evaluation, iteration, and release judgments remain distinct.</li>
+              <li>No new requirement appears only in decomposition or SOW prose.</li>
+              <li>Dependencies and acceptance evidence make each deliverable executable.</li>
+            </ul>
+          </article>
+          <article class="card span-6">
+            <span class="number">Questions intentionally held open</span>
+            <ul class="clean">
+              <li>Whether the reusable work surface is a Root requirement, an App capability, or both under different ownership.</li>
+              <li>The exact authority and schema of an application environment profile.</li>
+              <li>When PEC is available, recommended, or required by complexity.</li>
+              <li>The product home, service contract, lock/freeze authority boundary, and fallback behavior of optional resource governance.</li>
+              <li>Logical composition versus physical bundling and update cadence.</li>
+              <li>Which cross-client conformance proofs are release requirements.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout">
+          <strong>How findings become governed work:</strong>
+          observation → evidence-linked finding → tandem challenge → EVALUATION
+          fan-in → human disposition → owning instrument or workflow → accepted
+          change → affected-scope rerun. No reviewer preference enters product
+          scope without that route.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Working synthesis prepared 2026-07-25 for owner review. It does not
+        amend the Chirality Root, App, or PEC PRDs; create or alter a
+        decomposition; authorize implementation; or substitute for a governed
+        decision record. Repository sources and accepted instruments control
+        wherever they differ from this interpretation.
+      </p>
+      <p>
+        Retention posture: keep this record in <code>plans/</code> while it
+        actively informs the Root, App, and PEC reviews. Review findings,
+        dispositions, and accepted changes belong in their owning governed
+        workflows. When the charter no longer informs active work, move it to
+        <code>plans/.archive/</code> without promoting it into product
+        authority.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const buttons = Array.from(document.querySelectorAll(".lens-button"));
+      const items = Array.from(document.querySelectorAll(".review-item"));
+      const summary = document.getElementById("lens-summary");
+      const labels = {
+        all: "Showing the complete cross-product review set.",
+        root: "Showing questions that directly test Chirality Root and its relationships.",
+        app: "Showing questions that directly test Chirality App and the reusable work surface.",
+        pec: "Showing questions that directly test PEC and its environment relationships.",
+        sow: "Showing questions that apply to deliverable scopes of work."
+      };
+
+      function setLens(lens) {
+        buttons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.lens === lens));
+        });
+        items.forEach((item) => {
+          const lenses = item.dataset.lenses.split(/\s+/);
+          item.hidden = lens !== "all" && !lenses.includes(lens);
+        });
+        summary.textContent = labels[lens];
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setLens(button.dataset.lens));
+      });
+    })();
+  </script>
+</body>
+</html>

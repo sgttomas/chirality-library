@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="2e96f82571d5e0eac732ea2c81148ed91e0ea20a08cf3c3b8fbbab080d257cd1">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 12: Integrated Project Practicum · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 19 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-working-arrangements">Prerequisites and working arrangements</a></li>
+<li><a href="#learning-outcomes">Learning outcomes</a></li>
+<li><a href="#lesson-work-from-evidence-to-a-combined-result">Lesson: Work from evidence to a combined result</a></li>
+<li><a href="#role-cards">Role cards</a></li>
+<li><a href="#rotate-responsibilities">Rotate responsibilities</a></li>
+<li><a href="#phase-0-establish-the-working-basis">Phase 0: Establish the working basis</a></li>
+<li><a href="#phase-1-respond-to-the-supplier">Phase 1: Respond to the supplier</a></li>
+<li><a href="#phase-2-respond-to-the-requested-scope-change">Phase 2: Respond to the requested scope change</a></li>
+<li><a href="#phase-3-respond-to-the-forecast">Phase 3: Respond to the forecast</a></li>
+<li><a href="#phase-4-respond-to-the-acceptance-claim">Phase 4: Respond to the acceptance claim</a></li>
+<li><a href="#phase-5-respond-to-incentives-and-adverse-evidence">Phase 5: Respond to incentives and adverse evidence</a></li>
+<li><a href="#decision-requests-and-adverse-findings">Decision requests and adverse findings</a></li>
+<li><a href="#worked-example-separate-an-observation-from-acceptance">Worked example: Separate an observation from acceptance</a></li>
+<li><a href="#transfer-example">Transfer example</a></li>
+<li><a href="#practice-rehearse-an-event-response">Practice: Rehearse an event response</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-integrated-package-and-defense">Assessed assignment: Integrated package and defense</a></li>
+<li><a href="#individual-study-adaptation">Individual-study adaptation</a></li>
+<li><a href="#portfolio-and-references">Portfolio and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-working-arrangements">Prerequisites and working arrangements</a></li>
+<li><a href="#learning-outcomes">Learning outcomes</a></li>
+<li><a href="#lesson-work-from-evidence-to-a-combined-result">Lesson: Work from evidence to a combined result</a></li>
+<li><a href="#role-cards">Role cards</a></li>
+<li><a href="#rotate-responsibilities">Rotate responsibilities</a></li>
+<li><a href="#phase-0-establish-the-working-basis">Phase 0: Establish the working basis</a></li>
+<li><a href="#phase-1-respond-to-the-supplier">Phase 1: Respond to the supplier</a></li>
+<li><a href="#phase-2-respond-to-the-requested-scope-change">Phase 2: Respond to the requested scope change</a></li>
+<li><a href="#phase-3-respond-to-the-forecast">Phase 3: Respond to the forecast</a></li>
+<li><a href="#phase-4-respond-to-the-acceptance-claim">Phase 4: Respond to the acceptance claim</a></li>
+<li><a href="#phase-5-respond-to-incentives-and-adverse-evidence">Phase 5: Respond to incentives and adverse evidence</a></li>
+<li><a href="#decision-requests-and-adverse-findings">Decision requests and adverse findings</a></li>
+<li><a href="#worked-example-separate-an-observation-from-acceptance">Worked example: Separate an observation from acceptance</a></li>
+<li><a href="#transfer-example">Transfer example</a></li>
+<li><a href="#practice-rehearse-an-event-response">Practice: Rehearse an event response</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-integrated-package-and-defense">Assessed assignment: Integrated package and defense</a></li>
+<li><a href="#individual-study-adaptation">Individual-study adaptation</a></li>
+<li><a href="#portfolio-and-references">Portfolio and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="12-project-practicum.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-12-integrated-project-practicum">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-12-integrated-project-practicum">Course 12: Integrated Project Practicum</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>This practicum brings the series together. Your team must establish a common basis, produce connected work, examine it, and defend its recommendation.</p>
+<p>The project changes during the exercise: new information will challenge the scope, forecast, technical basis, and delivery claim.</p>
+<p>Your work product is an examined project decision package, and its conclusions must fit the evidence and authority available at each event.</p>
+<p>You work as a human-agent team. Each participant directs and examines real agents in their role. Agents make every output look finished, so assessing whose judgment the package contains is difficult, and that difficulty is part of what the practicum teaches.</p>
+<h2 id="prerequisites-and-working-arrangements">Prerequisites and working arrangements</h2>
+<p>Complete Courses 01 to 11. Bring your earlier portfolio, including its briefs and examination records, as working material. Check its revision and source basis before you reuse it.</p>
+<p>Use six participants and one facilitator. Four participants can combine compatible roles. Arrange an independent reviewer for each assessed output. Each participant works with agents in the role they hold; the agents are contributors and hold no role.</p>
+<p>The facilitator represents the sponsor and the relevant technical authorities, and records simulated decisions under the limits in A01.</p>
+<p>Read the role cards before you start. Use Packets A to D from the <a href="../case-study.html">case</a>. The facilitator releases events in D03 order.</p>
+<p>Participants may already know the case, so at each event use only the released record set for that decision. Identify later evidence separately.</p>
+<p>Allow twelve working hours. Hold several sessions if necessary. Preserve the working revision when a session ends, together with its briefs and examination records.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Activity</th>
+<th style="text-align:right">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Establish the working basis and the agent arrangement</td>
+<td style="text-align:right">1.25 hours</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Supplier acceptance request</td>
+<td style="text-align:right">1.25 hours</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Operations scope request</td>
+<td style="text-align:right">1.25 hours</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cost and schedule forecast</td>
+<td style="text-align:right">1.25 hours</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Draft acceptance claim</td>
+<td style="text-align:right">1.25 hours</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Incentives and adverse evidence</td>
+<td style="text-align:right">1.25 hours</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Integrated defense and repair</td>
+<td style="text-align:right">2.5 hours</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Individual examination</td>
+<td style="text-align:right">2 hours</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The phase times are a teaching choice. They protect Phases 6 and 7, because the integrated defense and the individual examination are the main evidence of each person's understanding, and they give Phase 0 time to set up the agent arrangement. Each event phase still includes its briefs, examination records, and independence checks, and the times assume no saving from agent use. If an event phase runs long, hold another session rather than shortening Phase 6 or 7.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. In the practicum, the shifted constraint is evidence of understanding: when agents can produce complete-looking outputs, a finished package no longer shows who understood it, so the evidence moves to examination, decisions, and each person's ability to explain and defend the result. The single lesson follows the series' four steps, and the role cards, rotation, and phases add what each role directs agents to do and must examine itself.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. In the practicum, agents also hold no role card, and only participants request and receive the facilitator's simulated decisions.</p>
+<h3 id="work-with-agents-in-your-role">Work with agents in your role</h3>
+<p>Each participant directs agents for the outputs their card assigns, and examines each return before it enters the team's working basis. Use an agent system that your facilitator permits, and keep confidential information out of systems that are not approved for it.</p>
+<p>For each output, keep:</p>
+<ul>
+<li>Your direction and the consequential briefs behind the output, including briefs written by an agent under that direction. Identify the source set, revisions and statuses, and retain links or references rather than copies of every message.</li>
+<li>The consequential returns you relied on and the level at which you examined them.</li>
+<li>Your examination record: what you checked, what you found, and what you changed.</li>
+</ul>
+<p>The participant who holds a card is the producer of that card's outputs and answers for them. An agent's draft becomes the team's work only after that participant has examined it.</p>
+<p>Independence needs more care than in a team of people. Agents that share a model, brief, or source set can share an error, and their agreement shows consistency, not correctness (<a href="09-technical-integration.html#lesson-5-examine-integration-and-repair-connected-work">Course 09 Lesson 5</a>). Two participants whose agents share a basis are therefore not automatically independent, even when neither produced the other's work. For this practicum's independent-review condition, a participant who wrote or revised a production brief, or directed the agent that created it, counts as a producer of the resulting output, including after rotation. This condition concerns the production contribution, not merely selecting the shared case records or helping arrange an independent review. Where every participant uses the same agent system, independence must come from the reviewer: the reviewer examines the work personally against the source records, and briefs any agent check from those records and the decision index, not from the producer's brief or return.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>After this practicum, you can:</p>
+<ul>
+<li>Establish and maintain a shared decision basis.</li>
+<li>Coordinate project management and project engineering contributions.</li>
+<li>Assess changes without creating unsupported approvals.</li>
+<li>Produce and independently examine an integrated recommendation.</li>
+<li>Explain your own reasoning, limits, and responsibility.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+<li>Arrange independent examination that accounts for agents sharing a model or brief.</li>
+<li>Transfer work with its actual outputs, briefs, and examination records.</li>
+<li>Defend the team's result and your own contribution through changed premises.</li>
+</ul>
+<h2 id="lesson-work-from-evidence-to-a-combined-result">Lesson: Work from evidence to a combined result</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>A team's result needs more than several competent documents: their requirements, configuration, assumptions, forecasts, and conclusions must agree where they interact.</p>
+<p>Assign each output to a producer and give that producer its inputs, intended use, boundaries, and examination conditions.</p>
+<p>State dependencies as conditions. “Procurement needs engineering” is incomplete: procurement needs an identified, technically reviewed purchase package and expenditure authority.</p>
+<p>Keep decisions specific. Approval of an investigation permits that investigation, but it does not approve the future design or operating result.</p>
+<p>A later event can invalidate a conclusion or expose an omitted condition, so identify the affected outputs before you repair them.</p>
+<p>Retain valid work. Repeat examination when a change affects its grounds. Record the new decision without silently replacing the earlier decision basis.</p>
+<p>The reviewer examines an identified revision for a stated purpose and must have suitable competence and independence from its production.</p>
+<p>Consider shared interests, assumptions, and relationships that could impair the review, because nonparticipation in production alone does not establish suitable scrutiny.</p>
+<p>Examine the consequences for operators, site personnel, other affected people, and the environment, and state where evidence is needed to assess those effects.</p>
+<p>Report readiness truthfully, and identify incentive conflicts and the reasons for dissent. Follow the assigned information-sharing conditions when you provide evidence to reviewers.</p>
+<p>Northbank supplies no confidentiality clause or legal determination, so identify any needed condition without inventing it. Raise significant concerns through an appropriate route.</p>
+<p>Review findings belong with the claim they affect. The producer repairs the work. The reviewer confirms the affected repair.</p>
+<p>If the reviewer previously produced the affected item, get another reviewer. The facilitator can arrange a mentor or a reviewer from another team.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical lesson assumes that each output's producer is a person who prepared it and paid attention to it while doing so, so assigning an output to a producer also assigns attention to it. It assumes that outputs disagree mainly where people interpreted the basis differently, and that a reviewer who did not produce the work brings their own preparation and assumptions to it.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p><strong>Producing no longer implies attending.</strong> A participant can direct an agent to produce an interface table or a decision request without reading every line of it. Assigning an output to a producer assigns attention only if the arrangement requires the producer to examine the return.</p>
+<p><strong>Inconsistency and false consistency both become cheap.</strong> Agents briefed from different revisions produce outputs that disagree. Agents briefed from the same wrong basis produce outputs that agree with each other and with the error; <a href="09-technical-integration.html#lesson-5-examine-integration-and-repair-connected-work">Course 09 Lesson 5</a> explains why such agreement shows consistency, not correctness.</p>
+<p><strong>Independence depends on preparation.</strong> The classical lesson already says that nonparticipation in production does not establish suitable scrutiny. A shared agent model, brief, or source set is now one of the shared assumptions that can impair a review.</p>
+<p><strong>Repair is fast; re-examination is not.</strong> An agent can repair an output in minutes. The affected examination still takes a person's time.</p>
+<p><strong>Integration still needs an owner.</strong> Each agent can report its output complete. The combined result agrees only if a person owns its integration and checks the outputs against each other.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Assign each output to a participant, who briefs its agents with the inputs and their revisions and statuses, the intended use, the boundaries, and the checks to perform. The participant keeps the examination conditions and examines the return before the output enters the working basis.</p>
+<p>When an event or decision changes the basis, update the affected briefs before more agent work starts. An agent may or may not keep history between assignments, and a system that keeps memory can carry a superseded premise forward, so brief from the current basis either way. A brief that predates a decision can produce work from the superseded basis unless that change reaches the agent.</p>
+<p>An agent can carry a coherent contribution and, where the chosen system and brief permit it, delegate bounded parts. Record that arrangement and which returns the participant examined. Child agents can inherit a mistaken basis; their agreement is not proof of independence. Do not require delegation or preserve a transcript of every child exchange. Keep enough of the consequential direction and returns to examine the output and the learner's contribution.</p>
+<p>Name the participant who owns integration in each phase. That person checks the outputs against each other, not each agent's report of completion.</p>
+<p>When you arrange a review, record whether the reviewer's agents share a model, brief, or source set with the producer's, and whether the reviewer supplied production direction or wrote or revised a production brief the output descends from. Arrange the review so that its basis differs where the consequence warrants it.</p>
+<p>The producer repairs the work, with agents where useful, and keeps the same brief and contribution owner through ordinary repairs so that context is not lost. The reviewer confirms the affected repair personally.</p>
+<p>The arrangement involves tradeoffs:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each participant briefs their own agents</td>
+<td>Each role's basis is visible; disagreements surface</td>
+<td>More inconsistency to reconcile, and more integration work</td>
+</tr>
+<tr>
+<td>One shared brief template for all agents</td>
+<td>Consistent basis and terms</td>
+<td>A defect in the template reaches every output, and reviews become less independent</td>
+</tr>
+<tr>
+<td>The reviewer uses agents for checks</td>
+<td>Broad, fast comparison</td>
+<td>Errors shared through the model; the checks need their own brief</td>
+</tr>
+<tr>
+<td>The reviewer examines without agents</td>
+<td>Independent of the agents' errors</td>
+<td>Less coverage in the time available</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="role-cards">Role cards</h2>
+<p>The cards describe exercise responsibilities; use A01 for decision rights. Each participant must question unsupported conclusions, including those outside their current card.</p>
+<p>Agents hold no card. Each card lists what the role directs agents to do and what the participant must examine personally. The participant holding a card answers for every output it produces, whoever drafted it.</p>
+<h3 id="project-manager">Project manager</h3>
+<p>Coordinate the project's scope, resources, expenditure, schedule, contracts, and forecast. Prepare sponsor decisions when commitments need amendment.</p>
+<p>Maintain the integrated action plan. Explain the difference between the authorized budget and the current forecast.</p>
+<p>Do not treat schedule pressure as technical approval. Give technical and operating conditions a visible place in the plan.</p>
+<p><strong>Directs agents to:</strong> draft the integrated action plan, the cost comparison, the schedule calculation, and sponsor decision requests, and recalculate the forecast when its basis changes.</p>
+<p><strong>Examines personally:</strong> the cost basis, including C03's inclusive items, the contingency, and the exclusion of the 22 litres per second proposal; the release and delivery weeks; that no request presents a forecast as an authorized budget or a proposal as approved scope; and whether the team's outputs are waiting for examination.</p>
+<h3 id="project-engineer">Project engineer</h3>
+<p>Coordinate the technical basis, requirements, operating cases, discipline inputs, and interfaces. Identify the conditions that dependent work needs.</p>
+<p>Prepare technical decision requests within the assigned remits. Explain the effect of proposed changes on the combined result.</p>
+<p>Keep legal applicability visible under A06, and identify which design or release decisions require that missing basis.</p>
+<p><strong>Directs agents to:</strong> compile the technical basis and the interface table, trace a proposed change through requirements and interfaces, and draft technical decision requests.</p>
+<p><strong>Examines personally:</strong> which revision and status each agent used, including A02 Rev 1, A05 as a proposal, and A04's 600 V observation; each traced effect, to separate a known change from a missing input; the open hydraulic and legal basis; and the consistency of the outputs that the package combines.</p>
+<h3 id="discipline-representative">Discipline representative</h3>
+<p>Examine the mechanical, electrical, civil, or controls question assigned in the phase. State your competence limits within the simulation.</p>
+<p>Use the supplied facts to identify missing inputs and necessary checks. Prepare an interface or examination plan for the assigned contribution.</p>
+<p>Do not invent calculations, selected equipment data, field observations, or technical approval. Identify the competent examination that a real project would need.</p>
+<p><strong>Directs agents to:</strong> compare supplied data with the project basis, list missing inputs, and draft an interface or examination plan.</p>
+<p><strong>Examines personally:</strong> every technical statement against the supplied records, and that the agents have invented no calculation, equipment data, field observation, or approval. A fluent technical paragraph from an agent is not a competent examination; state where a real project would need one.</p>
+<h3 id="procurement-and-contracts-coordinator">Procurement and contracts coordinator</h3>
+<p>Identify the purchase package, proposed configuration, price basis, delivery conditions, and required authorizations.</p>
+<p>Check whether the proposed supplier response supports a commitment. Record exclusions and conditions that affect other team members.</p>
+<p>Return technical substitutions to the relevant technical authority. Separate a supplier proposal from an accepted project requirement.</p>
+<p><strong>Directs agents to:</strong> draft the supplier response and the purchase-package conditions, and compare the supplier's submission with the package.</p>
+<p><strong>Examines personally:</strong> that the response approves nothing technical, that A03's 480 V value is not carried into the package, and which commitment, if any, a decision authorizes.</p>
+<h3 id="operations-representative">Operations representative</h3>
+<p>Explain the need behind the requested capacity and changeover function. Identify operating, maintenance, training, and receiving conditions.</p>
+<p>Examine the proposed result from the point of view of its intended use. Prepare a bounded receiving recommendation that includes the remaining obligations.</p>
+<p>Do not treat an operating preference as an approved scope amendment. Ask the sponsor to decide any proposed departure from A02.</p>
+<p><strong>Directs agents to:</strong> draft the operating, maintenance, training, and receiving conditions, and compare the proposed result with its intended use.</p>
+<p><strong>Examines personally:</strong> that the receiving recommendation carries C05's open conditions, that automatic changeover remains a proposal, and that the changeover function A02 requires is still to be confirmed with operations.</p>
+<h3 id="independent-reviewer-and-information-controller">Independent reviewer and information controller</h3>
+<p>Maintain the source and decision index. Preserve output identity, revision, status, and the source set used in each phase.</p>
+<p>Independently examine assigned outputs that you did not produce. Record findings against specific claims and requirements.</p>
+<p>Check whether the revised outputs address the findings. Record closure on evidence or a decision within the decision owner's authority. Identify any factual claim that remains unestablished.</p>
+<p><strong>Directs agents to:</strong> maintain the source and decision index, check each output's cited revisions against the index, and list claims without cited support. Brief these checks from the source records and the decision index, not from the producer's brief or return.</p>
+<p><strong>Examines personally:</strong> each discrepancy an agent reports, before recording it as a finding; the closure of each finding against evidence or a decision; and the independence of each review, including whether the reviewer's agents share a model, brief, or source set with the producer's.</p>
+<h2 id="rotate-responsibilities">Rotate responsibilities</h2>
+<p>Number the participants 1 to 6, and assign the six cards in the order above during Phase 0.</p>
+<p>Move each participant to the next card at each phase from Phase 1 to Phase 5. Move the sixth card to the first.</p>
+<p>For Phase 6, assign roles to preserve independent examination of the final package. Record each person's production and review contributions.</p>
+<p>Transfer the current revision, open findings, decisions, and next action at each rotation, together with the agent briefs and the examination records for the role's outputs. The next participant must inspect the actual output. Neither the outgoing participant's summary nor an agent's summary of the work replaces it.</p>
+<p>Agents do not rotate as people do. An agent may or may not keep project history, and remembered history can be out of date, so the incoming participant briefs their own agents from the current basis either way, using the transferred briefs as a starting point, and checks that the briefs still match the current decisions. Record who supplied the production direction and which person or agent wrote the consequential briefs. The production-involvement rule under Work with agents in your role still applies after rotation; agent-written child briefs do not erase that involvement. Before relying on an output, the incoming participant reads its examination record and re-examines what the record does not cover, where the consequence warrants it.</p>
+<p>For a four-person team, combine project engineering with discipline representation. Combine procurement with information control. Keep production and independent examination separate.</p>
+<p>Use the facilitator or another team for conflicted reviews. Because briefs pass between participants at each rotation, most participants will have written into the briefs behind late-phase outputs, so reviews in Phase 5 and of the final package will normally need the facilitator or another team. Role rotation alone does not establish independence or technical competence, and neither does a fresh agent session.</p>
+<h2 id="phase-0-establish-the-working-basis">Phase 0: Establish the working basis</h2>
+<p>Use A01 to A07 and B03. Treat B03 as an initial coordination input, and preserve its missing owners and dates as open matters.</p>
+<ol>
+<li>Establish a source index.</li>
+<li>Identify the approved scope and commitments.</li>
+<li>Identify the authority for each decision type.</li>
+<li>Assign owners to the unresolved interfaces.</li>
+<li>Define the conditions for the next dependent activity.</li>
+<li>Select a reviewer for the first purchase-package recommendation.</li>
+<li>Record the agent arrangement: for each role, the agent system and model, the brief and source set, who supplied production direction and who wrote or revised each consequential brief, who examines each output, and which participants' agents share a basis.</li>
+</ol>
+<p>Produce a one-page project basis, a source index, an interface table, and an arrangement table. Include the missing hydraulic and legal basis.</p>
+<p>Record proposed owners and timing as your team's planning decisions, and do not report them as original source facts. Owners are people in their Northbank roles, never agents.</p>
+<p><strong>With agents:</strong> agents can compile the source index and interface table from Packet A and B03. Examine the index for the two problems A07 records: A02 Rev 0 and Rev 1 sit under similar filenames, so an agent given the folder can take Rev 0's 15 litres per second, and the library index omits A04.</p>
+<h2 id="phase-1-respond-to-the-supplier">Phase 1: Respond to the supplier</h2>
+<p><strong>Event prompt:</strong> The supplier requests acceptance of B01 within two working days; it wants to keep its proposed delivery slot.</p>
+<p>Release B01 and B02. The supplied motors are rated for 480 V. A04 records a 600 V site observation.</p>
+<ol>
+<li>Compare the submission with the governing project basis.</li>
+<li>Identify the unresolved technical and procurement conditions.</li>
+<li>Prepare a purchase-package recommendation.</li>
+<li>Request the applicable technical disposition from the facilitator.</li>
+<li>Examine the recommendation independently.</li>
+<li>Record the facilitator's decision.</li>
+</ol>
+<p>Produce a supplier response, interface actions, and a decision request. Identify the evidence needed for any later equipment acceptance.</p>
+<p>Give procurement a usable instruction. State which commitment, if any, the decision authorizes. Preserve the decision's conditions in the current working basis.</p>
+<p><strong>With agents:</strong> an agent drafting from B01 can carry its 480 V value forward, because B01 copied it from A03, and the value appears with the same confidence as sourced data. Brief the agent with A04 Rev 1 and B01's status: submitted for technical review, not accepted. <a href="08-project-execution.html#lesson-4-connect-purchasing-risk-and-change">Course 08 Lesson 4</a> explains why a reply within the two working days cannot be an approval. When the facilitator's decision arrives, update the affected briefs.</p>
+<h2 id="phase-2-respond-to-the-requested-scope-change">Phase 2: Respond to the requested scope change</h2>
+<p><strong>Event prompt:</strong> Operations asks the team to adopt 22 litres per second and automatic changeover under A05.</p>
+<p>Release A05 as the current request. A02 still requires 18 litres per second. The sponsor has requested an impact assessment.</p>
+<ol>
+<li>Explain the operational need stated in A05.</li>
+<li>Assess the affected requirements and interfaces.</li>
+<li>Identify missing evidence for the impact assessment.</li>
+<li>Compare the proposed change with retaining the approved scope.</li>
+<li>Prepare a sponsor decision request.</li>
+<li>Record the facilitator's disposition.</li>
+</ol>
+<p>Produce a change assessment and a revised action plan. Distinguish automatic changeover from the changeover function that A02 requires the project to confirm.</p>
+<p>Identify any forecast exclusions. Carry the earlier voltage issue into the revised interface account.</p>
+<p><strong>With agents:</strong> give A05 with its proposal status in every brief. An agent given A05 without its status may design for 22 litres per second, and it can carry that flow into every interface quickly. Agents can trace the change through B03's interfaces quickly. The project engineer and discipline representative examine each traced effect to separate a known change from a missing input.</p>
+<h2 id="phase-3-respond-to-the-forecast">Phase 3: Respond to the forecast</h2>
+<p><strong>Event prompt:</strong> C03 arrives for the existing 18 litres per second scope. The sponsor asks whether the original commitments remain credible.</p>
+<p>Release C01 to C03. Treat cost and duration values as exercise assumptions. Use the sequential calculation before you consider alternatives.</p>
+<ol>
+<li>Calculate the difference between the forecast and budget.</li>
+<li>Calculate the sequential delivery and handover weeks.</li>
+<li>Identify the technical limits of the forecast.</li>
+<li>Prepare options for the commitment decision.</li>
+<li>Request the sponsor's disposition.</li>
+<li>Update the forecast without silently changing the approved commitments.</li>
+</ol>
+<p>Produce a cost comparison, schedule calculation, and commitment decision request. Explain the conditions needed before proposed recovery could become credible.</p>
+<p>Do not add recorded actual expenditure to C03 again, because its item totals already include that expenditure.</p>
+<p><strong>With agents:</strong> the project manager calculates the difference and the sequence once without an agent, then briefs agents for the comparison and options. Examine the agents' returns for a second addition of actual expenditure, the delivery count from the end of Week 6, and any recovery option that claims a saving from agent use. Agents cannot shorten the supplier's delivery.</p>
+<h2 id="phase-4-respond-to-the-acceptance-claim">Phase 4: Respond to the acceptance claim</h2>
+<p><strong>Event prompt:</strong> The simulation moves to a later installation scenario. C04 arrives with a cover sheet claiming complete acceptance.</p>
+<p>Release C04 and C05. This move to a later scenario supplies the reported observations, but it does not establish that earlier design gaps were resolved.</p>
+<p>The reported test observed 18 litres per second during one normal condition, but it leaves several scenarios unexercised and lacks complete configuration information.</p>
+<p>Establish intended behavior and examination coverage before you call a specific test mandatory. Distinguish untested behavior from observed failure.</p>
+<ol>
+<li>Compare each acceptance claim with its evidence.</li>
+<li>Identify the unresolved configuration and readiness conditions.</li>
+<li>Prepare an assurance finding.</li>
+<li>Define the additional examination needed for proposed reliance.</li>
+<li>Request the applicable technical and receiving decisions.</li>
+<li>Prepare a bounded handover recommendation.</li>
+</ol>
+<p>Produce a claim-to-evidence table, examination plan, and handover recommendation. Identify the responsible recipients for continuing obligations.</p>
+<p>Keep the observed result available, but correct any broader conclusion that the observation cannot support.</p>
+<p><strong>With agents:</strong> an agent asked to summarize C04 can repeat its cover sheet's claim of complete acceptance with the same confidence as the observed result. Brief agents that C04 belongs to a later scenario and does not establish resolution of earlier gaps. A person examines the claim-to-evidence table claim by claim.</p>
+<h2 id="phase-5-respond-to-incentives-and-adverse-evidence">Phase 5: Respond to incentives and adverse evidence</h2>
+<p><strong>Event prompt:</strong> D02 reveals the handover bonus, document-count reporting, and closure of the junior engineer's changeover concern.</p>
+<p>Release D01 and D02. The sponsor requests a credible continuation decision. None of the recovery proposals has confirmed supporting conditions.</p>
+<ol>
+<li>Examine the recorded closure of the concern.</li>
+<li>Compare the reported progress with the readiness evidence.</li>
+<li>Draw one evidence-based feedback explanation.</li>
+<li>Prepare a corrected project status.</li>
+<li>Compare continuation, reduction, and suspension.</li>
+<li>Submit the recommended direction for the appropriate decisions.</li>
+</ol>
+<p>Produce a leadership memorandum and revised decision table. Include conditions for supplier alternatives, activity overlap, and any proposed temporary use.</p>
+<p>Explain who could be affected by premature reliance. Identify the consequences that require further examination and the responsible reporting route.</p>
+<p>Address the reporting arrangement without assuming personal motives. Preserve the concern's technical basis and route it to competent examination.</p>
+<p><strong>With agents:</strong> a document count says even less when agents produce documents, and that includes your own team's. In the corrected status, report the team's outputs from Phases 0 to 4 as produced, examined, or decided, and identify any work produced but not yet examined. Agents can compare D02's meeting record with C04 and find that the changeover was not exercised. A participant takes up that finding, owns the concern, and routes it.</p>
+<h2 id="decision-requests-and-adverse-findings">Decision requests and adverse findings</h2>
+<p>Use one table for each consequential request. Name the decision question, authority, options, evidence, uncertainties, recommendation, conditions, and affected outputs.</p>
+<p>The facilitator can grant, qualify, or reject the request. A decision becomes a new simulated case event with an identity and exact scope.</p>
+<p>An unanswered request remains open. A conditional decision authorizes only the work within its stated conditions.</p>
+<p>Only participants submit decision requests. An agent can draft one, but the participant who submits it has examined it and answers for it. The facilitator addresses the disposition to that participant, who carries it into the agents' briefs and the affected outputs. An agent's statement that a decision exists is not a decision; check the decision record.</p>
+<p>Identify each adverse finding by the affected claim, source evidence, consequence, responsible producer, and required closure evidence.</p>
+<p>The producer must either repair the defect or defend the original account with adequate evidence. Record the reviewer’s confirmed disposition.</p>
+<p>A discrepancy that an agent reports becomes a finding only after the reviewer has examined it. The producer can repair with agents, and the reviewer confirms the repair personally.</p>
+<h2 id="worked-example-separate-an-observation-from-acceptance">Worked example: Separate an observation from acceptance</h2>
+<p>A team receives a witnessed test from another project; the test establishes one performance result under stated conditions.</p>
+<p>The team lists the result as evidence for that condition, then compares the proposed acceptance claim with the full examination requirements.</p>
+<p>A required failure response has no test evidence, so the team records a finding and prepares the missing examination plan.</p>
+<p>The relevant authority can consider a bounded decision where the applicable requirements permit it. The team preserves the unexamined condition and its consequences.</p>
+<p>The report therefore remains useful without carrying an unsupported claim of complete acceptance.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>The team briefs an agent to compare the test record with the acceptance claim. The agent returns a table that lists the performance result as evidence, and, following the claim's confident wording, marks the failure response as covered.</p>
+<p>The participant who examines the return checks each row against the test record. The record contains no observation of the failure response, so the participant corrects the row, records the finding, and adds a sentence to the brief: &quot;List as evidence only observations that the test record contains, and mark every other claim unsupported.&quot;</p>
+<p>The finding and its repair are the same as in the classical account. The agent changed who drafted the table, and the examination caught what the draft got wrong.</p>
+<h2 id="transfer-example">Transfer example</h2>
+<p>A transport project receives a bridge inspection report, which covers visible surfaces during one inspection.</p>
+<p>The receiving team identifies what the inspection establishes and which proposed uses need other evidence. It preserves those distinctions in its recommendation.</p>
+<p>The same practice applies to software tests, factory inspections, training records, and supplier certificates. It also applies when an agent summarizes such a record: the summary inherits the record's limits and can lose them.</p>
+<h2 id="practice-rehearse-an-event-response">Practice: Rehearse an event response</h2>
+<p>Before the timed phases, use A03, A04, and a blank supplier-response page. One participant presents the legacy schedule as current evidence.</p>
+<ol>
+<li>Ask which source establishes the current condition.</li>
+<li>Explain the source's limits.</li>
+<li>Identify the required next contribution.</li>
+<li>State the authority needed for the proposed decision.</li>
+</ol>
+<p>Change roles and repeat the exchange with a different claim. Use the same source set without inventing a new approval.</p>
+<p>Then repeat the exercise with agents. One participant briefs an agent to draft the supplier-response page from A03 and A04. Another participant examines the draft: which voltage did it use, and did the brief give each record's status? Keep the brief and the examination note.</p>
+<p>Finally, draft the team's independence map for the first planned review: does the reviewer's agent share a model, brief, or source set with the producer's, and how will the review's basis differ?</p>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>What must an incoming participant inspect during role rotation?</li>
+<li>What makes a reviewer independent for an assigned output?</li>
+<li>How must the team treat a facilitator's conditional decision?</li>
+<li>What does the move to the later installation scenario in Phase 4 establish about earlier technical gaps?</li>
+<li>Why must C03 remain separate from the 22 litres per second proposal?</li>
+<li>How can the team finish this practicum while project acceptance remains unsupported?</li>
+<li>Why can an agent neither hold a role card nor receive a facilitator's decision?</li>
+<li>A reviewer's agent was briefed with the producer's brief and uses the same model. What does the review establish?</li>
+<li>Why is an agent's summary of the outgoing work not an adequate transfer at rotation?</li>
+<li>Why are Phases 6 and 7 the main evidence of each person's understanding, and what does a changed premise test that a prepared answer does not?</li>
+<li>What can the individual-study adaptation not establish?</li>
+</ol>
+<h2 id="assessed-assignment-integrated-package-and-defense">Assessed assignment: Integrated package and defense</h2>
+<p>Assemble one coherent decision package from the repaired phase outputs and their decision history.</p>
+<p>Include the project basis, source index, interface account, purchase recommendation, change assessment, forecast, assurance findings, handover recommendation, and continuation memorandum. Include the arrangement table and, for each output, its briefs and examination records.</p>
+<p>Use links or record identifiers to avoid unnecessary duplication. Include a short cover that states the requested decisions and proposed reliance.</p>
+<p>During Phase 6, present a twenty-minute team defense. The facilitator and reviewer question the evidence, authority, consequences, and connected outputs. They also change premises and ask the team to trace the consequences through the package.</p>
+<p>Complete the required repairs within the remaining phase time. If required evidence remains unavailable, state its effect on the recommendation.</p>
+<p>During Phase 7, each participant writes a two-page individual explanation. Identify one personal contribution, one changed judgment, and one unresolved consequential condition. Identify also one agent return you examined, what you checked, and what that check would have caught. Write the explanation in the session without an agent, where the facilitator can arrange it.</p>
+<p>Each participant then receives a twelve-minute examination. Explain a decision outside your final role, and distinguish your own competence from the authority that role holds. Then respond to one challenge that you have not prepared for: a changed premise involving adverse evidence or incentive pressure, such as a request to report handover today or to omit the voltage discrepancy from a summary. Give the examination live, by voice or in person, without consulting an agent, where you can. Your facilitator rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>The assessment uses seven observable criteria:</p>
+<ol>
+<li>The basis identifies source revisions, statuses, governing commitments, and simulated decisions without unsupported authority, including authority attributed to an agent.</li>
+<li>The integrated plan gives usable owners, interfaces, prerequisites, forecasts, and consequences of change. Every owner is a person in a Northbank role.</li>
+<li>The decision requests distinguish sponsor, technical, procurement, and operating authority with explicit conditions.</li>
+<li>The assurance and handover conclusions match the evidence and preserve unresolved obligations.</li>
+<li>Each participant addresses findings and ethical consequences, and shows the affected repairs within the team's integrated result.</li>
+<li>The arrangement table shows, for each output, the participant who directed the agents and who examined the return, and where independence was needed and how it accounted for shared models and briefs. Each participant's examination records show what they checked in each agent return they relied on, what they found, if anything, and what they changed, and the rotation records show that each incoming participant received the actual output, briefs, and examination records.</li>
+<li>In the Phase 6 defense and the Phase 7 examination, each participant explains the main conclusions and their grounds, shows what their examination of the agents' work found, identifies which judgments are their own, and reasons correctly through the changed premises the facilitator poses.</li>
+</ol>
+<p>Meet all seven criteria. A team result does not establish each participant's understanding, and a coherent package can come from agents directed by one or two members of the team, so an unsupported individual explanation requires individual repair.</p>
+<h2 id="individual-study-adaptation">Individual-study adaptation</h2>
+<p>Use a mentor or an agent instructor as facilitator, sponsor, and technical authority. Keep separate output pages for each role you perform. The independent reviewer must be another suitably prepared person who did not help produce the work; an agent instructor cannot provide that examination, and neither can your own sequential self-review.</p>
+<p>Hold each card in turn, and direct your own working agents for it with the same briefs and examination records that a team keeps. Keep your working agents separate from the instructor: the instructor presents events, plays the authorities, and examines your work, but it does not draft your outputs.</p>
+<p>At each rotation, transfer the work to yourself as a team would: brief new agent sessions from the transferred briefs and current basis, and read your earlier examination record as if someone else had written it.</p>
+<p>Complete the phases in order. Before each event, give the mentor the current source set and working revision.</p>
+<p>Ask the mentor to roleplay the requesting party. Prepare your response before you read the instructor guidance.</p>
+<p>Use a fresh output revision for each repaired conclusion. Ask the mentor to examine independence limits when you hold several producer roles. Your working agents may share one model and all of your premises, so the independence between roles is weaker than in a team.</p>
+<p>Complete the same written package and individual defense. Hold the defense live with a person where you can.</p>
+<p>The adaptation keeps the practice of directing and examining agents in every role, but it cannot establish several things a team practicum can:</p>
+<ul>
+<li>That you can coordinate a result with other people who hold different interests and interpretations.</li>
+<li>That a transfer between roles worked, because you already know what you meant.</li>
+<li>That reviews between roles were independent.</li>
+<li>That a text-only defense was unassisted.</li>
+<li>That an agent instructor's simulated authorities respond as real people under pressure would.</li>
+</ul>
+<p>An agent instructor that presents the events, plays the authorities, and assesses you is one system in several roles, and its judgments about your work are agent contributions to examine. Label the result as a facilitated individual practicum in your portfolio, and record these limits, the medium of the defense, and who provided independent review.</p>
+<h2 id="portfolio-and-references">Portfolio and references</h2>
+<p>Keep the final package, phase decisions, review findings, repaired versions, and individual explanation as Portfolio 12, with an index that makes their relationships retrievable. Keep the arrangement table, briefs, examination records, and rotation transfers with them.</p>
+<p>Use the <a href="../references.html">references</a> for further study. Compare the source manuals' basis, dependency, examination, and integration principles with your experience. The management manual's §§4.2, 4.5 and 5.3 address keeping a contribution owner through repairs, receiving actual returns, and independence where agents share a basis.</p>
+<p>Identify one practice to improve on your next project, and state the evidence that would show whether it helps the intended result.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="12-project-practicum.md">12-project-practicum.md</a><br><code>2e96f82571d5e0eac732ea2c81148ed91e0ea20a08cf3c3b8fbbab080d257cd1</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

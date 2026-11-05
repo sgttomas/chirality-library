@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Final revision 3.1 execution plan for preparing and publishing Chirality App v3.0.0-rc.1 with root-isolated Codex App Server workers, native Codex delegation, ChatGPT login, and owner-operated release notarization.">
+  <title>Chirality App v3.0.0-rc.1 — Final Release Execution Plan, Revision 3.1</title>
+  <script type="application/json" id="chirality-plan-manifest">
+  {
+    "schema": "chirality-release-plan/v3.1",
+    "document": {
+      "status": "FINAL_NON_GOVERNING_PLAN",
+      "revision": "3.1",
+      "date": "2026-08-22",
+      "evidenceBaseline": "91bee412643759cf79cdda812f1d4874b8a860dd",
+      "accountableOwner": "HUMAN_OWNER",
+      "supersedesForPlanning": "plans/chirality_app_v3_release_execution_plan_revision_3_2026-08-22.html",
+      "reviewApplied": "plans/chirality_app_v3_release_plan_review_round_3_2026-08-22.html",
+      "reviewVerdict": "ACCEPT_WITH_REQUIRED_CHANGES",
+      "selfAuthority": "NONE"
+    },
+    "ownerRulings": {
+      "codexNativeDelegation": "REQUIRED_IN_RC1_WITHOUT_CHIRALITY_TOPOLOGY_CAP",
+      "chiralityTopologyRestrictions": "NONE",
+      "agentPostures": "IMPUTED_BY_AGENTS_MD",
+      "nativeDescendantClassification": "NOT_AUTOMATICALLY_AGENT2",
+      "explicitAgent2Posture": "NO_REDELEGATION_WHEN_EXPLICITLY_SELECTED_AND_PROVED",
+      "roleFailureFallback": "WITHHOLD_EXPLICIT_CODEX_AGENT2_ENTRY_NOT_NATIVE_DELEGATION",
+      "restartSemantics": "TERMINALIZE_AND_START_FRESH_THREAD",
+      "managedCommandNetwork": "DISABLED_FOR_RC1",
+      "platformDefaultReadBundle": "DISABLED_FOR_RC1",
+      "preparationArtifacts": "UNSIGNED_OR_AD_HOC",
+      "notarization": "OWNER_OPERATED_AT_ACTUAL_PUBLICATION",
+      "hostedSigningCredentials": "PROHIBITED_UNLESS_SEPARATELY_AUTHORIZED",
+      "claudeInteractiveSubscriptionLogin": "OUT_OF_SCOPE_WITHOUT_WRITTEN_ANTHROPIC_APPROVAL",
+      "claudeRc1Authentication": "API_KEY"
+    },
+    "release": {
+      "version": "3.0.0-rc.1",
+      "channel": "prerelease",
+      "platform": "macOS",
+      "architecture": "arm64",
+      "productPosture": "STABLE_PRODUCT_CANDIDATE",
+      "codexPosture": "OPT_IN_PREVIEW",
+      "publicationArtifact": "SIGNED_NOTARIZED_STAPLED_OWNER_FROZEN_CANDIDATE"
+    },
+    "runtimeProfiles": [
+      {
+        "id": "chirality-native",
+        "innerHarnessOwner": "CHIRALITY",
+        "principalUse": ["local-models", "embedded-applications", "OpenPipeStress"]
+      },
+      {
+        "id": "delegated-harness",
+        "innerHarnessOwner": "CODEX",
+        "initialAdapter": "codex-app-server",
+        "principalUse": ["Chirality-App"]
+      }
+    ],
+    "workPackages": [
+      "WP-00_EXISTING_OWNER_PROOF",
+      "WP-01_GOVERNANCE_AND_HELD_BINDINGS",
+      "WP-02_SUPPLY_AND_PROTOCOL_FREEZE",
+      "WP-03_SUPERVISOR_HELPER",
+      "WP-04_INTERACTIVE_ACCOUNT_CONTRACT",
+      "WP-05_ENGINE_EVENT_ADAPTER",
+      "WP-06_DELEGATION_APPROVAL_CONTAINMENT",
+      "WP-07_DESKTOP_UX_PRIVACY",
+      "WP-08_PERSISTENCE_AND_MIGRATION",
+      "WP-09_UNSIGNED_PREPARATION_PACKAGING",
+      "WP-10_CONFORMANCE_AND_RELEASE_READINESS",
+      "WP-11_OWNER_RELEASE_AND_NOTARIZATION"
+    ],
+    "gates": [
+      "G0_DIRECTION_AND_SCOPE",
+      "G0_25_EXISTING_OWNER_PROOF",
+      "G0_5_INSTRUMENTS_AND_HELD_BINDINGS",
+      "G1_GOVERNED_BASIS",
+      "G2_SUPPLY_AND_PROTOCOL",
+      "G_HELPER_LAUNCH_AND_RETIREMENT",
+      "G_SIG_POST_SPAWN_SIGNAL",
+      "G_DUAL_SINGLE_APP_SERVER",
+      "G_SBX_SANDBOX_COMPATIBILITY",
+      "G_SENT_POSITIVE_CONTAINMENT",
+      "G_PROT_PROTECTED_PATH_ROUND_TRIP",
+      "G_ENV_CHILD_ENVIRONMENT",
+      "G_ROLE_EXPLICIT_AGENT2_PROFILE",
+      "G_APPR_THREAD_AWARE_APPROVALS",
+      "G_WIRE_TYPED_REDACTION",
+      "G_KEY_CREDENTIAL_TRANSITION",
+      "G_CSP_RENDERER_HARDENING",
+      "G3_PROTOCOL_ACCOUNT",
+      "G4_DELEGATION_CONTAINMENT_PRIVACY",
+      "G5_UNSIGNED_PACKAGED_FAN_IN",
+      "G6A_RELEASE_INTENT_AND_SIGNING_BASIS",
+      "G6B_OWNER_SIGN_NOTARIZE_STAPLE",
+      "G7_EXACT_ARTIFACT_ACCEPTANCE",
+      "G8_PUBLICATION_BACKCHECK"
+    ],
+    "acceptanceScenarios": {
+      "first": "AT-001",
+      "last": "AT-058",
+      "waiversAllowedForReleaseBlockingScenarios": false
+    },
+    "hardStops": [
+      "UNRESOLVED_GOVERNANCE_AUTHORITY",
+      "UNLIFTED_HELD_BINDING",
+      "UNPROVEN_HELPER_LAUNCH_OR_EXPLICIT_ROLE_PROFILE",
+      "UNVERIFIED_OR_DRIFTED_APP_SERVER_PACKAGE",
+      "PROCESS_SIGNAL_OR_ORPHAN_FAILURE",
+      "UNRESTRICTED_READ_OR_TEMPORARY_WRITE_ENVELOPE",
+      "UNSANDBOXED_APP_SERVER_CLIENT_METHOD_ENABLED",
+      "CONTAINMENT_SENTINEL_FAILURE",
+      "INEXPRESSIBLE_PROTECTED_PATH_POLICY",
+      "UNATTRIBUTED_DESCENDANT_OR_APPROVAL",
+      "UNACCEPTED_BREAKING_ROOT_API_CHANGE",
+      "UNIDENTIFIED_ACCOUNT_CONSENT_REUSE",
+      "RETIREMENT_JOURNAL_OR_SIBLING_TERMINALIZATION_FAILURE",
+      "CREDENTIAL_OR_ACCOUNT_DATA_LEAK",
+      "SOURCE_ARTIFACT_IDENTITY_MISMATCH",
+      "OPEN_CRITICAL_OR_HIGH_RELEASE_FINDING",
+      "MISSING_HUMAN_PUBLICATION_AUTHORIZATION",
+      "SIGNING_NOTARIZATION_GATEKEEPER_OR_DOWNLOAD_BACKCHECK_FAILURE"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f2ec;
+      --surface: #fff;
+      --surface-2: #eceae3;
+      --ink: #182128;
+      --muted: #5d6971;
+      --line: #d3d8d6;
+      --navy: #173b57;
+      --blue: #275d7e;
+      --teal: #11756d;
+      --green: #287246;
+      --amber: #9b5900;
+      --red: #a6342c;
+      --purple: #6a4c93;
+      --pale-blue: #e8f1f7;
+      --pale-teal: #e3f2ef;
+      --pale-green: #e5f2e9;
+      --pale-amber: #fff1d8;
+      --pale-red: #fbe8e5;
+      --pale-purple: #eee8f7;
+      --shadow: 0 12px 30px rgba(28,43,53,.08);
+      --radius: 14px;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Iowan Old Style, Charter, Georgia, serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: radial-gradient(circle at 91% 2%, rgba(17,117,109,.09), transparent 25rem), var(--paper);
+      font: 16px/1.62 var(--sans);
+    }
+    a { color: var(--blue); text-underline-offset: .18em; }
+    a:hover { color: var(--teal); }
+    .skip { position: absolute; left: -9999px; top: 0; background: #111; color: #fff; padding: .7rem 1rem; z-index: 10; }
+    .skip:focus { left: 1rem; top: 1rem; }
+    .hero {
+      padding: 3.5rem max(1.25rem, calc((100vw - 82rem) / 2)) 2.7rem;
+      color: #fff;
+      background: linear-gradient(122deg, #0d293b, #174a5b);
+      border-bottom: 5px solid var(--teal);
+    }
+    .eyebrow { margin: 0 0 .7rem; color: #aee3dc; font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { max-width: 65rem; margin: 0; font: 700 clamp(2.2rem,5vw,4.35rem)/1.04 var(--serif); letter-spacing: -.025em; }
+    .dek { max-width: 67rem; margin: 1.15rem 0 0; color: #dbe9ed; font-size: clamp(1.04rem,1.6vw,1.27rem); }
+    .meta { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: .75rem; margin: 1.8rem 0 0; }
+    .meta div { padding: .75rem .85rem; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; background: rgba(255,255,255,.06); }
+    .meta dt { color: #9bc4cf; font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .meta dd { margin: .2rem 0 0; font-size: .84rem; line-height: 1.35; }
+    .layout { display: grid; grid-template-columns: 16rem minmax(0,1fr); gap: 2.3rem; max-width: 82rem; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+    nav { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.9); box-shadow: var(--shadow); }
+    nav h2 { margin: 0 0 .7rem; padding: 0; border: 0; font: 800 .72rem/1.2 var(--sans); letter-spacing: .11em; text-transform: uppercase; color: var(--ink); }
+    nav ol { margin: 0; padding-left: 1.18rem; font-size: .77rem; line-height: 1.35; }
+    nav li { margin: .38rem 0; }
+    nav a { color: var(--muted); text-decoration: none; }
+    article { min-width: 0; }
+    section { margin: 0 0 3.4rem; scroll-margin-top: 1.3rem; }
+    h2 { margin: 0 0 1.05rem; padding-bottom: .42rem; border-bottom: 2px solid var(--line); color: var(--navy); font: 700 clamp(1.55rem,3vw,2.2rem)/1.15 var(--serif); }
+    h3 { margin: 1.75rem 0 .7rem; color: var(--navy); font-size: 1.13rem; line-height: 1.3; }
+    h4 { margin: 1.25rem 0 .4rem; color: var(--teal); font-size: .97rem; }
+    p { margin: .65rem 0 1rem; }
+    ul, ol { padding-left: 1.35rem; }
+    li { margin: .34rem 0; }
+    code { padding: .08em .27em; border-radius: 4px; background: var(--surface-2); font: .86em var(--mono); overflow-wrap: anywhere; }
+    pre { overflow: auto; padding: 1rem; border-radius: 10px; color: #e9f0f1; background: #17242c; font: .79rem/1.5 var(--mono); white-space: pre-wrap; }
+    .decision, .callout { margin: 1rem 0; padding: 1rem 1.15rem; border: 1px solid var(--line); border-left: 5px solid var(--blue); border-radius: 0 10px 10px 0; background: var(--surface); }
+    .decision { padding: 1.25rem 1.35rem; border-left-color: var(--teal); background: linear-gradient(135deg,var(--pale-teal),#fafcfb); box-shadow: var(--shadow); }
+    .warning { border-left-color: var(--amber); background: var(--pale-amber); }
+    .danger { border-left-color: var(--red); background: var(--pale-red); }
+    .good { border-left-color: var(--green); background: var(--pale-green); }
+    .purple { border-left-color: var(--purple); background: var(--pale-purple); }
+    .callout > :first-child, .decision > :first-child { margin-top: 0; }
+    .callout > :last-child, .decision > :last-child { margin-bottom: 0; }
+    .cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .85rem; margin: 1rem 0; }
+    .card { padding: 1rem 1.05rem; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: 0 5px 16px rgba(28,43,53,.04); }
+    .card > :first-child { margin-top: 0; }
+    .card > :last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; line-height: 1.42; }
+    th, td { padding: .68rem .72rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { position: sticky; top: 0; color: #fff; background: var(--navy); font-size: .72rem; letter-spacing: .035em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: #fafaf7; }
+    .id { white-space: nowrap; font-family: var(--mono); font-weight: 700; }
+    .chip { display: inline-block; padding: .13rem .45rem; border-radius: 99px; font-size: .67rem; font-weight: 800; white-space: nowrap; }
+    .accept { color: #174b2c; background: var(--pale-green); }
+    .amend { color: #704100; background: var(--pale-amber); }
+    .decline { color: #7e2720; background: var(--pale-red); }
+    .owner { color: #543879; background: var(--pale-purple); }
+    .gate { color: #194966; background: var(--pale-blue); }
+    figure { margin: 1.25rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { margin-top: .75rem; color: var(--muted); font-size: .82rem; }
+    .legend { display: flex; flex-wrap: wrap; gap: .45rem 1rem; margin: .7rem 0; color: var(--muted); font-size: .78rem; }
+    .legend span::before { content: ""; display: inline-block; width: .7rem; height: .7rem; margin-right: .32rem; border-radius: 2px; background: var(--blue); }
+    .legend .semantic::before { background: var(--purple); }
+    .legend .hard::before { background: var(--red); }
+    .legend .owner-act::before { background: var(--amber); }
+    footer { padding-top: 1.2rem; border-top: 2px solid var(--line); color: var(--muted); font-size: .79rem; }
+    @media (max-width: 980px) {
+      .meta { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .layout { display: block; }
+      nav { position: static; max-height: none; margin-bottom: 2rem; }
+    }
+    @media (max-width: 620px) {
+      .meta, .cards { grid-template-columns: 1fr; }
+      .hero { padding-top: 2.5rem; }
+      th, td { min-width: 9rem; }
+    }
+    @media print {
+      body { background: #fff; font-size: 10pt; }
+      nav { display: none; }
+      .layout { display: block; max-width: none; padding: 0; }
+      .hero { padding: 1.5rem; }
+      section { break-inside: avoid-page; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to plan</a>
+  <header class="hero">
+    <p class="eyebrow">Final · Revision 3.1 · owner-directed · non-governing execution plan</p>
+    <h1>Chirality App v3.0.0-rc.1</h1>
+    <p class="dek">A stable product candidate with an opt-in Codex App Server integration, ChatGPT account login, native Codex delegation, hard outer containment, and notarization performed only when the exact candidate is actually released.</p>
+    <dl class="meta">
+      <div><dt>Status</dt><dd>Final non-governing plan</dd></div>
+      <div><dt>Revision</dt><dd>3.1 · 2026-08-22</dd></div>
+      <div><dt>Evidence baseline</dt><dd><code>91bee4126</code></dd></div>
+      <div><dt>Product</dt><dd>Stable candidate</dd></div>
+      <div><dt>Codex profile</dt><dd>Opt-in Preview</dd></div>
+      <div><dt>Release act</dt><dd>Human-owned</dd></div>
+    </dl>
+  </header>
+
+  <div class="layout">
+    <nav aria-label="Document contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#decision">Decision and owner rulings</a></li>
+        <li><a href="#revision">Revision basis</a></li>
+        <li><a href="#release">Release definition and scope</a></li>
+        <li><a href="#architecture">Target architecture</a></li>
+        <li><a href="#delegation">Delegation and authority</a></li>
+        <li><a href="#containment">Process and containment</a></li>
+        <li><a href="#auth">Authentication, data, privacy</a></li>
+        <li><a href="#governance">Governance and contracts</a></li>
+        <li><a href="#work">Work packages</a></li>
+        <li><a href="#gates">Critical path and gates</a></li>
+        <li><a href="#acceptance">Acceptance matrix</a></li>
+        <li><a href="#packaging">Packaging and notarization</a></li>
+        <li><a href="#risks">Risk register</a></li>
+        <li><a href="#findings">Review finding dispositions</a></li>
+        <li><a href="#completion">Completion and final handoff</a></li>
+        <li><a href="#appendix-a">Appendix A: interface targets</a></li>
+        <li><a href="#appendix-b">Appendix B: protocol map</a></li>
+        <li><a href="#appendix-c">Appendix C: source index</a></li>
+      </ol>
+    </nav>
+
+    <article id="content">
+      <section id="decision">
+        <h2>1. Decision and owner rulings</h2>
+        <div class="decision">
+          <p><strong>Proceed toward <code>v3.0.0-rc.1</code>, but do not begin held implementation merely because this final plan is merged.</strong> The release candidate includes Codex-native delegation as the owner-required outcome. Present authority still permits only the managed app-harness delegation path, so the Root and App instruments named at G0.5 must change before that outcome is implemented. Preparation builds remain unsigned or ad hoc. Only an exact artifact named in a later owner release act may enter Developer ID signing, notarization, stapling, and publication.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Codex owns its inner harness</h3>
+            <p>Codex may create, steer, wait for, interrupt, and synthesize its native descendants according to the capabilities of the pinned upstream runtime. Chirality does not impose a child allowlist, fixed topology, or its own concurrency cap.</p>
+          </div>
+          <div class="card">
+            <h3>Chirality owns the outer authority boundary</h3>
+            <p>Every primary and descendant thread remains inside the same project-data root, explicit readable-root envelope, filesystem/network posture, approval system, consent state, protected-path policy, process lifetime, and privacy boundary. The RC does not load the implicit macOS platform-default read bundle. Enforcement is proved on the actual turn path, not entrusted to prompt text.</p>
+          </div>
+          <div class="card">
+            <h3><code>AGENTS.md</code> supplies semantic posture</h3>
+            <p>A Codex-native descendant is not automatically reclassified as Chirality Agent 2. <code>AGENTS.md</code> still supplies the semantic Agent 0/1/2 pattern; an explicitly selected Agent 2/TASK posture does not re-delegate and is offered through Codex only when an exact-pin configuration profile proves that behavior. Chirality does not reshape Codex’s otherwise native topology.</p>
+          </div>
+          <div class="card">
+            <h3>Notarization belongs to release</h3>
+            <p>CI and preparation do not notarize. When the owner decides that an RC will actually be distributed, the frozen candidate enters the owner-operated signing/notarization lane. No rebuild is allowed between final source acceptance and release signing.</p>
+          </div>
+        </div>
+
+        <h3>1.1 Binding intent versus present authority</h3>
+        <p>This document records the owner’s intended direction and the proposed execution path. It is a derivative planning artifact, not an amendment to <code>CONTRACT.md</code>, an implementation grant, a cutover act, a release act, or a substitute for an accepted snapshot. In particular, D-GOV-14 item 7, its D-APP-68 transcription, DEL-08-04, root <code>AGENTS.md</code>, Root/App K-CONTROL-1 and K-ROLE-2, K-RELEASE-1, D-APP-97, and F-APP-2 remain binding until their owning workflows amend them through attributable human acts.</p>
+
+        <h3>1.2 Release/notarization rule</h3>
+        <div class="callout warning">
+          <p><strong>Preparation:</strong> D-APP-97 leaves F-APP-2 fully in force; local and CI artifacts are explicitly unsigned or ad hoc and non-distributable. <strong>Actual release:</strong> an owner ruling at G6a must amend K-RELEASE-1 and lift F-APP-2 only for the named source digest, candidate digest, release identity, and publication route. That exact artifact is then signed, notarized, stapled, Gatekeeper-tested, checksummed, published, downloaded again, and reverified. No broad or anticipatory release-fence relaxation occurs during preparation.</p>
+        </div>
+      </section>
+
+      <section id="revision">
+        <h2>2. Finalization basis</h2>
+        <p>This standalone Revision 3.1 is the final planning document requested by the owner. It preserves every earlier plan and review as immutable evidence:</p>
+        <ul>
+          <li><a href="chirality_app_v3_release_execution_plan_2026-08-22.html">Revision 1 execution plan</a> and <a href="chirality_app_v3_release_plan_review_2026-08-22.html">round-1 review</a>.</li>
+          <li><a href="chirality_app_v3_release_execution_plan_revision_2_2026-08-22.html">Revision 2 execution plan</a> and <a href="chirality_app_v3_release_plan_review_round_2_2026-08-22.html">round-2 review</a>.</li>
+          <li><a href="chirality_app_v3_release_execution_plan_revision_3_2026-08-22.html">Revision 3 execution plan</a> and <a href="chirality_app_v3_release_plan_review_round_3_2026-08-22.html">round-3 review</a>, verdict <strong>ACCEPT WITH REQUIRED CHANGES</strong>.</li>
+        </ul>
+        <p>Revision 3.1 supersedes Revision 3 for planning after this file enters repository history. It is not “Revision 4”: it is the bounded final erratum the round-3 return requested, with a small number of additional scope reductions made after direct repository and current official-document checks. It does not retroactively change a review baseline or claim that a plan merge resolves an implementation finding.</p>
+
+        <h3>2.1 Round-3 corrections incorporated</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Area</th><th>Final disposition</th><th>Primary proof</th></tr></thead>
+          <tbody>
+            <tr><td>Restart semantics</td><td>Select terminal-on-retirement. A planned retirement or recovered crash produces one durable terminal; the next user action starts a fresh App Server thread. No active-turn attach or continuity claim remains.</td><td>G-HELPER, G-SIG, AT-036, AT-048, AT-055.</td></tr>
+            <tr><td>Restricted reads</td><td>Set <code>includePlatformDefaults: false</code>. Inventory and allow only the exact immutable runtime reads the packaged toolchain needs. Any need for the platform-default bundle blocks the affected RC profile.</td><td>G-SBX, G-SENT, G-ENV, AT-018/049.</td></tr>
+            <tr><td>Worker retirement</td><td>Replace the fictional cross-file atomic transaction with a durable, idempotent retirement journal plus a coordinator API able to terminalize sessions whose generators are not being pulled. An incomplete journal quarantines the affected root until reconciliation.</td><td>G-SIG, AT-014/032/055.</td></tr>
+            <tr><td>Role posture</td><td>Use configuration layers only. The exact 0.149.0 Agent 2 profile sets the documented <code>features.multi_agent</code> and <code>agents.enabled</code> controls off and also records pin-specific <code>features.multi_agent_v2</code> precedence from the generated schema. Native descendants are not automatically classified as Agent 2.</td><td>G-ROLE, AT-029/030/045/050.</td></tr>
+            <tr><td>Process host and socket</td><td>The Delegated Harness Process Supervisor runs the packaged Electron executable under <code>ELECTRON_RUN_AS_NODE=1</code> with a new CLI-bundle entry. Its private control socket follows the existing <code>0700</code>/<code>0600</code> directory, owner-record, and rotated-token pattern; no peer-credential API is invented.</td><td>G-HELPER, G-DUAL, AT-048/054/058.</td></tr>
+            <tr><td>Consent and sentinels</td><td>Add a consent port at the coordinator boundary. Check root/account/policy identity before every turn, but run model/tool sentinels only at profile activation and release gates under the actual <code>turn/start</code> policy—not through <code>command/exec</code> and not before every ordinary user turn.</td><td>G-SENT, AT-007/018 and §11.1 evidence rules.</td></tr>
+            <tr><td>Credentials and release</td><td>Cover App Server keyring state and Electron <code>safeStorage</code>, distinguish missing/unavailable/decrypt-failed states, add a self-signed preparation transition drill, and keep Developer ID/notary work solely in the actual release lane.</td><td>G-KEY, G-CSP, AT-051/057.</td></tr>
+            <tr><td>Contracts and carriers</td><td>Add K-CONTROL-1, K-ROLE-2, consent, untyped-code, release-procedure, RQG §13, and exact carrier amendments. Restate DEL-02-06 by REQ-027 and its exclusion block rather than by an informal size label.</td><td>G0.5, G1, AT-053.</td></tr>
+            <tr><td>Upstream facts</td><td>Use <code>account/read.account.type</code>; record sticky per-turn <code>cwd</code>; treat <code>thread/shellCommand</code> as ungated but client-rejected; do not invent a network port or group membership; record default-off command networking and unmanaged <code>configRequirements/read = null</code>.</td><td>G2, G-APPR, Appendix B.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>2.2 Additional final judgments</h3>
+        <ul>
+          <li><strong>Managed command-network approvals are out of RC scope.</strong> The documented approval context exposes host/protocol but not the port or queued membership used by upstream grouping. With command network pinned off, any such request is denied. OpenAI service traffic is governed separately at the adapter boundary.</li>
+          <li><strong>Role enforcement is class-specific.</strong> Chirality-managed Agent 2 remains non-delegating. An explicitly selected Codex Agent 2/TASK role is offered only when G-ROLE proves its profile. Other Codex-native descendants remain native harness activity and may use the pinned harness’s own delegation abilities inside the hard outer envelope.</li>
+          <li><strong>Credential isolation wins over invisible token copying.</strong> Each canonical root has private App Server operational state. No token file or Keychain payload is copied or symlinked between roots. Safe keyring reuse may be enabled only after exact-pin proof; otherwise Preview asks the user to authenticate per root and says so plainly.</li>
+          <li><strong>Sentinel cost stays out of ordinary turns.</strong> Production turns perform deterministic identity/policy checks; the expensive descendant conformance fixture runs on profile activation, exact-pin/config/package change, G4, and G7.</li>
+        </ul>
+
+        <h3>2.3 Document workflow</h3>
+        <p>HTML suits this document because it carries a durable argument, diagrams, evidence links, and a machine-readable manifest; Git carries provenance and accepted history. Because this is a derivative, non-governing artifact under <code>plans/README.md</code>, drafting may proceed conversationally or in a local lane. That latitude belongs to plans alone. An uncommitted plan fences nothing, and a merged plan still manufactures no implementation authority. Under PRD_ROOT D-1, design changes terminate in a superseding decision record or PR review rather than another plan; under D-8, human-gated PRs are the standing Git closeout default while owner-directed alternatives and stricter local rules remain available.</p>
+      </section>
+
+      <section id="release">
+        <h2>3. Release definition and scope</h2>
+        <h3>3.1 What “stable product candidate” means</h3>
+        <p><code>v3.0.0-rc.1</code> is not a completed app. It is the first publicly distributable candidate whose product core is coherent and supportable enough for real use while development continues. Stability is defined by bounded behavior, durable failure states, data integrity, and an honest capability surface—not by feature completeness.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>In scope for RC</th><th>Explicitly not required for RC</th></tr></thead>
+          <tbody>
+            <tr><td>Existing Chirality-native engines remain usable; Codex App Server becomes an opt-in delegated-harness adapter.</td><td>Parity between every engine, model, tool, or provider.</td></tr>
+            <tr><td>Managed ChatGPT login, logout, account state, model discovery, rate-limit state, turns, approvals, interruption, and native delegation.</td><td>Claude subscription OAuth; custom ownership of ChatGPT tokens; multi-platform distribution.</td></tr>
+            <tr><td>Codex chooses its native descendant topology and concurrency default; Chirality displays parentage/status and applies one enclosing authority envelope. Explicit Chirality roles are imputed only when actually selected.</td><td>A Chirality-authored subagent scheduler, child allowlist, fixed hierarchy, or automatic reclassification of every Codex descendant as Agent 2.</td></tr>
+            <tr><td>Unsigned/ad-hoc preparation packages plus an owner-signed/notarized/stapled artifact only when a candidate is actually published.</td><td>Hosted Apple signing credentials, automatic notarization on ordinary CI, or notarizing every development build.</td></tr>
+            <tr><td>Migration that preserves v2 user data and fails explicitly when incompatible; process retirement terminalizes affected work and later starts a fresh thread.</td><td>Active-turn attachment, replay, or continuity across daemon/supervisor/worker retirement.</td></tr>
+            <tr><td>Preview-labelled Codex integration inside a stable overall product.</td><td>Claiming the App Server protocol itself is stable or silently falling back to a different engine.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>3.2 Success criteria</h3>
+        <ol>
+          <li>A new user can install the released DMG, pass Gatekeeper, start Chirality, choose Codex (Preview), sign in with ChatGPT, grant project consent, and complete a turn.</li>
+          <li>Codex can delegate natively when it judges delegation useful; the UI shows attributable descendant activity and correctly routes concurrent descendant approvals.</li>
+          <li>No primary or descendant thread can read, write, execute, reach the network, persist secrets, or outlive the session beyond the effective approved boundary. Project data is root-bound; the RC disables the implicit platform-default policy and allows only exact inventoried immutable runtime reads.</li>
+          <li>Interrupt, quit, crash, logout, daemon restart, and upgrade do not leave an orphan App Server, stale socket, corrupted project state, or misleading “success” terminal.</li>
+          <li>The exact public bytes trace to an accepted source identity and release identity, include notices and an SBOM, and pass signing, notarization, stapling, clean-machine, checksum, and download-backcheck evidence.</li>
+        </ol>
+      </section>
+
+      <section id="architecture">
+        <h2>4. Target architecture</h2>
+        <figure>
+          <svg viewBox="0 0 1000 610" role="img" aria-labelledby="arch-title arch-desc">
+            <title id="arch-title">Chirality App delegated-harness architecture</title>
+            <desc id="arch-desc">The renderer talks to the Chirality daemon. The daemon uses a distinct private socket to a launchd-owned Delegated Harness Process Supervisor. The process supervisor owns canonical-root and role-profile App Server workers. A durable retirement journal and the Root session store provide terminal reconciliation. Codex controls native inner topology inside the hard project envelope.</desc>
+            <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#56656d"/></marker></defs>
+
+            <rect x="30" y="42" width="175" height="92" rx="12" fill="#e8f1f7" stroke="#275d7e" stroke-width="2"/>
+            <text x="118" y="76" text-anchor="middle" font-size="17" font-weight="700" fill="#173b57">Desktop renderer</text>
+            <text x="118" y="101" text-anchor="middle" font-size="11" fill="#40525d">consent · approval · status</text>
+
+            <rect x="276" y="42" width="175" height="92" rx="12" fill="#e3f2ef" stroke="#11756d" stroke-width="2"/>
+            <text x="364" y="76" text-anchor="middle" font-size="17" font-weight="700" fill="#174b45">Chirality daemon</text>
+            <text x="364" y="101" text-anchor="middle" font-size="11" fill="#40525d">sessions · turns · terminals</text>
+
+            <rect x="522" y="42" width="205" height="92" rx="12" fill="#fff1d8" stroke="#9b5900" stroke-width="2"/>
+            <text x="625" y="72" text-anchor="middle" font-size="16" font-weight="700" fill="#704100">Delegated Harness</text>
+            <text x="625" y="94" text-anchor="middle" font-size="16" font-weight="700" fill="#704100">Process Supervisor</text>
+            <text x="625" y="117" text-anchor="middle" font-size="11" fill="#40525d">launchd · process groups</text>
+
+            <rect x="798" y="42" width="175" height="92" rx="12" fill="#eee8f7" stroke="#6a4c93" stroke-width="2"/>
+            <text x="886" y="76" text-anchor="middle" font-size="16" font-weight="700" fill="#543879">Root/profile worker</text>
+            <text x="886" y="101" text-anchor="middle" font-size="11" fill="#40525d">pinned App Server · one root</text>
+
+            <path d="M205 88 H270" stroke="#56656d" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M451 88 H516" stroke="#56656d" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M727 88 H792" stroke="#56656d" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="238" y="76" text-anchor="middle" font-size="10" fill="#56656d">control.sock</text>
+            <text x="484" y="76" text-anchor="middle" font-size="10" fill="#56656d">harness.sock</text>
+            <text x="760" y="76" text-anchor="middle" font-size="10" fill="#56656d">stdio</text>
+
+            <rect x="616" y="192" width="357" height="244" rx="18" fill="#faf8fd" stroke="#6a4c93" stroke-width="2"/>
+            <text x="795" y="225" text-anchor="middle" font-size="17" font-weight="700" fill="#543879">Codex-owned native topology</text>
+            <rect x="690" y="257" width="210" height="60" rx="10" fill="#eee8f7" stroke="#6a4c93"/>
+            <text x="795" y="284" text-anchor="middle" font-size="15" font-weight="700" fill="#543879">Primary thread</text>
+            <text x="795" y="304" text-anchor="middle" font-size="11" fill="#56656d">chooses whether/how to delegate</text>
+            <rect x="648" y="358" width="130" height="52" rx="9" fill="#fff" stroke="#6a4c93"/>
+            <rect x="812" y="358" width="130" height="52" rx="9" fill="#fff" stroke="#6a4c93"/>
+            <text x="713" y="390" text-anchor="middle" font-size="13" fill="#543879">Native child A</text>
+            <text x="877" y="390" text-anchor="middle" font-size="13" fill="#543879">Native child …</text>
+            <path d="M795 317 L713 352" stroke="#6a4c93" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M795 317 L877 352" stroke="#6a4c93" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <rect x="30" y="184" width="525" height="274" rx="18" fill="none" stroke="#a6342c" stroke-width="3" stroke-dasharray="9 6"/>
+            <text x="52" y="219" font-size="17" font-weight="700" fill="#81251f">Chirality-owned hard outer envelope</text>
+            <text x="52" y="251" font-size="13" fill="#40525d">• canonical root + exact user/account/policy consent</text>
+            <text x="52" y="280" font-size="13" fill="#40525d">• explicit restricted reads; no platform-default bundle</text>
+            <text x="52" y="309" font-size="13" fill="#40525d">• root-only writes; command network off; protected paths</text>
+            <text x="52" y="338" font-size="13" fill="#40525d">• thread-attributed approvals; unknowns denied</text>
+            <text x="52" y="367" font-size="13" fill="#40525d">• typed/redacted events; durable terminal reconciliation</text>
+            <text x="52" y="396" font-size="13" fill="#40525d">• process-group cleanup; no worker survives root closure</text>
+            <text x="52" y="425" font-size="13" fill="#40525d">• AGENTS semantic posture without topology imitation</text>
+            <path d="M555 322 H608" stroke="#a6342c" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <rect x="245" y="500" width="230" height="65" rx="10" fill="#e5f2e9" stroke="#287246" stroke-width="2"/>
+            <text x="360" y="527" text-anchor="middle" font-size="15" font-weight="700" fill="#174b2c">Root session/event store</text>
+            <text x="360" y="549" text-anchor="middle" font-size="11" fill="#40525d">one terminal per turn</text>
+            <rect x="555" y="500" width="230" height="65" rx="10" fill="#fbe8e5" stroke="#a6342c" stroke-width="2"/>
+            <text x="670" y="527" text-anchor="middle" font-size="15" font-weight="700" fill="#81251f">Retirement journal</text>
+            <text x="670" y="549" text-anchor="middle" font-size="11" fill="#40525d">prepared · reconciled · committed</text>
+            <path d="M555 533 H481" stroke="#56656d" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M625 134 V494" stroke="#56656d" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+          </svg>
+          <figcaption><strong>Figure 1.</strong> “Process Supervisor” distinguishes the launchd-owned helper from the existing in-process <code>RuntimeBindingSupervisor</code>. The existing daemon LaunchAgent remains. A second job hosts the process supervisor. Worker retirement ends affected turns durably; daemon recovery does not attach to an in-progress turn.</figcaption>
+        </figure>
+
+        <h3>4.1 Responsibility split</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Concern</th><th>Chirality-owned</th><th>Codex-owned</th></tr></thead>
+          <tbody>
+            <tr><td>Product/session</td><td>Engine choice, project identity, consent, turn lock, visible state, interrupt, and the durable Chirality terminal.</td><td>Inner thread state and model interaction while the worker generation is live.</td></tr>
+            <tr><td>Delegation</td><td>Outer authority ceiling, approval routing, observability, cleanup, and honest role/evidence classification.</td><td>Whether to delegate, descendant count/topology within upstream defaults, steering, and fan-in.</td></tr>
+            <tr><td>Credentials</td><td>Login brokerage, root-home isolation, non-secret status, logout UX, and typed credential-store availability.</td><td>Managed ChatGPT token lifecycle inside the isolated upstream store.</td></tr>
+            <tr><td>Tools</td><td>Allowed boundary and approval UX; provider-neutral metadata and evidence.</td><td>Native tool mechanics inside the delegated harness.</td></tr>
+            <tr><td>Persistence</td><td>Chirality session records, terminal journal, migration, and accepted evidence.</td><td>App Server rollout/SQLite state as private, non-authoritative operational state.</td></tr>
+            <tr><td>Failure</td><td>Typed unavailable/failed/interrupted/cancelled state, root quarantine, and fresh-thread recovery; never silent substitution or replay.</td><td>Upstream error/status detail projected through typed redaction.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>4.2 Process shape selected for proof</h3>
+        <ol>
+          <li><strong>Two launchd jobs.</strong> Retain the current daemon LaunchAgent. Add a separately labelled Delegated Harness Process Supervisor LaunchAgent. The daemon remains the single Chirality runtime broker; the process supervisor is a lifecycle helper, not another runtime or agent harness.</li>
+          <li><strong>Concrete host.</strong> The second job executes the packaged Electron binary with <code>ELECTRON_RUN_AS_NODE=1</code>, the bundled <code>runtime-cli/chirality-cli.mjs</code>, and a new <code>--runtime-supervisor</code> entry. <code>@chirality/runtime-cli</code> gains a generic two-job renderer/manager rather than retaining hard-coded <code>--runtime-daemon</code> arguments. The packaging manifest and proof scripts pin exact labels, arguments, environment, KeepAlive, and resource paths.</li>
+          <li><strong>Install and migration actor.</strong> An explicit user action in the packaged Runtime panel invokes the existing authorized runtime-control IPC path. It performs an idle-aware, journalled two-plist transaction: stage/fsync both files, preserve rollback copies, commit both, bootstrap/inspect both labels, and roll back on partial failure. Active turns defer ordinary migration. A forced security migration first runs the retirement protocol. The old crash-only daemon definition is retired; the current daemon job itself is retained with the accepted always-restart posture.</li>
+          <li><strong>Two private sockets, no TCP.</strong> The public project-scoped daemon API remains on <code>control.sock</code>. A second daemon-to-supervisor socket is confined to the app’s <code>0700</code> runtime directory with mode <code>0600</code>. Authentication uses a verified socket/owner record, same-UID path ownership, a boot/generation identity, and a rotated high-entropy bearer token delivered through app-private state. Node does not claim peer credentials it cannot read. K-CONTROL-1 must explicitly authorize the second purpose-limited socket.</li>
+          <li><strong>Root/profile worker identity.</strong> The process supervisor resolves the checkout with <code>realpath</code>. A worker key is always <code>(canonicalRoot, rolePosture, effectiveConfigDigest)</code>; there is at most one live worker per exact key and never a union of roots. <code>closeRoot(projectId, canonicalRoot)</code> closes every profile worker registered to that project/root.</li>
+          <li><strong>Private operational homes.</strong> Each canonical root receives a private app-owned <code>CODEX_HOME</code>; role-profile overlays are process-level configuration, not project input. Homes do not share token files or Keychain payloads by copy or symlink. G3 may prove safe upstream keyring reuse across root homes; absent that proof, each root requires an explicit managed login. Logout iterates and verifies every known root home.</li>
+          <li><strong>Retirement, not attachment.</strong> Targeted thread interruption comes first. Before worker-wide retirement, the coordinator fences the worker generation, persists a prepared journal naming every active session/turn, stops the process group by deadline, and idempotently appends exactly one truthful terminal to every affected session—even when its async generator is no longer being pulled. Only then is the journal committed and the root released. A failed append leaves the root quarantined and reconciliation-required; restart completes the journal before new root work.</li>
+          <li><strong>Fresh recovery.</strong> Planned daemon retirement applies the same terminal protocol before exit. After an unplanned daemon crash, startup reconciles any session marked running and any prepared retirement journal, retires the corresponding worker generation, and writes a failure terminal. The next user action starts a fresh App Server thread. No turn replay, buffered-continuation, or attach route is claimed for RC.</li>
+        </ol>
+
+        <h3>4.3 Pre-architecture feasibility decision</h3>
+        <p>G-HELPER runs before WP-03 design freeze. It must prove the concrete Electron-as-Node host, the two-job installer and rollback, socket authentication, root/profile keying, worker process groups, terminal-on-retirement, crash reconciliation, and clean shutdown in a packaged build. G-SBX and G6a/G6b must also prove that the packaged Electron fuse and Developer ID entitlement/signature posture permit <code>ELECTRON_RUN_AS_NODE</code>. Failure returns the architecture to G0.5; the fallback is a separately signed helper executable under a new accepted scope—not an Electron-spawned helper, silent active-turn replay, or weaker containment.</p>
+      </section>
+
+      <section id="delegation">
+        <h2>5. Delegation and authority</h2>
+        <h3>5.1 Two delegation classes</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Class</th><th>Meaning</th><th>Governance/evidence</th></tr></thead>
+          <tbody>
+            <tr><td><code>chirality-managed</code></td><td>A governed child session created by Chirality’s managed delegation mechanism.</td><td>Existing sealed brief, declared context/tools/writes, parentage, return, and Agent 0→1→2 rules continue unchanged. Agent 2 does not delegate.</td></tr>
+            <tr><td><code>delegated-harness-native</code></td><td>A primary or descendant thread created and orchestrated inside Codex.</td><td>It is not falsely represented as a Chirality <code>AgentRun</code> or automatically retyped as Agent 2. Chirality records upstream lineage/status plus enclosing session, boundary, instruction identity, approvals, interruption, and terminal outcome.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>5.2 Native delegation rule</h3>
+        <div class="callout purple">
+          <p><strong>Owner outcome:</strong> native multi-agent capability is enabled for untyped, Agent 0, and Agent 1 primary sessions; the concurrency cap is left unset; Chirality supplies no child allowlist, fixed fan-out, model allocation, or scheduling policy. Codex may delegate again from a native descendant when its pinned harness permits it. Upstream/account/platform limits remain effective and are represented honestly.</p>
+        </div>
+        <p>“No Chirality topology restriction” applies to the inner organization of work, not to external authority. The same canonical root, restricted reads, write policy, command-network denial, approvals, consent, protected-path rules, process lifetime, and privacy boundary enclose every native thread. Current OpenAI documentation says subagents inherit the active sandbox and permission mode and that live parent overrides are reapplied in interactive clients; equivalent behavior through the exact App Server pin remains a packaged proof obligation.</p>
+        <p>An ordinary Chirality installation does not claim to install administrator-managed <code>requirements.toml</code>. When one exists, <code>configRequirements/read</code> records it as an additional ceiling; an unmanaged machine returns <code>null</code>. The RC uses isolated root homes, untrusted project configuration, process-level profile overlays, explicit <code>turn/start</code> sandbox/approval policy, effective-config evidence, and the enclosing process boundary.</p>
+
+        <h3>5.3 Agent 0/1/2 posture without topology imitation</h3>
+        <ul>
+          <li><strong>Untyped primary:</strong> is a valid human entry posture and may use native delegation. This requires the DEL-02-03 text change and the corresponding <code>subagent-governance.ts:205–213</code> change; it applies only to the new delegated-harness-native class and does not weaken managed-delegation checks.</li>
+          <li><strong>Agent 0:</strong> may delegate to Agent 1 and may directly dispatch bounded Agent 2 work as the accepted root <code>AGENTS.md</code> permits.</li>
+          <li><strong>Agent 1:</strong> may manage and delegate bounded work to Agent 2 forms; a native descendant explicitly selected as Agent 1 may continue managing.</li>
+          <li><strong>Explicit Agent 2/TASK:</strong> when Chirality or an accepted upstream custom-agent selection explicitly imputes this role, it executes one bounded objective and does not re-delegate. On the 0.149.0 candidate, G-ROLE must prove a configuration layer that sets <code>features.multi_agent = false</code>, exact-pin <code>features.multi_agent_v2 = false</code>, and <code>[agents] enabled = false</code>, with generated-schema precedence and readback recorded. Project configuration may not override it.</li>
+          <li><strong>Other native descendants:</strong> remain <code>delegated-harness-native</code>. Bounded subject matter alone does not convert them into Chirality Agent 2 or authorize Chirality to replace Codex’s topology. Their evidence is accepted only for what the upstream lineage and hard boundary actually prove.</li>
+          <li><strong>Equivalent evidence:</strong> when an explicitly governed role requires a sealed brief, scope, parentage, and return, the adapter preserves equivalent evidence to the extent exposed by the exact pin. Where that cannot be represented, the thread remains upstream-native evidence and is not promoted into a governed child record.</li>
+          <li><strong>G0 failure pre-decision:</strong> if G-ROLE cannot mechanically contain an explicitly selected Codex Agent 2/TASK profile, the RC withholds that explicit Codex role entry and labels it unavailable; native delegation remains enabled for the general Codex Preview. Chirality does not globally disable native delegation or silently claim Agent 2 conformance. If the owning governance act instead requires every bounded native descendant to be hard-classified as Agent 2, the Codex Preview is blocked until a supported mechanism or a new owner ruling resolves the conflict.</li>
+          <li><strong>Conformance consequence:</strong> an instruction breach makes governed workflow evidence non-conforming. Hard filesystem, network, approval, and process containment must still hold independently.</li>
+        </ul>
+
+        <h3>5.4 Thread-aware approval contract</h3>
+        <p>The current Root API v1 and broker key are insufficient. G-APPR is first an exact-pin compatibility spike; implementation then requires an accepted Root API v2. The RC target is deliberately single-request only:</p>
+        <pre>ApprovalEnvelope = {
+  jsonRpcRequestId,
+  projectId,
+  chiralitySessionId,
+  rootThreadId,
+  sourceThreadId,
+  turnId,
+  requestKind,
+  requestId | itemId,
+  ancestryEvidence
+}</pre>
+        <p>The UI shows the requesting primary/descendant and action. Correctly attributed file, command, and supported granular-permission requests receive only the user’s exact decision. A single request with neither <code>requestId</code> nor <code>itemId</code>, missing source identity, ambiguous ancestry, disconnected client, or expired turn is denied/cancelled or allowed to fail; it is never guessed as a parent request. A child action that fails without emitting a request is surfaced to the parent and is never retried with broader authority. Session-scoped approval is used only when the exact pin offers it and the user explicitly chooses it.</p>
+        <p><strong>Managed network approvals are denied in RC.</strong> Official App Server documentation says <code>networkApprovalContext</code> exposes <code>host</code> and <code>protocol</code>, while upstream grouping also distinguishes port and may unblock multiple queued requests. The context does not expose that port or a complete membership set, and the grouping scope is not documented as thread- or Chirality-session-confined. Chirality therefore pins command network off, does not create a fictitious destination-group envelope, and denies any managed-network approval request. OpenAI account/model/turn service traffic remains a separately enumerated adapter transport under K-NET-1.</p>
+
+        <h3>5.5 Upstream evidence used by this plan</h3>
+        <p>Current official documentation says subagents inherit sandbox and permission mode and describes parent live overrides being reapplied in interactive clients. App Server approval requests carry thread/turn/item attribution; <code>collabToolCall</code> exposes sender and optional receiver/new-thread identity. <code>account/read</code> discriminates account state with <code>account.type</code>, while <code>account/updated</code> uses <code>authMode</code>. A <code>turn/start</code> <code>cwd</code> override becomes the default for later turns, which is why Chirality fixes it to the canonical root. <code>thread/shellCommand</code> has no capability gate and runs outside the sandbox, so the client allowlist rejects it unconditionally; experimental <code>process/*</code>, ancestry, and background-terminal methods remain unreachable because RC does not enable <code>experimentalApi</code>. Command network is already off by default and is also pinned explicitly off. <code>thread/list</code> uses explicit stable exact-pin source kinds, and returned <code>thread.sessionId</code> is persisted. Stable collaboration/thread observations plus OS process-group ownership—not an experimental RPC—provide RC attribution and cleanup.</p>
+      </section>
+
+      <section id="containment">
+        <h2>6. Process, containment, and failure behavior</h2>
+        <h3>6.1 Required layers</h3>
+        <ol>
+          <li><strong>Declared policy:</strong> one effective root/profile identity names sandbox mode, approval policy, canonical root, restricted readable roots, exact immutable runtime reads, temporary-directory posture, login-shell posture, command-network posture, protected paths, role posture, account/consent identity, and exact feature flags. A process never receives a union of project roots.</li>
+          <li><strong>Enforcement:</strong> the exact packaged App Server enforces the policy for primary and descendant actions inside a root-specific worker. RC does <strong>not</strong> adopt Apple App Sandbox; the public artifact uses hardened runtime, while G-SBX proves the App Server/Seatbelt policy and enclosing process posture in that exact bundle.</li>
+          <li><strong>Restricted-read choice:</strong> both read-only and workspace-write policies set <code>includePlatformDefaults: false</code>. G-SBX inventories only the immutable app/system/tool reads actually required and adds their exact roots. It never accepts arbitrary user data or the platform bundle as an unnamed compatibility exception.</li>
+          <li><strong>Turn-path sentinel:</strong> the conformance fixture starts a real thread and sends a representative <code>turn/start</code> carrying the exact candidate policy. A deterministic fake-model/tool limb must issue each primary and descendant canary; an owner-authenticated live limb confirms representative native delegation. A missing attempt or missing denial is inconclusive/fail, never pass.</li>
+          <li><strong>Protected-path compiler:</strong> G-PROT round-trips every profile rule through read, file-change, and shell-write enforcement. A mid-path glob or other rule that cannot be represented blocks workspace-write for that project; “expressible subset” is not success.</li>
+          <li><strong>Client RPC boundary:</strong> the adapter exposes a closed method allowlist. RC rejects ungated <code>thread/shellCommand</code>, all <code>process/*</code>, configuration writes, imports, arbitrary extra-root operations, and every unneeded mutation method before App Server. <code>command/exec</code> may test only its own separately supplied policy and can never stand in for a <code>turn/start</code> proof.</li>
+          <li><strong>Approval boundary:</strong> attributed requests surface through the broker. Managed command-network requests, missing UI, disconnected clients, and ambiguous requests are denied.</li>
+          <li><strong>Process boundary:</strong> the process supervisor owns generations, process groups, deadlines, retirement journals, and orphan scans. A successful turn cannot hide a live descendant or unresolved journal.</li>
+        </ol>
+
+        <h3>6.2 Workspace-write enablement and sentinel cadence</h3>
+        <p>Native delegation remains the RC outcome, but <strong>workspace-write is conditional on containment proof</strong>. Every turn supplies root-specific restricted <code>workspaceWrite.readOnlyAccess</code>; the reduced-capability fallback supplies root-specific restricted <code>readOnly.access</code>. Neither loads platform defaults. Workspace-write names only the canonical root as writable, excludes <code>/tmp</code> and the actual <code>$TMPDIR</code>, and uses a <code>0700</code>, ignored, root-local scratch directory. Login shells and command network remain disabled. If exact required immutable runtime reads cannot be enumerated without admitting user-data or temporary-write roots, the affected profile is blocked.</p>
+        <p>The expensive canary suite runs on initial profile activation, canonical-root/policy/config/exact-pin/package change, G4, and G7—not before each ordinary user turn. Its deterministic limb has a 60-second budget per policy profile and a 10-second timeout per probe; the live descendant limb has a five-minute operator-test budget and never runs in ordinary CI. Every production turn still performs a deterministic preflight of project/root, account epoch/digest, consent version, effective policy digest, worker generation, and fixed <code>cwd</code>. If the adapter cannot bind the exact policy to that <code>turn/start</code>, the turn does not begin.</p>
+        <p>If workspace-write fails but restricted read-only passes the same read, role, approval, environment, and process gates, the owner may accept a clearly labelled read-only Codex Preview under the G0 pre-decision. Otherwise publication is blocked. No failure permits full/default reads, implicit platform defaults, temporary-directory writes, login shells, command network, automatic fallback, or global native-delegation disablement.</p>
+
+        <h3>6.3 Environment and packaged-host posture</h3>
+        <ul>
+          <li>Construct daemon, process-supervisor, and App Server environments from reviewed allowlists; never clone <code>process.env</code>.</li>
+          <li>Scan both installed LaunchAgent plists and effective launchd environments. Plists are user-writable input, not authorization.</li>
+          <li>Packaged builds ignore or hard-fail <code>CHIRALITY_ALLOW_SDK_BYPASS</code>; they clamp or reject non-positive approval timeouts rather than creating an indefinite grant path.</li>
+          <li>Exclude unrelated API keys, proxy variables, shell-startup mutations, ambient <code>CODEX_HOME</code>, and ungoverned config. Set <code>allow_login_shell = false</code>, explicitly keep command network false, and verify both temporary-root exclusions end to end.</li>
+          <li>Give each canonical root a private app-owned <code>CODEX_HOME</code> with documented permissions, backup, deletion, logout, and upgrade behavior. Role overlays are sealed at process launch. Project <code>.codex</code> configuration and agents are untrusted.</li>
+          <li>Treat unavailable keyring access, safeStorage decrypt failure, invalid config, unsupported feature state, fuse/entitlement incompatibility, or sandbox refusal as typed <code>unavailable</code>; never fall back to plaintext credentials or an uncontained process.</li>
+          <li>G-SBX, G6a, G6b, and AT-058 inventory Electron fuses and entitlements and prove that the Developer ID-signed binary still honors <code>ELECTRON_RUN_AS_NODE=1</code>. A fuse failure triggers the separately scoped helper fallback.</li>
+        </ul>
+
+        <h3>6.4 Terminal and retirement invariants</h3>
+        <ul>
+          <li>Exactly one top-level durable terminal per Chirality turn: <code>turn.completed</code>, <code>turn.failed</code>, <code>turn.interrupted</code>, or <code>turn.cancelled</code>. Schema v2 keeps <code>cancelled</code> for client/transport cancellation distinct from an explicit user/system interruption; every adapter, coordinator, replay consumer, SSE path, and conformance rule migrates together.</li>
+          <li>A targeted interrupt uses per-thread mechanisms first. Worker-wide fallback fences the generation, persists a prepared retirement journal, interrupts every known loaded thread, kills the process group by deadline, and calls a coordinator-level terminalization API for every captured session—even if its generator is not being pulled. Experimental process and background-terminal RPCs are not enabled for RC.</li>
+          <li>The retirement API is idempotent by <code>workerRetirementId</code> and session/turn identity. Per-session appends are not misrepresented as one filesystem transaction. Closure occurs only when every expected terminal/status is present and the journal is committed.</li>
+          <li>If any append/status update fails, the worker stays retired, the journal remains reconciliation-required, and the affected root is quarantined. Startup and explicit repair replay the journal idempotently. New work for that root is forbidden until backcheck proves one terminal per captured turn.</li>
+          <li>App Server EOF, malformed protocol, crash, helper loss, or unplanned daemon loss yields a typed failure and invalidates the worker generation. Startup reconciles stale <code>running</code> sessions before admitting work.</li>
+          <li>Shutdown has measured grace and force deadlines. After process-group termination, an orphan/socket scan must be clean. Planned or recovered retirement never reattaches to active work; the next turn uses a fresh thread and no unknown-completion operation is replayed.</li>
+        </ul>
+      </section>
+
+      <section id="auth">
+        <h2>7. Authentication, data, and privacy</h2>
+        <h3>7.1 ChatGPT login for Codex</h3>
+        <ol>
+          <li>Before worker creation or <code>thread/start</code>, explain that selected project context may be sent to OpenAI and record consent in private user-local state.</li>
+          <li>Call <code>account/read</code>; discriminate the returned account by <code>account.type</code>. Do not read an <code>authMode</code> field there—<code>authMode</code> belongs to <code>account/updated</code>.</li>
+          <li>Default RC flow: <code>account/login/start</code> with <code>type: "chatgptDeviceCode"</code>. Render only the returned <code>verificationUrl</code> and <code>userCode</code>; the response has no documented expiry field.</li>
+          <li>Support cancellation by <code>loginId</code>; wait for <code>account/login/completed</code> plus <code>account/updated</code>; refresh non-secret state through <code>account/read</code>.</li>
+          <li>Browser callback login (<code>type: "chatgpt"</code>) may be added only as a declared localhost exception with loopback bind, ephemeral port, bounded lifetime, no token logging, and a specific K-NET-1 disposition.</li>
+          <li>Each root-private <code>CODEX_HOME</code> has an independently proved credential boundary. The app may reuse an OS-keyring login across homes only when G3 proves the exact pin does so without file-token copying or cross-root operational-state exposure; otherwise the Preview explicitly requests login per root.</li>
+          <li>Logout calls <code>account/logout</code> for every known root home, ends active Codex work through the retirement protocol, invalidates consent, clears visible state, and verifies prior credentials cannot start a new turn.</li>
+        </ol>
+
+        <h3>7.2 Credential boundary and migration states</h3>
+        <p>Access/refresh tokens, cookies, Keychain payloads, API keys, and auth URLs with sensitive parameters never enter renderer code, project truth, Chirality events, support bundles, or ordinary logs. The device-code ceremony is a narrow display exception: only <code>verificationUrl</code> and <code>userCode</code> cross a dedicated typed IPC channel into a dedicated view. They are excluded from persistence, telemetry, replay/SSE, screenshots captured by support tooling, support bundles, crash/event logs, and post-ceremony retention. On success, cancellation, failure, logout, or view disposal, Chirality clears reachable application/DOM/queued-IPC state and destroys the view. RC does not claim physical zeroization of unreachable V8 strings.</p>
+        <p>Two stores require separate proof. App Server-managed ChatGPT credentials use the exact-pin <code>keyring</code> posture and never fall back to plaintext. Existing Claude and Pi/oMLX keys use Electron <code>safeStorage</code>. The current implementation collapses missing storage, encryption unavailability, read failure, and decrypt failure to <code>null</code>; the governed change replaces that with distinguishable <code>missing</code>, <code>storageUnavailable</code>, <code>decryptFailed</code> (blob preserved), and <code>available</code> results. UI and daemon status preserve that distinction and offer non-destructive reauthentication.</p>
+        <p>G-KEY covers both stores. Preparation includes a disposable self-signed identity A→B transition and signed-A→signed-B update drill with non-production credentials, so store-keying problems are discovered before release. Developer ID and notarized-byte evidence remains confined to the actual G6/G7 release lane. The six legacy/provider credential IPC channels must call the same <code>isAuthorizedSender</code> policy as runtime-control IPC before any second view exists; G-CSP also binds a per-window egress allowlist.</p>
+
+        <h3>7.3 Typed event projection</h3>
+        <p>Raw <code>Record&lt;string, unknown&gt;</code> payloads may not flow from App Server to the turn coordinator, SSE, <code>events.jsonl</code>, logs, or support bundles. Root <code>HarnessEvent</code> schema v2 becomes a closed type-indexed discriminated union. The adapter validates generated exact-pin wire types, projects allowed fields before the coordinator, and applies structural redaction before every sink. Unknown types become bounded diagnostic codes, never raw payload. The tranche migrates Root Claude/Pi adapters, frontend legacy consumers/replay, and schema-version readers together. It explicitly maps all four terminal types, including existing <code>turn.cancelled</code>.</p>
+
+        <h3>7.4 Consent store and enforcement port</h3>
+        <p>Hosted-engine consent is private user-local application state under the app’s user-data directory, not tracked project truth. For a managed ChatGPT account with a non-null normalized email, it is keyed by canonical-root digest, adapter/provider, a stable non-secret digest of that exact identity, privacy-notice version, and policy version. When <code>account/read.account.email</code> is null, Chirality persists no reusable account consent: it uses a volatile non-secret login epoch, requires fresh consent after every app/process-supervisor start and every account/login/logout/update transition, and fails typed-unavailable if it cannot prove a fresh epoch.</p>
+        <p>A new <code>HostedEngineConsentPort</code> is injected into runtime service, worker acquisition, and the turn coordinator. It validates project ID, server-owned canonical root, adapter, exact account digest/epoch, notice/policy digest, role profile, and worker generation before worker boot, <code>thread/start</code>, and every <code>turn/start</code>. The session store remains the authoritative fixed-root check: creation records the authorized canonical root and update rejects project-root mutation. Caller-supplied <code>cwd</code> never reaches App Server; the adapter uses the stored root. Because an upstream per-turn <code>cwd</code> override becomes the thread default for later turns, any mismatch fails before the upstream call. Consent to another root starts a fresh root worker/thread; revocation retires the root and invalidates its home.</p>
+        <p>Official documentation establishes that <code>thread/start</code> loads instruction sources and may initialize required MCP servers. It does not establish that git metadata is read at thread start; this plan makes no such timing claim.</p>
+
+        <h3>7.5 Claude posture</h3>
+        <div class="callout warning">
+          <p>Claude remains API-key authenticated in RC. Chirality does not advertise, design around, or promise Claude subscription login. Such a capability may enter a future plan only after written Anthropic approval for this third-party product and a new contract/security review. Product copy must follow Anthropic branding requirements.</p>
+        </div>
+      </section>
+
+      <section id="governance">
+        <h2>8. Governance and contract work</h2>
+        <h3>8.1 Required instruments before implementation</h3>
+        <ol>
+          <li><strong>Owner dispositions at G0:</strong> record TM-APP-025, Codex Preview posture, no App Sandbox for RC, managed command-network denial, the reduced-capability read-only fallback, root-private authentication posture, and the G-ROLE failure rule. Triage TM-APP-027/028/032 against their current exact trigger bytes; do not infer that they fired.</li>
+          <li><strong>Root delegation ruling:</strong> route a HELPS_HUMANS proposal that expressly supersedes D-GOV-14 item 7 for the new <code>delegated-harness-native</code> class while preserving managed delegation. It must decide that native descendants are not automatically Agent 2, define when a role is explicitly imputed, and preserve the hard outer authority ceiling. No App instrument substitutes for this Root act.</li>
+          <li><strong>Root instruction tranche:</strong> separately authorize and accept the DEL-02-03 M2 change to root <code>AGENTS.md</code>, including untyped delegated-harness entry, the two-class evidence rule, and explicit-role semantics. The agent-index change-notice rule applies. The tranche must not silently rewrite managed delegation.</li>
+          <li><strong>Root scope change:</strong> run SCA-004 (or next valid ID). DEL-02-06 is the standing planning carrier, but REQ-027 limits its first activation to specification, read-only consumer inventory, evidence-matrix design, and change planning, with no implementation bytes; its exclusion block keeps <code>runtime/**</code>, clients, agents, tools, product, and release files read-only. SCA-004 must create or assign exact implementation carriers for process supervisor/control, supply/protocol, account/consent, adapter/event/API-v2, terminal reconciliation, and conformance. Accept exact SOW bytes and an explicit implementation activation before WP-03 or WP-05.</li>
+          <li><strong>App scope change:</strong> create SCA-APP-008 (or next valid ID) for App carriers and required DEL-04-01/DEL-08-04/validation/release-procedure amendments. It must name D-APP-103 as an interacting open item on DEL-08-04, seat the untyped <code>subagent-governance.ts</code> change, six credential-IPC sender checks, two-job installer, consent UI, migration, and unsigned runbook work. DEL-04-01 remains a probe and DEL-08-04 remains managed-delegation-only until accepted amendment.</li>
+          <li><strong>Release instruments:</strong> keep D-APP-97 and F-APP-2 unchanged through preparation. At actual release intent, a ruled D-APP record must amend K-RELEASE-1 and lift F-APP-2 only for the exact candidate, release identity, and publication route. TM-APP-030 is addressed at the gates already assigned by its owning loop.</li>
+          <li><strong>Snapshots and closeout:</strong> each accepted boundary produces its owning-loop receipt, effective merge SHA, immutable snapshot, and permitted pointer update. Implementation consumes accepted snapshots and handoff state, not this plan.</li>
+        </ol>
+
+        <h3>8.2 Contract amendments to propose</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Contract area</th><th>Present conflict or gap</th><th>Proposed direction</th></tr></thead>
+          <tbody>
+            <tr><td>D-GOV-14 item 7; D-APP-68; DEL-02-03; DEL-08-04; K-SUBAGENT-1/2/3</td><td>Managed children are the sole executable App-harness path; untyped is hard-denied in <code>subagent-governance.ts:205–213</code>.</td><td>Add the <code>delegated-harness-native</code> class, preserve managed children, permit untyped native entry, avoid automatic Agent-2 classification, and require honest lineage/role evidence plus hard containment.</td></tr>
+            <tr><td>K-PERM-2/3, K-SEAL-1, K-TOOL-2, K-RELIANCE-2</td><td>Prompt/config intent cannot alone enforce tools, delegation, or P0 authority.</td><td>Bind exact policy/config evidence, OS/process enforcement, protected-path compilation, approval v2, fail-closed unknowns, and turn-path tests. Tool implementation never implies model exposure.</td></tr>
+            <tr><td>K-RUNTIME-1 in Root and App <code>docs/CONTRACT.md</code></td><td>Exclusive daemon ownership conflicts with declared adapter-private tokens and native inner topology.</td><td>The daemon retains exclusive engine selection, Chirality session/turn/terminal, consent/account brokerage, interruption, and adapter lifecycle; root-bound workers own provider-private state and native topology under the process supervisor.</td></tr>
+            <tr><td>Root/App K-CONTROL-1</td><td>Both contracts currently describe one runtime control socket; the design requires a second private daemon-to-supervisor socket.</td><td>Authorize exactly the existing project-scoped daemon socket plus one purpose-limited supervisor socket, both under <code>0700</code>/<code>0600</code> controls, owner/generation records, rotated tokens, stale recovery, and no TCP. The second socket is never renderer/CLI-callable.</td></tr>
+            <tr><td>Root/App K-ROLE-2</td><td>Role-keyed process profiles could be mistaken for durable model assignment, and present text does not describe runtime enforcement profiles.</td><td>Permit a role-posture/config digest in worker identity solely to enforce explicitly selected authority semantics; never prescribe a durable model. Record actual adapter/provider/model and substitutions on every run.</td></tr>
+            <tr><td>K-PROJECT-1 / K-STORE-2</td><td>Consent and App Server state cannot be tracked project truth; root closure and private-home deletion are undefined.</td><td>Store consent privately by canonical-root/account/policy digest; preserve lazy migration; keep root-private homes/rollouts non-authoritative; define close, logout, delete, backup, and quarantine behavior.</td></tr>
+            <tr><td>K-KEY-1</td><td>Literal scope is API keys and current <code>safeStorage</code> reads collapse distinct failure states.</td><td>Cover OAuth tokens, device codes, callback parameters, cookies, Keychain items, App Server keyring, Electron <code>safeStorage</code>, typed decrypt failure, signature transitions, and explicit reauthentication.</td></tr>
+            <tr><td>K-SDK-1…4 (existing); K-SDK-5 (proposed)</td><td>Existing invariants cover Claude; Codex ambient state, exact pin/config/schema, and Preview incompatibility need a new invariant.</td><td>Add K-SDK-5 for root-home isolation and exact-pin compatibility. Do not mis-map ambient-state isolation to K-GHOST-1.</td></tr>
+            <tr><td>K-CORE-1; K-ENGINE-4/5/6</td><td>Vendor-shaped core contracts and ungoverned substitution violate existing boundaries.</td><td>Preserve the provider-neutral port/event vocabulary. Later fallback requires a new owner/loop decision; runtime substitution stays prohibited.</td></tr>
+            <tr><td>K-EVENT-3/4/6</td><td>Open payloads cross persistence and two SSE hops; terminal vocabulary differs across implementations.</td><td>Adopt a closed <code>HarnessEvent</code> schema v2 before the coordinator, migrate every sink/consumer, map completed/failed/interrupted/cancelled explicitly, and reconcile K-EVENT-4’s live path.</td></tr>
+            <tr><td>K-NET-1</td><td>OpenAI adapter service traffic broadens the existing loopback + Anthropic posture; upstream managed-network grouping is not safely attributable.</td><td>Authorize only enumerated OpenAI account/model/turn service endpoints. Keep command/tool network explicitly off; deny every <code>networkApprovalContext</code> request. No service-traffic or “documented separately” exemption.</td></tr>
+            <tr><td>K-RELEASE-1; K-PACKAGE-1; K-VALIDATE-1; F-APP-2</td><td>Current target is unsigned/unnotarized and F-APP-2 fences distribution.</td><td>Preparation remains unsigned/ad hoc and non-distributable, including a self-signed credential drill. A later exact-artifact D-APP ruling activates Developer ID signing/notarization; CI stays credential-free.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>8.3 Held bindings</h3>
+        <p>These ten fields are copied from the accepted DEL-02-06 compatibility snapshot. Every one remains <code>HELD_UNAVAILABLE</code> until the named owning act is separately accepted; the target gate is routing, not a lift.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Held binding</th><th>Owning act / target gate</th><th>Blocks until accepted</th></tr></thead>
+          <tbody>
+            <tr><td><code>2_source_and_release_identities.source_identity</code></td><td>Root owner accepts exact implementation source identity at G0.5.</td><td>WP-03/WP-05 and source-based conformance.</td></tr>
+            <tr><td><code>2_source_and_release_identities.release_identity</code></td><td>Human owner names exact release identity at G6a.</td><td>Signing, notarization, publication.</td></tr>
+            <tr><td><code>4_conformance_or_migration_evidence.clients[0]</code> — App</td><td>App loop accepts exact-client evidence at G5 and exact-release rerun at G7.</td><td>App cutover/release reliance.</td></tr>
+            <tr><td><code>4_conformance_or_migration_evidence.clients[1]</code> — Root CLI</td><td>Root loop accepts CLI evidence at G5/G7.</td><td>Shared-runtime cutover/release reliance.</td></tr>
+            <tr><td><code>5_root_semantic_and_regression_evidence</code></td><td>Root loop accepts semantic/native-engine regression at G5/G7.</td><td>Runtime cutover/release reliance.</td></tr>
+            <tr><td><code>6_census_relationship_routing_notice_and_findings.notice</code></td><td>Owning loops accept the census/relationship/finding notice before fan-in.</td><td>Cross-loop cutover/release fan-in.</td></tr>
+            <tr><td><code>6_census_relationship_routing_notice_and_findings.tier_0_relationship</code></td><td>Human/Root loop accepts Tier-0 relationship disposition at G0.5.</td><td>Relationship-dependent claims.</td></tr>
+            <tr><td><code>8_accountable_human_acts.implementation_act</code></td><td>Exact DEL-02-06 implementation activation accepted at G0.5.</td><td>WP-03/WP-05 and held Root implementation.</td></tr>
+            <tr><td><code>8_accountable_human_acts.cutover_act</code></td><td>Human owner records cutover after accepted G2–G5 evidence.</td><td>Default-path cutover; never inferred from implementation.</td></tr>
+            <tr><td><code>8_accountable_human_acts.release_act</code></td><td>Human owner records exact-artifact release act at G6a.</td><td>Signing, notarization, distribution, publication.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>8.3.1 Separate App prerequisites and immediate triage</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Instrument</th><th>Required treatment</th></tr></thead>
+          <tbody>
+            <tr><td>D-APP-97 / F-APP-2</td><td>Remain fully active through preparation; exact-candidate lift only at G6a.</td></tr>
+            <tr><td>APP-HOLD-1</td><td>Run scan-authoritative preflight for every touched App deliverable. A presently empty held-target set is evidence, not exemption.</td></tr>
+            <tr><td>TM-APP-027 / 028 / 032</td><td>Route immediate owner/Task Management triage at G0 because the accepted DEL-02-06 and routed-notice history changed on 2026-08-21. The current live rows still say semantic-byte or preparation-only acceptance does not fire their exact compatibility-package gate; retain <code>DEFERRED</code> unless the owner rules otherwise. No plan may close them by inference.</td></tr>
+            <tr><td>D-APP-103 / DEL-08-04</td><td>Name the authorized-but-unruled per-attempt decision-replay packet as an interacting open item. SCA-APP-008 must say whether the new native evidence model intersects, defers, or leaves it untouched; it may not silently consume the authorization.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>8.4 Pre-existing defects to resolve or explicitly isolate</h3>
+        <ul>
+          <li>TM-ROOT-106 / PI082-F07: governed Pi/oMLX pin <code>0.80.10</code> versus shipped adapter <code>0.82.0</code>; resolve or isolate before G1.</li>
+          <li>TM-ROOT-122: Electron <code>43.1.1</code> governed prerequisite versus observed <code>43.2.0</code>; resolve before AT-039 identity freeze.</li>
+          <li>Route Task Management candidates for practitioner-harness advisory treatment of uncatalogued <code>K-*</code>, K-EVENT-4’s live legacy path, and DEL-09-04 source-completeness/staged-identity remediation.</li>
+          <li>SCA-APP-004 is ruled by D-APP-74, not D-APP-73; D-APP-74 excludes multi-child execution from that tranche.</li>
+        </ul>
+
+        <h3>8.5 Breaking contract and code changes to govern explicitly</h3>
+        <ul>
+          <li>Root runtime API v2 for one attributed approval request/decision with project, Chirality session, root/source thread, turn, request/item, kind, and ancestry identity. Managed-network requests receive a typed unsupported/denied result. Migrate daemon, Electron broker, clients, fixtures, and compatibility tests.</li>
+          <li>Root <code>HarnessEvent</code> schema v2 closed union with explicit four-terminal semantics; migrate Claude/Pi/App Server adapters, persistence/replay, both SSE hops, frontend consumers, status projection, and support tooling.</li>
+          <li>Keep the live <code>AgentEnginePort</code> method shape. Any required descriptor metadata migrates both live adapters and the conformance suite.</li>
+          <li>Add <code>DelegatedHarnessProcessSupervisorPort</code> for root/profile acquisition, inventory/reconnect, generation fencing, <code>closeRoot</code>, and <code>closeAll</code>; do not force lifecycle methods onto every engine.</li>
+          <li>Add <code>WorkerRetirementCoordinatorPort</code> plus versioned prepared/committed/reconciliation-required journal. It directly terminalizes captured sessions outside their engine generators and quarantines a root on partial persistence.</li>
+          <li>Add <code>HostedEngineConsentPort</code> and inject it before worker acquisition, thread creation, and each turn. Keep the fixed-root rejection in <code>runtime/packages/core/src/session-store.ts</code>; the adapter never forwards caller <code>cwd</code>.</li>
+          <li>Version root-private <code>CODEX_HOME</code>, account/consent, keyring/safeStorage state, and deletion/logout migrations. Replace nullable safeStorage reads with typed status.</li>
+          <li>Amend <code>runtime/packages/cli/src/launch-agent.ts</code>, packaged CLI entry, desktop posture, runtime-control IPC, installer transaction, contract pins, and launchd proof scripts for two jobs. Amend <code>projects/chirality-app-dev/frontend/src/lib/harness/subagent-governance.ts:205–213</code> only under the accepted delegated-harness-native ruling.</li>
+        </ul>
+      </section>
+
+      <section id="work">
+        <h2>9. Work packages</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Objective</th><th>Principal outputs</th><th>Entry / exit</th><th>Carrier and dispatch posture</th></tr></thead>
+          <tbody>
+            <tr><td class="id">WP-00</td><td>Preserve and execute the staged existing owner proof before frontend drift.</td><td>DEL-09-04 prepare → logout/login → evidence capture; daemon deployment act; immutable snapshot; re-stage rule.</td><td>Enter on the unchanged staged frontend identity. Exit only with owner-executed evidence or explicit deferral/invalidated-state record.</td><td><strong>DEL-09-04.</strong> Existing carrier; human step remains owner-operated.</td></tr>
+            <tr><td class="id">WP-01</td><td>Create the governed basis and lift no hold implicitly.</td><td>D-GOV supersession; DEL-02-03 M2; Root SCA-004; SCA-APP-008; exact SOWs; ten-binding matrix; TM triage; receipts/snapshots/handoff.</td><td>Enter after G0/G0.25. Exit only at G0.5/G1 and AT-053.</td><td><strong>Root governance/DEL-02-03/DEL-02-06 and App governance.</strong> Human-routed; no implementation dispatch.</td></tr>
+            <tr><td class="id">WP-02</td><td>Freeze the exact App Server supply and protocol unit.</td><td>Authorized download; hashes/contents/size/signature/license/notices; generated schema/types; client-method allowlist; config/feature/experimental matrix; exact 0.149.0 switch precedence; current-doc drift record.</td><td>Enter after an exact Root carrier and download authority exist. Exit at G2.</td><td><strong>DEL-02-06 planning only, then exact Root supply carrier assigned by SCA-004.</strong> DEL-04-01 stays probe-only until SCA-APP-008. No implementation dispatch before accepted SOW.</td></tr>
+            <tr><td class="id">WP-03</td><td>Build and prove the Delegated Harness Process Supervisor.</td><td>Electron-as-Node CLI entry; second LaunchAgent renderer/manager; two-job installer/migration/rollback; private authenticated socket; root/profile workers; private homes; process groups; inventory; retirement journal; environment and orphan tests; rewritten contract pins/proof scripts.</td><td>G-HELPER, G-SBX, G-PROT, G-ROLE, and G-APPR precede freeze. DEL-02-06 implementation act precedes code. Exit at full G-SIG/G-DUAL and AT-054/055/058.</td><td><strong>New/split Root carrier assigned by SCA-004 plus App installer carrier assigned by SCA-APP-008.</strong> Non-dispatchable before both accepted SOWs and implementation activation.</td></tr>
+            <tr><td class="id">WP-04</td><td>Add provider-neutral interactive account and consent boundaries.</td><td>Account state/operations; device-code flow; root-home login/logout; typed unavailable; keyring policy; <code>HostedEngineConsentPort</code>; private schema; account transition behavior.</td><td>Enter after G1/G2 and exact carriers. Exit at G3; release-byte transitions close at G-KEY.</td><td><strong>New Root account/consent carrier plus App UX carrier(s) assigned by Root SCA-004/SCA-APP-008.</strong> Non-dispatchable until accepted.</td></tr>
+            <tr><td class="id">WP-05</td><td>Implement the delegated-harness adapter and terminal protocol.</td><td>Live-port-compatible adapter; Root API v2; closed RPC allowlist; closed event schema v2; exact-pin codec; four terminal mappings; retirement coordinator/journal; typed/redacted sinks; no automatic fallback.</td><td>Enter only after G2, G-HELPER, API/schema freeze, and implementation act. Exit with engine conformance, G-WIRE, and AT-055.</td><td><strong>New/split Root adapter/API/event/storage carriers assigned by SCA-004; App consumption assigned by SCA-APP-008.</strong> Non-dispatchable until accepted.</td></tr>
+            <tr><td class="id">WP-06</td><td>Enable native delegation inside the hard authority envelope.</td><td>Origin/lineage; untyped delegated-harness code/text change; explicit role profiles; approval v2; network-request denial; protected-path compiler; actual-turn sentinels; inheritance; cancellation/cleanup; role/native-class fixtures.</td><td>Enter after D-GOV/DEL-02-03/App amendments and WP-03/05 fixtures. Exit only at G-ROLE/G-APPR/G-SBX/G-SENT/G-PROT/G-ENV/G4.</td><td><strong>Root carrier assigned by SCA-004 plus amended DEL-08-04 under SCA-APP-008.</strong> D-APP-103 interaction recorded. Non-dispatchable before both loops accept scope.</td></tr>
+            <tr><td class="id">WP-07</td><td>Deliver understandable desktop UX and privacy posture.</td><td>Preview picker; consent/login/rate-limit/approval/descendant/status UI; per-root authentication explanation; keyboard/VoiceOver; privacy/support copy; CSP/window/navigation hardening; sender authorization on all six credential channels.</td><td>Enter on stable Root contracts and App carrier acceptance. Exit at G-CSP/G4 and AT-057.</td><td><strong>Exact App UI/security deliverable(s) assigned or amended by SCA-APP-008.</strong> Package names alone are not a dispatch seat.</td></tr>
+            <tr><td class="id">WP-08</td><td>Preserve data and define restart/upgrade behavior.</td><td>Lazy v2 session migration; root-home/consent/credential schemas; typed safeStorage failure; retirement reconciliation; backup/rollback; fresh-thread policy; deletion/account-change fixtures.</td><td>Enter after contract freeze. Exit with v2→v3, account-null/change, root-home, deletion, restart, retirement, and rollback tests.</td><td><strong>DEL-05-01 covers only its existing v2 session-folder migration scope.</strong> Larger Root storage/consent/retirement outputs require the new carrier assigned by SCA-004; App migrations require SCA-APP-008. Non-dispatchable until seated.</td></tr>
+            <tr><td class="id">WP-09</td><td>Produce repeatable preparation packages and the release procedure without releasing.</td><td>Version identity; nested worker/host bytes; fuses/entitlements; notices; pinned-Syft CycloneDX JSON; unsigned/ad-hoc DMG; checksums; seated reviewed signing/notary runbook; disposable self-signed A→B credential-transition drill; non-distributable label.</td><td>Enter after supply freeze and accepted carrier amendment. Exit at G5 with no release claim and a reviewed runbook ready for later owner adoption.</td><td><strong>Existing DEL-09-04/05/06 cover their current preparation outputs.</strong> SCA-APP-008 must seat the new release-procedure and self-signed-drill outputs on an exact amended/new App carrier before dispatch.</td></tr>
+            <tr><td class="id">WP-10</td><td>Fan in conformance and establish release readiness.</td><td>Fake/exact/live tests; Shared Runtime Gate evidence; security/privacy/accessibility proof; limits/support/rollback; candidate manifest; independent implementation review.</td><td>Enter continuously only as each exact carrier activates; exit with every pre-release gate and no open P0/high finding.</td><td><strong>DEL-09-01/02/03/06 plus amended/new App validation carriers.</strong> This widened program is non-dispatchable until SCA-APP-008 seats it. REVIEW/EVALUATION verify; they do not own implementation.</td></tr>
+            <tr><td class="id">WP-11</td><td>Perform the actual release operation.</td><td>Exact-artifact ruling; Developer ID custody; local signing; notarization/stapling; G-KEY; Gatekeeper; signed-byte acceptance; GitHub prerelease; download backcheck.</td><td>Enter only after the owner’s G6a ruling with the already authored/reviewed runbook. Exit at G8.</td><td><strong>New App release-operations carrier assigned by SCA-APP-008.</strong> Human owner performs release acts; CHANGE performs only authorized Git/publication work. No WP-11 action occurs in preparation.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>9.1 Safe parallelism</h3>
+        <ul>
+          <li>WP-00 is first because frontend changes invalidate its staged proof.</li>
+          <li>After exact spike authority, G-HELPER, G-SBX, G-PROT, G-ROLE, and G-APPR may run in parallel before implementation design freezes.</li>
+          <li>After G0.5 and exact carrier acceptance, WP-02 supply work and WP-04 contract design may proceed in parallel. WP-03/WP-05 code still waits for the implementation act.</li>
+          <li>WP-05 may use a fake App Server before supply acceptance, but exact-pin claims wait for G2.</li>
+          <li>WP-07 may build static UX fixtures before runtime integration; no live-account success claim precedes G3/G-WIRE.</li>
+          <li>WP-09 may author/review the runbook, notices, SBOM tooling, and self-signed transition drill after its carrier is seated. Production Developer ID signing, G-KEY release evidence, Apple notary calls, and distribution remain WP-11 and cannot begin before G6a.</li>
+        </ul>
+
+        <h3>9.2 Change containment</h3>
+        <p>Each package gets a sealed brief, declared read/write scope, entry snapshot, acceptance checks, and durable return under accepted Agent 0/1/2 rules. Native Codex inner delegation may execute according to the accepted delegated-harness class, but this does not broaden the package’s outer file/tool/permission scope. Agent-index changes trigger the coordination notices required by <code>AGENTS.md</code>. Work does not edit unrelated domain-engine or OpenPipeStress surfaces merely to simplify the App path.</p>
+      </section>
+
+      <section id="gates">
+        <h2>10. Critical path and release gates</h2>
+        <h3>10.0 Coexistence with existing App release-quality gates</h3>
+        <p>These ordered program gates neither replace nor weaken the unordered families in App <code>docs/RELEASE_QUALITY_GATES.md</code>. Every tranche runs the union of applicable existing families; <code>RELEASE_QUALITY_RUNBOOK.md</code> retains its blocking/report-only semantics. A <code>CHECKING → ISSUED</code> transition remains a separate human gate. RQG §13’s Shared Runtime Gate is explicitly part of this program: the single-daemon/store/lock/credential/interruption, Unix-socket, client-behavior, attribution, and export assertions must be re-evaluated wherever this new helper/adapter changes them.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Program gate(s)</th><th>Existing gate families</th><th>Additional existing control</th></tr></thead>
+          <tbody>
+            <tr><td>G0, G0.25, G0.5, G1</td><td>Governance; Shared Runtime Gate applicability; every family implicated by the instrument.</td><td>D-APP-38 authority-corpus reconciliation; APP-HOLD-1; PRD_ROOT D-1/D-8; loop receipts/effective SHA; AT-053.</td></tr>
+            <tr><td>G2</td><td>Governance, Runtime contract, Security/network, Packaging, Shared Runtime supply identity.</td><td>Exact supply/license/signature/config/schema/source snapshot.</td></tr>
+            <tr><td>G-HELPER, G-SIG, G-DUAL</td><td>Runtime contract, Harness workflow, Security/network, Packaging, Shared Runtime control/process assertions.</td><td>Two-job install/migration, terminal-on-retirement, effective <code>launchctl</code> state.</td></tr>
+            <tr><td>G-SBX, G-SENT, G-PROT, G-ENV, G-ROLE, G-APPR</td><td>Permission/tool, Runtime contract, Harness workflow, Security/network; Domain-adapter where protected profiles apply.</td><td>No waiver broadens authority; no platform-default bundle; managed command-network approvals denied.</td></tr>
+            <tr><td>G-WIRE, G-CSP, G3, G4</td><td>Runtime contract, Harness workflow, Security/network, Permission/tool, UI/claims, Shared Runtime credential/interruption assertions; Packaging for packaged tests.</td><td>Secret-corpus scan, six credential-sender checks, PB-01…09 as applicable.</td></tr>
+            <tr><td>G5</td><td>Union of every applicable family, including Shared Runtime Gate, Packaging, Runtime contract, Security/network, UI/claims.</td><td>Runbook blocking semantics; self-signed transition drill; source/artifact identity; nested-byte/fuse inventory.</td></tr>
+            <tr><td>G6a, G6b, G-KEY, G7</td><td>Governance, Packaging, Security/network, UI/claims, Shared Runtime regression and credential assertions.</td><td>PB-08; exact-artifact ruling; Developer ID fuse/entitlement proof; exact signed-byte reruns.</td></tr>
+            <tr><td>G8</td><td>Packaging, Security/network, UI/claims, Governance closeout.</td><td>Public download backcheck and immutable publication snapshot.</td></tr>
+          </tbody>
+        </table></div>
+
+        <figure>
+          <svg viewBox="0 0 1080 610" role="img" aria-labelledby="gate-title gate-desc">
+            <title id="gate-title">Critical path from owner direction through publication</title>
+            <desc id="gate-desc">Governance and the staged owner proof precede implementation. Supply, two-job process proof, authority proof, account and wire proof converge into an unsigned package. Signing, credential transition on release identities, and notarization begin only after the owner declares the exact candidate for release.</desc>
+            <defs><marker id="ga" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#56656d"/></marker></defs>
+            <text x="35" y="35" font-size="14" font-weight="700" fill="#173b57">PREPARATION LANE</text>
+            <rect x="30" y="55" width="135" height="64" rx="9" fill="#eee8f7" stroke="#6a4c93"/><text x="98" y="81" text-anchor="middle" font-size="13" font-weight="700">G0 / G0.25</text><text x="98" y="102" text-anchor="middle" font-size="10">direction + old proof</text>
+            <rect x="200" y="55" width="135" height="64" rx="9" fill="#eee8f7" stroke="#6a4c93"/><text x="268" y="81" text-anchor="middle" font-size="13" font-weight="700">G0.5 / G1</text><text x="268" y="102" text-anchor="middle" font-size="10">instruments + holds</text>
+            <rect x="370" y="55" width="125" height="64" rx="9" fill="#e8f1f7" stroke="#275d7e"/><text x="433" y="81" text-anchor="middle" font-size="13" font-weight="700">G2</text><text x="433" y="102" text-anchor="middle" font-size="10">supply + schema</text>
+            <rect x="530" y="55" width="225" height="64" rx="9" fill="#fff1d8" stroke="#9b5900"/><text x="643" y="80" text-anchor="middle" font-size="13" font-weight="700">Process proof</text><text x="643" y="101" text-anchor="middle" font-size="10">HELPER · SIG · DUAL · ENV</text>
+            <rect x="790" y="55" width="255" height="64" rx="9" fill="#fbe8e5" stroke="#a6342c"/><text x="918" y="80" text-anchor="middle" font-size="13" font-weight="700">Authority proof</text><text x="918" y="101" text-anchor="middle" font-size="10">SBX · SENT · PROT · ROLE · APPR</text>
+            <path d="M165 87 H194" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M335 87 H364" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M495 87 H524" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M755 87 H784" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/>
+
+            <rect x="155" y="190" width="190" height="66" rx="9" fill="#e3f2ef" stroke="#11756d"/><text x="250" y="216" text-anchor="middle" font-size="13" font-weight="700">G3 · G-WIRE · G-CSP</text><text x="250" y="238" text-anchor="middle" font-size="10">account · wire · renderer</text>
+            <rect x="445" y="190" width="190" height="66" rx="9" fill="#e3f2ef" stroke="#11756d"/><text x="540" y="216" text-anchor="middle" font-size="13" font-weight="700">G4</text><text x="540" y="238" text-anchor="middle" font-size="10">delegation + privacy</text>
+            <rect x="735" y="190" width="190" height="66" rx="9" fill="#e5f2e9" stroke="#287246"/><text x="830" y="216" text-anchor="middle" font-size="13" font-weight="700">G5</text><text x="830" y="238" text-anchor="middle" font-size="10">unsigned package fan-in</text>
+            <path d="M268 119 V184" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M643 119 C643 156 540 149 540 184" fill="none" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M918 119 C918 165 540 147 540 184" fill="none" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M345 223 H439" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M635 223 H729" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/>
+
+            <line x1="30" y1="320" x2="1045" y2="320" stroke="#9b5900" stroke-width="3" stroke-dasharray="10 7"/>
+            <text x="35" y="307" font-size="13" font-weight="700" fill="#704100">OWNER DECLARES: THIS EXACT FROZEN CANDIDATE WILL BE RELEASED</text>
+            <text x="35" y="358" font-size="14" font-weight="700" fill="#173b57">ACTUAL RELEASE LANE</text>
+            <rect x="115" y="385" width="190" height="68" rx="9" fill="#fff1d8" stroke="#9b5900"/><text x="210" y="412" text-anchor="middle" font-size="13" font-weight="700">G6a</text><text x="210" y="434" text-anchor="middle" font-size="10">release act + signing basis</text>
+            <rect x="445" y="385" width="190" height="68" rx="9" fill="#fff1d8" stroke="#9b5900"/><text x="540" y="412" text-anchor="middle" font-size="13" font-weight="700">G6b · G-KEY</text><text x="540" y="434" text-anchor="middle" font-size="10">sign · credential proof · notarize</text>
+            <rect x="775" y="385" width="190" height="68" rx="9" fill="#e5f2e9" stroke="#287246"/><text x="870" y="412" text-anchor="middle" font-size="13" font-weight="700">G7 / G8</text><text x="870" y="434" text-anchor="middle" font-size="10">accept · publish · backcheck</text>
+            <path d="M305 419 H439" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/><path d="M635 419 H769" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/>
+            <path d="M830 256 V286 C830 342 210 336 210 379" fill="none" stroke="#56656d" stroke-width="2" marker-end="url(#ga)"/>
+            <text x="540" y="522" text-anchor="middle" font-size="13" fill="#56656d">G-ENV and G-CSP close in preparation. G-KEY is intentionally release-only, after the exact owner act.</text>
+            <text x="540" y="551" text-anchor="middle" font-size="12" fill="#56656d">No preparation artifact crosses the dashed line automatically; technical readiness never infers publication authority.</text>
+          </svg>
+          <figcaption><strong>Figure 2.</strong> G5 may repeat during development without Apple credentials or notary calls. The self-signed preparation drill tests storage migration mechanics only; it is not G-KEY release evidence.</figcaption>
+        </figure>
+
+        <h3>10.1 Gate definitions</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Gate</th><th>Pass evidence</th><th>Hard stop</th><th>Decision owner</th></tr></thead>
+          <tbody>
+            <tr><td class="id">G0</td><td>Owner records RC scope, native delegation outcome, native-descendant classification, explicit Agent-2 failure posture, Codex Preview label, no App Sandbox, command-network denial, root-home authentication posture, read-only fallback, TM-APP-025, and triage instruction for TM-APP-027/028/032.</td><td>Ambiguous target, inferred authority, or no pre-decided G-ROLE failure behavior.</td><td>Human owner</td></tr>
+            <tr><td class="id">G0.25</td><td>DEL-09-04 staged package owner procedure is completed/snapshotted or explicitly deferred with invalidation/re-stage consequence.</td><td>Frontend mutation while staged evidence is treated as current.</td><td>Human owner + App loop</td></tr>
+            <tr><td class="id">G0.5</td><td>Superseding D-GOV decision; DEL-02-03 M2; Root SCA-004 exact carriers/SOWs; SCA-APP-008 amendments/carriers; Root/App K-CONTROL-1 and K-ROLE-2 disposition; ten bindings routed; implementation act for WP-03/05; D-APP-103 and App prerequisites recorded.</td><td>Authority inferred, carrier unseated, contract conflict unresolved, or held implementation field unavailable.</td><td>Human owner / owning loops</td></tr>
+            <tr><td class="id">G1</td><td>Accepted invariant/vocabulary/contract snapshots; AT-053; code ownership/briefs frozen; RQG §13 disposition recorded. Run authority-corpus status and required bump/apply/audit when authority docs change.</td><td>Stale mirror, unaccepted breaking version, unresolved Pi/event defect, or incomplete Shared Runtime mapping.</td><td>REVIEW + owner</td></tr>
+            <tr><td class="id">G2</td><td>Exact App Server 0.149.0 candidate bytes/digest/content/signature/license; generated schema/types; method/config/feature/experimental matrix; <code>multi_agent_v2</code> precedence; current official-doc drift; supply snapshot accepted.</td><td>Drift, unverifiable artifact, redistribution gap, invented field/default, or unbounded experimental reliance.</td><td>Owner accepts supply unit</td></tr>
+            <tr><td class="id">G-HELPER</td><td>A packaged second LaunchAgent starts the Electron-as-Node process supervisor without Electron GUI spawn. The two-job installer/migration/rollback, authenticated private socket, root/profile worker, terminal-on-retirement, crash reconciliation, and cleanup pass. <code>launchctl print</code> proves both labels, exact arguments/environment, KeepAlive, and retirement of obsolete crash-only state.</td><td>Browser-process spawn, unauthenticated socket, partial install, root union, duplicate worker, attach/replay claim, lost terminal, mismatched effective launchd state, or active obsolete definition.</td><td>Root/App architecture review</td></tr>
+            <tr><td class="id">G-SIG</td><td>Grace path meets deadline. Force path fences generation, persists/reconciles the retirement journal, terminalizes every captured session exactly once through the coordinator API, kills the process group, and leaves no orphan/socket.</td><td>Signal regression, incomplete tree, missing/duplicate/misleading terminal, or unreconciled root admitted to work.</td><td>Root runtime review</td></tr>
+            <tr><td class="id">G-DUAL</td><td>Launch/relaunch/Finder activation/recovery yields one process supervisor and at most one worker per exact <code>(root, rolePosture, configDigest)</code>; <code>closeRoot</code> closes all keys; each worker/home stays root-specific.</td><td>Duplicate/orphan, undefined close semantics, or union/cross-root home.</td><td>Root/App review</td></tr>
+            <tr><td class="id">G-SBX</td><td>Exact packaged App Server enforces restricted read-only/workspace-write policies with <code>includePlatformDefaults: false</code>, exact immutable runtime reads, root-only writes, client RPC denylist, non-App-Sandbox hardened runtime, and a usable Electron RunAsNode fuse/entitlement posture.</td><td>Full/default reads, platform bundle, temp write, ungated shell method, enabled process API, silent no-op, escape, or incompatible fuse/entitlement.</td><td>Security review + owner</td></tr>
+            <tr><td class="id">G-SENT</td><td>On activation/change and release gates, the deterministic and live fixtures use the same <code>turn/start</code> policy as product turns. Primary and descendant attempts are observed and denied for outside-root reads/writes, <code>/tmp</code>/<code>$TMPDIR</code> writes, login shell, and command network within the stated budgets. Every production turn separately passes deterministic root/account/consent/policy/generation/cwd preflight.</td><td>Canary success, missing attempt/result, wrong policy path, budget breach, account ambiguity, profile mismatch, or caller <code>cwd</code> drift.</td><td>Runtime security</td></tr>
+            <tr><td class="id">G-PROT</td><td>Every protected-path rule round-trips through compile, read, file-change, and shell-write enforcement for primary and descendants.</td><td>Any inexpressible rule or enforcement mismatch.</td><td>Domain/runtime security</td></tr>
+            <tr><td class="id">G-ENV</td><td>Daemon, both plist/effective environments, process supervisor, and worker are allowlisted/scanned; bypass unusable; timeout bounded; login shell off; temp exclusions effective; scratch root-local/private/ignored/cleaned.</td><td>Ambient key/home/proxy, trusted plist policy, development hatch, login shell, temp write, or unbounded approval.</td><td>Runtime security</td></tr>
+            <tr><td class="id">G-ROLE</td><td>Untyped/Agent 0/Agent 1 primary sessions and ordinary native descendants retain upstream topology latitude. Explicit Agent 2/TASK uses a proved configuration layer with <code>features.multi_agent=false</code>, exact-pin <code>multi_agent_v2=false</code>, and <code>[agents] enabled=false</code>; project config cannot alter it. If proof fails, the explicit Codex Agent-2 entry is withheld under the G0 ruling.</td><td>Global native-delegation disable, false Agent-2 conformance claim, project injection, or unproved switch precedence.</td><td>Root governance + runtime review</td></tr>
+            <tr><td class="id">G-APPR</td><td>Exact-pin spike proves source-thread request delivery or documented failure-without-request. Root API v2 routes simultaneous file/command/supported permission requests individually. Every managed-network request is denied and command network remains off.</td><td>Collision, guessed attribution, implicit grant, dropped request, v1 compatibility fiction, or any approved network group.</td><td>Security + UX + Root contract review</td></tr>
+            <tr><td class="id">G-WIRE</td><td>Closed event schema v2 and generated validation precede the coordinator; all four terminals map explicitly; synthetic secrets are absent from JSONL, both SSE hops, event/crash/helper/App Server/launchd logs, and support bundles. Device ceremony fields remain only in the ephemeral view.</td><td>Raw/open payload, unversioned sink/terminal, persistent ceremony data, or credential material crosses an undeclared boundary.</td><td>Privacy/security review</td></tr>
+            <tr><td class="id">G-CSP</td><td>Context isolation/sandbox explicit; CSP effective; window-open denied; navigation constrained; every IPC handler verifies sender, including all six credential channels; each window has a bounded egress policy.</td><td>Any renderer/window can broaden local or credential authority.</td><td>App security review</td></tr>
+            <tr><td class="id">G3</td><td>Fake plus owner-authenticated exact-pin proof of initialize, <code>account.type</code>, device login/logout, root-private home/keyring behavior, model/rate limits, thread/turn, approvals, interrupt, and terminal behavior.</td><td>Protocol ambiguity, token/home leak, unsafe cross-home reuse, or unhandled server request.</td><td>REVIEW</td></tr>
+            <tr><td class="id">G4</td><td>Containment, native delegation, explicit-role behavior if offered, privacy, accessibility, per-turn consent, protected paths, descendant attribution, source enumeration, cleanup, and retirement scenarios pass.</td><td>Any thread expands authority, explicit Agent 2 re-delegates, or activity/cleanup/terminal state cannot be represented truthfully.</td><td>Owner accepts Preview boundary</td></tr>
+            <tr><td class="id">G5</td><td>Unsigned/ad-hoc preparation config pins no identity and disables auto-discovery; packaged regression/clean-machine launch; nested bytes/signatures/fuses inventoried; pinned Syft CycloneDX JSON; notices/manifest/limits/support; seated reviewed runbook; disposable self-signed credential transition; Shared Runtime Gate fan-in.</td><td>Opportunistic Developer ID signing, production secret/Apple call, development-only proof, byte change, missing SBOM/notices/runbook, or release wording outside PB-08.</td><td>REVIEW</td></tr>
+            <tr><td class="id">G6a</td><td>After release intent only: exact-artifact K-RELEASE-1 amendment/F-APP-2 lift; source/release identities frozen; reviewed runbook and self-signed drill current; Developer ID identity/custody, nested signing order, fuses, entitlements, Gatekeeper, rollback, and no-rebuild rule accepted before Apple calls.</td><td>No owner release act, fence lift, complete procedure, safe RunAsNode posture, or signing basis.</td><td>Human owner</td></tr>
+            <tr><td class="id">G6b</td><td>Exact frozen nested binaries/app/DMG are signed in reviewed order, notarized, stapled, and verified without rebuild.</td><td>Signature/notary/staple failure or byte/source mismatch.</td><td>Human owner</td></tr>
+            <tr><td class="id">G-KEY</td><td>On actual release identities, App Server keyring and Electron <code>safeStorage</code> transitions (unsigned/ad hoc → Developer ID and signed N → N+1) preserve usable state where safe or return distinguishable non-destructive reauthentication/decrypt-failure states; no plaintext or silent loss.</td><td>Corruption, collapsed decrypt/missing state, silent account loss, exposure, or production signing pulled into preparation.</td><td>Human owner + security review</td></tr>
+            <tr><td class="id">G7</td><td>Exact signed/notarized/stapled bytes rerun migration, native-engine regression, Codex login/turn/delegation, retirement, credential, privacy/accessibility, PB-08, checksum, SBOM/notices, rollback; no open P0/high finding.</td><td>Unsigned evidence substituted, stale/waived critical evidence, or changed bytes.</td><td>Human owner</td></tr>
+            <tr><td class="id">G8</td><td>Prerelease published; public-path download reverified for digest, signatures, staple, Gatekeeper, install, launch, version; immutable release snapshot recorded.</td><td>Public bytes differ or install fails.</td><td>Human owner / CHANGE</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="acceptance">
+        <h2>11. RC-blocking acceptance matrix</h2>
+        <p>These scenarios are evidence obligations, not claims of current conformance. Automated proof is preferred; owner-authenticated, self-signed-transition, and clean-machine cases are explicitly manual. Every applicable row blocks its named gate, and no narrative waiver substitutes for an accepted gate result.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Scenario</th><th>Pass condition</th><th>Primary gate</th></tr></thead>
+          <tbody>
+            <tr><td class="id">AT-001</td><td>Exact supply identity</td><td>Bundled App Server version, bytes, digest, contents, generated protocol schema, license and notices equal accepted G2 snapshot.</td><td>G2/G5</td></tr>
+            <tr><td class="id">AT-002</td><td>Unsupported drift</td><td>Any package/config/schema mismatch prevents adapter start with typed unavailable state.</td><td>G2</td></tr>
+            <tr><td class="id">AT-003</td><td>Worker-key isolation</td><td>Acquisition yields at most one worker for each exact <code>(canonicalRoot, rolePosture, effectiveConfigDigest)</code> key. Different roots, profiles, or digests never share a worker, private <code>CODEX_HOME</code>, consent scope, or OS write envelope.</td><td>G-DUAL/G-ROLE</td></tr>
+            <tr><td class="id">AT-004</td><td>Graceful shutdown</td><td>Active primary/descendants interrupt and drain; helper/App Server exit within measured deadline; socket removed.</td><td>G-SIG</td></tr>
+            <tr><td class="id">AT-005</td><td>Forced shutdown</td><td>A hung child is killed as part of its worker process group; the orphan scan is clean; the durable journal records truthful terminals or leaves the root quarantined for reconciliation.</td><td>G-SIG</td></tr>
+            <tr><td class="id">AT-006</td><td>Environment and shell isolation</td><td>Daemon, plist/effective launchd state, supervisor, and worker contain only approved variables; ambient Codex state/credentials are absent; login-shell requests, packaged bypass, and non-positive timeout hatches fail closed; any root-local scratch is <code>0700</code>, ignored, and cleaned.</td><td>G-ENV</td></tr>
+            <tr><td class="id">AT-007</td><td>Consent, account, and root continuity</td><td>The user-local consent port passes before worker/thread creation and every turn for the exact account identity or volatile epoch, canonical root, policy digest, and fixed <code>cwd</code>. Account A→B, ambiguous/null identity, root change, revocation, restart, or policy change invalidates reuse and fails closed or starts a fresh correctly scoped worker/thread.</td><td>G-SENT/G4</td></tr>
+            <tr><td class="id">AT-008</td><td>Device login success</td><td>ChatGPT device-code flow completes and <code>account/read.account.type</code> plus account updates produce the correct state. Only <code>verificationUrl</code>/<code>userCode</code> traverse the ephemeral typed login channel; tokens never reach the renderer or persistence.</td><td>G3/G-WIRE</td></tr>
+            <tr><td class="id">AT-009</td><td>Login cancel/stale/offline</td><td>Cancellation by <code>loginId</code>, stale/denied code, offline, and account failure yield recoverable typed state without inventing an expiry field or leaving a stuck session.</td><td>G3</td></tr>
+            <tr><td class="id">AT-010</td><td>Logout</td><td>Active root workers retire safely; consent and account-derived state invalidate; prior credentials cannot start a new turn.</td><td>G3/G-SIG</td></tr>
+            <tr><td class="id">AT-011</td><td>Keyring unavailable</td><td>App Server account state distinguishes unavailable from signed out; no plaintext, file-copy, symlink, or silent alternate-store fallback occurs; remediation is explicit.</td><td>G3/G-KEY</td></tr>
+            <tr><td class="id">AT-012</td><td>Model/capability discovery</td><td>UI reflects exact server response and hides only unsupported selections; no invented concurrency/default claims.</td><td>G3</td></tr>
+            <tr><td class="id">AT-013</td><td>Primary turn</td><td>Prompt streams typed events and produces exactly one durable terminal.</td><td>G3</td></tr>
+            <tr><td class="id">AT-014</td><td>Interrupt and retirement fan-out</td><td>Targeted interrupt leaves an unrelated same-worker sibling running. If worker retirement is necessary, the prepared journal captures every affected live session and the coordinator terminalizes each exactly once even when no async generator is being pulled; incomplete fan-out quarantines the root.</td><td>G-SIG/G4</td></tr>
+            <tr><td class="id">AT-015</td><td>Protocol failure</td><td>Malformed response, EOF, child crash, and timeout fail closed; no partial completion is promoted.</td><td>G3</td></tr>
+            <tr><td class="id">AT-016</td><td>Rate limit</td><td>Limit state and reset information are represented accurately; no invisible provider switch.</td><td>G3</td></tr>
+            <tr><td class="id">AT-017</td><td>No automatic fallback</td><td>Codex failure never silently runs the task through Claude, Pi/oMLX, or another profile.</td><td>G3</td></tr>
+            <tr><td class="id">AT-018</td><td>Actual-turn sandbox sentinel</td><td>Under the exact <code>turn/start</code> policy used by production, deterministic primary/descendant probes cannot read sibling/home canaries or write outside the canonical root, <code>/tmp</code>, or <code>$TMPDIR</code>. Only enumerated immutable runtime read roots work; <code>includePlatformDefaults</code> is false. The probe is not substituted with <code>command/exec</code>, and client-initiated shell/process methods are unreachable.</td><td>G-SBX/G-SENT/G-ENV</td></tr>
+            <tr><td class="id">AT-019</td><td>Protected material round trip</td><td>Every declared protected rule—including mid-path globs—compiles and denies read, file change, and shell write for primary and descendants; any unrepresentable rule blocks workspace-write.</td><td>G-PROT/G4</td></tr>
+            <tr><td class="id">AT-020</td><td>Network posture</td><td>OpenAI adapter service traffic is restricted to the governed service-endpoint set. Command/tool network remains explicitly false; every unexpected <code>networkApprovalContext</code> request is denied rather than grouped or presented as supportable.</td><td>G-APPR/G4</td></tr>
+            <tr><td class="id">AT-021</td><td>Escalation denial</td><td>Decline/cancel/disconnect/timeout produces denial; work cannot continue with broadened authority.</td><td>G-APPR</td></tr>
+            <tr><td class="id">AT-022</td><td>Concurrent approval attribution</td><td>Concurrent descendant file, command, and supported permission requests remain individually attributable by project/session/root/source-thread/turn/request-or-item/kind. Identifier-less and all network-context requests are rejected before presentation.</td><td>G-APPR</td></tr>
+            <tr><td class="id">AT-023</td><td>Session approval</td><td>Session-scoped grant is offered and applied only when supported, user-selected, and contained to the same authority.</td><td>G-APPR</td></tr>
+            <tr><td class="id">AT-024</td><td>Raw-event rejection</td><td>Open/unknown payload cannot pass the Root schema-v2 adapter boundary or reach coordinator, SSE, JSONL, logs, or disk; only a bounded diagnostic code remains.</td><td>G-WIRE</td></tr>
+            <tr><td class="id">AT-025</td><td>Secret and ceremony-data scan</td><td>Synthetic bearer/JWT/OAuth/cookie/query-token/API-key values are absent from renderer and every sink. Synthetic <code>userCode</code>/<code>verificationUrl</code> appear only in the live typed login-UI channel and are absent from <code>.jsonl</code>, both SSE hops, persistence, telemetry, replay, event/crash/daemon/supervisor/App Server/launchd logs, screenshots/support bundles, and—after ceremony disposal—the DOM, reachable application state, queued IPC buffers, and captures; the dedicated view is destroyed. No nondeterministic V8 physical-zeroization claim is made.</td><td>G-WIRE</td></tr>
+            <tr><td class="id">AT-026</td><td>Native delegation available</td><td>Codex can spawn, steer, wait for, interrupt, and synthesize native descendants in the packaged app.</td><td>G4</td></tr>
+            <tr><td class="id">AT-027</td><td>No Chirality topology cap</td><td>The delegation-capable profile enables exact-pin native multi-agent behavior, leaves concurrency unset, and supplies no Chirality child allowlist, model restriction, or fixed topology; upstream limits remain visible.</td><td>G-ROLE/G4</td></tr>
+            <tr><td class="id">AT-028</td><td>Parentage visibility and enumeration</td><td>Every observed descendant is linked to its parent and the returned <code>thread.sessionId</code>; pagination uses explicit <code>appServer</code> plus every exact-pin <code>subAgent*</code> <code>sourceKind</code>, never omitted defaults; unknown or unattributed activity fails closed.</td><td>G4</td></tr>
+            <tr><td class="id">AT-029</td><td>Untyped/Agent 0/1 posture</td><td>Representative untyped, Agent 0, and Agent 1 primaries can use native delegation without a Chirality scheduling, model, fan-out, or depth cap while remaining inside the hard outer envelope.</td><td>G-ROLE/G4</td></tr>
+            <tr><td class="id">AT-030</td><td>Explicit Codex Agent 2/TASK posture</td><td>If this entry mode is offered, exact config readback and a behavioral probe prove both relevant multi-agent features and the agents surface disabled. If proof fails, the entry mode is absent from the RC; ordinary native descendants are not reclassified as Chirality Agent 2.</td><td>G-ROLE/G4</td></tr>
+            <tr><td class="id">AT-031</td><td>Semantic failure containment</td><td>Even a deliberately nonconforming role fixture cannot expand filesystem/network/approval/process authority.</td><td>G4</td></tr>
+            <tr><td class="id">AT-032</td><td>Retirement cleanup and reconciliation</td><td>Quit, logout, parent failure, upgrade, and forced retirement fence the generation, interrupt known threads, kill the worker process group, remove socket/owner artifacts, and commit exactly one terminal per captured turn. Injected append/status failures leave a durable journal and root quarantine until idempotent recovery completes.</td><td>G-SIG/G4</td></tr>
+            <tr><td class="id">AT-033</td><td>Renderer hardening</td><td>CSP, navigation/window denial, context isolation, renderer sandboxing, and sender authorization pass packaged tests, including all six credential IPC handlers.</td><td>G-CSP</td></tr>
+            <tr><td class="id">AT-034</td><td>Accessibility</td><td>Keyboard and VoiceOver complete consent, device login, model choice, approval, interrupt, status, and logout.</td><td>G4/G7</td></tr>
+            <tr><td class="id">AT-035</td><td>v2 data and two-job migration</td><td>Representative v2 data opens without destructive rewrite. The journalled installer transitions from the existing daemon-only plist to daemon plus process-supervisor plists, verifies both effective jobs, and rolls back a failure without orphaning or duplicating either.</td><td>G-HELPER/G5/G7</td></tr>
+            <tr><td class="id">AT-036</td><td>Restart posture</td><td>Planned retirement and recovered crash produce truthful durable terminals; no active turn is reattached. Startup reconciles stale running state before admitting work, and the next action always starts a fresh App Server thread.</td><td>G-SIG/G5</td></tr>
+            <tr><td class="id">AT-037</td><td>Native-engine regression</td><td>Existing Chirality-native engine and project flows retain governed behavior on preparation bytes and exact signed release bytes.</td><td>G5/G7</td></tr>
+            <tr><td class="id">AT-038</td><td>Unsigned preparation artifact</td><td>Config explicitly pins no signing identity and disables identity auto-discovery; CI/local artifact is non-distributable, carries no production signing/notary credentials, and passes package fan-in.</td><td>G5</td></tr>
+            <tr><td class="id">AT-039</td><td>Release identity freeze</td><td>Source SHA, dependency lock, resolved Electron version, App Server digest, generated schema/config digest, notices/SBOM, procedure, and version bind before signing.</td><td>G6a</td></tr>
+            <tr><td class="id">AT-040</td><td>Signed/notarized artifact</td><td>Nested code and app signatures, hardened runtime/entitlements, notarization ticket, staple and Gatekeeper all pass on exact frozen candidate.</td><td>G6b</td></tr>
+            <tr><td class="id">AT-041</td><td>Clean-machine release smoke</td><td>Released DMG installs and completes core + Codex login/turn/delegation smoke on supported macOS/arm64.</td><td>G7</td></tr>
+            <tr><td class="id">AT-042</td><td>Public download backcheck</td><td>Downloaded GitHub asset matches checksum/signatures/staple/version and launches; immutable publication snapshot records it.</td><td>G8</td></tr>
+            <tr><td class="id">AT-043</td><td>Version identity</td><td>UI, bundle metadata, DMG filename, release manifest, updater/publication metadata, and runtime report the same <code>3.0.0-rc.1</code> identity.</td><td>G5/G7</td></tr>
+            <tr><td class="id">AT-044</td><td>Root-private account state</td><td>Each canonical root uses private App Server operational state. No credential/token payload is copied or symlinked. Exact-pin proof either establishes safe same-account keyring reuse or the UI requires honest per-root managed login; account A→B invalidates consent.</td><td>G3/G-KEY/G-DUAL</td></tr>
+            <tr><td class="id">AT-045</td><td>Instruction and role identity</td><td>Root instruction sources and explicit primary posture match accepted <code>AGENTS.md</code>; project <code>.codex</code> cannot inject config or agents; native descendants remain native unless deliberately entered through a governed Chirality role.</td><td>G-ROLE/G4</td></tr>
+            <tr><td class="id">AT-046</td><td>Thread/session deletion</td><td>Delete/archive/logout/project removal behavior is explicit, preserves required Chirality audit evidence, removes adapter-private state according to policy, and leaves no live worker/descendant.</td><td>G4/G5</td></tr>
+            <tr><td class="id">AT-047</td><td>Preparation nested-byte survival</td><td><code>desktop:dist</code> preserves accepted App Server and Electron/CLI host bytes and inventories every existing or absent nested signature.</td><td>G5</td></tr>
+            <tr><td class="id">AT-048</td><td>Finder activation during work</td><td>After verified two-job migration, Finder activation while a primary/descendant turn runs creates no duplicate worker. If restart/upgrade retires the generation, affected turns terminalize and subsequent work starts fresh; no reattachment claim is tested.</td><td>G-HELPER/G-DUAL/G-SIG</td></tr>
+            <tr><td class="id">AT-049</td><td>Packaged sandbox enforcement</td><td>The hardened-runtime, non-App-Sandbox package denies positive escape probes for primary and descendants with <code>includePlatformDefaults: false</code>. Parsed-but-ineffective policy, missing immutable runtime roots, or an incompatible Electron fuse/entitlement fails.</td><td>G-SBX</td></tr>
+            <tr><td class="id">AT-050</td><td>Role-profile isolation</td><td>Exact-pin schema and readback prove delegation-capable versus optional explicit-Agent-2 config layering, including <code>features.multi_agent</code>, pin-specific <code>features.multi_agent_v2</code>, and <code>agents.enabled</code> precedence. A failed bounded profile withholds only that explicit entry mode.</td><td>G-ROLE</td></tr>
+            <tr><td class="id">AT-051</td><td>Credential signature transition</td><td>App Server keyring and Electron <code>safeStorage</code> survive unsigned/ad hoc→self-signed preparation identity A→B and, in the actual release lane only, Developer ID N→N+1 where safe; otherwise the UI reports a distinguishable non-destructive reauthentication or decrypt-failed state. No plaintext or silent loss occurs.</td><td>G-KEY/G7</td></tr>
+            <tr><td class="id">AT-052</td><td>Exact signed-byte regression fan-in</td><td>Migration, native-engine regression, account, turn, delegation, sandbox, retirement, credential, privacy/accessibility, SBOM/notices, and rollback suites rerun in disposable user state against exact G7 bytes.</td><td>G7</td></tr>
+            <tr><td class="id">AT-053</td><td>Governed basis and shared-runtime gate</td><td>Accepted carriers map every Root/App amendment, held binding, RQG §13 Shared Runtime Gate condition, DEL-02-06 REQ-027/exclusion, D-APP-103 interaction, and open Task Management item without inferring authority or closure.</td><td>G0/G0.5/G1</td></tr>
+            <tr><td class="id">AT-054</td><td>Two-job install transaction</td><td>The runtime-control IPC is the only installer entry; sender authorization, staged plists, journal, load/print verification, rollback, upgrade, uninstall, and obsolete-job cleanup are proven for the daemon and Delegated Harness Process Supervisor.</td><td>G-HELPER/G-CSP/G-DUAL</td></tr>
+            <tr><td class="id">AT-055</td><td>Retirement failure recovery</td><td>Failure is injected before and after each journal, terminal append, status update, process kill, and cleanup boundary. Recovery is idempotent, never reports false success, and cannot admit root work until closure is backchecked.</td><td>G-SIG</td></tr>
+            <tr><td class="id">AT-056</td><td>Private <code>CODEX_HOME</code> lifecycle</td><td>Creation, permissions, backup exclusion, upgrade, root removal, logout, credential-store behavior, and deletion are defined and tested without token copying/symlinking or cross-root project/config exposure.</td><td>G-DUAL/G-ENV/G-KEY</td></tr>
+            <tr><td class="id">AT-057</td><td>Credential IPC and typed storage states</td><td>All six credential IPC handlers reject unauthorized senders. Storage returns distinct <code>missing</code>, <code>storageUnavailable</code>, <code>decryptFailed</code>, and <code>available</code> states; preparation identity-transition tests prove UI/remediation behavior without production signing.</td><td>G-CSP/G-KEY</td></tr>
+            <tr><td class="id">AT-058</td><td>Signed Electron-as-Node host</td><td>Preparation and exact signed bytes prove the packaged Electron binary can execute the bundled <code>--runtime-supervisor</code> entry under <code>ELECTRON_RUN_AS_NODE=1</code>, preserve required fuses/entitlements, receive launchd signals, maintain its private socket, and terminate worker process groups. Failure invokes a separately approved helper design, not an Electron-spawned workaround.</td><td>G-HELPER/G-SBX/G6b/G7</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>11.1 Evidence rules and sentinel budgets</h3>
+        <ul>
+          <li>Fake-model/tool evidence proves deterministic client, policy, and terminal behavior; it does not substitute for exact-pin, packaged, owner-authenticated, or signed-byte evidence.</li>
+          <li>The deterministic primary/descendant sentinel runs at profile activation and whenever canonical root, effective policy/config, exact pin, or package changes, plus G4 and G7. It has a 60-second budget per policy profile and 10 seconds per probe. Ordinary turns perform only deterministic identity/policy/consent/<code>cwd</code> preflight.</li>
+          <li>The owner-authenticated live descendant limb has a five-minute operator-test budget, never records secrets, and does not run in ordinary CI.</li>
+          <li>Unsigned/ad-hoc and self-signed-transition proof supports preparation gates only. It does not support Developer ID G-KEY, G6b, G7, or G8.</li>
+          <li>Notarized evidence applies only to the exact bytes tested. Rebuild, repackage, re-sign, dependency drift, or source change invalidates it.</li>
+          <li>Upstream documentation is a design input. Generated exact-pin schemas and empirical packaged behavior are the executable evidence.</li>
+        </ul>
+      </section>
+
+      <section id="packaging">
+        <h2>12. Packaging, signing, notarization, and publication</h2>
+        <h3>12.1 Preparation lane</h3>
+        <ol>
+          <li>Pin and inventory App Server, the bundled CLI entry, and the Electron-as-Node supervisor host as extra resources; preserve and compare every nested byte and existing code identity during packaging.</li>
+          <li>Set the electron-builder macOS identity to <code>null</code> (or the exact accepted equivalent) and keep <code>CSC_IDENTITY_AUTO_DISCOVERY=false</code>; fail if the artifact is opportunistically Developer ID signed.</li>
+          <li>Build local/CI arm64 DMGs without production signing/notarization credentials. RC does not adopt Apple App Sandbox.</li>
+          <li>Generate checksums, dependency inventory, human-readable notices, CycloneDX JSON with a pinned Syft release, minimum macOS declaration, and a release manifest.</li>
+          <li>Inventory App Server/host bytes, fuses, entitlements, and any pre-existing vendor signatures before and after <code>desktop:dist</code>; drift or an invalid nested signature fails G5.</li>
+          <li>Author, seat, and review the signing/notarization runbook as a release-carrier deliverable. The document covers exact nested signing order, hardened-runtime and Electron RunAsNode requirements, verification, Apple submission, recovery, rollback, and credential custody, but performs no Apple service call.</li>
+          <li>On disposable state, use non-production self-signed identities A and B to exercise keyring and <code>safeStorage</code> transition handling, typed failure states, and reauthentication UX. This is preparation evidence only; it neither predicts Developer ID behavior nor satisfies G-KEY.</li>
+          <li>Run package-level, two-LaunchAgent migration, supervisor-host, containment, and credential tests and label the result <strong>preparation / not for distribution</strong>.</li>
+          <li>Repeat freely during development. None of these builds consumes the owner’s notarization time or claims public-release integrity.</li>
+        </ol>
+
+        <h3>12.2 Actual release lane</h3>
+        <ol>
+          <li><strong>Owner release act:</strong> select the exact accepted candidate for publication; rule the exact K-RELEASE-1 amendment/F-APP-2 lift; record source digest, candidate digest, release identity, and publication route.</li>
+          <li>Adopt the already reviewed release runbook at its accepted carrier path; do not author release procedure ad hoc during signing.</li>
+          <li>Verify Apple Developer enrollment, Developer ID Application identity, bundle IDs, local credential custody, Electron fuses/entitlements, and the reviewed procedure; perform its preflight before Apple service calls.</li>
+          <li>Build once from the frozen source/lock/supply/config identity, or promote the already frozen candidate through a byte-preserving signing procedure. Do not rebuild after final acceptance without restarting the gate.</li>
+          <li>Sign nested App Server/host binaries, then app and distribution container in the exact order accepted by the runbook; prove the signed Electron binary still supports the supervisor entry. If it does not, stop and route the separately signed helper alternative as new governed scope.</li>
+          <li>Submit the exact artifact to Apple’s notary service; staple the accepted ticket.</li>
+          <li>Run G-KEY, then verify <code>codesign</code>, <code>spctl</code>, staple, checksums, SBOM/notices, clean-machine install, migration, native-engine regression, login, turn, delegation, interrupt, and quit on the exact signed bytes.</li>
+          <li>Publish as a GitHub prerelease; download through the user-visible path and repeat identity/Gatekeeper/smoke checks.</li>
+        </ol>
+
+        <div class="callout good">
+          <p><strong>Credential custody:</strong> no Apple signing certificate, App Store Connect key, Apple ID password, or notary credential is placed in GitHub Actions under this plan. The existing unsigned CI posture remains intact. Any future hosted-signing design requires its own explicit owner decision and threat/custody review.</p>
+        </div>
+
+        <h3>12.3 Publication contents</h3>
+        <ul>
+          <li><code>Chirality-3.0.0-rc.1-arm64.dmg</code> (signed, notarized, stapled).</li>
+          <li>SHA-256 checksum and release manifest binding source, lock, App Server, schema, config, notices, SBOM, signature/notary and test snapshot identities.</li>
+          <li>Third-party notices and pinned-Syft CycloneDX JSON SBOM.</li>
+          <li>PB-08-reviewed release notes identifying Codex as Preview, ChatGPT login behavior, data transmission/consent, supported macOS/architecture, known limitations, support route, and rollback instructions.</li>
+        </ul>
+
+        <h3>12.4 Rollback</h3>
+        <p>Withdraw the affected asset and mark the prerelease accordingly; never replace bytes under the same version/tag. Preserve the evidence and incident reason. If safe, point users to the last accepted release and document data compatibility. A fixed candidate receives a new version and repeats the full release lane.</p>
+      </section>
+
+      <section id="risks">
+        <h2>13. Risk register</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation / gate</th></tr></thead>
+          <tbody>
+            <tr><td class="id">R-01</td><td>Exact App Server experimental surfaces change or disappear.</td><td>Medium</td><td>High</td><td>Exact pin, generated types, capability negotiation, typed unavailable, G2; no auto-upgrade.</td></tr>
+            <tr><td class="id">R-02</td><td>Native descendant exceeds intended authority.</td><td>Medium</td><td>Critical</td><td>Root-specific worker; explicit effective policy; G-SBX/SENT/PROT/ENV/ROLE/APPR; hard boundary independent of instructions.</td></tr>
+            <tr><td class="id">R-03</td><td>A concurrent descendant approval is misattributed, or upstream coalesces network requests beyond Chirality’s observable authority identity.</td><td>Medium</td><td>Critical</td><td>Exact-pin spike, Root API v2, individual file/command/permission correlation, fail-closed ambiguity, and unconditional denial of managed network-context approvals.</td></tr>
+            <tr><td class="id">R-04</td><td>An explicitly entered Codex Agent 2/TASK creates another orchestration layer, or a native descendant is falsely classified as Chirality Agent 2.</td><td>Medium until proved</td><td>High</td><td>Class-specific G-ROLE profiles; withhold the explicit bounded entry if switches cannot be proved; do not constrain or relabel ordinary native descendants.</td></tr>
+            <tr><td class="id">R-05</td><td>Policy parses but packaged sandbox does not enforce, or implicit platform/default reads escape the project-data envelope.</td><td>Medium</td><td>Critical</td><td><code>includePlatformDefaults: false</code>; exact immutable runtime-read inventory; no App Sandbox in RC; actual-turn read/write sentinels, temp exclusions, login-shell denial, G-SBX/G-PROT; fail closed.</td></tr>
+            <tr><td class="id">R-06</td><td>Electron daemon spawn/signal regression leaves child/socket.</td><td>High without change</td><td>High</td><td>Second LaunchAgent supervisor never spawned by Electron; G-HELPER before design freeze; process groups and G-SIG/G-DUAL.</td></tr>
+            <tr><td class="id">R-07</td><td>Token material reaches the renderer, or device-ceremony fields escape the dedicated ephemeral login UI into reachable state, disk, telemetry, replay, or support capture.</td><td>Medium without change</td><td>Critical</td><td>Generated types, dedicated typed login IPC/view, reachable-state clearing and view destruction, allowlist event union, redaction before sinks, G-WIRE.</td></tr>
+            <tr><td class="id">R-08</td><td>Consent occurs after project-bound work begins, an account changes or lacks a stable identifier, or persistent turn <code>cwd</code> drifts.</td><td>Medium</td><td>High</td><td>User-local exact-account/root consent; volatile epoch and no persisted reuse when email is null; checks before worker/boot/thread and every turn; fixed canonical root/cwd; another root requires a new worker/thread; revocation closes worker.</td></tr>
+            <tr><td class="id">R-09</td><td>App Server keyring or Electron <code>safeStorage</code> fails across signature/update transition, while a collapsed null state hides the cause.</td><td>Medium</td><td>High</td><td>Four typed states; authorized credential IPC; self-signed preparation drill; release-time G-KEY; explicit non-destructive reauthentication; no plaintext fallback.</td></tr>
+            <tr><td class="id">R-10</td><td>Plan work proceeds while Root bindings remain held.</td><td>Medium</td><td>Critical</td><td>G0.5 per-binding owner-act matrix; accepted snapshots.</td></tr>
+            <tr><td class="id">R-11</td><td>Product copy implies unsupported Claude subscription login.</td><td>Low after revision</td><td>High</td><td>API-key-only RC; written approval gate for any future exception; copy review.</td></tr>
+            <tr><td class="id">R-12</td><td>Provider-specific concepts pollute reusable Chirality contracts.</td><td>Medium</td><td>High</td><td>Provider-neutral profile/origin/account types; adapter metadata only.</td></tr>
+            <tr><td class="id">R-13</td><td>Notarization is pulled into routine preparation and becomes costly/cumbersome.</td><td>Low after ruling</td><td>Medium</td><td>Separate G5 and G6 lanes; no CI credentials; owner act begins release lane.</td></tr>
+            <tr><td class="id">R-14</td><td>Nested bytes/signature, fuse, entitlement, or hardened-runtime choice breaks App Server or the Electron-as-Node supervisor host.</td><td>Medium</td><td>High</td><td>G5 byte/fuse/signature survival; reviewed runbook; AT-058; exact-release G6b/G7 proof; separately governed helper fallback.</td></tr>
+            <tr><td class="id">R-15</td><td>RC scope grows toward app completion.</td><td>High</td><td>Medium</td><td>Stable-candidate definition, explicit non-goals, blocker-only RC train.</td></tr>
+            <tr><td class="id">R-16</td><td>PR workflow becomes a proxy for design conversation or a merged plan is mistaken for authority.</td><td>Medium</td><td>Low–Medium</td><td>Discuss plans directly; uncommitted/merged plans fence nothing; terminate design changes in governing instruments through attributable loop closeout.</td></tr>
+            <tr><td class="id">R-17</td><td>User-wide App Server sees a union of project roots.</td><td>High in prior design</td><td>Critical</td><td>Root-bound worker default, realpath deduplication, G-DUAL and outside-root sentinels.</td></tr>
+            <tr><td class="id">R-18</td><td>Open event payload leaks secrets through an unscanned sink.</td><td>Medium</td><td>Critical</td><td>Closed schema v2 before coordinator; exhaustive sink migration; expanded G-WIRE corpus.</td></tr>
+            <tr><td class="id">R-19</td><td>A renderer or adapter path invokes an App Server client method that runs outside the turn sandbox.</td><td>Medium without an allowlist</td><td>Critical</td><td>Closed typed RPC allowlist; reject <code>thread/shellCommand</code>, <code>process/*</code>, extra-root and unneeded mutation methods; adapter-internal <code>command/exec</code> only with explicit restricted policy; AT-018.</td></tr>
+            <tr><td class="id">R-20</td><td>Forced retirement of a root worker silently kills or mislabels another active same-root session, or partial persistence admits new work.</td><td>Medium under concurrent sessions</td><td>Critical</td><td>Targeted interrupt first; durable prepared journal; idempotent coordinator terminalization; root quarantine on partial failure; AT-014/032/055; process-group cleanup remains authoritative.</td></tr>
+            <tr><td class="id">R-21</td><td>Root-private <code>CODEX_HOME</code> unexpectedly multiplies managed ChatGPT login ceremonies or shares credential material unsafely.</td><td>Medium</td><td>High</td><td>No token copy/symlink; exact-pin keyring behavior probe; safe reuse only when proved; otherwise disclose per-root login and keep consent root-bound.</td></tr>
+            <tr><td class="id">R-22</td><td>Installing or upgrading two LaunchAgents leaves one stale, duplicated, or running incompatible bytes.</td><td>Medium</td><td>High</td><td>Single authorized runtime-control entry; staged journalled migration; effective <code>launchctl print</code> verification; rollback/uninstall fixtures; G-HELPER/AT-054.</td></tr>
+            <tr><td class="id">R-23</td><td>A sentinel either provides false assurance by bypassing the production <code>turn/start</code> path or adds unacceptable latency to every turn.</td><td>Medium</td><td>High</td><td>Actual-turn deterministic fixture at activation/change/gates; explicit budgets; per-turn deterministic preflight only; live owner-authenticated limb outside ordinary CI.</td></tr>
+            <tr><td class="id">R-24</td><td>A plan merge is mistaken for closing TM-APP-027/028/032 or activating DEL-02-06 work.</td><td>Medium</td><td>High</td><td>Record immediate triage but preserve the live register’s current trigger state; only owning instruments can activate, amend, or close work.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="findings">
+        <h2>14. Review finding dispositions</h2>
+        <p><span class="chip accept">ACCEPT</span> adopts the finding and substantial remedy. <span class="chip amend">AMEND</span> accepts the concern but changes the remedy after owner direction or evidence verification. No finding is treated as operationally resolved merely by this revision.</p>
+        <h3>14.1 Round-1 findings carried forward</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Disposition</th><th>Final treatment</th><th>Closure evidence</th></tr></thead>
+          <tbody>
+            <tr><td class="id">F-01</td><td><span class="chip amend">OWNER-AMENDED</span></td><td>Keep native delegation for untyped/Agent 0/Agent 1, mechanically prevent Agent 2/TASK re-delegation, and name the D-GOV-14/D-APP-68/DEL-02-03/App supersession path.</td><td>G0.5 + G-ROLE/G-APPR/G4 + AT-026…032, 045, 050.</td></tr>
+            <tr><td class="id">F-02</td><td><span class="chip accept">ACCEPT</span></td><td>Select a second LaunchAgent supervisor never spawned by the interactive Electron app; prove launch, no-duplicate activation, terminal-on-retirement, and fresh-thread recovery before WP-03 freeze; retain signal/single-instance and journal reconciliation gates.</td><td>G-HELPER, G-SIG, G-DUAL.</td></tr>
+            <tr><td class="id">F-03</td><td><span class="chip amend">AMEND</span></td><td>Use root-specific workers, hardened runtime without App Sandbox, explicit restricted read envelopes for both sandbox modes, temporary-root exclusions, login-shell denial, exact-bundle proof, protected-path round trip, and positive read/write sentinels. Workspace-write remains gated.</td><td>G-SBX, G-SENT, G-PROT, G-ENV.</td></tr>
+            <tr><td class="id">F-04</td><td><span class="chip amend">AMEND</span></td><td>Preserve D-APP-97/F-APP-2 during preparation; amend K-RELEASE-1 and lift F-APP-2 only for an owner-named public artifact. No Apple credentials in CI.</td><td>G6a/G6b at actual release.</td></tr>
+            <tr><td class="id">F-05</td><td><span class="chip accept">ACCEPT</span></td><td>Add G0.5 with per-binding owner acts and Root instrument.</td><td>Accepted held-binding matrix.</td></tr>
+            <tr><td class="id">F-06</td><td><span class="chip accept">ACCEPT</span></td><td>Make existing DEL-09-04 owner proof WP-00/G0.25 before frontend changes.</td><td>Owner-run immutable proof or explicit deferral.</td></tr>
+            <tr><td class="id">F-07</td><td><span class="chip accept">ACCEPT</span></td><td>Amend K-RUNTIME-1 in both App and Root <code>docs/CONTRACT.md</code> from exclusive inner ownership to exclusive Chirality brokerage/lifecycle/terminal ownership with declared adapter-private state/topology.</td><td>Accepted App/Root contract snapshots.</td></tr>
+            <tr><td class="id">F-08</td><td><span class="chip accept">ACCEPT</span></td><td>Claude API key only; no subscription-login roadmap promise absent written Anthropic approval.</td><td>Contract and copy review.</td></tr>
+            <tr><td class="id">F-09</td><td><span class="chip accept">ACCEPT</span></td><td>Preserve the live <code>AgentEnginePort</code> method/event shape; put worker lifecycle on a separate supervisor port; migrate both live adapters for any required descriptor field.</td><td>Contract tests and conformance.</td></tr>
+            <tr><td class="id">F-10</td><td><span class="chip accept">ACCEPT</span></td><td>Type/redact before SSE or disk; add wire-level scan; confine the documented device <code>verificationUrl</code>/<code>userCode</code> exception to a dedicated typed login view that clears reachable state and is destroyed without claiming V8 physical zeroization.</td><td>G-WIRE.</td></tr>
+            <tr><td class="id">F-11</td><td><span class="chip accept">ACCEPT</span></td><td>Device-code default; callback only as declared loopback exception.</td><td>G3 and K-NET disposition if enabled.</td></tr>
+            <tr><td class="id">F-12</td><td><span class="chip accept">ACCEPT</span></td><td>Use generic delegated-harness native/child vocabulary and adapter metadata.</td><td>Shared-contract review.</td></tr>
+            <tr><td class="id">F-13</td><td><span class="chip accept">ACCEPT</span></td><td>Distinguish existing K-SDK-1…4 from proposed K-SDK-5, withdraw the incorrect K-GHOST ambient-state mapping, and widen K-KEY-1.</td><td>G1 corpus reconciliation.</td></tr>
+            <tr><td class="id">F-14</td><td><span class="chip accept">ACCEPT</span></td><td>Defer resume unless effective configuration digest is observable and accepted.</td><td>AT-036.</td></tr>
+            <tr><td class="id">F-15</td><td><span class="chip accept">ACCEPT</span></td><td>Select user-local consent keyed by root and exact non-secret account digest; use a volatile no-reuse epoch when managed ChatGPT email is null; name K-PROJECT-1/K-STORE-2; enforce before worker/boot/thread and every turn; root change always starts a fresh worker/thread.</td><td>G1/G-SENT/G4.</td></tr>
+            <tr><td class="id">F-16</td><td><span class="chip accept">ACCEPT</span></td><td>Add TM-APP-025 at G0 and TM-APP-030 at G0.5 and G6a.</td><td>Recorded owner rulings.</td></tr>
+            <tr><td class="id">F-17</td><td><span class="chip accept">ACCEPT</span></td><td>Name D-APP-74 for SCA-APP-004 and resolve/isolate Pi pin drift before G1.</td><td>Decision/corpus record.</td></tr>
+            <tr><td class="id">F-18</td><td><span class="chip accept">ACCEPT</span></td><td>Run Root SCA-004 and SCA-APP-008, assign exact carriers, and keep every new implementation WP non-dispatchable until accepted.</td><td>G0.5.</td></tr>
+            <tr><td class="id">F-19</td><td><span class="chip accept">ACCEPT</span></td><td>All AT-001…052 are RC-blocking as assigned; pin Syft/CycloneDX JSON; publish only through the human-owned GitHub prerelease lane.</td><td>G5…G8.</td></tr>
+            <tr><td class="id">F-20</td><td><span class="chip accept">ACCEPT</span></td><td>Use current-docs <code>features.multi_agent</code> only as discovery; freeze exact-pin names/precedence/generated types, enumerate experimental dependencies, and leave concurrency unset.</td><td>G2/G-ROLE/G3.</td></tr>
+            <tr><td class="id">F-21</td><td><span class="chip accept">ACCEPT</span></td><td>Treat package observations as unreproduced until owner-authorized download; no npm-package claim.</td><td>G2 supply snapshot.</td></tr>
+            <tr><td class="id">F-22</td><td><span class="chip accept">ACCEPT</span></td><td>Add DEL-09-05/06 and governing instruments to the source index, disclose remediation, and distinguish later governed fallback from prohibited automatic substitution.</td><td>G1/G5 evidence index.</td></tr>
+            <tr><td class="id">F-23</td><td><span class="chip accept">ACCEPT</span></td><td>Freeze exact config enums/defaults/readback at G2; workspace-write network defaults off, temporary roots excluded, login shells disabled, and unavailable keyring fails typed-unavailable.</td><td>G2/G3 config tests.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>14.2 Round-2 findings carried forward</h3>
+        <p>The round-2 return’s summary count is not reused: its own table contains ten “faithful” and thirteen “partial” round-1 rows, not the stated fifteen/eight. The final plan retains each substantive disposition and applies the round-3 corrections below.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Disposition</th><th>Final treatment</th><th>Where carried</th></tr></thead>
+          <tbody>
+            <tr><td class="id">R2-01</td><td><span class="chip accept">ACCEPT</span></td><td>Name and require D-GOV-14 item 7 supersession, D-APP-68/DEL-08-04 amendment, and DEL-02-03 M2.</td><td>§1.1, §8.1, G0.5.</td></tr>
+            <tr><td class="id">R2-02</td><td><span class="chip amend">AMEND</span></td><td>Keep untyped delegation; do not claim app-local managed requirements or arbitrary <code>thread/start</code> config; prove Agent 2/TASK isolation at G-ROLE.</td><td>§5.2–5.3, G-ROLE, AT-045/050.</td></tr>
+            <tr><td class="id">R2-03</td><td><span class="chip amend">AMEND</span></td><td>Select a second LaunchAgent supervisor and move feasibility before design freeze; use a durable retirement journal, coordinator terminalization API, and root quarantine rather than claiming atomic cross-session persistence.</td><td>§4.2–4.3, §6.4, G-HELPER/SIG/DUAL.</td></tr>
+            <tr><td class="id">R2-04</td><td><span class="chip amend">AMEND</span></td><td>Select root-bound workers under one supervisor; allow a role-posture key only if G-ROLE proves it necessary.</td><td>§4.2, G-DUAL.</td></tr>
+            <tr><td class="id">R2-05</td><td><span class="chip amend">AMEND</span></td><td>Preserve F-APP-2 in preparation; exact-candidate K-RELEASE-1 amendment/fence lift occurs only at G6a.</td><td>§1.2, §8.1–8.2, §12.2.</td></tr>
+            <tr><td class="id">R2-06</td><td><span class="chip accept">ACCEPT</span></td><td>Pin unsigned preparation and make the complete signing/notary runbook a G6a input; Apple calls stay in actual release.</td><td>G5/G6a, §12.</td></tr>
+            <tr><td class="id">R2-07</td><td><span class="chip accept">ACCEPT</span></td><td>Enumerate all ten Root fields and separately route App fences/items; require implementation activation for WP-03/05.</td><td>§8.3–8.3.1, §9.</td></tr>
+            <tr><td class="id">R2-08</td><td><span class="chip amend">AMEND</span></td><td>Current docs expose ordinary approval IDs but not enough network-group membership and port evidence for truthful Chirality attribution. Accept Root API v2 for individually correlated supported requests and deny every managed network-context request in RC.</td><td>§5.4–5.5, §8.5, G-APPR.</td></tr>
+            <tr><td class="id">R2-09</td><td><span class="chip accept">ACCEPT</span></td><td>Add every omitted contract row and remove the service-traffic exemption.</td><td>§8.2, AT-017/020.</td></tr>
+            <tr><td class="id">R2-10</td><td><span class="chip accept">ACCEPT</span></td><td>Close/version the Root event union before the coordinator, migrate all consumers, expand sink scanning, and isolate the documented ephemeral device-login display channel with reachable-state disposal and view destruction.</td><td>§7.2–7.3, §8.5, G-WIRE, AT-024/025.</td></tr>
+            <tr><td class="id">R2-11</td><td><span class="chip accept">ACCEPT</span></td><td>Cover daemon/plist/launchd/supervisor/worker; remove or hard-fail packaged escape hatches; exclude temporary write roots and disable login shells.</td><td>§6.3, G-ENV, AT-006/018.</td></tr>
+            <tr><td class="id">R2-12</td><td><span class="chip amend">AMEND</span></td><td>Decline App Sandbox for RC; define G-PROT/G-SBX/G-ROLE now and G-KEY only in actual release.</td><td>§6, G-PROT/SBX/KEY, AT-019/049/051.</td></tr>
+            <tr><td class="id">R2-13</td><td><span class="chip amend">AMEND</span></td><td>Recognize DEL-02-06 as standing but bounded; require Root SCA-004/SCA-APP-008 and exact accepted carriers before dispatch.</td><td>§8.1, §9.</td></tr>
+            <tr><td class="id">R2-14</td><td><span class="chip accept">ACCEPT</span></td><td>Map every program gate to existing gate families; retain runbook/lifecycle semantics, D-APP-38 reconciliation, and PB-08.</td><td>§10.0, G1/G6a/G7.</td></tr>
+            <tr><td class="id">R2-15</td><td><span class="chip amend">AMEND</span></td><td>Keep conversational plan latitude; human-gated PR is the default, not the only owner-directed closeout allowed by D-8.</td><td>§2.3.</td></tr>
+            <tr><td class="id">R2-16</td><td><span class="chip accept">ACCEPT</span></td><td>Prove nested byte/signature survival at G5 and rerun migration/regression on exact signed G7 bytes.</td><td>G5/G7, AT-035/037/047/052.</td></tr>
+            <tr><td class="id">R2-17</td><td><span class="chip accept">ACCEPT</span></td><td>Restore live port shape and separate supervisor lifecycle; enumerate adapter/conformance migrations.</td><td>§8.5, Appendix A.</td></tr>
+            <tr><td class="id">R2-18</td><td><span class="chip accept">ACCEPT</span></td><td>Select user-local consent keyed to the exact non-secret account-identity digest; when managed ChatGPT email is null use a volatile epoch with no persisted reuse; enforce account/root continuity before creation/boot/thread and each turn; a different root always receives a fresh worker/thread.</td><td>§7.4, AT-007/044.</td></tr>
+            <tr><td class="id">R2-19</td><td><span class="chip accept">ACCEPT</span></td><td>Route harvest candidates/TM-ROOT-122 and restore five missing scenario families.</td><td>§8.4, AT-043…047.</td></tr>
+            <tr><td class="id">R2-20</td><td><span class="chip accept">ACCEPT</span></td><td>Add journalled two-plist migration, Finder activation/no-duplicate proof, terminal-on-retirement semantics, and authoritative post-install inspection of effective launchd state and obsolete-job retirement.</td><td>§4.2, G-HELPER, AT-035/048/054.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>14.3 Revision-3 verification record carried forward</h3>
+        <p>Three bounded reviewers rechecked Revision 3 for governance, implementation, and exact upstream-Codex semantics. Governance returned PASS. The implementation and upstream reviews produced V3-01…08 and V3-10…12; direct verification against the official App Server method catalog added V3-09. The final treatment column includes later round-3 corrections where necessary:</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Residual issue</th><th>Correction in this revision</th></tr></thead>
+          <tbody>
+            <tr><td class="id">V3-01</td><td>Approval type allowed neither <code>requestId</code> nor <code>itemId</code>.</td><td>Use an at-least-one union and reject identifier-less single requests in AT-022.</td></tr>
+            <tr><td class="id">V3-02</td><td>Consent keyed only by account class could survive a same-class account change.</td><td>Key by stable non-secret exact-account digest and require account A → B re-consent.</td></tr>
+            <tr><td class="id">V3-03</td><td>LaunchAgent migration lacked proof of effective installed state.</td><td>G-HELPER/AT-048 require <code>launchctl print</code> or equivalent and obsolete-job retirement evidence.</td></tr>
+            <tr><td class="id">V3-04</td><td>App Server defaults allowed broad reads; temporary roots and login-shell defaults were unset.</td><td>Both sandbox modes now use restricted read roots on every turn; temporary writable roots are excluded; login shells are disabled; AT-018 adds read/write canaries.</td></tr>
+            <tr><td class="id">V3-05</td><td>Network approvals were incorrectly specified as always distinct.</td><td>Final correction: upstream grouping cannot be represented truthfully from the exposed context. Keep command network off and deny every network-context request in RC.</td></tr>
+            <tr><td class="id">V3-06</td><td>The device-code UX contradicted the renderer secret boundary.</td><td>Allow only <code>verificationUrl</code>/<code>userCode</code> through a typed ephemeral login-UI channel; forbid all persistence and post-ceremony retention.</td></tr>
+            <tr><td class="id">V3-07</td><td>Fresh consent was allowed to mutate an existing thread’s persistent <code>cwd</code>.</td><td>Reject every thread-root change; consent to another root acquires a root-specific worker and starts a fresh thread.</td></tr>
+            <tr><td class="id">V3-08</td><td>Descendant discovery used unsafe defaults and cleanup treated per-thread methods as recursive.</td><td>Persist returned <code>thread.sessionId</code>, use explicit stable listing inputs, and rely on known-thread interruption plus authoritative process-group cleanup. Experimental ancestry/background methods are not enabled for RC.</td></tr>
+            <tr><td class="id">V3-09</td><td>Client-initiated shell/process methods can run outside Codex’s sandbox.</td><td>Use a closed adapter RPC allowlist; prohibit <code>thread/shellCommand</code>; do not enable experimental API, leaving <code>process/*</code> unreachable; never substitute <code>command/exec</code> for the actual-turn sentinel.</td></tr>
+            <tr><td class="id">V3-10</td><td>A signed-in managed ChatGPT account may have <code>email: null</code>, leaving no stable non-secret consent identity.</td><td>Never persist reusable consent for that state; require a fresh volatile login epoch after restart/auth transitions and fail typed-unavailable when epoch identity is ambiguous.</td></tr>
+            <tr><td class="id">V3-11</td><td>Process-group fallback for one turn could terminate sibling sessions in the same root worker without correct terminals.</td><td>Use targeted interruption first; if retirement is required, persist a prepared journal, terminalize idempotently through the coordinator, and quarantine the root until every sibling is backchecked.</td></tr>
+            <tr><td class="id">V3-12</td><td>Physical absence of a device code from V8 memory after disposal is not deterministically testable.</td><td>Test DOM, reachable application state, queued IPC, persistence, replay, telemetry, and capture absence; destroy the view; make no physical-zeroization claim.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>14.4 Round-3 final-review dispositions</h3>
+        <p>The merged round-3 review returned <strong>ACCEPT WITH REQUIRED CHANGES</strong>. Every R3 item is represented below. “Accepted” means the plan adopts the remedy; “amended” means the concern has merit but the final plan narrows or corrects the proposed remedy. None is operationally closed by this document.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Disposition</th><th>Final treatment</th></tr></thead>
+          <tbody>
+            <tr><td class="id">R3-01</td><td><span class="chip accept">ACCEPT</span></td><td>Terminal-on-retirement; fresh thread after restart; no active-turn attachment.</td></tr>
+            <tr><td class="id">R3-02</td><td><span class="chip accept">ACCEPT</span></td><td><code>includePlatformDefaults: false</code> with an exact immutable runtime-read inventory.</td></tr>
+            <tr><td class="id">R3-03</td><td><span class="chip accept">ACCEPT</span></td><td>Durable idempotent retirement journal, coordinator terminalization API, and root quarantine replace fictional atomic fan-out.</td></tr>
+            <tr><td class="id">R3-04</td><td><span class="chip amend">AMEND</span></td><td>Use exact configuration layers and worker-key profiles; distinguish Chirality role entry from ordinary Codex-native descendants.</td></tr>
+            <tr><td class="id">R3-05</td><td><span class="chip accept">ACCEPT</span></td><td>Second LaunchAgent hosts the bundled <code>--runtime-supervisor</code> entry with Electron RunAsNode; fuse/entitlement proof is blocking.</td></tr>
+            <tr><td class="id">R3-06</td><td><span class="chip accept">ACCEPT</span></td><td>Authenticated private supervisor socket uses the established owner/generation/token pattern; no unproved peer-UID API.</td></tr>
+            <tr><td class="id">R3-07</td><td><span class="chip accept">ACCEPT</span></td><td>Runtime-control IPC performs staged, journalled, inspectable two-job install/migration/rollback.</td></tr>
+            <tr><td class="id">R3-08</td><td><span class="chip amend">AMEND</span></td><td>If explicit Codex Agent 2 non-delegation cannot be proved, withhold that entry mode rather than globally disabling native delegation.</td></tr>
+            <tr><td class="id">R3-09</td><td><span class="chip accept">ACCEPT</span></td><td>Add a live coordinator consent port and bind its proof to worker acquisition and every turn.</td></tr>
+            <tr><td class="id">R3-10</td><td><span class="chip amend">AMEND</span></td><td>Prove actual <code>turn/start</code> policy with deterministic and owner-authenticated limbs at activation/change/gates under explicit budgets; ordinary turns retain deterministic preflight.</td></tr>
+            <tr><td class="id">R3-11</td><td><span class="chip accept">ACCEPT</span></td><td>Root-private <code>CODEX_HOME</code>; no token copying/symlinking; safe keyring reuse only after exact-pin proof.</td></tr>
+            <tr><td class="id">R3-12</td><td><span class="chip accept">ACCEPT</span></td><td>Cover keyring and <code>safeStorage</code>; four typed storage states; authorize all credential IPC senders; self-signed preparation transition drill.</td></tr>
+            <tr><td class="id">R3-13</td><td><span class="chip amend">AMEND</span></td><td>Triage TM-APP-027/028/032 immediately, but preserve the live register’s statement that current semantic preparation does not itself fire the exact compatibility-package trigger.</td></tr>
+            <tr><td class="id">R3-14</td><td><span class="chip accept">ACCEPT</span></td><td>Map RQG §13 Shared Runtime Gate explicitly and restate DEL-02-06 by REQ-027 plus its exclusions.</td></tr>
+            <tr><td class="id">R3-15</td><td><span class="chip accept">ACCEPT</span></td><td>Correct account type, sticky <code>cwd</code>, ungated shell RPC, default-off command network, unmanaged requirements, and experimental-method facts.</td></tr>
+            <tr><td class="id">R3-16</td><td><span class="chip accept">ACCEPT</span></td><td>Name D-APP-103, contract amendments, exact carriers, release-procedure seating, and the two-socket K-CONTROL-1 change.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>14.5 Additional final reductions</h3>
+        <ul>
+          <li>Managed command-network approval is removed from RC because exposed upstream context cannot prove port or group membership. Service transport remains separately governed.</li>
+          <li>Experimental App Server API is not enabled for RC; stable observation plus OS process-group ownership supplies containment.</li>
+          <li>The optional bounded Codex Agent 2 profile is a product entry mode, not a retrospective label on native subagents.</li>
+          <li>The plan records Task Management routing needs without inferring that a planning-only change activates or closes them.</li>
+        </ul>
+      </section>
+
+      <section id="completion">
+        <h2>15. Completion definitions and final handoff</h2>
+        <h3>15.1 Ready for implementation</h3>
+        <ul>
+          <li>G0, G0.25, G0.5, and G1 pass with accepted immutable snapshots.</li>
+          <li>Every work package has a valid owner, deliverable seat, sealed brief, path scope, acceptance checks, and return contract.</li>
+          <li>The exact surfaces held by DEL-02-06 are available only to the extent explicitly lifted; the implementation act exists before WP-03/WP-05.</li>
+          <li>WP-02 download authorization and external-policy decisions are recorded; G-HELPER, G-SBX, G-PROT, G-ROLE, and G-APPR feasibility results have frozen or rejected the proposed architecture before implementation design proceeds.</li>
+          <li>Root API v2, Root event schema v2, supervisor protocol, consent schema, migration scope, and adapter compatibility obligations are accepted.</li>
+        </ul>
+
+        <h3>15.2 Ready for the owner to declare a release</h3>
+        <ul>
+          <li>G2 through G5 and every acceptance scenario assigned to preparation pass on an explicitly unsigned/ad-hoc packaged candidate.</li>
+          <li>No open P0/high security, privacy, data-integrity, process-lifecycle, or governance finding remains.</li>
+          <li>Release notes, limitations, support route, notices/SBOM, rollback packet, source/release manifest, and minimum OS/architecture are ready.</li>
+          <li>The owner may still decide not to release. Readiness is not publication authority.</li>
+        </ul>
+
+        <h3>15.3 Done for <code>v3.0.0-rc.1</code> publication</h3>
+        <ul>
+          <li>The owner has performed the release act and G6a/G6b/G7/G8 all pass.</li>
+          <li>All scenarios AT-001…AT-058 pass at their assigned gates; no preparation evidence substitutes for G-KEY or exact signed-byte G7 evidence.</li>
+          <li>The public artifact is the exact signed/notarized/stapled candidate accepted at G7.</li>
+          <li>Public-download verification and immutable release snapshot are complete.</li>
+          <li>Ongoing development proceeds under a new version/branch; published bytes are never replaced under the same tag.</li>
+        </ul>
+
+        <h3>15.4 Final planning handoff</h3>
+        <p>This document is the final planning basis, not a further request for plan review. Implementation begins only after the governing carriers at G0–G1 accept the required changes and briefs. The first execution sequence is:</p>
+        <ol>
+          <li>Record the pre-decision, owner-proof status, held-binding matrix, SCA routing, D-APP-103 interaction, RQG §13 mapping, and Task Management triage in their owning instruments.</li>
+          <li>Run exact-pin supply/config/schema analysis and the early G-HELPER, G-SBX, G-PROT, G-ROLE, G-APPR, G-ENV, G-SENT, and G-WIRE spikes before freezing detailed implementation.</li>
+          <li>Implement through accepted carriers, preserving the existing native engine and closed provider-neutral Root boundaries.</li>
+          <li>Build and iterate only unsigned/ad-hoc preparation artifacts, including the self-signed credential drill. Do not use Developer ID or Apple notarization during preparation.</li>
+          <li>When a stable candidate exists, the owner may perform the distinct release act and execute the reviewed G6–G8 procedure against one frozen artifact.</li>
+        </ol>
+        <div class="callout warning">
+          <p><strong>Unresolved by design:</strong> exact App Server bytes and schemas, Electron RunAsNode behavior after signing, sandbox enforcement, safe keyring reuse across root-private homes, explicit Codex Agent 2 controls, protected-path compilation, Apple credential transitions, and every governed carrier remain implementation or release evidence—not plan assumptions.</p>
+        </div>
+      </section>
+
+      <section id="appendix-a">
+        <h2>Appendix A. Proposed provider-neutral interface targets</h2>
+        <p>Names are design targets for the governed contract change; they are not code authorization.</p>
+        <pre>type RuntimeProfile = "chirality-native" | "delegated-harness";
+type ExecutionOrigin =
+  | "chirality-native"
+  | "delegated-harness-native"
+  | "delegated-harness-child";
+
+interface AdapterMetadata {
+  adapterName: string;        // e.g. "codex-app-server"
+  adapterVersion: string;
+  protocolDigest: string;
+  packageDigest: string;
+}
+
+interface InteractiveAccountPort {
+  read(): Promise&lt;AccountState&gt;;
+  startLogin(method: "deviceCode" | "browserCallback"): Promise&lt;LoginCeremony&gt;;
+  cancelLogin(loginId: string): Promise&lt;void&gt;;
+  logout(): Promise&lt;void&gt;;
+}
+
+interface DescendantRef {
+  rootThreadId: string;
+  parentThreadId: string;
+  threadId: string;
+  sessionId: string;          // returned thread.sessionId; never derived
+  sourceKind: string;
+  status: string;
+}
+
+type ApprovalWireIdentity =
+  | { requestId: string; itemId?: string }
+  | { requestId?: string; itemId: string };
+
+type ApprovalSubject = ApprovalWireIdentity &amp; {
+  sourceThreadId: string;
+  turnId: string;
+  ancestryEvidence: readonly DescendantRef[];
+};
+
+type ApprovalKey = {
+  jsonRpcRequestId: string | number;
+  projectId: string;
+  chiralitySessionId: string;
+  rootThreadId: string;
+  requestKind: string;
+  subject: ApprovalSubject;
+};
+
+// Preserve the live Root contract shape.
+interface AgentEnginePort {
+  readonly descriptor: EngineDescriptor;
+  readonly subject: EngineAdapterSubject;
+  preflight(input: AgentEngineRunInput): Promise&lt;void&gt;;
+  startTurn(input: AgentEngineRunInput): AsyncIterable&lt;UIEvent&gt;;
+  interrupt(sessionId: string): Promise&lt;void&gt;;
+}
+
+// New lifecycle contract; do not force close() onto every engine adapter.
+interface DelegatedHarnessSupervisorPort {
+  acquire(input: {
+    projectId: string;
+    canonicalRoot: string;
+    rolePosture: "delegation-capable" | "explicit-agent2-bounded";
+    effectiveConfigDigest: string;
+    codexHomeRef: string;
+  }): Promise&lt;RootBoundWorkerRef&gt;;
+  inventory(): Promise&lt;readonly RootBoundWorkerRef[]&gt;;
+  closeRoot(input: { projectId: string; canonicalRoot: string }): Promise&lt;void&gt;;
+  closeProject(projectId: string): Promise&lt;void&gt;;
+  closeAll(): Promise&lt;void&gt;;
+}
+
+interface HostedEngineConsentPort {
+  assertAuthorized(input: {
+    phase: "worker-acquire" | "thread-start" | "turn-start";
+    projectId: string;
+    canonicalRoot: string;
+    accountIdentityDigestOrEpoch: string;
+    policyDigest: string;
+    cwd: string;
+  }): Promise&lt;ConsentProof&gt;;
+  revokeRoot(input: { projectId: string; canonicalRoot: string }): Promise&lt;void&gt;;
+}
+
+interface WorkerRetirementCoordinatorPort {
+  prepare(input: WorkerRetirementInput): Promise&lt;WorkerRetirementRef&gt;;
+  terminalize(input: {
+    retirementId: string;
+    sessionId: string;
+    turnId: string;
+    terminal: "turn.completed" | "turn.failed" | "turn.interrupted" | "turn.cancelled";
+  }): Promise&lt;void&gt;;
+  reconcileRoot(input: { projectId: string; canonicalRoot: string }): Promise&lt;void&gt;;
+}</pre>
+
+        <h3>A.1 Adapter boundary requirements</h3>
+        <ul>
+          <li>All App Server wire types are generated from the accepted exact pin.</li>
+          <li>Provider identity remains in adapter metadata, not shared enum proliferation.</li>
+          <li>Every upstream item is validated and projected into the closed Root <code>HarnessEvent</code> schema v2 before coordinator/persistence; browser streaming remains the live <code>UIEvent</code> contract.</li>
+          <li>Native descendant records are observations, not fabricated Chirality-managed <code>AgentRun</code> records and not automatically classified as Chirality Agent 2.</li>
+          <li>Required descriptor additions are versioned and migrate Claude, Pi, App Server, frontend compatibility, and the conformance suite together.</li>
+          <li>Worker acquisition and closure belong to <code>DelegatedHarnessSupervisorPort</code>; consent and cross-session terminalization remain explicit coordinator contracts.</li>
+          <li>Managed network-context approvals have no RC wire type because they are denied before presentation.</li>
+        </ul>
+      </section>
+
+      <section id="appendix-b">
+        <h2>Appendix B. App Server protocol and configuration map</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Surface</th><th>Chirality use</th><th>Important condition</th></tr></thead>
+          <tbody>
+            <tr><td><code>initialize</code></td><td>Client identity and capability negotiation.</td><td>Exact-pin generated type; list every experimental capability explicitly.</td></tr>
+            <tr><td><code>account/read</code></td><td>Non-secret account status and consent identity input.</td><td>Discriminate <code>account.type</code>; never project credentials. Managed ChatGPT <code>email</code> may be null, which forces volatile no-reuse consent.</td></tr>
+            <tr><td><code>account/login/start</code> / completed / cancel</td><td>Device code first; bounded browser alternative.</td><td>Types are <code>chatgptDeviceCode</code> and <code>chatgpt</code>; only <code>verificationUrl</code>/<code>userCode</code> enter the dedicated ephemeral typed login view, which is destroyed on disposal.</td></tr>
+            <tr><td><code>account/logout</code></td><td>End account session and adapter work.</td><td>Verify post-logout unusability.</td></tr>
+            <tr><td><code>account/rateLimits/read</code></td><td>Display limits.</td><td>No invented limit/default values.</td></tr>
+            <tr><td><code>model/list</code></td><td>Populate model/effort selection.</td><td>Exact server response governs availability.</td></tr>
+            <tr><td><code>thread/start</code></td><td>Create a fresh delegated session.</td><td>Consent, canonical root, untrusted-project posture, app-owned config, and client-method allowlist first; persist returned <code>thread.sessionId</code> and verify <code>instructionSources</code>. No model work begins until an actual <code>turn/start</code> carries the restricted policy.</td></tr>
+            <tr><td><code>thread/list</code></td><td>Observe app-server and descendant threads.</td><td>Use explicit stable source kinds and pagination from the exact pin. Do not enable experimental ancestry filters for RC; collaboration events and worker ownership supply the authoritative containment view.</td></tr>
+            <tr><td><code>turn/start</code>, <code>turn/steer</code>, <code>turn/interrupt</code></td><td>Run, steer, and stop work.</td><td>Recheck consent/root and send restricted read/write policy before every turn. Per-turn <code>cwd</code> becomes the default for later turns, so Chirality fixes it to the canonical root and rejects drift. <code>turn/steer</code> requires <code>expectedTurnId</code> and has no policy overrides. Targeted interrupt precedes retirement-journal fallback.</td></tr>
+            <tr><td><code>item/commandExecution/requestApproval</code></td><td>Ordinary command approval card.</td><td>Route supported non-network commands individually. Any <code>networkApprovalContext</code> request is denied: exposed host/protocol fields do not prove port or grouped membership.</td></tr>
+            <tr><td><code>item/fileChange/requestApproval</code></td><td>File-change approval card.</td><td>Same correlation and grant-root treatment.</td></tr>
+            <tr><td><code>item/permissions/requestApproval</code></td><td>Granular permission escalation.</td><td>Grant only requested subset; session scope only by explicit user act.</td></tr>
+            <tr><td><code>collabToolCall</code></td><td>Observe <code>senderThreadId</code>, singular optional <code>receiverThreadId</code>, and optional <code>newThreadId</code>.</td><td>Exact-pin event must be validated; missing attribution fails closed.</td></tr>
+            <tr><td><code>thread/shellCommand</code></td><td>Not exposed in RC.</td><td>Ungated and outside the Codex sandbox; the client allowlist rejects it before dispatch.</td></tr>
+            <tr><td><code>process/*</code>, experimental ancestry/background methods</td><td>Not enabled in RC.</td><td>The client does not advertise experimental API capability; process-group ownership and stable thread/collaboration observation provide containment.</td></tr>
+            <tr><td><code>command/exec</code></td><td>Not a proof of production turn policy.</td><td>If retained for bounded adapter diagnostics, it is never renderer-callable and cannot satisfy G-SENT/AT-018; the sentinel uses a real <code>turn/start</code>.</td></tr>
+            <tr><td><code>configRequirements/read</code></td><td>Observe an administrator ceiling when present.</td><td>Returns <code>null</code> on unmanaged systems; Chirality does not claim app-local managed requirements.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>B.1 Candidate configuration posture</h3>
+        <pre># Delegation-capable root-private CODEX_HOME/config.toml discovery template.
+# Exact 0.149.0 names, enums, precedence, and readback are frozen at G2.
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"  # enabled only after G-SBX/G-SENT proof
+allow_login_shell = false
+cli_auth_credentials_store = "keyring"  # hard unavailable if keyring fails
+check_for_update_on_startup = false
+web_search = "disabled"
+
+[sandbox_workspace_write]
+network_access = false
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
+
+[features]
+multi_agent = true  # current-docs name; exact 0.149.0 schema/readback controls
+
+[agents]
+enabled = true
+# max_concurrent_threads_per_session intentionally unset
+# no Chirality child allowlist or fixed topology
+
+[analytics]
+enabled = false
+
+[feedback]
+enabled = false</pre>
+        <p>This block is for delegation-capable workers only and is not a claim that arbitrary config can be passed through <code>thread/start</code>. It is also insufficient by itself to constrain reads: App Server documents full read access as the default for both read-only and workspace-write policies. Chirality therefore sends one of the following root-substituted policies on every turn and verifies effective behavior. <code>acceptedImmutableRuntimeReadRoots</code> is a frozen list of exact packaged runtime/tool/system roots, not an alias for a broad platform bundle:</p>
+        <pre>// Workspace-write candidate
+{
+  type: "workspaceWrite",
+  writableRoots: [canonicalRoot],
+  readOnlyAccess: {
+    type: "restricted",
+    includePlatformDefaults: false,
+    readableRoots: [canonicalRoot, ...acceptedImmutableRuntimeReadRoots]
+  },
+  networkAccess: false
+}
+
+// Owner-accepted reduced-capability fallback
+{
+  type: "readOnly",
+  access: {
+    type: "restricted",
+    includePlatformDefaults: false,
+    readableRoots: [canonicalRoot, ...acceptedImmutableRuntimeReadRoots]
+  }
+}</pre>
+        <p>G-SBX discovers the minimum immutable roots under <code>includePlatformDefaults: false</code>; a dependency that requires a broad user-data or temporary-write root blocks the profile. G-ROLE separately proves the optional explicit Codex Agent 2/TASK profile through a sealed app-owned layer:</p>
+        <pre># Exact-pin bounded-entry overlay; offer this product entry only if all three
+# controls exist, read back false, and a behavioral probe confirms no delegation.
+[features]
+multi_agent = false
+multi_agent_v2 = false  # pin-specific 0.149.0 field; freeze from generated schema
+
+[agents]
+enabled = false</pre>
+        <p>The bounded overlay runs in a worker keyed to its distinct role posture and effective-config digest. It does not apply to untyped/Agent 0/Agent 1 primaries, and ordinary Codex-native descendants are not automatically reclassified as Chirality Agent 2. If the exact pin cannot prove the bounded overlay, the RC withholds that explicit entry mode while preserving ordinary native delegation. The numeric concurrency default is not invented, and no Chirality cap is configured.</p>
+
+        <h3>B.2 Configuration facts to freeze</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Setting</th><th>RC posture</th><th>Proof</th></tr></thead>
+          <tbody>
+            <tr><td>Project trust</td><td>Project-scoped config/hooks/rules/agents are untrusted and skipped.</td><td>Negative injection fixture plus <code>config/read</code>.</td></tr>
+            <tr><td>Approval policy</td><td><code>on-request</code> if supported by exact schema; no implicit fallback to a more permissive enum.</td><td>Generated enum + effective readback + denial tests.</td></tr>
+            <tr><td>Sandbox/read envelope</td><td>Both modes set <code>includePlatformDefaults: false</code> and list the canonical root plus only exact immutable runtime reads. Workspace-write names only the canonical root.</td><td>Actual-turn primary/descendant outside-root canaries plus packaged read-dependency inventory.</td></tr>
+            <tr><td>Temporary roots/login shell</td><td><code>/tmp</code> and <code>$TMPDIR</code> excluded from workspace-write; command scratch is root-local; <code>allow_login_shell = false</code>.</td><td>Config readback, both temp-write canaries, login-shell rejection, cleanup proof.</td></tr>
+            <tr><td>Client RPC allowlist</td><td>Only RC-required methods are callable; <code>thread/shellCommand</code>, <code>process/*</code>, and unneeded extra-root/state-mutation methods are rejected.</td><td>Generated-method exhaustiveness test, renderer IPC negative fixtures, AT-018.</td></tr>
+            <tr><td>Command network</td><td><code>false</code> under workspace-write.</td><td>Config readback and blocked egress fixture.</td></tr>
+            <tr><td>Credential store</td><td><code>keyring</code>; unavailable means typed unavailable, never plaintext fallback.</td><td>G3/G-KEY.</td></tr>
+            <tr><td>Consent identity</td><td>Digest non-null managed ChatGPT email; when email is null, use a volatile login epoch and persist no reusable consent.</td><td>Account A/B, <code>email: null</code>, restart, auth-transition, and ambiguous-epoch fixtures in AT-007/044.</td></tr>
+            <tr><td>Web search</td><td>Disabled for RC unless separately governed under K-NET-1.</td><td>Capability/config readback and network proof.</td></tr>
+            <tr><td>Updates, analytics, feedback</td><td>Automatic update checks off; analytics/feedback off.</td><td>Config readback and network scan.</td></tr>
+            <tr><td>Multi-agent</td><td>On and uncapped by Chirality for delegation-capable primaries; off only for an optional explicitly entered Codex Agent 2/TASK through the proved three-switch overlay.</td><td>AT-027/029/030/050.</td></tr>
+            <tr><td>Managed requirements</td><td>Optional administrator ceiling only; not claimed as app-shipped configuration. Unmanaged readback is <code>null</code>.</td><td><code>configRequirements/read</code>.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>B.3 Experimental dependencies</h3>
+        <p>The RC client does not advertise experimental API capability. Parent/ancestor filters, background-terminal methods, <code>process/*</code>, and every other experimental method are therefore unreachable and rejected by the closed allowlist. Stable collaboration/thread observations support attribution; the separately supervised OS process group is authoritative for cleanup. G2 still inventories the exact generated experimental surface so a future proposal can name, govern, and test any method before enabling it.</p>
+      </section>
+
+      <section id="appendix-c">
+        <h2>Appendix C. Source and evidence index</h2>
+        <h3>C.1 Repository evidence at baseline</h3>
+        <ul>
+          <li><a href="../AGENTS.md"><code>AGENTS.md</code></a>, Root <a href="../docs/CONTRACT.md"><code>docs/CONTRACT.md</code></a>, and <a href="../execution/PKG-02_Operative_Instruction_Surface_and_Runtime_Layers/1_Working/DEL-02-03_Delegation_Hierarchy_and_Entry_Rules/ScopeOfWork.md">DEL-02-03 Scope of Work</a>.</li>
+          <li><a href="../docs/governance_harness/_DECISIONS/D-GOV-14_pr188_review_closure.md">D-GOV-14 item 7</a>, <a href="../projects/chirality-app-dev/execution/_Coordination/_DECISIONS/D-APP-68_PACKET_CONCORDANCE_RULINGS_2026-07-19.md">D-APP-68</a>, and <a href="../projects/chirality-app-dev/execution/PKG-08_Agent_Suite_Pipeline_Dispatch_and_Subagent_Governance/1_Working/DEL-08-04_Type_2_Subagent_Governance_Bridge/ScopeOfWork.md">DEL-08-04 Scope of Work</a>.</li>
+          <li><a href="../projects/chirality-app-dev/docs/CONTRACT.md">App <code>CONTRACT.md</code></a> and <a href="../projects/chirality-app-dev/docs/SPEC.md"><code>SPEC.md</code></a>.</li>
+          <li><a href="../projects/chirality-app-dev/execution/_Coordination/_DECISIONS/D-APP-74_RULING_2026-07-23.md">D-APP-74</a> and <a href="../projects/chirality-app-dev/execution/_Coordination/_DECISIONS/D-APP-97_RULING_RELEASE_PREPARATION_2026-08-17.md">D-APP-97</a>.</li>
+          <li><a href="../projects/chirality-app-dev/docs/BUILD_AND_RELEASE.md"><code>BUILD_AND_RELEASE.md</code></a>, <a href="../projects/chirality-app-dev/docs/RELEASE_QUALITY_GATES.md"><code>RELEASE_QUALITY_GATES.md</code></a>, <a href="../projects/chirality-app-dev/docs/RELEASE_QUALITY_RUNBOOK.md"><code>RELEASE_QUALITY_RUNBOOK.md</code></a>, and <a href="../projects/chirality-app-dev/docs/BOUNDARY_REVIEW_CHECKLISTS.md"><code>BOUNDARY_REVIEW_CHECKLISTS.md</code></a>.</li>
+          <li><a href="../projects/chirality-app-dev/docs/VALIDATION_STRATEGY.md"><code>VALIDATION_STRATEGY.md</code></a> and <a href="../projects/chirality-app-dev/docs/ISSUE_READINESS_PROFILES.md"><code>ISSUE_READINESS_PROFILES.md</code></a>.</li>
+          <li><a href="../projects/chirality-app-dev/execution/PKG-09_Validation_Packaging_Security_and_Release/1_Working/DEL-09-04_macOS_DMG_Packaging_and_Instruction_Root_Integrity/_STATUS.md">DEL-09-04 status</a>.</li>
+          <li><a href="../projects/chirality-app-dev/execution/PKG-09_Validation_Packaging_Security_and_Release/1_Working/DEL-09-05_CI_Artifact_and_Release_Verification_Workflow/_STATUS.md">DEL-09-05 status</a> and <a href="../projects/chirality-app-dev/execution/PKG-09_Validation_Packaging_Security_and_Release/1_Working/DEL-09-06_Network_Key_Attachment_and_Renderer_Security_Checks/_STATUS.md">DEL-09-06 status</a>.</li>
+          <li><a href="../execution/PKG-02_Operative_Instruction_Surface_and_Runtime_Layers/1_Working/DEL-02-06_Generic_Runtime_Stewardship_and_Release_Assurance/_run_records/DEL-02-06-COMPATIBILITY-ACCEPTANCE-005/ACCEPTED_COMPATIBILITY_SNAPSHOT.md">DEL-02-06 accepted compatibility snapshot</a>.</li>
+          <li><a href="../execution/PKG-02_Operative_Instruction_Surface_and_Runtime_Layers/1_Working/DEL-02-06_Generic_Runtime_Stewardship_and_Release_Assurance/ScopeOfWork.md">DEL-02-06 Scope of Work</a> — REQ-027 and the explicit exclusion block; no informal package-size label is used as authority.</li>
+          <li><a href="../docs/PRD_ROOT.md">PRD_ROOT</a> — D-1 design closeout and D-8 Git closeout; App <a href="../projects/chirality-app-dev/docs/RELEASE_QUALITY_GATES.md">Release Quality Gates §13</a> — Shared Runtime Gate.</li>
+          <li><a href="../projects/chirality-app-dev/execution/_Coordination/_DECISIONS/D-APP-103_RULING_PER_ATTEMPT_DECISION_REPLAY_PACKET_2026-08-17.md">D-APP-103</a> and the live <a href="../projects/chirality-app-dev/execution/_Coordination/_TaskManagement/REGISTER.csv">App Task Management register</a> for TM-APP-027/028/032.</li>
+          <li><a href="../projects/chirality-app-dev/frontend/src/lib/harness/subagent-bridge.ts"><code>subagent-bridge.ts</code></a>, <a href="../projects/chirality-app-dev/frontend/src/lib/harness/permission-broker.ts"><code>permission-broker.ts</code></a>, and <a href="../projects/chirality-app-dev/frontend/src/lib/harness/managed-delegation.ts"><code>managed-delegation.ts</code></a>.</li>
+          <li><a href="../runtime/packages/contracts/src/harness/agent-engine-port.ts"><code>AgentEnginePort</code></a>, <a href="../runtime/packages/contracts/src/protocol.ts">Root protocol v1</a>, <a href="../runtime/packages/contracts/src/harness/event-schema.ts">event schema</a>, and <a href="../runtime/packages/daemon/src/runtime-daemon.ts">runtime daemon</a>.</li>
+          <li><a href="../runtime/packages/core/src/turn-coordinator.ts"><code>turn-coordinator.ts</code></a> and <a href="../runtime/packages/core/src/session-store.ts"><code>session-store.ts</code></a> — current in-memory active-turn ownership and per-session append boundaries that require the retirement coordinator/journal design.</li>
+          <li><a href="../runtime/packages/cli/src/launch-agent.ts"><code>launch-agent.ts</code></a>, <a href="../projects/chirality-app-dev/frontend/electron/cli-launcher.ts"><code>cli-launcher.ts</code></a>, and <a href="../projects/chirality-app-dev/frontend/scripts/build-electron.mjs"><code>build-electron.mjs</code></a> — current daemon-only entry, Electron RunAsNode launcher, and bundled CLI build.</li>
+          <li><a href="../projects/chirality-app-dev/frontend/src/lib/harness/subagent-governance.ts"><code>subagent-governance.ts</code></a> — current Chirality role-entry policy; <a href="../projects/chirality-app-dev/frontend/electron/api-key-storage.ts"><code>api-key-storage.ts</code></a> and <a href="../projects/chirality-app-dev/frontend/electron/api-key-ipc.ts"><code>api-key-ipc.ts</code></a> — current collapsed storage states and credential IPC authorization gap.</li>
+          <li><a href="../.github/workflows/desktop-release-template.yml">unsigned desktop release workflow template</a>.</li>
+          <li><a href="chirality_app_v3_release_execution_plan_revision_3_2026-08-22.html">Revision 3 plan</a> and <a href="chirality_app_v3_release_plan_review_round_3_2026-08-22.html">round-3 final review return</a> at review blob <code>447d407fe38c395d39e3481debc0d8c16317bbffe441a2c269eb194921aace95</code>.</li>
+        </ul>
+
+        <h3>C.2 Official external references checked 2026-08-22</h3>
+        <ul>
+          <li><a href="https://learn.chatgpt.com/docs/app-server">OpenAI Codex App Server</a> — protocol, accounts, device/browser login, approvals, items, thread filters, and generated schemas.</li>
+          <li><a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">OpenAI Codex subagents</a> — sandbox/permission inheritance and agent configuration.</li>
+          <li><a href="https://learn.chatgpt.com/docs/config-file/config-reference">OpenAI Codex configuration reference</a> — <code>agents.enabled</code>, concurrency cap, approval and config fields.</li>
+          <li><a href="https://learn.chatgpt.com/docs/config-file/config-basic">OpenAI Codex configuration basics</a> — precedence and untrusted-project behavior.</li>
+          <li><a href="https://learn.chatgpt.com/docs/enterprise/managed-configuration">OpenAI Codex managed configuration</a> — documented administrator-managed requirements sources and enforced constraints.</li>
+          <li><a href="https://learn.chatgpt.com/docs/agent-approvals-security">OpenAI Codex approvals and security</a> — sandbox/network defaults and approval posture.</li>
+          <li><a href="https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account">Anthropic login guidance</a> — third-party products use API keys unless separately approved.</li>
+        </ul>
+
+        <h3>C.3 Evidence limitations</h3>
+        <p>No App Server package download, generated 0.149.0 schema freeze, two-LaunchAgent install, process-supervisor build, role-profile proof, packaged actual-turn sandbox test, protected-path compiler proof, root-private keyring proof, self-signed or Developer ID credential-transition drill, production signing, notarization, or public release was performed by writing this plan. No App Server protocol schema or generated TypeScript ships in the repository at this baseline. Those remain explicit work and gate evidence. External documentation is temporally unstable and must be rechecked when the exact release pin is frozen.</p>
+      </section>
+
+      <footer>
+        Final Revision 3.1 plan for <code>v3.0.0-rc.1</code> · evidence baseline <code>91bee412643759cf79cdda812f1d4874b8a860dd</code> · prepared 2026-08-22 · derivative planning artifact; not a contract amendment, implementation act, cutover act, signing act, notarization act, or release act.
+      </footer>
+    </article>
+  </div>
+</body>
+</html>

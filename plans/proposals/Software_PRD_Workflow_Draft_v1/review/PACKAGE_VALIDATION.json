@@ -1,0 +1,232 @@
+{
+  "tool_kind": "local structural authoring check",
+  "not_chirality_runtime_validation": true,
+  "package": "/mnt/data/prd_workflow_design_v1/workflow-drafts/software-prd",
+  "checks": [
+    {
+      "check": "exact three-file resource inventory",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "complete opening YAML delimiters",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "frontmatter name matches folder",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "name grammar",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty selection description",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "metadata has no unverified runtime restrictions",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "draft status explicit",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "two checkpoint declarations",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "six method steps in order",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no concrete source-project path",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no package local credentials",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no em dashes in authored method",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "ordinary file: WORKFLOW.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no special permission bits: WORKFLOW.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "balanced fences: WORKFLOW.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "link resolves inside package: WORKFLOW.md -> resources/records-and-review.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "link resolves inside package: WORKFLOW.md -> resources/product-questions.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "ordinary file: resources/product-questions.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no special permission bits: resources/product-questions.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "balanced fences: resources/product-questions.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "ordinary file: resources/records-and-review.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no special permission bits: resources/records-and-review.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "balanced fences: resources/records-and-review.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no collision in supplied workflow packages",
+      "result": "PASS",
+      "detail": "17 package names inspected; live catalogs not queried"
+    }
+  ],
+  "source_name_inventory": [
+    {
+      "name": "project-decomp",
+      "path": "sources/workflows-FEED/project-decomp/WORKFLOW.md"
+    },
+    {
+      "name": "scope-of-work",
+      "path": "sources/workflows-FEED/scope-of-work/WORKFLOW.md"
+    },
+    {
+      "name": "project-setup",
+      "path": "sources/workflows-FEED/project-setup/WORKFLOW.md"
+    },
+    {
+      "name": "deliverable-consistency",
+      "path": "sources/workflows-FEED/deliverable-consistency/WORKFLOW.md"
+    },
+    {
+      "name": "software-decomp",
+      "path": "sources/workflows-FEED/software-decomp/WORKFLOW.md"
+    },
+    {
+      "name": "decomposition-package-review",
+      "path": "sources/workflows-FEED/decomposition-package-review/WORKFLOW.md"
+    },
+    {
+      "name": "preparation",
+      "path": "sources/workflows-FEED/preparation/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-postauthor-concordance",
+      "path": "sources/workflows-DBM/dbm-postauthor-concordance/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-concordance-verify",
+      "path": "sources/workflows-DBM/dbm-concordance-verify/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-concordance-seed",
+      "path": "sources/workflows-DBM/dbm-concordance-seed/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-publisher",
+      "path": "sources/workflows-DBM/dbm-publisher/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-draft-review",
+      "path": "sources/workflows-DBM/dbm-draft-review/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-section-publish",
+      "path": "sources/workflows-DBM/dbm-section-publish/WORKFLOW.md"
+    },
+    {
+      "name": "dbm-publish",
+      "path": "sources/workflows-DBM/dbm-publish/WORKFLOW.md"
+    },
+    {
+      "name": "semantic-lensing",
+      "path": "sources/workflows-semantics/semantic-lensing/WORKFLOW.md"
+    },
+    {
+      "name": "semantic-matrix-build",
+      "path": "sources/workflows-semantics/semantic-matrix-build/WORKFLOW.md"
+    },
+    {
+      "name": "lens-register",
+      "path": "sources/workflows-semantics/lens-register/WORKFLOW.md"
+    }
+  ],
+  "resource_links": [
+    {
+      "from": "WORKFLOW.md",
+      "to": "resources/records-and-review.md"
+    },
+    {
+      "from": "WORKFLOW.md",
+      "to": "resources/product-questions.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "WORKFLOW.md",
+      "bytes": 20639,
+      "sha256": "2b5c01ea4ecd523c5188dcfb38bf47a6614b5a2a177edcbe9cba3c4a21705c86"
+    },
+    {
+      "path": "resources/product-questions.md",
+      "bytes": 9850,
+      "sha256": "f267328a86b35c2bbea8efb134515ac4953a06ba84550925e68287f207c9f4f0"
+    },
+    {
+      "path": "resources/records-and-review.md",
+      "bytes": 8951,
+      "sha256": "2a32e347ae0ba8e981f301baee1a1bfdea5a0d705d3dada04bcef29f6244a24b"
+    }
+  ],
+  "overall": "PASS",
+  "not_performed": [
+    "live registration",
+    "catalog discovery",
+    "independent review",
+    "actual PRD workflow run",
+    "empirical validation"
+  ]
+}

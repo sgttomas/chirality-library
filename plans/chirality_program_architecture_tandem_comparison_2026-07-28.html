@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chirality Program Architecture — Tandem Comparison Review 2026-07-28</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f4f1e9;
+      --surface: #fffdf7;
+      --surface-2: #ece8dd;
+      --ink: #17201d;
+      --muted: #5d6863;
+      --line: #c8c8bd;
+      --root: #255a54;
+      --root-soft: #dcebe7;
+      --operative: #315f7d;
+      --operative-soft: #dce8ef;
+      --situated: #8a542c;
+      --situated-soft: #f3e2d2;
+      --evidence: #625082;
+      --evidence-soft: #e8e1f0;
+      --human: #a16a00;
+      --human-soft: #f5e9c8;
+      --danger: #9d3c34;
+      --danger-soft: #f5dfdc;
+      --shadow: 0 12px 34px rgba(38, 43, 40, 0.08);
+      --radius: 18px;
+      --max: 1240px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111614;
+        --surface: #18201d;
+        --surface-2: #222b27;
+        --ink: #edf1ed;
+        --muted: #b2bdb7;
+        --line: #3b4741;
+        --root: #77b7ac;
+        --root-soft: #1d3934;
+        --operative: #84b6d2;
+        --operative-soft: #203846;
+        --situated: #d59b70;
+        --situated-soft: #473225;
+        --evidence: #b6a0d2;
+        --evidence-soft: #342c43;
+        --human: #e0b65e;
+        --human-soft: #41381f;
+        --danger: #e39187;
+        --danger-soft: #482b29;
+        --shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--root) 9%, transparent), transparent 28rem),
+        radial-gradient(circle at 95% 15%, color-mix(in srgb, var(--operative) 9%, transparent), transparent 32rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.56;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 30px 0 72px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 6vw, 70px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      top: -130px;
+      width: 360px;
+      height: 360px;
+      border: 70px solid color-mix(in srgb, var(--operative) 13%, transparent);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--root);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin-top: 0; line-height: 1.12; letter-spacing: -0.025em; }
+    h1 { max-width: 900px; margin-bottom: 20px; font-size: clamp(2.1rem, 5.4vw, 4.4rem); font-weight: 650; }
+    h2 { margin-bottom: 16px; font-size: clamp(1.7rem, 3vw, 2.55rem); }
+    h3 { margin-bottom: 10px; font-size: 1.12rem; }
+    p { margin: 0 0 1rem; }
+
+    .lede {
+      max-width: 860px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.32rem);
+    }
+
+    .banner {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid color-mix(in srgb, var(--danger) 48%, var(--line));
+      border-radius: 999px;
+      background: var(--danger-soft);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+    }
+
+    .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contents { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+    .contents a { display: inline-block; padding: 7px 11px; border-radius: 999px; color: var(--muted); text-decoration: none; }
+    .contents a:hover, .contents a:focus-visible { background: var(--surface-2); color: var(--ink); outline: 2px solid var(--root); outline-offset: 2px; }
+
+    main > section { margin-top: 64px; scroll-margin-top: 24px; }
+
+    .section-intro { max-width: 860px; color: var(--muted); font-size: 1.05rem; }
+
+    .thesis {
+      margin: 28px 0;
+      padding: 22px 24px;
+      border-left: 5px solid var(--root);
+      background: var(--root-soft);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 5px 18px rgba(24, 30, 27, 0.04);
+    }
+
+    .card p:last-child, .callout p:last-child { margin-bottom: 0; }
+
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .number {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--root);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { background: var(--surface-2); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+
+    code {
+      padding: 0.1em 0.32em;
+      border-radius: 5px;
+      background: var(--surface-2);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status.accepted  { background: var(--root-soft); color: var(--ink); }
+    .status.clarified { background: var(--operative-soft); color: var(--ink); }
+    .status.candidate { background: var(--human-soft); color: var(--ink); }
+    .status.open      { background: var(--evidence-soft); color: var(--ink); }
+    .status.resolved  { background: var(--root-soft); color: var(--ink); }
+    .status.partial   { background: var(--operative-soft); color: var(--ink); }
+    .status.unchanged { background: var(--evidence-soft); color: var(--ink); }
+    .status.regressed { background: var(--danger-soft); color: var(--ink); }
+    .status.decided   { background: var(--situated-soft); color: var(--ink); }
+
+    .callout {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-2);
+    }
+
+    .callout.warning { border-color: color-mix(in srgb, var(--human) 58%, var(--line)); background: var(--human-soft); }
+    .callout.danger  { border-color: color-mix(in srgb, var(--danger) 58%, var(--line)); background: var(--danger-soft); }
+
+    .lens-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 18px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .lens-button {
+      min-height: 40px;
+      padding: 8px 13px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .lens-button:hover { background: var(--surface-2); color: var(--ink); }
+    .lens-button[aria-pressed="true"] { border-color: var(--root); background: var(--root-soft); color: var(--ink); }
+    .lens-button:focus-visible { outline: 3px solid color-mix(in srgb, var(--root) 68%, transparent); outline-offset: 2px; }
+
+    .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .review-item[hidden] { display: none; }
+
+    .review-item {
+      min-height: 100%;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .lens-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--root);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+
+    .evref { color: var(--muted); font-size: 0.84rem; }
+
+    ol.steps { margin: 24px 0 0; padding: 0; list-style: none; counter-reset: step; }
+
+    .steps li {
+      position: relative;
+      min-height: 62px;
+      margin-left: 24px;
+      padding: 0 0 28px 42px;
+      border-left: 2px solid var(--line);
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: -18px;
+      top: -4px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 2px solid var(--root);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--root);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+    .steps strong { display: block; margin-bottom: 4px; }
+
+    ul.clean { margin: 0; padding-left: 1.2rem; }
+    ul.clean li { margin: 0.42rem 0; }
+
+    .diagram-frame {
+      margin-top: 28px;
+      padding: clamp(12px, 2vw, 24px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .diagram-frame svg { display: block; width: 100%; height: auto; }
+    .diagram-frame text { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: var(--ink); }
+    .diagram-frame .muted-text { fill: var(--muted); }
+    .diagram-frame .node { stroke-width: 2; }
+    .diagram-frame .node-root { fill: var(--root-soft); stroke: var(--root); }
+    .diagram-frame .node-operative { fill: var(--operative-soft); stroke: var(--operative); }
+    .diagram-frame .node-situated { fill: var(--situated-soft); stroke: var(--situated); }
+    .diagram-frame .node-evidence { fill: var(--evidence-soft); stroke: var(--evidence); }
+    .diagram-frame .node-human { fill: var(--human-soft); stroke: var(--human); }
+    .diagram-frame .node-absent { fill: transparent; stroke: var(--danger); stroke-dasharray: 7 6; }
+    .diagram-frame .edge { fill: none; stroke: var(--line); stroke-width: 2.2; }
+    .diagram-frame .edge-accepted { stroke: var(--root); }
+    .diagram-frame .edge-unproduced { stroke: var(--operative); stroke-dasharray: 8 6; }
+    .diagram-frame .edge-absent { stroke: var(--danger); stroke-dasharray: 3 7; }
+    .diagram-frame .edge-human { stroke: var(--human); stroke-width: 2.8; }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 4px 2px; color: var(--muted); font-size: 0.84rem; }
+    .legend-item { display: inline-flex; gap: 7px; align-items: center; }
+    .legend-line { width: 28px; height: 0; border-top: 3px solid var(--line); }
+    .legend-line.accepted { border-color: var(--root); }
+    .legend-line.unproduced { border-color: var(--operative); border-top-style: dashed; }
+    .legend-line.absent { border-color: var(--danger); border-top-style: dotted; }
+    .legend-line.human { border-color: var(--human); }
+
+    .small { color: var(--muted); font-size: 0.86rem; }
+
+    footer {
+      margin-top: 70px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 900px) {
+      .span-4, .span-6, .span-8 { grid-column: span 12; }
+      .review-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(calc(100% - 20px), var(--max)); padding-top: 10px; }
+      .hero { padding: 24px 20px; border-radius: 20px; }
+      main > section { margin-top: 48px; }
+      .card { padding: 18px; }
+      th, td { padding: 11px 12px; }
+      .diagram-frame { overflow-x: auto; }
+      .diagram-frame svg { min-width: 740px; }
+    }
+
+    @media print {
+      :root { --paper: #fff; --surface: #fff; --surface-2: #f2f2ef; --ink: #111; --muted: #444; --line: #bbb; }
+      body { background: #fff; }
+      .page { width: 100%; padding: 0; }
+      .hero, .diagram-frame, .card { box-shadow: none; }
+      .contents, .lens-controls { display: none; }
+      .review-item[hidden] { display: block; }
+      main > section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Chirality Program · tandem comparison review · 2026-07-28</p>
+      <h1>The architecture after remediation, measured against the charter</h1>
+      <p class="lede">
+        Two independent reviewers re-ran the 2026-07-25 charter&rsquo;s question set
+        against the frozen post-remediation basis. This report records what the
+        remediation actually changed, what remains open, where the paper
+        architecture now matches the charter&rsquo;s interpretation &mdash; and where
+        accepted owner delegation still exposed a procedural conflict requiring
+        separate reconciliation.
+      </p>
+      <span class="banner">Non-governing review record · derivative · no authority or implementation mandate</span>
+      <div class="meta-row" aria-label="Document properties">
+        <span class="tag">Owner: Ryan Tufts</span>
+        <span class="tag">Prepared for: owner-witnessed personal assessment</span>
+        <span class="tag">Synthesis: EVALUATION-pattern fan-in (Agent 0)</span>
+        <span class="tag">Frozen basis: main @ <code>85ea0628f</code> (PR #408)</span>
+        <span class="tag">Terminal basis: <code>058b294c4</code> (PR #407)</span>
+        <span class="tag">Charter: 2026-07-25 working synthesis</span>
+      </div>
+      <ul class="contents" aria-label="Contents">
+        <li><a href="#verdict">Verdict</a></li>
+        <li><a href="#delta">What changed</a></li>
+        <li><a href="#wheel">Wheel revisited</a></li>
+        <li><a href="#questions">The thirteen questions</a></li>
+        <li><a href="#ownership">Ownership matrix</a></li>
+        <li><a href="#fanin">Fan-in</a></li>
+        <li><a href="#hinge">The hinge</a></li>
+        <li><a href="#open">Held-open questions</a></li>
+        <li><a href="#risk">Risk and sequence</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <!-- ============================================================ -->
+      <section id="verdict">
+        <p class="eyebrow">01 · Verdict</p>
+        <h2>The remediated boundary now matches the wheel at the hub and remains unproven at the rim</h2>
+        <p class="section-intro">
+          Both reviewers, working independently from the same frozen basis,
+          reached the same overall shape. Everything below distinguishes two
+          axes the charter did not yet need: <strong>resolved on paper</strong>
+          (an accepted instrument exists) versus <strong>proven in running
+          software</strong> (almost nothing is; implementation was explicitly
+          out of remediation scope).
+        </p>
+
+        <div class="thesis">
+          Every shared-runtime boundary addressed by the named remediation now
+          has one semantic owner, an accepted record, and a routed change path
+          &mdash; a genuine advance over 2026-07-25. This review did not establish
+          operational enforcement of those boundaries through running software,
+          end-to-end conformance suites, or a named compatibility identity; it
+          therefore makes no claim that such enforcement is absent. Human
+          authority remained attributable throughout, including when the owner
+          deliberately delegated acceptance of later recommendations. That
+          acceptable delegation was distinct from a procedural conflict with
+          the adopted no-self-merge commitment, which existed at this frozen
+          basis and was subsequently taken up in separately authorized work not
+          yet reviewed here.
+        </div>
+
+        <div class="grid">
+          <div class="card span-4">
+            <h3>Resolved on paper</h3>
+            <p>
+              Root runtime ownership (O-11 &rarr; SOW-104 &rarr; DEL-02-06, an
+              exemplary trace); App corrected to runtime client; PEC optional
+              by adopted invariant; Piping&rsquo;s domain truth kept situated with a
+              deliberate reliance hold; four-category Root coverage without
+              folder mimicry; SOW discipline held &mdash; no scope was minted
+              through decomposition or SOW prose.
+            </p>
+          </div>
+          <div class="card span-4">
+            <h3>Named but unproduced</h3>
+            <p>
+              Every consumer-facing runtime edge: the degraded-mode contract
+              (OUT-003), affected-client census (OUT-004), conformance and
+              migration matrix (OUT-005), and the runtime compatibility
+              identity &mdash; which Tier-0 records as literally
+              <em>unnamed</em>. All 46 Root deliverables remain
+              <code>INITIALIZED</code>; no runtime tranche is activated.
+            </p>
+          </div>
+          <div class="card span-4">
+            <h3>Open spokes and a procedural follow-up</h3>
+            <p>
+              The reusable work surface and resource governance have no
+              governed paper at all &mdash; correctly unminted, but the wheel runs
+              five represented spokes of seven under this assessment model.
+              On 2026-07-28 the owner used one plan-bounded direction to
+              delegate acceptance of subsequent recommendations. The delegation
+              was valid; its self-merge effect conflicted with D-8 at this basis,
+              and the exact-SHA treatment deserves a separate concordance check.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="delta">
+        <p class="eyebrow">02 · What changed</p>
+        <h2>Status transitions since the charter, each with its instrument</h2>
+        <p class="section-intro">
+          The charter&rsquo;s discipline was that no interpretation becomes a
+          requirement without an owning instrument. These are the assertions
+          that actually moved between 2026-07-25 and the frozen basis, and the
+          governed acts that moved them.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Assertion</th><th>2026-07-25</th><th>Now</th><th>Instrument (date)</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Root runtime stewardship is a standing product commitment (O-11)</td>
+                <td><span class="status open">absent</span></td>
+                <td><span class="status accepted">adopted PRD requirement</span></td>
+                <td>D-GOV-28, exact-candidate-SHA owner ruling (07-26)</td>
+              </tr>
+              <tr>
+                <td>Runtime stewardship has an executable Root carrier</td>
+                <td><span class="status open">absent</span></td>
+                <td><span class="status accepted">SOW-104 &rarr; PKG-02 &rarr; DEL-02-06, rev 1.1</span></td>
+                <td>SCA-001, five separately ruled gates (07-26)</td>
+              </tr>
+              <tr>
+                <td>DEL-02-06 has an accepted SOW and lifecycle state</td>
+                <td><span class="status open">absent</span></td>
+                <td><span class="status accepted">SOW_V1 accepted; INITIALIZED, activation unauthorized</span></td>
+                <td>OD6-RT-SOW1 / OD6-RT-APP-INIT1 (07-27)</td>
+              </tr>
+              <tr>
+                <td>App &ldquo;retains semantic ownership&rdquo; of the runtime</td>
+                <td><span class="status regressed">live contradiction</span></td>
+                <td><span class="status accepted">App = affected client; contradiction removed</span></td>
+                <td>SCA-APP-005 (closed 07-27); SCA-APP-006</td>
+              </tr>
+              <tr>
+                <td>App contract bases resolvable; reliance permitted</td>
+                <td><span class="status regressed">6 contracts held (APP-HOLD-1)</span></td>
+                <td><span class="status partial">51 contracts repinned; hold released</span></td>
+                <td>D-APP-79/80/81 (07-28, under owner-delegated closeout direction)</td>
+              </tr>
+              <tr>
+                <td>PEC interface model</td>
+                <td><span class="status clarified">v2.1 with superseded polling prose</span></td>
+                <td><span class="status accepted">pull-oriented, consumer-owned, never forced; v2.2</span></td>
+                <td>D-PEC-67, D-PEC-68 (07-27); D-PEC-69/70 (07-28)</td>
+              </tr>
+              <tr>
+                <td>When PEC is required by complexity</td>
+                <td><span class="status open">open question</span></td>
+                <td><span class="status decided">never required; uptake becomes falsification evidence</span></td>
+                <td>D-PEC-67/68 (07-27)</td>
+              </tr>
+              <tr>
+                <td>Piping&rsquo;s App-era consumption mechanism</td>
+                <td><span class="status open">ambiguous current effect</span></td>
+                <td><span class="status accepted">retired; Piping explicitly non-client; reliance hold preserved</span></td>
+                <td>D-58 (07-27); D-61 (07-28)</td>
+              </tr>
+              <tr>
+                <td>Tier-0 Flow-A vs Root compatibility identity</td>
+                <td><span class="status open">conflation risk</span></td>
+                <td><span class="status accepted">separated; Root identity remains unnamed</span></td>
+                <td>D-T0-24/25/26 (07-27&ndash;28)</td>
+              </tr>
+              <tr>
+                <td>Application environment profile</td>
+                <td><span class="status candidate">candidate</span></td>
+                <td><span class="status candidate">candidate &mdash; guarded, unruled</span></td>
+                <td>RUNTIME-OPEN-005 routes any seam statement to a future D-GOV act</td>
+              </tr>
+              <tr>
+                <td>Resource governance</td>
+                <td><span class="status candidate">candidate</span></td>
+                <td><span class="status candidate">candidate &mdash; zero paper; optionality guarded</span></td>
+                <td>none; SCA-001 propagation rows + OD-7 guard language</td>
+              </tr>
+              <tr>
+                <td>Human per-act ruling discipline</td>
+                <td><span class="status accepted">accepted basis, practiced</span></td>
+                <td><span class="status partial">authority retained; closeout procedure required reconciliation</span></td>
+                <td>Plan-bounded owner delegation quoted in Receipts 58&ndash;59 (07-28); D-8 conflict present at this basis; later corrective work awaits review here</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Decision-posture note.</strong> Every transition through
+          2026-07-27 carries a distinct verbatim owner ruling, several bound to
+          exact candidate SHAs &mdash; unusually high provenance quality. Later
+          transitions dated 2026-07-28 were accepted through one attributable,
+          plan-bounded delegation direction. That was a valid owner act, while
+          its procedural relationship to D-8 and exact-SHA binding remains the
+          narrower subject examined in section 07.
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="wheel">
+        <p class="eyebrow">03 · The wheel revisited</p>
+        <h2>An interpretive seven-spoke wheel: five governed representations, with rim behavior unproven</h2>
+        <p class="section-intro">
+          The charter drew a capability wheel whose edges were to be
+          first-class contracts. The wheel is an assessment lens, not an
+          accepted completeness model or a seven-part product requirement.
+          Scored against the frozen basis, solid edges are accepted paper
+          contracts; dashed edges are named but unproduced obligations; dotted
+          outlines are candidate capabilities with no governed product paper.
+        </p>
+
+        <div class="diagram-frame" role="img"
+             aria-label="Interpretive capability wheel scored against the frozen basis. Root hub governs a runtime spoke with unproduced consumer edges; App and PEC are governed clients on paper; Piping is deliberately non-client with an active reliance hold; work surface and resource governance spokes are absent; human authority remains attributable while D-8 closeout conformance awaits follow-up.">
+          <svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg">
+            <!-- edges -->
+            <line x1="500" y1="310" x2="500" y2="120" class="edge edge-accepted"/>
+            <line x1="500" y1="310" x2="212" y2="205" class="edge edge-accepted"/>
+            <line x1="500" y1="310" x2="788" y2="205" class="edge edge-accepted"/>
+            <line x1="500" y1="310" x2="212" y2="440" class="edge edge-unproduced"/>
+            <line x1="500" y1="310" x2="788" y2="440" class="edge edge-absent"/>
+            <line x1="500" y1="310" x2="352" y2="540" class="edge edge-absent"/>
+            <line x1="500" y1="310" x2="648" y2="540" class="edge edge-human"/>
+
+            <!-- hub -->
+            <rect x="380" y="262" width="240" height="96" rx="16" class="node node-root"/>
+            <text x="500" y="292" text-anchor="middle" font-size="17" font-weight="700">Chirality Root</text>
+            <text x="500" y="313" text-anchor="middle" font-size="12" class="muted-text">common governing form · runtime contract</text>
+            <text x="500" y="331" text-anchor="middle" font-size="12" class="muted-text">O-11 adopted · DEL-02-06 INITIALIZED</text>
+
+            <!-- runtime -->
+            <rect x="380" y="48" width="240" height="76" rx="14" class="node node-operative"/>
+            <text x="500" y="76" text-anchor="middle" font-size="15" font-weight="700">Shared runtime</text>
+            <text x="500" y="95" text-anchor="middle" font-size="11.5" class="muted-text">code real · carrier paper · identity unnamed</text>
+            <text x="500" y="111" text-anchor="middle" font-size="11.5" class="muted-text">conformance / degraded mode unproduced</text>
+
+            <!-- App -->
+            <rect x="82" y="160" width="250" height="76" rx="14" class="node node-operative"/>
+            <text x="207" y="188" text-anchor="middle" font-size="15" font-weight="700">Chirality App</text>
+            <text x="207" y="207" text-anchor="middle" font-size="11.5" class="muted-text">client boundary accepted (SCA-APP-005/006)</text>
+            <text x="207" y="223" text-anchor="middle" font-size="11.5" class="muted-text">holds released · parity instrument deferred</text>
+
+            <!-- PEC -->
+            <rect x="668" y="160" width="250" height="76" rx="14" class="node node-evidence"/>
+            <text x="793" y="188" text-anchor="middle" font-size="15" font-weight="700">PEC</text>
+            <text x="793" y="207" text-anchor="middle" font-size="11.5" class="muted-text">v2.2 adopted · never required · not implemented</text>
+            <text x="793" y="223" text-anchor="middle" font-size="11.5" class="muted-text">Tier-0 profile STALE · DENY_ALL</text>
+
+            <!-- Piping -->
+            <rect x="82" y="402" width="250" height="76" rx="14" class="node node-situated"/>
+            <text x="207" y="430" text-anchor="middle" font-size="15" font-weight="700">Piping (situated)</text>
+            <text x="207" y="449" text-anchor="middle" font-size="11.5" class="muted-text">non-client by design · domain truth kept</text>
+            <text x="207" y="465" text-anchor="middle" font-size="11.5" class="muted-text">reliance hold ACTIVE · successor unowned</text>
+
+            <!-- Resource governance (absent) -->
+            <rect x="668" y="402" width="250" height="76" rx="14" class="node node-absent"/>
+            <text x="793" y="430" text-anchor="middle" font-size="15" font-weight="700">Resource governance</text>
+            <text x="793" y="449" text-anchor="middle" font-size="11.5" class="muted-text">no governed home · zero paper</text>
+            <text x="793" y="465" text-anchor="middle" font-size="11.5" class="muted-text">optionality guarded by exclusions only</text>
+
+            <!-- Work surface (absent) -->
+            <rect x="232" y="516" width="240" height="72" rx="14" class="node node-absent"/>
+            <text x="352" y="543" text-anchor="middle" font-size="15" font-weight="700">Reusable work surface</text>
+            <text x="352" y="562" text-anchor="middle" font-size="11.5" class="muted-text">no governed home · App governed as</text>
+            <text x="352" y="577" text-anchor="middle" font-size="11.5" class="muted-text">standalone product only</text>
+
+            <!-- Human -->
+            <rect x="528" y="516" width="240" height="72" rx="14" class="node node-human"/>
+            <text x="648" y="543" text-anchor="middle" font-size="15" font-weight="700">Human judgment</text>
+            <text x="648" y="562" text-anchor="middle" font-size="11.5" class="muted-text">attributable owner judgment retained</text>
+            <text x="648" y="577" text-anchor="middle" font-size="11.5" class="muted-text">delegated closeout · D-8 follow-up · see §07</text>
+          </svg>
+          <div class="legend" aria-hidden="true">
+            <span class="legend-item"><span class="legend-line accepted"></span> accepted contract (paper)</span>
+            <span class="legend-item"><span class="legend-line unproduced"></span> named, unproduced obligation</span>
+            <span class="legend-item"><span class="legend-line absent"></span> no governed contract</span>
+            <span class="legend-item"><span class="legend-line human"></span> the hinge</span>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <strong>Sequence inversion worth remembering.</strong> The
+          <code>runtime/</code> code was built 2026-07-22&ndash;24 under the
+          D-GOV-20 pilot &mdash; <em>before</em> O-11 adoption (07-26) and DEL-02-06
+          initialization (07-27). The pattern to date is code first, carrier
+          later. The first consequential runtime change is the first real test
+          of whether DEL-02-06 is the path actually taken.
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="questions">
+        <p class="eyebrow">04 · The thirteen questions</p>
+        <h2>The charter&rsquo;s review set, re-answered against the frozen basis</h2>
+        <p class="section-intro">
+          Each card shows the question&rsquo;s standing at the charter date and its
+          disposition now, with the controlling evidence. Dispositions:
+          <span class="status resolved">resolved on paper</span>
+          <span class="status partial">partially resolved</span>
+          <span class="status unchanged">unchanged</span>.
+          Filter by disposition:
+        </p>
+
+        <div class="lens-controls" role="group" aria-label="Filter questions by disposition">
+          <button class="lens-button" aria-pressed="true" data-filter="all">All thirteen</button>
+          <button class="lens-button" aria-pressed="false" data-filter="resolved">Resolved on paper</button>
+          <button class="lens-button" aria-pressed="false" data-filter="partial">Partially resolved</button>
+          <button class="lens-button" aria-pressed="false" data-filter="unchanged">Unchanged</button>
+        </div>
+
+        <div class="review-grid" id="question-grid">
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q1 · Root · shared runtime ownership</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span></div>
+            <h3>One Root package now owns the runtime contract</h3>
+            <p>
+              The strongest trace in the corpus: O-11 (exact-candidate-SHA
+              adoption, D-GOV-28) &rarr; SCA-001&rsquo;s five separately ruled gates
+              &rarr; SOW-104 &rarr; PKG-02 &rarr; DEL-02-06 with an accepted SOW naming
+              versioned contracts, client conformance, regression evidence,
+              and accountable-human release disposition. Nothing implemented;
+              carrier never activated.
+            </p>
+            <p class="evref">D-GOV-28 · SCA-001 · decomp rev 1.1 DEC-022 · PRs #364&ndash;#366, #369, #376</p>
+          </article>
+
+          <article class="review-item" data-disposition="partial">
+            <span class="lens-label">Q2 · Cross-product · owner / consumer / fallback</span>
+            <div class="pill-row"><span class="status partial">partially resolved</span></div>
+            <h3>Explicit for the runtime function; thin elsewhere</h3>
+            <p>
+              For the runtime: owner Root, App a declared client, PEC gated
+              until its own gate, Piping explicitly non-client, Tier-0
+              identity separated, change notices routed (30/30 delivered).
+              But fallback and degraded mode are candidate-only (OUT-003),
+              and no equivalent ownership record exists for work-surface or
+              application-integration functions.
+            </p>
+            <p class="evref">DEL-02-06 REQ-009/016 · NOTICE_STATUS.csv · boundary rows A-B-003 (repaired), A-B-012 (open)</p>
+          </article>
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q3 · Root · four-category coverage</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span></div>
+            <h3>Six packages, no folder mimicry, 46/46 contracts</h3>
+            <p>
+              Normative, operative, developmental, and evidence functions are
+              covered across PKG-01&ndash;PKG-06 without four category-named
+              folders. All 46 deliverables carry accepted SOW_V1 contracts and
+              a forward-coverage register; one reasoned deferral recorded at
+              adoption. All 46 remain <code>INITIALIZED</code>.
+            </p>
+            <p class="evref">Chirality_Root_SOFTWARE_DECOMP_v1_0 · D-GOV-25 (07-25) · AUDIT_DECOMP 46/46</p>
+          </article>
+
+          <article class="review-item" data-disposition="unchanged">
+            <span class="lens-label">Q4 · Cross-product · application composition boundary</span>
+            <div class="pill-row"><span class="status unchanged">unchanged</span></div>
+            <h3>No accepted reusable-surface home exists; none was invented</h3>
+            <p>
+              No accepted PRD defines the App as the reusable program work
+              surface or assigns the cross-application integration contract,
+              and no instrument created that role. Existing uses of &ldquo;work
+              surface&rdquo; in other contexts do not settle this boundary. The
+              prior review recorded the gap; nothing since has decided it. The
+              charter&rsquo;s chief failure mode &mdash; filling the gap through
+              decomposition or SOW prose &mdash; did not occur.
+            </p>
+            <p class="evref">grep-absence across PRDs · boundary row A-B-012 · TERM-010</p>
+          </article>
+
+          <article class="review-item" data-disposition="unchanged">
+            <span class="lens-label">Q5 · App · standalone product + reusable surface</span>
+            <div class="pill-row"><span class="status unchanged">unchanged</span></div>
+            <h3>Still the charter&rsquo;s framing, not governed text</h3>
+            <p>
+              The App PRD remains a standalone-product definition; it neither
+              claims nor supports the reusable-work-surface identity. Residual
+              pre-correction prose (&ldquo;bundled agent operating system,&rdquo;
+              runtime-owner phrasing in the body) is reconciled only by &sect;17
+              and the corrected decomposition &mdash; and the terminal matrix&rsquo;s
+              &ldquo;Root-client boundary current&rdquo; gloss overstates what the PRD
+              bytes say body-wide.
+            </p>
+            <p class="evref">App PRD &sect;2, &sect;17 · SCA-APP-006 · EFFECTIVE_STATE_MATRIX row 4</p>
+          </article>
+
+          <article class="review-item" data-disposition="partial">
+            <span class="lens-label">Q6 · App · faithful human/agent mediation</span>
+            <div class="pill-row"><span class="status partial">partially resolved</span></div>
+            <h3>Intent accepted; the parity instrument does not exist</h3>
+            <p>
+              Accepted text requires machine-readable failure classes to
+              survive presentation layers and preserves provenance and replay
+              constraints. But UI/API semantic parity was explicitly excluded
+              from remediation and deferred to a future App instrument;
+              nothing is proven in software.
+            </p>
+            <p class="evref">DEL-02-06 REQ-014/REQ-049 · TERM-010 · terminal report &ldquo;Why closure is bounded&rdquo;</p>
+          </article>
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q7 · App &harr; Root · runtime client, not authority</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span></div>
+            <h3>The live contradiction is removed</h3>
+            <p>
+              SCA-APP-005 rewrote the App decomposition from &ldquo;generic runtime
+              semantic owner&rdquo; to affected client &mdash; 31 SOW rows, 17
+              deliverables, stable IDs preserved &mdash; under per-gate owner
+              rulings dated 2026-07-27. App retains packaged-daemon mode,
+              presentation, and client conformance; it no longer speaks as
+              runtime authority anywhere in accepted decomposition text.
+            </p>
+            <p class="evref">SCA-APP-005 (CLOSED 07-27) · SCA-APP-006 · App decomp SOW-037, OI-007 · PR #372, #386</p>
+          </article>
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q8 · PEC · coordination without authority</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span></div>
+            <h3>Pull-oriented, consumer-owned, never forced</h3>
+            <p>
+              PEC-K-03 and PEC-K-11 adopted exactly; PRD v2.2 reconciled the
+              superseded polling/injection prose; 11 affected SOW contracts
+              repaired with no new scope; the graceful-absence kill test
+              remains an invariant. This review established no implementation
+              or activation claim for the v2.2 target coordination plane. The
+              earlier PEC implementation remains frozen reference material and
+              must not be mistaken for proof of the v2.2 architecture.
+            </p>
+            <p class="evref">D-PEC-67 (07-27) · D-PEC-68 v2.2 · D-PEC-69/70 · 64 registers / 254 rows / 0 findings</p>
+          </article>
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q9 · PEC &harr; environment · availability by complexity</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span><span class="status decided">decided by dissolution</span></div>
+            <h3>&ldquo;Required&rdquo; was dissolved rather than thresholded</h3>
+            <p>
+              The modes ladder makes PEC essential for throughput at high
+              concurrency <em>when adopted</em> &mdash; never for soundness; file
+              fallback always remains; consumer-owned cadence; owner use or
+              non-use is recorded as falsification evidence. Tier-0&rsquo;s profile
+              is meanwhile STALE / DENY_ALL, making absence the current state.
+            </p>
+            <p class="evref">PEC PRD v2.2 modes table · PEC-K-01 · D-T0-26</p>
+          </article>
+
+          <article class="review-item" data-disposition="unchanged">
+            <span class="lens-label">Q10 · Resource governance · optional service</span>
+            <div class="pill-row"><span class="status unchanged">unchanged</span></div>
+            <h3>Zero paper; optionality actively guarded</h3>
+            <p>
+              No product scope was minted anywhere &mdash; the correct null result.
+              Its only appearances are exclusion clauses (&ldquo;no optional
+              resource-governance service is made mandatory&rdquo;). If the owner
+              wants this spoke, it starts from a blank page, by PRD act.
+            </p>
+            <p class="evref">SCA-001 Propagation_Plan rows · OD-slate guard · terminal HANDOFF future-work list</p>
+          </article>
+
+          <article class="review-item" data-disposition="partial">
+            <span class="lens-label">Q11 · All · human judgment remains the hinge</span>
+            <div class="pill-row"><span class="status partial">authority intact; procedural conflict identified</span></div>
+            <h3>Owner delegation was valid; D-8 and SHA binding are separate questions</h3>
+            <p>
+              Through 07-27 the hinge is exceptionally well recorded. On 07-28
+              the owner made an attributable, plan-bounded decision to let
+              Agent 0&rsquo;s later recommendations stand as approved. That
+              delegation is an acceptable exercise of the A1+B2 owner posture;
+              it did not transfer authority to the agent. Separately, the
+              self-merge grant conflicted with adopted commitment D-8 at this
+              frozen basis, and the resulting acts should be checked for
+              specific-SHA binding under K-AUTH-2. The owner reports that
+              separately authorized corrective changes now address the D-8
+              conflict; they are outside this basis and await review.
+            </p>
+            <p class="evref">Receipts 58&ndash;59 · D-APP-79/80/81 · D-PEC-69/70 · D-61 · PRD_ROOT D-8 row</p>
+          </article>
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q12 · All · domain truth remains situated</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span></div>
+            <h3>Affirmed and sharpened; no generic surface absorbed it</h3>
+            <p>
+              D-58 retired the App-era consumption mechanism while keeping
+              Piping outside both the Root-runtime and App-harness client
+              sets; the reliance hold is deliberately preserved while the
+              successor mechanism is unresolved; deterministic domain acts
+              stay with domain adapters; Tier-0 denies profile-mediated
+              invocation rather than absorbing it.
+            </p>
+            <p class="evref">D-58 (07-27) · D-61 (07-28) · DEL-02-06 REQ-046 · HOLD_CLOSURE_MATRIX (ACTIVE_BY_DESIGN)</p>
+          </article>
+
+          <article class="review-item" data-disposition="resolved">
+            <span class="lens-label">Q13 · Deliverable SOW · executable, warranted scope</span>
+            <div class="pill-row"><span class="status resolved">resolved on paper</span></div>
+            <h3>Sampled contracts show best-in-corpus discipline, with residuals</h3>
+            <p>
+              DEL-02-06&rsquo;s SOW binds its ledger row, declares its own candidate
+              status, and bars authority effects from the contract itself; the
+              App repin touched exactly the 51 ruled contracts and preserved
+              six <code>HISTORICAL_RELATION_UNKNOWN</code> rather than
+              reconstructing them; PEC repairs were smallest-exact with IDs
+              preserved. Residual: full populations rest on deterministic
+              validators, not per-contract human review; App acceptance-criteria
+              posture reform is explicitly later.
+            </p>
+            <p class="evref">DEL-02-06 SOW AC-010/013 · D-APP-80 · D-PEC-69 · terminal VALIDATION_RESULTS</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="ownership">
+        <p class="eyebrow">05 · Ownership matrix</p>
+        <h2>The charter&rsquo;s ownership table, scored</h2>
+        <p class="section-intro">
+          Criteria per row: one semantic owner, an accepted record, declared
+          consumers, fallback / degraded behavior, and a routed change path.
+          &ldquo;Governed&rdquo; means governed <em>on paper</em>; nothing in this table
+          is yet proven by running software.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Part</th><th>Owner</th><th>Accepted record</th><th>Fallback / degraded</th><th>Score</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chirality Root</td>
+                <td>Root (owner-ruled)</td>
+                <td>PRD Rev 6 (D-GOV-28) · decomp rev 1.1 · 46 SOWs</td>
+                <td>n/a &mdash; is the basis</td>
+                <td><span class="status accepted">governed (paper)</span></td>
+              </tr>
+              <tr>
+                <td>Shared runtime</td>
+                <td>Root via O-11 &rarr; DEL-02-06</td>
+                <td>Yes; <code>runtime/**</code> write target at PKG-02</td>
+                <td>OUT-003 candidate, unproduced; identity unnamed</td>
+                <td><span class="status partial">partial</span></td>
+              </tr>
+              <tr>
+                <td>App / work surface</td>
+                <td>App loop (client role)</td>
+                <td>PRD + decomp v3.2; holds released</td>
+                <td>not established (TERM-008)</td>
+                <td><span class="status accepted">governed as product</span> <span class="status regressed">ungoverned as reusable surface</span></td>
+              </tr>
+              <tr>
+                <td>PEC</td>
+                <td>PEC loop</td>
+                <td>PRD v2.2 · decomp rev 1.3 · hold released</td>
+                <td>declared: file-native fallback; deletion degrades throughput, never correctness</td>
+                <td><span class="status accepted">governed (paper)</span></td>
+              </tr>
+              <tr>
+                <td>Resource governance</td>
+                <td>none</td>
+                <td>none</td>
+                <td>none</td>
+                <td><span class="status regressed">ungoverned (absent)</span></td>
+              </tr>
+              <tr>
+                <td>Domain application / engine (Piping, Tier-0)</td>
+                <td>Piping loop + <code>_DomainEngines/</code></td>
+                <td>PRD/decomp · D-58/D-61 · D-T0-24/25/26</td>
+                <td>fail-closed: DENY_ALL profile; reliance hold ACTIVE_BY_DESIGN</td>
+                <td><span class="status accepted">governed (paper)</span> <span class="status unchanged">composition edge absent by design</span></td>
+              </tr>
+              <tr>
+                <td>Human</td>
+                <td>Ryan Tufts (identity model D-GOV-04)</td>
+                <td>per-decision rulings, receipts, gate logs</td>
+                <td>&mdash;</td>
+                <td><span class="status partial">partial &mdash; see &sect;07</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="fanin">
+        <p class="eyebrow">06 · Fan-in without averaging</p>
+        <h2>Where the two lenses agreed, added, and could not see</h2>
+        <p class="section-intro">
+          Reviewer A (vertical: authority, trace, provenance) and Reviewer B
+          (horizontal: boundaries, ownership, adversarial concordance) worked
+          the same frozen corpus independently; neither saw the other&rsquo;s
+          reasoning, this session&rsquo;s prior audit, or the 2026-07-26 meta
+          fan-in as evidence. Classification follows the charter&rsquo;s protocol.
+        </p>
+
+        <div class="grid">
+          <div class="card span-6">
+            <h3>AGREED (independently converged)</h3>
+            <ul class="clean">
+              <li>Runtime ownership resolved on paper with an exemplary trace; carrier never activated.</li>
+              <li>The accepted target architecture has not been proven end-to-end in running product software; the recorded PASS results establish documentation, identity, register, guard, or validator conditions rather than runtime fitness.</li>
+              <li>The closing-day delegation was an attributable and acceptable owner act; its self-merge effect nevertheless conflicted with D-8 at the frozen basis, and SHA binding warrants a separate check.</li>
+              <li>App PRD body still carries pre-correction runtime-owner prose, reconciled only by &sect;17 and the decomposition; the terminal matrix gloss papers over the difference.</li>
+              <li>Work surface and resource governance: no governed paper; discipline against minting held at every opportunity.</li>
+              <li>Piping: non-client by design, hold correctly active &mdash; and the successor mechanism has no owner, carrier, or schedule anywhere.</li>
+            </ul>
+          </div>
+          <div class="card span-6">
+            <h3>ADD-MISSING-EVIDENCE (one lens strengthened the other)</h3>
+            <ul class="clean">
+              <li><strong>From A:</strong> the self-merge grant directly contradicts adopted Root PRD commitment D-8 (&ldquo;never self-merge,&rdquo; in force since D-GOV-28, two days prior). The precise defect is procedural conformance, not the validity of the attributable owner delegation itself.</li>
+              <li><strong>From A:</strong> DEL-02-06 is not scaffold-only &mdash; it has an accepted SOW_V1 and INITIALIZED state (07-27), correcting this review&rsquo;s own tasking assumption.</li>
+              <li><strong>From B:</strong> the code-before-carrier sequence on <code>runtime/</code> (built 07-22&ndash;24, owned 07-26&ndash;27) is a live pattern, not a hypothetical.</li>
+              <li><strong>From B:</strong> package self-integrity in the terminal snapshot is a closed loop (the hash manifest is externally anchored only by git); the eight upstream instrument hashes are genuinely external and sound.</li>
+            </ul>
+            <h3 style="margin-top:18px;">STANDING_DIVERGENCE</h3>
+            <p class="small">
+              None material after owner clarification. The original
+              &ldquo;regressed hinge&rdquo; reading is narrowed: authority remained
+              human and attributable; the live questions are D-8 procedural
+              conformance and K-AUTH-2 SHA binding. The owner has separately
+              authorized changes around D-8, which this frozen-basis review has
+              not yet assessed.
+            </p>
+            <h3 style="margin-top:18px;">SHARED_BLIND_SPOT_RISK</h3>
+            <ul class="clean">
+              <li>Full contract populations (53 App, 32 PEC) verified deterministically, not read individually by either lens.</li>
+              <li>Neither lens assessed <code>runtime/</code> code quality or behavior &mdash; out of scope for both, unowned by any completed review.</li>
+              <li>29 of 30 routed notices remain delivered-but-unacknowledged and non-gating: routed-change obligations are currently one-directional assertions.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="hinge">
+        <p class="eyebrow">07 · The hinge</p>
+        <h2>Authority remained human; closeout conformance needs a precise account</h2>
+        <p class="section-intro">
+          The charter&rsquo;s deepest claim is that authority moves only through
+          attributable human acts. The closing-day direction satisfies that
+          claim: the owner deliberately delegated acceptance of later
+          recommendations within one named plan. The assessment must not
+          confuse that acceptable delegation with two narrower procedural
+          questions: self-merge under D-8 and approval identity under
+          K-AUTH-2.
+        </p>
+
+        <div class="callout danger">
+          <p>
+            On 2026-07-28 the owner directed, in session: <em>&ldquo;Finish out
+            your plan now &hellip; with self merge of PRs and auto approve for
+            owners rulings &hellip; with your recommendation standing as what I
+            approved.&rdquo;</em> That sentence &mdash; quoted verbatim across the
+            resulting records &mdash; supplied plan-bounded umbrella authority
+            for later Agent 0 recommendations, including the App hold posture,
+            the 51-contract repin, the APP-HOLD-1 release, the PEC SOW
+            reconciliation, the PEC-HOLD-001 release, the Piping
+            current-effect acceptance, Root Receipts 58&ndash;59, and the terminal
+            <code>COMPLETE_FOR_ARCHITECTURE_REMEDIATION</code> verdict, whose
+            own evaluation package states that its recommendation becomes the
+            owner-approved disposition <em>when the package merges</em>. PRs
+            #394&ndash;#408 then merged in roughly three and a half hours. The
+            speed is context for review, not evidence that the owner act was
+            invalid.
+          </p>
+        </div>
+
+        <div class="grid" style="margin-top:16px;">
+          <div class="card span-4">
+            <h3>HINGE-1 · accepted owner delegation</h3>
+            <p>
+              The direction is a real, attributable, per-plan-bounded human
+              act. Letting Agent 0&rsquo;s later recommendations stand as approved
+              is an acceptable delegation choice under the Root&rsquo;s A1+B2
+              posture. Authority remained with the owner; the agent supplied
+              judgment and execution within the delegated envelope.
+            </p>
+          </div>
+          <div class="card span-4">
+            <h3>HINGE-2 · confirmed D-8 conflict at this basis</h3>
+            <p>
+              The delegated self-merge permission conflicted with the accepted
+              Root commitment that Git closeout uses human-gated PRs and never
+              self-merges. That is a procedural-conformance finding, not an
+              authority finding. The owner has since authorized changes around
+              this conflict in another session; those bytes should be reviewed
+              before this assessment recommends any further correction.
+            </p>
+          </div>
+          <div class="card span-4">
+            <h3>HINGE-3 · SHA-binding review</h3>
+            <p>
+              K-AUTH-2 requires approvals to bind to a specific Git SHA and
+              expressly admits more than one approval vehicle. The remaining
+              question is therefore factual: for each recommendation accepted
+              under the umbrella direction, did the durable record bind the
+              owner act to the resulting bytes? Review that tranche inventory
+              before deciding whether any backfill is required.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <strong>Why precision still matters at the next phase.</strong> This
+          assessment established the accepted paper boundary but did not test
+          its operational enforcement. When later rulings authorize
+          <code>runtime/</code> changes, releases, or professional reliance, an
+          umbrella delegation should state its scope, SHA-binding mechanism,
+          merge authority, expiry, and exclusions. That preserves efficient
+          owner delegation without making procedural exceptions implicit.
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="open">
+        <p class="eyebrow">08 · Held-open questions</p>
+        <h2>The charter&rsquo;s deliberate openings, revisited</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Held-open question</th><th>Status now</th><th>Instrument / guard</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Reusable work surface: Root requirement, App capability, or both</td>
+                <td><span class="status open">still open</span> &mdash; no record touches it; correctly unminted</td>
+                <td>none; gap recorded at A-B-012, parity instrument deferred (TERM-010)</td>
+              </tr>
+              <tr>
+                <td>Application-environment-profile authority and schema</td>
+                <td><span class="status candidate">still candidate</span></td>
+                <td>RUNTIME-OPEN-005 routes any seam statement to a future D-GOV act</td>
+              </tr>
+              <tr>
+                <td>When PEC is available / recommended / required</td>
+                <td><span class="status decided">decided by dissolution</span> &mdash; never required; adoption is falsification evidence</td>
+                <td>D-PEC-67 / D-PEC-68 (07-27)</td>
+              </tr>
+              <tr>
+                <td>Resource governance: home, contract, lock/freeze authority, fallback</td>
+                <td><span class="status open">still open</span> &mdash; zero paper</td>
+                <td>optionality guarded by exclusion clauses only</td>
+              </tr>
+              <tr>
+                <td>Logical composition vs physical bundling and cadence</td>
+                <td><span class="status partial">partially decided</span> &mdash; one daemon, one runtime owner, packaged-Electron identity, Unix socket; cadence undecided</td>
+                <td>D-GOV-20 basis · D-T0-24 · DEL-02-06 SOW acceptance</td>
+              </tr>
+              <tr>
+                <td>Which cross-client conformance proofs are release requirements</td>
+                <td><span class="status partial">partially decided on paper</span> &mdash; obligations and gates defined as contract requirements for a future tranche; exact matrices TBD</td>
+                <td>DEL-02-06 REQ-048/049/050 · AC-015 · TBD-009/014</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="risk">
+        <p class="eyebrow">09 · Risk and recommended sequence</p>
+        <h2>Where paper is most likely to fail on contact with implementation</h2>
+
+        <div class="grid">
+          <div class="card span-6">
+            <h3>Planning-vs-reality risks, ranked</h3>
+            <ul class="clean">
+              <li><strong>1 · Runtime.</strong> Real code, paper stewardship, inverted sequence; carrier INITIALIZED with zero assurance outputs and an unnamed compatibility identity.</li>
+              <li><strong>2 · App.</strong> Reliance released across every entry path while the parity instrument does not exist, six historical relations stay UNKNOWN, and PRD body prose remains stale.</li>
+              <li><strong>3 · PEC.</strong> The v2.2 target architecture is prospective and unactivated; the prior implementation is frozen reference material, not proof of v2.2 conformance. The first v2 implementation tranche must also route the deferred PEC&harr;runtime event-contract home.</li>
+              <li><strong>4 · Piping.</strong> Hold discipline is correct, but the successor mechanism is unowned and unscheduled &mdash; the one live situated application has no path to demonstrating the wheel&rsquo;s composition thesis.</li>
+              <li><strong>5 · Delegation durability.</strong> Future umbrella approvals remain acceptable owner acts, but should make SHA binding, merge authority, expiry, and exclusions explicit before they carry implementation consequence.</li>
+            </ul>
+          </div>
+          <div class="card span-6">
+            <h3>Smallest governed actions, in order</h3>
+            <ol class="steps">
+              <li><strong>Review the separately authorized D-8 reconciliation.</strong> Compare its resulting bytes with the frozen-basis conflict identified here. In the same bounded pass, inventory D-APP-78/79/80/81, D-PEC-69/70, D-61, and the terminal disposition for specific-SHA binding; backfill only any defect that remains after that evidence is read.</li>
+              <li><strong>Repair the live record.</strong> Advance the stale root <code>HANDOFF_STATE.md</code> past Receipt 59; give the closeout record inbound references; run the App PRD concordance pass so the body matches the accepted client boundary.</li>
+              <li><strong>Name the runtime identity before touching the code.</strong> The first runtime tranche should run through DEL-02-06&rsquo;s activation ladder and produce OUT-003/004/005 &mdash; the test of whether the carrier is the path actually taken.</li>
+              <li><strong>Stand up the App parity instrument before implementation reliance.</strong> Reliance is released; parity is the debt that comes due the moment both surfaces run.</li>
+              <li><strong>Give Piping&rsquo;s successor mechanism an owner and a carrier.</strong> Until then the reliance hold correctly blocks the only situated proof of the composition thesis.</li>
+              <li><strong>Open the two absent spokes only by PRD act.</strong> Work surface and resource governance start from a blank page, at the owner&rsquo;s initiative, never through decomposition or SOW prose.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>How findings become governed work</strong> &mdash; unchanged from
+          the charter: observation &rarr; evidence-linked finding &rarr; tandem
+          challenge &rarr; fan-in &rarr; human disposition &rarr; owning instrument or
+          workflow &rarr; accepted change &rarr; affected-scope rerun. Nothing in this
+          report enters product scope without that route.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Method.</strong> Two sealed, independent Agent 2 reviewers
+        (vertical authority/trace lens; horizontal boundary/adversarial lens)
+        worked the same frozen corpus at <code>main@85ea0628f</code>, orienting
+        from governed records before consulting the charter, which was used as
+        a challenge set only. First-pass returns were frozen before fan-in;
+        fan-in classified rather than averaged. The 2026-07-26 program meta
+        fan-in was treated as historical input per its own derivative status.
+        Earlier same-day deterministic re-verification (independently of both
+        lenses) reproduced every numeric claim of the terminal package at this
+        basis. This is a personal, owner-witnessed working assessment for its
+        sole user; detailed tandem evidence is intentionally not reproduced
+        here.
+      </p>
+      <p>
+        This report is a derivative, non-governing record. It does not amend
+        the Root, App, or PEC PRDs; create or alter a decomposition; release
+        or impose any hold; authorize implementation; or substitute for a
+        governed decision record. Repository sources and accepted instruments
+        control wherever they differ from this interpretation. Retention
+        posture: keep in <code>plans/</code> while it informs the owner&rsquo;s
+        disposition of the remediation closeout; archive to
+        <code>plans/.archive/</code> thereafter without promoting it into
+        product authority.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.lens-button');
+      var items = document.querySelectorAll('#question-grid .review-item');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+          var filter = btn.getAttribute('data-filter');
+          items.forEach(function (item) {
+            var match = filter === 'all' || item.getAttribute('data-disposition') === filter;
+            if (match) { item.removeAttribute('hidden'); } else { item.setAttribute('hidden', ''); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

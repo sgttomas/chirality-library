@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="20fcb510297254bad94cce00ad0a05440c8f46c904046d9b77d7568068d4a135">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 03: Information Research and Evidence · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 11 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-frame-the-question-before-searching">Lesson 1: Frame the question before searching</a></li>
+<li><a href="#lesson-2-build-a-library-that-answers-questions">Lesson 2: Build a library that answers questions</a></li>
+<li><a href="#lesson-3-examine-the-evidential-role-of-a-source">Lesson 3: Examine the evidential role of a source</a></li>
+<li><a href="#lesson-4-resolve-conflicts-and-report-limits">Lesson 4: Resolve conflicts and report limits</a></li>
+<li><a href="#northbank-worked-example-the-electrical-enquiry">Northbank worked example: The electrical enquiry</a></li>
+<li><a href="#transfer-example-a-service-response-time-report">Transfer example: A service response-time report</a></li>
+<li><a href="#practice-build-two-evidence-packets">Practice: Build two evidence packets</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-prepare-information-for-reliance">Assessed assignment: Prepare information for reliance</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-frame-the-question-before-searching">Lesson 1: Frame the question before searching</a></li>
+<li><a href="#lesson-2-build-a-library-that-answers-questions">Lesson 2: Build a library that answers questions</a></li>
+<li><a href="#lesson-3-examine-the-evidential-role-of-a-source">Lesson 3: Examine the evidential role of a source</a></li>
+<li><a href="#lesson-4-resolve-conflicts-and-report-limits">Lesson 4: Resolve conflicts and report limits</a></li>
+<li><a href="#northbank-worked-example-the-electrical-enquiry">Northbank worked example: The electrical enquiry</a></li>
+<li><a href="#transfer-example-a-service-response-time-report">Transfer example: A service response-time report</a></li>
+<li><a href="#practice-build-two-evidence-packets">Practice: Build two evidence packets</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-prepare-information-for-reliance">Assessed assignment: Prepare information for reliance</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="03-information-evidence.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-03-information-research-and-evidence">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-03-information-research-and-evidence">Course 03: Information Research and Evidence</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>A controlled library can still fail its users: important information may be missing from the index, a useful source may be difficult to retrieve, and a retrieved document may answer a different question.</p>
+<p>This course teaches research directed toward a project decision, in a team where people work with AI agents. You will frame the question, find relevant information, examine its evidential role, and prepare a usable evidence packet. The work begins with supplied sources and remains suitable for offline study.</p>
+<h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
+<p>Complete Courses 01 and 02, and read Northbank Packet A. Use your controlled-basis package as a starting point.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. With agents, gathering from accessible records can become fast, so the researcher's hard work moves to establishing where information came from, what role a source can play for the question, and catching plausible fabrications, such as an invented citation or a summary that drops a condition. A03's copied, unsourced values are the classical example of that failure, and agents can reproduce it faster and at greater volume.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. In this course, brief agents with Packet A as the only permitted source, unless an exercise says otherwise.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>By the end, you can:</p>
+<ul>
+<li>Frame a bounded research question.</li>
+<li>Build an index that supports relevant retrieval.</li>
+<li>Explain a source's provenance, authority, and limits.</li>
+<li>Compare conflicting information without hiding the difference.</li>
+<li>Prepare an evidence packet with a scoped conclusion and unresolved matters.</li>
+<li>Brief an agent for research, and examine its return for provenance, dropped conditions, and fabrication.</li>
+</ul>
+<h2 id="lesson-1-frame-the-question-before-searching">Lesson 1: Frame the question before searching</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>Research begins with a question that someone needs answered. A broad request such as “research the pumps” leaves the purpose unclear and encourages a large collection with no definite use.</p>
+<p>State the decision or activity that the research must support, and identify the object, conditions, needed information, and boundary. “What does Packet A establish about the electrical connection?” is answerable, but “Is the complete electrical design suitable?” needs much more evidence.</p>
+<p>Separate a factual question from an applicability question. A survey can establish what was observed, but it may not establish what a law requires. An approved appointment can establish project authority, but it may not establish professional authority outside that appointment.</p>
+<p>Identify the consumer. A designer may need an exact observed input, a sponsor may need the consequence of an unresolved input, and a reviewer may need the source and method behind a conclusion. The same information can serve each consumer differently.</p>
+<p>Use a research brief:</p>
+<ol>
+<li>State the question.</li>
+<li>Identify the decision or activity it supports.</li>
+<li>Define the object and relevant conditions.</li>
+<li>Identify the permitted sources.</li>
+<li>State the expected form of the answer.</li>
+<li>State what falls outside the enquiry.</li>
+</ol>
+<p>For a short enquiry, these fields can fit in a paragraph. Revisit the brief when the available evidence reveals a different problem. Make a scope change explicit instead of quietly extending the search.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that searching is costly. A broad request wastes the researcher's time, so framing the question protects the researcher's effort as well as the consumer's purpose. It also assumes that the researcher notices when the evidence points to a different question and stops to ask.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>A broad request no longer wastes search time, because an agent can search and collect quickly. It now wastes something scarcer: the attention of the person who must examine a large, plausible collection. The framing that protected the researcher's effort now protects the examiner's attention and the scope of the conclusion.</p>
+<p>Agents answer the question they are given, and they can answer an adjacent one without saying so. Asked what Packet A establishes about the electrical connection, an agent may go on to say whether the supply is suitable, which is the larger question the classical method warns against. That is the quiet extension of scope the brief must prevent, performed without the pause that would make a person ask.</p>
+<p>Agents also bring knowledge from outside the permitted sources. Unless the brief restricts it, an agent can fill a gap in Packet A with what is typical elsewhere, and present it in the same voice as what the records say.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>The research brief is the agent's brief. Keep all six fields, and give Steps 4 to 6 more weight:</p>
+<ul>
+<li><strong>Permitted sources:</strong> name them by identity and revision, and state that the agent must not supply facts from outside them. For the offline exercise, that is Packet A.</li>
+<li><strong>Expected form:</strong> ask for each claim with its source, revision, and the quoted supporting passage, and a separate list of questions the sources do not answer.</li>
+<li><strong>Outside the enquiry:</strong> state the larger questions the agent must not answer, such as electrical suitability.</li>
+</ul>
+<p>Ask the agent to restate the question it answered at the start of its return, and compare that restatement with your question.</p>
+<h2 id="lesson-2-build-a-library-that-answers-questions">Lesson 2: Build a library that answers questions</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>A library index gives people routes into information. Document identities support exact retrieval, subject terms support discovery, and relationships show where one item qualifies, replaces, or supports another.</p>
+<p>Index the subjects that project participants use. At Northbank, useful terms include flow, electrical connection, operating conditions, scope proposal, appointment, and external requirements. A file named “survey_final” may not appear in a search for electrical capacity.</p>
+<p>Distinguish a source inventory from a complete evidence collection. A07 lists what the shared folder contains and identifies indexing defects, but it does not establish that the project holds every necessary source.</p>
+<p>Keep the links between claims and sources. A design note that cites A03 without its planning-estimate note loses relevant context, so add that note to the index or claim entry. Avoid making the next reader rediscover a known limitation.</p>
+<p>Access is part of retrieval, so record a location that the intended user can reach. If a source is unavailable, state the missing access and its consequence. A broken link cannot support review just because its title is visible.</p>
+<p>Apply this indexing method:</p>
+<ol>
+<li>List the exact controlled items.</li>
+<li>Assign useful subject terms.</li>
+<li>Record each item's origin and scope.</li>
+<li>Record relationships that affect its meaning.</li>
+<li>Identify known omissions.</li>
+<li>Test retrieval with a real project question.</li>
+</ol>
+<p>Ask another person to run the retrieval test. Give them the question, not the expected filename, and watch whether the index leads them to the relevant revision and its qualifications.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that people build the index by hand and retrieve through it, so retrieval is only as good as the subject terms someone thought to assign. A07's omission of the electrical survey is the typical failure: a source missing from the index is effectively missing from the library.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>Agents can search the content of sources, not only the index, so an agent can often find a source that the index omits. That reduces the cost of an omission like A07's. It does not remove the need for the index, for two reasons.</p>
+<p>First, an agent's search is not visible in the way an index is. A reader can see what an index covers; they usually cannot see what an agent searched, what it skipped, or why. When an agent reports that no source addresses a question, that report is only as good as its coverage, and the coverage is often unstated.</p>
+<p>Second, the index records relationships that content search does not reveal: that A02 Rev 1 replaces Rev 0, that A03's values were copied from a planning estimate, that A05 proposes a change without amending A02. These relationships need someone's judgment to record, and they govern what a retrieved source means.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Keep the index for exact retrieval and for the relationships that affect meaning. Use agent search for discovery, and treat what it finds as candidates to place in the index, with their qualifications.</p>
+<p>When an agent reports that a source is absent, ask it to state what it searched: which sources, which terms, and which parts it could not read. Rely on an absence only as far as that coverage supports it.</p>
+<p>Run the retrieval test with a person, as the classical method requires. An agent can also run it, but an agent that already knows the records is not testing the index.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent content search</td>
+<td>Finds sources the index omits</td>
+<td>Its coverage is hidden unless reported; it does not record relationships</td>
+</tr>
+<tr>
+<td>Curated subject index</td>
+<td>Visible coverage and recorded relationships</td>
+<td>Takes judgment to build, and fails where a term was not assigned</td>
+</tr>
+<tr>
+<td>Both, with agent finds added to the index</td>
+<td>Discovery and visible structure</td>
+<td>Someone must examine each find before it enters the index</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-3-examine-the-evidential-role-of-a-source">Lesson 3: Examine the evidential role of a source</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>Evidence supports or challenges a claim, and its value depends on the claim and the proposed reliance. A document can be authoritative for one question and unsuitable for another.</p>
+<p>Provenance identifies the origin and history needed to understand information. A checked observation should identify what was observed, where, when, and by whom; a copied value should keep its original source and the transformations applied to it.</p>
+<p>Authority is about a source's standing for the question. A02 establishes the approved project-development requirement, but it does not establish a measured plant condition. A04 records a checked site observation, but it does not decide the project scope.</p>
+<p>Consider relevance, conditions, method, and completeness. A supplier brochure describes a product family, but without a selected configuration it cannot establish that the proposed equipment is suitable. An accurate document can therefore be insufficient for a decision.</p>
+<p>Use a claim-and-evidence table that records the exact claim, source revision, supporting passage, conditions, limitations, and consequence for reliance. When the claim goes beyond the source, state what additional evidence is needed.</p>
+<p>Apply this examination method:</p>
+<ol>
+<li>Write the claim in a testable form.</li>
+<li>Identify the exact source.</li>
+<li>Locate the supporting statement or observation.</li>
+<li>Examine its origin and method.</li>
+<li>Match its conditions to the claim.</li>
+<li>State the supported conclusion and remaining gap.</li>
+</ol>
+<p>Do not treat an impressive title, approval stamp, or confident author as a substitute for this comparison: examination asks what the source establishes for the actual question.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that a person who cites a source has read it, and that copying a value takes some effort and leaves a trail. It also assumes that fabrication is rare, because inventing a citation takes intent. Its main concern is the copied value that lost its origin, as A03's did.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>Agents can produce plausible fabrications without any intent to deceive. An agent can give a citation, a section reference, a quoted passage, or a value that the source does not contain, and present it in exactly the same form as a genuine one. A confident, well-formatted citation is no longer evidence that the passage exists.</p>
+<p>Agents also drop conditions when they summarize. A summary that says “A02 requires 18 litres per second” has lost “under the operating conditions that the project must establish.” A summary that says “A04 confirms a 600 V supply” has lost what A04 does not establish: spare capacity, protection coordination, and equipment compatibility. Each sentence of such a summary can be accurate and the summary still mislead.</p>
+<p>The A03 failure can recur faster with agents. A03's values were copied from a planning estimate and carry no survey reference. An agent's output that states a value without its source is the same kind of record, and if someone later cites the agent's output, it becomes a source with no provenance. Agents can make many such records quickly.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Require each claim an agent returns to carry the exact source identity, revision, and the quoted supporting passage. Then check, for each claim that matters, that the passage exists in that revision and says what the claim says. Check every claim that a decision will rest on; for minor claims, check enough to know whether the agent's citations hold.</p>
+<p>Compare each agent summary with its source condition by condition. Ask which qualifications the source states and whether each one survived.</p>
+<p>Treat agent output as derived information. Its provenance includes the brief, the sources it was given, and the date. Do not let an agent summary enter the library as a source; cite the record it summarizes.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Require a quoted passage for every claim</td>
+<td>Each claim can be checked against its source</td>
+<td>Longer returns and more for the examiner to read</td>
+</tr>
+<tr>
+<td>Accept summaries without passages</td>
+<td>Short returns</td>
+<td>Dropped conditions and fabrications are hidden</td>
+</tr>
+<tr>
+<td>Check every citation</td>
+<td>Highest confidence</td>
+<td>Uses examiner attention on claims that do not matter</td>
+</tr>
+<tr>
+<td>Check by consequence</td>
+<td>Attention goes where reliance rests</td>
+<td>A fabricated minor claim may pass unnoticed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-4-resolve-conflicts-and-report-limits">Lesson 4: Resolve conflicts and report limits</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>Sources may disagree because they cover different revisions, locations, conditions, or purposes, or because one contains an error. Identify the kind of difference before you choose a response.</p>
+<p>At Northbank, the 15 and 18 litres per second values appear in different revisions and source roles, and the 22 litres per second value is a proposal. Their presence does not create three equally valid scope choices.</p>
+<p>The electrical values present another issue. A03 records 480 V from an earlier planning estimate, while A04 records a checked observation of 600 V at the existing connection. Compare their provenance and scope, and preserve the older statement so the team can trace work that used it.</p>
+<p>An evidence packet should let another participant reconstruct the answer without repeating the whole search. Include the question, source index, claim table, conflict treatment, conclusion, and unresolved matters, but keep substantial source material in its controlled location when possible.</p>
+<p>State limits plainly. “A04 records the observed connection characteristics” is supported, but “The site can supply the selected motor” needs capacity, protection, and compatibility examination. A missing result should remain a gap.</p>
+<p>Complete an evidence packet with this method:</p>
+<ol>
+<li>Compare apparently conflicting statements.</li>
+<li>Identify differences in revision, purpose, and conditions.</li>
+<li>Record the consequence for the question.</li>
+<li>State a conclusion at the supported scope.</li>
+<li>Assign the remaining enquiry to a suitable owner.</li>
+<li>Test whether another person can reconstruct your reasoning.</li>
+</ol>
+<p>The packet is useful when it supports a decision or next activity. Avoid adding documents that have no identified role, because a large collection can hide the absence of the one source the decision needs.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that the researcher who meets a conflict has read both sources and sees the difference. It also assumes that assembling a packet takes effort, which keeps packets small.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>Agents can resolve a conflict silently. Given 480 V and 600 V, an agent may report one value, prefer the newer or more confident source, or merge them into a sentence that hides the difference. Any of these can be right by accident, and each one removes the trace the team needs to find work that used A03.</p>
+<p>Agents also make packets cheap to fill. The classical warning about documents with no identified role matters more, because an agent can add many relevant-looking sources quickly, and the absence of the one source the decision needs is harder to see in a large packet.</p>
+<p>A missing result can also be filled. Asked whether the site can supply the selected motor, an agent may answer from general knowledge instead of reporting that Packet A contains no capacity result. The classical rule that a missing result remains a gap now needs to be stated in the brief.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Brief agents to report every conflicting value with its source and revision, and not to resolve the conflict. Classifying the difference, whether a revision, a proposal, a copied estimate, or an error, is the researcher's work, because it depends on each source's role.</p>
+<p>Brief agents to report gaps as gaps. Then check the packet against the decision it serves: does each document have a role, and is the source the decision most needs present, or recorded as missing?</p>
+<p>Run the reconstruction test with another person, not only with an agent, because the test asks whether a person can follow the reasoning.</p>
+<h2 id="northbank-worked-example-the-electrical-enquiry">Northbank worked example: The electrical enquiry</h2>
+<p>With the source identities and statuses established, the next question is what those sources can support. The electrical enquiry shows why retrieval must preserve each source's limits.</p>
+<p>The research question is: “What does Packet A establish about the existing electrical connection?” The consumer is the electrical engineer preparing further investigation.</p>
+<p>The researcher retrieves A03 Rev 0 and A04 Rev 1; A07 Rev 0 explains the indexing omission and the design note's incomplete citation.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+<th>Conclusion and limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The legacy schedule contains 480 V.</td>
+<td>A03 Rev 0.</td>
+<td>True as a source statement; its origin is an earlier planning estimate.</td>
+</tr>
+<tr>
+<td>The observed connection is 600 V, three phase, 60 Hz.</td>
+<td>A04 Rev 1.</td>
+<td>Supported as the checked observation at the surveyed connection.</td>
+</tr>
+<tr>
+<td>The electrical supply has adequate spare capacity.</td>
+<td>No supplied capacity result.</td>
+<td>Unresolved; the electrical engineer must examine it.</td>
+</tr>
+<tr>
+<td>The equipment is electrically compatible.</td>
+<td>No selected configuration or compatibility result in Packet A.</td>
+<td>Unresolved; dependent selection needs further evidence.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The researcher repairs the subject index by listing A04 under electrical connection and site observation. The evidence packet includes A03's source note and flags the design note for review, because that note omitted the qualification.</p>
+<p>The conclusion gives the next enquiry a sound observation, while preventing that observation from becoming an unsupported compatibility claim.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>This account is a teaching assumption, not a Northbank record: the records do not say how any of the work was produced.</p>
+<p>The researcher briefs an agent with the question, the consumer, and Packet A as the only permitted source, identified by revision. The brief asks for each claim with its quoted passage, every conflicting value reported without resolution, and a separate list of matters the records do not answer. It states that electrical suitability is outside the enquiry.</p>
+<p>The agent returns a claim table. The researcher checks each quoted passage against A03 Rev 0 and A04 Rev 1, and checks that the A03 entry keeps its planning-estimate origin and its lack of a survey reference. The researcher checks that the capacity and compatibility rows remain unresolved and are not filled with general knowledge, and that the 480 V and 600 V values both appear with their sources.</p>
+<p>The table and its conclusions are the same as in the classical account. The repair of the subject index and the flag on the design note remain the researcher's decisions, because they depend on judging each source's role.</p>
+<h2 id="transfer-example-a-service-response-time-report">Transfer example: A service response-time report</h2>
+<p>A software team has a laboratory performance report and a customer complaint. The report measures response time under a small test load, while the complaint is about intermittent delays during peak use.</p>
+<p>Both sources can be accurate, because they concern different conditions. The researcher states the measured laboratory result and the reported production symptom separately.</p>
+<p>The next enquiry needs evidence under the relevant production conditions. The report cannot establish that every customer's experience is satisfactory, and the complaint alone cannot identify the technical cause.</p>
+<p>An agent asked to summarize both sources can merge them into one account of “performance,” losing the difference in conditions. The researcher's brief asks it to keep each source's conditions with its result.</p>
+<h2 id="practice-build-two-evidence-packets">Practice: Build two evidence packets</h2>
+<p>Use Packet A and Portfolio 02. No external search is required.</p>
+<p>The supplied questions are:</p>
+<ul>
+<li>Which transfer-flow value governs project development?</li>
+<li>What does the packet establish about the electrical connection?</li>
+</ul>
+<p>First prepare the claim-and-evidence table for the flow question yourself, without an agent. The worked example covers only the electrical question, so this table is your own baseline for judging what an agent's table should contain. Work with an agent for the outputs that follow.</p>
+<p>Supply these outputs:</p>
+<ol>
+<li>A brief for each question with its consumer and boundary.</li>
+<li>One subject index covering the relevant records.</li>
+<li>A claim-and-evidence table for each question.</li>
+<li>A treatment of every apparent conflicting value.</li>
+<li>A conclusion and remaining-enquiry list for each packet.</li>
+</ol>
+<p>Give a partner only the questions and your index, and ask them to retrieve the evidence and challenge one conclusion. Record any indexing defect or unsupported inference, and repair it before assessment.</p>
+<p>For each agent-assisted output, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<p>Then complete three further exercises:</p>
+<ol>
+<li><strong>Check the passages.</strong> For each claim in an agent's table, locate the quoted passage in the cited revision. Record each claim whose passage you found and each you could not, and what you did about it.</li>
+<li><strong>Check the conditions.</strong> Ask an agent for a one-paragraph summary of A02 Rev 1 and A04 Rev 1. Compare it with the records sentence by sentence, and list each condition or limit the summary keeps and each it drops.</li>
+<li><strong>Mark outside knowledge.</strong> Ask an agent, without restricting its sources, what the Northbank electrical connection can support. Mark each statement that comes from outside Packet A, and explain why it cannot establish a Northbank fact. Then write the brief sentence that would keep it within the packet.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>Why should a research question name its intended decision or activity?</li>
+<li>What does a subject index add to a controlled document list?</li>
+<li>How can a source be authoritative for one claim and insufficient for another?</li>
+<li>What provenance limits apply to A03 Rev 0?</li>
+<li>Why do the three Northbank flow values not create three approved scope choices?</li>
+<li>What must an evidence packet contain to support another person's examination?</li>
+<li>When gathering from accessible records becomes fast, why does the difficulty of research move toward examination?</li>
+<li>An agent's evidence table cites A04 Rev 1 with a quoted passage. What must you check before relying on the entry?</li>
+<li>How can an agent's summary of A02 be accurate in every sentence and still mislead?</li>
+<li>How is an agent's unsourced value like A03's 480 V, and how do you keep it from becoming a source?</li>
+<li>An agent reports that no source in the library addresses electrical capacity. What do you need to know before you rely on that report?</li>
+</ol>
+<h2 id="assessed-assignment-prepare-information-for-reliance">Assessed assignment: Prepare information for reliance</h2>
+<p>Prepare an evidence packet for the project engineer's equipment-basis discussion, working with agents, and address both practice questions. Use Packet A only, and state what the discussion can decide and what needs further input. Add the briefs you used and your examination record.</p>
+<p>Then defend the packet to your instructor. Explain its conclusions and what you checked, and reason through changed premises such as a survey reference added to A03, an agent citation that A04 does not contain, or an index that lists A04. Your instructor rates the defense as the <a href="../instructor-guide.html#assess-agent-assisted-work">teaching guide</a> describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>An instructor assesses seven observable criteria:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Evidence required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enquiry boundary</td>
+<td>Each question identifies its consumer, purpose, and permitted conclusion. Agent briefs name the permitted sources and the questions outside the enquiry.</td>
+</tr>
+<tr>
+<td>Retrieval</td>
+<td>The index leads a reviewer to the relevant identity, revision, and source qualification.</td>
+</tr>
+<tr>
+<td>Evidential role</td>
+<td>Claim entries distinguish requirements, observations, proposals, and copied estimates. Every claim that a conclusion rests on traces to a passage in a cited revision.</td>
+</tr>
+<tr>
+<td>Conflict treatment</td>
+<td>Each discrepant value receives a source-grounded explanation without hidden deletion.</td>
+</tr>
+<tr>
+<td>Scoped reliance</td>
+<td>Conclusions preserve unresolved technical and external requirements and name useful next enquiries. No gap is filled from outside the permitted sources.</td>
+</tr>
+<tr>
+<td>Examination of agent research</td>
+<td>Your examination record shows which quoted passages you checked against their sources, which conditions you compared, and what you found and changed.</td>
+</tr>
+<tr>
+<td>Defense</td>
+<td>You explain the packet's conclusions and their grounds, and reason correctly through the changed premises your instructor poses.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Explain one conclusion in your own words and cite the passage that supports it. Repair any retrieval failure or unsupported inference. Acceptance in training does not establish the complete equipment basis.</p>
+<h2 id="portfolio-continuation-and-references">Portfolio continuation and references</h2>
+<p>Keep the evidence packet as Portfolio 03 and link its source index to Portfolio 02. Course 04 will examine the interpretation and applicability of the requirements found here.</p>
+<p>The <a href="../../alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.html">management manual (Edition 9)</a>, sections 2.2 and 6.3, supports records that preserve identity, provenance, and useful grounds. Its section 2.4 supports visible treatment of open matters. Section 2.2 also warns that a reliable source can produce an unreliable extraction.</p>
+<p>Use the <a href="../references.html">series references</a> for further reading. External readings are optional; no external source can fill a gap in the fictional case without an explicit new exercise input.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="03-information-evidence.md">03-information-evidence.md</a><br><code>20fcb510297254bad94cce00ad0a05440c8f46c904046d9b77d7568068d4a135</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

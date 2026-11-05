@@ -1,0 +1,15 @@
+{
+  "contract_source": "agents/AGENT_DOMAIN_ENGINE.md@77a327727",
+  "findings": [],
+  "profile_id": "pec",
+  "profile_path": "/private/tmp/chirality-t0-effective-5t9DAP/_DomainEngines/profiles/pec.yaml",
+  "profile_status": "STALE",
+  "result": "VALID",
+  "schema": "domain-engine-profile-validation/v1",
+  "summary": {
+    "error_count": 0,
+    "warning_count": 0
+  },
+  "tool": "validate_domain_engine_profile",
+  "valid": true
+}

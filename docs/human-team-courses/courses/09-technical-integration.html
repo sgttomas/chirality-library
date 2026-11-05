@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="85e916c0f0b4812771aad00cfaa63868edf7e5d28754adec50eaed7b71b6640d">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 09: Project Engineering and Technical Integration · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 12 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#purpose-and-preparation">Purpose and preparation</a></li>
+<li><a href="#lesson-1-establish-the-technical-basis">Lesson 1: Establish the technical basis</a></li>
+<li><a href="#lesson-2-allocate-ownership-across-interfaces">Lesson 2: Allocate ownership across interfaces</a></li>
+<li><a href="#lesson-3-review-supplier-information-as-project-information">Lesson 3: Review supplier information as project information</a></li>
+<li><a href="#lesson-4-coordinate-the-whole-life-of-the-result">Lesson 4: Coordinate the whole life of the result</a></li>
+<li><a href="#lesson-5-examine-integration-and-repair-connected-work">Lesson 5: Examine integration and repair connected work</a></li>
+<li><a href="#worked-northbank-example">Worked Northbank example</a></li>
+<li><a href="#transfer-example-equipment-room-renovation">Transfer example: equipment-room renovation</a></li>
+<li><a href="#practice">Practice</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment">Assessed assignment</a></li>
+<li><a href="#portfolio-continuation-and-reading">Portfolio continuation and reading</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#purpose-and-preparation">Purpose and preparation</a></li>
+<li><a href="#lesson-1-establish-the-technical-basis">Lesson 1: Establish the technical basis</a></li>
+<li><a href="#lesson-2-allocate-ownership-across-interfaces">Lesson 2: Allocate ownership across interfaces</a></li>
+<li><a href="#lesson-3-review-supplier-information-as-project-information">Lesson 3: Review supplier information as project information</a></li>
+<li><a href="#lesson-4-coordinate-the-whole-life-of-the-result">Lesson 4: Coordinate the whole life of the result</a></li>
+<li><a href="#lesson-5-examine-integration-and-repair-connected-work">Lesson 5: Examine integration and repair connected work</a></li>
+<li><a href="#worked-northbank-example">Worked Northbank example</a></li>
+<li><a href="#transfer-example-equipment-room-renovation">Transfer example: equipment-room renovation</a></li>
+<li><a href="#practice">Practice</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment">Assessed assignment</a></li>
+<li><a href="#portfolio-continuation-and-reading">Portfolio continuation and reading</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="09-technical-integration.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-09-project-engineering-and-technical-integration">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-09-project-engineering-and-technical-integration">Course 09: Project Engineering and Technical Integration</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<h2 id="purpose-and-preparation">Purpose and preparation</h2>
+<p>Project engineering coordinates the technical whole. Discipline engineers produce competent contributions, and the project engineer establishes how those contributions fit together and satisfy the project basis.</p>
+<p>A sound component can become unsuitable in combination: a motor can match its supplier's data while mismatching the site supply, and an accessible pump can become inaccessible after the piping is installed.</p>
+<p>This course teaches you how to coordinate that technical whole in a team where people work with AI agents. Complete Courses 01 to 08 before this course. Bring your project basis, source index, requirements, and execution package. Read Northbank Packets A, B, and C.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. In this course the shifted constraint is the cost of examining how contributions fit together: agents can cross-check interface lists, supplier data, and discipline inputs cheaply and often, but they can also carry a change or an error through connected work at the same speed, while interface ownership stays with people. Lessons 1 to 5 each follow the series' four steps, and Lesson 5 treats the integration arrangement; for the general design of a human-agent arrangement, see <a href="08-project-execution.html#lesson-6-engineer-the-arrangement-that-does-the-work">Course 08, Lesson 6</a>.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. The records do not say how any Northbank contribution, including B01, was prepared, so this course labels any supposition that an agent prepared one as a teaching assumption.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>After this course, you can:</p>
+<ul>
+<li>Maintain a usable design basis across disciplines.</li>
+<li>Assign technical interface responsibilities.</li>
+<li>Examine supplier information against the project configuration.</li>
+<li>Coordinate construction, operation, and maintenance needs.</li>
+<li>Review the integrated result and propagate technical changes.</li>
+<li>Arrange agent cross-checks of interfaces, supplier data, and discipline inputs, and decide how often to run them.</li>
+<li>Distinguish consistency among contributions from correctness of the integrated result, and keep configuration control in step with agent-speed change.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+</ul>
+<h2 id="lesson-1-establish-the-technical-basis">Lesson 1: Establish the technical basis</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>A design basis translates intended use into the conditions needed for technical development. It identifies requirements, operating cases, physical conditions, constraints, adopted decisions, and unresolved inputs.</p>
+<p>Keep requirements distinct from assumptions and solutions. Northbank requires 18 litres per second at the distribution header under conditions the project must establish. A particular pump model is a possible solution.</p>
+<p>The flow value alone cannot establish pump selection: the mechanical engineer needs suction conditions, required pressure, water properties, and relevant operating cases. Other disciplines need different parts of that same basis.</p>
+<p>Identify the source and standing of each input. A checked observation establishes what the observer recorded within the survey's limits; a project approval establishes a commitment within the approver's authority.</p>
+<p>A04 establishes a checked observation of the existing connection: 600 V, three phase, 60 Hz. It does not establish spare capacity or protection coordination, so keep those limitations with the value.</p>
+<p>Manage open inputs at their point of need. State the decision they block, the owner, the required investigation, and the expected resolution. A permitted assumption stays unconfirmed until evidence resolves it.</p>
+<p>Use this basis method:</p>
+<ol>
+<li>Identify the technical decision to be made.</li>
+<li>List its required conditions and requirements.</li>
+<li>Locate the applicable sources.</li>
+<li>Record each source's limitations.</li>
+<li>Identify unresolved or conflicting inputs.</li>
+<li>Define the work that can proceed on that basis.</li>
+</ol>
+<p>Do not copy an attractive value from an unrelated project, because similar equipment or familiar practice cannot establish the missing conditions.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that the people who use a basis value have read, or can ask about, its source, so the value's limits travel with it in their understanding. It also assumes that tracing every value to its source and standing is laborious, so projects check provenance when something looks wrong rather than routinely. Northbank shows that the assumption already fails at times: A07 records a design note that cites the legacy schedule without its source note.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p><strong>Agents use what they are given, as they are given it.</strong> An agent that receives 600 V in a table, without A04's statement that it does not establish spare capacity, protection coordination, or equipment compatibility, can treat the value as settling more than it does. An agent can only use the records it can reach: A07's library index lists the brochure but omits the electrical survey, so an agent that works from that index may not find A04 at all.</p>
+<p><strong>Agents can fill gaps with plausible values.</strong> Asked to proceed with a selection while A02's suction conditions, pressure, and water properties are unresolved, an agent may supply typical values from general knowledge. That is the classical error of copying an attractive value from an unrelated project, made quickly and presented with the same confidence as a sourced value.</p>
+<p><strong>Provenance tracing becomes cheap.</strong> An agent can trace each value in a document to its source and record that source's standing and limits, and it can repeat the trace at every issue. For example, it can trace B01's 480 V to A03, and A03's 480 V to an earlier planning estimate with no field survey reference. A team can therefore check provenance routinely, not only when a value looks wrong. The trace reports where a value came from; whether the source is adequate for the decision remains a judgment for the responsible engineer.</p>
+<p>What does not change: agents cannot resolve an open input. The suction conditions, required pressure, water properties, and operating cases that A02 lists still need investigation and the owners who establish them.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Use the same six steps, and keep the basis as a table in which each value carries its source, revision, standing, and limits. Give agents that table as their basis, and require every value in an agent's output to cite its basis entry. Instruct agents to mark a needed value that has no basis entry as unresolved, and not to supply one.</p>
+<p>Use agents to trace provenance whenever a basis entry or a dependent document is issued, and have the engineer responsible for the value examine the findings. An agent can list which decisions each open input blocks; the project assigns the owner and the investigation.</p>
+<p>The choice of what agents read is a real tradeoff:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Agents read</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The basis table only</td>
+<td>Each value arrives with its standing and limits; agents work from one identified reference</td>
+<td>An error in the table passes to every consumer, and no agent is placed to notice it</td>
+</tr>
+<tr>
+<td>The full source records</td>
+<td>Agents can check the table against its sources and find errors in it</td>
+<td>Agents can pick up an archived or superseded record, such as A03 or A02 Rev 0 under its similar filename</td>
+</tr>
+<tr>
+<td>The table for production, the sources for a separate cross-check</td>
+<td>Production stays consistent, and a differently briefed check can find table errors</td>
+<td>Two assignments to brief and examine, and a person to decide between them when they disagree</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-2-allocate-ownership-across-interfaces">Lesson 2: Allocate ownership across interfaces</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>An interface is a boundary where contributions interact, and it can involve geometry, loads, power, signals, data, operating behavior, or responsibility.</p>
+<p>A named discipline boundary does not define the contribution exchanged across it. “Mechanical to electrical” is too vague, but “Selected motor rating and starting requirements” states something the consumer can use.</p>
+<p>Give each interface a supplying owner and a receiving owner. Identify the contribution, its conditions, its point of need, and the examination it needs. Name the integration owner who resolves relationships across the whole result.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Interface contribution</th>
+<th>Supplying responsibility</th>
+<th>Receiving responsibility</th>
+<th>Needed examination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating cases and changeover definition</td>
+<td>Operations with project engineering coordination</td>
+<td>Mechanical and controls</td>
+<td>Confirm behavior and basis for design</td>
+</tr>
+<tr>
+<td>Motor conditions and selected configuration</td>
+<td>Mechanical and supplier technical contribution</td>
+<td>Electrical</td>
+<td>Check compatibility, capacity, and protection basis</td>
+</tr>
+<tr>
+<td>Equipment loads, dimensions, and access</td>
+<td>Mechanical and supplier technical contribution</td>
+<td>Civil</td>
+<td>Check support, foundation, and access implications</td>
+</tr>
+<tr>
+<td>Isolation and restart arrangements</td>
+<td>Relevant disciplines</td>
+<td>Operations and maintenance</td>
+<td>Examine the connected operating activity</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is a proposed allocation for the teaching exercise. B03 supplies no accepted owners or required dates, so the project must establish those assignments.</p>
+<p>The supplying owner checks the contribution before issuing it. The receiving owner examines whether it meets the stated need. A document's arrival does not establish that the interface is satisfied.</p>
+<p>Some design relationships are coupled: motor selection affects the electrical design, and the electrical conditions constrain motor selection. Manage the coupled decision as coordinated work.</p>
+<p>Exchange bounded preliminary information when it can support authorized development. Mark its status, uncertainty, permitted use, and what would trigger its revision. Do not let preliminary dimensions quietly become construction dimensions.</p>
+<p>The project engineer coordinates resolution, but discipline responsibility stays with the appropriate engineer. Coordination does not grant competence or authority in every technical field.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that people sit on both sides of every interface. Each person examines what they send and what they receive, and a vague definition such as “mechanical to electrical” often works in practice because the two engineers fill in its meaning in conversation. It also assumes that keeping an interface schedule current costs a coordinator's time and the participants' meeting time, so the schedule is reviewed at intervals.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p><strong>Cross-checking an interface list becomes cheap and repeatable.</strong> An agent can compare B03 with each discipline's stated needs and with A01's responsibilities, and report that the list names no owners or required dates. It can also report that the list's needs are coupled: the mechanical team needs the electrical motor conditions, and the electrical team needs the selected motor and starting method. A team can run such a check whenever a contribution changes, not only at a scheduled interface review.</p>
+<p><strong>Ownership does not move.</strong> A01 keeps responsibility for technical contributions with the discipline engineers and gives the project engineer the coordination of interfaces. An agent holds no appointment, so it cannot be a supplying, receiving, or integration owner. An agent's cross-check can report that owners are missing and can draft a proposed allocation, but the project makes the assignment.</p>
+<p><strong>Agent-to-agent exchange removes the informal check.</strong> Suppose, as a teaching assumption, that agents draft both the mechanical contribution and the electrical design that consumes it. Preliminary information can then pass from one agent's output into another agent's input with neither owner examining it, and the conversation that used to fill in a vague definition no longer happens. So a precise statement of the contribution, its status, and its permitted use becomes more important, not less. Preliminary dimensions can become construction dimensions faster, and nobody may notice.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Name people as the supplying, receiving, and integration owners of each interface. Treat agent work on either side as part of the owner's contribution: the supplying owner examines it before issue, and the receiving owner examines it against the stated need.</p>
+<p>Put each preliminary contribution's status, uncertainty, permitted use, and revision trigger in every brief that uses it, and check that the agent's output kept them. Route agent outputs across an interface through the owners, unless the owners have agreed a bounded exchange and how they will examine it.</p>
+<p>Choose how often to cross-check each interface by how fast its contributions change and what an undetected mismatch would cost:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Cross-check frequency</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>At planned interface reviews</td>
+<td>Owners examine findings together, with full context</td>
+<td>Mismatches spread into dependent work between reviews</td>
+</tr>
+<tr>
+<td>At each issue of a contributing document</td>
+<td>Mismatches are found before dependent work uses them</td>
+<td>More findings for owners to examine, many of them minor</td>
+</tr>
+<tr>
+<td>Continuously, as agent outputs change</td>
+<td>Earliest detection</td>
+<td>Findings can arrive faster than owners can examine them, and the volume can hide the finding that matters</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Cheap cross-checks change how often you can look. They do not change who decides whether the contributions fit.</p>
+<h2 id="lesson-3-review-supplier-information-as-project-information">Lesson 3: Review supplier information as project information</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>A brochure describes a product family. It may leave out the selected model, accessories, ratings, materials, software, and operating cases, and those gaps matter when dependent work needs the actual configuration.</p>
+<p>Start the review with the purchase requirements and the identified submission. Compare the submission with the governing basis and the required interfaces, and identify evidence that is absent, conflicting, or insufficient.</p>
+<p>Check the submission's provenance, because a supplier may have copied an outdated input. Repair the source relationship as well as the visible value.</p>
+<p>Northbank B01 offers 480 V motors copied from A03, which is an archived reference without a field survey basis. A04 records the checked 600 V connection.</p>
+<p>This discrepancy rules out an unsupported conclusion about compatibility. The electrical engineer must assess the proposed configuration and the relevant system conditions; neither the project manager nor procurement can declare the mismatch resolved.</p>
+<p>Supplier review outcomes need clear meaning. For example, a project can distinguish accepted for a stated purpose, revise and resubmit, and information only. Use the actual organization's definitions.</p>
+<p>A review disposition should identify the configuration, the scope reviewed, the findings, the conditions, and the dependent release, because an acceptance stamp without those relationships invites incorrect reliance.</p>
+<p>Do not waive technical evidence to keep a delivery slot. Explain the effect on the schedule and seek the appropriate decisions, and continue the supplier questions and independent package preparation within authority.</p>
+<p>C03 forecasts a corrected package and delivery timing, but it supplies no corrected technical submission, so the forecast cannot serve as the missing pump curve or configuration list.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that people at the supplier prepared the submission, so its completeness and care roughly indicate the effort and checking behind it. It also assumes that a line-by-line comparison of a submission with the basis takes a reviewer's time, so reviewers concentrate on the items they judge critical and read the rest more lightly.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p><strong>A submission's form stops indicating its checking.</strong> <a href="08-project-execution.html#lesson-4-connect-purchasing-risk-and-change">Course 08</a> noted that suppliers may use agents too, and used B01's copied voltage to show the kind of error they can make faster. As a teaching assumption, suppose a supplier's agent assembled a submission. Every field can be filled, every table can be formatted, and the submission can still carry a value copied from an unsupported source. A complete-looking submission is not evidence that anyone examined it.</p>
+<p><strong>The team's comparison becomes cheap and complete.</strong> An agent can compare every value in a submission with the purchase requirements, the basis table, and the interface needs, and it can trace each value's provenance. Given B01, A02, A03, A04, and B03, such a comparison can report the voltage discrepancy with the provenance trace that Lesson 1 described, and report that the selected pump curve, declared operating cases, and complete configuration list are absent. The reviewer no longer has to choose which items to read closely in order to save time.</p>
+<p><strong>Comparison is not review.</strong> An agent's comparison establishes whether the submission agrees with the records the agent was given. It cannot establish whether the offered configuration suits the site supply and system conditions; that is the electrical engineer's determination, which A04 leaves open. An agent asked to &quot;complete&quot; a review can also fill a gap, for example by reading curve data from the product family brochure that B01 contains, although a family description does not identify the selected configuration.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Have agents compare and trace the whole submission, and give the reviewer the findings with the records each finding rests on. The reviewer examines the findings and then the questions a comparison cannot reach: suitability for the identified configuration and system conditions, and whether the operating cases the submission must answer are themselves established.</p>
+<p>Have the competent person issue the disposition, and state in it what the agent comparison covered and what the reviewer examined. Agents can help draft supplier questions and the deficiency reply; <a href="08-project-execution.html#lesson-4-connect-purchasing-risk-and-change">Course 08, Lesson 4</a> explains why that reply cannot be an approval. The questions must still name the project's own required contribution.</p>
+<h2 id="lesson-4-coordinate-the-whole-life-of-the-result">Lesson 4: Coordinate the whole life of the result</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>The installation must support construction, operation, and maintenance, and each of these activities can reveal requirements that component calculations miss.</p>
+<p>Construction participants can identify access, lifting, sequencing, connection, and temporary-condition concerns. Operators can identify start, stop, changeover, alarm, and recovery needs. Maintainers can identify inspection, isolation, removal, and spare-part needs.</p>
+<p>Invite those participants while change is still practicable. Give them the current basis and a concrete activity to examine, because a general request to “review the design” often produces uneven coverage.</p>
+<p>Use activity-based questions:</p>
+<ul>
+<li>How will the equipment reach its installed position?</li>
+<li>What must be available before connection work starts?</li>
+<li>How will an operator recognize the relevant abnormal condition?</li>
+<li>What information supports isolation and restart?</li>
+<li>Can the identified component be removed for maintenance?</li>
+</ul>
+<p>Record the observation and the affected requirement or interface, assign its resolution, and confirm the repair with the participant whose need it affects.</p>
+<p>Control the relationship between the design and the installed configuration. Identify the equipment, drawings, settings, software, and other items that define the result, and retain authorized changes and examination evidence.</p>
+<p>A site substitution can affect several disciplines: a revised motor can change power requirements, controls, dimensions, and protection checks. Handle the substitution through the technical and commercial change arrangements before dependent work uses it.</p>
+<p>Avoid duplicate configuration lists with different owners and values. Use an authoritative record with usable references. Document control distributes the right revision, but technical owners establish its content and applicability.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that preparing a concrete activity for review costs the project team's time, and that the participants' time is scarce, so whole-life reviews happen at one or two points in the design. It also assumes that configuration lists are kept by people, so a duplicate list with different values appears only when someone takes the trouble to make one.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p><strong>Preparation becomes cheap, so participants' time can go further.</strong> An agent can prepare an activity walk-through for each construction, operating, and maintenance activity against the current basis, draft the activity-based questions, and pre-check the gaps that the records already show, such as B03's operations need for access, isolation, maintenance, and restart arrangements with no owner. The operators' and maintainers' time can then go to the questions only they can answer.</p>
+<p><strong>The participants cannot be simulated.</strong> An agent can describe how operators typically recognize an abnormal condition. It does not know how Northbank's operators work, what they can see from their usual position, or what has gone wrong at this site before. A01 gives operations the duty to provide operating conditions and the operations lead the acceptance of operating information. An agent's simulated operator review is preparation for operations' review, not a substitute for it. Whole-life coordination remains a relationship among people, and it continues after handover, as Course 10 shows.</p>
+<p><strong>Duplicate configuration lists become cheap.</strong> Each agent assignment that touches the equipment can produce its own configuration list, and the lists can disagree without anyone deciding to make a second record. One authoritative configuration record becomes more important.</p>
+<p><strong>A substitution's effects can be traced fast, and so can its errors.</strong> An agent can list the power, controls, dimension, and protection items that a proposed motor substitution affects; the protection and compatibility determinations remain the electrical engineer's. It can carry the substitution into dependent documents just as fast, whether or not the change arrangements have decided it.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Have agents prepare the activity walk-throughs and questions, and have the construction, operations, and maintenance participants examine them. Invite participants while change is still practicable, as before; cheaper preparation lets you invite them earlier and more often, but each invitation still uses their time, so bring each one a concrete activity and the questions that need their knowledge.</p>
+<p>Keep one authoritative configuration record, owned by the technical owners. Give agents that record as a read-only reference, and require any agent output that contains configuration information to cite the record's revision rather than restate a list of its own.</p>
+<p>Let agents trace a substitution's effects as soon as it is proposed, and label the trace as an assessment of a proposal. Dependent work adopts the substitution only after the technical and commercial change arrangements decide it.</p>
+<h2 id="lesson-5-examine-integration-and-repair-connected-work">Lesson 5: Examine integration and repair connected work</h2>
+<h3 id="the-classical-method-4">The classical method</h3>
+<p>An integrated review examines relationships as well as parts. Start with the approved purpose, current configuration, and identified operating cases. Trace each required interaction across the relevant contributions.</p>
+<p>Work in both directions: trace each requirement to its implementation and examination, and trace each implemented feature to an authorized need or decision. This can reveal missing scope and unintended additions.</p>
+<p>For Northbank, trace standby behavior from operations' definition through equipment, controls, power, instructions, and planned examination. A complete mechanical drawing alone cannot establish that behavior.</p>
+<p>Set the review purpose and competence before the session. Include independent examination where the project or the consequences require it. Identify the exact revisions of the candidate and the sources.</p>
+<p>State findings as observations or conclusions, with the grounds that support them, and keep an observed discrepancy separate from its interpretation. State the affected claim, evidence, consequence, owner, and closure evidence. “Please coordinate” does not identify a repairable defect.</p>
+<p>After a change, inspect the affected dependencies. Update the technical basis where the meaning changes. Notify consumers through the controlled issue process, and confirm adoption in their actual work.</p>
+<p>Re-examine the changed behavior and connected evidence. Preserve valid earlier checks where their basis remains unchanged. Do not repeat every check solely because a document received a new revision.</p>
+<p>The integration owner closes a finding based on evidence or on a decision within the decision owner's authority. State whether the response corrects the result, changes the requirement, or limits the proposed reliance.</p>
+<p>A disposition does not establish unexamined behavior, and it cannot waive an obligation outside that authority. Moving a finding to another list does not satisfy the requirement.</p>
+<h3 id="what-it-assumes-4">What it assumes</h3>
+<p>The classical method assumes that tracing in both directions across every contribution is laborious, so a project holds integrated reviews at planned points and samples the relationships between them. It assumes that between reviews, errors spread only as fast as people revise documents. It also assumes that when the integrated review finds the contributions consistent, the people who prepared them worked from their own understanding of the sources, so their agreement carries some independent weight.</p>
+<h3 id="what-changes-with-agents-4">What changes with agents</h3>
+<p><strong>Tracing becomes cheap and repeatable.</strong> Agents can trace requirements to implementation and back across the contributions whenever any of them changes. How often the project examines integration stops being fixed by the cost of tracing and becomes a design choice.</p>
+<p><strong>Agreement among agent outputs is consistency, not correctness.</strong> Suppose, as a teaching assumption, that agents drafted the mechanical, electrical, and controls contributions from one brief and one basis. An agent cross-check that finds them consistent shows that they agree with each other and with that basis. It does not show that the basis is right. If the shared basis carried A03's 480 V, every contribution would agree on 480 V, and the cross-check would pass. The classical integrated review drew some independence from the separate understanding of each discipline engineer; outputs drafted by agents from a shared brief may not have it.</p>
+<p><strong>Changes ripple at agent speed.</strong> An agent can carry a change through every dependent output quickly. If the controlled issue and the confirmation of adoption still move at the classical pace, dependent outputs on different revisions of the basis can exist side by side, and an output can adopt a proposal before anyone has decided it. Configuration control and the identified basis must keep pace with the agents, or the speed produces inconsistency faster than review can find it.</p>
+<p><strong>Findings are easy to close on paper.</strong> An agent can reword a finding, merge it into another, or mark it addressed in a revised document. None of these closes it. The integration owner still closes a finding on evidence or an authorized decision.</p>
+<p>What does not change: the integrated review still needs competent people, the exact revisions of candidate and sources, and the operating cases. Evidence reuse follows the same rule as before: preserve valid checks whose basis is unchanged.</p>
+<h3 id="the-extended-method-4">The extended method</h3>
+<p>Use agents for frequent consistency tracing, and use the integrated review by people for what consistency cannot establish: whether the shared basis matches the sources and the site, whether the coupled decisions are sound, and whether the connected behavior, such as standby changeover, is defined and examined across the operating cases.</p>
+<p>Make every agent output identify the basis revision it used. When a change is decided, issue it as one identified revision, have agents propagate it, and check each affected output against that revision. Sending the instruction does not show that each output adopted it, as Course 08 Lesson 4 noted.</p>
+<p>Where agents drafted contributions on both sides of an interface, give the integration check a different basis from the production: brief the checking agent from the source records rather than the production brief, or have a discipline engineer examine the shared basis directly. Where the consequence warrants it, the examiner is a competent person.</p>
+<p>Treat the integration cross-checks as a monitoring system. Like an alarm system, it needs a stated purpose, a sensitivity set by consequence, and a person who acts on each alarm. Findings that arrive faster than owners can examine them become a queue, which Course 08 called verification debt, and the important finding can be lost in it.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Arrangement choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frequent agent consistency tracing</td>
+<td>Inconsistencies found before dependent work uses them</td>
+<td>Findings queue for owners, and consistency can be mistaken for correctness</td>
+</tr>
+<tr>
+<td>Integrated reviews by people at planned points</td>
+<td>Examination of basis, coupling, and behavior with full competence</td>
+<td>Errors can spread between reviews when agents change work quickly</td>
+</tr>
+<tr>
+<td>Checks briefed from source records, not the production brief</td>
+<td>Can find an error that the production shares</td>
+<td>A second assignment to brief, examine, and reconcile</td>
+</tr>
+<tr>
+<td>Agents propagate decided changes</td>
+<td>Fast, complete adoption of a decision</td>
+<td>A proposal or an error propagates just as fast unless the basis is identified first</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Choose the combination that keeps examined integration in step with the rate of change, not the one that runs the most checks.</p>
+<h2 id="worked-northbank-example">Worked Northbank example</h2>
+<p>The execution plan depends on technical release conditions. Here, the familiar source discrepancies become specific contributions and interfaces that the project engineer must coordinate.</p>
+<p>The project engineer prepares a technical release account using A02 Rev 1, A04 Rev 1, B01 Rev 0, and B03 Rev 0.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 5; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Matter</th>
+<th>Supported position</th>
+<th>Next contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flow</td>
+<td>A02 requires 18 litres per second under unresolved operating conditions</td>
+<td>Mechanical and operations establish the hydraulic cases</td>
+</tr>
+<tr>
+<td>Future increase</td>
+<td>A05 proposes 22 litres per second</td>
+<td>Impact assessment and sponsor scope decision</td>
+</tr>
+<tr>
+<td>Supply</td>
+<td>A04 observes 600 V, three phase, 60 Hz</td>
+<td>Electrical capacity, protection, and compatibility assessment</td>
+</tr>
+<tr>
+<td>Supplier offer</td>
+<td>B01 offers 480 V motors and incomplete selection data</td>
+<td>Corrected, identified submission for technical review</td>
+</tr>
+<tr>
+<td>Changeover</td>
+<td>A02 requires confirmation with operations</td>
+<td>Define the required behavior; assess A05 separately</td>
+</tr>
+<tr>
+<td>Civil and maintenance interfaces</td>
+<td>B03 identifies needs without owners or dates</td>
+<td>Establish interface assignments and points of need</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The account does not conclude that the selected equipment is suitable, because no complete selected configuration exists in the supplied packet. A06 also leaves legal applicability open.</p>
+<p>The team can prepare review criteria, an interface schedule, and supplier questions, and it can arrange the missing investigations. Final selection-dependent release, however, needs the required evidence and decisions.</p>
+<p>Suppose a colleague says, “The corrected forecast solves the voltage problem.” The project engineer points to C03's status and content: it forecasts package timing and cost, but it does not identify an accepted electrical configuration.</p>
+<p>The resulting technical issue stays open, but its owner and point of need become explicit. The schedule receives the real release condition instead of an assumed technical approval.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>The project engineer briefs one agent to cross-check B01 against A02 Rev 1, A03 Rev 0, A04 Rev 1, and B03 Rev 0, and a second agent to cross-check B03 against each discipline's needs and A01's responsibilities. Each brief identifies the records with their revisions and status, states that B01 is submitted for technical review and not accepted, states that A03 is an archived reference, and asks the agent to cite the record behind every finding and to propose no technical resolution.</p>
+<p>The first return reports the 480 V against A04's 600 V, traces the 480 V to A03 and its planning-estimate source note, and lists the absent pump curve, operating cases, and configuration list. The second reports that B03 names no owners or dates and that the mechanical and electrical needs depend on each other.</p>
+<p>The project engineer does not accept the returns because they match the classical table. The engineer checks each finding against the cited record, checks that neither agent proposed 600 V motors as a resolution or treated C03 as a corrected submission, and checks that the agents left A02's open operating conditions open. The positions in the table above do not change. What changes is that the team can repeat these cross-checks each time a corrected submission or an interface assignment arrives.</p>
+<p>The team divides the examination by A01's responsibilities:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 6; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Contribution</th>
+<th>Produced by</th>
+<th>Examined by</th>
+<th>The examination checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B01 cross-check against the basis</td>
+<td>Agent</td>
+<td>Project engineer, then the electrical and mechanical engineers</td>
+<td>Each finding against its record; no compatibility conclusion; open inputs kept open</td>
+</tr>
+<tr>
+<td>B03 cross-check and proposed interface allocation</td>
+<td>Agent</td>
+<td>Project engineer, with each proposed supplying and receiving owner</td>
+<td>Owners are people with the relevant responsibility; contributions are stated precisely; points of need are supported</td>
+</tr>
+<tr>
+<td>Supplier questions</td>
+<td>Agent drafting</td>
+<td>Project engineer, with the discipline engineers</td>
+<td>Each question names the project's required contribution and does not imply acceptance</td>
+</tr>
+<tr>
+<td>Technical release account</td>
+<td>Project engineer, with agent drafting</td>
+<td>Project engineer, and a reviewer where the project requires independent review</td>
+<td>Each position's source and standing, and the decisions still needed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Suppose, as a teaching assumption, that a later agent run finds the mechanical and electrical drafts consistent with each other. The project engineer asks which basis both drafts used before treating that as integration evidence, because two drafts on one shared basis agree whether or not the basis is right.</p>
+<h2 id="transfer-example-equipment-room-renovation">Transfer example: equipment-room renovation</h2>
+<p>A ventilation unit can meet its catalogue rating and still fail the room's intended activity: electrical load, structural support, airflow paths, controls, access, and maintenance interact.</p>
+<p>Assign those interfaces before purchase and construction. Examine the combined operating conditions, and trace a changed unit through every affected contribution.</p>
+<p>The specific calculations require competent discipline work, while project engineering makes their relationships and examination visible.</p>
+<p>Agents can cross-check the unit's data against the electrical, structural, and controls contributions each time one changes. The owners of those interfaces, the facility staff who will operate and maintain the room, and the judgment whether the combination works stay where they were.</p>
+<h2 id="practice">Practice</h2>
+<p>Use A01 to A06, B01 to B03, and C03, in the exact revisions supplied in the case.</p>
+<p>First, without an agent, compare B01 with A02, A03, A04, and B03, and list each discrepancy and gap with the record it rests on. You then know what an agent's cross-check should return. Work with an agent for every output that follows.</p>
+<p>Prepare these outputs:</p>
+<ol>
+<li>Prepare a technical basis table with sources and unresolved inputs.</li>
+<li>Assign proposed owners to six Northbank interfaces.</li>
+<li>Draft five supplier questions that request usable project information.</li>
+<li>Prepare an integrated review agenda for one construction activity, one operating activity, and one maintenance activity.</li>
+<li>Trace the effects of a proposed motor substitution across affected work.</li>
+</ol>
+<p>Do not invent a selected motor, pump curve, adopted code, or technical approval. Instead, name the work and decisions needed to establish them.</p>
+<p>For each output, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<p>Then complete three further exercises:</p>
+<ol>
+<li><strong>Examine an agent's interface entry.</strong> An agent returns this interface entry, invented for the exercise: &quot;Electrical supply to motors: 600 V, three phase, 60 Hz per A04. Motors to be supplied at 600 V. Supplier: electrical. Consumer: mechanical. Status: closed.&quot; Explain what the entry converts from an observation into a decision, which owner and examination it omits, and why &quot;closed&quot; is unsupported. Then write the sentence in the brief that would have guarded against it.</li>
+<li><strong>Read an agreement.</strong> Suppose, as a teaching assumption, that two agents drafted the mechanical and electrical review sections from one brief that supplied A03 instead of A04, and a third agent found the two sections consistent. State what the consistency check established, what it missed, and what check with a different basis would have found the error.</li>
+<li><strong>Design the integration arrangement.</strong> Design how the team would keep Northbank's interfaces examined while agents work on both sides of them: which cross-checks agents run, how often, against which identified basis, who examines the findings, how a decided change is propagated and its adoption confirmed, and where a person must examine the shared basis directly. State two tradeoffs in your design.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>Why is Northbank's flow requirement insufficient for pump selection?</li>
+<li>What does A04 establish, and what does it leave unresolved?</li>
+<li>What information turns B03's interface names into usable assignments?</li>
+<li>Why does a product brochure fail to establish a complete project configuration?</li>
+<li>How can operations and maintenance review improve design before construction?</li>
+<li>What must happen after an authorized substitution changes several interfaces?</li>
+<li>Agents drafted the contributions on both sides of an interface from one brief, and an agent cross-check finds them consistent. What does that establish about the integrated result, and what does it not establish?</li>
+<li>Agents make interface cross-checks cheap. Why does that change how often integration can be examined but not who owns each interface?</li>
+<li>Why must configuration control and the identified basis keep pace when agents can propagate a change through connected work quickly?</li>
+<li>A supplier submission arrives with every field complete. What does its completeness establish, and what does an agent comparison of it against the basis add and leave open?</li>
+</ol>
+<h2 id="assessed-assignment">Assessed assignment</h2>
+<p>Prepare a technical coordination package for Northbank's existing scope, working with agents. Include the basis, interface assignments, supplier review position, activity reviews, and a substitution impact route. Add a short account of how you arranged the agents' cross-checks and other work and how you examined it, with the briefs you used.</p>
+<p>Then defend the package to your instructor. Your instructor will change premises such as the supplier's offered configuration, the basis that agent outputs shared, or the point at which a substitution was propagated, and ask you to reason through the consequences. Your instructor rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>Use these seven observable criteria:</p>
+<ol>
+<li>The basis preserves requirement, observation, proposal, and unresolved-input distinctions, and gives each value its source and standing.</li>
+<li>Each selected interface has a supplier, consumer, contribution, point of need, and examination. The owners named are people with the relevant responsibility, and any agent work sits within an owner's contribution.</li>
+<li>The supplier review identifies configuration gaps without inventing suitability or approval, and it distinguishes what an agent comparison established from what a competent person must determine.</li>
+<li>The activity reviews cover construction, operation, and maintenance relationships.</li>
+<li>The change route carries consequences into consumers, configuration records, and affected examination, identifies the basis revision each affected output uses, and confirms adoption.</li>
+<li>The account of the arrangement shows the design: which cross-checks agents run and how often, against which identified basis, who examines each finding, and where a check with a different basis or a competent person is needed. Your own examination record shows what you actually checked in each agent return, what it found, if anything, and what you changed.</li>
+<li>In the defense, you explain the package's main conclusions and their grounds, show what your examination of the agents' work found, identify which judgments are your own, and reason correctly through the changed premises your instructor poses.</li>
+</ol>
+<p>Before the defense, explain one interface to both its proposed supplier and consumer, and revise it until both can identify the same required contribution. Repair defects found during that examination or the assessment, and retain the previous revision and the repair basis.</p>
+<h2 id="portfolio-continuation-and-reading">Portfolio continuation and reading</h2>
+<p>Keep your interface package as Portfolio 09, and connect it to Course 08's readiness conditions. Carry the current configuration and open findings into Course 10's assurance plan.</p>
+<p>Read management manual (Edition 9) chapter 3, §§4.3–4.6, chapter 5, §§6.1–6.2, and 8.1–8.3 in <a href="../references.html">References</a>. Their dependency, integration, and evidence principles support this course. §5.1 and §5.3 explain why agreement with a shared basis establishes consistency, not the basis's correctness.</p>
+<p>The optional NASA technical management readings offer further methods. The Northbank records supply the core basis for the exercise, and NASA's agency procedures do not govern this fictional project.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="09-technical-integration.md">09-technical-integration.md</a><br><code>85e916c0f0b4812771aad00cfaa63868edf7e5d28754adec50eaed7b71b6640d</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

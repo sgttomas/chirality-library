@@ -1,0 +1,4 @@
+Path,Role,SHA256,SourcePath,BasisCommit
+PROJECT_DECOMP.md,accepted-group2-structure,66398cb3562d380a7430d7c081ebccc3862c7f33bf69266caff12c4dc0151328,execution/_Decomposition/PROJECT_DECOMP.md,6865c6eaeed2bbf6b87f96ec45da18d837c6eb7b
+DECISION.md,owner-structural-decision,49a71cc298eeae43dfacc30006076a87df09dfc5c1d02f30673f17f93e6e6923,conversation,
+HANDOFF_STATE.md,independent-audit-basis,0edaf785a87d4703a168d50e100bd2895bc32939af47b61836c1ff4cea996ff0,,

@@ -1,0 +1,365 @@
+--- a/projects/chirality-app-dev/AGENTS.md
++++ b/projects/chirality-app-dev/AGENTS.md
+@@ -116,20 +116,19 @@
+   formerly in this section is rescinded going forward and survives as
+   historical record (verbatim in D-APP-61 Appendix Q2 and Git history),
+   alongside the earlier named-model steers it had itself rescinded.
+-- Two model-agnostic evidence rules survive under the same ruling: record
+-  which model actually ran each dispatched role in the governed AgentRuns
+-  record and point to it from the receipt (when no AgentRuns record exists,
+-  the receipt may carry the minimum model attribution directly); and record
+-  any mid-wave substitution where the wave's execution is recorded — never
+-  substitute silently.
++- Preserve actual model attribution and substitutions in the available
++  execution record. Where host records do not retain the required facts,
++  keep a compact execution note linked from the graph. No new receipt or
++  AgentRuns bundle is required solely to duplicate those facts. This changes
++  record placement, not the duty of truthful attribution.
+ 
+ ## Project-Wide Execution Discipline
+ 
+ The recurrent discovery, planning, delegation, checking and integration procedure
+ lives in `loop/LOOP_INIT.md`. The thin `init/dev-loop-init-prompt.md` launcher
+-selects it. Current state belongs in the owning run and its work graph; priorities
+-and phase transitions come from owner steering. Do not copy run-specific lane
+-names, model assignments or next actions into these standing instructions.
++selects it. Its current-graph pointer locates the undertaking; work state and
++recovery facts belong in that graph. Priorities and phase transitions come from
++owner steering. Do not copy node state or next actions into these instructions.
+ 
+ Choose agent types by responsibility and delegation needs, not task complexity
+ or reasoning effort. Root role instructions govern delegation. No package-per-
+@@ -147,8 +146,10 @@
+ 
+ Every slice requires fresh-context independent review of its complete frozen
+ diff before merge, with actionable findings repaired and backchecked. This
+-includes instruction and owner-direction changes; proportionate review and
+-affected-correction backchecks are described in `loop/LOOP_INIT.md`. For
++includes instruction and owner-direction changes. Scale review to what the
++change can break and backcheck affected corrections and their consequences;
++later candidate changes need review coverage. A read-only assignment is not
++itself a mergeable slice. For
+ product source (`frontend/src/**` outside `__tests__/**`, `frontend/electron/**`,
+ `frontend/packages/**`, `frontend/scripts/**`, build/packaging configuration),
+ retain the fresh read-only `TASK + software-code-review` path before final
+@@ -177,6 +178,135 @@
+ the retired A1 re-stage requirement and daemon/LaunchAgent proof subjects;
+ applicable production packaging and native checks remain required.
+ 
++## Work graph continuity and bounded reconciliation
++
++`loop/LOOP_INIT.md` names the current local work graph. This pointer is
++navigation state; scope, node state and recovery facts belong in the graph.
++Use the graph across sessions, including its pauses and owner decisions.
++Changing the pointer does not authorize a new undertaking or lift a hold.
++
++Plan bounded reconciliation within authorized development work: compare a
++stable code result and its evidence with the affected deliverable contents,
++including ScopeOfWork.md, Remaining items and dependency records. Apply warranted
++document updates within the assignment and preserve unresolved differences.
++Do not infer that implemented behavior replaces intended requirements. Lifecycle, accepted scope
++and formal dependency-basis changes retain their owning decision paths.
++Reconciliation completion is distinct from implementation completion.
++
++Keep concise results and recoverable evidence with the undertaking or their
++owning deliverables. A graph or linked result can supply the work record;
++separate per-session narratives, handoffs and loop receipts are not required
++for this development loop. This supersedes its routine receipt-append rule;
++other explicitly selected workflows retain their own output contracts.
++Existing receipt bytes remain frozen and their validators retain the historical
++integrity check; no ledger rewrite or validator change is part of this adoption.
++Existing records remain historical evidence. Operational attribution required
++by Root remains truthful and available without being repeated in work tables.
++
++Retain bounded launch instructions and returns with their actual context and
++source identity as required by Root. A small read-only launch message can be
++the brief; no elaborate duplicate brief is required. Preserve the actual role,
++model/effort, substitutions, enforcement limits, return and its disposition in
++the linked execution evidence. Work tables focus on the resulting work.
++
++## Development boundaries
++
++- **F-APP-1 (provider/network):** Codex remains the sole current MVP engine.
++  Apply the current Runtime-owned network, tool and credential contracts as
++  amended by D-GOV-43/A2 and D-APP-127. Retired hosted admission, per-root
++  consent and supplier containment are not current proof prerequisites. Codex
++  owns login/logout and its credentials in the App's effective Codex home;
++  the App must not read, copy or relay those credentials or affect other
++  clients' credentials. This development loop grants no provider expansion, remote MCP,
++  plugin or broad tool-search enablement beyond separately accepted scope.
++- **F-APP-2 (release/distribution):** no signing, notarization, publication,
++  external distribution, or release-readiness / professional / certification
++  claims.
++- **F-APP-3 (domain-engine boundary):** domain-engine work happens only
++  inside what the tier-0 bridge loop's ruled decisions grant (the `D-APP-4x`
++  F-series rows); this development loop never writes `_DomainEngines/**` or piping
++  surfaces, and never advances integration level, live binding, or
++  apply-class tool exposure on its own authority.
++- **F-APP-4 (issuance):** no `CHECKING -> ISSUED` lifecycle issuance.
++- **F-APP-5 (truth and planning surfaces):** authoritative deliverable scope,
++  lifecycle and dependencies remain in their governed sources; owner decisions
++  remain in the decision register and applicable owner-direction records.
++  The session work graph is the executable plan, not a replacement for those
++  sources. It neither issues deliverables nor silently changes the phase DAG.
++  Historical plans remain readable; do not select new work from them.
++- **Fresh-ruling stops** (carried from the pre-consolidation coordination
++  record): provider execution outside the current Codex MVP direction and
++  its current accepted Runtime/network/credential scope; write/edit/bash/
++  tool-execution exposure beyond the current approved item; changes to the
++  project-truth model for sessions, transcripts, chats, runtime logs, or
++  completion logs; professional-boundary or release-readiness posture.
++
++Changing a fence requires owner authority. This development loop grants no new release
++act; later specific owner rulings retain their effects and historical releases
++are not undone by F-APP-2. Do not infer another release from a prior one.
++
++
++## Development checks and evidence
++
++Use `software-workflow.json` and `docs/VALIDATION_STRATEGY.md`,
++`docs/RELEASE_QUALITY_GATES.md`, and `docs/BUILD_AND_RELEASE.md` for the work.
++Before push, every tranche needs a passing repo-wide practitioner-harness
++self-check and practitioner-harness pytest at closeout. Product source also
++needs typecheck, vitest, build/premerge gates and the independent review path
++above; run product checks on a clean candidate. Stop the dev server before
++build/package/premerge commands. UI work additionally follows the D-APP-36
++render bar in `docs/ISSUE_READINESS_PROFILES.md` §4 and the evidence rules in
++`docs/ui/UI_POLISH_EXECUTION_PLAN.md`. Authority-corpus edits require D-APP-38
++reconciliation via `execution/_Reconciliation/References/reconcile_authority_corpus.py`.
++Record why frontend gates are inapplicable to a records-only change. Cosmetic
++whitespace is not a merge gate. CI and review must cover the merging candidate;
++rerun checks invalidated by later edits under D-APP-127.
++
++Exercise affected user journeys as they become operable, alongside code tests.
++Use native application evidence for native-host behavior; browser evidence alone
++does not establish it. Include relevant interruption, recovery, keyboard and
++window-size behavior. Record expected and observed outcomes, candidate and
++limitations; repair defects and repeat affected checks. These checks do not
++establish owner or usability acceptance. An unavailable required witness remains
++outstanding, as described in the host-capability rule above.
++
++For empirical, fixture, conformance and gate-evidence claims (A12; Root R17 N3),
++retain enough non-secret bytes to independently recompute the claim: identified
++inputs and candidate; fixture, evaluator and validator bytes; commands, arguments,
++working directory, effective environment, versions and exit status; canonical
++stdout/stderr and machine-readable results; sorted manifests with independent
++hash recomputation; and a bounded rerun method. Preserve secrets neither in
++commands nor outputs. If required evidence is unavailable, withhold the claim.
++Retain one canonical copy and reference it from the graph or deliverable.
++
++Historical citations to the LOOP_INIT evidence contract (including former
++sections 7 and 9) now resolve to the evidence contract above; dated verdicts
++retain their original basis. Historical section 8 check citations resolve to
++this section and its owning check documents.
++
++## Selection and decisions
++
++For deliverable dependency selection, verify the item's Depends line, local
++Dependencies.csv / _DEPENDENCIES.md and accepted DepClosure snapshot. A row
++blocks when ACTIVE, type PREREQUISITE, SatisfactionStatus TBD/PENDING/IN_PROGRESS,
++and the item's Depends names its target. INTERFACE, HANDOVER, CONSTRAINT and
++ENABLES order work; SATISFIED, WAIVED and NOT_APPLICABLE do not block. Preserve
++named gated, stage-gated and NOT_SELECTABLE_UNTIL conditions at their actual
++sources. Provisional graph mapping never bypasses APP-HOLD-1 or a dependency.
++A status file without Remaining supplies no recorded open scope; it does not
++create permission to infer a new undertaking. Apply K-ENGINE-6: standalone-
++harness or feature-parity work remains off-strategy.
++
++D-APP-64 §5, refining D-APP-60, governs judgment-shaped forks. Prepare a proposal
++for material or hard-to-reverse choices and acts reserved to the owner; decide
++ordinary choices within authority. Disclose implementation departures, their
++rationale and reversal method. An explicit ruling, adopted requirement or
++protected criterion needs its owning decision before reversal. Owner suggestions
++and agent recommendations are not rulings. Preserve material owner directions
++faithfully in the graph or a linked decision record; distinguish transcription
++from a governed ruling. In-session directions do not pretend a required merge
++has occurred.
++
+ ## APP-HOLD-1 Reliance Preflight
+ 
+ Before relying on, dispatching, promoting to `CHECKING`, or consuming an
+@@ -226,7 +356,7 @@
+ resulting candidate and repeat checks invalidated by the change. Escalate
+ substantive conflicts beyond existing authority; do not discard unrelated work
+ or force-push another contributor's branch. Record branch and basis identities
+-in the owning run. A dirty checkout is not permission to carry unrelated changes
++in the work graph or its linked evidence. A dirty checkout is not permission to carry unrelated changes
+ into a new branch.
+ 
+ Git closeout is source-control hygiene. It is not lifecycle issuance, release
+--- a/projects/chirality-piping/AGENTS.md
++++ b/projects/chirality-piping/AGENTS.md
+@@ -36,10 +36,10 @@
+ definitions are in `loop/WORKPLAN_2026-07-18b_piping_loop.md`, under "Standing
+ constraints — fences"; later owner rulings govern explicit amendments. Replacing
+ the old loop procedure does not waive those boundaries. It supersedes F-PIP-5's
+-deliverable-only work-selection procedure with the session work graph described in `loop/LOOP_INIT.md`.
++deliverable-only work-selection procedure with the local work graph described in `loop/LOOP_INIT.md`.
+ Do not edit historical fence definitions or infer release/issuance authority.
+ 
+-Write only inside the authorised scope, including required run evidence. Root
++Write only inside the authorised scope, including required work evidence. Root
+ governance, agents, workflows, skills and tools need explicit authority for that
+ work. Do not alter other projects or stage, revert or repair unrelated state.
+ For authorised dependency-register work, use the canonical type system and the
+@@ -55,11 +55,96 @@
+ Preserve their evidence purpose using available tools; attribute commits
+ truthfully. Do not copy another harness's model or co-author identity.
+ 
++## Work graph continuity and bounded reconciliation
++
++`loop/LOOP_INIT.md` names the current local work graph. This pointer is
++navigation state; scope, node state and recovery facts belong in the graph.
++Use the graph across sessions, including its pauses and owner decisions.
++Changing the pointer does not authorize a new undertaking or lift a hold.
++
++Plan bounded reconciliation within authorized development work: compare a
++stable code result and its evidence with the affected deliverable contents,
++including ScopeOfWork.md, Remaining items and dependency records. Apply warranted
++document updates within the assignment and preserve unresolved differences.
++Do not infer that implemented behavior replaces intended requirements. Lifecycle, accepted scope
++and formal dependency-basis changes retain their owning decision paths.
++Reconciliation completion is distinct from implementation completion.
++
++Keep concise results and recoverable evidence with the undertaking or their
++owning deliverables. A graph or linked result can supply the work record;
++separate per-session narratives, handoffs and loop receipts are not required
++for this development loop. This supersedes its routine receipt-append rule;
++other explicitly selected workflows retain their own output contracts.
++Existing receipt bytes remain frozen and their validators retain the historical
++integrity check; no ledger rewrite or validator change is part of this adoption.
++Existing records remain historical evidence. Operational attribution required
++by Root remains truthful and available without being repeated in work tables.
++
++Retain bounded launch instructions and returns with their actual context and
++source identity as required by Root. A small read-only launch message can be
++the brief; no elaborate duplicate brief is required. Preserve the actual role,
++model/effort, substitutions, enforcement limits, return and its disposition in
++the linked execution evidence. Work tables focus on the resulting work.
++
++## Decisions and shared work
++
++Use judgment within the authorized assignment. Disclose departures from
++specification, their rationale and reversal method. An explicit ruling, adopted
++requirement or protected criterion requires its owning decision before reversal.
++Preserve material owner directions faithfully in the graph or a linked record,
++distinguishing proposals and interpretations from actual decisions.
++
++Give concurrent assignments disjoint write scopes or one integration owner.
++Serialize shared native/browser resources when concurrency would invalidate
++results. Type 2 returns to its parent and does not delegate. Change the diagnosis
++when repeated repair attempts provide no new evidence.
++
+ ## Software checks
+ 
+ Software work uses `software-workflow.json` under the root
+ `docs/SOFTWARE_WORKFLOW_PROFILE.md` contract. The profile registers checks;
+ it does not grant authority or replace the review, evidence and owner-held
+-boundaries in `loop/LOOP_INIT.md`.
++boundaries below.
++
++Every proposed mergeable slice receives fresh-context independent review of its
++complete frozen diff by a reviewer who did not implement it. This includes
++instruction and owner-direction changes. Repair actionable findings and backcheck
++the correction and its consequences; later candidate changes need review coverage.
++Scale the review to what the change can break. A read-only assignment is not
++itself a mergeable slice, and same-model review is not model diversity.
++
++Never weaken a protected test, tolerance, oracle or limit to obtain a pass.
++Bring a measured conflict with a protected criterion to the owner and block the
++affected acceptance or merge while independent work continues.
++
++Preserve the registered DEC-025 evidence sweep and applicable practitioner-
++harness, self-check and historical-receipt validation obligations. Run the sweep
++on a clean candidate before every merge touching product code; required CI and
++review must cover the actual merging revision. Record failed, skipped or
++unavailable checks; repeat checks invalidated by later changes. Historical
++receipt validation protects existing records and does not require new entries.
++
++Exercise affected user workflows as they become operable alongside code tests,
++including relevant editing, review/apply, solving, result inspection, undo/redo,
++save/reopen, interruption and recovery paths. Check model/history/result state as
++well as visible behavior; exercise equivalent typed routes when their equivalence
++is claimed. Use native application evidence for native-host behavior. Record the
++candidate, environment, expected and observed outcomes; repair defects and repeat
++affected scenarios. An unavailable required native witness remains outstanding;
++CI or browser evidence is not a substitute unless the owning criterion allows it.
++Agent-driven checks do not lift independent practitioner-usability holds.
++
++For empirical claims, retain the non-secret inputs, candidate identities,
++commands, environment/tool versions and raw outputs needed to check or reproduce
++the result, with a bounded rerun method and hash references where needed. Scale
++evidence to the claim. If required evidence is unavailable, withhold the claim.
++Use one canonical copy with references from the graph or deliverable.
++
++Use the host's actual permissions and supported approval mechanism. Record the
++exact unavailable command and outstanding verification; denial is not a pass.
++Use the `chirality-change` skill for scoped Git closeout under standing authority.
++Preserve unrelated and unmerged work, verify upstream/candidate/index, stage only
++owned files, and recheck integration changes. Source integration, observed checks,
++engineering acceptance, lifecycle issuance and release remain distinct.
+ 
+ Standard claim fence applies (F-PIP-2; claims taxonomy per DEC-081).
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -227,6 +227,9 @@
+ regenerate dependent evidence as required.
+ 
+ Instruction changes require their own authorized scope and tranche manifest.
++Updating a designated current-work-graph pointer within an authorized undertaking
++is navigation-state maintenance, not an instruction amendment. Changing loop
++behavior or constraints remains an instruction change; a pointer grants no scope.
+ Notify each affected project loop whose authority corpus or contract mirrors pin
+ changed instructions. Notices communicate changes; each receiving loop decides
+ its adoption and updates its own accepted basis.
+--- a/projects/chirality-app-dev/execution/_Coordination/_LATEST.md
++++ b/projects/chirality-app-dev/execution/_Coordination/_LATEST.md
+@@ -2,13 +2,16 @@
+ 
+ This pointer is for discovery only. It is not substitute authority. Per
+ `_COORDINATION.md` (record-keeping rule 5), it must not accumulate state
+-history: current status is always re-derived from the decision register, the owning run's work graph, and `../../loop/LOOP_RECEIPTS.md`.
++history: current work is reached through the graph pointer in
++`../../loop/LOOP_INIT.md`, then checked against implementation, deliverable and
++decision evidence. Historical run and receipt pointers below remain context.
+ 
+ Session entry:
+ 
+-- `init/dev-loop-init-prompt.md` -> `loop/LOOP_INIT.md` -> owner-named run,
+-  or applicable receipt and coordination pointers. No dated workplan selector.
+-- Current owner direction and amendment record:
++- `init/dev-loop-init-prompt.md` -> `loop/LOOP_INIT.md` -> selected local work
++  graph. If none is selected, the loop constructs one for the owner's current
++  objective; this does not lift an existing pause or select a new phase.
++- Historical loop amendment and recorded development pause (check later owner steering):
+   `execution/_Coordination/AgentRuns/HELP-HUMAN-APP-20260919-LOOP-WORKGRAPH/OWNER_DIRECTION.md`
+   and `WORK_GRAPH.json` beside it. The owner reports v3.0.0 published and pauses
+   further development until owner-steered reconciliation. This loop amendment
+--- a/projects/chirality-app-dev/execution/_Coordination/_COORDINATION.md
++++ b/projects/chirality-app-dev/execution/_Coordination/_COORDINATION.md
+@@ -1,4 +1,11 @@
+ # Coordination Record - Chirality App Dev
++
++> **Current procedure after local-work-graph adoption:** enter through
++> `loop/LOOP_INIT.md` and its selected graph. The graph supplies executable work
++> and recovery state; it does not replace project requirements, deliverable
++> authority or owner decisions. Bounded reconciliation updates affected records
++> within its assignment. Historical workplan, run and receipt procedures below
++> remain readable at their original authority and are not alternate selectors.
+ 
+ **Epistemic status (rewritten 2026-07-10 at owner adoption, K-AUTH-1).** This file is
+ now a ruled-record surface and pointer, not the operative protocol. The
+--- a/projects/chirality-piping/execution/_Coordination/_COORDINATION.md
++++ b/projects/chirality-piping/execution/_Coordination/_COORDINATION.md
+@@ -1,4 +1,11 @@
+ # Coordination Record
++
++> **Current procedure after local-work-graph adoption:** enter through
++> `loop/LOOP_INIT.md` and its selected graph. The graph supplies executable work
++> and recovery state; it does not replace project requirements, deliverable
++> authority or owner decisions. Bounded reconciliation updates affected records
++> within its assignment. Historical workplan, run and receipt procedures below
++> remain readable at their original authority and are not alternate selectors.
+ 
+ **Epistemic status (rewritten 2026-07-10 at owner adoption, K-AUTH-1).** This
+ file is now a ruled-record surface and pointer, not the operative protocol.

@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="6dcabfd01adb39ba37324bcd7e8af0b945abb11122b4da9fb33928a34699316a">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 11: Leading Complex Projects · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 14 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-study-plan">Prerequisites and study plan</a></li>
+<li><a href="#learning-outcomes">Learning outcomes</a></li>
+<li><a href="#lesson-1-understand-the-relationships-that-create-complexity">Lesson 1: Understand the relationships that create complexity</a></li>
+<li><a href="#lesson-2-work-across-interests-and-organizational-boundaries">Lesson 2: Work across interests and organizational boundaries</a></li>
+<li><a href="#lesson-3-decide-under-uncertainty-without-concealing-it">Lesson 3: Decide under uncertainty without concealing it</a></li>
+<li><a href="#lesson-4-diagnose-a-troubled-undertaking">Lesson 4: Diagnose a troubled undertaking</a></li>
+<li><a href="#lesson-5-govern-and-learn-from-the-response">Lesson 5: Govern and learn from the response</a></li>
+<li><a href="#lesson-6-lead-the-arrangement-of-people-and-agents">Lesson 6: Lead the arrangement of people and agents</a></li>
+<li><a href="#worked-northbank-example">Worked Northbank example</a></li>
+<li><a href="#transfer-example">Transfer example</a></li>
+<li><a href="#practice-examine-the-reporting-system">Practice: Examine the reporting system</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-continuation-recommendation">Assessed assignment: Continuation recommendation</a></li>
+<li><a href="#portfolio-and-references">Portfolio and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-study-plan">Prerequisites and study plan</a></li>
+<li><a href="#learning-outcomes">Learning outcomes</a></li>
+<li><a href="#lesson-1-understand-the-relationships-that-create-complexity">Lesson 1: Understand the relationships that create complexity</a></li>
+<li><a href="#lesson-2-work-across-interests-and-organizational-boundaries">Lesson 2: Work across interests and organizational boundaries</a></li>
+<li><a href="#lesson-3-decide-under-uncertainty-without-concealing-it">Lesson 3: Decide under uncertainty without concealing it</a></li>
+<li><a href="#lesson-4-diagnose-a-troubled-undertaking">Lesson 4: Diagnose a troubled undertaking</a></li>
+<li><a href="#lesson-5-govern-and-learn-from-the-response">Lesson 5: Govern and learn from the response</a></li>
+<li><a href="#lesson-6-lead-the-arrangement-of-people-and-agents">Lesson 6: Lead the arrangement of people and agents</a></li>
+<li><a href="#worked-northbank-example">Worked Northbank example</a></li>
+<li><a href="#transfer-example">Transfer example</a></li>
+<li><a href="#practice-examine-the-reporting-system">Practice: Examine the reporting system</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-continuation-recommendation">Assessed assignment: Continuation recommendation</a></li>
+<li><a href="#portfolio-and-references">Portfolio and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="11-complex-projects.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-11-leading-complex-projects">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-11-leading-complex-projects">Course 11: Leading Complex Projects</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>Complex projects connect technical work, commercial commitments, organizations, and people: a decision in one part can change the conditions elsewhere.</p>
+<p>Leadership must keep those relationships visible, and it must also preserve the authority, evidence, and responsibilities needed for sound decisions.</p>
+<p>This course teaches diagnosis and direction when ordinary controls no longer give a credible account of the project. In a team where people work with AI agents, that diagnosis includes the arrangement of people and agents that produces and examines the work.</p>
+<h2 id="prerequisites-and-study-plan">Prerequisites and study plan</h2>
+<p>Complete Courses 01 to 10, and bring your Northbank project basis, execution forecast, interface records, and assurance findings. Bring the briefs and examination records from those courses' assignments as well.</p>
+<p>Read Packets A to D. Allow seven hours for reading, discussion, practice, and the assessed assignment. Most of the time goes to the six lessons and to the practice, which includes an unaided first pass and three agent exercises; the rest goes to the memorandum, its independent examination, and the defense through changed premises.</p>
+<p>Use an independent reader for the assignment. For individual study, ask a mentor to question your diagnosis and recommendation. The independent reader is a person who did not help produce the memorandum; an agent working from your brief does not provide that independence.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. For a leader, the shifted constraint is the gap between work produced and work that competent people have examined: when agents produce much of the information work, output alone does not establish the attention it received, and the attention of the people who examine, decide, and accept limits the project. Lessons 1 to 5 follow the four steps, and Lesson 6 treats the arrangement of people and agents as something a leader diagnoses and directs.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. The records do not show how any Northbank document was produced, so every statement in this course about Northbank's agent use is a teaching assumption, labelled where it appears.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>After this course, you can:</p>
+<ul>
+<li>Explain coupled effects and feedback in a project.</li>
+<li>Examine incentives, interests, organizational boundaries, and decision rights.</li>
+<li>Distinguish known failures from uncertainty and unsupported claims.</li>
+<li>Compare continuation, recovery, reduction, suspension, and termination.</li>
+<li>Prepare a bounded decision with evidence and conditions for reconsideration.</li>
+<li>Diagnose a project's arrangement of people and agents, including its examination capacity and verification debt.</li>
+<li>Explain which classical practices lose their reason when agents do production, and which keep their reason or become more important, from the costs they answer.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+</ul>
+<h2 id="lesson-1-understand-the-relationships-that-create-complexity">Lesson 1: Understand the relationships that create complexity</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>A large list of activities does not explain a complex project; the important question is how changes pass between activities and people.</p>
+<p>For example, a motor change can affect electrical protection, controls, equipment delivery, installation, commissioning, and operating information. These effects can return to the original decision: a delayed selection can reduce the available supplier choices, which can require another design change. This return is feedback, and its effects can increase or reduce the original difficulty.</p>
+<p>Consider schedule pressure. Pressure can reduce review time, missed defects can then cause rework, and rework creates further schedule pressure. That account is a hypothesis until evidence supports the connections. Identify observations for each connection before you treat it as the cause.</p>
+<p>A corrective response could protect the necessary review and resolve the controlling interface earlier. Adding people without resolving that interface may increase coordination demands.</p>
+<p>Use three questions to examine a proposed action:</p>
+<ol>
+<li>What conditions must exist for this action to work?</li>
+<li>Which other activities or people will it affect?</li>
+<li>How can those effects change the original problem?</li>
+</ol>
+<p>Keep a dependency map separate from a feedback explanation: the map shows the conditions needed for work, and the explanation shows effects that return over time.</p>
+<p>For each connection, state the mechanism. “Procurement affects commissioning” is incomplete: equipment identity affects test procedures and spare parts, which affect readiness.</p>
+<p>Keep time visible: an intervention can help today while creating a problem during delivery or operation.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical feedback explanation assumes that a project's loops run through people's labour. In the schedule-pressure loop, pressure reduces review because the same people must both produce and review, and rework adds pressure because it consumes their hours. How fast people can produce sets the speed of the loop, and rework is visible because it takes people away from other work. The method also assumes that activities prepared by different people make largely independent errors.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>The loops remain, but some of them change form.</p>
+<p><strong>Schedule pressure falls on examination.</strong> When agents do the production, pressure no longer needs to take time from drafting. It takes time from examination, because examination is the work people still do. Missed defects then cause rework as before. Agents can produce the rework quickly, so the loop can turn faster, and each turn adds to the examiners' queue. Rework can also look like progress, because it arrives as more completed documents.</p>
+<p><strong>A shared brief or model couples activities.</strong> Two activities that look independent on a dependency map are coupled if the agents that prepared them used the same brief, the same basis, or the same model. An error in the shared basis appears in every output that used it. For example, a brief that gave A05 without its proposal status could carry 22 litres per second into the mechanical, electrical, and civil work at once. This is a teaching example, not a Northbank event.</p>
+<p><strong>Propagation is fast in both directions.</strong> <a href="08-project-execution.html#lesson-4-connect-purchasing-risk-and-change">Course 08</a> showed that an agent can carry an approved disposition into every affected document quickly, and a proposal just as fast. The delay in which someone might once have noticed a wrong basis may no longer exist.</p>
+<p><strong>The physical loops do not change.</strong> A delayed selection still reduces the available supplier choices. Delivery, installation, and commissioning still run at the speed of manufacturing and site work.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Use the same three questions, and add the arrangement to the explanation. For each connection that runs through agent work, state the mechanism as you would for any other connection: which brief or basis the agents shared, which examiner their outputs reach, and how much that examiner can examine.</p>
+<p>Treat these connections as hypotheses until evidence supports them, exactly as the classical method requires. In a real project the evidence is in the briefs, the returns, and the examination records. For Northbank, the records do not show which documents agents produced or from which brief, so any connection through agent work is a teaching assumption.</p>
+<p>The corrective response still protects the necessary review and resolves the controlling interface earlier. With agents, protecting review means protecting the examiners' time from the volume agents can send them. Adding agents without resolving the controlling interface lengthens the examination queue, as adding people increased coordination demands.</p>
+<h2 id="lesson-2-work-across-interests-and-organizational-boundaries">Lesson 2: Work across interests and organizational boundaries</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>People can agree on the project purpose while facing different incentives. Procurement may protect price, operations may protect availability, and engineering must preserve technical adequacy.</p>
+<p>An incentive can make an incomplete report attractive, but it does not prove dishonesty. Examine the reporting arrangement and the evidence it rewards.</p>
+<p>D02 links a bonus to the reported handover date and also records missing readiness evidence. This creates a reason to examine the handover measure.</p>
+<p>Document counts can show activity, but they cannot establish that interfaces are resolved or operating conditions are satisfied.</p>
+<p>Replace an unsuitable measure with questions about the intended result: ask which claims are established, which remain open, and which decisions are needed.</p>
+<p>Examine who could bear the consequences of an unsupported report. Consider workers, operators, nearby people, and the environment where relevant.</p>
+<p>Identify possible effects as questions when evidence is missing. Do not invent a hazard finding or assume that commercial benefit justifies exposure.</p>
+<p>Organizational boundaries add another difficulty: a supplier's delivery promise may depend on a configuration that the site has not accepted.</p>
+<p>Define what each party must supply, and name the receiving party, examination conditions, required timing, and decision authority.</p>
+<p>Different decision rights can apply to one issue. The sponsor can change the Northbank budget, but that act cannot establish motor compatibility or legal applicability.</p>
+<p>The technical authority can decide within its competence and remit, but its decision cannot create expenditure authority beyond A01.</p>
+<p>Prepare connected decisions together when possible. Preserve their separate conditions and authorities; an apparent agreement may still contain an unresolved technical or commercial boundary.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical treatment assumes that every document and report took someone's effort. A document count was weak evidence of progress, but it measured something: hours spent and some attention paid. Satisfying a measure without doing the work also cost labour, which limited how far a report could drift from the work. And each party's documents were prepared by its own people, who could be asked what they relied on.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p><strong>Document counts become more misleading.</strong> Agents can produce a document in minutes, so a count of completed documents no longer shows that anyone spent effort or attention on them. D02's weekly report shows completed document counts, and it does not show unresolved interfaces or the grounds for operating readiness. If agents drafted many of the counted documents, a teaching assumption that the records neither confirm nor exclude, the count says even less about readiness than before while showing more apparent progress.</p>
+<p><strong>Incentives meet cheap production.</strong> D02's bonus uses the reported handover date. In a team where people produce every document, a complete-looking handover package takes substantial effort, and that effort limits how quickly an incentive can be satisfied on paper. Agents can remove much of that limit. The work the incentive then presses on is examination and acceptance, which D02 also records the sponsor requires: a usable and properly examined installation. The pressure is the one the classical method examined, but less effort now stands in its way. An incentive is still not evidence of dishonesty; examine the reporting arrangement and the evidence it rewards.</p>
+<p><strong>Agents carry the brief's interests.</strong> An agent receives no bonus, but it follows its brief. A brief to prepare a handover report for the end of Week 12 carries the incentive into the output, and the agent can present an unsupported conclusion with the same confidence as a supported one. For example, C04's draft cover sheet says that the complete installation passed acceptance; an agent asked to summarize C04 could repeat that claim. This is a teaching example.</p>
+<p><strong>Boundaries multiply the bases in use.</strong> Each party's agents work from the basis that party gives them, and <a href="08-project-execution.html#lesson-4-connect-purchasing-risk-and-change">Course 08 Lesson 4</a> shows how a supplier's copying error like B01's can arrive faster and look more complete. At the leadership level, the difficulty is that you cannot see another organization's briefs, so the receiving examination must check the basis of what arrives, not its completeness.</p>
+<p><strong>Decision rights do not move.</strong> The agents hold no appointment, so no decision right in this lesson passes to an agent. The separation between the sponsor's and the technical authority's rights carries over unchanged.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Replace the document count with measures of examination and acceptance. For each consequential output, report whether it is produced, examined (by whom and for what use), accepted, and available for dependent use, as <a href="08-project-execution.html#lesson-5-measure-progress-by-usable-results">Course 08 Lesson 5</a> describes. Report the gap between produced and examined work as verification debt.</p>
+<p>Each measure costs something to keep and can hide something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>What it shows</th>
+<th>What it costs with agents</th>
+<th>What it can hide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Completed document count</td>
+<td>Production activity</td>
+<td>Almost nothing</td>
+<td>Everything that readiness depends on</td>
+</tr>
+<tr>
+<td>Examined outputs, by examiner and purpose</td>
+<td>Attention spent on reliance</td>
+<td>Examiners' time</td>
+<td>Weak examination recorded as &quot;reviewed&quot;</td>
+</tr>
+<tr>
+<td>Open claims and conditions</td>
+<td>What remains to be established</td>
+<td>Examination and judgment</td>
+<td>Little, if kept current</td>
+</tr>
+<tr>
+<td>Produced but unexamined work, with its age and the dependent work it holds</td>
+<td>Where reliance would be premature</td>
+<td>Little to count; needs honest status</td>
+<td>Unexamined work relabelled as examined</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Protect examination from the incentive. Where an incentive rewards a reported date, require the report to show the examination and acceptance grounds for each readiness claim, so that production alone cannot satisfy the measure.</p>
+<p>Brief agents to report contradictions and unexamined conditions explicitly. An agent can be asked to list every claim in a draft that lacks a cited record. Route what it finds to a person, because an agent's flag is not a disposition (Lesson 5).</p>
+<p>At each organizational boundary, ask the supplying party which basis it used, where it can say, and examine the received item against your own identified basis.</p>
+<h2 id="lesson-3-decide-under-uncertainty-without-concealing-it">Lesson 3: Decide under uncertainty without concealing it</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>Uncertainty can be about facts, performance, cost, schedule, or consequences. Name the uncertainty before you select its treatment.</p>
+<p>An electrical survey establishes an observed supply, but it does not establish spare capacity. A test establishes observed behavior within stated conditions.</p>
+<p>An important distinction concerns reversibility: preparing alternatives is often reversible, but placing an unsuitable order can create commitments that are costly to change.</p>
+<p>Use early work to get useful information before such commitments. This approach needs a limit, a responsible person, and a decision it can inform.</p>
+<p>For example, request a project-specific supplier configuration and a corrected selection basis. This request can inform procurement without authorizing the order.</p>
+<p>Delay also has consequences, so compare the cost of waiting with the consequences of proceeding on an unsupported basis.</p>
+<p>Do not label every unresolved matter as an acceptable risk, because some conditions are requirements that the proposed activity must satisfy.</p>
+<p>A decision owner can accept tradeoffs within their remit, but risk acceptance does not expand that authority or establish unexamined technical performance.</p>
+<p>A budget approval cannot excuse an unresolved legal requirement. A commercial reservation cannot establish technical suitability.</p>
+<p>For a consequential decision, prepare:</p>
+<ul>
+<li>The decision question and its authority.</li>
+<li>The applicable requirements and present evidence.</li>
+<li>The options, including continued investigation where useful.</li>
+<li>The uncertainties and their possible consequences.</li>
+<li>The work permitted under each option.</li>
+<li>The conditions that require another decision.</li>
+</ul>
+<p>A condition must be observable. “Proceed if safe” leaves the decision basis undefined, so state the required examination and its responsible authority.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that preparing alternatives and investigations costs people's hours, so a team can afford to develop only a few options, and early information-gathering competes with production. It also assumes that a document's form says something about its grounds: a hurried draft looks hurried, and open questions tend to show.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p><strong>Reversible preparation becomes cheap; irreversible commitments do not.</strong> Agents can draft several option studies, supplier requests, and decision tables at once. Placing an order, starting site work, or installing equipment costs what it did. The classical distinction between reversible preparation and an irreversible commitment therefore becomes sharper: more reversible work can be done before a commitment, and people must still examine the evidence for the commitment itself.</p>
+<p><strong>The decision-maker's attention becomes the constraint.</strong> Five options prepared in an afternoon still need examination, and the sponsor must still read them and decide. Presenting more options than the decision-maker can weigh conceals uncertainty in volume, as presenting one optimistic plan conceals it by omission.</p>
+<p><strong>Agent work adds an uncertainty of its own.</strong> An agent's error can look the same as correct work, and an agent can state an uncertain value with the precision of a measured one. The reader of a decision package cannot tell from its form how far to rely on it. Whether each piece of evidence has been examined, by whom, and for what use, becomes part of the decision's uncertainty.</p>
+<p><strong>Authority does not change.</strong> Risk acceptance still does not expand a decision owner's authority, and an agent can accept no risk, because it holds no appointment.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Prepare the same content for a consequential decision, and add one item:</p>
+<ul>
+<li>How each piece of evidence was produced and examined, and what it has not been examined for.</li>
+</ul>
+<p>Use cheap preparation to get information before irreversible commitments, within the classical limits: each investigation still needs a limit, a responsible person, and a decision it can inform. Then choose what reaches the decision-maker.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Many options prepared by agents</td>
+<td>Wider coverage; the decision can wait for better information</td>
+<td>Examination time for each option; uncertainty can hide in volume</td>
+</tr>
+<tr>
+<td>A few examined options presented</td>
+<td>The decision-maker's attention goes to examined alternatives</td>
+<td>Some alternatives receive less investigation</td>
+</tr>
+<tr>
+<td>An agent-drafted decision table</td>
+<td>Fast, consistent structure</td>
+<td>Its precision can exceed its grounds, so each entry needs examination</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For Northbank, D01 records three proposals: another supplier slot, activity overlap, and temporary use. Agents can draft the investigation requests and the structure of each assessment. The evidence each proposal needs still comes from the supplier's confirmation, the engineering team's prerequisite analysis, and operations' assessed basis.</p>
+<p>“Proceed if safe” leaves the basis undefined whether a person or an agent drafted it.</p>
+<h2 id="lesson-4-diagnose-a-troubled-undertaking">Lesson 4: Diagnose a troubled undertaking</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>Start with the present result and its basis: establish what exists, what was examined, what is authorized, and what people now need.</p>
+<p>Avoid treating every difficulty as poor execution: the purpose may be unclear, the design basis may be incomplete, or the reported status may be unsupported.</p>
+<p>Use a short diagnosis table.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Useful evidence</th>
+<th>Possible consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Does the approved scope still address the intended need?</td>
+<td>Approved basis and current user needs</td>
+<td>A scope decision may be required.</td>
+</tr>
+<tr>
+<td>Can the proposed result satisfy its conditions?</td>
+<td>Design basis, interface records, and checks</td>
+<td>A technical investigation or redesign may be required.</td>
+</tr>
+<tr>
+<td>Is the execution plan credible?</td>
+<td>Readiness, capacity, commitments, and forecast</td>
+<td>Resequencing or a commitment decision may be required.</td>
+</tr>
+<tr>
+<td>Does reported progress support reliance?</td>
+<td>Identified outputs and examination evidence</td>
+<td>The report or the result may require repair.</td>
+</tr>
+<tr>
+<td>Can people raise adverse evidence?</td>
+<td>Findings, meeting decisions, and responses</td>
+<td>Leadership or governance may require correction.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Test explanations against competing explanations: a delivery delay may follow late ordering, an unresolved selection, supplier capacity, or several connected causes.</p>
+<p>Find the next useful result. Ask who can produce it and which condition prevents it; this question helps you avoid expanding work around an unresolved premise.</p>
+<p>Keep useful, unaffected work moving: a voltage discrepancy can prevent equipment acceptance while allowing source indexing and test planning to continue.</p>
+<p>Recovery must be a credible route to a useful result, and it needs defined scope, resources, evidence, decision rights, and receiving responsibilities.</p>
+<p>Compare at least three directions, because continuation, reduced scope, and suspension can expose consequences that a single optimistic plan hides.</p>
+<p>Reduction requires an authorized scope decision; suspension requires arrangements to preserve equipment, information, responsibilities, and any continuing site obligations.</p>
+<p>Termination also requires a controlled disposition: it can leave contractual, physical, financial, and professional obligations after production stops.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical diagnosis looks for trouble in the scope, the design basis, the execution plan, the reporting, and people's ability to raise concerns. It takes the working arrangement as given by the staffing, and it assumes that examination capacity grows roughly with the team, because each added person brings some attention with their production. It also assumes that recovery by adding people meets coordination costs a leader can anticipate.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>A troubled agent-assisted project can fail in its arrangement as well as its execution. Production can run far ahead of examination, so the project carries verification debt that no report shows. Outputs that share a brief or model can share an error. A proposal can enter the basis of many documents within an afternoon. And a report that counts produced work can describe all of this as progress.</p>
+<p>These are further places to look, not replacements for the classical questions. Northbank's difficulties in Packets C and D are classical: incomplete technical inputs, a forecast beyond its commitments, and overstated readiness. They would be the same whoever drafted the documents.</p>
+<p>The recovery options change too. More agents are the new form of more people: they help where production limits the result, and elsewhere they lengthen the examiners' queue. When work was produced from a wrong basis, compare two routes: re-examining each affected output to find every place the wrong basis entered, or reproducing the outputs from the corrected basis and examining the new ones. Either route needs examination; reproducing can be cheaper when the wrong basis spread widely, and re-examining when it touched little.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Add three questions to the diagnosis table:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Useful evidence</th>
+<th>Possible consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has the produced work been examined for its intended use?</td>
+<td>Examination records; produced but unexamined work, its age, and the dependent work relying on it</td>
+<td>Reliance may need to stop until the debt is reduced, or examination capacity may need to increase.</td>
+</tr>
+<tr>
+<td>Which basis did the agents work from?</td>
+<td>Briefs, with the revisions and statuses they gave; the basis each return states</td>
+<td>Outputs produced from a proposal or a superseded revision may need re-examination or withdrawal.</td>
+</tr>
+<tr>
+<td>Does the arrangement of people and agents suit the work?</td>
+<td>Who examines each contribution, where independence is provided, and how assignments are sized to examination capacity</td>
+<td>The arrangement may need redesign before more work is produced.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Include the arrangement in competing explanations. A project with many completed documents and few examined ones may be short of examiners, may have briefed its agents on an unclear basis, or may be producing documents nobody needs.</p>
+<p>Before you propose agent capacity as recovery, find what limits the result. In Northbank, C03's finish is three weeks later than the target because release moves from the end of Week 4 to the end of Week 6 and delivery takes five weeks instead of four. Agents cannot shorten the delivery, and the records do not show that document production limits the corrected purchase package. On the present evidence, adding agents is not a credible route to Week 12.</p>
+<p>Include the arrangement in each direction you compare: what agents will do under continuation, reduced scope, or suspension, who examines it, and what happens to produced but unexamined work. Under suspension, the information to preserve includes the briefs and examination records that show what each output can support.</p>
+<h2 id="lesson-5-govern-and-learn-from-the-response">Lesson 5: Govern and learn from the response</h2>
+<h3 id="the-classical-method-4">The classical method</h3>
+<p>Governance establishes who decides, who must be consulted, and how unresolved matters reach that decision.</p>
+<p>A useful escalation describes a specific question, its evidence, the consequences of delay, and a recommendation. Sending an unexplained issue list transfers confusion.</p>
+<p>Protect the reporting of adverse evidence. Address the missing changeover test in D02, and ask what evidence or authorized disposition justified its recorded closure.</p>
+<p>Report readiness truthfully, including inconvenient limits. Explain any personal or commercial interest that could affect the recommendation or its reception.</p>
+<p>Give the concern a competent owner. Correct the present status where the evidence requires it. Examine the effect on the acceptance claim.</p>
+<p>Being unpopular does not make the junior engineer's concern correct, but its grounds deserve examination under the same standard as other claims.</p>
+<p>Handle confidential information according to its assigned access and disclosure conditions, and supply necessary evidence to authorized reviewers through an appropriate route.</p>
+<p>When you report a significant concern, you must consider confidentiality explicitly. Seek the responsible reporting route instead of quietly omitting the evidence.</p>
+<p>These are general ethical questions. A06 leaves Northbank's actual legal applicability unresolved, so do not present an assumed law as their justification.</p>
+<p>Institutional learning requires a change in practice: an additional report has little value if the next project repeats the same unsupported acceptance.</p>
+<p>Identify a specific improvement, its owner, and the activity that will use it. For Northbank, readiness reporting could include unresolved acceptance conditions.</p>
+<p>Check whether that change improves the next decision. Retain the original episode as evidence with its limits: one case cannot prove universal effectiveness.</p>
+<h3 id="what-it-assumes-4">What it assumes</h3>
+<p>The classical method assumes that adverse evidence comes from people, as the junior engineer's concern does. Escalations and reports are written by people, so effort limits their number, and a reader can expect each one to carry someone's attention. Institutional learning changes how people work, and it spreads slowly through training and habit.</p>
+<h3 id="what-changes-with-agents-4">What changes with agents</h3>
+<p><strong>Agents can carry a report without taking the person's appointment.</strong> An agent asked to compare D02's meeting record with C04 can report that the changeover was not exercised and that the closure records no test or authorized disposition. The agent holds no appointment under A01 and cannot answer for the concern in that capacity. It can draft a report or transmit it through an authorized route. The responsible person must take up the finding and its consequences.</p>
+<p><strong>Volume can bury adverse evidence.</strong> When agents produce reports and escalations cheaply, an important concern can sit inside a long list or a large set of documents. The classical warning that an unexplained issue list transfers confusion matters more, because such a list now costs little to produce.</p>
+<p><strong>A closure needs the same evidence whoever records it.</strong> An agent's status summary that reports the junior engineer's concern as closed, because the meeting record says so, repeats D02's error faster and more fluently. This is a teaching example.</p>
+<p><strong>An agent system is an information route.</strong> Giving a record to an agent discloses it to that system. Handle confidential information under its access conditions, and use only systems approved for it.</p>
+<p><strong>Changed practice takes effect quickly.</strong> A changed brief, examination rule, or report format applies at the next agent assignment, without retraining. Practice therefore becomes cheap to change, and easy to change without checking whether the change helped.</p>
+<h3 id="the-extended-method-4">The extended method</h3>
+<p>Escalate a specific question with its evidence, as before, and state how that evidence was produced and examined.</p>
+<p>Brief agents to surface adverse evidence: contradictions between records, unexercised conditions, and claims without cited support. Route each item to a competent owner. An agent's flag starts an examination; it is not the result of one.</p>
+<p>For Northbank, readiness reporting could include unresolved acceptance conditions, as the classical method suggests, and could also state who examined each readiness claim and for what use. Build the improvement into the agents' standing briefs and the report format, name its owner, and check whether the next readiness decision improves. One case still cannot prove universal effectiveness.</p>
+<h2 id="lesson-6-lead-the-arrangement-of-people-and-agents">Lesson 6: Lead the arrangement of people and agents</h2>
+<p>In a human team, a leader inherits much of the working arrangement with the staffing, and its examination capacity grows as people join. With agents, a leader decides how much the project produces, how much it can examine, and which controls it keeps. <a href="08-project-execution.html#lesson-6-engineer-the-arrangement-that-does-the-work">Course 08 Lesson 6</a> treats the arrangement for one team's execution: functions, briefs and returns, independence, and sizing. This lesson treats it across the whole project, where those choices decide whether the leadership's account of the project is credible.</p>
+<h3 id="the-failure-modes-a-leader-must-see">The failure modes a leader must see</h3>
+<p>Agents can change the scale or speed of familiar failures and expose new paths. Examine whether the existing controls cover the actual arrangement:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 5; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Failure mode</th>
+<th>How it appears</th>
+<th>Why classical controls can miss it</th>
+<th>Leadership response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verification debt</td>
+<td>Many completed documents and steady reports</td>
+<td>Reports measure production; examination is not reported</td>
+<td>Report produced and examined work separately, and size production to examination capacity</td>
+</tr>
+<tr>
+<td>Confident error</td>
+<td>A complete, fluent output that is wrong</td>
+<td>Polish was once weak evidence of care</td>
+<td>Competent examination for consequential reliance; ask what each check would catch</td>
+</tr>
+<tr>
+<td>Proposal propagated as approved basis</td>
+<td>Many documents consistent with each other and with a proposal</td>
+<td>Consistency once suggested a shared approved basis</td>
+<td>Control which basis agents read, and check the basis each output used</td>
+</tr>
+<tr>
+<td>Reports counting agent-produced documents</td>
+<td>Progress rises while readiness does not</td>
+<td>A count once measured effort</td>
+<td>Measures of examination and acceptance (Lesson 2)</td>
+</tr>
+<tr>
+<td>Correlated errors</td>
+<td>Independent-looking analyses agree</td>
+<td>Agreement once suggested independent confirmation</td>
+<td>Independence by basis, preparation, or examiner</td>
+</tr>
+<tr>
+<td>Incentive satisfied by production</td>
+<td>A complete package arrives on the rewarded date</td>
+<td>Effort once limited how quickly a package could appear</td>
+<td>Tie the measure to examined grounds</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="the-argument-from-changing-costs">The argument from changing costs</h3>
+<p>This lesson is the leadership-level home for the series' broader argument. Part of the classical discipline exists to manage the cost of coordinating people's labour on information work. Where agents do the production, those practices lose much of their reason, so do not carry them over by habit. The practices that manage authority, evidence, acceptance, and the physical world keep their reasons, and agents make them more important, because work can now reach the point where someone relies on it without anyone having attended to it while it was produced.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 6; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>The cost it answered</th>
+<th>With agents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estimating information work from production hours</td>
+<td>People's production time</td>
+<td>Loses much of its reason; estimate examination and decision time instead</td>
+</tr>
+<tr>
+<td>Batching changes to save drafting effort</td>
+<td>Drafting effort</td>
+<td>Loses much of its reason; batching decisions can still save the sponsor's and specialists' attention</td>
+</tr>
+<tr>
+<td>Measuring progress by documents produced</td>
+<td>Effort as a sign of attention</td>
+<td>Loses its reason and starts to mislead</td>
+</tr>
+<tr>
+<td>Levelling workload</td>
+<td>People's capacity</td>
+<td>Keeps its reason for site crews and examiners; loses much of it for agent production</td>
+</tr>
+<tr>
+<td>Separating budget from forecast, technical review from expenditure approval, and each decision right under A01</td>
+<td>Authority</td>
+<td>Keeps its reason and becomes more important</td>
+</tr>
+<tr>
+<td>Matching evidence to claims</td>
+<td>Evidence</td>
+<td>Keeps its reason and becomes more important</td>
+</tr>
+<tr>
+<td>Independent review</td>
+<td>Evidence</td>
+<td>Keeps its reason and becomes more important, because agreement among agent outputs no longer carries the separate understanding that individual people supplied (<a href="09-technical-integration.html#lesson-5-examine-integration-and-repair-connected-work">Course 09 Lesson 5</a>)</td>
+</tr>
+<tr>
+<td>Acceptance and handover of an identified result</td>
+<td>Reliance</td>
+<td>Keeps its reason and becomes more important</td>
+</tr>
+<tr>
+<td>Supplier, fabrication, site, and test sequences</td>
+<td>The physical world</td>
+<td>Unchanged</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is an argument from how the costs have changed, not a measured result. Agent capability and cost vary with the task and the system, and some practices keep part of their reason in a new form, as the batching and levelling rows show. Test the premise against your own project.</p>
+<p>Before you drop a practice that looks like labour coordination, ask what else it protects. A weekly coordination meeting may have existed to align drafting, and it may also be where adverse evidence was heard. Remove the part that answered the old cost, and keep the part that still has a reason.</p>
+<h3 id="direct-the-arrangement">Direct the arrangement</h3>
+<p>A leader directs the arrangement through a few decisions:</p>
+<ul>
+<li>Treat examination capacity as a project constraint, and report it with the other constraints.</li>
+<li>Decide where consequence requires independent examination, and how independence is provided when agents share a model or brief.</li>
+<li>Govern which basis agents read: identified revisions and statuses, and no proposal presented as basis.</li>
+<li>Keep a record only where it has a consumer, because cheap records still consume the attention of the people who read them.</li>
+<li>When the project is troubled, diagnose the arrangement as well as the work (Lesson 4).</li>
+</ul>
+<p>These decisions trade off:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 7; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Production limited to examination capacity</td>
+<td>Little verification debt; reliance follows examination</td>
+<td>Slower apparent progress; agent capacity unused</td>
+</tr>
+<tr>
+<td>Production ahead of examination</td>
+<td>Options and drafts ready when examiners are free</td>
+<td>Verification debt; errors spread if anyone relies early</td>
+</tr>
+<tr>
+<td>More competent examiners</td>
+<td>More work can be relied on</td>
+<td>Competent people are scarce and costly, and they need time to learn the project</td>
+</tr>
+<tr>
+<td>Fewer, broader agent assignments</td>
+<td>Less briefing and integration</td>
+<td>Harder examination; errors hide in volume</td>
+</tr>
+<tr>
+<td>Strong independence on all work</td>
+<td>Fewer correlated errors</td>
+<td>Examination time spent where the consequence does not warrant it</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Course 08 states a design aim for the arrangement: warranted confidence per unit of the accountable person's attention. At the leadership level, the accountable people include the sponsor and the technical authorities, and the aim applies to what reaches them. It remains a design aim, not a measurement.</p>
+<h3 id="carry-a-finding-through-the-arrangement">Carry a finding through the arrangement</h3>
+<p>Extend Course 08's teaching arrangement without changing Northbank's facts. Suppose the coordinator's helpers return a consistent package that includes A05 as approved scope. The source records still describe A05 as a proposal. The leader asks the coordinating agent to trace where the mistaken premise entered and which outputs depend on it.</p>
+<p>The coordinating agent corrects the basis supplied to the affected agents, repairs the dependent work and explains what earlier evidence still applies. The participant responsible under A01 examines the consequential result. If independent scrutiny is required, the producer's helpers do not become independent reviewers merely by changing their task labels.</p>
+<p>Use this example to discuss continuity: who notices the finding, who carries the repair, who checks the combined result, and which decision remains reserved? Do not count the production of several corrected files as proof that the shared premise has reached every affected use. Conversely, do not restart independent work whose basis remains valid.</p>
+<p>Record the consequential direction and examination in the existing learning portfolio. The arrangement is a teaching option, not a prescribed hierarchy or an App feature requirement.</p>
+<h2 id="worked-northbank-example">Worked Northbank example</h2>
+<p>The forecast, technical gaps, and handover limits now inform a decision about the project's direction. The leadership group must consider them together while preserving their different evidence and decision requirements.</p>
+<p>The leadership group receives D01 after C03 and wants a continuation decision for the approved 18 litres per second scope.</p>
+<p>The forecast is 265,000 against an authorized 240,000: a difference of 25,000 training currency units. No budget increase is recorded.</p>
+<p>Release at the end of Week 6 gives delivery at the end of Week 11. Sequential installation, commissioning, and handover reach the end of Week 15.</p>
+<p>Week 12 remains the target: neither the forecast nor the leadership brief changes that commitment.</p>
+<p>The group identifies three proposals: another supplier slot, activity overlap, and temporary operation. None has sufficient supporting conditions in D01.</p>
+<p>It recommends a bounded investigation before the continuation decision. The supplier must identify the offered configuration, delivery conditions, and price.</p>
+<p>The engineering team must assess the proposed overlap against installation and commissioning prerequisites. Operations must prepare an assessed basis for any temporary use.</p>
+<p>The sponsor receives the forecast and options. The technical and legal gaps remain explicit. The proposal does not declare equipment acceptance or operating readiness.</p>
+<p>This response advances the decision while preserving its limits; it does not promise recovery by Week 12 before a credible route exists.</p>
+<h3 id="the-same-decision-with-agents">The same decision with agents</h3>
+<p>As a teaching assumption, the leadership group uses agents to prepare the decision package. The brief identifies A02 Rev 1 as the approved scope, A05 Rev 0 as a proposal, C03 Rev 0 as a forecast, and D01 and D02 as received. It states that no budget increase is recorded and that Week 12 remains the target. It asks the agents to draft the three investigation requests, a decision table that names the authority for each decision, and a corrected status that reports readiness claims with their grounds.</p>
+<p>The agents return the drafts. The group does not accept them because they are complete and consistent. It divides the examination by A01's responsibilities:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 8; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Contribution</th>
+<th>Produced by</th>
+<th>Examined by</th>
+<th>The examination checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Request to the supplier for the other slot</td>
+<td>Agent</td>
+<td>Project manager, with procurement</td>
+<td>Configuration, delivery conditions, and price requested; nothing implies acceptance of B01</td>
+</tr>
+<tr>
+<td>Structure for the overlap assessment</td>
+<td>Agent</td>
+<td>Project engineer, with the installation and commissioning contributors</td>
+<td>Prerequisites and boundaries are stated as open; no saving is claimed</td>
+</tr>
+<tr>
+<td>Request for an assessed basis for temporary use</td>
+<td>Agent</td>
+<td>Operations lead</td>
+<td>The request asks for an operating plan and does not assume the existing arrangement is suitable</td>
+</tr>
+<tr>
+<td>Corrected status</td>
+<td>Agent</td>
+<td>Project manager, and an independent reviewer</td>
+<td>Each readiness claim's grounds; the changeover concern shown as open; C04's single observation not reported as acceptance</td>
+</tr>
+<tr>
+<td>Leadership memorandum</td>
+<td>Leadership group, with agent drafting</td>
+<td>Leadership group, and an independent reader</td>
+<td>Each claim's support, the decision rights, and the conditions for reconsideration</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The group also asks how the weekly report's counted documents were produced and examined. The records do not say, so the group treats the count as evidence of activity only, and asks for examination status before relying on it.</p>
+<p>The arithmetic and the recommendation are the same as in the classical account. Agents change who drafts the package and what the group must examine. Adding agents does not move the Week 15 forecast, because its three weeks come from the later release and the longer delivery.</p>
+<h2 id="transfer-example">Transfer example</h2>
+<p>A hospital software replacement has a contractual launch date. The supplier reports complete modules, but the hospital has unresolved data migration and user access checks.</p>
+<p>The manager examines the combined service and its readiness conditions. Module counts do not establish that staff can use the service safely.</p>
+<p>A staged launch may be an option, but its boundaries, examination, support arrangements, and decision authority must be established before reliance.</p>
+<p>If the supplier generated much of its code with agents, a module count says even less. The manager asks what each module's tests examined, who examined the results, and which of the hospital's own conditions they cover.</p>
+<h2 id="practice-examine-the-reporting-system">Practice: Examine the reporting system</h2>
+<p>Use A01, A02, C03 to C05, D01, and D02. Supply no additional approvals or test results.</p>
+<p>First complete Items 1 to 4 yourself, without an agent. You then know what a supported feedback explanation and a useful readiness question look like, and you can recognize an agent's return that departs from them. Work with an agent for the items that follow.</p>
+<ol>
+<li>Draw one feedback explanation for a Northbank difficulty.</li>
+<li>Cite the evidence for each connection.</li>
+<li>Mark connections that remain hypotheses.</li>
+<li>Compare the document-count measure with three proposed readiness questions.</li>
+<li>Prepare a response to the junior engineer's concern.</li>
+<li>Identify one irreversible commitment that needs better evidence.</li>
+<li>Explain which unaffected work can continue.</li>
+<li>Identify who could be affected by an unsupported readiness claim.</li>
+<li>Explain how to preserve truthful reporting and appropriate information sharing.</li>
+</ol>
+<p>For each item an agent contributes to, keep the brief you gave it and a short note of what you checked in its return, what you found, and what you changed.</p>
+<p>Exchange your work with an independent reader, and ask them to identify unsupported causal claims and unclear decision authority.</p>
+<p>Then complete three further exercises:</p>
+<ol>
+<li><strong>Diagnose an arrangement.</strong> In a separate, invented project, the weekly report shows 60 completed documents. Agents drafted most of them from one shared brief. The project's two examiners have examined 15, and design work has started on 20 of the unexamined ones. Identify the verification debt, the dependent work at risk, the coupling the shared brief creates, and two responses with their tradeoffs.</li>
+<li><strong>Examine an agent's return.</strong> An agent briefed to prepare a corrected Northbank status returns a draft that reports the changeover concern as closed, citing the meeting record, and gives 22 litres per second as the design flow. Identify both errors and the records that show them. Then write the sentences in the brief that would have guarded against them.</li>
+<li><strong>Sort the practices.</strong> Choose three practices from Courses 08 to 11: one that loses much of its reason when agents do the production, one that keeps it in a new form, and one that becomes more important. Explain each from the cost it answered.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>How does a feedback explanation differ from a dependency map?</li>
+<li>Why can a document-count report conceal delivery risk?</li>
+<li>Which decision rights remain separate when the sponsor approves expenditure?</li>
+<li>How should reversibility affect the timing of an uncertain decision?</li>
+<li>What evidence is needed before the proposed activity overlap can support a Week 12 recovery claim?</li>
+<li>What would make the response to D02 an institutional improvement rather than another report?</li>
+<li>Why does D02's document-count report become more misleading when agents draft documents, and how does cheap production interact with the handover bonus?</li>
+<li>What does verification debt add to the diagnosis of a troubled project, and what evidence would show it?</li>
+<li>Two discipline analyses, prepared by agents from one brief, agree with each other. How does that brief appear in a feedback explanation, and what does their agreement establish?</li>
+<li>Why is adding agent capacity not a credible route to recovering Northbank's Week 12 target on the present evidence?</li>
+<li>Name one classical practice that loses much of its reason when agents do the production, one that keeps its reason, and one that becomes more important. Explain each from the cost it answered.</li>
+</ol>
+<h2 id="assessed-assignment-continuation-recommendation">Assessed assignment: Continuation recommendation</h2>
+<p>Prepare a leadership memorandum of 1,000 to 1,500 words, using Packets A to D and your earlier portfolio. Work with agents, and add a short account of how you arranged their work and how you examined it, with the briefs you used.</p>
+<p>Diagnose the present project, and compare continuation, scope reduction, and suspension. You can add termination if its consequences require consideration. Include the arrangement of people and agents and its examination capacity among the matters you diagnose, and label any assumption about Northbank's agent use as a teaching assumption.</p>
+<p>Recommend the next direction, and identify the required decisions, permitted work, unresolved conditions, and points for reconsideration.</p>
+<p>Attach a one-page map of coupled effects and a decision table that names authorities and the evidence each decision needs.</p>
+<p>Get independent examination, repair confirmed defects, and present a five-minute defense of the revised recommendation.</p>
+<p>After the presentation, your instructor poses changed premises, such as a confirmed supplier slot, a weekly report whose counted documents have all been examined, or a sponsor approval of A05, and asks you to reason through their consequences. Your instructor rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>The assignment must meet these seven criteria:</p>
+<ol>
+<li>The diagnosis distinguishes authorized scope, forecasts, observations, proposals, and unsupported claims. It treats the arrangement of people and agents and its examination capacity as matters to diagnose, and it labels assumptions about Northbank's agent use as teaching assumptions.</li>
+<li>The coupled-effects map gives mechanisms, time effects, evidence, and explicit uncertainties. Connections that run through agent work, such as a shared brief, state their mechanism and evidence like any other.</li>
+<li>The option comparison addresses technical, commercial, operating, and continuing obligations.</li>
+<li>The recommendation preserves decision rights and states observable conditions for action or reconsideration. It assigns no decision or risk acceptance to an agent, and it claims no recovery from agent capacity without evidence that production limits the result.</li>
+<li>The revised memorandum addresses adverse evidence, affected people, incentive conflicts, truthful reporting, and a usable improvement in practice, including how cheap production interacts with the incentive and the reporting measure.</li>
+<li>The account of the arrangement shows who examined each agent contribution to the memorandum and for what, and where independence was needed and how it was provided. Your own examination record shows what you checked in each agent return, what it found, if anything, and what you changed.</li>
+<li>In the defense, you explain the recommendation's main conclusions and their grounds, show what your examination of the agents' work found, identify which judgments are your own, and reason correctly through the changed premises your instructor poses.</li>
+</ol>
+<h2 id="portfolio-and-references">Portfolio and references</h2>
+<p>Keep the memorandum, map, decision table, review findings, and repaired revision as Portfolio 11, and preserve the source basis used for each version. Keep the briefs, the account of the arrangement, and your examination record with them.</p>
+<p>Use the <a href="../references.html">references</a> for further study. In the management manual (Edition 9), chapters 3–6 explain dependencies, ownership, examination, and recovery of a usable position. §§4.3, 4.6 and 5.1–5.3 address concurrency and review capacity, diagnosing waiting, and independence where agents share a basis, and §9.1 addresses the whole cost of a result.</p>
+<p>Its agent roles describe how agents contribute to work; they assign no Northbank appointment, which remains under A01. APM governance and NASA technical management provide additional perspectives for comparison.</p>
+<p>Continue to <a href="12-project-practicum.html">Course 12</a>.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="11-complex-projects.md">11-complex-projects.md</a><br><code>6dcabfd01adb39ba37324bcd7e8af0b945abb11122b4da9fb33928a34699316a</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

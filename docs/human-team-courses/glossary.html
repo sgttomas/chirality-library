@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="8dc05f104ddd9e81687a8a94290c55027e622dd1d38ce015469c78154f38973f">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Terms for Project Practice · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 1 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#definitions">Definitions</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#definitions">Definitions</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="glossary.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="terms-for-project-practice">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="terms-for-project-practice">Terms for Project Practice</h1>
+<p>Use these meanings within the courses. A governing law, contract, or standard can define a term differently; use that definition where it applies.</p>
+<h2 id="definitions">Definitions</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning in this series</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acceptance</td>
+<td>An authorized decision, based on examination, that an identified result satisfies stated conditions for a stated purpose.</td>
+</tr>
+<tr>
+<td>Accountability</td>
+<td>The obligation to explain and answer for a responsibility or decision.</td>
+</tr>
+<tr>
+<td>Actual expenditure</td>
+<td>Cost recorded as incurred. It is distinct from a commitment or forecast.</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>An AI system that drafts, compares, calculates, searches, or checks work under a person's direction, directly or through another agent's brief. It can carry assigned execution and make choices within authority. In Northbank it holds no project appointment and cannot perform the reserved approval or acceptance acts or carry the person's accountability for reliance.</td>
+</tr>
+<tr>
+<td>Applicability</td>
+<td>The relationship that makes a requirement govern the work under its stated conditions.</td>
+</tr>
+<tr>
+<td>Approved basis</td>
+<td>The identified requirements, decisions, and limits approved as a reference for stated work. Applicable external obligations retain their standing.</td>
+</tr>
+<tr>
+<td>Assumption</td>
+<td>A proposition used in reasoning while its truth remains unconfirmed.</td>
+</tr>
+<tr>
+<td>Assurance</td>
+<td>Activities that provide justified confidence in the work and its intended result.</td>
+</tr>
+<tr>
+<td>Authority</td>
+<td>The right to make a stated decision or perform a stated act.</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>An identified reference state placed under a defined change process.</td>
+</tr>
+<tr>
+<td>Brief</td>
+<td>The instruction that gives an agent one assignment: its purpose, the identified basis with revision and status, the output wanted, its limits, the checks to perform, and the conditions under which it must stop and refer to a person or the directing agent, with reserved decisions reaching the person who holds them.</td>
+</tr>
+<tr>
+<td>Budget</td>
+<td>The amount authorized for a defined scope.</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td>What a participant or tool can do. Capability does not establish authority.</td>
+</tr>
+<tr>
+<td>Change control</td>
+<td>The process for assessing, deciding, communicating, and implementing departures from a controlled basis.</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>A statement that something is the case.</td>
+</tr>
+<tr>
+<td>Commissioning</td>
+<td>Activities that establish an installation's readiness and behavior under defined conditions before the relevant operating handover.</td>
+</tr>
+<tr>
+<td>Competence</td>
+<td>The knowledge, skill, experience, and judgment needed for the assigned work.</td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>The identified arrangement and characteristics of the product or system.</td>
+</tr>
+<tr>
+<td>Configuration control</td>
+<td>Control of changes to the product and its defining information.</td>
+</tr>
+<tr>
+<td>Constraint</td>
+<td>A limit that the work must respect.</td>
+</tr>
+<tr>
+<td>Contingency</td>
+<td>An identified allowance for uncertainty under the project's rules. It is not permission to change scope.</td>
+</tr>
+<tr>
+<td>Decision basis</td>
+<td>The evidence, requirements, assumptions, options, and consequences considered in a decision.</td>
+</tr>
+<tr>
+<td>Deliverable</td>
+<td>An identified result that a participant must supply under the assignment.</td>
+</tr>
+<tr>
+<td>Dependency</td>
+<td>A relationship in which one activity or result needs a contribution or condition from another.</td>
+</tr>
+<tr>
+<td>Document control</td>
+<td>Identification and control of document revisions, status, access, distribution, and retention.</td>
+</tr>
+<tr>
+<td>Estimate</td>
+<td>An assessment of a quantity, cost, or duration with a stated basis and uncertainty.</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>Information that can support or challenge a stated claim.</td>
+</tr>
+<tr>
+<td>Examination record</td>
+<td>A person's record of their production direction, including consequential agent-written briefs, and what they checked in the returns they relied on, what they found, and what they changed. References to recoverable material can replace copies. It shows the person's own contribution to agent-assisted work.</td>
+</tr>
+<tr>
+<td>Finding</td>
+<td>An identified observation or conclusion that needs a defined response.</td>
+</tr>
+<tr>
+<td>Forecast</td>
+<td>The present assessment of a future outcome. A forecast does not amend an authorized commitment.</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>The arrangement of authority, accountability, decision rights, and oversight for the undertaking.</td>
+</tr>
+<tr>
+<td>Handover</td>
+<td>Transfer of an identified result and its continuing responsibilities to a receiving party.</td>
+</tr>
+<tr>
+<td>Independence</td>
+<td>The condition in which an examination's basis, preparation, method, or examiner differs enough from the producer's to detect errors the producer's work shares. A check by an agent that shares the producer's model, brief, or reference may lack it. Agreement with a shared basis shows consistency, not correctness.</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td>A boundary through which parts, disciplines, people, or organizations exchange a contribution or interact.</td>
+</tr>
+<tr>
+<td>Issue</td>
+<td>A present condition that requires attention or a decision.</td>
+</tr>
+<tr>
+<td>Judgment</td>
+<td>A person's consideration of purpose, evidence, uncertainty, consequences, and the responsibility they will carry.</td>
+</tr>
+<tr>
+<td>Operating envelope</td>
+<td>The range of conditions under which the product must perform.</td>
+</tr>
+<tr>
+<td>Professional responsibility</td>
+<td>The obligations that attach to the person's professional practice. An internal assignment does not erase them.</td>
+</tr>
+<tr>
+<td>Project basis</td>
+<td>The identified purpose, requirements, scope, constraints, and decisions used to develop and execute the project.</td>
+</tr>
+<tr>
+<td>Project engineering</td>
+<td>Coordination of the technical basis, design contributions, interfaces, and technical grounds for the combined result.</td>
+</tr>
+<tr>
+<td>Project management</td>
+<td>Organization and control of the undertaking's commitments, work, resources, decisions, and delivery.</td>
+</tr>
+<tr>
+<td>Proposal</td>
+<td>A suggested action or change that has not yet received the required decision.</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td>The origin and history needed to understand where information came from.</td>
+</tr>
+<tr>
+<td>Readiness</td>
+<td>Satisfaction of the conditions required to start a stated activity or rely on a stated contribution.</td>
+</tr>
+<tr>
+<td>Requirement</td>
+<td>A needed result or constraint under an applicable authority or accepted assignment.</td>
+</tr>
+<tr>
+<td>Responsibility</td>
+<td>The work, decision, or duty that a person or organization must carry under the applicable arrangement.</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>An agent's report of an assignment: the output, the scope completed, the checks performed, the limits, and any open choices. It distinguishes what the agent prepared from what it actually changed.</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Examination of the work, its basis, and its conclusions by a person with suitable competence and assigned purpose.</td>
+</tr>
+<tr>
+<td>Revision</td>
+<td>An identified version of a document or other controlled item.</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>The relationship between uncertainty and its possible effects on objectives or affected parties.</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>The work and results included in an assignment, with its boundaries and exclusions.</td>
+</tr>
+<tr>
+<td>Stakeholder</td>
+<td>A person or organization that affects the undertaking or is affected by it.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>The declared condition of an item under the relevant process, such as draft, approved, or superseded.</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Examination of whether the result is fit for its intended use under the relevant conditions.</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>Examination of conformity to specified requirements.</td>
+</tr>
+<tr>
+<td>Verification debt</td>
+<td>Work produced but not yet examined against its requirements or for its intended use. It grows when work reaches examiners faster than they can examine it, and each item may carry an error into dependent work.</td>
+</tr>
+<tr>
+<td>Warrant</td>
+<td>The grounds that justify a claim for the proposed reliance.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>An authorized decision can establish or change commitments, permissions, and assigned responsibilities, but it does not establish unexamined physical behavior or performance. A declared status needs supporting evidence for the proposed reliance.</p>
+<p><a href="index.html">Return to the series</a>. <a href="case-study.html">Open the case</a>.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="glossary.md">glossary.md</a><br><code>8dc05f104ddd9e81687a8a94290c55027e622dd1d38ce015469c78154f38973f</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="1f7eb63a1a7f6f9ed058e6897244cac5d4b704e17bac65f51976a72a5ba944b2">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 05: Reasoning, Uncertainty, and Professional Judgment · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 12 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-state-the-claim-and-the-intended-reliance">Lesson 1: State the claim and the intended reliance</a></li>
+<li><a href="#lesson-2-examine-models-and-observations">Lesson 2: Examine models and observations</a></li>
+<li><a href="#lesson-3-treat-uncertainty-as-part-of-the-decision">Lesson 3: Treat uncertainty as part of the decision</a></li>
+<li><a href="#lesson-4-make-the-recommendation-answerable">Lesson 4: Make the recommendation answerable</a></li>
+<li><a href="#lesson-5-invite-challenge-and-repair-the-reasoning">Lesson 5: Invite challenge and repair the reasoning</a></li>
+<li><a href="#worked-example-northbank-supplier-decision">Worked example: Northbank supplier decision</a></li>
+<li><a href="#transfer-example-laboratory-ventilation">Transfer example: Laboratory ventilation</a></li>
+<li><a href="#practice-examine-five-claims">Practice: Examine five claims</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-defend-a-procurement-recommendation">Assessed assignment: Defend a procurement recommendation</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-state-the-claim-and-the-intended-reliance">Lesson 1: State the claim and the intended reliance</a></li>
+<li><a href="#lesson-2-examine-models-and-observations">Lesson 2: Examine models and observations</a></li>
+<li><a href="#lesson-3-treat-uncertainty-as-part-of-the-decision">Lesson 3: Treat uncertainty as part of the decision</a></li>
+<li><a href="#lesson-4-make-the-recommendation-answerable">Lesson 4: Make the recommendation answerable</a></li>
+<li><a href="#lesson-5-invite-challenge-and-repair-the-reasoning">Lesson 5: Invite challenge and repair the reasoning</a></li>
+<li><a href="#worked-example-northbank-supplier-decision">Worked example: Northbank supplier decision</a></li>
+<li><a href="#transfer-example-laboratory-ventilation">Transfer example: Laboratory ventilation</a></li>
+<li><a href="#practice-examine-five-claims">Practice: Examine five claims</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-defend-a-procurement-recommendation">Assessed assignment: Defend a procurement recommendation</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="05-reasoning-judgment.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-05-reasoning-uncertainty-and-professional-judgment">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-05-reasoning-uncertainty-and-professional-judgment">Course 05: Reasoning, Uncertainty, and Professional Judgment</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>Professional judgment connects evidence to a decision that a person will answer for. It requires more than a correct calculation or a confident recommendation. You must understand the decision's purpose, governing requirements, uncertain inputs, and possible consequences, and other people must be able to examine your reasoning.</p>
+<p>This course teaches a method for preparing and defending that reasoning in a team where people work with AI agents, but technical competence is still essential. Use a competent specialist where the question goes beyond your knowledge.</p>
+<h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
+<p>Complete Courses 01 to 04, and bring your controlled source index and requirements interpretation from those courses.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. In this course the shifted constraint is the cost of reasoning: agents make fluent, well-structured analysis cheap, so fluency stops being evidence of warrant, and judging which analyses matter and whether their grounds hold becomes the scarce step. That judgment stays with the person who will answer for the decision; <a href="08-project-execution.html#lesson-6-engineer-the-arrangement-that-does-the-work">Course 08 Lesson 6</a> treats the arrangement of people and agents as a system.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>; in this course, any description of what an agent might return in the case is a teaching assumption, not a case record.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>After this course, you can:</p>
+<ul>
+<li>Distinguish a claim from the evidence offered for it.</li>
+<li>Explain the limits of a model or observation.</li>
+<li>Compare options under stated uncertainty.</li>
+<li>Prepare a recommendation for the correct decision authority.</li>
+<li>Revise a conclusion when new evidence changes its grounds.</li>
+<li>Pose questions to agents without steering the answer toward a preferred conclusion.</li>
+<li>Examine an agent's reasoning for its warrant, and distinguish agreement between agents from independent examination.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+</ul>
+<p>Use Northbank Packets A and B; later packets are not available for this assignment.</p>
+<h2 id="lesson-1-state-the-claim-and-the-intended-reliance">Lesson 1: State the claim and the intended reliance</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>Start with the question that someone must decide. A broad question, such as “Is the equipment acceptable?”, hides several decisions: technical suitability, expenditure approval, scope amendment, and permission to operate have different grounds. Identify the act that your recommendation supports.</p>
+<p>A <strong>claim</strong> states that something is the case. <strong>Evidence</strong> can support or challenge that claim. A <strong>warrant</strong> explains why the evidence supports the proposed reliance.</p>
+<p>A brochure might support a claim about a product family but may provide no warrant for selecting a particular configuration. Similarly, an approved document can establish a project requirement, but its approval does not prove that the physical installation satisfies that requirement.</p>
+<p>Prepare a short reasoning table:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision</td>
+<td>What act does this reasoning support?</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>What must be established before that act?</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Which identified information supports the claim?</td>
+</tr>
+<tr>
+<td>Warrant</td>
+<td>Why does that information support this reliance?</td>
+</tr>
+<tr>
+<td>Limit</td>
+<td>What does the information leave unestablished?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Read the source passage with its status and conditions, and keep the reported observation separate from your interpretation of it. Use specific wording: “Observed at one connection” means something different from “available throughout the site”.</p>
+<p>Do not fill a missing warrant with confidence, seniority, or repetition. Ask what evidence could expose the claim as wrong.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that the person who fills in the reasoning table has worked through it. Writing a clear warrant takes effort, so a missing warrant tends to show as a gap or an awkward sentence. The method also assumes that the person who frames the question will also work on the answer, so the framing reaches the work through their own attention.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>An agent can complete every row of the reasoning table in minutes, in fluent and well-organized prose. The table then looks complete whether or not each warrant holds. An agent can write a confident warrant for relying on B01's brochure as readily as a sound one for relying on A04's observation, and the two can read alike. Fluency joins confidence, seniority, and repetition as things that cannot fill a missing warrant.</p>
+<p>The question also changes hands. The question you pose becomes the agent's brief, and agents tend to support a hypothesis they are handed. Ask an agent to show that B01 can support an authorized purchase package, and it may assemble the evidence that seems to favor acceptance while giving less weight to A04's 600 V observation and the missing pump curve. How you pose the question shapes the answer.</p>
+<p>The rest of the lesson carries over unchanged: identify the decision, distinguish claim, evidence, and warrant, and read the source passage with its status and conditions.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>State the decision and the intended reliance in the brief, and give the agent the identified sources with their revisions and status. Ask for the reasoning table, and ask the agent to report the evidence that challenges the claim and what each source leaves unestablished.</p>
+<p>Pose the question openly where the answer matters: “What can B01 support, and what does it leave unestablished?” rather than “Confirm that B01 is acceptable.” When you do want a hypothesis tested, say that it is a hypothesis and ask for the evidence that would refute it.</p>
+<p>Then examine the warrants yourself. For each consequential row, read the source passage and decide whether it supports this reliance. A well-written row is no reason to skip the check.</p>
+<p>Each way of posing the question gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>How you pose the question</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ask the agent to support a stated hypothesis</td>
+<td>A focused return</td>
+<td>The agent tends to confirm the hypothesis and may underweight contrary evidence</td>
+</tr>
+<tr>
+<td>Ask an open question</td>
+<td>Less steering toward your preferred answer</td>
+<td>A broader return that takes longer to examine</td>
+</tr>
+<tr>
+<td>Ask for the strongest case against your conclusion</td>
+<td>Weak warrants are exposed early</td>
+<td>The agent can produce weak objections as readily as strong ones, and each one uses your attention</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-2-examine-models-and-observations">Lesson 2: Examine models and observations</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>A model represents selected features of a situation, and it can support a decision when those features include what matters for that decision. The model may leave out behavior that is unimportant for one question but decisive for another, so state its purpose before you examine its results.</p>
+<p>Check the input identities, units, conditions, and source revisions, then examine the relationships used to get the result. Ask whether the model represents the relevant operating envelope, and examine abnormal conditions where their consequences matter to the assignment.</p>
+<p>A precise result can still be unreliable when its inputs are uncertain: extra decimal places do not improve those inputs.</p>
+<p>Observations also have limits, so identify what was observed, where, under which conditions, and with which method.</p>
+<p>Distinguish two forms of examination:</p>
+<ul>
+<li><strong>Verification</strong> examines conformity to specified requirements.</li>
+<li><strong>Validation</strong> examines fitness for intended use under the relevant conditions.</li>
+</ul>
+<p>Checking arithmetic can support verification of a calculation, but it does not establish that the calculation represents the intended service.</p>
+<p>Use this examination sequence:</p>
+<ol>
+<li>State the model's intended decision.</li>
+<li>Check the input basis.</li>
+<li>Examine the method and its limits.</li>
+<li>Compare the result with an independent estimate or observation where appropriate.</li>
+<li>Identify the conditions still unexamined.</li>
+</ol>
+<p>An independent comparison must address the relevant failure: two calculations that use the same mistaken input can agree and still be wrong.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that building and running a model takes effort, so a team runs few models and the person who builds one knows its inputs. It also assumes that an independent estimate is prepared separately, often by another person with a different method, so that agreement between the two means something.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>Agents can list input identities and units, run a calculation, and prepare a comparison estimate quickly. Precise results become cheap, so the warning about extra decimal places applies to more of the work.</p>
+<p>Independence does not follow automatically from using another participant, human or agent. Two agents that share a model, a brief, or a mistaken input can share an error. Their agreement shows that the two results are consistent with each other, not that their common basis is correct. A second agent asked to check the first, with the same brief and sources, does not establish independence merely by agreeing. Examine whether its preparation and method can expose the consequential shared assumptions.</p>
+<p>Agents can also broaden an observation when they summarize it. A04 identifies the existing connection as 600 V, three phase, 60 Hz, and records where and how it was observed. A summary that says “the site supply is 600 V” turns an observation at one connection into a claim about the site. The lesson's distinction between “observed at one connection” and “available throughout the site” now applies to every summary an agent writes.</p>
+<p>Verification and validation remain distinct. An agent's correct arithmetic can support verification of a calculation; it does not establish that the calculation represents the intended service.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Use the same examination sequence. Agents can do much of the mechanical work in Steps 2 and 4: listing input identities, units, and revisions, and preparing a comparison. Steps 1, 3, and 5 need your judgment: which decision the model serves, whether its method fits the operating envelope, and which conditions remain unexamined.</p>
+<p>Make an independent comparison independent in the way that matters for the failure you are guarding against. Change the basis of the check: a different source for the input, a different method, a hand estimate, or a competent person's examination. Where the work will be relied on, the examiner is a competent person.</p>
+<p>Check an agent's summary of an observation against the source wording before you rely on it.</p>
+<p>Each kind of check catches some failures and misses others:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>What it can catch</th>
+<th>What it can miss or cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A second agent with the same brief and sources</td>
+<td>Slips in arithmetic or transcription</td>
+<td>A mistaken shared input, brief, or method</td>
+</tr>
+<tr>
+<td>A check with a different input source or method</td>
+<td>An error in one input or one method</td>
+<td>An error shared by both, such as a misframed question</td>
+</tr>
+<tr>
+<td>A competent person's examination</td>
+<td>Whether the model represents the intended service</td>
+<td>It uses the scarcest attention, so it limits how many results can be examined</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-3-treat-uncertainty-as-part-of-the-decision">Lesson 3: Treat uncertainty as part of the decision</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>An <strong>assumption</strong> is a proposition used while its truth remains unconfirmed. Permission to work on an assumption leaves it an assumption.</p>
+<p>Identify uncertainty at the level where it affects the decision. “The design is uncertain” gives the next participant little help, but “Available suction conditions are unresolved” identifies an input needed for pump selection, and it also points toward investigation and an appropriate owner.</p>
+<p>Assess each uncertain matter with four questions:</p>
+<ol>
+<li>What could differ from the present assumption?</li>
+<li>Which result depends on it?</li>
+<li>What consequence could follow from being wrong?</li>
+<li>What evidence or decision will resolve it?</li>
+</ol>
+<p>Compare options under the same stated conditions, and include the option to investigate, defer the dependent act, or narrow its extent.</p>
+<p>Do not assign probabilities without a defensible basis; a qualitative comparison can be more useful than invented numbers.</p>
+<p>Sensitivity analysis examines how a result changes when an input changes; use it to find inputs that deserve more attention. For a quantitative analysis, state the tested range and its source. Distinguish a teaching assumption from a measured physical condition.</p>
+<p>An unresolved matter need not stop all work: identify the work it limits and the independent work that can continue.</p>
+<p>Keep conditional recommendations precise: state the required condition, the person who establishes it, and the evidence needed before reliance.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that each option analysis or sensitivity study costs hours of skilled work. A team could afford only a few, so deciding which ones to run was itself a judgment about which inputs mattered, made before the work began.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>Agents make alternative analyses and sensitivity studies cheap to run, so a team can test many inputs and many options. The scarce step becomes judging which studies matter for the decision, and reading their results for that purpose.</p>
+<p>More studies do not by themselves give more warrant. A long table of sensitivities can bury the one input that changes the decision, and each result still needs someone to check its range and basis. An agent will also supply a range or a probability fluently where no defensible basis exists, so the rule against invented probabilities applies with more force. An agent can present an assumed range and a measured condition in the same format, so the return must keep the distinction between them.</p>
+<p>For Northbank, A02 states that the available suction conditions, required pressure, water properties, site constraints, and relevant operating cases are unresolved. An agent could vary assumed values for these inputs across many cases. Those results rest on assumed ranges, and they cannot select a pump or establish B01's suitability.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Use the four questions before you commission studies, not only after. Identify the decision in hand, the result that depends on each uncertain input, and the inputs that could change that decision. Commission studies for those inputs.</p>
+<p>Require each tested range to state its source or to be labelled as an assumption. Read each result by asking which decision it changes. Report the studies that bear on the decision, and say which others you ran and why they do not.</p>
+<p>Each approach gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run many studies</td>
+<td>Broader coverage; a surprising sensitivity is less likely to be missed</td>
+<td>More to examine; the decisive result can be buried</td>
+</tr>
+<tr>
+<td>Run a few chosen studies</td>
+<td>Each result can be examined with care</td>
+<td>An input you did not choose stays unexamined</td>
+</tr>
+<tr>
+<td>Let the agent choose the studies</td>
+<td>Little of your time at the start</td>
+<td>The judgment about what matters passes to the agent</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-4-make-the-recommendation-answerable">Lesson 4: Make the recommendation answerable</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>A recommendation should connect the decision question, options, evidence, uncertainty, and consequences. The reader must understand why you prefer the proposed course of action.</p>
+<p>Explain the strongest reasonable alternative; this tests whether your preferred option survives a fair comparison.</p>
+<p>Consider people affected beyond the decision meeting, and examine effects on the public and on workers where the work can create them.</p>
+<p>A favorable project outcome can still impose unacceptable consequences, so identify applicable obligations before you balance preferences about cost, time, or convenience.</p>
+<p>Disclose a conflict of interest through the appropriate route, and keep your own incentive separate from the grounds offered for the decision.</p>
+<p>Distinguish technical judgment from authority to perform the final act: an engineer can recommend a scope change without having authority to approve it. A sponsor can choose among project objectives and resource commitments, but that choice does not establish the technical suitability of a configuration.</p>
+<p>Use the appointment and applicable obligations to identify the decision owner, and ask for clarification when those sources leave a consequential authority unresolved.</p>
+<p>Write the recommendation in this order:</p>
+<ol>
+<li>State the requested decision.</li>
+<li>Identify the applicable basis.</li>
+<li>Compare the relevant options.</li>
+<li>Explain the preferred option.</li>
+<li>State its conditions and affected work.</li>
+<li>Name the required authority.</li>
+</ol>
+<p>Match the strength of the conclusion to the evidence: “Suitable for further review” and “suitable for procurement” support different acts. State what would cause reconsideration so that the decision stays usable when the situation changes.</p>
+<p>Keep a record only when another activity needs it. Preserve the decision's identity, grounds, conditions, and affected scope.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that the person who writes the recommendation weighs it while writing. Drafting the strongest alternative, the conditions, and the affected parties takes effort, and that effort is part of forming the judgment. The author of the recommendation and the person who answers for it are usually the same.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>An agent can draft the recommendation in the six-step order within minutes, including a fair account of the strongest alternative. The draft can be better organized than one written under time pressure. But its author is then not the person who will answer for it.</p>
+<p>Judgment does not move with the drafting. In this series, <a href="../glossary.html">judgment</a> is a person's consideration of purpose, evidence, uncertainty, consequences, and the responsibility they will carry. An agent can contribute reasoning to it. The agent cannot carry the responsibility, hold an appointment under A01, or answer for consequences to the sponsor, operations, workers, or the public.</p>
+<p>Cheap drafting brings three risks:</p>
+<ol>
+<li><strong>Strength drift.</strong> A draft can state a conclusion more strongly than the evidence supports, for example “suitable for procurement” where the evidence supports “suitable for further review”.</li>
+<li><strong>Invented content.</strong> Asked to consider affected parties, an agent may describe plausible hazards that no Northbank record supports.</li>
+<li><strong>Carried incentives.</strong> An agent has no interest in the outcome, but a brief can carry its author's preference. A brief that stresses keeping the delivery slot can steer the draft toward acceptance, so the rule to keep your own incentive separate from the grounds now applies to the brief as well.</li>
+</ol>
+<p>The authority rules carry over unchanged. A recommendation drafted by an agent does not approve a scope change, and a sponsor's choice does not establish technical suitability.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Use agents to draft the recommendation and to prepare the strongest alternative, then make the recommendation your own. Read each claim against its evidence and set its strength yourself. Remove or repair any sentence that you cannot explain and defend without the draft in front of you. Check that each affected party and consequence rests on a record or is stated as unknown.</p>
+<p>Where the reader needs it to judge reliance, state which parts agents prepared and what you examined.</p>
+<p>The decision owner receives your judgment, not the agent's draft. Before you send the recommendation, ask whether you would stand behind each sentence if you had written it yourself.</p>
+<h2 id="lesson-5-invite-challenge-and-repair-the-reasoning">Lesson 5: Invite challenge and repair the reasoning</h2>
+<h3 id="the-classical-method-4">The classical method</h3>
+<p>Independent scrutiny can reveal omitted conditions, weak sources, and unreasonable comparisons, and it works best when the reviewer knows the intended reliance.</p>
+<p>Give the reviewer the decision question, source basis, calculation or argument, and proposed conclusion; identify the limits of the requested review.</p>
+<p>Ask for a challenge to the grounds: a review of formatting cannot establish technical adequacy.</p>
+<p>Consider shared assumptions and interests that could impair scrutiny: a reviewer can miss the same defect as a producer. Challenge a consequential shared basis instead of relying only on agreement.</p>
+<p>When someone challenges your reasoning, keep the observation separate from the proposed explanation, and check the actual source or result before you choose a repair.</p>
+<p>Treat a finding through these actions:</p>
+<ol>
+<li>Identify the affected claim.</li>
+<li>Examine the supporting evidence.</li>
+<li>Determine whether the conclusion changes.</li>
+<li>Repair the affected work.</li>
+<li>Re-examine the changed reasoning and dependent conclusions.</li>
+</ol>
+<p>A changed conclusion can be evidence of improved judgment. Explain which premise changed and why the new conclusion follows. Keep valid evidence where its basis is still applicable, and repeat examination when a change or unresolved concern warrants it.</p>
+<p>Do not change an acceptance condition merely to get a favorable result; a changed requirement needs its own substantive reason and authority.</p>
+<h3 id="what-it-assumes-4">What it assumes</h3>
+<p>The classical method assumes that challenge is expensive and comes from another person: a reviewer with competence, time, and a view of their own. Such a reviewer may share some of the producer's assumptions, but they bring a different preparation and will usually hold a finding they believe is right. It also assumes that repair is expensive, so the producer changes what the finding affects and little else.</p>
+<h3 id="what-changes-with-agents-4">What changes with agents</h3>
+<p>Challenge becomes cheap: you can ask an agent to argue against your recommendation at any time. But agent challenge is shaped by how you ask for it. A challenger agent given your conclusion and your reasoning can be anchored by them, and an agent that shares your brief also shares the assumptions in it.</p>
+<p>Agents also do not reliably hold a correct finding. If you push back on an agent's finding, it may withdraw the finding whether or not it was right. The rule to keep the observation separate from the proposed explanation, and to check the actual source before you choose a repair, applies to a withdrawal as much as to a finding.</p>
+<p>Repair becomes cheap too, and that brings its own risk. An agent asked to address one finding may rewrite the whole memorandum, so that every changed sentence and dependent conclusion needs examining again. An agent asked to make an analysis pass may change the acceptance condition instead of the analysis.</p>
+<h3 id="the-extended-method-4">The extended method</h3>
+<p>Use agent challenge as an early, cheap pass before review by a person, not in place of that review where the consequence calls for a competent reviewer.</p>
+<p>Arrange the challenge for the independence you need. A challenger that works from the decision question and the sources, before it sees your conclusion, gives a less anchored answer to compare with yours. A challenger that reads your draft can test the argument you actually made.</p>
+<p>Treat a withdrawn finding as unresolved until you have checked the source. Confine each repair to the affected claim and its dependent conclusions, and keep the previous revision. Check that an agent's repair changed only what the finding affected and left the acceptance conditions as they were.</p>
+<p>Each arrangement for challenge gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 5; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Who challenges, and from what</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An agent given your draft and reasoning</td>
+<td>Tests the argument you actually made</td>
+<td>Can be anchored by your conclusion; shares your brief's assumptions</td>
+</tr>
+<tr>
+<td>An agent given only the decision question and sources</td>
+<td>A less anchored answer to compare with yours</td>
+<td>More to reconcile; may not address your actual argument</td>
+</tr>
+<tr>
+<td>A competent person</td>
+<td>Different preparation and competence; more likely to hold a finding under pushback</td>
+<td>Uses scarce attention, so reserve it for the claims that matter most</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="worked-example-northbank-supplier-decision">Worked example: Northbank supplier decision</h2>
+<p>The earlier source and requirements work now supports a recommendation: what response to the supplier can the available evidence justify?</p>
+<p>B01 requests acceptance within two working days. The motors it offers are rated for 480 V, but A04 reports an existing connection at 600 V.</p>
+<p>The project engineer frames the question as: “Can B01 support an authorized purchase package?” This identifies the intended reliance.</p>
+<p>A04 supports a discrepancy finding, but it does not establish spare capacity, protection coordination, or the suitability of any proposed supply arrangement.</p>
+<p>B01 lacks a selected pump curve and declared operating cases, and A02 also leaves important hydraulic inputs unresolved.</p>
+<p>The engineer compares immediate acceptance with returning the submission for correction and substantiation; the evidence does not support immediate technical acceptance.</p>
+<p>The engineer recommends a corrected, identified submission and the missing technical checks. Procurement continues commercial inquiries within its authority.</p>
+<p>The engineer asks procurement to clarify the delivery-slot conditions: the two-day request does not establish that losing the slot will determine final delivery.</p>
+<p>A05 is still a proposal for 22 litres per second, and the technical review must preserve A02's approved 18 litres per second requirement.</p>
+<p>The recommendation separates the supplier discrepancy, the incomplete hydraulic basis, the proposed scope change, and the commercial uncertainty; each requires its own response.</p>
+<p>This conclusion does not decide which corrected pump or electrical arrangement will be suitable; those decisions need further competent work.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>The project engineer briefs an agent with the same decision question: “Can B01 support an authorized purchase package?” The brief identifies A01 Rev 0, A02 Rev 1 (approved for project development), A04 Rev 1 (checked site observation), A05 Rev 0 (proposal), B01 Rev 0 (submitted for technical review, not accepted), and B02 Rev 0. It asks for a reasoning table, the evidence against acceptance as well as for it, and what each source leaves unestablished.</p>
+<p>The engineer could have posed the question another way: “Draft our acceptance of B01 so that we keep the delivery slot.” That brief states both the conclusion and the incentive, and as a teaching assumption, an agent given it could return a fluent acceptance. The question the engineer chose identifies the reliance without assuming the answer.</p>
+<p>The engineer examines the return against the records, not by its fluency. The checks include:</p>
+<ul>
+<li>A04 appears as a checked observation at the existing connection, not as a finding about the whole site supply, and not as proof that no 480 V arrangement can be used.</li>
+<li>The brochure appears as product-family information, not as evidence that the offered pump meets Northbank's duty.</li>
+<li>A02 Rev 1's 18 litres per second governs, and A05 remains a proposal.</li>
+<li>The two-day request is not treated as establishing that losing the slot will determine final delivery.</li>
+</ul>
+<p>The engineer also asks an agent to prepare the alternative responses: immediate acceptance, return for correction and substantiation, and any other response the evidence might support. The engineer decides which deserve the attention of procurement and the sponsor, and why.</p>
+<p>Suppose a second agent, given the same brief, agrees with the first. The engineer records that agreement as consistency, not as review. Under A04, the electrical engineer must determine spare capacity, protection coordination, and equipment compatibility, and no agreement between agents settles those matters.</p>
+<p>The engineer makes the recommendation and answers for it. The clarification of the delivery-slot conditions remains a conversation between people. The classical conclusion stands: agents change who drafts the reasoning and what the engineer must examine, not what the evidence supports.</p>
+<h2 id="transfer-example-laboratory-ventilation">Transfer example: Laboratory ventilation</h2>
+<p>A laboratory team has one airflow observation and a request to add another enclosure, but the observation covers the existing arrangement under one condition.</p>
+<p>The team must establish the new operating conditions before it relies on the observation for the addition. A precise reading cannot answer an unexamined design question.</p>
+<p>An agent can turn the one observation into a precise model of the addition in minutes. The model still rests on the single condition the observation covered.</p>
+<h2 id="practice-examine-five-claims">Practice: Examine five claims</h2>
+<p>Use A01 to A06 and B01 to B03, and examine these statements as submitted claims:</p>
+<ul>
+<li>“The 600 V survey proves that no 480 V motor arrangement can be used.”</li>
+<li>“The supplier brochure proves that the offered pump meets Northbank's duty.”</li>
+<li>“Operations' request makes 22 litres per second the current requirement.”</li>
+<li>“Keeping Week 12 authorizes the supplier's technical deviation.”</li>
+<li>“All project work must stop until every open input is resolved.”</li>
+</ul>
+<p>For each claim, identify its source basis, missing warrant, possible consequence, and a defensible replacement statement. Supply no invented technical or legal facts.</p>
+<p>Prepare this claim table yourself, without an agent. You then know what a sound return should contain.</p>
+<p>Prepare one review question that could change your replacement statement, and exchange your table with another participant.</p>
+<p>Then complete three exercises with agents. For each, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<ol>
+<li><strong>Compare an agent's examination with yours.</strong> Brief an agent to examine the same five claims, and give it the records with their revisions and status. Compare its table with yours, claim by claim. Where the tables differ, check the source and record which statement it supports. Where they agree, record what you checked.</li>
+<li><strong>Pose the question two ways.</strong> In one agent session, ask: “Show that B01 can be accepted within two working days.” In a separate session, ask: “What can B01 support for an authorized purchase package, and what does it leave unestablished?” Compare the returns and explain how the framing shaped them. If they do not differ materially, record what you checked to establish that.</li>
+<li><strong>Choose the studies that matter.</strong> Ask an agent to list the uncertain inputs in A02 and B01 and to propose sensitivity studies. Select the studies, if any, that bear on the next response to B01, and explain why the others do not. For each proposed range, state whether it has a source in the records or is an assumption.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>What distinguishes evidence from a warrant?</li>
+<li>Why can two matching calculations remain unreliable?</li>
+<li>What information makes an assumption usable for coordination?</li>
+<li>How do verification and validation differ?</li>
+<li>Which Northbank authority can amend the approved transfer-flow scope?</li>
+<li>What should change when new evidence invalidates a decision premise?</li>
+<li>Why is a fluent, well-organized argument from an agent not evidence that its warrant holds?</li>
+<li>Two agents given the same brief reach the same conclusion about B01. What does their agreement establish, and what would make a check independent?</li>
+<li>How can the way you pose a question to an agent shape its answer? Give a better way to pose the B01 question than asking the agent to confirm acceptance.</li>
+<li>Agents make sensitivity studies cheap. Which step becomes scarce, and how do you decide which studies to run?</li>
+<li>An agent drafted your recommendation. Which part of the recommendation remains yours, and why can the agent not carry it?</li>
+</ol>
+<h2 id="assessed-assignment-defend-a-procurement-recommendation">Assessed assignment: Defend a procurement recommendation</h2>
+<p>Using Packets A and B, prepare a decision memorandum that recommends the next response to B01's acceptance request, working with agents.</p>
+<p>Include a fair comparison of immediate acceptance, return for substantiation, and one other defensible response, and explain which work can continue.</p>
+<p>State the evidence needed for the next technical decision, and keep the A05 proposal separate from the approved scope.</p>
+<p>Explain which affected parties need consideration, and identify what is still unknown about consequences rather than inventing a Northbank hazard.</p>
+<p>Add a short account of how you used agents: the questions you posed and how you posed them, how you arranged challenge of the reasoning, and what you examined in each return, with the briefs you used.</p>
+<p>Defend the memorandum to a peer or mentor, and repair it where the challenge identifies an unsupported claim.</p>
+<p>Then defend the memorandum to your instructor. Expect changed premises about the evidence, such as a different survey result, and about pressure, such as a confirmed loss of the delivery slot. Your instructor rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>The instructor assesses these seven observable criteria:</p>
+<ol>
+<li>The memorandum identifies the requested act, source revisions, and intended reliance, and the briefs give the agents the same identified sources with their status.</li>
+<li>It preserves the approved scope and relevant authority boundaries.</li>
+<li>It evaluates the voltage discrepancy and incomplete hydraulic basis without unsupported suitability claims.</li>
+<li>It compares options, uncertainty, affected parties, consequences, and conditions for dependent work.</li>
+<li>It explains the recommendation and records justified repairs after challenge.</li>
+<li>The account of agent use shows how each consequential question was posed openly, or as an explicit hypothesis with a request for the evidence that would refute it, and how challenge was arranged where independence mattered. Your own examination record shows which warrants you checked against the sources, what you found, and what you changed.</li>
+<li>In the defense, you explain the recommendation's main conclusions and their grounds, show what your examination of the agents' work found, identify which judgments are your own, and reason correctly through the changed premises your instructor poses.</li>
+</ol>
+<h2 id="portfolio-continuation-and-references">Portfolio continuation and references</h2>
+<p>Keep the reviewed claim table and decision memorandum as Portfolio 05, and link them to the controlled sources from earlier courses.</p>
+<p>Use them in Course 06 to explain a difficult recommendation, and use their unresolved inputs in Course 07 to define further work.</p>
+<p>Source adaptation: Management manual (Edition 9) §§1.2–1.3, 2.4–2.5, and 5.1–5.4. These sections cover claims, uncertainty, examination, agreement among agents, and preserved decision grounds.</p>
+<p>Read the shared <a href="../references.html">references</a> for professional competencies and systems engineering fundamentals. Further reading is optional for the supplied exercise.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="05-reasoning-judgment.md">05-reasoning-judgment.md</a><br><code>1f7eb63a1a7f6f9ed058e6897244cac5d4b704e17bac65f51976a72a5ba944b2</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

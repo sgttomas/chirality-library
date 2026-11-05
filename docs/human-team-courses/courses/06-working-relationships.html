@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="f1c04587cf2b7e2df282942b2d59b434db6394edbcbf5e5a712eea48fd868bf6">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 06: Communication and Working Relationships · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 12 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-establish-a-shared-picture">Lesson 1: Establish a shared picture</a></li>
+<li><a href="#lesson-2-understand-interests-and-authority">Lesson 2: Understand interests and authority</a></li>
+<li><a href="#lesson-3-explain-and-persuade-credibly">Lesson 3: Explain and persuade credibly</a></li>
+<li><a href="#lesson-4-handle-disagreement-and-negotiation">Lesson 4: Handle disagreement and negotiation</a></li>
+<li><a href="#lesson-5-support-reliable-contributions">Lesson 5: Support reliable contributions</a></li>
+<li><a href="#worked-example-a-northbank-coordination-meeting">Worked example: A Northbank coordination meeting</a></li>
+<li><a href="#transfer-example-a-hospital-refurbishment">Transfer example: A hospital refurbishment</a></li>
+<li><a href="#practice-conduct-a-decision-meeting">Practice: Conduct a decision meeting</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-establish-an-actionable-common-understanding">Assessed assignment: Establish an actionable common understanding</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-establish-a-shared-picture">Lesson 1: Establish a shared picture</a></li>
+<li><a href="#lesson-2-understand-interests-and-authority">Lesson 2: Understand interests and authority</a></li>
+<li><a href="#lesson-3-explain-and-persuade-credibly">Lesson 3: Explain and persuade credibly</a></li>
+<li><a href="#lesson-4-handle-disagreement-and-negotiation">Lesson 4: Handle disagreement and negotiation</a></li>
+<li><a href="#lesson-5-support-reliable-contributions">Lesson 5: Support reliable contributions</a></li>
+<li><a href="#worked-example-a-northbank-coordination-meeting">Worked example: A Northbank coordination meeting</a></li>
+<li><a href="#transfer-example-a-hospital-refurbishment">Transfer example: A hospital refurbishment</a></li>
+<li><a href="#practice-conduct-a-decision-meeting">Practice: Conduct a decision meeting</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-establish-an-actionable-common-understanding">Assessed assignment: Establish an actionable common understanding</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="06-working-relationships.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-06-communication-and-working-relationships">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-06-communication-and-working-relationships">Course 06: Communication and Working Relationships</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>Project participants hold different knowledge, interests, and responsibilities, but their contributions must become a common understanding that supports coordinated action. Good communication makes evidence, disagreement, decisions, and obligations clear, and it also gives people a practical way to correct that understanding.</p>
+<p>This course teaches communication, persuasion, negotiation, and supervision within a team where people work with AI agents. Each participant remains responsible for the work and decisions assigned to them. The agents hold no such assignment, so the people who brief them remain responsible for what the agents contribute.</p>
+<h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
+<p>Complete Courses 01 to 05 and bring your decision memorandum from Course 05.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. In this course the shifted constraint is context: communication and context transfer have costs that depend on the agent system. Where history is not retained, or retained history is stale, the current basis must be supplied or recovered. Agents also do not reliably raise disagreement or negotiate, while relationships with the project's human stakeholders stay with people; Lesson 5 develops the brief and the return.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>; in this course, the meetings are held with people, or with a mentor or instructor playing their roles, and any description of what an agent might do in the case is a teaching assumption.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>After this course, you can:</p>
+<ul>
+<li>Establish shared understanding through explanation and listening.</li>
+<li>Identify stakeholder interests and decision rights.</li>
+<li>Explain a recommendation without overstating its grounds.</li>
+<li>Handle disagreement and route unresolved concerns.</li>
+<li>Assign work with clear inputs, outputs, and support.</li>
+<li>Brief an agent with the context its work needs, and specify the return you require.</li>
+<li>Arrange agent work so that it raises objections and missing inputs, instead of relying on agents to raise them unasked.</li>
+<li>Distinguish a record drafted by an agent from agreement established among people.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+</ul>
+<p>Use Northbank Packets A and B, but do not use later events as evidence of what participants already knew.</p>
+<h2 id="lesson-1-establish-a-shared-picture">Lesson 1: Establish a shared picture</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>People can use the same words and mean different things. “Approved” might refer to scope, expenditure, a drawing, or technical suitability. So start by naming the activity and the decision under discussion, and explain the terms that change its meaning.</p>
+<p>Ask participants what they understand and what they need, because their answers may reveal an omitted operating condition or a misunderstood boundary. Listening requires more than waiting to speak: identify the speaker's concern before you propose a solution.</p>
+<p>Use this sequence:</p>
+<ol>
+<li>State your understanding of the situation.</li>
+<li>Ask the other person to explain their concern.</li>
+<li>Restate the concern in concrete terms.</li>
+<li>Invite correction.</li>
+<li>Identify the decision or information now needed.</li>
+</ol>
+<p>Check understanding through consequences: ask what the participant expects to happen after the proposed decision. An acknowledgment proves that a message was received, but it may leave important differences in interpretation unresolved.</p>
+<p>Choose the communication method to suit the question. A short conversation can resolve wording quickly, but a consequential decision needs an identifiable record. Prepare that record from the decision actually made, including unresolved disagreement when it affects later work.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that the people who build a shared picture keep it. After a conversation, each participant carries the understanding into later work and can be asked to correct it. It also assumes that an acknowledgment comes from someone who could have objected.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>Among people, this lesson carries over unchanged. The sequence of stating, listening, restating, and inviting correction is how people still reach a shared picture.</p>
+<p>An agent may or may not retain project history between sessions. Retained history can be stale, so establish the current basis either way. An agent also acknowledges a task readily, so its acknowledgment is weaker evidence of understanding than a person's.</p>
+<p>The ambiguous terms matter more. An agent that reads “approved” in the records can treat A02's “approved for project development” as if it covered expenditure or technical suitability, unless the brief says which act each approval covers.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Treat the brief as the agent's shared picture. Name the activity and the decision, define the terms that change the meaning, and give the sources with their revisions and status.</p>
+<p>The check through consequences works with agents too. For consequential work, ask the agent, before it produces anything, to state what it understands the task to be, which decision its output supports, and what it will return. Correct a misunderstanding there, where it costs least.</p>
+<h2 id="lesson-2-understand-interests-and-authority">Lesson 2: Understand interests and authority</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>A <strong>stakeholder</strong> affects the project or is affected by it. Stakeholders can hold legitimate but competing interests: operations may value reliability and access, procurement may need a complete purchase package, and a sponsor may need a credible investment and delivery outlook.</p>
+<p>An interest explains why a participant cares, authority identifies which decisions they can make, and expertise covers what they can assess competently. Do not infer one from another: a persuasive participant may lack the relevant authority, while a quiet specialist may hold decisive technical knowledge.</p>
+<p>Prepare a small stakeholder table:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Useful content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Participant</td>
+<td>Person or role involved</td>
+</tr>
+<tr>
+<td>Interest</td>
+<td>Outcome or consequence important to them</td>
+</tr>
+<tr>
+<td>Contribution</td>
+<td>Evidence, knowledge, work, or decision needed</td>
+</tr>
+<tr>
+<td>Authority</td>
+<td>Identified decision right</td>
+</tr>
+<tr>
+<td>Constraint</td>
+<td>Obligation or limit that affects the discussion</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use the appointment as evidence for decision rights, but check applicable professional and legal obligations separately.</p>
+<p>Consider who is absent from the discussion, because maintenance, construction, and affected users may reveal consequences that design participants overlook.</p>
+<p>Ask about interests instead of attributing motives without evidence: schedule pressure can reflect a real operating need. Explain conflicts as consequences to resolve. Avoid treating a person as the problem when requirements or responsibilities conflict.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that everyone who contributes to the project's discussions is a person or organization with an interest, some authority, and some expertise, and that the stakeholder table can map them all.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>Agents are not stakeholders. They have no interest in the outcome, they hold no authority under A01, and what they can assess is not the competence of an appointed discipline engineer. They do not belong in the stakeholder table as participants.</p>
+<p>An agent can still carry an interest into the work: the interest of the person who briefs it. A brief written to keep the Week 12 target can steer an agent's analysis toward that target, so know whose brief produced each contribution.</p>
+<p>Agents cannot speak for absent stakeholders. An agent can draft what operations might want from the changeover function, but A02 requires the project to confirm that function with operations. A drafted stakeholder view is a question to take to the person, not their position.</p>
+<p>The relationships themselves do not change. Under A01, the sponsor decides scope, budget, and target, and operations provides operating conditions and accepts the operating information. Procurement needs a technically reviewed package. The supplier is an organization with its own interests, as its request for approval within two working days shows. These relationships stay with people. As agents take on drafting, they can become a larger share of each person's work; that is a shift in proportion, not a measured change.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Keep the stakeholder table for people and organizations. Where an agent's contribution enters a discussion, identify the person who briefed it and answers for it.</p>
+<p>Use agents to prepare for stakeholder conversations: to collect what each record says about a role's duties and concerns, and to draft questions. Hold the conversations yourself, and record a stakeholder's position from what they said, not from a drafted view of it.</p>
+<h2 id="lesson-3-explain-and-persuade-credibly">Lesson 3: Explain and persuade credibly</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>A useful technical explanation connects a proposed action to its grounds and consequences, and the listener should know what decision you are asking for.</p>
+<p>Lead with the recommendation, then identify the governing requirement, the evidence, the uncertainty, and the effects on the listener's responsibilities.</p>
+<p>Keep observed facts, interpretations, forecasts, and proposals distinct, because this helps the reader work out how each statement can be used.</p>
+<p>Use plain words for the intended audience and define necessary technical terms. Keep conditions and units when you shorten an explanation.</p>
+<p>Explain uncertainty through the decision it limits. “The hydraulic basis is incomplete” becomes useful when you identify the missing conditions and the dependent selection.</p>
+<p>Use this message structure:</p>
+<ol>
+<li>State the requested decision or action.</li>
+<li>Identify the relevant basis.</li>
+<li>Explain the important finding.</li>
+<li>State the consequence.</li>
+<li>Propose the response and required owner.</li>
+</ol>
+<p>Persuasion helps people understand why action matters, but it must stay open to evidence that challenges the recommendation. Avoid hiding a weakness because it makes agreement harder. A decision made without disclosure of a material limitation can expose others to consequences they did not understand.</p>
+<p>Protect confidential information by using the authorized communication route, and share enough permitted evidence for the recipient to examine the proposed reliance.</p>
+<p>Identify a conflict of interest when it could affect a contribution. Use the actual appointment and professional obligations to determine how it must be handled.</p>
+<p>Do not treat confidentiality as a reason to issue a misleading conclusion; look for an appropriate route for the necessary concern.</p>
+<p>Tailor detail without changing substance: a sponsor may need the decision and commitment effects, while a specialist may also need the technical derivation.</p>
+<p>Ask the recipient to state the expected next action. Correct any misunderstanding before connected work relies on it.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that a clear, well-tailored explanation takes effort to write. Writing a sponsor version and a specialist version of the same finding takes time, so a team writes few versions, and the person who writes one usually understands the substance.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>Agents draft polished explanations for any audience in minutes. Tailoring becomes cheap, and a well-written explanation no longer shows that its sender understood the substance.</p>
+<p>Two risks follow. When an agent shortens an explanation, it can drop a condition or a unit, so that “18 litres per second under the operating conditions that the project must establish” becomes “18 litres per second”. And when versions for different audiences are drafted separately, their substance can drift apart.</p>
+<p>An agent asked to persuade can do so well. Persuasive text that leaves out a weakness is as cheap as text that discloses it, so the rule against hiding a material limitation applies to every draft you send.</p>
+<p>Agent systems are also communication routes. Sending confidential evidence to an agent system that is not approved for it discloses the evidence, whatever you then do with the output. Use agent systems that your organization permits for the information involved.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Draft with agents, then check what the reader will rely on: the requested decision, the conditions, the units, the uncertainty, and the limitations. Compare the versions for different audiences for the same substance. Be able to give the explanation yourself, without the draft, because the listener's questions will come to you.</p>
+<p>Tailoring trades fit against consistency:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A separately drafted version for each audience</td>
+<td>Each reader gets the detail they need</td>
+<td>The versions can drift in substance, and each needs checking</td>
+</tr>
+<tr>
+<td>One explanation, with added detail for specialists</td>
+<td>The substance stays the same for every reader</td>
+<td>Fits some readers less well</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-4-handle-disagreement-and-negotiation">Lesson 4: Handle disagreement and negotiation</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>Disagreement can be about facts, interpretation, objectives, acceptable consequences, or authority, and these differences require different responses. A disputed measurement may need another observation, a disputed scope choice may need the sponsor's decision, and a technical deviation needs competent technical assessment.</p>
+<p>First establish which kind of disagreement exists, and separate a shared observation from the conclusions participants draw from it.</p>
+<p>Use a fair account of the other person's reasoning, and ask what evidence or condition could change each participant's position.</p>
+<p>Compare options against shared requirements and constraints. Name differences in objectives where a common criterion cannot resolve them.</p>
+<p>Negotiation seeks an arrangement that participants can carry out within their obligations. Agree on an action only when its effects and authority are understood.</p>
+<p>Do not trade an unsupported technical acceptance for agreement on the schedule; examine scheduling or commercial alternatives through their own consequences.</p>
+<p>If the issue is still unresolved:</p>
+<ol>
+<li>State the disputed proposition.</li>
+<li>Record the evidence and positions.</li>
+<li>Identify the work that depends on resolution.</li>
+<li>Refer the question to the appropriate decision owner.</li>
+<li>Continue independent authorized work.</li>
+</ol>
+<p>Give participants a route to raise concerns outside the immediate meeting, and use the actual organization and professional obligations for consequential escalation.</p>
+<p>A meeting can end while disagreement remains. Its record must distinguish the resulting decision from unresolved technical concerns.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that disagreement surfaces because participants are people with views of their own. A specialist who thinks a conclusion is wrong says so, and a participant with an interest negotiates for it. It also assumes that someone who was present writes the meeting record, at some cost, so the record is written once and read with care.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>Agents do not reliably push back, raise disagreement, or negotiate interests. An agent may accept a flawed premise in its brief and work from it. If you object to its finding, it may concede whether or not the finding was right. So the absence of disagreement from an agent is not evidence that the reasoning is sound or that anyone agrees.</p>
+<p>Negotiation stays among people. An agent can prepare options and set out each party's stated interests, but it has no interest to negotiate for and no authority to concede anything. People answer the supplier's request for approval within two working days.</p>
+<p>Agents can draft meeting minutes immediately from notes or a transcript, but a record does not establish agreement among people. A drafted summary can also smooth a disagreement into an apparent consensus, or turn a request into a decision. B02 records that the project manager asks the team to keep the Week 12 target. That is a request; it is not a finding that Week 12 is achievable, and B02 records no technical deviation approval.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Ask for challenge, because agents will not reliably offer it. In the brief, ask the agent to state the strongest objection to its own conclusion, the premises it doubts, and the conditions under which the conclusion fails. Name the conditions that require it to stop and report instead of proceeding. Treat an agent's agreement as the absence of a detected objection, nothing more.</p>
+<p>When an agent drafts the record, the participants still check what the record means before they rely on it. Check that the draft distinguishes decisions from proposals and requests, keeps unresolved technical concerns, and names who decided.</p>
+<p>Each choice gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ask for objections in every brief</td>
+<td>Flawed premises surface early</td>
+<td>Objections of uneven quality, each of which uses attention</td>
+</tr>
+<tr>
+<td>Ask for objections only on consequential work</td>
+<td>Attention goes where the consequence is</td>
+<td>A flawed premise in routine work may pass unchallenged</td>
+</tr>
+<tr>
+<td>An agent drafts the meeting record</td>
+<td>Available immediately, and complete as to the notes</td>
+<td>Can smooth disagreement or turn requests into decisions; the participants must still check it</td>
+</tr>
+<tr>
+<td>A participant writes the meeting record</td>
+<td>Written by someone who heard the discussion</td>
+<td>Slower, and the writer's view can shape it</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-5-support-reliable-contributions">Lesson 5: Support reliable contributions</h2>
+<h3 id="the-classical-method-4">The classical method</h3>
+<p>Human performance depends on competence, workload, available information, and working conditions, so a clear assignment must account for those conditions.</p>
+<p>Give the contributor a result they can understand and examine, and identify the purpose, inputs, interfaces, constraints, and required return.</p>
+<p>Confirm that the person has enough competence and capacity. Arrange supervision or specialist support where the work needs it. Agree on when the contribution is needed and explain which activity depends on it. Ask the contributor to identify missing inputs and likely difficulties.</p>
+<p>Use a review suited to the result's consequences, and state what the review examines and who receives the findings. Keep ownership through repair: a producer should understand the defect and its effect on the intended result.</p>
+<p>Check actual progress through usable outputs and unresolved conditions, because document counts alone may hide missing interfaces or unexamined conclusions.</p>
+<p>Support truthful reporting through the way you respond to bad news: ask about the finding and the needed action before looking for someone to blame.</p>
+<p>Distinguish an isolated error from a repeated competence, workload, or process problem, and correct the cause that evidence supports.</p>
+<p>Mentoring should develop independent reasoning, so ask contributors to explain their basis and alternatives before you give your preferred answer.</p>
+<h3 id="what-it-assumes-4">What it assumes</h3>
+<p>The classical method assumes that the contributors are people. A person accumulates context over the project, so the cost of briefing them is paid once and serves many later tasks. A person can identify missing inputs, say when a task is beyond them, and report bad news when the team makes that safe.</p>
+<p>The method also assumes that coordination cost grows with team size. Fred Brooks observed that adding people to a late software project can make it later, partly because newcomers need context and partly because communication paths multiply. Brooks's reasoning may also apply to engineering information work (see <a href="../references.html">References</a>). In a team of n people, n(n-1)/2 pairs may need to talk: five people make 10 pairs, and ten people make 45.</p>
+<h3 id="what-changes-with-agents-4">What changes with agents</h3>
+<p>Agents change both sides of Brooks's observation. Adding an agent does not add a participant who must be kept informed of every conversation, and talking to an agent is cheap. Where history is not retained, or retained history is stale, bringing an agent up to date requires context transfer or recovery. Each transfer can lose relevant meaning. People also need renewed context when circumstances change; neither memory nor a brief guarantees current understanding.</p>
+<p>The brief and the return therefore become the main instruments of communication with agents. An agent's context can include instructions, conversation, retained history and retrieved sources. A return is an account of its work to examine against the actual outputs and available evidence.</p>
+<p>Agents do not reliably identify missing inputs or say that a task is beyond them. An agent asked to compare B01 with the pump duty may fill A02's unresolved suction conditions with a plausible value instead of reporting the gap. A return can also report a check as done without saying what the check examined. The aim of truthful reporting remains, but with agents it depends on what the brief asks for and what the return must show, not on how you respond to bad news.</p>
+<p>Among people, the classical method keeps its reasons. Competence, workload, supervision, and a response to bad news that supports truthful reporting still matter. Mentoring may matter more, because the people who examine agent work must learn to examine it, and a junior engineer who defers to a fluent agent return has not yet learned that.</p>
+<h3 id="the-extended-method-4">The extended method</h3>
+<p>Write the brief as the assignment the classical method describes, and add what an agent cannot supply for itself. The brief gives the purpose, the identified basis with revisions and status, the output wanted, its interfaces and limits, the checks to perform, the conditions that require a person's decision, and the return you need. It asks the agent to list missing inputs and the assumptions it made, instead of filling them silently.</p>
+<p>Specify the return. It reports the output, the scope completed, the checks performed and what each examined, the limits, and the open choices. It distinguishes what the agent prepared from what it actually changed.</p>
+<p>Keep ownership through repair. Return a finding to the same agent session where its context helps the repair, and keep the person who briefed the agent responsible for the result.</p>
+<p>Among people, the team's communication paths still grow with its size, and the people who examine and decide become the network through which agent work reaches the project.</p>
+<p>Each choice gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A full brief</td>
+<td>Less context lost; fewer silent assumptions</td>
+<td>Takes your time to write, and a long brief can bury the condition that matters</td>
+</tr>
+<tr>
+<td>A short brief</td>
+<td>Quick to write and to read</td>
+<td>The agent fills gaps with assumptions you may not see</td>
+</tr>
+<tr>
+<td>One continuing agent session for related work</td>
+<td>Context carries between tasks</td>
+<td>Earlier assumptions persist and become harder to see</td>
+</tr>
+<tr>
+<td>A fresh agent for each assignment</td>
+<td>A clean start from the identified basis</td>
+<td>The context must be transferred again, and some of it is lost</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="worked-example-a-northbank-coordination-meeting">Worked example: A Northbank coordination meeting</h2>
+<p>The supplier recommendation now needs to guide coordinated action, so this meeting checks that participants share an understanding of the next actions, their conditions, and the relevant decision rights.</p>
+<p>B02 records pressure to keep Week 12, and B01 requests rapid acceptance. Operations also asks about the proposed 22 litres per second duty.</p>
+<p>The project engineer opens the meeting with the decision question: “What must be established before procurement can release an authorized purchase package?”</p>
+<p>The engineer identifies A02 as the approved 18 litres per second basis, while A05's 22 litres per second request remains a separate proposal.</p>
+<p>The electrical engineer explains the 480 V offer and A04's observed 600 V connection, but capacity, protection, and compatibility remain to be assessed.</p>
+<p>The mechanical engineer identifies the incomplete hydraulic basis and the missing selected curve, and the team does not turn those gaps into a pump selection.</p>
+<p>The project manager explains the delivery concern, and procurement is asked to clarify the slot conditions and the available commercial responses.</p>
+<p>Operations is asked to define the required changeover behavior. Automatic changeover has been proposed, while A02 leaves the function for confirmation.</p>
+<p>The team prepares proposed actions for the relevant roles and identifies the technical information needed before acceptance and the scope decision needed for A05.</p>
+<p>The meeting record preserves Week 12 as the target, and it also preserves the unresolved technical conditions and the absence of procurement release.</p>
+<p>The participants check what the record means before they rely on it. Any new decision is recorded as an exercise decision, separate from the supplied case records.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>Before the meeting, the project engineer has an agent collect what A01, A02, A04, A05, B01, B02, and B03 say about each role's duties, interests, and open questions. The engineer checks that the summary keeps A05 as a proposal, keeps A04's observation at the connection where it was made, and gives no role an authority that A01 does not give it.</p>
+<p>The agent does not attend as a participant. People hold the conversations with operations about the changeover function and with procurement about the slot conditions, and the record shows the positions that people stated.</p>
+<p>After the meeting, an agent drafts the record from the engineer's notes. The engineer and the participants check the draft against what was decided. The checks include:</p>
+<ul>
+<li>Week 12 appears as the target, not as a date shown to be achievable or a reason for technical acceptance.</li>
+<li>The voltage discrepancy, the hydraulic gaps, and the absence of procurement release stay in the record.</li>
+<li>A05 remains a proposal awaiting the sponsor's scope decision.</li>
+<li>The changeover function stays open for confirmation with operations.</li>
+</ul>
+<p>The participants still explain the next action in their own words. That check establishes the common understanding; the drafted record cannot.</p>
+<p>The engineer then briefs agents for bounded follow-up work, such as a draft list of operating questions for operations. Each brief identifies the sources with their status, asks the agent to list missing inputs instead of filling them, and names the person who will examine the return.</p>
+<h2 id="transfer-example-a-hospital-refurbishment">Transfer example: A hospital refurbishment</h2>
+<p>A contractor wants the ceiling closed immediately, but a facilities engineer needs access to inspect services. Both participants have a legitimate delivery concern.</p>
+<p>They identify the inspection requirement, the affected area, the evidence needed, and the closure authority. They can then examine a staged response without hiding the inspection condition.</p>
+<p>An agent can draft staged options for both of them in minutes. The contractor and the facilities engineer still have to agree on an option, and the closure authority still decides.</p>
+<h2 id="practice-conduct-a-decision-meeting">Practice: Conduct a decision meeting</h2>
+<p>Use A01, A02, A04 to A06, and B01 to B03. Assign the sponsor, project manager, project engineer, operations, and procurement roles.</p>
+<p>Prepare a brief for each role using only its supplied interests, duties, and concerns, and record any exercise preference you add as an assumption.</p>
+<p>Conduct a meeting about B01's acceptance request and A05's proposal. A mentor can play several roles for individual study.</p>
+<p>Produce a stakeholder table, an opening explanation, a meeting record, and a route for unresolved concerns. Identify decision owners separately from action owners.</p>
+<p>Prepare the stakeholder table yourself, without an agent, before you use agents. You then know what an agent's summary of the roles should contain.</p>
+<p>After the meeting, each participant explains the next authorized action. Compare those explanations with the record.</p>
+<p>Discuss how you would disclose an interest that could affect your recommendation, and identify a permitted route for confidential supporting information.</p>
+<p>Then complete three exercises with agents. For each, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<ol>
+<li><strong>Prepare with an agent.</strong> Brief an agent to summarize what the records say about each role's duties, interests, and open questions. Compare its summary with your stakeholder table, and check each authority it states against A01.</li>
+<li><strong>Examine an agent-drafted record.</strong> Have an agent draft the meeting record from your notes. Compare the draft with what was decided, and check that it distinguishes decisions, proposals, requests, and unresolved concerns. If you find no difference, record what you checked.</li>
+<li><strong>Brief a follow-up assignment.</strong> Write a brief for one action from the meeting, such as the questions for operations about the changeover function. Ask the agent to list missing inputs and its strongest objection to the task as given. Record what the agent raised and which part of your brief asked for it.</li>
+</ol>
+<p>An agent instructor can play the meeting roles in individual study. A role played by an agent lets you practice the conversation; it does not show what the real participants would say, so the participant explanations in the assessed review are then rated on your understanding check and your handling of each role's explanation.</p>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>Why does receiving a message not establish understanding?</li>
+<li>How do interest, expertise, and authority differ?</li>
+<li>What must a credible recommendation disclose about uncertainty?</li>
+<li>How should a team distinguish factual disagreement from a scope disagreement?</li>
+<li>What must the record show when a meeting ends with unresolved technical concerns?</li>
+<li>How can a manager support truthful reporting and competent contributions?</li>
+<li>Why does adding agents not raise communication cost the way adding people does, and what cost does it raise instead?</li>
+<li>What must a brief give an agent, and what must its return report?</li>
+<li>Why must the arrangement ask agents for challenge? What does the absence of an objection from an agent show?</li>
+<li>An agent drafts the meeting record. What does the record establish, and what must the participants still do?</li>
+<li>Why do relationships with the sponsor, operations, and suppliers stay with people when agents take on drafting, and how can that change the balance of a person's work?</li>
+</ol>
+<h2 id="assessed-assignment-establish-an-actionable-common-understanding">Assessed assignment: Establish an actionable common understanding</h2>
+<p>Prepare and conduct a review of your Course 05 memorandum, using Packets A and B as the information available to participants. You may work with agents to prepare the materials and draft the record; the review itself is held with people, or with a mentor or instructor playing their roles.</p>
+<p>Explain the technical findings, the proposed flow change, the procurement needs, and the delivery concern. Ask for decisions only within the authority stated in A01.</p>
+<p>Explain how you would handle confidential evidence or a conflicting personal interest. Treat these as transfer questions, separate from Northbank facts.</p>
+<p>Submit the stakeholder table, speaking brief, meeting record, participant understanding check, and any corrected wording. Add the briefs you gave agents and a short record of what you checked in their returns, what you found, and what you changed.</p>
+<p>Then defend the review to your instructor. Expect changed premises about stakeholders' positions, such as operations pressing for 22 litres per second now, and about the record, such as a draft that records agreement nobody gave. Your instructor rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>The instructor assesses these seven observable criteria:</p>
+<ol>
+<li>The explanation preserves source status, uncertainty, scope, and technical limits, including a truthful response to pressure.</li>
+<li>The stakeholder table distinguishes interests, expertise, contributions, and authority, and it neither lists agents as stakeholders nor uses a drafted view in place of a stakeholder's stated position.</li>
+<li>The discussion fairly represents different positions and identifies appropriate routes for conflicting interests and confidential evidence.</li>
+<li>The record identifies decisions, conditions, action owners, and unresolved concerns accurately, whether an agent or a person drafted it.</li>
+<li>Participant explanations establish a common next action or expose differences for repair. Where the participants are simulated, this criterion rates your understanding check and your handling of each role's explanation.</li>
+<li>The briefs give each agent the context its work needs, with source revisions and status, and ask for missing inputs and objections. Your own examination record shows what you checked in each agent return, including any drafted record, what you found, and what you changed.</li>
+<li>In the defense, you explain the review's main conclusions and their grounds, show what your examination of the agents' work found, identify which judgments are your own, and reason correctly through the changed premises your instructor poses.</li>
+</ol>
+<h2 id="portfolio-continuation-and-references">Portfolio continuation and references</h2>
+<p>Keep your stakeholder table and corrected meeting record as Portfolio 06, and link each consequential finding to its source or exercise decision.</p>
+<p>Carry the unresolved input owners into Course 07, and keep your explanation of the difference between scope authority and technical responsibility.</p>
+<p>Source adaptation: Management manual (Edition 9) §§1.2, 1.4, 2.1, 2.5, 4.2, and 4.5. These sections cover decision rights, shared basis, assignments, consequential choices, and the returns that agents make.</p>
+<p>Use the shared <a href="../references.html">references</a> for professional communication and collaboration competencies. The core practice requires no external reading.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="06-working-relationships.md">06-working-relationships.md</a><br><code>f1c04587cf2b7e2df282942b2d59b434db6394edbcbf5e5a712eea48fd868bf6</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

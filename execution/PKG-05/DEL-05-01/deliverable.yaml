@@ -1,0 +1,88 @@
+id: DEL-05-01
+name: Obtain, qualify and inspect identified library material
+needs:
+- from: doc:README.md
+  condition: Select the actual exported holding/use surface and its maintained guides, resources and applicable
+    LICENSE/component notices at an identified revision. Ordinary file reading needs no Git; executable
+    use retains its real dependencies and source/adaptation distinctions.
+  when: Drafting or exercising the obtaining/use route
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: external:chirality-app
+  condition: For the selected package capture/declaration/content-identity claim, use App 366e7a6656d807142e7bdeda0ccf99c37d7227b1
+    Snapshot reader, WORKFLOW_DECLARATION sections 6.1/7 and WORKSPACE_AND_REGISTRATION section 4.5, with
+    exact Root 1357d706ea77497903976bf159f3880bea4d1360 package bytes and the bounded fixture evidence
+    in owning Work. Different operations, revisions or incompatible changes require their own named basis
+    and evidence. No adoption, registration or execution is inferred.
+  when: Establishing named compatibility or selecting an incompatible interface change
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: doc:README.md
+  condition: For the broader complete-library source candidate, bind Root 7c334bf5cb529a814e0f96f68bc8d9500b15cdd5,
+    the complete tracked archive and retained notices, the comparison with 547e7d7f833f9bec351f7a034bddd7c1a37db15a,
+    and selected standalone-use checks recorded in Work/ConsumerBasis.md. Earlier F-02/manual source and
+    rendering evidence retain their distinct recorded bases. An identified candidate is not an owner release;
+    any new source revision requires checking what evidence remains applicable. Post-90 publication preparation
+    uses Work/PublicationNotes.md and its candidate PR to bind the proposed edition, actual source/archive,
+    comparison and applicable checks; earlier archives retain their own identities. For the owner-selected
+    1.1.0 increment, use Work/PublicationNotes-1.1.0.md and the preparation
+    PR for the exact source/archive, comparison against library-v1.0.2 and applicable checks.
+    Final acceptance and release remain owner acts.
+  when: Preparing a publication candidate and exercising comparison with its prior basis
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: DEL-02-01
+  condition: Use the applicable maintenance/review/publication preparation and recovery route under actual
+    authority, preserving preceding instructions and ordinary repository facilities. Reuse existing usable
+    methods without waiting for the whole procedure set.
+  when: Carrying authorized consumer-guide or candidate preparation work
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: DEL-04-01
+  condition: Use the current same-PR reconciliation procedure for the candidate result, evidence and this
+    locality, with local ownership and unchanged declarations preserved.
+  when: Reconciling the actual guide/candidate change before integration
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: DEL-01-01
+  condition: Shared entry/navigation text uses an inspected route and keeps its navigation meaning distinct
+    from obtaining/version/compatibility guidance. Coordinate a single editor and examine the combined
+    change without creating exclusive file ownership.
+  when: Changing README or another shared entry surface
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: DEL-02-02
+  condition: Resolve or explicitly qualify the particular disputed reference/publication meaning before
+    a consumer-use statement relies on it; preserve adopted and historical bases. The bounded F-02 case
+    is not a global rewrite requirement.
+  when: The selected guide or change account relies on disputed shared meaning
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: DEL-03-01
+  condition: The selected invoked tool or separately justified supported path/adapter has accurate direct
+    instructions and relevant behavior evidence for the actual use. No adapter is commissioned by this
+    dependency or by an unresolved consumer binding.
+  when: Making executable-use or supported-interface claims
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: doc:projects/FROZEN.md
+  condition: Preserve the documented archive/frozen recovery routes and identify the original pin/path
+    and source before relying on historical bytes. Reuse applicable preservation evidence and disclose
+    unexamined history; do not reactivate old work.
+  when: Using commit-pinned historical material or explaining its recovery
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: doc:docs/alignment-manual/README.md
+  condition: Resolve the actual manual edition and its maintained source/render route, distinguishing
+    stable discovery from exact-content reliance and preserving earlier editions. Examine a selected delivery
+    form under that source basis.
+  when: Using an explanatory edition or preparing its actual delivery form
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+- from: DEL-03-02
+  condition: For an actual evaluation-capability publication or named-consumer compatibility
+    claim, obtain the exact supported host/interface basis, complete resources/dependencies,
+    cleared fixtures and scoped evidence/limits. Preserve private operational data and independent
+    consumer adoption; generic prior toolkit evidence does not qualify this new route.
+  when: Preparing a selected successor package or named evaluation-tool consumer claim
+  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md::Evaluation extension
+code_paths:
+- README.md
+- LICENSE.md
+- projects/FROZEN.md
+- docs/alignment-manual/README.md
+- tools/workflow_runtime/README.md
+- workflows/README.md
+checks:
+- tools/validation/validate_run_record_leaks.py
+- tools/validation/validate_private_terms.py

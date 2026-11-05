@@ -1,0 +1,34 @@
+--- a/execution/_Decomposition/PROJECT_DECOMP.md
++++ b/execution/_Decomposition/PROJECT_DECOMP.md
+@@ -870,15 +870,19 @@
+ 
+ ## 12. Working package and next boundary
+ 
+-[PROJECT_DECOMP.md](PROJECT_DECOMP.md) is the mutable working surface;
+-[GROUP3_AUDIT.md](GROUP3_AUDIT.md) supplies the required independent audit.
+-[_LATEST_GROUP1.md](_LATEST_GROUP1.md) and [_LATEST_GROUP2.md](_LATEST_GROUP2.md)
+-identify the unchanged accepted snapshots. No companion tables or dependency,
+-review or receipt register is needed.
+-
+-The owner accepted the final decomposition for project setup. The Group 3 snapshot
+-includes the exact submitted candidate, audit, decision, manifest and setup handoff;
+-[_LATEST_ACCEPTED.md](_LATEST_ACCEPTED.md) identifies that basis. Agent 0 manages
+-initial preparation and directly assigns Type 2 ScopeOfWork authors. Setup carries
+-§8.1's concrete formation obligations with the deliverable cards and authors needs
+-after local scope exists. Product acceptance and release remain separate.
++[PROJECT_DECOMP.md](PROJECT_DECOMP.md) is this amendment's mutable candidate.
++The [Group 2 plan](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP2_PLAN.md)
++and [candidate review](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP3_REVIEW.md)
++identify the actual amendment decisions, exact candidate, independent examination
++and any supplemental corrections. The original [formation audit](GROUP3_AUDIT.md)
++and [_LATEST_GROUP1.md](_LATEST_GROUP1.md)/[_LATEST_GROUP2.md](_LATEST_GROUP2.md)
++remain historical formation sources; they do not audit or accept this successor.
++
++[_LATEST_ACCEPTED.md](_LATEST_ACCEPTED.md) identifies the accepted basis. Until
++Group 3 acceptance it remains on the predecessor. Subsequent standing/pointer
++changes occur only through the expressly accepted conditional edit list. The
++original seven-locality formation remains its own established subject. The new
++DEL-03-02 locality, deferred DEL-04-02 contract revision, and selected Work/need
++propagation are separate postacceptance obligations; no initial archival or
++formation undertaking is restarted. Scope precedes needs. Amendment acceptance,
++setup closure, implementation, product acceptance and release remain distinct.

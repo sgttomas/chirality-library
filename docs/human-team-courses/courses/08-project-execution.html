@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="38649c9b7c5e01eaa2f9e8bb7f6ab67a5dd8b5cce60806090ff82e11b3727d69">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 08: Planning and Managing Project Execution · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 13 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#purpose-and-preparation">Purpose and preparation</a></li>
+<li><a href="#lesson-1-plan-from-conditions-for-work">Lesson 1: Plan from conditions for work</a></li>
+<li><a href="#lesson-2-connect-the-schedule-to-people-and-resources">Lesson 2: Connect the schedule to people and resources</a></li>
+<li><a href="#lesson-3-maintain-a-credible-cost-account">Lesson 3: Maintain a credible cost account</a></li>
+<li><a href="#lesson-4-connect-purchasing-risk-and-change">Lesson 4: Connect purchasing, risk, and change</a></li>
+<li><a href="#lesson-5-measure-progress-by-usable-results">Lesson 5: Measure progress by usable results</a></li>
+<li><a href="#lesson-6-engineer-the-arrangement-that-does-the-work">Lesson 6: Engineer the arrangement that does the work</a></li>
+<li><a href="#worked-northbank-example">Worked Northbank example</a></li>
+<li><a href="#transfer-example-laboratory-instrument-replacement">Transfer example: laboratory instrument replacement</a></li>
+<li><a href="#practice">Practice</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment">Assessed assignment</a></li>
+<li><a href="#portfolio-continuation-and-reading">Portfolio continuation and reading</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#purpose-and-preparation">Purpose and preparation</a></li>
+<li><a href="#lesson-1-plan-from-conditions-for-work">Lesson 1: Plan from conditions for work</a></li>
+<li><a href="#lesson-2-connect-the-schedule-to-people-and-resources">Lesson 2: Connect the schedule to people and resources</a></li>
+<li><a href="#lesson-3-maintain-a-credible-cost-account">Lesson 3: Maintain a credible cost account</a></li>
+<li><a href="#lesson-4-connect-purchasing-risk-and-change">Lesson 4: Connect purchasing, risk, and change</a></li>
+<li><a href="#lesson-5-measure-progress-by-usable-results">Lesson 5: Measure progress by usable results</a></li>
+<li><a href="#lesson-6-engineer-the-arrangement-that-does-the-work">Lesson 6: Engineer the arrangement that does the work</a></li>
+<li><a href="#worked-northbank-example">Worked Northbank example</a></li>
+<li><a href="#transfer-example-laboratory-instrument-replacement">Transfer example: laboratory instrument replacement</a></li>
+<li><a href="#practice">Practice</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment">Assessed assignment</a></li>
+<li><a href="#portfolio-continuation-and-reading">Portfolio continuation and reading</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="08-project-execution.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-08-planning-and-managing-project-execution">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-08-planning-and-managing-project-execution">Course 08: Planning and Managing Project Execution</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<h2 id="purpose-and-preparation">Purpose and preparation</h2>
+<p>A plan connects the intended result to work, people, resources, and decisions, and it becomes useful when the team can act on it.</p>
+<p>This course teaches you how to keep that connection as conditions change, in a team where people work with AI agents. Use the project basis from Course 07, and apply the reasoning and communication methods from Courses 05 and 06.</p>
+<p>Read Northbank Packets A, B, and C, and keep each record's revision and status visible. All prices and durations are teaching inputs.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. In short, the classical method of execution control remains sound, and you need it, because much of a physical project still runs at the speed of suppliers, fabrication, and site work. But the classical method assumes that producing work costs people's time, and that the person producing the work is also paying attention to it. Agents separate production from accountable attention for much of a project's information work.</p>
+<p>As in the beam analogy, the ratio that matters here is the time production takes compared with the time examination and decision take. When production takes most of the time, the classical method's single estimate is adequate. When agents shrink production, examination and decision can become the terms that control the plan.</p>
+<p>Lessons 1 to 5 each follow four steps: the classical method, what it assumes, what changes with agents, and the extended method with its tradeoffs. Lesson 6 treats the arrangement of people and agents as a system to engineer.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>: the agents hold no appointment under A01, and every Northbank record stays as written. You will work with real agents in the practice and the assessed assignment.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>After this course, you can:</p>
+<ul>
+<li>Define readiness conditions for an activity.</li>
+<li>Build a schedule from dependencies and available resources, and identify the time that production, examination, decisions, and external processes each take.</li>
+<li>Distinguish a budget, estimate, commitment, actual expenditure, and forecast.</li>
+<li>Connect procurement and contracts to the technical basis.</li>
+<li>Assess change and report progress with its consequences.</li>
+<li>Design how people and agents divide the work, and defend the tradeoffs.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+</ul>
+<h2 id="lesson-1-plan-from-conditions-for-work">Lesson 1: Plan from conditions for work</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>An activity needs more than a date: it needs usable inputs, competent people, access, resources, and authority. These conditions determine readiness.</p>
+<p>For example, equipment installation needs delivered equipment and ready site works. An equipment order needs a reviewed technical package and expenditure authorization; a supplier's requested date does not establish either condition.</p>
+<p>Define the output before you estimate the activity. State the required input and its condition, name the owner who supplies it, and name the person who checks its suitability.</p>
+<p>Use a small dependency table:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Required condition</th>
+<th>Supplier</th>
+<th>Readiness evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Release equipment order</td>
+<td>Reviewed package and expenditure authorization</td>
+<td>Engineering and authorized expenditure approver</td>
+<td>Identified decisions for the purchase package</td>
+</tr>
+<tr>
+<td>Install equipment</td>
+<td>Delivered equipment and ready site works</td>
+<td>Supplier and site team</td>
+<td>Delivery check and site readiness confirmation</td>
+</tr>
+<tr>
+<td>Commission installation</td>
+<td>Completed installation and prerequisite checks</td>
+<td>Installation and assurance teams</td>
+<td>Records for the identified configuration</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The table records needed relationships, but it does not assert that Northbank has satisfied them.</p>
+<p>Some activities can proceed while others wait. The team can prepare a review plan while equipment selection remains open, but it cannot complete selection-dependent checks without the selection data.</p>
+<p>Avoid making every open question a project-wide stop. Find the work that depends on the question, and continue the work that has sufficient inputs and authority.</p>
+<p>Build the schedule in this order:</p>
+<ol>
+<li>Identify the required outputs.</li>
+<li>Identify each activity's prerequisites.</li>
+<li>Estimate each activity's duration.</li>
+<li>Assign available resources.</li>
+<li>Calculate the earliest supported sequence.</li>
+<li>Compare the result with the target.</li>
+</ol>
+<p>A dependency calculation can expose impossible dates, but it cannot establish that the durations are reliable. State their basis and uncertainty.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method estimates a duration from the effort of the people who will do the work, and it treats the duration as one number. That works when most of an activity's time goes into producing its output, and the people producing it check it as they go.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>Readiness conditions do not change. An agent cannot supply an expenditure authorization, a checked electrical survey, or operations' confirmation of the changeover function. A supplier's delivery time and the time needed to install a pump do not change either.</p>
+<p>What changes is the inside of an information activity, such as a technical review, an impact assessment, or a purchase package. Its duration has four parts, and agents affect them differently:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Part of the duration</th>
+<th>What happens in it</th>
+<th>Effect of agents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Production</td>
+<td>Drafting, calculating, comparing, searching</td>
+<td>Can shrink sharply, often from days to hours</td>
+</tr>
+<tr>
+<td>Examination</td>
+<td>A competent person checks the output for its intended use</td>
+<td>Does not shrink by itself, and grows with the amount produced</td>
+</tr>
+<tr>
+<td>Decision</td>
+<td>The person with authority decides</td>
+<td>Does not shrink; depends on that person's availability and evidence</td>
+</tr>
+<tr>
+<td>External</td>
+<td>Suppliers, fabrication, delivery, site access, physical tests</td>
+<td>Unchanged</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In a human team, production often took most of the time, so one number described the activity well enough. With agents, the other three parts can take most of the time, and people's availability and the physical world set them. Whether they do on a given activity is a question for evidence.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Build the schedule in the same order, but estimate each information activity by its four parts. When you claim that agents shorten an activity, show which part they shorten and what evidence supports the shorter time.</p>
+<p>In Northbank, C03's release at the end of Week 6 depends on a corrected purchase package. Agents might shorten the drafting of the project's technical review of B01. But they cannot supply the electrical engineer's determinations that A04 leaves open, the operating conditions that A02 requires the project to establish, or the expenditure authorization. The records do not show how much of the time before release is production, so agent use alone does not support an earlier release date.</p>
+<p>Cheap production also tempts a team to start every activity at once. An activity started before its inputs are ready still creates rework. Agents can produce rework quickly, but each round of it still needs a person to examine it.</p>
+<h2 id="lesson-2-connect-the-schedule-to-people-and-resources">Lesson 2: Connect the schedule to people and resources</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>Two activities can have independent inputs and still compete for one person, so a calendar that assigns both at the same time may be impossible.</p>
+<p>Consider a clearly invented teaching example, separate from Northbank. Two four-hour reviews need the same reviewer during one four-hour shift. Their inputs are ready, but their resource plan still needs another shift or another competent reviewer.</p>
+<p>Check resource demand at the level that supports decisions. Include review, coordination, repair, travel, site access, and required operating support: these activities use capacity even when they produce few documents.</p>
+<p>Estimate remaining work with the people who will do it. Ask what conditions the duration assumes, and identify access windows, interruptions, and decisions that can extend it.</p>
+<p>Adding people can increase output when work has suitable boundaries, but it can also increase coordination and review demand. Assess the limiting activity before you change staffing.</p>
+<p>A critical path is a sequence that controls the calculated finish under stated assumptions. The controlling sequence can change after a delay or resource adjustment, so recalculate it when the relevant basis changes.</p>
+<p>An earlier start is useful only when the activity can produce a usable result. Work started too early can create rework or unsafe exposure. If partial inputs permit partial progress, define an authorized, bounded activity.</p>
+<p>Keep the baseline schedule as the comparison reference and maintain a current forecast beside it. Record changed assumptions and decisions. A revised forecast reports the present outlook; it does not silently change the approved target.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method treats people's working time as the limiting resource. Adding a person adds production capacity and some attention together, and it also adds coordination: newcomers need context, and every additional person adds communication paths.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>Agent production capacity is elastic: you can add agents in minutes. But every agent assignment adds work for the people who brief it, examine its output, and combine that output with the rest.</p>
+<p>Return to the invented review example. Suppose agents prepare ten review packages in an hour, and each still needs four hours of a competent reviewer's examination. The agents have removed production as the constraint, and the reviewer's shift is now the constraint.</p>
+<p>When work arrives for examination faster than people can examine it, unexamined work accumulates. That accumulation is not progress. Each item in it may contain an error, and the error spreads into dependent work as soon as someone relies on it. This course calls the accumulated, unexamined work <strong>verification debt</strong>.</p>
+<p>An agent may or may not retain project history between assignments. Retained history can carry superseded premises, so establish the current basis either way. A brief that omits C03's statement that each forecast item includes actual expenditure invites the double count in Lesson 3.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Plan examination capacity as you would plan any constrained resource. For each information activity, name the person who examines it, estimate the examination time, and check when that person is available. Then size the agent assignments to what the examiner can check: a bounded output with stated inputs, limits, and checks.</p>
+<p>Find the critical path through examination and decisions as well as through physical work. Agents make recalculation cheap, so you can recalculate whenever the basis changes. Report a change to the controlling sequence when it affects a decision; frequent recalculation does not require frequent reports.</p>
+<p>Agents also make it cheap to prepare several options at once, such as an alternative supplier slot, a bounded overlap, and the impact assessment that A05 requests. A team can therefore keep options open longer than it could afford before. But each option still needs examination before anyone relies on it, and long-lead commitments, such as an equipment order, still fall due on the classical schedule.</p>
+<p>Each arrangement gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More agents working in parallel</td>
+<td>Faster production and more options</td>
+<td>A longer examination queue and more integration work</td>
+</tr>
+<tr>
+<td>Larger agent assignments</td>
+<td>Fewer briefs and less context lost between assignments</td>
+<td>Harder examination; errors hide in volume</td>
+</tr>
+<tr>
+<td>Smaller agent assignments</td>
+<td>Easier examination</td>
+<td>More briefs, more integration, and context lost at each boundary</td>
+</tr>
+<tr>
+<td>Several options prepared at once</td>
+<td>Decisions can wait for better information</td>
+<td>Each option uses examination and decision time</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Choose the arrangement that shortens the route to an examined, usable result, not the one that produces the most output.</p>
+<h2 id="lesson-3-maintain-a-credible-cost-account">Lesson 3: Maintain a credible cost account</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>A budget is an authorized amount for a defined scope. An estimate assesses expected cost. A commitment records an obligation, such as an order. Actual expenditure records incurred cost. A forecast assesses the expected final outcome.</p>
+<p>These amounts answer different questions. Spending below the budget does not show that enough money remains to finish; a forecast must include the work still required.</p>
+<p>Use a consistent cost structure. State the date, currency, scope, price basis, and treatment of taxes or escalation when relevant. Match the cost structure to the team's accounting arrangements.</p>
+<p>A simple forecast can use:</p>
+<blockquote>
+<p>Expected final cost = recorded actual expenditure + estimated remaining cost.</p>
+</blockquote>
+<p>This equation requires amounts that do not overlap: a forecast item that already includes actual expenditure must not receive the actual expenditure again.</p>
+<p>Treat commitments with the same care. An unpaid order can form part of remaining cost, but adding the entire order to a forecast that already includes it counts the order twice.</p>
+<p>Contingency is an identified allowance for uncertainty under the project's rules, not permission to expand scope. Explain whether a forecast includes the allowance and how approved use affects its balance.</p>
+<p>Report a forecast excess promptly, and identify its scope and evidence. Present options with their technical, delivery, and commercial effects, and get the decision from the person with the required authority.</p>
+<p>Do not repair a cost forecast by removing necessary checks or hiding unfinished work. A reduced scope needs an authorized decision and an assessment of its consequences.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method estimates engineering and coordination cost from people's hours. It also assumes that calculating takes effort, so arithmetic is a common source of error that careful people catch.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>The definitions do not change. A budget remains an authorization, and a forecast remains an assessment that authorizes nothing. This part of the classical method carries over unchanged.</p>
+<p>Three things do change:</p>
+<ol>
+<li><strong>The cost structure.</strong> Agent use has its own cost, such as subscription or usage charges. That cost varies with use and can grow quickly when many agents run in parallel. Record it as the team's accounting arrangements require.</li>
+<li><strong>The cost that agents do not reduce.</strong> The examination and decision hours of competent people remain. A forecast that lowers an engineering cost because agents draft the documents must still include examination, repair, and integration.</li>
+<li><strong>The kind of error that remains.</strong> Agents make arithmetic cheap. With a calculation tool, an agent's sums are usually right, so more of the remaining errors are errors of basis: which amounts belong in the sum. An agent will add actual expenditure to C03's inclusive total as readily as a careless colleague would, and it will present the result with the same confidence as a correct one. Still check the sum.</li>
+</ol>
+<p>Forecasts also become cheap to regenerate, so a team can produce a new one every day. Issue a new forecast when its basis changes, because each forecast uses the attention of the people who must read and act on it.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Give the agent the cost basis in its brief: for Northbank, that C03's items include their recorded actual expenditure and that C03 excludes the 22 litres per second proposal. Then examine the basis of the returned forecast, not only its sum.</p>
+<p>Whatever agent use the team adopts, C03 remains the current forecast. Do not reduce it in expectation of savings from agent use; a lower forecast needs evidence for each amount it changes.</p>
+<h2 id="lesson-4-connect-purchasing-risk-and-change">Lesson 4: Connect purchasing, risk, and change</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>Procurement turns an authorized need into a commercial transaction. The purchase package must identify the required configuration, technical conditions, submission requirements, delivery terms, and examination arrangements.</p>
+<p>Keep technical review separate from expenditure approval; procurement must know both dispositions before release. A price quotation or delivery promise cannot approve a technical substitution.</p>
+<p>Contracts allocate duties and commercial consequences, so read the actual contract before you assert rights, penalties, warranties, or notice obligations. Northbank supplies no contract terms that establish such rights.</p>
+<p>Coordinate the supplier's information dates with engineering's point of need: a vendor drawing received after foundation construction may create avoidable rework. Include review and repair time in the procurement sequence.</p>
+<p>A risk concerns uncertainty and its possible effects, while an issue is a present condition that requires attention. Northbank's voltage discrepancy is a present issue; an uncertain future delivery slot presents a different problem.</p>
+<p>For each material risk or issue, state the objective it affects, its evidence, owner and response, and the point at which it will be reconsidered. Use estimates with their basis, and do not invent precise probabilities to fill a form.</p>
+<p>Assess a proposed change across the whole project:</p>
+<ol>
+<li>Identify the departure from the approved basis.</li>
+<li>Explain the reason for the departure.</li>
+<li>Assess technical and operating effects.</li>
+<li>Assess cost, schedule, resources, and contractual effects.</li>
+<li>Identify the required decisions.</li>
+<li>Propagate the actual disposition to affected work.</li>
+</ol>
+<p>A proposal remains a proposal until it receives its authorized decision. A correction within existing scope can still change cost and schedule, so it needs the appropriate spending and commitment decisions.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that assessing a change is expensive, so teams collect changes and assess them in batches. It also assumes that carrying a decision through the documents takes days, and that delay gives people time to notice an error. Suppliers prepare their submissions at the same human pace.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p><strong>Change assessment becomes fast.</strong> Agents can draft the structure of the A05 impact assessment, its comparisons, and its cost and schedule parts within hours. The hydraulic part cannot be completed until the project establishes the operating conditions that A02 requires, and B02 records that the hydraulic basis is incomplete. A team can therefore prepare an assessment when a change is raised, instead of batching changes to save drafting effort. The specialists' examination and the sponsor's decision remain the slow steps, and they may still be best taken together at the decision-maker's rhythm.</p>
+<p><strong>Propagation becomes fast in both directions.</strong> An agent can carry an approved disposition into every affected document quickly, and it can carry a proposal into them just as fast. A05 Rev 0 is a proposal. An agent given A05 without its status may design for 22 litres per second, and no delay remains in which someone might notice. So configuration control must govern what agents read: give each agent the identified basis, with revisions and status, and check which basis its output used.</p>
+<p><strong>Suppliers may use agents too.</strong> B01 copied its 480 V value from A03. A supplier's agents can make the same kind of copying error faster, in a submission that looks more complete. A complete-looking submission is still not a reviewed one. Agents can help the team reply within B01's two working days with the deficiencies it found. That reply cannot be an approval: B01 is not accepted, and the electrical engineer's determinations that A04 leaves open still take the time that competent examination takes.</p>
+<p><strong>Agent work brings its own risks.</strong> An agent's error can look the same as correct work. Several agents that share one model or one brief can make the same error. Context can be lost between a brief and a return. Treat these as ordinary risks and issues: state the objective each affects, its evidence, owner, response, and reconsideration point.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Use the same six steps. Agents can speed the drafting in Steps 3 and 4 and the mechanical work of Step 6. They do not speed the examination of Steps 3 and 4, and they do not make the decisions in Step 5.</p>
+<p>Before any agent propagates a disposition, confirm that the disposition exists and identify its scope. After propagation, check the affected outputs against the disposition. Sending the instruction does not show that each output adopted it.</p>
+<h2 id="lesson-5-measure-progress-by-usable-results">Lesson 5: Measure progress by usable results</h2>
+<h3 id="the-classical-method-4">The classical method</h3>
+<p>Document counts are useful for some workload questions, but they provide weak evidence about technical readiness: ten completed drawings may still contain one unresolved interface that prevents construction.</p>
+<p>Report completed outputs with their examination and remaining conditions. Distinguish production complete, review complete, accepted, and available for dependent use, and use the project's actual status definitions.</p>
+<p>A weekly account should help someone decide or act. Include the results achieved, unresolved conditions, forecast changes, decisions needed, and the next ready work. Identify the basis date.</p>
+<p>Compare the present forecast with both the baseline and the previous forecast, and explain meaningful departures. Avoid repeating an unchanged issue without a response or a route to a decision.</p>
+<p>When the target is threatened, present credible options. Assess expedited delivery, resequencing, overlap, additional resources, or scope change where relevant. Each option needs supported prerequisites and consequences.</p>
+<p>Overlap can reduce time when activities have suitable boundaries, but it can also expose people or invalidate tests. Define those boundaries before you count a schedule saving.</p>
+<h3 id="what-it-assumes-4">What it assumes</h3>
+<p>The classical method treats production as weak but real evidence of progress, because a finished drawing took someone's effort and some of their attention.</p>
+<h3 id="what-changes-with-agents-4">What changes with agents</h3>
+<p>Production no longer shows that anyone spent effort or attention on the work, so a count of produced documents stops being weak evidence and starts to mislead. Agents can produce ten draft documents in an afternoon. Of the statuses above, those that still report progress are review complete without open findings, accepted, and available for dependent use.</p>
+<p>Agents also make continuous reporting easy, and each report uses its reader's attention. Report at the rhythm of the decisions the report serves.</p>
+<p>Adding agent capacity is a new option when the target is threatened. It helps only where production limits the finish. In Northbank, C03's finish is three weeks later than the target because release moves from the end of Week 4 to the end of Week 6 and delivery takes five weeks instead of four. Agents cannot shorten the delivery. They could shorten the release only if producing documents limits the corrected purchase package, and the records do not show that.</p>
+<h3 id="the-extended-method-4">The extended method</h3>
+<p>Report the gap between produced and examined work: what is waiting for examination, for how long, and which dependent work it holds up. A growing gap is verification debt, and it belongs in the account with the decisions needed to reduce it.</p>
+<p>Before you propose more agent capacity, identify what limits the finish. If examination, a decision, or an external process limits it, more agents lengthen the queue without moving the finish.</p>
+<h2 id="lesson-6-engineer-the-arrangement-that-does-the-work">Lesson 6: Engineer the arrangement that does the work</h2>
+<p>In a human team, much of the team's working arrangement comes with the people. Hiring sets its size, and each person brings a sense of when to stop and ask. With agents, the arrangement is a design that you choose. Agents do not reliably recognize the limits of their competence or their authority, so the arrangement must make those limits explicit.</p>
+<p>Design the arrangement as a project engineer designs any system: from its required function, its interfaces, and its failure modes.</p>
+<p><strong>Allocate each function by its consequence.</strong> Agents can produce, compare, and check against stated criteria. Deterministic tools can perform fixed calculations and comparisons. People examine work for reliance, decide, accept, and deal with the sponsor, operations, suppliers, and authorities. Where an error would be serious and hard to detect, arrange stronger examination.</p>
+<p><strong>Design the two interfaces.</strong> The brief tells an agent the purpose, the identified basis with revisions and status, the output wanted, its limits, the checks to perform, and the conditions that require a person's decision. The return reports the output, the scope completed, the checks performed, the limits, and any open choices. It distinguishes what the agent prepared from what it actually changed. <a href="06-working-relationships.html#lesson-5-support-reliable-contributions">Course 06</a> treats the brief and the return as communication.</p>
+<p><strong>Provide independence where it matters.</strong> An agent that checks another agent's work, using the same model and the same brief, may share its errors. Their agreement shows consistency, not correctness. Where the consequence warrants it, change the basis of the check, the way the check is prepared, or the examiner. Where the work will be relied on, the examiner is a competent person.</p>
+<p><strong>Size the arrangement to examination capacity.</strong> Lesson 2 showed that production beyond examination capacity becomes verification debt.</p>
+<p><strong>Design against the known failure modes:</strong></p>
+<ul>
+<li>A confident error that looks like correct work.</li>
+<li>A proposal treated as approved basis.</li>
+<li>A superseded revision used as current.</li>
+<li>Context lost between the brief and the return.</li>
+<li>Unexamined work accumulating behind a busy examiner.</li>
+<li>Agreement between agents mistaken for independent review.</li>
+<li>Records produced because they are cheap, not because anyone needs them.</li>
+</ul>
+<p>A useful aim for the arrangement is warranted confidence per unit of the accountable person's attention. It is a design aim, not a measurement. Confidence without adequate grounds does not satisfy it, and saving attention by hiding uncertainty defeats it.</p>
+<p>This lesson also supports a broader argument. Part of the classical discipline exists to manage the cost of coordinating people's labour on information work: estimating it from production hours, batching changes to save drafting effort, and measuring progress by documents produced. Where agents do the production, these practices lose much of their reason, so do not carry them over by habit. Some keep part of their reason in a new form. Batching decisions can still save the sponsor's and specialists' attention, and site crews still need their workload levelled.</p>
+<p>The practices that manage authority, evidence, acceptance, and the physical world keep their reasons, and agents make them more important, because work can now reach the point where someone relies on it without anyone having attended to it while it was produced.</p>
+<p>This is an argument from how the costs have changed, not a measured result. Agent capability and cost vary with the task and the system, so test the premise against your own work.</p>
+<h3 id="worked-arrangement-one-contribution-with-delegated-help">Worked arrangement: one contribution with delegated help</h3>
+<p>This teaching arrangement changes no Northbank record or result. The project manager asks a coordinating agent to prepare the cost-and-sequence comparison from C01 and C03, through examination and ordinary repairs. The manager identifies the current basis, the required explanations, and decisions reserved by A01. No delegation is required if one agent can carry the contribution effectively.</p>
+<p>Suppose the chosen system permits bounded delegation. The coordinating agent assigns the cost comparison and schedule calculation separately, giving both the same identified records and their conditions. It receives the returns, checks their common basis, resolves inconsistencies and prepares one integrated comparison. It carries that contribution through repairs instead of sending every intermediate question to the manager.</p>
+<p>Both helpers could omit the same qualification in C03. Their agreement would then repeat a shared mistake. The manager examines the inclusive cost basis, the delivery count, the retained assumptions and the actual combined output. Any required independent reviewer prepares from the source and criteria, rather than merely accepting the coordinator's summary. Delegation supplies production capacity; it does not itself supply independent assurance.</p>
+<p>The examination record names the production direction, which agent wrote the consequential briefs, which returns were used, and what the manager actually examined. Links to recoverable briefs and returns can suffice. There is no requirement to copy every child message. If a return is unavailable, report the resulting evidence limit instead of attributing a check that nobody observed.</p>
+<p>Compare this arrangement with one agent doing the same work. Explain when delegation would preserve useful continuity and when its preparation, coordination or review cost would outweigh the benefit. Neither arrangement changes the keyed cost or schedule answers.</p>
+<h2 id="worked-northbank-example">Worked Northbank example</h2>
+<p>The project definition supplies the scope and conditions for planning, and the new forecast shows how cost and timing can change while the approved commitments remain in force.</p>
+<p>The project manager receives C03 Rev 0, whose forecast covers the existing 18 litres per second scope. A05 Rev 0 is still a proposal for 22 litres per second.</p>
+<p>C03 assumes order release at the end of Week 6, and five delivery weeks place delivery at the end of Week 11. Installation takes Weeks 12 and 13, commissioning takes Week 14, and handover takes Week 15.</p>
+<p>The resulting finish is the end of Week 15, three weeks beyond A02's end-of-Week-12 target. This calculation assumes ready site works and no overlap.</p>
+<p>The forecast total is:</p>
+<blockquote>
+<p>80,000 + 55,000 + 30,000 + 45,000 + 23,000 + 12,000 + 20,000 = 265,000.</p>
+</blockquote>
+<p>The authorized budget is 240,000, and the forecast exceeds it by 25,000, or approximately 10.4 percent. C03 already includes actual expenditure in each item.</p>
+<p>This is a forecast, not an approval to spend 265,000, and it gives no conclusion about pump suitability. B01's submission and A02's unresolved operating conditions still need technical resolution.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>The project manager briefs an agent to compare C03 with C01 and to calculate the forecast finish. The brief identifies both records with their revisions and status, states that each C03 item includes its recorded actual expenditure, states that C03 excludes A05, and asks the agent to show each step.</p>
+<p>The agent returns the comparison and the sequence. The manager does not accept them because they look right. The manager checks that the agent counted delivery from the end of Week 6, kept contingency at 20,000, added no actual expenditure, and left A05 out. The arithmetic is the same as in the classical account; agents change who performs it and what the manager must check.</p>
+<p>The team divides the examination by A01's responsibilities:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Contribution</th>
+<th>Produced by</th>
+<th>Examined by</th>
+<th>The examination checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C03 and C01 cost comparison</td>
+<td>Agent</td>
+<td>Project manager</td>
+<td>Inclusive basis, no duplicated amounts, contingency treatment</td>
+</tr>
+<tr>
+<td>Forecast delivery sequence</td>
+<td>Agent</td>
+<td>Project manager</td>
+<td>Release date, delivery duration, no-overlap and site-readiness assumptions</td>
+</tr>
+<tr>
+<td>Draft technical review of B01</td>
+<td>Agent</td>
+<td>Project engineer, with the electrical and mechanical engineers</td>
+<td>Voltage, missing pump curve and configuration, the limits that A04 states</td>
+</tr>
+<tr>
+<td>Sponsor briefing</td>
+<td>Project manager, with agent drafting</td>
+<td>Project manager, and a reviewer where the project requires independent review</td>
+<td>Each claim's support, the exclusions, and the decisions requested</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A useful manager's account states:</p>
+<blockquote>
+<p>The current 18 litres per second scope forecasts 265,000 and handover at the end of Week 15. These estimates retain C03's assumptions. Technical release remains dependent on the reviewed purchase package. The 22 litres per second proposal is excluded. The sponsor must decide any change to budget or target. The team uses agents to prepare comparisons and drafts, and this forecast claims no cost or schedule saving from that use.</p>
+</blockquote>
+<p>The team can investigate alternatives before requesting a decision, and agents make it cheap to investigate several at once. But the team must not describe an unconfirmed saving as achieved progress.</p>
+<h2 id="transfer-example-laboratory-instrument-replacement">Transfer example: laboratory instrument replacement</h2>
+<p>A laboratory needs an installed, calibrated instrument. The order requires a selected instrument and an approved acquisition package, and installation needs delivered equipment, a suitable room, and utilities.</p>
+<p>Calibration depends on installation, and staff training depends on the identified operating configuration. A shipment date alone cannot forecast usable service.</p>
+<p>Use the same dependency and cost methods, and add the laboratory's actual accreditation, safety, and purchasing requirements. Establish those requirements from the sources that govern them.</p>
+<p>Agents can draft the acquisition package and the calibration plan. The governing requirements, the laboratory's acceptance, the instrument's delivery, and the time calibration takes stay where they were.</p>
+<h2 id="practice">Practice</h2>
+<p>Use A01 Rev 0, A02 Rev 1, A05 Rev 0, B01 to B03 Rev 0, and C01 to C03. Do not use Packet D.</p>
+<p>First calculate C03's sequence and cost totals yourself, without an agent. You then know what an agent's return should contain. Work with an agent for every output that follows.</p>
+<p>Prepare four outputs:</p>
+<ol>
+<li>Draw the baseline and corrected delivery sequences.</li>
+<li>Compare each C03 cost item with C01.</li>
+<li>Prepare a purchase-release readiness table.</li>
+<li>Write a sponsor briefing of no more than 250 words.</li>
+</ol>
+<p>Include the supported forecast, unresolved prerequisites, decision authority, and one option requiring investigation. State what evidence would make that option usable.</p>
+<p>For each output, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<p>Then complete three further exercises:</p>
+<ol>
+<li><strong>Divide the durations.</strong> For each activity before order release, identify its production, examination, decision, and external time. Mark where the records support your division and where they are silent.</li>
+<li><strong>Examine an agent's return.</strong> For a separate cost exercise, use invented actual expenditure of 90,000; the remaining-cost estimate is 175,000. An agent returns a forecast of 355,000, made by adding 90,000 to C03's 265,000 total. Explain the two calculation bases and the agent's error. Then write the sentence in the brief that would have guarded against it.</li>
+<li><strong>Design an arrangement.</strong> Design how the team would prepare the impact assessment that A05 requests: the agent assignments, who examines each, where independence is needed, and what reaches the sponsor. State two tradeoffs in your design.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>What conditions distinguish a ready activity from a scheduled activity?</li>
+<li>How can a resource conflict invalidate a dependency schedule?</li>
+<li>Why does C03's forecast not change the authorized budget?</li>
+<li>When would adding actual expenditure to a forecast duplicate cost?</li>
+<li>What decisions and evidence does Northbank need before equipment order release?</li>
+<li>What must the team establish before reporting a schedule saving from overlap?</li>
+<li>Why does adding agents to an activity limited by examination increase unfinished work instead of shortening the activity?</li>
+<li>Two agents that use the same model agree on a forecast. What does their agreement establish, and what does it not establish?</li>
+<li>Name one classical practice from this course that loses most of its reason when agents do the production, and one that keeps its reason. Explain each from the cost it was answering.</li>
+</ol>
+<h2 id="assessed-assignment">Assessed assignment</h2>
+<p>Prepare an execution control package for Northbank's existing scope, working with agents. Include the schedule, cost comparison, procurement conditions, response priorities, and sponsor decision request. Add a short account of how you arranged the agents' work and how you examined it, with the briefs you used.</p>
+<p>Then defend the package to your instructor. Explain how you reached its main conclusions and what you checked, and reason through changed premises that your instructor poses, such as a different cost basis or delivery time. Your instructor rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>As the series index explains under <a href="../index.html#work-with-agents">Work with agents</a>, your instructor is in your sponsor's position: the package alone cannot show how much judgment went into it, so your briefs, examination record, and defense carry that evidence.</p>
+<p>Use these seven observable criteria:</p>
+<ol>
+<li>The schedule reproduces the stated durations, prerequisites, and no-overlap assumptions. Where it claims that agents shorten an activity, it identifies the part of the duration they shorten and the supporting evidence.</li>
+<li>The cost account reconciles totals without duplicating actual expenditure or contingency.</li>
+<li>Purchase readiness distinguishes technical suitability, expenditure authority, and supplier timing.</li>
+<li>Proposed responses preserve the existing scope until the authorized decision changes it, and they claim no saving from agent use without supporting evidence.</li>
+<li>The briefing identifies supported progress, forecast departures, uncertainty, and decision owners.</li>
+<li>The account of the arrangement shows the design: who examines each agent contribution, what that examination must check, and where independence is needed and how it is provided. Your own examination record shows what you actually checked in each agent return, what it found, and what you changed.</li>
+<li>In the defense, you explain the package's main conclusions and their grounds, show what your examination of the agents' work found, identify which judgments are your own, and reason correctly through the changed premises your instructor poses.</li>
+</ol>
+<p>Before the defense, explain your package to a peer as practice, and repair defects found during that examination or the assessment. Retain the previous revision and the repair basis.</p>
+<h2 id="portfolio-continuation-and-reading">Portfolio continuation and reading</h2>
+<p>Keep the package as Portfolio 08 and add it to your Course 07 project basis. Carry unresolved technical conditions into Course 09, and examination and handover prerequisites into Course 10.</p>
+<p>Read management manual (Edition 9) chapter 3, §§4.3–4.5, §§5.2–5.3, chapter 6, §8.1 and §9.1 in <a href="../references.html">References</a>. They connect dependencies, ready work, examination, change propagation, completion, integration, and the whole cost of a result.</p>
+<p>The optional APM readings give a wider account of project management, but the supplied case contains all inputs for this course's core exercises.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="08-project-execution.md">08-project-execution.md</a><br><code>38649c9b7c5e01eaa2f9e8bb7f6ab67a5dd8b5cce60806090ff82e11b3727d69</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

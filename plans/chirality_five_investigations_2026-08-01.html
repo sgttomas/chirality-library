@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five Investigations — Thesis, Solver, Runtime, Economics, Ownership — 2026-08-01</title>
+<style>
+  :root { --ink:#1a1a1a; --dim:#666; --line:#ddd; --accent:#7a5c1e; --warn:#8a4b00; --good:#1d6b3a; --bg:#fbfaf8; --card:#fff; }
+  body { font: 16px/1.55 Georgia, 'Times New Roman', serif; color:var(--ink); background:var(--bg); margin:0; }
+  main { max-width: 56rem; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  h1 { font-size:1.6rem; line-height:1.25; margin:0 0 .25rem; }
+  h2 { font-size:1.15rem; margin:2.2rem 0 .6rem; color:var(--accent); border-bottom:1px solid var(--line); padding-bottom:.25rem; }
+  h3 { font-size:1rem; margin:1.4rem 0 .4rem; }
+  .meta { color:var(--dim); font-size:.85rem; margin-bottom:1.5rem; }
+  .box { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); padding:1rem 1.2rem; margin:1.2rem 0; }
+  table { border-collapse:collapse; width:100%; font-size:.85rem; margin:.8rem 0; }
+  th, td { border:1px solid var(--line); padding:.4rem .6rem; text-align:left; vertical-align:top; }
+  th { background:#f0ede8; }
+  code { font: .82em/1.4 'SF Mono', Menlo, Consolas, monospace; background:#f2f0ec; padding:.05em .3em; border-radius:3px; }
+  .good { color:var(--good); font-weight:bold; }
+  .warn { color:var(--warn); font-weight:bold; }
+  .overflow { overflow-x:auto; }
+  ul { padding-left:1.3rem; }
+  li { margin:.3rem 0; }
+  footer { margin-top:3rem; padding-top:1rem; border-top:2px solid var(--line); color:var(--dim); font-size:.82rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Five Investigations: Thesis, Solver Mathematics, Runtime, Governance Economics, and the Single-Owner Assumption</h1>
+<div class="meta">
+2026-08-01 · basis <code>main@7fe5da35a</code> (investigations) /
+<code>main@55354bfa8</code> (this report) · five sealed read-only
+investigators under a recorded work graph, terminal fan-out/fan-in at the
+supervising root session · <strong>verbatim returns of record:</strong>
+<code>execution/_Coordination/AgentRuns/GOV-EXPLORE-FIVE-20260801/RETURN_T1..T5</code>
+(merged at PR #443) — this report is the readable synthesis; on any
+disagreement the archived returns govern over this digest, and live
+sources govern over both · derivative, non-governing (see footer) ·
+companion to the two maturity surveys
+(<code>chirality_piping_solver_maturity_survey_2026-07-31.html</code>,
+<code>chirality_app_dev_maturity_survey_2026-08-01.html</code>)
+</div>
+
+<div class="box">
+<strong>Why these five.</strong> After Task Management Stage A closed, the
+owner asked the supervising session for its impressions of the program and
+the things it most wanted to explore; the owner then directed
+investigations into all five. They are: the intellectual foundation
+(T1), the solver's mathematics and its one open problem (T2), the
+local-model runtime as built (T3), the first quantitative pass at whether
+governance pays (T4), and how load-bearing the single-owner assumption is
+(T5).
+</div>
+
+<h2>T1 · The thesis and the origin of the nine domains</h2>
+<ul>
+<li><strong>The nine domains are not in the thesis.</strong> Zero
+occurrences across <code>docs/thesis/</code>. They originate in three
+owner-authored Word documents of <strong>October 2025</strong>, preserved
+SHA-pinned in the TM source corpus — and by the owner's own text they are
+an <em>underived mnemonic</em>: "a tool for thinking, not a rigid
+workflow," Work deliberately at the center, no axes, no derivation from
+the semantic algebra (whose canonical matrices share no dimension or
+vocabulary with them). Two independent 3×N habits from the same mind.</li>
+<li><strong>The thesis binds nothing, by its own rule.</strong> Every
+chapter carries CITED/REVIEWED status, never AUTHENTICATED: "per
+K-CLAIM-1 the thesis therefore binds nothing and is not a governance
+surface." The founding text is subject to the founder's own invariant.</li>
+<li><strong>The thesis is anti-wheel.</strong> Its ontology pillar
+forbids exactly what any multi-representation "wheel" implies for the
+governed record: "no separate representation, no translation layer, no
+synchronization discipline." Fan-in correction of record: the
+"seven-spoke wheel / five governed representations / rim unproven"
+vocabulary originates in the 07-28 tandem review's own heading — a
+derivative coinage, not thesis or doctrine. The unwritten argument the
+program still owes itself: why multi-representation synchronization is
+acceptable <em>inside a domain engine</em> (the piping canonical model)
+while forbidden in the governed record.</li>
+<li><strong>Task Management's thesis-side seed</strong> was three words
+in the invariant catalog: K-STALE-2's enforcement point "Human triage
+queue" — an instrument that existed nowhere until D-GOV-32 built it. And
+the thesis's most self-critical passage (§9.2.6, over-proceduralization
+as displaced attention) pre-registered precisely the failure the TM
+evidence base later measured.</li>
+<li><strong>Core formal idea, ranked by the corpus itself:</strong>
+primary — chirality as the permanent accountability gap between
+externalizable information and accountable knowing (the "double
+commitment" S ⊢ (S ⊢ (M ∧ N)) → G as interpretive analogue of
+REVIEWED→AUTHENTICATED); secondary — the semantic algebra, explicitly
+demoted to scaffolding. Origin recorded in appendix D §D.8: "the system
+declines to let computation manufacture warrant. That refusal was a
+commitment before it was a design."</li>
+</ul>
+
+<h2>T2 · Solver mathematics and the friction open problem</h2>
+<ul>
+<li><strong>Kernel:</strong> textbook 12-DOF Euler–Bernoulli frame (no
+shear deformation), validated orthonormal frames at 1e-12, dense
+partial-pivot solve serving as the <em>parity oracle</em> for a
+hand-rolled RCM + skyline LDLᵀ sparse path — fully deterministic
+ordering, bitwise-reproducible factorization, nonpositive pivots counted
+and located, never absorbed; parity asserted at the DEC-026 analytic seed
+1.0e-9.</li>
+<li><strong>Curved bend (the elegant one):</strong> Castigliano
+flexibility with every arc integral in closed form — all six unit-load
+action profiles are combinations of {1, cosθ, sinθ}, so the 6×6
+flexibility is quadratic forms over an exact 3×3 trig Gram matrix.
+<em>No quadrature anywhere.</em> User factors k_in/k_out scale only the
+bending energy terms; K = F⁻¹ with a rigid equilibrium transfer — the
+solve is flexibility-correct, not a post-hoc stress multiplier. No
+SIF/k catalog ships, by fence.</li>
+<li><strong>Nonlinear active set as ruled (DEC-067):</strong> engaged
+supports classify on trial reaction sign, released ones on trial
+penetration (the D-35 pairing that makes lift-off and re-engagement both
+observable and seed-independent); friction gets a bounded tangential
+force −sign(motion)·μ·|N|; convergence residual is the state-change
+count; three anti-chatter rules; every non-converged exit carries a loud
+diagnostic.</li>
+<li><strong>The open problem, now stated to ruling grade:</strong> the
+sliding direction at iteration n comes from iterate n−1, so the
+<em>iteration trajectory</em> plays the role physical load history plays
+in a real Coulomb system — the converged fixed point can depend on seeds
+and ordering within a single static load case. Failure modes documented
+(directional chatter to the visible cap; the zero-residual capped
+corner). The records gate resolution on a future D-XX and name
+<strong>no candidate formulation</strong>; the return catalogs four
+labeled investigator options (load stepping, return-mapping
+regularization, per-step direction freezing, increment-based direction)
+as ready input for that ruling.</li>
+<li><strong>Three numerics-reviewer questions on record:</strong>
+multi-friction-support fixed-point uniqueness; conditioning of the
+6×6 flexibility inversion at small arc angles; whether sparse/dense
+parity is proven on the iterated nonlinear path or only on single
+solves.</li>
+</ul>
+
+<h2>T3 · The runtime and the local-model story</h2>
+<ul>
+<li><strong>The daemon is real:</strong> UDS-only with 0600/0700 modes
+and timing-safe scoped bearer auth; fail-closed stale-socket recovery
+(replace only on demonstrably dead PID); manifest-hash drift disables
+adapters until re-registration; lazy non-destructive legacy session
+import with tombstones. App-dev CI boots it genuinely (xvfb, socket
+registration via CLI) with a stub model provider.</li>
+<li><strong>K-RESIDENCY-1 is implemented, fake-proven, live-opt-in:</strong>
+drain-never-interrupt with a 10-minute default; helper models never
+unloaded (external drift demotes to honest NO_MODEL); the residency
+epoch is minted per activation, stamped on every local-turn session
+record, and carried into Agent-1 run records. The standout choice:
+<em>ownership is persisted away before the unload request is
+transmitted</em> — fail-closed implemented as write ordering, so a lost
+response can only strand NO_MODEL, never a false READY.</li>
+<li><strong>Delegation proof by unforgeable receipt:</strong> the Agent-2
+required-read is proven by a closure in the daemon's own process;
+adapter-forged tool evidence is explicitly tested and rejected
+(REQUIRED_DELEGATION_MISSING).</li>
+<li><strong>Pi/oMLX:</strong> a third-party coding agent (pinned 0.82.0)
+run in an isolation harness — extensions/skills/prompts nulled, one
+read-only tool, byte-exact allowlist verification, loopback redirect
+guard, key redaction; D-APP-40's <code>turn.interrupted</code> taxonomy
+implemented. <span class="warn">The promoted runtime turn-engine factory
+has no caller</span> — real Pi turns still run through the app-dev
+adapter; the D-GOV-20 promotion is half-done by design, and any
+DEL-02-06 tranche lands on exactly that seam.</li>
+<li><strong>The "runtime identity" everything waits on is DEL-02-06
+OUT-002</strong> — the exact-equality compatibility epoch that the
+current <code>RUNTIME_API_VERSION="v1"</code> string and boot
+fingerprint expressly are <em>not</em>. Tracked as TM-ROOT-035.</li>
+</ul>
+
+<h2>T4 · Governance economics: the first quantitative pass</h2>
+<div class="overflow"><table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Durable governance artifacts</td><td>≈1,022 (419 receipts · 275 decision rows · 40 notices · 159 handoff states · 80 run records · 21 manifests · 28 workplans) ≈ <strong>2.3 per merge to main</strong> (447 first-parent merges)</td></tr>
+<tr><td>Catch ledger</td><td><strong>12 documented catches</strong> (CI whitespace on the register; the routing guard's "first live catch"; triage citation corrections; the missed malformed row; 4-of-6 sampled questions already answered; derivative-drift at seeding; G0 BLOCK; bridge severity pin; pre-landing physics refutation; evidence-sweep catch; fan-in omission; per-check verification reversing a consolidation recommendation)</td></tr>
+<tr><td>Bypass ledger</td><td><strong>8 recorded</strong> — including <span class="warn">three manifest gaps the archive itself never disclosed</span> (PRs #431/#432/#438), found by this analysis and since dispositioned by disclosure (Receipt 77); disclosed class tally now five</td></tr>
+<tr><td>The forgetting baseline</td><td><strong>91% of first-triage closures (42/46) rested on evidence predating the register</strong> — 33 stale-attention items nothing could mark done, 9 genuinely done-but-untracked works invisible for 5–6 weeks; answered questions sat "open" while their rulings (D-APP-13, D-APP-40) were weeks old</td></tr>
+<tr><td>Overhead fraction</td><td>30.1% of changed lines in the one instrumented 11-merge window were governance artifacts (76% for Stage-A PRs alone — definitionally high since Stage A's product <em>was</em> governance infrastructure)</td></tr>
+<tr><td>Verdict</td><td class="warn">Not decidable: benefits enumerable, costs unmeasured — no record anywhere carries time or token telemetry. The missing instrumentation is named (telemetry on run records, a defect registry with blast-radius tags, retained CI logs, a control period)</td></tr>
+</table></div>
+<p>Supporting epistemic constant, from the program's own evidence record:
+roughly one third of confident upstream claims inverted under independent
+verification.</p>
+
+<h2>T5 · The single-owner assumption</h2>
+<ul>
+<li><strong>The singularity lives in one file plus one ruling:</strong>
+the K-* invariants are actor-neutral; <code>human_actors.md</code> has
+exactly one row ("sole author of binding rulings"), and RD-2 expressly
+declined delegates (A2) and quorum (A3) in favor of "a single root owner
+governs the root; one accountable owner per root."</li>
+<li><strong>Plurality seams already exist:</strong> per-loop ownership
+structure, per-loop decision registers and receipt contracts, RASCI and
+attribution fields, the capacity-separability doctrine (engineer-of-record
+≠ root owner), and the piping D-49/D-52 nondelegable taxonomy — a
+ready-made template for a scoped human grant.</li>
+<li><strong>The minimal second-owner amendment is mapped:</strong> one
+allowlist row (with alias scoping), one scoped D-GOV grant borrowing the
+nondelegable list, one RD-2 clarification — plus the single unavoidable
+new mechanism: merge-channel identity (a second authenticated GitHub
+actor; today every merge rides one personal account, territory no
+doctrine governs).</li>
+<li><strong>The one hard problem no small amendment fixes:</strong> the
+doctrine has no concept of a <em>bounded human</em>. Every containment
+device bounds agents; the human is the unbounded terminus (D-GOV-17
+makes owner rulings machine-unblockable; supersede-never-edit grants
+temporal supremacy; the ruling grammar carries no identity). Two owners
+sharing a surface requires, for the first time, rules that bind a human
+inside the system — and the record already locates the honest cost:
+RD-2's declined authentication substrate, which would pressure
+D-GOV-01 itself.</li>
+</ul>
+
+<h2>Cross-cutting synthesis (supervising session)</h2>
+<ul>
+<li><strong>The unnamed-identity pattern.</strong> Four instances of one
+missing object — a durable definition of "the same / matches / who":
+the runtime's compatibility epoch (OUT-002), the solver's tolerance
+policy, the App's parity instrument, and ruling authentication. Root
+cause: the system's sole mechanical identity primitive is byte equality
+(SHA), and every equivalence class beyond bytes requires a <em>ruled</em>
+definition that nothing has forced. The gaps sit, without exception, at
+<strong>seams between local areas</strong> — none in an interior.
+Notably, all four domains <em>refused to improvise</em> a local
+definition rather than inventing one: four consistent absences,
+i.e., coherent incompleteness rather than incoherence.</li>
+<li><strong>Consistency stack (assessment, not authority):</strong>
+interiors hold by local coherence and transmitted taste (independently
+evidenced: fail-closed, user-entered-with-provenance, and
+evidence-binds-to-bytes each recur across loops that never coordinated);
+seams need a small number of explicitly ruled shared objects (one
+exhaustive review found four); currency holds by drift-made-visible-and-
+triaged, not prevention (documentation's half-life is measured: the
+thesis drifted behind its own catalog, the App PRD contradicts its own
+§17, indexes lag code). The identified falsifier: if periodic
+cross-cutting reviews keep finding new one-question-in-N-places
+patterns, local-coherence-plus-triage is insufficient and an explicit
+seam discipline becomes necessary.</li>
+<li><strong>Candidate instruments discussed with the owner (un-ruled,
+recorded here as candidates only):</strong> a comparison-basis rule in
+the K-AUTH-2 lineage — no reliance on a "matches/conforms/compatible"
+claim without a ruled, SHA-pinned comparison basis naming definition,
+tolerance, and version — with each loop instantiating parameters; and a
+default four-pillar coherence heuristic (ontology / epistemology /
+praxeology / axiology, checked locally and program-wide at decision
+time), evaluated as sound if given operational glosses, a single
+high-leverage placement, and an explicit surface-don't-conform escape
+valve. Sequencing note: the piping model-contract inquiry must invent
+the tolerance-policy shape regardless; the generic form can be ratified
+from that instance and inherited by the runtime and App debts.</li>
+</ul>
+
+<footer>
+This report is a derivative, non-governing synthesis of the five verbatim
+investigation returns archived at
+<code>execution/_Coordination/AgentRuns/GOV-EXPLORE-FIVE-20260801/</code>
+(the returns govern over this digest; live sources govern over both). It
+adopts nothing, rules nothing, and creates no obligation; candidate
+instruments named above are un-ruled brainstorm preserved for a future
+owner-initiated act. Thesis-derived content carries the corpus's own
+status (CITED/REVIEWED, binding nothing). Numeric claims are the
+investigators' measurements at basis <code>main@7fe5da35a</code> and
+should be re-derived before consequential use. Retention posture: keep in
+<code>plans/</code> while it informs the owner's direction-setting;
+archive to <code>plans/.archive/</code> thereafter without promoting it
+into product authority.
+</footer>
+
+</main>
+</body>
+</html>

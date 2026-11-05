@@ -1,0 +1,4 @@
+Path,Role,SHA256,SourcePath,BasisCommit
+PROJECT_DECOMP.md,accepted-group1-basis,dd80227079e29e65a73da4c1650295aeb6e65f45940427bf0b698b6a5e1edddd,execution/_Decomposition/PROJECT_DECOMP.md,d5ca6594ce6010c94c7981fe35cc540a822e9aa8
+DECISION.md,owner-decision,ef88c549132b9c7b23bbe4f48b5d207335b50ee8ba190511804ddfc12cbb5508,conversation,
+HANDOFF_STATE.md,downstream-stage-basis,3c83f09dc34c49b5b51eaecb8162d80587da895929be0137a916b2c2eeefae1c,,

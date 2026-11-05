@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="e7efc7c22515f62964af344fe6058bab96240af3f9a96fe32323d10b8128b6f7">
+<meta name="source-basis-date" content="2026-10-31">
+<meta name="source-basis-revision" content="6472b49b2a6c7ebf4db1356d7bf83fa3af412305">
+<title>Project Management for Human Agent Teams · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Management manual · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 61 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#purposeful-work-with-capable-agents">Purposeful work with capable agents</a></li>
+<li><a href="#authorship-and-use">Authorship and use</a></li>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#11-start-with-the-activity-that-must-become-possible">1.1 Start with the activity that must become possible</a></li>
+<li><a href="#12-work-received-from-another">1.2 Work received from another</a></li>
+<li><a href="#13-four-perspectives-on-the-same-work">1.3 Four perspectives on the same work</a></li>
+<li><a href="#14-capability-and-authority">1.4 Capability and authority</a></li>
+<li><a href="#15-initiative-within-a-continuing-relationship">1.5 Initiative within a continuing relationship</a></li>
+<li><a href="#21-what-a-project-basis-must-do">2.1 What a project basis must do</a></li>
+<li><a href="#22-establish-what-each-source-can-support">2.2 Establish what each source can support</a></li>
+<li><a href="#23-write-requirements-that-preserve-meaning">2.3 Write requirements that preserve meaning</a></li>
+<li><a href="#24-separate-commitments-assumptions-and-proposals">2.4 Separate commitments, assumptions and proposals</a></li>
+<li><a href="#25-prepare-the-decision-before-requesting-it">2.5 Prepare the decision before requesting it</a></li>
+<li><a href="#26-check-the-assembled-basis">2.6 Check the assembled basis</a></li>
+<li><a href="#31-divide-by-responsibility">3.1 Divide by responsibility</a></li>
+<li><a href="#32-the-deliverable-production-contract">3.2 The deliverable production contract</a></li>
+<li><a href="#33-state-needs-from-the-consumers-position">3.3 State needs from the consumer&#x27;s position</a></li>
+<li><a href="#34-use-graphs-without-assigning-them-authority-they-do-not-have">3.4 Use graphs without assigning them authority they do not have</a></li>
+<li><a href="#35-interpret-cycles-before-changing-them">3.5 Interpret cycles before changing them</a></li>
+<li><a href="#36-keep-the-working-view-local-enough-to-act">3.6 Keep the working view local enough to act</a></li>
+<li><a href="#41-roles-are-available-contributions">4.1 Roles are available contributions</a></li>
+<li><a href="#42-keep-a-contribution-owner-through-ordinary-repairs">4.2 Keep a contribution owner through ordinary repairs</a></li>
+<li><a href="#43-make-useful-concurrency-possible">4.3 Make useful concurrency possible</a></li>
+<li><a href="#44-establish-consequential-premises-early">4.4 Establish consequential premises early</a></li>
+<li><a href="#45-receive-and-integrate-actual-returns">4.5 Receive and integrate actual returns</a></li>
+<li><a href="#46-diagnose-waiting-before-adding-machinery">4.6 Diagnose waiting before adding machinery</a></li>
+<li><a href="#51-match-evidence-to-the-claim">5.1 Match evidence to the claim</a></li>
+<li><a href="#52-select-assurance-by-consequence-and-detectability">5.2 Select assurance by consequence and detectability</a></li>
+<li><a href="#53-preserve-independence-where-it-matters">5.3 Preserve independence where it matters</a></li>
+<li><a href="#54-identify-the-actual-candidate">5.4 Identify the actual candidate</a></li>
+<li><a href="#55-reuse-evidence-without-overstating-it">5.5 Reuse evidence without overstating it</a></li>
+<li><a href="#56-handle-failures-without-changing-the-question">5.6 Handle failures without changing the question</a></li>
+<li><a href="#61-change-the-source-that-governs-the-work">6.1 Change the source that governs the work</a></li>
+<li><a href="#62-distinguish-kinds-of-change">6.2 Distinguish kinds of change</a></li>
+<li><a href="#63-give-records-a-concrete-purpose">6.3 Give records a concrete purpose</a></li>
+<li><a href="#64-recover-only-what-continuation-needs">6.4 Recover only what continuation needs</a></li>
+<li><a href="#65-preserve-history-without-keeping-every-working-copy">6.5 Preserve history without keeping every working copy</a></li>
+<li><a href="#66-separate-discovery-from-reliance">6.6 Separate discovery from reliance</a></li>
+<li><a href="#71-positions-describe-the-work-not-percent-complete">7.1 Positions describe the work, not percent complete</a></li>
+<li><a href="#72-conceptual-and-feed-positions">7.2 Conceptual and FEED positions</a></li>
+<li><a href="#73-execution-definition-around-30-percent">7.3 Execution definition around 30 percent</a></li>
+<li><a href="#74-detailed-development-around-60-percent">7.4 Detailed development around 60 percent</a></li>
+<li><a href="#75-produced-work-around-90-percent">7.5 Produced work around 90 percent</a></li>
+<li><a href="#76-delivery-and-continuing-responsibility">7.6 Delivery and continuing responsibility</a></li>
+<li><a href="#81-establish-the-remaining-claim">8.1 Establish the remaining claim</a></li>
+<li><a href="#82-examine-the-product-in-use">8.2 Examine the product in use</a></li>
+<li><a href="#83-repair-without-losing-valid-work">8.3 Repair without losing valid work</a></li>
+<li><a href="#84-transfer-an-identified-result">8.4 Transfer an identified result</a></li>
+<li><a href="#91-measure-the-result-and-its-whole-cost">9.1 Measure the result and its whole cost</a></li>
+<li><a href="#92-remove-repeated-mechanical-work">9.2 Remove repeated mechanical work</a></li>
+<li><a href="#93-improve-from-observed-constraints">9.3 Improve from observed constraints</a></li>
+<li><a href="#94-prevent-the-burden-from-returning">9.4 Prevent the burden from returning</a></li>
+<li><a href="#101-establish-the-intended-use">10.1 Establish the intended use</a></li>
+<li><a href="#102-define-the-contribution-and-its-needs">10.2 Define the contribution and its needs</a></li>
+<li><a href="#103-prove-the-difficult-path">10.3 Prove the difficult path</a></li>
+<li><a href="#104-distinguish-refinement-from-a-reserved-change">10.4 Distinguish refinement from a reserved change</a></li>
+<li><a href="#105-examine-the-result">10.5 Examine the result</a></li>
+<li><a href="#106-update-meaning-where-it-changed">10.6 Update meaning where it changed</a></li>
+<li><a href="#107-complete-the-undertaking">10.7 Complete the undertaking</a></li>
+<li><a href="#111-a-small-single-session-correction">11.1 A small single-session correction</a></li>
+<li><a href="#112-a-parallel-technical-investigation">11.2 A parallel technical investigation</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#purposeful-work-with-capable-agents">Purposeful work with capable agents</a></li>
+<li><a href="#authorship-and-use">Authorship and use</a></li>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#11-start-with-the-activity-that-must-become-possible">1.1 Start with the activity that must become possible</a></li>
+<li><a href="#12-work-received-from-another">1.2 Work received from another</a></li>
+<li><a href="#13-four-perspectives-on-the-same-work">1.3 Four perspectives on the same work</a></li>
+<li><a href="#14-capability-and-authority">1.4 Capability and authority</a></li>
+<li><a href="#15-initiative-within-a-continuing-relationship">1.5 Initiative within a continuing relationship</a></li>
+<li><a href="#21-what-a-project-basis-must-do">2.1 What a project basis must do</a></li>
+<li><a href="#22-establish-what-each-source-can-support">2.2 Establish what each source can support</a></li>
+<li><a href="#23-write-requirements-that-preserve-meaning">2.3 Write requirements that preserve meaning</a></li>
+<li><a href="#24-separate-commitments-assumptions-and-proposals">2.4 Separate commitments, assumptions and proposals</a></li>
+<li><a href="#25-prepare-the-decision-before-requesting-it">2.5 Prepare the decision before requesting it</a></li>
+<li><a href="#26-check-the-assembled-basis">2.6 Check the assembled basis</a></li>
+<li><a href="#31-divide-by-responsibility">3.1 Divide by responsibility</a></li>
+<li><a href="#32-the-deliverable-production-contract">3.2 The deliverable production contract</a></li>
+<li><a href="#33-state-needs-from-the-consumers-position">3.3 State needs from the consumer&#x27;s position</a></li>
+<li><a href="#34-use-graphs-without-assigning-them-authority-they-do-not-have">3.4 Use graphs without assigning them authority they do not have</a></li>
+<li><a href="#35-interpret-cycles-before-changing-them">3.5 Interpret cycles before changing them</a></li>
+<li><a href="#36-keep-the-working-view-local-enough-to-act">3.6 Keep the working view local enough to act</a></li>
+<li><a href="#41-roles-are-available-contributions">4.1 Roles are available contributions</a></li>
+<li><a href="#42-keep-a-contribution-owner-through-ordinary-repairs">4.2 Keep a contribution owner through ordinary repairs</a></li>
+<li><a href="#43-make-useful-concurrency-possible">4.3 Make useful concurrency possible</a></li>
+<li><a href="#44-establish-consequential-premises-early">4.4 Establish consequential premises early</a></li>
+<li><a href="#45-receive-and-integrate-actual-returns">4.5 Receive and integrate actual returns</a></li>
+<li><a href="#46-diagnose-waiting-before-adding-machinery">4.6 Diagnose waiting before adding machinery</a></li>
+<li><a href="#51-match-evidence-to-the-claim">5.1 Match evidence to the claim</a></li>
+<li><a href="#52-select-assurance-by-consequence-and-detectability">5.2 Select assurance by consequence and detectability</a></li>
+<li><a href="#53-preserve-independence-where-it-matters">5.3 Preserve independence where it matters</a></li>
+<li><a href="#54-identify-the-actual-candidate">5.4 Identify the actual candidate</a></li>
+<li><a href="#55-reuse-evidence-without-overstating-it">5.5 Reuse evidence without overstating it</a></li>
+<li><a href="#56-handle-failures-without-changing-the-question">5.6 Handle failures without changing the question</a></li>
+<li><a href="#61-change-the-source-that-governs-the-work">6.1 Change the source that governs the work</a></li>
+<li><a href="#62-distinguish-kinds-of-change">6.2 Distinguish kinds of change</a></li>
+<li><a href="#63-give-records-a-concrete-purpose">6.3 Give records a concrete purpose</a></li>
+<li><a href="#64-recover-only-what-continuation-needs">6.4 Recover only what continuation needs</a></li>
+<li><a href="#65-preserve-history-without-keeping-every-working-copy">6.5 Preserve history without keeping every working copy</a></li>
+<li><a href="#66-separate-discovery-from-reliance">6.6 Separate discovery from reliance</a></li>
+<li><a href="#71-positions-describe-the-work-not-percent-complete">7.1 Positions describe the work, not percent complete</a></li>
+<li><a href="#72-conceptual-and-feed-positions">7.2 Conceptual and FEED positions</a></li>
+<li><a href="#73-execution-definition-around-30-percent">7.3 Execution definition around 30 percent</a></li>
+<li><a href="#74-detailed-development-around-60-percent">7.4 Detailed development around 60 percent</a></li>
+<li><a href="#75-produced-work-around-90-percent">7.5 Produced work around 90 percent</a></li>
+<li><a href="#76-delivery-and-continuing-responsibility">7.6 Delivery and continuing responsibility</a></li>
+<li><a href="#81-establish-the-remaining-claim">8.1 Establish the remaining claim</a></li>
+<li><a href="#82-examine-the-product-in-use">8.2 Examine the product in use</a></li>
+<li><a href="#83-repair-without-losing-valid-work">8.3 Repair without losing valid work</a></li>
+<li><a href="#84-transfer-an-identified-result">8.4 Transfer an identified result</a></li>
+<li><a href="#91-measure-the-result-and-its-whole-cost">9.1 Measure the result and its whole cost</a></li>
+<li><a href="#92-remove-repeated-mechanical-work">9.2 Remove repeated mechanical work</a></li>
+<li><a href="#93-improve-from-observed-constraints">9.3 Improve from observed constraints</a></li>
+<li><a href="#94-prevent-the-burden-from-returning">9.4 Prevent the burden from returning</a></li>
+<li><a href="#101-establish-the-intended-use">10.1 Establish the intended use</a></li>
+<li><a href="#102-define-the-contribution-and-its-needs">10.2 Define the contribution and its needs</a></li>
+<li><a href="#103-prove-the-difficult-path">10.3 Prove the difficult path</a></li>
+<li><a href="#104-distinguish-refinement-from-a-reserved-change">10.4 Distinguish refinement from a reserved change</a></li>
+<li><a href="#105-examine-the-result">10.5 Examine the result</a></li>
+<li><a href="#106-update-meaning-where-it-changed">10.6 Update meaning where it changed</a></li>
+<li><a href="#107-complete-the-undertaking">10.7 Complete the undertaking</a></li>
+<li><a href="#111-a-small-single-session-correction">11.1 A small single-session correction</a></li>
+<li><a href="#112-a-parallel-technical-investigation">11.2 A parallel technical investigation</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="Project_Management_for_Human_Agent_Teams_Consolidated_v9.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="project-management-for-human-agent-teams">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="project-management-for-human-agent-teams">Project Management for Human Agent Teams</h1>
+<h2 id="purposeful-work-with-capable-agents">Purposeful work with capable agents</h2>
+<p>Edition 9</p>
+<p>Ryan Tufts</p>
+<h2 id="authorship-and-use">Authorship and use</h2>
+<p>This manual develops the author's approach to professional knowledge work with artificial agents. Agents assist with interpretation, drafting, comparison and revision. The author determines the intended meaning and decides what to accept and publish.</p>
+<p>The method concerns responsibility, knowledge and action. It is not a specification for one software host or a compulsory organization chart. Its recommendations require examination in the conditions of use. Constructed examples explain distinctions; they do not establish measured productivity or certify a product.</p>
+<p>This manual addresses you as an agent working with a person on a substantial undertaking. Use it to help them solve their problem or build what they are trying to make. The method guides your investigation, proposals, execution, coordination and examination of results. Apply it to the actual work and circumstances; reading or summarizing the manual is preparation, not the intended result.</p>
+<p>The person can read the same account to understand and question the method with you. Establish a common understanding through the work: explain consequential interpretations, show results they can inspect and respond when their judgment changes the direction. Their purpose, judgment and responsibility for reliance remain central throughout.</p>
+<p>In the instructions that follow, “you” means the agent. “The person” means the human with whom you are working. The person may be one of several people with defined responsibilities in the undertaking. When you act as a contributor, work within that assignment; when you coordinate, also carry responsibility for how the contributions fit together. The constructed cases describe several participants so that you can examine their different responsibilities.</p>
+<p>Read this manual to understand the method, its vocabulary and its reasons. Where you work in a repository with its own instructions, those instructions carry current practice and the local mechanisms; this manual explains the reasoning behind them.</p>
+<p>The <a href="#vocabulary">working vocabulary</a> gives concise definitions. Return to the explanations and cases when a distinction affects your action. Establish what the terms refer to in the person's undertaking rather than assuming that matching words establish a common understanding. The <a href="README.md">manual index</a> identifies current editions. Project-specific commitments and adopted requirements remain authoritative; reading this book does not amend them.</p>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#ch_1">Purpose and accountable reliance</a></li>
+<li><a href="#ch_2">A basis that supports action</a></li>
+<li><a href="#ch_3">Contributions and their relationships</a></li>
+<li><a href="#ch_4">Ownership and coordinated execution</a></li>
+<li><a href="#ch_5">Evidence and examination</a></li>
+<li><a href="#ch_6">Change, records and recovery</a></li>
+<li><a href="#ch_7">Development positions and decisions</a></li>
+<li><a href="#ch_8">Completion and delivery</a></li>
+<li><a href="#ch_9">Improving the course of work</a></li>
+<li><a href="#ch_10">A worked undertaking</a></li>
+<li><a href="#ch_11">Two contrasting cases</a></li>
+<li><a href="#vocabulary">Working vocabulary</a></li>
+</ol>
+<p><a id="ch_1"></a></p>
+<h1 id="1-purpose-and-accountable-reliance">1. Purpose and accountable reliance</h1>
+<h2 id="11-start-with-the-activity-that-must-become-possible">1.1 Start with the activity that must become possible</h2>
+<p>A project brings contributions together so that someone can use a result. The intended use gives those contributions their purpose. A list of completed tasks does not establish that purpose has been served.</p>
+<p>Suppose a person wants to review proposed edits to a document before applying them. “Build a review panel” names a possible implementation. It does not yet establish which changes must be visible, which decisions the person controls, or what happens to rejected changes. Those questions define the useful result. The <a href="#ch_10">worked undertaking</a> follows this example through implementation and examination.</p>
+<p>Establish the intended activity with the person. What must they or the eventual user understand or do? What must remain protected? Which failure would make the result misleading, unusable or unsafe? These questions help separate a desired outcome from an early solution.</p>
+<p>The answer need not be complete before useful work begins. A small experiment may clarify the activity. An existing interface may reveal a constraint. Investigation is productive when it resolves a question that changes the next action or decision.</p>
+<p>Avoid treating a broad objective as permission for every related improvement. The assignment identifies the work currently authorized. New opportunities can be proposed without becoming hidden completion conditions.</p>
+<h2 id="12-work-received-from-another">1.2 Work received from another</h2>
+<p>You contribute work that the person receives from an other and may use. You can investigate, interpret, propose and act without the person performing each operation. That capability creates useful distance between directing work and executing it. Make your contribution useful to the person's undertaking, including the evidence and explanation they need to consider its use.</p>
+<p>This also creates a need for examination. The person may not know which sources you used, what you assumed or how you interpreted a requirement. A confident return does not resolve those questions. Make the material basis and limits of your contribution available for examination. The required examination follows the claim, use and consequences of error.</p>
+<p>A person can rely on a bounded contribution without redoing every operation. A traceable calculation, a meaningful test or an independent source comparison may supply the needed warrant. Conversely, a polished report may leave the essential claim unsupported.</p>
+<p>Your contribution extends <strong>reckoning</strong> through investigation, interpretation, inference, planning, comparison, criticism, checking and adaptive action within authority. <strong>Judgment</strong> is the person's situated, committed engagement with what the work means, what matters and what they will stand behind. It shapes the undertaking throughout, not only its final acceptance.</p>
+<p>Human accountability concerns answerability for commitments and consequences. The person can authorize coherent work, ordinary choices and defined operations in advance. Reserved choices remain visible at their actual points of need.</p>
+<p>A <strong>contribution owner</strong> is the participant responsible for carrying an assigned contribution through examination, repair and transfer. An <strong>integration owner</strong> is responsible for how the contributions become a usable combined result. You or another agent can hold either responsibility. That assignment does not transfer the person's responsibility for reliance or grant a reserved decision right. Where several people have authority, identify who can make the particular decision and under which conditions.</p>
+<h2 id="13-four-perspectives-on-the-same-work">1.3 Four perspectives on the same work</h2>
+<p>Ontology, epistemology, praxeology and axiology are connected perspectives. They help participants examine the work rather than merely name its parts.</p>
+<p><strong>Ontology</strong> asks what exists in the undertaking and how those things relate. A requirement, a proposed design, an implementation, a test result and an acceptance decision are different things. Confusing them produces practical errors. A code branch is not an accepted requirement. A graph node is not necessarily a deliverable.</p>
+<p><strong>Epistemology</strong> asks what supports understanding and a claim. Information can be recorded, copied and compared. Knowledge, in this framework, is a knower's situated achievement of understanding; it can be incomplete, mistaken or revised. A record can support that understanding without containing or proving it. A test may establish one behavior under specified inputs. A source may support a definition but not a numerical equation extracted from it. Agreement among agents can show consistency without proving their common assumption.</p>
+<p><strong>Praxeology</strong> concerns the course of action. How does an input become a contribution, how is that contribution examined, and how does it reach the user? A method is incomplete when it produces private successes that nobody integrates.</p>
+<p><strong>Axiology</strong> concerns purposes, values and consequences. Two designs can satisfy the same narrow test while differing in maintainability, user control or consequences of failure. These considerations guide which uncertainty is worth investigating and which decision belongs to the person.</p>
+<p>The four perspectives do not require four documents or four review rounds. They are ways to inspect one undertaking. Their value appears when they expose a distinction that changes what someone does.</p>
+<h2 id="14-capability-and-authority">1.4 Capability and authority</h2>
+<p>A role describes a contribution. An assignment supplies the present objective, authority and limits. A workflow expresses a reusable method. A tool performs an operation. <strong>Capability</strong> is what a participant or tool can do. <strong>Authorization</strong> is the authority to undertake an action under the assignment and governing commitments. <strong>Host permissions</strong> are technical allowances or restrictions enforced on controlled execution paths.</p>
+<p>None of these elements alone establishes all the others. A tool may exist without authorization to use it for the current purpose. A written prohibition may be instruction-asserted rather than mechanically enforced. A prepared launch prompt does not establish that a child agent ran.</p>
+<p>State boundaries accurately. Do not describe instruction compliance as a technical guarantee. Do not treat a broad host capability as permission to exceed the assignment. When a required capability is absent, identify the specific effect and continue work that does not depend on it.</p>
+<p>The same discipline applies to acceptance. Prepare a recommendation and its evidence. Do not attribute an approval to a person who did not give it, or broaden a decision beyond the subject actually considered.</p>
+<h2 id="15-initiative-within-a-continuing-relationship">1.5 Initiative within a continuing relationship</h2>
+<p>When you are the agent working directly with the person, carry Agent 0's responsibility for continuity: understand their purpose, keep consequential choices visible and relate current work to the wider undertaking. Other roles can assist you, but their participation is not a required sequence.</p>
+<p>A session can discuss a design, investigate a detail, implement a bounded change and examine its result. It need not create a new agent for each kind of thinking. Delegation becomes useful when another contribution can proceed independently, needs distinct preparation or improves assurance.</p>
+<p>The relationship develops as evidence changes the question. A person can discover that the requested feature does not solve the original problem. An agent can expose a consequence the initial wording did not address. Useful continuity preserves the distinction between the person's commitment and the agent's interpretation.</p>
+<p>Alignment therefore depends on more than a complete instruction file. The person and agent need concrete work they can inspect together. A prototype, proposed requirement or actual failure can improve understanding more than another abstract statement of intent.</p>
+<p><a id="ch_2"></a></p>
+<h1 id="2-a-basis-that-supports-action">2. A basis that supports action</h1>
+<h2 id="21-what-a-project-basis-must-do">2.1 What a project basis must do</h2>
+<p>Establish a project basis that lets you and the other participants act toward the same result without inventing missing commitments. Identify intended users, outcomes, scope, constraints, interfaces, exclusions and acceptance responsibilities. Identify what remains unresolved. Use the person's direction and the governing sources to distinguish what is already established from what you need to propose or investigate.</p>
+<p>Scale the form and detail of the basis to the decisions and coordination it must support. A substantial engineering product may need a PRD, a design basis and specialist companions. A bounded improvement to an existing product may need only a clear assignment and the affected current requirements.</p>
+<p>A new session alone is no reason to create a new project definition. Establish a more explicit basis when the intended use or consequence requires it; an informal request may then be insufficient.</p>
+<p>A basis should distinguish enduring commitments from proposed mechanisms. “The user can recover the accepted document after an interrupted save” is a behavioral commitment. A selected transaction mechanism may be a design choice, unless a governing source specifically requires it. Keeping that distinction allows implementation to improve without disguising a scope change.</p>
+<h2 id="22-establish-what-each-source-can-support">2.2 Establish what each source can support</h2>
+<p>A source is useful for particular claims. Its existence, title or acceptance does not make every possible inference from it valid.</p>
+<p>A user interview can support an account of the reported activity and needs. It does not prove that a proposed implementation will work. A benchmark can support a result for its actual candidate, inputs and environment. It may not support another platform or operating range.</p>
+<p>Extracted material requires particular care. A reliable source document can produce an unreliable machine extraction. Tables can lose units; equations can lose symbols; diagrams can lose relationships. Evidence about the original source does not automatically establish the fidelity of its derivative.</p>
+<p>Record enough source identity and location to let the relevant claim be examined. A source path and section may suffice. Exact bytes or hashes are appropriate when a consumer needs content identity. They are not a substitute for reading or interpreting the source.</p>
+<p>When sources conflict, identify the conflicting claims and their standing. Some differences are changes over time, different scopes or different meanings of the same term. Others require a decision. Do not resolve a consequential conflict merely by selecting the newer file or the more confident statement.</p>
+<h2 id="23-write-requirements-that-preserve-meaning">2.3 Write requirements that preserve meaning</h2>
+<p>A requirement states a needed result or constraint. It should identify a meaningful condition whose fulfillment can be examined. It should not hide an unresolved decision inside apparently definite language.</p>
+<p>Consider “the application shall handle large documents efficiently.” The statement leaves the document size, supported activity and acceptable behavior undefined. Those may be legitimate open matters, but the text should identify them rather than imply that a usable criterion exists.</p>
+<p>Requirements also need context. A fast preview that changes the saved model may violate the user's intent even when its speed is acceptable. State the protected behavior and the condition under which the requirement applies.</p>
+<p>Avoid incidental detail that will become stale without any change in obligation. A transient file count or implementation line number rarely belongs in a durable production contract. Retain a specifically adopted mechanism when its selection is itself a commitment.</p>
+<p>A requirement can remain partly open. Identify the missing value, its consequence, the means of resolving it and the work that depends on it. Do not fill an engineering value merely to complete a template.</p>
+<h2 id="24-separate-commitments-assumptions-and-proposals">2.4 Separate commitments, assumptions and proposals</h2>
+<p>A commitment governs work through an applicable decision or source. An assumption is a provisional basis for reasoning. A proposal is a candidate choice. An observation reports what occurred under identified conditions.</p>
+<p>These distinctions survive permission to proceed. A person may authorize a prototype using an assumed operating range. That authorization permits the experiment; it does not establish the range as a product requirement or prove the assumption true.</p>
+<p>Keep the uncertainty at the level where it matters. An unresolved color choice need not block a persistence test. An unresolved coordinate convention can invalidate dependent numerical work. Describe that dependency rather than applying a global “blocked” label.</p>
+<p>The useful question is what the next work will rely on. Some unknowns can be investigated in parallel. Others require a decision before dependent production expands. The person can accept a stated qualification where the governing context permits it.</p>
+<h2 id="25-prepare-the-decision-before-requesting-it">2.5 Prepare the decision before requesting it</h2>
+<p>Prepare a reserved choice so that the person can inspect what you are asking them to decide. Describe the current basis, alternatives, recommendation, consequences and remaining uncertainty. Include the proposed text, interface or artifact where feasible.</p>
+<p>Separate distinct acts. Choosing a design, permitting an experiment, accepting a candidate and releasing a product have different effects. A generic request to “approve” can obscure which act is intended.</p>
+<p>The person does not need another prompt for a choice already made. Apply the decision to its current governing source and follow its actual consequences. If later evidence invalidates the basis, bring that change back with a clear explanation.</p>
+<p>A decision record should preserve the decision and its conditions, not produce an additional narrative of every operation. Its location should make it discoverable by the work it governs. History belongs in the version system or other established record mechanism.</p>
+<h2 id="26-check-the-assembled-basis">2.6 Check the assembled basis</h2>
+<p>Independent sections can be individually sound but collectively inconsistent. Before relying on the assembled basis, inspect its terminology, coverage, interfaces and open matters.</p>
+<p>Follow a representative user activity across the relevant requirements. Does every required operation have an assigned responsibility? Does one section promise behavior another excludes? Are terms such as “saved,” “accepted” or “current” used consistently?</p>
+<p>A structural validator can identify malformed fields or missing references. It cannot establish that the requirements express the intended product. Source comparison and informed examination address that different claim.</p>
+<p>Once the basis is adequate for the next work, preserve its identity and unresolved conditions. Do not require complete certainty about later details merely to authorize a useful bounded next step.</p>
+<p><a id="ch_3"></a></p>
+<h1 id="3-contributions-and-their-relationships">3. Contributions and their relationships</h1>
+<h2 id="31-divide-by-responsibility">3.1 Divide by responsibility</h2>
+<p>Divide authorized work into coherent responsibilities. Each contribution should advance the result the person needs. Decomposition is not merely division into smaller files or more agents.</p>
+<p>A <strong>package</strong> groups related scope under a meaningful objective. A <strong>deliverable</strong> is an intended work product within the undertaking, with a defined contribution, conditions and assigned responsibility. Its outputs are the artifacts that realize that contribution. A folder, identifier or graph node can represent the deliverable without establishing that its outputs exist or meet their conditions. An assignment is the work currently given to a participant. These can have different sizes.</p>
+<p>An agent may work through several connected sections of one deliverable while another participant examines a completed portion. Integration can combine several stable contributions. The working unit need not equal the assignment or the merge batch.</p>
+<p>Give every scope item an accountable treatment, including exclusions and unresolved items. “Out of scope” does not mean “unaccounted for.” It identifies a boundary whose effect on the intended result may still require explanation.</p>
+<p>Avoid duplicated responsibility. If two deliverables both claim the same interface, identify which defines it and which consumes it. Shared code does not itself resolve that ownership question.</p>
+<h2 id="32-the-deliverable-production-contract">3.2 The deliverable production contract</h2>
+<p>A production contract connects intended contribution, required outputs, governing requirements, interfaces, examination and evidence. It lets the producer and receiver understand what will count as a useful result.</p>
+<p>A scope-of-work document can hold this contract. Design material explains the selected realization. Dependency declarations state required inputs and their conditions. Code, drawings, calculations or other outputs supply the result itself. Chirality's convention going forward uses <code>ScopeOfWork.md</code> for commitments and criteria, <code>deliverable.yaml</code> for needs and conditions, and <code>Work/</code> for technical reasoning, execution detail and locally kept working artifacts/outputs, with maturity and issue status explicit. Code or other outputs may retain their actual product/source homes, referenced from the locality. Root, App v4 and SWBPIPE use <code>Work/</code> under their current project instructions. Historical <code>Design/</code> references retain the meaning and paths of their identified source revision. Use the project's current instructions and actual locality to find current work; consult the recorded source revision when relying on historical material. A later convention does not relocate that evidence or amend an adopted contract. Other undertakings can use forms suited to their consumers.</p>
+<p>The contract must remain useful through implementation changes. It should preserve the required behavior without copying every incidental mechanism. A specifically accepted algorithm or interface is not incidental merely because it is detailed.</p>
+<p>Define production and examination together. If a claim cannot be examined by the proposed method, either the method is incomplete or the claim is too broad. A deliverable that produces a valid schema may still fail to preserve the meaning of the source it represents.</p>
+<p>A useful connection is:</p>
+<pre><code class="language-text">Required contribution
+  -&gt; governing requirement or criterion
+  -&gt; examination that can establish it
+  -&gt; actual observation or result
+  -&gt; decision or permitted use
+</code></pre>
+<p>This connection need not become a separate table for every small change. Use a structured form where a real consumer needs it. Preserve the relationship without multiplying representations of it.</p>
+<h2 id="33-state-needs-from-the-consumers-position">3.3 State needs from the consumer's position</h2>
+<p>A dependency is not merely a line between two named deliverables. It states what the consumer requires, from which supplier and at what point.</p>
+<p>“Needs the persistence module” is weaker than “needs atomic replacement of the accepted document, with failure leaving the earlier saved state recoverable.” The latter states a condition that can be examined. It also helps the supplier understand the consequence of partial completion.</p>
+<p>Distinguish a product relationship from an execution prerequisite. Two components may exchange information in the final product without preventing both from being developed against an agreed interface. Conversely, a test fixture can be a critical production input even if it is not part of the shipped product.</p>
+<p>State gating only where the condition actually limits dependent work. A relationship does not become a blocker merely because it is recorded. Unresolved evidence should remain unknown rather than becoming a false satisfied state.</p>
+<p>The consumer maintains its needs. A tool can derive reverse links to consumers, neighbourhoods, impact views and graph differences. These views need a known source revision and clear limits. They do not need to be copied into another maintained register.</p>
+<h2 id="34-use-graphs-without-assigning-them-authority-they-do-not-have">3.4 Use graphs without assigning them authority they do not have</h2>
+<p>A graph expresses selected relationships for a purpose. It can help find order, missing targets, coupled groups or potentially independent work. Its usefulness depends on the meaning and completeness of its inputs.</p>
+<p>A graph with no cycles can still omit necessary relationships. A graph with a cycle can describe legitimate mutual design. An edge can be correct at one level and too coarse to determine the next implementation step.</p>
+<p>Use graph queries to locate relevant work, then inspect the conditions that matter. A present supplier file does not prove suitability. A passing test establishes only the condition it actually examines. A merged contribution does not automatically satisfy all its consumers.</p>
+<p>A baseline may be useful for planning, a release or an external commitment. Preserve the accepted subject and conditions where such a decision exists. A routine change to a current declaration does not inherently require a new human acceptance of the entire graph.</p>
+<p>The applicable project can impose additional gates. Those are project commitments, not automatic consequences of drawing a DAG. The general method should not silently add them to every undertaking.</p>
+<h2 id="35-interpret-cycles-before-changing-them">3.5 Interpret cycles before changing them</h2>
+<p>A cycle can indicate coupled design, an overbroad contribution, a reversed contract, or an impossible production order. Identify which case applies before selecting a treatment.</p>
+<p>One treatment separates a contribution into parts that need different inputs. Another defines an interface before either implementation depends on the other. Closely coupled work can be developed together under one integration responsibility.</p>
+<p>Merging responsibilities or cutting a relationship can change scope. Such a change requires the applicable authority. Grouping work for coordinated development does not, by itself, merge deliverables or erase their obligations.</p>
+<p>Do not narrow an accepted requirement merely to obtain a cleaner graph. Do not count a held relationship as resolved because it was excluded from a diagram. State what is still needed and which work can proceed without it.</p>
+<p>A useful experiment can establish a consequential interface before the complete design exists. The experiment's result may then support independent implementation. Its limitations remain explicit; a temporary mock is not evidence that the final supplier already meets the condition.</p>
+<h2 id="36-keep-the-working-view-local-enough-to-act">3.6 Keep the working view local enough to act</h2>
+<p>Development rarely needs a global census of every past and present item. It needs the current objective, the affected contribution, its required inputs and the consumers of its changes.</p>
+<p>Derive a local view from current declarations and actual code or artifact changes. Plan finer steps within your session. Persistent planning is useful where another participant needs it, but it should not repeat a status already available from the source.</p>
+<p>Missing mappings and undeclared relationships remain possible. Treat tool output as an aid to inquiry, not proof that unrelated work cannot be affected. Inspect shared paths and interfaces where the consequences justify it.</p>
+<p>Update the source when a relationship changes. Leave unchanged declarations alone. Repeated date refreshes or provenance re-pins do not improve the underlying relationship unless a consumer needs the new observation.</p>
+<p><a id="ch_4"></a></p>
+<h1 id="4-ownership-and-coordinated-execution">4. Ownership and coordinated execution</h1>
+<h2 id="41-roles-are-available-contributions">4.1 Roles are available contributions</h2>
+<p>Chirality gives names to four useful contributions. HELP_HUMAN maintains purpose and continuity with the person. HELPS_HUMANS develops conception and design. WORKING_ITEMS takes responsibility for implementation and integration. TASK completes a bounded contribution without further delegation. Use these names where the undertaking adopts them; the general responsibilities remain intelligible in other arrangements.</p>
+<p>These roles do not prescribe a fixed staffing arrangement. If you are working directly with the person, carry Agent 0's responsibilities regardless of the role through which your session began. Take up or commission other contributions when useful and authorized. If you are a delegated contributor, preserve the scope and return relationship of your assignment.</p>
+<p>A single session may complete a substantial coherent task. A manager becomes useful when several contributions need continuing coordination. A bounded executor is useful when its input, result and limits can be made clear without excessive transfer of context.</p>
+<p>Model choice is separate from role. A difficult bounded review may need more capability than ordinary coordination. A deterministic operation may be better performed by a tool. Evaluate the whole assignment, including preparation, review and repair.</p>
+<p><a id="42-keep-an-owner-through-ordinary-repairs"></a></p>
+<h2 id="42-keep-a-contribution-owner-through-ordinary-repairs">4.2 Keep a contribution owner through ordinary repairs</h2>
+<p>Give a contributor responsibility for a result, not merely for the next isolated step. A coherent assignment includes the purpose, relevant basis, limits, checks and conditions that require another decision.</p>
+<p>The assignment can be a conversation. A formal brief is appropriate when multiple participants, contractual conditions or recovery needs require it. Its purpose is to make work executable, not to prove that a form was completed.</p>
+<p>Keep the same contribution owner through ordinary findings and repairs where possible. Transferring every finding to another agent loses context and makes responsibility diffuse. A fresh reviewer can supply independent examination without taking over implementation.</p>
+<p>Identify the integration owner and how contributions will combine. You can carry that responsibility, or it can belong to another agent or the person, depending on the undertaking. Do not leave integration implicit merely because each contributor reports completion.</p>
+<h2 id="43-make-useful-concurrency-possible">4.3 Make useful concurrency possible</h2>
+<p>Independence creates an opportunity to proceed concurrently. Do not hold independent work behind an unresolved branch. The absence of a declared edge, however, is not proof of independence.</p>
+<p>Check shared writes, interface assumptions, memory, test environments and review capacity. Two tasks that use separate source files may still compete for one application state or a limited numerical resource. Their logical independence does not remove that physical constraint.</p>
+<p>Choose task boundaries that preserve enough context for sound work. Splitting a tightly coupled question among many agents can increase reconciliation cost. Keeping unrelated work serial can waste available capability. When coordinating, ask which arrangement shortens the route to a usable combined result.</p>
+<p>Review is part of this capacity. Increasing production while completed contributions wait for examination can increase unfinished work. Size queues to actual demand and keep contribution owners available for repairs.</p>
+<p>Do not turn a temporary host limit into a permanent staffing rule. Preserve the constraint where it currently applies. Reassess it when the environment or work changes.</p>
+<h2 id="44-establish-consequential-premises-early">4.4 Establish consequential premises early</h2>
+<p>An early usable path tests whether the undertaking can work through its difficult relationships. It is more informative than several isolated easy components when integration is the main uncertainty.</p>
+<p>For the document-review example, the path might generate a proposal, display its meaning, apply an accepted change, preserve undo and save/reopen the result. The interface between proposal and document state may reveal a design error before broad feature implementation.</p>
+<p>Do not expand work that depends on an unproved consequential premise simply because private component tests pass. Hold that dependency, not the whole undertaking. Independent work can continue from a sufficient basis.</p>
+<p>Once a premise is established, reuse it. Revisit the part invalidated by a material change rather than restarting every earlier check. Evidence has an applicable scope; it is neither universally reusable nor automatically obsolete after any edit.</p>
+<h2 id="45-receive-and-integrate-actual-returns">4.5 Receive and integrate actual returns</h2>
+<p>Use the host's actual completion mechanism, and make sure the return reaches the coordinator: a contributor in a separate conversation that finishes without notifying anyone looks like silence from both sides. Name the return route in the assignment and keep a backstop that does not depend on the coordinator's own session. A prompt can be prepared but not dispatched. A message can be queued without starting another turn. A manager's turn can end before its contributors return.</p>
+<p>Account for dispatched work and inspect the actual result. A useful return identifies the output, completed scope, checks, limitations and unresolved choices. It distinguishes prepared work from executed changes and actual results from expected ones.</p>
+<p>The host message, artifact location and existing change record may provide this information. Require a separate return file only when those sources do not meet the receiver's needs.</p>
+<p>Before integration, compare the contribution with the receiving state. A shared interface may have changed while the contributor worked. Reuse unaffected evidence and examine the changed relationship.</p>
+<p>When you own integration, verify that a shared correction reached the actual outputs. Sending a message does not prove adoption. A contributor can repeat passing tests while still implementing a superseded interpretation.</p>
+<h2 id="46-diagnose-waiting-before-adding-machinery">4.6 Diagnose waiting before adding machinery</h2>
+<p>Locate the next useful result and what releases it. Is the work actually dispatched? Does a partial result already exist? Is time going to reasoning, tool execution, resource contention, review or integration?</p>
+<p>Ask a focused question when the available evidence cannot answer it. Repeated status probes can consume context without releasing work. A missing report does not establish that a worker is idle.</p>
+<p>If a contributor cannot continue, transfer unfinished responsibility at a known boundary. Preserve useful output and evidence. Where an earlier operation's state is unknown, avoid overlapping writes until that state is established.</p>
+<p>Add a tool or process only when it removes an identifiable obstruction. A recurring mechanical comparison may justify a small tool. A one-time uncertainty may be better handled directly. Do not let preparation for a general framework displace the usable result it was meant to support.</p>
+<p><a id="ch_5"></a></p>
+<h1 id="5-evidence-and-examination">5. Evidence and examination</h1>
+<h2 id="51-match-evidence-to-the-claim">5.1 Match evidence to the claim</h2>
+<p>Evidence supports a claim under identified conditions. It does not become stronger through repetition, formatting or a more formal record name.</p>
+<p>Verification examines conformity to specified requirements. Validation examines fitness for intended use. A structural check can establish that an artifact follows a schema. It cannot establish that the represented engineering meaning is correct.</p>
+<p>A source comparison can establish fidelity to the source while leaving the source itself unverified. Several agents can agree because they inherited the same mistaken assumption. The common basis may need independent examination.</p>
+<p>For every consequential claim, ask what observation or reasoning could establish it. If the proposed check answers a different question, change the examination or qualify the claim.</p>
+<h2 id="52-select-assurance-by-consequence-and-detectability">5.2 Select assurance by consequence and detectability</h2>
+<p>A routine reversible edit may need only inspection or direct exercise. A wrong numerical result, data loss or permission error may remain plausible until serious consequences occur. These conditions justify stronger and often independent checks.</p>
+<p>Consider what the check detects, whether another check already covers it, its cost, and whether the failure would otherwise become visible in time. A cheap oracle that usually passes can still protect an important boundary.</p>
+<p>Testing every component broadly after every change can consume effort without adding warrant. Testing only the edited file can miss a consumer whose behavior depends on it. Affected selection should follow actual dependencies, including shared fixtures and indirect inputs.</p>
+<p>Required professional, contractual and project examinations remain applicable. Proportionate verification is not permission to discard an inconvenient adopted criterion. It is a way to choose suitable assurance within authority and to expose conflicts when requirements need reconsideration.</p>
+<h2 id="53-preserve-independence-where-it-matters">5.3 Preserve independence where it matters</h2>
+<p>When reviewing, examine the actual candidate and governing criteria. Do not merely confirm the author's account. When arranging review of your own work, give the reviewer access to that basis. Independence includes preparation and assumptions, not only a different agent name.</p>
+<p>Where several contributors use one oracle, independently inspect the oracle's relevant assumptions and coverage when consequence warrants it. Agreement with a shared basis establishes consistency, not the basis's correctness.</p>
+<p>A reviewer returns a precise finding, its evidence and consequence. The contribution owner repairs the work. The reviewer who raised the finding normally checks the repair and affected behavior. A new reviewer is useful for a concrete competence, independence or assumption problem, not as a routine review of reviews.</p>
+<p>Review must not become an approval stop above every harmless operation. Arrange it where the risk and governing requirements need it. Small work can remain small while still receiving adequate examination.</p>
+<h2 id="54-identify-the-actual-candidate">5.4 Identify the actual candidate</h2>
+<p>A result needs an identifiable subject. A moving branch name alone may be insufficient. A commit, retained artifact revision or other stable identity can identify what was examined.</p>
+<p>Record the relevant inputs and environment at the level needed for the claim. A browser exercise does not establish native application behavior unless the required equivalence is itself supported. A fixture result does not prove the live integration used that fixture's assumptions.</p>
+<p>Retain raw output only when a consumer needs it for examination or recovery. Keep bulky captures in suitable artifact storage when that meets the requirement. The current change record can point to them without copying every byte into the project tree.</p>
+<p>Where evidence is missing, describe the limit. Absence from a searched folder does not prove an operation never occurred. A retrospective account can direct further inquiry without becoming contemporaneous evidence.</p>
+<h2 id="55-reuse-evidence-without-overstating-it">5.5 Reuse evidence without overstating it</h2>
+<p>Earlier evidence can remain valid when its relevant conditions have not changed. Examine changes to the requirement, inputs, implementation, check and environment before deciding whether a rerun is necessary.</p>
+<p>Mechanical result reuse needs a trustworthy identity for the inputs that affect the result. A cache hit must identify the earlier result and must not claim that new tests ran. Near matches are not equivalent merely because they are convenient.</p>
+<p>Human or agent assessment may still be needed where the relationship cannot be captured by a reliable executable condition. A tool should report facts and uncertainty rather than infer unsupported completion.</p>
+<p>Repeated checking is justified by a changed or unresolved claim. It is not justified solely because another stage, agent or PR now carries the work. This distinction reduces cost while preserving the meaning of evidence.</p>
+<h2 id="56-handle-failures-without-changing-the-question">5.6 Handle failures without changing the question</h2>
+<p>A failure can arise from the product, the test, the environment or the test's own assumptions. Preserve the observed result, establish a reproducible condition where possible, and identify the cause before claiming a repair.</p>
+<p>Do not silence a failure by changing the expected result without a substantive reason. If the accepted criterion is wrong, bring that conflict to the person authorized to change it. A newly passing result does not itself authorize the criterion change.</p>
+<p>A rerun that passes after a suspected timing race is evidence about variability. It does not prove the race was repaired. Report the distinction and choose further work according to consequence.</p>
+<p>Continue unaffected work while a failure is investigated. A blocked acceptance claim need not become a claim that the whole project cannot proceed.</p>
+<p><a id="ch_6"></a></p>
+<h1 id="6-change-records-and-recovery">6. Change, records and recovery</h1>
+<h2 id="61-change-the-source-that-governs-the-work">6.1 Change the source that governs the work</h2>
+<p>A decision should reach the artifact where its meaning takes effect. A product-wide requirement belongs in the product basis. A deliverable commitment belongs in its production contract. A technical realization belongs in the design material or the relevant implementation source.</p>
+<p>The existing change record explains why the source changed and what consequences remain. Version history preserves earlier text. A separate append register is unnecessary when it repeats decisions already available through those sources.</p>
+<p>A cross-cutting decision can affect several contribution owners. Establish one shared resolution within authority before conflicting repairs spread. Different contributions may need different implementations of the same decision. Verify adoption in their actual results.</p>
+<p>Do not edit history to make an old result describe a new candidate. Preserve the earlier observation and record the current consequence where needed.</p>
+<h2 id="62-distinguish-kinds-of-change">6.2 Distinguish kinds of change</h2>
+<p>A factual correction, implementation refinement, changed accepted commitment and new human priority require different treatment.</p>
+<p>When you own authorized implementation, you can usually refine a design without renewed approval if the commitments and boundaries remain satisfied. A change to an acceptance criterion, reliance condition or out-of-scope interface may require another decision.</p>
+<p>State the proposed effect before applying a reserved change. Which commitment changes? Which consumers rely on it? What existing evidence becomes inapplicable? Which work remains valid?</p>
+<p>Apply already-authorized decisions directly. Do not ask the person to approve the same act again because it moved into another file or session. Equally, do not treat approval of a plan as acceptance of all future unknown content.</p>
+<h2 id="63-give-records-a-concrete-purpose">6.3 Give records a concrete purpose</h2>
+<p>Maintain a record when a concrete consumer needs it to decide, act, examine or recover, or when an acceptance requirement calls for it. Identify the consumer and the question the record answers. A test report, accepted qualification or operational instruction can serve these purposes. When a current source, query or change history already meets the need, prefer a link or query over another maintained copy.</p>
+<p>Some records are product requirements. A model history, signed operational decision, user checkpoint or regulated record may be part of the product itself. Reducing development administration does not remove those obligations. No filename or record type is universally excluded; use the smallest representation that reliably serves the identified purpose.</p>
+<h2 id="64-recover-only-what-continuation-needs">6.4 Recover only what continuation needs</h2>
+<p>Begin with current artifacts, actual state and the latest steering. Use history to resolve relevant uncertainty. Do not rebuild a complete chronology simply because a session restarted.</p>
+<p>Open work is usually recoverable from its own records: each open change's description states its exact version, the checks performed, what remains and the next step, and repeatable discovery re-establishes the wider state. Where those do not suffice, a replaceable recovery note can identify the current candidate, completed work, pending checks, active operations, local-only output, holds and next useful action. Its purpose is continuity, not an accumulating record of every session.</p>
+<p>If an operation executed but confirmation was lost, inspect the actual state before repeating it. A duplicate write or release can be worse than a delayed confirmation. Preparation and execution must remain distinguishable.</p>
+<p>When transferring ownership, establish the boundary of responsibility and the work retained. A new worker should not overwrite an active operation or discard an unmerged result merely because it was absent from the latest narrative.</p>
+<h2 id="65-preserve-history-without-keeping-every-working-copy">6.5 Preserve history without keeping every working copy</h2>
+<p>Version control can preserve earlier committed work while the active tree contains only current sources. A recovery tag can identify an archived product or completed undertaking. Removing a working copy need not erase its history.</p>
+<p>Untracked and ignored files require separate attention. Build caches can be reproducible; local notes, fixtures or session data may not be. Establish what needs preservation before removing a worktree or directory.</p>
+<p>Retirement is a current decision about development and reliance. A frozen product can remain recoverable without occupying the active working surface or receiving routine verification. Restoring its files is not the same as reactivating its commitments or authorizing release.</p>
+<p>Do not build new compatibility machinery solely to keep a retired consumer alive. Preserve a specific fixture, schema or contract if current work genuinely needs it. Give that artifact a maintained home and identifiable provenance.</p>
+<h2 id="66-separate-discovery-from-reliance">6.6 Separate discovery from reliance</h2>
+<p>A versionless pointer is useful for finding the current edition of a document. It reduces obsolete links and gives a new participant a stable entry point.</p>
+<p>That pointer is mutable. It cannot identify the exact content used in an earlier decision unless its revision and resolved target are also known. A project that depends on specific wording should identify the selected edition or source revision.</p>
+<p>These uses can coexist. Human navigation can follow “current.” A reproducible comparison can use a particular edition at a commit. A later edition can be assessed for adoption without silently changing the earlier result.</p>
+<p>Record exact identity where a real consumer needs it: an accepted basis, a content-bound test or a consequential comparison. Ordinary discovery does not require an elaborate receipt for each document read.</p>
+<p><a id="ch_7"></a></p>
+<h1 id="7-development-positions-and-decisions">7. Development positions and decisions</h1>
+<h2 id="71-positions-describe-the-work-not-percent-complete">7.1 Positions describe the work, not percent complete</h2>
+<p>This management approach uses conceptual, FEED (front-end engineering design), 30%, 60%, 90% and delivery positions. These engineering-derived names describe what has become sufficiently established for the next kind of work. An undertaking can use other names while preserving the questions that matter.</p>
+<p>They are not percentages of code, effort, cost or tasks completed. Different parts of a project can occupy different positions. A late finding can reopen one interface without returning the entire project to its beginning.</p>
+<p>A small undertaking can combine positions. A substantial or regulated project may require formal decisions at particular boundaries. This manual neither creates those gates automatically nor cancels adopted gates.</p>
+<p>The question at each position is what the next work will rely on. Prepare evidence for that question rather than satisfying a percentage label through document production.</p>
+<h2 id="72-conceptual-and-feed-positions">7.2 Conceptual and FEED positions</h2>
+<p>Conceptual work establishes the intended outcome, affected users, governing constraints and plausible approaches. It examines alternatives before treating one as a commitment.</p>
+<p>FEED develops the basis into coherent scope, contribution boundaries and principal interfaces. It should make major assumptions visible and identify the consequential choices that determine later work.</p>
+<p>An accepted basis can contain open matters. Acceptance identifies what was decided and what remains conditional. It does not transform every source statement into a universal instruction.</p>
+<p>Before expanding production, establish whether the contribution boundaries preserve the intended whole. A decomposition with every row populated can still divide a coupled responsibility badly.</p>
+<h2 id="73-execution-definition-around-30-percent">7.3 Execution definition around 30 percent</h2>
+<p>Execution definition makes production contracts, inputs, examination methods and responsibility usable. Participants should understand what they can produce and what their consumers require.</p>
+<p>Dependency analysis helps identify the production order and unresolved coupling. A project may adopt an initial DAG as a baseline, but the meaningful result is an intelligible course of work. The diagram is a representation of that result.</p>
+<p>The project can preserve a baseline when planning or external commitments need one. Finer implementation relationships can remain in design material or local declarations until a query or consumer needs more structure.</p>
+<h2 id="74-detailed-development-around-60-percent">7.4 Detailed development around 60 percent</h2>
+<p>The 60% position concerns whether consequential design and integration premises are established well enough to expand dependent production. It does not require that all uncertainty disappear or every relationship fit an acyclic diagram.</p>
+<p>Examine developed interfaces, closely coupled groups, remaining technical conditions and the proposed order of work. Identify matters that could change the deliverable set or invalidate work already produced. State how each such matter will be resolved, contained or presented for a qualified decision.</p>
+<p>Grouping co-designed work can make progress possible without changing its deliverable identities. The group needs a coherent integration responsibility and an examined path through its difficult interfaces. Grouping alone does not establish that every input is already supplied.</p>
+<p>A warning sign is repeated analysis that finds more coupling while no product advances. Another is narrowing designs merely to close graph cycles. Ask which experiment or real integration would answer the consequential question more directly.</p>
+<p>Where the project has an adopted human gate, present a short assessment with its actual evidence and qualifications. The person decides the gate. Your check does not substitute for that decision.</p>
+<h2 id="75-produced-work-around-90-percent">7.5 Produced work around 90 percent</h2>
+<p>At this position, intended contributions are integrated and ready for the remaining concentrated examination in use. Establish scope coverage, relationship coverage and applicable evaluation coverage.</p>
+<p>Do not postpone all testing until this point. Earlier checks establish local behavior and consequential premises. The later examination addresses the assembled result and any claims not yet established.</p>
+<p>An incomplete product may still be useful under an authorized reduced scope. State that scope and its limitations. Do not relabel missing required work as uncertainty merely to claim completion.</p>
+<h2 id="76-delivery-and-continuing-responsibility">7.6 Delivery and continuing responsibility</h2>
+<p><strong>Delivery</strong> transfers an identified result to its intended recipient with the information and continuing responsibilities needed for use. <strong>Acceptance</strong> is an authorized act concerning an identified subject, scope and purpose. <strong>Release</strong> authorizes an identified result to be made available for a stated use or audience. Establish the decisions required for the particular delivery; an internal review candidate and a released product have different conditions. The recipient needs usable instructions, limitations and recovery information where relevant.</p>
+<p>The amount of ceremony follows the actual delivery obligations. A routine internal change and a professional reliance product do not have identical requirements. Neither should inherit the other's process by analogy alone.</p>
+<p><strong>Source integration</strong>, such as a Git merge, brings a change into a selected source revision. <strong>Integration</strong> of the work brings related contributions into a usable result and examines their relationships. A merge can contribute to that result without establishing it. State which operation or outcome occurred and which acceptance or release decisions apply.</p>
+<p><a id="ch_8"></a></p>
+<h1 id="8-completion-and-delivery">8. Completion and delivery</h1>
+<h2 id="81-establish-the-remaining-claim">8.1 Establish the remaining claim</h2>
+<p><strong>Completion</strong> means that the agreed work and its required examination are fulfilled within the authorized scope. <strong>Reliance</strong> is using a contribution as a basis for a decision or action. A completion claim needs evidence for the agreed result; it does not settle every later use of that result.</p>
+<p>Before adding a closure activity, identify the required claim that remains unsupported. If existing evidence already establishes the agreed result, another general review is optional improvement rather than a hidden completion gate.</p>
+<p>Three questions organize the examination. Does the result cover the commitments? Do the required relationships work together? Do the actual checks support the proposed use?</p>
+<p>Follow both directions where the scope warrants it. A commitment may lack an output. Implemented behavior may exceed or contradict the accepted scope. Current source documents should reflect the decisions that govern those differences.</p>
+<p>This comparison belongs with the work when its meaning changes. A separate documentation closeout is useful only when a real uncovered relationship remains. Do not require it after every undertaking by default.</p>
+<h2 id="82-examine-the-product-in-use">8.2 Examine the product in use</h2>
+<p>Begin with the activity the product should support. Define the candidate, starting state, user action or scenario, relevant environment and expected observations.</p>
+<p>Exercise the actual connecting path. An interface can display a success message while failing to preserve data. An exported artifact can be valid in isolation while unreadable by its intended consumer.</p>
+<p>Use representative difficult cases, not only the easiest valid example. Consider invalid input, interruption, cancellation, state restoration and the limits of the environment where these affect the claim.</p>
+<p>An exercise you conduct can provide evidence. It does not replace practitioner assessment where the question concerns professional usability or reliance. State what your exercise establishes and what it leaves to another examination.</p>
+<h2 id="83-repair-without-losing-valid-work">8.3 Repair without losing valid work</h2>
+<p>A late finding should identify the affected requirement, candidate and consequence. Diagnose the cause and preserve unrelated valid work.</p>
+<p>The repair may invalidate only part of the earlier evidence. Recheck that part and its affected consumers. Do not repeat a whole programme automatically, and do not retain a result whose governing conditions changed.</p>
+<p>A change to a protected criterion requires its own substantive reason and authority. Keep the distinction between correcting implementation and changing what the product promises.</p>
+<p>If the authorized result cannot be achieved, present the actual position. A narrower proposal, a deferral or termination can be responsible outcomes when the person understands their consequences. They are not completion of the original obligation unless that obligation changes.</p>
+<h2 id="84-transfer-an-identified-result">8.4 Transfer an identified result</h2>
+<p>Give the recipient a result they can identify and use. Explain what you delivered, what it is for, its limitations and who carries the continuing responsibilities.</p>
+<p>For software, a source merge is not necessarily the artifact a user installs. For a technical document, an editable source is not necessarily the issued edition. Check the actual delivery form where that distinction matters.</p>
+<p>Preserve operational instructions, known limitations and recovery information with the result. Reference existing evidence rather than copying the entire development history into a handover packet.</p>
+<p>The final account should make the outcome understandable: fulfilled commitments, authorized changes, remaining responsibilities and the relevant acceptance or release acts. It need not narrate every intermediate action.</p>
+<p><a id="ch_9"></a></p>
+<h1 id="9-improving-the-course-of-work">9. Improving the course of work</h1>
+<h2 id="91-measure-the-result-and-its-whole-cost">9.1 Measure the result and its whole cost</h2>
+<p>A fast first draft can be expensive if it creates extensive review and repair. More simultaneous agents can increase unfinished work when integration is the constraint. Fewer questions can hide uncertainty rather than improve preparation.</p>
+<p>Compare coherent completed contributions. Include preparation, execution, waiting, review, correction and integration. State differences in task conditions and uncertainty in attribution.</p>
+<p>Counts of files, words, PRs or tests are observations, not direct measures of productivity. A larger PR can reduce the PR count without reducing effort. A deleted record can be beneficial or can remove necessary evidence.</p>
+<p>Evaluate your contribution by effort and elapsed time to an adequately examined result, with consequential defects and recovery considered alongside it. Discuss what the person found useful or difficult. Use that experience to improve how you work together.</p>
+<h2 id="92-remove-repeated-mechanical-work">9.2 Remove repeated mechanical work</h2>
+<p>A stable comparison, inventory or affected-check selection often belongs in a tool. The tool can report facts and its limits while agents interpret their significance.</p>
+<p>Tools also have preparation, failure and maintenance costs. Do not create a general service for a one-time comparison unless the broader need is demonstrated. The smallest useful operation is often easier to inspect and preserve.</p>
+<p>A deterministic tool can reliably answer the wrong question. Check its input selection, assumptions and actual consumer. Automation does not remove the need to establish the relationship between its result and the claim.</p>
+<h2 id="93-improve-from-observed-constraints">9.3 Improve from observed constraints</h2>
+<p>Iteration becomes learning when what the work reveals changes the next relevant action. A finding may require a repair within the current method, a revision of the method, or reconsideration of a purpose or criterion by the person authorized to decide. Preserve the relevant reason where later work can use it.</p>
+<p>Look for recurring causes of delay: repeated discovery, excessive context loading, broad reruns, unclear ownership, unresolved common assumptions or stalled integration.</p>
+<p>Change the mechanism that produces the problem. If a shared interpretation blocks several contributions, resolve it once within authority and verify its application. If an unchanged check dominates waiting, examine whether its result can be reused safely. If a manager relays every message, examine whether the assignments are too narrow or the return mechanism is wrong.</p>
+<p>Use existing telemetry and project evidence where sufficient. Do not create another reporting programme merely to prove that administration has decreased.</p>
+<h2 id="94-prevent-the-burden-from-returning">9.4 Prevent the burden from returning</h2>
+<p>A control can survive after the reason for it disappears. It can also return under a new name: a small register, a universal state service or a proof folder for every run.</p>
+<p>Ask what concrete consumer, required decision or recovery problem needs the control. If it merely repeats available state, remove the repetition. If it protects a consequential boundary, preserve that function and simplify its implementation where possible.</p>
+<p>Do not mistake short wording for a light process. A sentence can require hundreds of files. Conversely, a substantial explanation can prevent repeated misunderstanding without creating any recurring duty.</p>
+<p>Review changes to instructions through their actual consumers and enforcing tools. A newly authorized operation can remain unavailable when a live validator still forbids it. A retired requirement continues to consume work if CI still demands its artifact.</p>
+<p><a id="ch_10"></a></p>
+<h1 id="10-a-worked-undertaking">10. A worked undertaking</h1>
+<p>This constructed example concerns an editor that lets a person inspect proposed changes before applying them. Follow the decisions as an agent who might investigate, implement, coordinate or review this work. The case illustrates the method; it does not claim to describe the current status or requirements of any named product.</p>
+<h2 id="101-establish-the-intended-use">10.1 Establish the intended use</h2>
+<p>The person wants help revising a document while retaining control over what becomes accepted text. The initial request is “add an agent review panel.” The agent asks what must be visible and what the person must be able to reject.</p>
+<p>The discussion establishes that proposed changes must remain distinct from saved text until accepted. Rejection must leave the document unchanged. Accepted changes must be recoverable through the editor's undo and persistence behavior.</p>
+<p>The agent responsible for implementation identifies an existing proposal representation, document store and history mechanism. The investigation finds that the display can show several proposals, but the apply function assumes only one current proposal. This is a consequential interface question, not a reason to repeat the whole project definition.</p>
+<h2 id="102-define-the-contribution-and-its-needs">10.2 Define the contribution and its needs</h2>
+<p>The undertaking is bounded to one complete proposal-and-apply path. Its contract identifies display, acceptance, rejection, undo and save/reopen behavior. It excludes automatic acceptance and unrelated editor redesign.</p>
+<p>The consumer needs the document store to reject a stale base revision. It also needs a history operation that can reverse the accepted change without altering unrelated edits. Those conditions are stated as needs rather than as a claim that the store is simply “ready.”</p>
+<p>The implementation owner queries relevant consumers and inspects the interfaces. One session can perform the initial slice. A separate reviewer is arranged for persistence and permission behavior. An independent interface illustration can proceed concurrently because it does not write the shared store.</p>
+<p>The current contract, need declarations, candidate and conversation provide sufficient continuity without a separate work graph for these assignments. If the work later spans sessions, a short recovery note can identify the current candidate and pending check.</p>
+<h2 id="103-prove-the-difficult-path">10.3 Prove the difficult path</h2>
+<p>The implementation creates a proposal against a known document revision. The user accepts it. The resulting text is saved, reopened and undone under controlled conditions.</p>
+<p>The first connected test reveals that reopening the document loses the proposal identity needed by undo. Unit tests for display and storage both pass, but the assembled path does not fulfill the undertaking's contract.</p>
+<p>The implementation owner preserves the failure and repairs the history representation. It does not weaken the undo requirement to fit the implementation. The independent illustration work continues because the failure does not invalidate its inputs.</p>
+<p>This early path prevents broader implementation from multiplying the same assumption. It establishes a useful premise before adding many proposal types or interface variations.</p>
+<h2 id="104-distinguish-refinement-from-a-reserved-change">10.4 Distinguish refinement from a reserved change</h2>
+<p>During repair, the implementation owner changes an internal record layout. The behavior and accepted interface remain the same. This is an implementation refinement within the assignment.</p>
+<p>A different proposal would remove undo after save because the new layout makes it difficult. That would change an accepted criterion. The implementation owner must present the consequence to the person authorized to change the criterion and obtain that decision rather than silently adopting it.</p>
+<p>The distinction depends on meaning, not the number of edited files. A small text change can alter a commitment. A substantial refactor can preserve it.</p>
+<h2 id="105-examine-the-result">10.5 Examine the result</h2>
+<p>The reviewer receives the current candidate, relevant requirements and actual test results. The review examines stale-base rejection, unauthorized application, rejection without mutation, persistence and undo.</p>
+<p>A schema check confirms that records have valid structure. Behavioral checks establish that the actions preserve the required state. Neither alone establishes that the display makes the user's choice understandable; that question needs an appropriate interface exercise.</p>
+<p>The reviewer finds that a second proposal can still refer to the old document revision after the first is accepted. The implementation owner repairs the refusal path and reruns the affected cases. The same reviewer confirms that repair. Unchanged rendering evidence remains usable.</p>
+<h2 id="106-update-meaning-where-it-changed">10.6 Update meaning where it changed</h2>
+<p>The design material now explains the accepted proposal's identity and the stale-base behavior. The dependency condition names the consumer's required refusal. The change record explains the repair and checked scope.</p>
+<p>The implementation owner keeps the candidate identity and check results where the reviewer and next session can recover the claim. Those existing records meet the need; additional copies would introduce maintenance without improving examination or recovery.</p>
+<p>If a required result were available only in a temporary environment, the implementation owner would preserve it at a stable location or record how to reproduce it. The absence of routine records is not permission to lose necessary evidence.</p>
+<h2 id="107-complete-the-undertaking">10.7 Complete the undertaking</h2>
+<p>The integrated candidate supports the required complete path. The implementation owner establishes scope, relationship and examination coverage. No applicable requirement remains missing within the selected undertaking.</p>
+<p>There is no additional governance closeout solely because the final change is ready. A final source comparison can still be necessary if integration introduced a new relationship. Its purpose must be the unresolved claim, not the name of the stage.</p>
+<p>The return identifies the usable result, candidate, checks and any remaining limitations. Product acceptance and release remain separate acts of the people authorized to make those decisions. An opportunity for broader proposal types becomes future work only when selected; it does not make the completed bounded undertaking incomplete.</p>
+<p><a id="ch_11"></a></p>
+<h1 id="11-two-contrasting-cases">11. Two contrasting cases</h1>
+<p>Use these cases to consider how you would scale your contribution to the undertaking. The first needs a focused correction. The second needs coordination and examination of a common technical basis.</p>
+<h2 id="111-a-small-single-session-correction">11.1 A small single-session correction</h2>
+<p>A person asks for a clearer error message in an internal tool. The agent locates the message, the condition that produces it and the user's expected next action.</p>
+<p>The agent discovers that the wording suggests data was saved when the operation was actually refused. The correction therefore concerns meaning, not merely style. It changes the message and exercises both the refusal and success paths.</p>
+<p>If no permission, persistence or other consequential behavior changes, a focused examination can be adequate under the applicable rules. A new manager, project basis and global dependency audit would add no useful warrant.</p>
+<p>The agent reports the change and actual check. The work is complete when the message accurately guides the intended action under the authorized scope. No separate activity record is required.</p>
+<p>This case demonstrates proportionality without vagueness. Small work still needs the correct question and a real observation. It does not need the organizational structure of a programme.</p>
+<h2 id="112-a-parallel-technical-investigation">11.2 A parallel technical investigation</h2>
+<p>A project must compare several approaches to a consequential calculation. The team has a common input definition, acceptance basis and independent reference. Some assumptions remain unresolved.</p>
+<p>The coordinator first checks that the shared reference supports the intended range and that each worker will use the same units and conventions. It selects a difficult connecting case rather than only easy examples.</p>
+<p>Independent approaches can then proceed concurrently. The assignment identifies each contribution's outputs, limits and expected comparison. Each shared file has a designated contribution owner for changes. Resource-intensive runs are scheduled around actual memory and machine limits.</p>
+<p>One worker reports a discrepancy outside the supported reference range. That finding does not invalidate all other work. The coordinator distinguishes an unsupported comparison from a demonstrated implementation error and identifies the additional evidence needed.</p>
+<p>Another worker finds a units inconsistency in the common input definition. That affects all dependent results. The coordinator resolves the shared interpretation within authority, updates the governing source and checks which results must be repeated.</p>
+<p>The final comparison explains actual coverage, limitations and material differences. It does not select a winner solely by test count or execution speed. The responsible person makes the consequential choice using evidence appropriate to the intended use.</p>
+<p>The case shows why concurrency and shared-basis examination belong together. More workers cannot compensate for a mistaken common premise. A sound common premise does not justify holding independent work behind an unrelated delay.</p>
+<p><a id="vocabulary"></a></p>
+<h1 id="working-vocabulary">Working vocabulary</h1>
+<p>These definitions apply throughout this manual. The <a href="../thesis/glossary.md">thesis vocabulary</a> develops the related conceptual distinctions.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning in this manual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acceptance</td>
+<td>An authorized act concerning an identified subject, scope and purpose; distinct from completion, a passing check or release.</td>
+</tr>
+<tr>
+<td>Accepted basis</td>
+<td>The identified commitments and conditions established by the applicable decision.</td>
+</tr>
+<tr>
+<td>Accountability</td>
+<td>Answerability for commitments and consequences. Assigning an agent responsibility for execution does not transfer the person’s responsibility for reliance.</td>
+</tr>
+<tr>
+<td>Agent 0</td>
+<td>Responsibility for purpose, alignment, continuity and reserved choices, held by the agent working directly with the person.</td>
+</tr>
+<tr>
+<td>Artifact</td>
+<td>A work product or representation available for use or examination; its existence does not establish that its represented conditions hold.</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td>The current objective, context, authority, outputs and conditions for a contribution; it may be conversational.</td>
+</tr>
+<tr>
+<td>Assumption</td>
+<td>A provisional basis for reasoning, with grounds, limits and consequences to examine. Authorization to use it does not make it true.</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Authority to undertake an action under the assignment and governing commitments; distinct from capability and host permission.</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td>What a participant or tool can do under the stated conditions.</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>An assertion about an identified subject whose grounds and limits can be examined.</td>
+</tr>
+<tr>
+<td>Commitment</td>
+<td>An adopted obligation or the person’s engagement with what they will stand behind. State the subject and applicable authority.</td>
+</tr>
+<tr>
+<td>Completion</td>
+<td>Fulfillment of the agreed work and its required examination within the authorized scope.</td>
+</tr>
+<tr>
+<td>Consumer</td>
+<td>The person, component or undertaking that uses a contribution.</td>
+</tr>
+<tr>
+<td>Contribution owner</td>
+<td>The participant responsible for carrying an assigned contribution through examination, repair and transfer.</td>
+</tr>
+<tr>
+<td>Decision right</td>
+<td>Authority to make a specified choice. Identify who holds it and under which conditions; responsibility for execution alone does not grant it.</td>
+</tr>
+<tr>
+<td>Deliverable</td>
+<td>An intended work product within an undertaking, with a defined contribution, conditions and assigned responsibility.</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Transfer of an identified result to its intended recipient with the information and continuing responsibilities needed for use.</td>
+</tr>
+<tr>
+<td>Dependency condition</td>
+<td>What a consumer needs from a supplier and when it needs it.</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>Observations or reasoning that support an identified claim under stated conditions.</td>
+</tr>
+<tr>
+<td>Host permission</td>
+<td>A technical allowance or restriction enforced on a controlled execution path.</td>
+</tr>
+<tr>
+<td>Information</td>
+<td>Material that can be recorded, transmitted, copied and compared; it can support knowing without being identical with it.</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Bringing related contributions into a usable result and examining their relationships and unresolved matters.</td>
+</tr>
+<tr>
+<td>Integration owner</td>
+<td>The participant responsible for how contributions become a usable combined result.</td>
+</tr>
+<tr>
+<td>Iteration</td>
+<td>Reconsideration and action informed by what the work reveals. Repetition becomes learning when the finding changes the next relevant action.</td>
+</tr>
+<tr>
+<td>Judgment</td>
+<td>The person’s situated, committed engagement with what the work means, what matters and what they will stand behind; exercised throughout the undertaking.</td>
+</tr>
+<tr>
+<td>Knowledge</td>
+<td>A knower’s situated achievement of understanding. In this framework it can be incomplete, mistaken or revised; a record or approval does not confer it.</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>A reusable approach, selected and adapted within the assignment’s authority.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>An artifact produced by work; one or more outputs can realize a deliverable.</td>
+</tr>
+<tr>
+<td>Package</td>
+<td>Related scope grouped under a meaningful objective.</td>
+</tr>
+<tr>
+<td>Production contract</td>
+<td>The deliverable’s required contribution, criteria, interfaces and examination basis.</td>
+</tr>
+<tr>
+<td>Reckoning</td>
+<td>The agent’s investigation, interpretation, inference, planning, comparison, criticism, checking and adaptive action within authority.</td>
+</tr>
+<tr>
+<td>Recovery note</td>
+<td>A replaceable account of facts needed to continue when current artifacts and conversation are insufficient.</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>Authorization to make an identified result available for a stated use or audience.</td>
+</tr>
+<tr>
+<td>Reliance</td>
+<td>Use of a contribution as a basis for a decision or action, with responsibility for that use.</td>
+</tr>
+<tr>
+<td>Role</td>
+<td>A description of contribution and responsibility, not a mandatory staffing position or permission grant.</td>
+</tr>
+<tr>
+<td>Source integration</td>
+<td>Bringing a change into a selected source revision, for example through a Git merge; one possible operation within integration of the work.</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Examination of fitness for intended use. Qualify other uses, such as operation validation, by their actual subject and claim.</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>Examination of conformity to specified requirements or an identified claim or reference.</td>
+</tr>
+<tr>
+<td>Workflow</td>
+<td>An expressed reusable method for performing an undertaking.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="further-use">Further use</h1>
+<p>Return to the person's actual undertaking. Use the method to produce and examine useful work, explain consequential choices and improve the result together. You and the person can return to the same passages when an interpretation or course of action needs discussion. A common understanding develops through that work; it is not established merely because both have read the document.</p>
+<p>Return here for the reasons, distinctions and examples when a choice needs them. For current practice in a particular repository, use that repository's own instructions.</p>
+<p>Earlier editions remain useful for historical interpretation of work that named them. Their exact source identity does not automatically make every former procedure applicable today. A current edition is a discovery aid; specific adopted commitments retain their own authority.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>31 October 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>6472b49b2a6c7ebf4db1356d7bf83fa3af412305</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="Project_Management_for_Human_Agent_Teams_Consolidated_v9.md">Project_Management_for_Human_Agent_Teams_Consolidated_v9.md</a><br><code>e7efc7c22515f62964af344fe6058bab96240af3f9a96fe32323d10b8128b6f7</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

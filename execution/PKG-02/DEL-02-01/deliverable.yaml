@@ -1,0 +1,64 @@
+id: DEL-02-01
+name: Carry and recover an authorized holding change
+needs:
+- from: doc:AGENTS.md
+  condition: The repository holding/recovery and Git conventions plus selected methods cover the actual authorized
+    operation, source basis and review/integration authority. Inspect the relevant resources, not just
+    the entry.
+  when: Carrying a holding change through review and integration
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: doc:workflows/create-workflow/WORKFLOW.md
+  condition: Use the preceding applicable authoring and human-review basis when the holding being changed
+    is a reusable method; a proposed replacement cannot authorize its own adoption.
+  when: Creating or revising reusable maintenance instructions
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: DEL-04-01
+  condition: Use the actual maintained bounded-reconciliation procedure to compare the candidate, evidence
+    and affected local declarations in the implementation PR. The existing method is usable without waiting
+    for all reconciliation or formation outputs.
+  when: Diagnosing, assessing connected change or reconciling before integration
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: DEL-03-01
+  condition: The selected command has an accurate maintained invocation/dependency/effect/failure contract
+    and applicable behavior evidence. Disclose an unavailable capability and its permitted fallback; do
+    not assume a file-only query or enforced lock.
+  when: Directing executable operations in a maintenance procedure
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
+  condition: 'Use section 6.1 and its exact PR #1779 source/check basis to determine which A2/A5 claims
+    the reported evidence supports. Preserve its limits; select further cases only for uncovered claims.'
+  when: Reusing the prior instruction/tool repair as maintenance evidence
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: DEL-02-02
+  condition: The particular disputed definition or applicability reading is resolved or explicitly qualified
+    against its adopted/historical source before that meaning is relied on. Unrelated maintenance may
+    continue.
+  when: The maintenance case encounters inconsistent shared-reference meaning
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: doc:docs/MAINTENANCE_RECOVERY.md
+  condition: Use the assignment/disjoint-write coordination in the on-demand recovery resource for the labelled retained-source
+    recovery case in MaintenanceBasis.md, with its holder, scratch item, reserved completion, current
+    authority and release/recovery conditions. Its observed lack of filesystem exclusion does not meet
+    a need for enforced locking; bind and exercise a stronger mechanism before making that claim.
+  when: Establishing recovery or custody-release claims
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+- from: DEL-05-01
+  condition: Use the maintained obtaining/publication/update route for the actual claim. Named compatibility
+    requires Q-04 contract/fixtures and revision; publication inspection requires Q-05 candidate and prior
+    basis. This does not hold unrelated maintenance or authorize release.
+  when: Connecting publication/update operations or repeating a named compatibility claim
+  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+code_paths:
+- AGENTS.md
+- docs/MAINTENANCE_RECOVERY.md
+- workflows/legacy-agents.json
+- workflows/legacy-methods.json
+- tools/workflow_runtime/resolve_workflow.py
+- tools/validation/build_workflow_index.py
+- workflows/create-workflow/**
+- workflows/scope-change/**
+- workflows/scope-of-work/**
+- workflows/project-setup/resources/current-project.md
+- workflows/audit-scope-closure/**
+checks:
+- tools/validation/validate_workflow_metadata.py

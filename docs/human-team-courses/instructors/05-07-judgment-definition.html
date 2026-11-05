@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="b5e946d12207adb90339d3f20c91e0b6e3e76dbafd36a8c5420d827f7770e8bd">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Instructor Guide: Courses 05 to 07 · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 5 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#preparation-and-teaching-conditions">Preparation and teaching conditions</a></li>
+<li><a href="#course-05-suggested-session-sequence">Course 05: Suggested session sequence</a></li>
+<li><a href="#course-06-suggested-session-sequence">Course 06: Suggested session sequence</a></li>
+<li><a href="#course-07-suggested-session-sequence">Course 07: Suggested session sequence</a></li>
+<li><a href="#common-defects-across-the-three-courses">Common defects across the three courses</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#preparation-and-teaching-conditions">Preparation and teaching conditions</a></li>
+<li><a href="#course-05-suggested-session-sequence">Course 05: Suggested session sequence</a></li>
+<li><a href="#course-06-suggested-session-sequence">Course 06: Suggested session sequence</a></li>
+<li><a href="#course-07-suggested-session-sequence">Course 07: Suggested session sequence</a></li>
+<li><a href="#common-defects-across-the-three-courses">Common defects across the three courses</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="05-07-judgment-definition.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="instructor-guide-courses-05-to-07">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="instructor-guide-courses-05-to-07">Instructor Guide: Courses 05 to 07</h1>
+<p>Read this guide before teaching. Follow the <a href="../instructor-guide.html">agent instructor method</a> for pacing, assistance, assessment, and continuity. Use the answer guidance to prepare and examine responses; present it to learners after their attempt as teaching or feedback.</p>
+<p>These courses connect individual reasoning, working relationships among people and agents, and project definition. Examine the grounds for action as well as the documents produced.</p>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<h2 id="preparation-and-teaching-conditions">Preparation and teaching conditions</h2>
+<p>Supply Northbank Packets A and B, but withhold later packets during the assessed work.</p>
+<p>Ask learners to bring the portfolio from Courses 01 to 04. Use controlled source copies where earlier outputs are missing.</p>
+<p>Use the supplied case for offline study. Research into an actual jurisdiction is optional and needs authoritative sources supplied separately.</p>
+<p>Do not invent a pump curve, electrical arrangement, safety classification, law, code clause, or approved scope change.</p>
+<p>Keep exercise decisions identifiable. A classroom sponsor can decide a submitted proposal. Record that act separately from the original case documents.</p>
+<p>Different solutions can meet the criteria. Require the learner to explain their basis, limits, authority, and consequences.</p>
+<p>Use three ratings for each criterion: meets, needs repair, or insufficient evidence. Re-examine affected work after repair.</p>
+<p>Learners work with real agents in the practice and assessed assignments, under the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. In each of these courses, every lesson keeps the classical method, states the cost that method was answering, shows what agents change, and develops the extended method. The classical answers stay correct: the Northbank conclusions about evidence, authority, scope, and readiness are the same as before. What the courses add is how the learner poses questions to agents, briefs them, examines their returns, and divides work with them.</p>
+<h2 id="course-05-suggested-session-sequence">Course 05: Suggested session sequence</h2>
+<p>Open <a href="../courses/05-reasoning-judgment.html">Course 05</a>.</p>
+<ol>
+<li>Ask learners to state the reliance proposed in their previous interpretation exercise.</li>
+<li>Teach claims, evidence, warrants, models, uncertainty, and decision authority.</li>
+<li>Discuss what agents change: fluency without warrant, shared errors, the framing of questions, cheap studies, and judgment that stays with the person.</li>
+<li>Discuss the supplier worked example, including the version with agents.</li>
+<li>Assign the five-claim practice individually, without agents.</li>
+<li>Exchange claim tables for a focused challenge.</li>
+<li>Assign the three agent exercises, with a brief and an examination note for each.</li>
+<li>Compare the returns from the two framings of the B01 question.</li>
+<li>Discuss which affected people and consequences need consideration.</li>
+<li>Assign the procurement memorandum.</li>
+<li>Conduct an oral defense and repair session, with changed premises.</li>
+</ol>
+<p>For a shorter session, assign the lessons and memorandum as preparation and keep live time for challenge and defense.</p>
+<p>Steps 5 and 6 deliberately come before agent use, and the learner course asks for the same order. A learner who has examined the five claims once knows what a sound agent return should contain.</p>
+<h3 id="teaching-course-05-with-an-agent">Teaching Course 05 with an agent</h3>
+<p>Ask for the proposed decision and one claim on which it depends. Have the learner connect the source to that claim and its intended reliance before you suggest a preferred recommendation. Then ask what evidence could change their conclusion.</p>
+<p>A response such as “more information is needed” requires a specific missing ground and an affected act. If the learner is stuck, demonstrate that relationship for one bounded example, then ask them to examine another claim. Do not supply the complete claim table or memorandum during assessment.</p>
+<p>Compare defensible alternatives fairly. A well-supported retained conclusion can satisfy the defense criterion; agreement with your preferred procurement response is not an additional criterion.</p>
+<p>You are also an example of this course's subject: an agent whose fluent reasoning the learner must examine. If the learner asks you to confirm their conclusion, point out the framing and ask what evidence would refute the conclusion. If you withdraw a point under pushback, say whether the source supports the withdrawal, so that the learner sees the check the course teaches.</p>
+<h3 id="assessing-agent-assisted-work">Assessing agent-assisted work</h3>
+<p>Follow the teaching guide's <a href="../instructor-guide.html#assess-agent-assisted-work">method for assessing agent-assisted work</a>. For Course 05, look for these points in particular.</p>
+<p>In the briefs, check that the B01 question is posed openly or as an explicit hypothesis to test, and that A02, A04, A05, and B01 are given with their revisions and status. A brief that states the preferred conclusion or the delivery-slot incentive shows a gap in direction, even if the return happens to be sound.</p>
+<p>In the examination notes, look for warrants checked against the source wording, such as A04's observation at the existing connection and the brochure's product-family scope. A note that treats agreement between agents as review needs repair.</p>
+<p>Criterion 6 has two parts: assess the account of how questions were posed and challenge arranged, and the learner's own examination record, separately. Criterion 7 is the defense. Useful changed premises include: if A04 had recorded 480 V at the connection, which conclusions change and which remain? If procurement confirmed that losing the slot would delay delivery, does the technical recommendation change? Ask which part of the agents' reasoning the learner trusted least, and why.</p>
+<h3 id="knowledge-check-answers">Knowledge-check answers</h3>
+<ol>
+<li>Evidence provides relevant information, while a warrant explains why that information supports a particular claim and intended reliance.</li>
+<li>Both calculations can inherit the same mistaken input, method, or omitted condition, so agreement alone does not establish that the shared basis or its use is correct.</li>
+<li>Identify the proposition, source, uncertainty, affected decision, resolution owner, required evidence, and point of need.</li>
+<li>Verification examines conformity to specified requirements. Validation examines fitness for intended use under relevant conditions.</li>
+<li>A01 gives the sponsor scope-amendment authority. Discipline engineers retain technical responsibility; that authority does not transfer to the sponsor.</li>
+<li>Reconsider the affected conclusion. Record the changed premise and reasoning. Repair affected work and re-examine dependent conclusions.</li>
+<li>An agent produces well-organized prose at little cost whether or not the warrant holds, so the form of the argument no longer indicates that anyone worked through its grounds. The warrant must be examined against the source and the intended reliance. A sound answer treats fluency like confidence, seniority, and repetition: none of them can fill a missing warrant.</li>
+<li>Agreement establishes that the two returns are consistent with each other. It does not establish that the shared brief, sources, or model are correct, because agents that share them can share an error. A check becomes independent when its basis changes in a way that addresses the relevant failure: a different input source, a different method, a hand estimate, or a competent person's examination. For B01, the matters A04 leaves open need the electrical engineer's determination.</li>
+<li>Agents tend to support a hypothesis they are handed, so a question that states the conclusion or the incentive, such as asking for an acceptance that keeps the slot, steers the return toward it. A better question identifies the reliance without assuming the answer: “What can B01 support for an authorized purchase package, and what does it leave unestablished?”, with the sources and their status. Credit also a stated hypothesis with a request for the evidence that would refute it.</li>
+<li>The scarce step becomes judging which studies bear on the decision, and examining each study's range and basis. Use the four uncertainty questions before commissioning studies: identify the decision, the dependent result, the consequence of error, and the resolving evidence, then run studies on inputs that could change the decision. Each range needs a source or an assumption label. Credit an answer noting that no study on assumed values for A02's unresolved inputs establishes B01's suitability.</li>
+<li>The judgment remains the person's: the weighing of purpose, evidence, uncertainty, and consequences, the strength given to the conclusion, and the responsibility for it. An agent holds no appointment under A01 and cannot answer for consequences to the sponsor, operations, workers, or the public. A sound answer adds that the person must be able to explain and defend each sentence without the draft.</li>
+</ol>
+<h3 id="sample-practice-reasoning">Sample practice reasoning</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Submitted claim</th>
+<th>Defensible reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No 480 V arrangement can be used</td>
+<td>A04 establishes the observed connection, but it does not rule on every possible engineered supply arrangement. Competent assessment remains necessary.</td>
+</tr>
+<tr>
+<td>Brochure proves duty</td>
+<td>B01 lacks a selected curve and operating cases. A02 leaves hydraulic inputs unresolved. The offered duty remains unestablished.</td>
+</tr>
+<tr>
+<td>22 litres per second is current</td>
+<td>A05 is a proposal. A02 Rev 1 retains 18 litres per second until the sponsor makes a scope amendment.</td>
+</tr>
+<tr>
+<td>Week 12 authorizes deviation</td>
+<td>B02 records a target request, but it provides no technical deviation approval or scope amendment.</td>
+</tr>
+<tr>
+<td>All work must stop</td>
+<td>Identify specific dependencies. Source retrieval, operating clarification, and commercial inquiries can proceed within authority. Hold acts lacking their required conditions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Accept replacement statements that preserve these distinctions. A statement may identify a precise question instead of resolving it without evidence.</p>
+<p>A defensible memorandum returns B01 for correction and substantiation while continuing suitable information gathering, but other responses can meet the criteria under explicit limits.</p>
+<p>A conditional acceptance must identify exactly what act it permits. It cannot support procurement by disguising unresolved technical suitability as a later condition.</p>
+<p>Ask how the learner would recognize evidence against their preferred option, and examine whether the answer identifies a meaningful premise.</p>
+<p>For affected parties, credit reasoned inquiry about operating personnel, maintainers, site users, and relevant public effects. Do not require invented hazards.</p>
+<p>For the comparison with an agent's examination, a sound note compares the tables claim by claim against the sources. Credit a note that catches a broadened observation, such as A04 summarized as the site supply, but do not require a found difference; a note that records what was checked meets the exercise.</p>
+<p>For the two framings, a sound answer explains how the confirming question could steer the return toward acceptance and how the open question reduces that steering. If the returns did not differ materially, accept a note that records what the learner checked.</p>
+<p>For the sensitivity exercise, a sound answer recognizes that the next response to B01 turns on the voltage discrepancy, the missing pump curve, the missing operating cases, and the incomplete configuration list. No study on assumed values for A02's unresolved inputs can establish B01's suitability, so none is decisive for that response. Studies can serve later selection once the project establishes the inputs. The records supply no ranges for these inputs, so any proposed range is an assumption. Accept an answer that selects a study if it names the later decision the study serves and labels its range.</p>
+<h3 id="assessment-guidance">Assessment guidance</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Evidence that meets it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identified decision and reliance</td>
+<td>The reader can distinguish technical review, scope decision, expenditure authorization, and order release, and the briefs give the agents the identified sources with their status.</td>
+</tr>
+<tr>
+<td>Scope and authority</td>
+<td>The argument preserves A02 and A05 status, with the A01 decision rights stated accurately.</td>
+</tr>
+<tr>
+<td>Technical grounds</td>
+<td>The voltage discrepancy and missing hydraulic inputs receive explicit examination without a fabricated solution.</td>
+</tr>
+<tr>
+<td>Options and consequences</td>
+<td>Alternatives receive a fair comparison, including uncertainty, affected parties, and conditions on further work.</td>
+</tr>
+<tr>
+<td>Repair after peer challenge</td>
+<td>The learner answers a substantive challenge and explains any changed premise or justified retained conclusion.</td>
+</tr>
+<tr>
+<td>Agent use and examination</td>
+<td>The questions to agents do not presuppose the answer, challenge is arranged with the independence the consequence needs, and the learner's record names the warrants checked against their sources.</td>
+</tr>
+<tr>
+<td>Defense through changed premises</td>
+<td>The learner explains the main conclusions and their grounds, shows what their examination of the agents' work found, identifies which judgments are their own, and reasons correctly through the instructor's changed premises.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Needs repair: confident acceptance based on brochure data, permanent rejection of every possible 480 V arrangement, or a schedule promise without evidence. Also return for repair a memorandum whose strength of conclusion exceeds its evidence because the learner adopted an agent's wording, or a defense in which the learner cannot explain a sentence of their own memorandum.</p>
+<h2 id="course-06-suggested-session-sequence">Course 06: Suggested session sequence</h2>
+<p>Open <a href="../courses/06-working-relationships.html">Course 06</a>.</p>
+<ol>
+<li>Ask learners to explain their Course 05 recommendation to a non-specialist.</li>
+<li>Teach shared understanding, interests, authority, and credible persuasion.</li>
+<li>Discuss what agents change: context transferred at every brief, the brief and the return, the absence of pushback, and agent-drafted records.</li>
+<li>Have learners prepare stakeholder tables without agents, then compare them in small groups.</li>
+<li>Assign Northbank meeting roles from A01 and B02.</li>
+<li>Have learners prepare with an agent, and check its role summary against their own tables.</li>
+<li>Conduct the practice meeting.</li>
+<li>Ask each participant to state the next authorized action independently.</li>
+<li>Have an agent draft the record, and compare the draft and the participants' statements with what was decided.</li>
+<li>Review the follow-up briefs in pairs.</li>
+<li>Discuss confidentiality, including approved agent systems, conflicting interests, and challenge under pressure.</li>
+<li>Conduct the assessed review, its defense, and its repair.</li>
+</ol>
+<p>A mentor can play several roles in individual study. Keep the learner responsible for both explanation and listening.</p>
+<p>Step 4 deliberately comes before agent use. A learner who has built the stakeholder table once can recognize an agent summary that gives a role the wrong authority.</p>
+<h3 id="teaching-course-06-with-an-agent">Teaching Course 06 with an agent</h3>
+<p>For individual study, identify the role you are simulating and present its supplied concern. Let the learner respond, ask questions, and restate the concern before you change roles. Keep roles distinguishable from your instructor feedback. Do not perform both the learner's explanation and the recipient's response.</p>
+<p>Base a role's position on the stated case basis. If the learner asks for an operating condition or technical conclusion the packet does not supply, point out that missing input instead of inventing a helpful answer. Proposed exercise actions remain proposals or recorded simulated decisions.</p>
+<p>After the exchange, ask the learner to state the next action and its conditions in their own words. In the receiving role, state what you understood from their actual explanation and invite them to confirm or correct it. Compare both accounts with what was said and with their meeting record. This can show how they handle a simulated discussion; it does not establish agreement among real people who were absent.</p>
+<p>When you play a role, you are an agent standing in for a person, which is the situation Lesson 2 warns about. Say so when it matters. Push back in role where the supplied concern warrants it, because the learner needs practice with disagreement that an ordinary agent might not raise.</p>
+<h3 id="assessing-agent-assisted-work-1">Assessing agent-assisted work</h3>
+<p>Follow the teaching guide's <a href="../instructor-guide.html#assess-agent-assisted-work">method for assessing agent-assisted work</a>. For Course 06, look for these points in particular.</p>
+<p>In the briefs, check that A01 is given as the basis for authority, that A05 is given with its proposal status, and that the follow-up brief asks the agent to list missing inputs and objections instead of filling them.</p>
+<p>In the examination notes, look for a check of the agent-drafted record against what was decided, such as whether B02's request to keep Week 12 stayed a request and whether the voltage discrepancy and hydraulic gaps stayed open.</p>
+<p>The participants' own explanations, not the drafted record, establish common understanding. Where you or a mentor play the participants, criterion 5 cannot show agreement among real people; rate it as the assessment table describes. Criterion 6 has two parts: assess the briefs and the learner's own examination record separately. Criterion 7 is the defense. Useful changed premises include: if operations stated that 22 litres per second is needed before handover, how is the request routed? If the supplier offered to hold the slot in return for acceptance of the 480 V offer in principle, what is the response? If the drafted record said that the team agreed to keep Week 12, what must change?</p>
+<h3 id="knowledge-check-answers-1">Knowledge-check answers</h3>
+<ol>
+<li>Receipt confirms that communication reached someone, but the recipient may interpret its terms, conditions, or intended action differently.</li>
+<li>Interest concerns desired effects. Expertise concerns competent assessment. Authority concerns a specified decision right.</li>
+<li>Disclose uncertainty that affects the decision, its consequences, and the work it limits. Explain the proposed resolution.</li>
+<li>Establish the disputed proposition. Facts may need observation or analysis, but scope choices need the appropriate decision authority and impact assessment.</li>
+<li>Record the actual decision, remaining concern, evidence, affected work, responsible owner, and resolution route. Do not imply technical agreement.</li>
+<li>Provide suitable inputs, competence, capacity, supervision, and review. Examine bad news honestly and correct the evidenced cause.</li>
+<li>Adding people can add communication paths, n(n-1)/2 for n people, and preparation costs. Agent systems differ in retained history and retrieval. Where context is absent or stale, a new assignment needs transfer or recovery of the current basis. A sound answer identifies possible loss in repeated context transfer and the need to examine consequential returns; it does not assume every agent forgets or every person retains the current basis.</li>
+<li>The brief gives the purpose, the identified basis with revisions and status, the output wanted, its interfaces and limits, the checks to perform, the conditions that require a person's decision, and the required return, and it asks for missing inputs and assumptions. The return reports the output, scope completed, checks performed and what each examined, limits, and open choices, and it distinguishes what the agent prepared from what it changed.</li>
+<li>Agents do not reliably push back, raise disagreement, or hold a correct finding when challenged, and they may work from a flawed premise in their brief. So the brief must ask for objections, doubted premises, the conditions under which the conclusion fails, and the conditions that require the agent to stop and report. The absence of an objection shows only that none was detected or reported; it shows neither soundness nor agreement.</li>
+<li>The drafted record establishes what the draft says. It does not establish that people agreed or that the decision was made as recorded. The participants must check what the record means, explain the next action in their own words, and confirm that the record distinguishes decisions, proposals, requests, and unresolved concerns, such as B02's request to keep Week 12.</li>
+<li>Agents can take on drafting and comparison, but they hold no interest or authority and cannot speak for a stakeholder, so the sponsor's decisions, operations' conditions and acceptance, procurement's needs, and the supplier's commercial exchanges stay with people. As agents take on more of the production, these relationships can become a larger share of each person's work. Credit an answer that treats this as a shift in proportion, not a measured change.</li>
+</ol>
+<h3 id="sample-practice-reasoning-1">Sample practice reasoning</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Supported concern and contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sponsor</td>
+<td>Scope, budget, and target decisions; the A05 impact assessment before its adoption.</td>
+</tr>
+<tr>
+<td>Project manager</td>
+<td>Execution and delivery coordination within the approved basis; a credible response to unresolved conditions.</td>
+</tr>
+<tr>
+<td>Project engineer</td>
+<td>Coherent technical basis and interfaces; technical findings routed to the relevant specialists.</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Operating conditions, changeover definition, operating information, and readiness arrangements.</td>
+</tr>
+<tr>
+<td>Procurement</td>
+<td>A technically reviewed package and required expenditure authorization; commercial inquiry into the supplier slot.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Add discipline engineers or represent their supplied positions through the project engineer. Do not give the meeting invented engineering answers.</p>
+<p>A suitable opening identifies the purchase-package decision and explains why B01 and A05 require different responses.</p>
+<p>A useful record distinguishes A02's current requirement from A05's request, and it retains the voltage discrepancy and hydraulic gaps.</p>
+<p>Proposed actions can assign operating clarification to operations and technical checks to the respective discipline roles. Mark these as exercise assignments.</p>
+<p>An action date can be proposed in the exercise, but do not present it as a supplied commitment or assume that it proves readiness.</p>
+<p>For the understanding check, participants should state compatible next actions and conditions, but different role-specific detail is acceptable.</p>
+<p>For confidentiality, credit an authorized route that provides enough permitted evidence for examination. Reject withholding a material limitation while claiming suitability. Credit a learner who treats an unapproved agent system as an unauthorized route.</p>
+<p>For conflicting interests, credit disclosure and treatment through the relevant arrangement. Avoid a universal legal ruling for the fictional case.</p>
+<p>For the agent's role summary, a sound note checks each stated authority against A01 and each concern against its record. Agents do not appear in the stakeholder table as participants.</p>
+<p>For the drafted record, a sound note compares the draft with what was decided. Credit a learner who finds a request recorded as a decision or a concern smoothed into agreement, but do not require a found difference; a note that names what was checked meets the exercise.</p>
+<p>For the follow-up brief, a sound brief identifies the sources with their status, states that the changeover function is unconfirmed, asks for missing inputs and the strongest objection, and names the person who examines the return. Whether the agent raised an objection matters less than whether the brief asked for one.</p>
+<h3 id="assessment-guidance-1">Assessment guidance</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Evidence that meets it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Truthful explanation</td>
+<td>The speaker states relevant uncertainty and resists pressure to imply unsupported acceptance.</td>
+</tr>
+<tr>
+<td>Stakeholder distinctions</td>
+<td>The table separates interests, knowledge, contributions, and actual decision rights, and it lists people and organizations, not agents, without using a drafted view in place of a stakeholder's stated position.</td>
+</tr>
+<tr>
+<td>Listening and fair treatment</td>
+<td>The discussion restates concerns accurately, allows correction, and identifies appropriate routes for conflicting interests and confidential evidence.</td>
+</tr>
+<tr>
+<td>Accurate meeting record</td>
+<td>The record distinguishes decisions, proposals, actions, and unresolved concerns, whoever drafted it.</td>
+</tr>
+<tr>
+<td>Common next action</td>
+<td>Participant explanations agree on authority and conditions or identify a difference for repair. Where the participants are simulated, including by you, rate the learner's understanding check and handling of each role's explanation instead, and record &quot;simulated participants&quot; with the rating.</td>
+</tr>
+<tr>
+<td>Briefs and examination</td>
+<td>The briefs carry the needed context with status and ask for missing inputs and objections, and the learner's record shows what they checked in each return.</td>
+</tr>
+<tr>
+<td>Defense through changed premises</td>
+<td>The learner explains the main conclusions and their grounds, shows what their examination of the agents' work found, identifies which judgments are their own, and reasons correctly through the instructor's changed premises.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Needs repair: agreement obtained by omitting a technical concern, a meeting chair claiming every approval, or unsupported attribution of motives. Also return for repair an agent-drafted record adopted without the participants' check, or a stakeholder position taken from an agent's draft instead of from the stakeholder.</p>
+<p>Judge how disagreement is handled, not whether disagreement is absent. An accurate unresolved issue can be a successful meeting result.</p>
+<h2 id="course-07-suggested-session-sequence">Course 07: Suggested session sequence</h2>
+<p>Open <a href="../courses/07-project-definition.html">Course 07</a>.</p>
+<ol>
+<li>Ask learners to distinguish Northbank's product from its project.</li>
+<li>Teach purpose, basis, requirements, scope allocation, and readiness.</li>
+<li>Discuss what agents change: division by examination and integration, the basis that agents read, and alternatives kept open longer.</li>
+<li>Examine the purchase-preparation worked example, including the version with agents.</li>
+<li>Assign the weak-statement repair, without agents.</li>
+<li>Have learners assemble a basis index for agents.</li>
+<li>Compare alternative work boundaries and their interfaces, including boundaries for agent assignments.</li>
+<li>Examine the agent-drafted interface tables.</li>
+<li>Review the division designs in pairs.</li>
+<li>Prepare the proposed project basis.</li>
+<li>Review coverage from requirements to deliverables.</li>
+<li>Review coverage from deliverables back to their justified purpose.</li>
+<li>Repair gaps, explain remaining open matters, and conduct the defense.</li>
+</ol>
+<p>Step 5 deliberately comes before agent use. A learner who has repaired the weak assignment once can recognize an agent draft that fills an open input or drops a condition.</p>
+<h3 id="teaching-course-07-with-an-agent">Teaching Course 07 with an agent</h3>
+<p>Have the learner develop one requirement into a contribution, its needed inputs, its consumer, and a proposed examination. Trace it in both directions before they extend the same reasoning across the basis. Use a missing interface to teach the relationship, instead of filling in the whole allocation for them.</p>
+<p>Ask which decision an unresolved input limits and which work can continue. A useful answer preserves both the gap and the permitted activity. An attractive schedule or complete set of headings is not evidence that those conditions are met.</p>
+<p>The learner should carry justified repairs into the project basis and connected portfolio outputs. You may help find an inconsistency, but they must explain the changed meaning and its consequences.</p>
+<p>When the learner designs the division of work, ask which judgments stay with people and why, before asking which parts agents produce. A design that starts from what agents can produce tends to leave examination and responsibility for last.</p>
+<h3 id="assessing-agent-assisted-work-2">Assessing agent-assisted work</h3>
+<p>Follow the teaching guide's <a href="../instructor-guide.html#assess-agent-assisted-work">method for assessing agent-assisted work</a>. For Course 07, look for these points in particular.</p>
+<p>In the basis index and briefs, check that A02 Rev 1 is identified as the governing revision, that A02 Rev 0 is excluded or labelled as superseded, that A03 is labelled as an archived reference, and that A05 is given with its proposal status.</p>
+<p>In the examination notes, look for checks of agent drafts against the basis: the operating-conditions clause kept with 18 litres per second, B03's missing owners and dates not filled in as facts, and no invented tolerance, clause, or legal conclusion.</p>
+<p>Criterion 6 has two parts: assess the designed division and the learner's own examination record separately. Criterion 7 is the defense. Useful changed premises include: if the sponsor adopted 22 litres per second, which requirements, contributions, and interfaces change? If the electrical engineer found that the existing supply lacked capacity, which work stops and which continues? If the agents had read the whole shared folder, what could have gone wrong, and how would the learner have detected it?</p>
+<h3 id="knowledge-check-answers-2">Knowledge-check answers</h3>
+<ol>
+<li>The product is the resulting installation or other intended result. The project organizes its development and delivery, including the transfer of continuing responsibility.</li>
+<li>Establish purpose, users, requirements, scope, boundaries, constraints, sources, decisions, acceptance responsibilities, interfaces, and unresolved treatment.</li>
+<li>The conditions define the intended obligation, so removing them can create a different claim and an inadequate examination.</li>
+<li>One participant accounts for the whole obligation. Explicit supporting contributions and interfaces establish how others help fulfill it. Contributors and reviewers retain their assigned and professional duties.</li>
+<li>Allocation establishes who must supply the work, but satisfaction requires produced results and evidence against the obligation.</li>
+<li>State the uncertain input, authorized interim basis, consequences, resolution owner, evidence needed, point of need, and limits on proceeding.</li>
+<li>When agents produce, production capacity no longer limits the size of a contribution. The limit becomes the competent examination and integration that the contribution needs before anyone relies on it. A contribution that no competent person can examine in time is not a usable boundary. A sound answer connects the boundary to the examiner's capacity and the integration responsibility.</li>
+<li>The basis given to agents states each source's identity, revision, status, and relationship to the basis: A02 Rev 1 approved for project development and governing, A02 Rev 0 a superseded draft, A03 an archived reference, A04 a checked observation, and A05 a proposal. It matters more because agents read the basis literally, do not ask a colleague which file governs, and can carry a wrong basis into many outputs quickly.</li>
+<li>Each open alternative needs examination, keeps dependent interfaces unsettled, and uses decision attention. Decisions are still needed to close an alternative when dependent work needs a settled basis, to change a sponsor-adopted boundary through the decision process, and to state readiness and the treatment of open matters. A05's scope decision stays with the sponsor.</li>
+<li>No. A01 assigns responsibilities to people and organizational roles, and under the case's arrangement the agents hold no appointment under A01. The accountable home is a person or organization. Agents contribute within that home, and the discipline engineers keep responsibility for the parts of their contributions that agents draft.</li>
+</ol>
+<h3 id="sample-practice-reasoning-2">Sample practice reasoning</h3>
+<p>The weak statement leaves the equipment requirement, selected configuration, voltage response, future-scope status, and examination unclear.</p>
+<p>A suitable replacement asks for an identified equipment requirement under A02 Rev 1 and assigns operating, mechanical, electrical, and controls contributions.</p>
+<p>It requires the unresolved hydraulic inputs and legal-applicability inquiry to be treated before dependent technical decisions. It preserves A05 as proposal work.</p>
+<p>A supported interpretation can identify an existing obligation, and that obligation does not wait for the sponsor to adopt it. New project constraints and the resulting changes to commitments need their appropriate decisions.</p>
+<p>The division of work can vary, but a useful proposal includes these contributions:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 5; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Contribution</th>
+<th>Coverage and receiving need</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating and hydraulic basis</td>
+<td>A02's duty conditions, two-unit arrangement, tank reuse, and required changeover clarification.</td>
+</tr>
+<tr>
+<td>Mechanical equipment and piping</td>
+<td>Equipment selection basis, piping, supports, and mechanical information for the connected disciplines.</td>
+</tr>
+<tr>
+<td>Electrical design</td>
+<td>Existing supply assessment, selected motor conditions, starting method, and applicable electrical work.</td>
+</tr>
+<tr>
+<td>Civil contribution</td>
+<td>Loads, base dimensions, supports where assigned, and access relationships from B03.</td>
+</tr>
+<tr>
+<td>Controls definition</td>
+<td>Confirmed changeover function, alarms, and restart behavior needed for intended operation.</td>
+</tr>
+<tr>
+<td>Operating information</td>
+<td>Access, isolation, maintenance, and restart information for the receiving operations role.</td>
+</tr>
+<tr>
+<td>Technical coordination</td>
+<td>Shared basis, interfaces, requirements inquiry, and combined technical examination.</td>
+</tr>
+<tr>
+<td>Project coordination</td>
+<td>Budget and target control, authorized procurement route, and A05's impact-assessment route.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is a proposed allocation, not an issued design or a complete acceptance method. Require the learner to define concrete deliverables and examination.</p>
+<p>An interface record should identify a supplier and consumer for each exchange. A useful point of need relates to selection, review, procurement, or installation.</p>
+<p>Accept different allocations for support design when competent responsibility and the interface remain clear. Do not require a fixed organizational hierarchy.</p>
+<p>No acceptance tolerance is supplied for flow measurement, so credit an assigned method-development need instead of a fabricated threshold.</p>
+<p>A sound basis index lists A01 Rev 0, A02 Rev 1 (approved for project development), A04 Rev 1 (checked site observation), A05 Rev 0 (proposal), A06 Rev 0 (open inquiry), A07 Rev 0, B01 Rev 0 (submitted for technical review, not accepted), B02 Rev 0, and B03 Rev 0. It excludes A02 Rev 0 or labels it a superseded draft, and it labels A03 an archived reference with copied values. Credit a learner who notes that A07's library index omits the electrical survey and makes sure the agents' index includes A04.</p>
+<p>For the agent's interface table, a sound note checks that owners and points of need are labelled as proposals, because B03 names none, and that each exchange traces to B03 or another record. Do not require a found defect; a note that names what was checked meets the exercise.</p>
+<p>For the division design, accept different designs that keep the accountable homes with people, give each agent contribution an examiner with a stated examination and an assumed availability labelled as a teaching assumption, and keep with people the judgments the records assign to them: operations' changeover confirmation, the electrical engineer's determinations under A04, and the sponsor's A05 decision. A learner may also keep the operating envelope with the mechanical engineer, as the worked definition does. Useful tradeoffs include assignments within one discipline against fewer cross-discipline briefs, and alternatives kept open against unsettled interfaces.</p>
+<h3 id="assessment-guidance-2">Assessment guidance</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 6; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Evidence that meets it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preserved basis</td>
+<td>A02 remains approved; A05 remains proposed; the budget and target remain constraints; the basis index identifies each source's revision and status.</td>
+</tr>
+<tr>
+<td>Requirements and examination</td>
+<td>Obligations retain operating conditions and identify evidence or method-development needs.</td>
+</tr>
+<tr>
+<td>Complete allocation</td>
+<td>The division covers equipment, piping, supports, electrical, controls, operating information, inputs, and coordination.</td>
+</tr>
+<tr>
+<td>Interfaces</td>
+<td>Exchanges have contributions, proposed owners, receiving needs, and a home for technical coordination.</td>
+</tr>
+<tr>
+<td>Open-matter treatment</td>
+<td>Hydraulic conditions, electrical checks, changeover definition, and A06 are connected to the acts they limit.</td>
+</tr>
+<tr>
+<td>Division between people and agents</td>
+<td>Each agent contribution has an examiner, the learner states the examination it creates and the examiner availability assumed as a teaching assumption, the agent work is consistent with that assumption, the retained judgments stay with people, and the learner's record shows what they checked in each return.</td>
+</tr>
+<tr>
+<td>Defense through changed premises</td>
+<td>The learner explains the main conclusions and their grounds, shows what their examination of the agents' work found, identifies which judgments are their own, and reasons correctly through the instructor's changed premises.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Needs repair: a polished basis that adopts 22 litres per second, deletes unresolved requirements, or treats a deliverable assignment as fulfilled work. Also return for repair a division that names an agent as an accountable home or reviewer, or a basis index that gives agents A02 Rev 0 or A05 without its status.</p>
+<h2 id="common-defects-across-the-three-courses">Common defects across the three courses</h2>
+<ul>
+<li>A later proposal silently replaces an approved requirement.</li>
+<li>A checked observation supports a broader claim than it examined.</li>
+<li>Schedule authority is treated as technical-deviation authority.</li>
+<li>A conditional decision leaves its permitted act unclear.</li>
+<li>A contribution is assigned without its needed inputs.</li>
+<li>A disagreement disappears from the record without evidence or disposition.</li>
+<li>A legal conclusion is inferred from a fictional site name.</li>
+<li>A concern is hidden to improve agreement or reported progress.</li>
+<li>A fluent agent argument is accepted without its warrant being checked against the source.</li>
+<li>Agreement between agents is treated as independent review.</li>
+<li>A question to an agent states the preferred conclusion or the incentive.</li>
+<li>An agent's summary broadens an observation, such as A04's connection reported as the site supply.</li>
+<li>A brief gives an agent a record without its revision and status.</li>
+<li>An agent-drafted record is relied on without the participants' check.</li>
+<li>An agent appears as a stakeholder, accountable home, or reviewer under A01.</li>
+<li>An agent fills an open input with a value that then appears as a requirement.</li>
+<li>Examination notes state a conclusion without saying what was checked.</li>
+<li>A defense restates the output but cannot explain the consequence of a changed premise.</li>
+</ul>
+<p>Return each defect with its affected claim and evidence, and ask the learner to repair the reasoning and its connected outputs.</p>
+<p>Close each assignment when all seven criteria are rated meets. Preserve the remaining genuine uncertainty within the approved learning output.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="05-07-judgment-definition.md">05-07-judgment-definition.md</a><br><code>b5e946d12207adb90339d3f20c91e0b6e3e76dbafd36a8c5420d827f7770e8bd</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

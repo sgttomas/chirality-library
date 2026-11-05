@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="17b61934088293e116b3bf50a59f0b895e5b2967e45c7378945ecaee408f0c67">
+<meta name="source-basis-date" content="2026-10-25">
+<meta name="source-basis-revision" content="b50a2116352fd7a2bd5ddbeec7b6b6037e86deeb">
+<title>Northbank Water Transfer Upgrade · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 7 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#how-to-use-the-case">How to use the case</a></li>
+<li><a href="#working-with-agents-in-the-case">Working with agents in the case</a></li>
+<li><a href="#packet-a">Packet A</a></li>
+<li><a href="#packet-b">Packet B</a></li>
+<li><a href="#packet-c">Packet C</a></li>
+<li><a href="#packet-d">Packet D</a></li>
+<li><a href="#records-for-the-learning-portfolio">Records for the learning portfolio</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#how-to-use-the-case">How to use the case</a></li>
+<li><a href="#working-with-agents-in-the-case">Working with agents in the case</a></li>
+<li><a href="#packet-a">Packet A</a></li>
+<li><a href="#packet-b">Packet B</a></li>
+<li><a href="#packet-c">Packet C</a></li>
+<li><a href="#packet-d">Packet D</a></li>
+<li><a href="#records-for-the-learning-portfolio">Records for the learning portfolio</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="case-study.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="northbank-water-transfer-upgrade">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="northbank-water-transfer-upgrade">Northbank Water Transfer Upgrade</h1>
+<p>Northbank is a fictional industrial site that transfers non-potable water between an existing tank and a distribution header.</p>
+<p>All people, documents, prices, technical values, and project events below are invented for teaching. They are exercise inputs, not an engineering design or operating instruction.</p>
+<h2 id="how-to-use-the-case">How to use the case</h2>
+<p>Each record has a stable identifier. Cite the identifier, revision, and relevant statement in your work.</p>
+<p>Start with Packet A. Release Packet B for Courses 05 to 07, Packet C for Courses 08 to 10, and Packet D for Courses 11 and 12.</p>
+<p>An earlier course can use later packets as additional practice. Identify the packet available when making each decision: later knowledge does not change what an earlier participant knew.</p>
+<p>The packets contain discrepancies and incomplete evidence, so treat each statement according to its source and status. Do not assume that every document is authoritative for every question.</p>
+<h2 id="working-with-agents-in-the-case">Working with agents in the case</h2>
+<p>The series assumes that the Northbank team works with AI agents. The agents can draft, compare, calculate, search, and check the records that a team member gives them. They hold no appointment under A01, and they cannot approve, accept, or carry responsibility for any decision or duty that A01 assigns.</p>
+<p>This arrangement is a teaching assumption added to the case. It changes no Northbank record: every revision, status, duration, price, and stated fact stays as written. Where a course needs a further assumption about agent work, it labels that assumption in the course and keeps it separate from the records.</p>
+<p>The records do not say how long any part of Northbank's information work took or how it was produced. Do not infer from them that agents would save time or cost on a particular activity; that claim needs its own evidence.</p>
+<h2 id="packet-a">Packet A</h2>
+<h3 id="a01-appointment-rev-0">A01 Appointment Rev 0</h3>
+<p>The site director sponsors the upgrade. The sponsor approves changes to the project scope, authorized budget, and target handover week.</p>
+<p>The project manager coordinates execution, expenditure, contracts, and the delivery forecast. The manager can arrange work within the approved scope and budget.</p>
+<p>The project engineer coordinates the technical basis and interfaces. Discipline engineers retain responsibility for their technical contributions. A competent technical authority must approve technical deviations within their remit.</p>
+<p>Procurement places orders against authorized purchase packages. It cannot approve a technical substitution.</p>
+<p>Operations provides operating conditions and receives operational responsibility. The operations lead accepts the operating information and readiness arrangements.</p>
+<p>A reviewer examines assigned work independently where the project requires this. Review does not transfer the producer's responsibility to the reviewer.</p>
+<p>The project appointment does not override professional duties or applicable law. Actual legal applicability remains subject to A06.</p>
+<h3 id="a02-project-basis-rev-1">A02 Project Basis Rev 1</h3>
+<p>Status: approved for project development.</p>
+<p>The required transfer flow is 18 litres per second at the distribution header. The requirement applies under the operating conditions that the project must establish.</p>
+<p>Provide two pump units. One unit operates. The other unit is standby. Confirm the required changeover function with operations.</p>
+<p>Reuse the existing tank. Provide the required piping, supports, electrical work, controls, and operating information.</p>
+<p>The authorized budget is 240,000 training currency units. The target handover is the end of Week 12.</p>
+<p>The project must establish the available suction conditions, required pressure, water properties, site constraints, and relevant operating cases. These inputs are unresolved.</p>
+<p>The project must determine the applicable external requirements before dependent design decisions. A06 records this open matter.</p>
+<h3 id="a03-legacy-equipment-schedule-rev-0">A03 Legacy Equipment Schedule Rev 0</h3>
+<p>Status: archived reference from an earlier installation.</p>
+<p>The schedule shows a transfer flow of 15 litres per second. It lists a 480 V electrical supply.</p>
+<p>Its source note says that the values were copied from an earlier planning estimate. It has no field survey reference.</p>
+<h3 id="a04-electrical-survey-rev-1">A04 Electrical Survey Rev 1</h3>
+<p>Status: checked site observation.</p>
+<p>The survey identifies the existing connection as 600 V, three phase, 60 Hz. It records the location, instrument identity, survey date, and observer.</p>
+<p>It does not establish spare capacity, protection coordination, or equipment compatibility. The electrical engineer must determine those matters.</p>
+<h3 id="a05-operations-request-rev-0">A05 Operations Request Rev 0</h3>
+<p>Status: proposal. No scope amendment is recorded.</p>
+<p>Operations requests a flow of 22 litres per second for a possible future production increase. Operations also requests automatic changeover.</p>
+<p>The sponsor asks for an impact assessment. The request does not amend A02.</p>
+<h3 id="a06-requirements-inquiry-rev-0">A06 Requirements Inquiry Rev 0</h3>
+<p>Status: open inquiry.</p>
+<p>The case does not identify a real jurisdiction or adopted code edition. No participant can infer legal applicability from the project name.</p>
+<p>For a classroom legal exercise, the instructor selects a real jurisdiction and supplies current official adoption instruments. Record that selection separately.</p>
+<p>For the offline exercise, identify the missing jurisdiction, facility classification, asset boundary, permits, adoption instruments, and contract references. State the decisions they prevent.</p>
+<p>Do not invent a statute, code clause, regulator ruling, or exemption.</p>
+<h3 id="a07-source-inventory-rev-0">A07 Source Inventory Rev 0</h3>
+<p>The shared folder contains A02 Rev 0 and Rev 1 under similar filenames. Rev 0 was a draft with a flow of 15 litres per second.</p>
+<p>A02 Rev 1 has the approval record. Its authorized scope is stated in A02 above.</p>
+<p>A supplier brochure describes a product family. It contains no project selection or configuration identifier.</p>
+<p>The library index lists the brochure but omits the electrical survey. A design note cites the legacy schedule without its source note.</p>
+<h2 id="packet-b">Packet B</h2>
+<h3 id="b01-supplier-submission-rev-0">B01 Supplier Submission Rev 0</h3>
+<p>Status: submitted for technical review. Not accepted.</p>
+<p>The offered pump motors are rated for 480 V. The supplier copied the value from A03.</p>
+<p>The submission contains a product family brochure. It does not contain a selected pump curve, declared operating cases, or a complete configuration list.</p>
+<p>The supplier asks for approval within two working days to preserve its proposed delivery slot.</p>
+<h3 id="b02-coordination-note-rev-0">B02 Coordination Note Rev 0</h3>
+<p>The project manager asks the team to keep the Week 12 target. The note records no technical deviation approval or scope amendment.</p>
+<p>The project engineer identifies the voltage discrepancy. The electrical engineer requests capacity and protection checks.</p>
+<p>Operations asks whether the proposed equipment can meet 22 litres per second. The mechanical engineer states that the hydraulic basis is incomplete.</p>
+<p>Procurement has not released an equipment order. It needs a technically reviewed purchase package and the required expenditure authorization.</p>
+<h3 id="b03-interface-list-rev-0">B03 Interface List Rev 0</h3>
+<p>The mechanical team needs the operating envelope and electrical motor conditions. The electrical team needs the selected motor and starting method.</p>
+<p>The civil team needs equipment loads, base dimensions, and access requirements. The controls team needs the changeover definition and alarm response.</p>
+<p>Operations needs access, isolation, maintenance, and restart arrangements. The list names no owners or required dates.</p>
+<h2 id="packet-c">Packet C</h2>
+<h3 id="c01-baseline-cost-plan-rev-1">C01 Baseline Cost Plan Rev 1</h3>
+<p>Status: approved planning allocation. All figures use training currency units.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Cost item</th>
+<th style="text-align:right">Baseline allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pump equipment</td>
+<td style="text-align:right">70,000</td>
+</tr>
+<tr>
+<td>Mechanical installation</td>
+<td style="text-align:right">50,000</td>
+</tr>
+<tr>
+<td>Civil work</td>
+<td style="text-align:right">30,000</td>
+</tr>
+<tr>
+<td>Electrical and controls</td>
+<td style="text-align:right">40,000</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td style="text-align:right">20,000</td>
+</tr>
+<tr>
+<td>Commissioning</td>
+<td style="text-align:right">10,000</td>
+</tr>
+<tr>
+<td>Contingency</td>
+<td style="text-align:right">20,000</td>
+</tr>
+<tr>
+<td>Total</td>
+<td style="text-align:right">240,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="c02-delivery-sequence-rev-1">C02 Delivery Sequence Rev 1</h3>
+<p>Status: approved planning sequence. Durations are teaching assumptions.</p>
+<p>Release the equipment order at the end of Week 4. Allow four weeks for delivery after release. Delivery is at the end of Week 8.</p>
+<p>Install the equipment during Weeks 9 and 10. Commission it during Week 11. Complete handover during Week 12.</p>
+<p>Installation requires equipment delivery and ready site works. Commissioning requires installation completion and completed prerequisite checks.</p>
+<h3 id="c03-corrected-equipment-forecast-rev-0">C03 Corrected Equipment Forecast Rev 0</h3>
+<p>Status: forecast for the existing 18 litres per second scope. It is not a budget approval.</p>
+<p>The supplier expects a corrected purchase package at the end of Week 6. It estimates five weeks for delivery after order release.</p>
+<p>For this exercise, assume release occurs at the end of Week 6. Assume site works are ready before delivery.</p>
+<p>Retain two weeks for installation, one week for commissioning, and one week for handover. Do not overlap these activities in the first calculation.</p>
+<p>The forecast excludes the proposed increase to 22 litres per second. It does not establish the pump's technical suitability.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Cost item</th>
+<th style="text-align:right">Forecast total for the item</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pump equipment</td>
+<td style="text-align:right">80,000</td>
+</tr>
+<tr>
+<td>Mechanical installation</td>
+<td style="text-align:right">55,000</td>
+</tr>
+<tr>
+<td>Civil work</td>
+<td style="text-align:right">30,000</td>
+</tr>
+<tr>
+<td>Electrical and controls</td>
+<td style="text-align:right">45,000</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td style="text-align:right">23,000</td>
+</tr>
+<tr>
+<td>Commissioning</td>
+<td style="text-align:right">12,000</td>
+</tr>
+<tr>
+<td>Contingency</td>
+<td style="text-align:right">20,000</td>
+</tr>
+<tr>
+<td>Total</td>
+<td style="text-align:right">265,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each forecast item includes its recorded actual expenditure. Do not add the actual expenditure again.</p>
+<h3 id="c04-test-report-rev-0">C04 Test Report Rev 0</h3>
+<p>Status: witnessed observation on the installed equipment in a later case exercise. This record does not establish that earlier design gaps were resolved.</p>
+<p>The team observed a flow of 18 litres per second during one normal transfer condition. The report does not state the full hydraulic conditions.</p>
+<p>The team did not exercise standby changeover, a power interruption, alarm response, or maintenance isolation. The draft cover sheet says that the complete installation passed acceptance.</p>
+<p>The equipment configuration list is incomplete. One operating instruction refers to the supplier's earlier 480 V submission.</p>
+<h3 id="c05-operating-readiness-note-rev-0">C05 Operating Readiness Note Rev 0</h3>
+<p>Operations has not completed its training. The maintenance team has no confirmed spare parts list.</p>
+<p>The document controller has draft drawings and the observed test report. The controller has no complete approved record of the installed configuration.</p>
+<p>The sponsor asks whether the project can report handover as complete.</p>
+<h2 id="packet-d">Packet D</h2>
+<h3 id="d01-leadership-brief-rev-0">D01 Leadership Brief Rev 0</h3>
+<p>The sponsor wants a credible continuation decision. The sponsor has not approved the 22 litres per second proposal or a larger budget.</p>
+<p>The supplier says that another production slot may be available. It has not confirmed the slot, its technical conditions, or its price.</p>
+<p>The project manager proposes overlapping some installation and commissioning work. The team has no agreed boundary or prerequisite analysis for that overlap.</p>
+<p>Operations proposes temporary use of the existing arrangement. The team has no assessed operating plan for that proposal.</p>
+<h3 id="d02-information-and-incentives-note-rev-0">D02 Information and Incentives Note Rev 0</h3>
+<p>The delivery bonus uses the reported handover date. The sponsor also requires a usable and properly examined installation.</p>
+<p>The weekly report shows completed document counts. It does not show unresolved interfaces or the grounds for operating readiness.</p>
+<p>A junior engineer has raised the missing changeover test twice. The meeting record says that the issue is closed. It records no test or authorized disposition.</p>
+<h3 id="d03-practicum-events-rev-0">D03 Practicum Events Rev 0</h3>
+<p>The facilitator releases one event at a time:</p>
+<ol>
+<li>The supplier requests acceptance of B01.</li>
+<li>Operations requests adoption of A05.</li>
+<li>The forecast in C03 arrives.</li>
+<li>The draft acceptance claim in C04 arrives.</li>
+<li>The incentive and reporting conditions in D02 become visible.</li>
+</ol>
+<p>The facilitator can choose to grant, qualify, or reject a submitted decision request. Record the decision as a new case event.</p>
+<p>Do not silently replace a source record. Identify what the new decision changes. Preserve the earlier decision basis.</p>
+<h2 id="records-for-the-learning-portfolio">Records for the learning portfolio</h2>
+<p>Use a record only when it helps the next activity. The following fields can support several assignments:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Record</th>
+<th>Useful fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source index</td>
+<td>Identity, revision, status, origin, location, subject, limits</td>
+</tr>
+<tr>
+<td>Requirement</td>
+<td>Identity, needed result, source, applicability, examination, owner</td>
+</tr>
+<tr>
+<td>Decision</td>
+<td>Question, options, evidence, authority, decision, conditions, affected work</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td>Supplier, consumer, required contribution, conditions, owner, point of need</td>
+</tr>
+<tr>
+<td>Change</td>
+<td>Proposed departure, reason, consequences, authority, disposition, propagation</td>
+</tr>
+<tr>
+<td>Finding</td>
+<td>Observation, affected requirement or claim, evidence, consequence, owner, closure evidence</td>
+</tr>
+<tr>
+<td>Handover</td>
+<td>Delivered configuration, supporting evidence, limits, receiving owner, continuing obligations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These fields support the exercise, but they do not prescribe an organization's document system.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>25 October 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b50a2116352fd7a2bd5ddbeec7b6b6037e86deeb</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="case-study.md">case-study.md</a><br><code>17b61934088293e116b3bf50a59f0b895e5b2967e45c7378945ecaee408f0c67</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

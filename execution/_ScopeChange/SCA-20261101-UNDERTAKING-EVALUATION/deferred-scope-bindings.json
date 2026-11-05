@@ -1,0 +1,9 @@
+[
+  {
+    "path": "execution/PKG-04/DEL-04-02/ScopeOfWork.md",
+    "candidate": "candidates/DEL-04-02.ScopeOfWork.md",
+    "before_sha256": "581c21ab13489c90474df3eebdac12790dee8e49afc8491fa61dcc9a64d645cf",
+    "template_sha256": "2b0d1e1e25ace06a1608c6019127687924ce36862efb35008996af8b9d7968aa",
+    "slot": "__ACCEPTED_DECOMPOSITION_COMMIT__ = full Group-3 reviewed commit; resolve only after actual Group-3 acceptance"
+  }
+]

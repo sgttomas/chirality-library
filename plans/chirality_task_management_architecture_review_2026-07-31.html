@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chirality Program Architecture — Task Management Lens Review 2026-07-31</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f4f1e9;
+      --surface: #fffdf7;
+      --surface-2: #ece8dd;
+      --ink: #17201d;
+      --muted: #5d6863;
+      --line: #c8c8bd;
+      --root: #255a54;
+      --root-soft: #dcebe7;
+      --operative: #315f7d;
+      --operative-soft: #dce8ef;
+      --situated: #8a542c;
+      --situated-soft: #f3e2d2;
+      --evidence: #625082;
+      --evidence-soft: #e8e1f0;
+      --human: #a16a00;
+      --human-soft: #f5e9c8;
+      --danger: #9d3c34;
+      --danger-soft: #f5dfdc;
+      --shadow: 0 12px 34px rgba(38, 43, 40, 0.08);
+      --radius: 18px;
+      --max: 1240px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111614; --surface: #18201d; --surface-2: #222b27;
+        --ink: #edf1ed; --muted: #b2bdb7; --line: #3b4741;
+        --root: #77b7ac; --root-soft: #1d3934;
+        --operative: #84b6d2; --operative-soft: #203846;
+        --situated: #d59b70; --situated-soft: #473225;
+        --evidence: #b6a0d2; --evidence-soft: #342c43;
+        --human: #e0b65e; --human-soft: #41381f;
+        --danger: #e39187; --danger-soft: #482b29;
+        --shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--root) 9%, transparent), transparent 28rem),
+        radial-gradient(circle at 95% 15%, color-mix(in srgb, var(--evidence) 9%, transparent), transparent 32rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.56;
+    }
+    a { color: inherit; }
+    .page { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 30px 0 72px; }
+    .hero {
+      position: relative; overflow: hidden; padding: clamp(28px, 6vw, 70px);
+      border: 1px solid var(--line); border-radius: 28px;
+      background: color-mix(in srgb, var(--surface) 94%, transparent); box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -110px; top: -130px; width: 360px; height: 360px;
+      border: 70px solid color-mix(in srgb, var(--evidence) 13%, transparent); border-radius: 50%; pointer-events: none;
+    }
+    .eyebrow { margin: 0 0 14px; color: var(--root); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+    h1, h2, h3 { margin-top: 0; line-height: 1.12; letter-spacing: -0.025em; }
+    h1 { max-width: 940px; margin-bottom: 20px; font-size: clamp(2.0rem, 5vw, 3.9rem); font-weight: 650; }
+    h2 { margin-bottom: 16px; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    h3 { margin-bottom: 10px; font-size: 1.1rem; }
+    p { margin: 0 0 1rem; }
+    .lede { max-width: 880px; margin-bottom: 22px; color: var(--muted); font-size: clamp(1.02rem, 2vw, 1.28rem); }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 0.85rem; color: var(--muted); }
+    .meta strong { color: var(--ink); font-weight: 600; }
+    .badge { display: inline-block; padding: 3px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2); font-size: 0.76rem; font-weight: 600; }
+    section { margin-top: 46px; }
+    .card {
+      padding: clamp(20px, 3.4vw, 34px); border: 1px solid var(--line); border-radius: var(--radius);
+      background: color-mix(in srgb, var(--surface) 96%, transparent); box-shadow: var(--shadow);
+    }
+    .card + .card { margin-top: 18px; }
+    .kicker { margin: 0 0 6px; color: var(--muted); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .tablewrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 12px; }
+    table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 0.86rem; }
+    th, td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--surface-2); font-size: 0.76rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    tr:last-child td { border-bottom: none; }
+    code { padding: 1px 5px; border-radius: 6px; background: color-mix(in srgb, var(--surface-2) 80%, transparent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.84em; }
+    blockquote { margin: 14px 0; padding: 12px 18px; border-left: 4px solid var(--human); border-radius: 0 10px 10px 0; background: var(--human-soft); font-size: 0.95rem; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 16px; }
+    .tile { padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .tile h3 { font-size: 1rem; }
+    .tile .num { display: block; font-size: 1.9rem; font-weight: 700; letter-spacing: -0.03em; }
+    .tag { display: inline-block; margin-right: 6px; padding: 2px 9px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; }
+    .tag.good { background: var(--root-soft); color: var(--root); }
+    .tag.warn { background: var(--human-soft); color: var(--human); }
+    .tag.bad { background: var(--danger-soft); color: var(--danger); }
+    .tag.info { background: var(--operative-soft); color: var(--operative); }
+    .footer-note { margin-top: 52px; padding: 22px 26px; border: 1px dashed var(--line); border-radius: 14px; color: var(--muted); font-size: 0.86rem; }
+    ol.tight li, ul.tight li { margin-bottom: 8px; }
+    .secnum { color: var(--muted); font-weight: 600; margin-right: 8px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <p class="eyebrow">Chirality Program · architecture review · task-management lens · 2026-07-31</p>
+    <h1>The program writes every concern down, and obligates almost no one to read one back</h1>
+    <p class="lede">
+      Four sealed reviewer lenses and one deterministic dry-run examined the whole
+      program architecture from the perspective of the proposed Task Management
+      module, then turned the same instruments on the module's own PRD candidate.
+      The architecture's gap is real but narrower and differently shaped than the
+      candidate assumed — and the candidate itself takes nine critical breaks that
+      require a structural revision, recorded here before any adoption act.
+    </p>
+    <ul class="meta">
+      <li><span class="badge">Non-governing review record · derivative · no authority or implementation mandate</span></li>
+      <li><strong>Owner:</strong> Ryan Tufts</li>
+      <li><strong>Frozen basis:</strong> main @ <code>a7371ed94</code> (PR #422)</li>
+      <li><strong>Challenge lens:</strong> <code>plans/chirality-task-management/PRD_CANDIDATE_2026-07-31.md</code> (uncommitted candidate, this worktree)</li>
+      <li><strong>Method:</strong> 4 sealed Agent 2 lenses + deterministic scan · fan-in classified, not averaged (Agent 0)</li>
+      <li><strong>Prepared for:</strong> owner-witnessed working assessment</li>
+    </ul>
+  </header>
+
+  <section id="verdict">
+    <div class="card">
+      <p class="kicker">01 · Verdict</p>
+      <h2>Loss is by artifact class, not by session — and the failed class is the one the candidate proposed to extend</h2>
+      <p>
+        The candidate PRD's thesis said task-relevant issues "die between sessions."
+        Live-state tracing falsifies that as a general claim and confirms it as a
+        class-specific one. Concerns that enter a <strong>decision-register row or a
+        receipt <code>Parked lanes:</code> field</strong> get dispositioned — 269 of 275
+        register rows across five registers carry a filled ruling, usually with a
+        verbatim owner token and a bound SHA, and deferred rulings are re-raised
+        through the owner-ruled residual-row convention until closed. Concerns that
+        enter a <strong>standalone CSV finding register or the routed-notice ledger</strong>
+        essentially never close: 0/12, 0/9, 13/15 open, 29/30 unacknowledged, and one
+        register that is structurally uncloseable because it has no status column.
+      </p>
+      <p>
+        The instruction layer explains why: across 22 concern-generating mechanisms,
+        emission is enforced and consumption is not. Only five gates in the whole
+        program require anyone to read accumulated concerns, and none of them reads
+        <code>_run_records/</code>, prior audit snapshots, inbound notices, immutable
+        research packets, or the decomposition open-issues list after Gate 6.
+        Because governed outputs are immutable snapshots (K-SNAP-1), their
+        <code>Status</code>/<code>HumanRuling</code> columns can never advance in place; the only
+        mutable git-tracked open-work surface is the optional <code>## Remaining</code>
+        section — and nothing connects the birth sites to it.
+      </p>
+      <p>
+        Against this, the candidate PRD proposed a program-tier register + scanner.
+        The adversarial lens showed the program <em>already ran that experiment</em>:
+        the notice-status ledger is precisely a git-tracked CSV+MD register of open
+        concerns with provenance and SHA binding — and after three days it sat at
+        29/30 open, never advanced, already stale against three newer notices.
+        A register nobody is obligated to read reproduces the pathology it cites as
+        motivation. What actually closes items in this program, on the evidence, is
+        <strong>adoption into a loop's own instruments</strong> — the surfaces each loop
+        re-reads at every entry by its own ruling.
+      </p>
+      <p>
+        The owner's two directions of record this session fence the product to
+        exactly that shape:
+      </p>
+      <blockquote>
+        "The task manager shouldn't be dispatching tasks for working in deliverables.
+        Those should be discovered via the development loop. But as matters arise
+        during the course of those development loops that can't or shouldn't be
+        resolved in that session need to have a means of being identified and worked
+        on later."
+      </blockquote>
+      <blockquote>
+        "Matters get resolved directly or by updating the content of the deliverables
+        and the appropriate surfaces the development loop touches."
+      </blockquote>
+      <p>
+        Verdict: the product survives, restructured. It is not a new coordination
+        plane, not a work queue, and not a tree-wide scanner. It is a
+        <strong>per-loop disposition ledger for session-boundary residue</strong>, seeded
+        from the measured backlog, bound into each loop's entry instruments by that
+        loop's own ruling, with the program-level register carried by the root loop.
+        Section 08 records the full amendment list applied to the PRD candidate.
+      </p>
+    </div>
+  </section>
+
+  <section id="measured">
+    <div class="card">
+      <p class="kicker">02 · The measured state</p>
+      <h2>Deterministic dry-run at the frozen basis, and closure rates by artifact class</h2>
+      <p>
+        A read-only scan (84,165 files walked across <code>execution/</code>,
+        <code>projects/</code>, <code>domains/</code>, <code>_DomainEngines/</code>, <code>docs/</code>)
+        measured what a Stage-A scanner would actually find, and the live-state lens
+        counted closure per register class. Two headline numbers: the structured
+        open-concern backlog is <strong>tractable (~115 unique items)</strong>, and the
+        free-text <code>TBD</code> token is <strong>unusable as a signal (41,679 post-exclusion
+        hits; 218,683 raw)</strong> — not least because K-INVENT-1 <em>mandates</em> the token
+        as the lawful spelling of any unknown value.
+      </p>
+      <div class="grid">
+        <div class="tile"><span class="num">29</span> routed notices <code>TRACKED_OPEN</code> (of 30; ledger never advanced; 3 newer notices absent from it)</div>
+        <div class="tile"><span class="num">33</span> <code>FINDINGS.csv</code> files under <code>_Evaluation/</code> with open dispositions (27 NON_CONFORMANCE, 23 OBSERVATION rows among them)</div>
+        <div class="tile"><span class="num">407</span> <code>Review_Findings.csv</code> registers deployed at deliverable scope — the program's proven action-item shape</div>
+        <div class="tile"><span class="num">35</span> handoff records carrying blocker/coverage-gap language</div>
+        <div class="tile"><span class="num">23</span> research open questions frozen since 2026-06-17 (13/15 files fully open)</div>
+        <div class="tile"><span class="num">21</span> TBD-register rows with no status column to close them</div>
+        <div class="tile"><span class="num">269/275</span> decision-register rows RULED, owner tokens + SHA bound — the lane that works</div>
+        <div class="tile"><span class="num">0/12</span> <code>Disposition_Required_Register.csv</code> rows closed after 58 days — the lane that doesn't</div>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Artifact class</th><th>Closure evidence</th><th>Class verdict</th></tr></thead>
+        <tbody>
+          <tr><td>Decision registers (5×) + residual-row convention</td><td>269/275 ruled; residue gets its own row until ruled (owner-ruled convention, 2026-07-03); HZN-GOV-01 rerun dispositioned every prior finding by ID</td><td><span class="tag good">STRONG</span></td></tr>
+          <tr><td>Loop receipts, <code>Parked lanes:</code> fields</td><td>Deferred D-T0-21 carried two receipts then executed; H1/H2 gates closed in two days; discipline uneven across loops (pec 68 mentions, app-dev 1)</td><td><span class="tag good">STRONG where practiced</span></td></tr>
+          <tr><td>Routed-notice ledger</td><td>29/30 open; only acknowledgment ever recorded was itself a correction of an erroneous notice; ledger byte-identical since creation</td><td><span class="tag bad">FAILED</span></td></tr>
+          <tr><td>Standalone CSV finding/disposition registers</td><td>0/12; 0/9; 13/15 open; one register schema cannot record closure at all</td><td><span class="tag bad">FAILED</span></td></tr>
+          <tr><td>Immutable packet fields (<code>Open_Questions</code>, <code>Amendment_Candidates</code>, audit issue-logs)</td><td>Frozen at emission by K-SNAP-1; <code>Status</code> columns cannot advance; audit logs have no disposition column at all</td><td><span class="tag warn">STRUCTURALLY FROZEN</span></td></tr>
+        </tbody>
+      </table></div>
+      <p>
+        Two fate patterns deserve names. <strong>The originating register never learns:</strong>
+        HZN-001 was dispositioned by D-GOV-31 the day after it was raised, and its
+        source row still reads <code>PENDING_INPUT</code>; a research conflict row records,
+        verbatim, "Code has de facto resolved the conflict; the ledger row has not
+        been updated." <strong>ID collision defeats lookup:</strong> <code>OI-013</code> names three
+        unrelated concerns in three registers in three different states.
+      </p>
+    </div>
+  </section>
+
+  <section id="genesis">
+    <div class="card">
+      <p class="kicker">03 · Concern genesis (Reviewer A)</p>
+      <h2>Twenty-two birth mechanisms, five reading gates</h2>
+      <p>
+        The instruction layer requires concerns to be recorded at every boundary —
+        K-PROV-1, K-INVENT-1, K-CONFLICT-1, K-CLAIM-1 make the recording itself an
+        invariant. It obligates later reading at almost none of them. The five gates
+        that do read: REVIEW Gates 4–5 (its own findings; zero TBD on
+        CRITICAL/MAJOR), the CHECKING-entry warranted-empty <code>## Remaining</code> check,
+        EQUATION_AUDIT's mechanical <code>flagged == 0</code> close, and DBM_PUBLISHER's
+        open-item surfacing scan plus disposition-before-pointer-update — the
+        broadest cross-mechanism look in the program, confined to publication runs.
+        The root loop's session-entry instruction to enumerate parked lanes is the
+        only session-start look, root-only, and register-less.
+      </p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Rank</th><th>Orphan-risk mechanism</th><th>Why it orphans</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>AUDIT_* findings (8 agents)</td><td>Issue-log schemas have severity and recommendation but <strong>no status or disposition column</strong>; snapshots immutable; no later run reads the predecessor</td></tr>
+          <tr><td>2</td><td>Routed coordination notices</td><td>Delivery is the entire obligation; receiving loop "adopts, amends, or declines under its own instruments and cadence" — and 29/30 haven't</td></tr>
+          <tr><td>3</td><td>HANDOFF_STATE blockers</td><td>Surfacing obligated, clearing not; <code>OPEN_PENDING_DERIVATIVE_CLOSURE</code> is a permitted terminal state with no owner, expiry, or re-check</td></tr>
+          <tr><td>4</td><td>TASK <code>NEEDS_HUMAN_RULING:</code> / <code>MISSING:</code> bullets</td><td>Most-produced concern artifact in the program; run records frozen after the run; <code>_run_records/</code> cited nowhere as a read input</td></tr>
+          <tr><td>5</td><td>Deferred items in decision records and plans catalogues</td><td>Four parked lanes in four unrelated documents; the program's own doctrine excludes <code>plans/</code> from work selection; "planning is closed"</td></tr>
+        </tbody>
+      </table></div>
+      <p>
+        One vacancy is load-bearing for the product: K-STALE-2's declared enforcement
+        point in the ratified contract is a <strong>"Human triage queue" that exists
+        nowhere</strong> — no structure in SPEC or TYPES corresponds to it. K-VAL-1
+        likewise names "future tooling." These are the only invariants in the catalog
+        whose enforcement instrument is unbuilt. A disposition ledger with a named
+        triage owner is that instrument, by the contract's own description.
+      </p>
+    </div>
+  </section>
+
+  <section id="seams">
+    <div class="card">
+      <p class="kicker">04 · Seams (Reviewer C)</p>
+      <h2>Every spoke has a fence exactly where the candidate wanted to build</h2>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Spoke</th><th>Controlling instrument at the seam</th><th>Consequence for Task Management</th></tr></thead>
+        <tbody>
+          <tr><td>Chirality Root</td><td>OBJ-6: an aggregated cross-root coordination layer is "a new product function, not implied"; SPEC §1.2 closed tool-root registry with an every-root-has-a-writer audit rule; D-9 no scope outside accepted decomposition</td><td>The program register is lawful only as its own PRD act; a new <code>_TaskManagement/</code> tool root would require a D-GOV SPEC amendment and a declared writing agent — better not to mint a root at all</td></tr>
+          <tr><td>Chirality App</td><td>F-APP-5 single-surface rule (owner-adopted): "no new standing plan, queue, register, or status surface … without an owner ruling"; plans-as-queue retired; K-FS-1; Work panel = projection over admitted sources</td><td>An App-loop register exists only by App-loop ruling; once adopted, it is an admitted source the panel may project</td></tr>
+          <tr><td>Piping</td><td>F-PIP-5 (same fence); F-PIP-4 (never writes Tier-0); three-part selectability rule; 407 deployed <code>Review_Findings.csv</code>; reliance hold ACTIVE_BY_DESIGN</td><td>Same per-loop adoption; the deliverable-scope action-item shape already exists and must be federated, not duplicated</td></tr>
+          <tr><td>PEC</td><td>PRD §7.1 <code>CandidateBrief</code> ("the work-selection queue"); PEC-ORI-001 parked-lanes orientation; <strong>§16-1 owner-reserved decision on register structure-at-source</strong>; §4.2 permanent non-goal ("not a human project-management tool"); PEC-K-01/-02/-10</td><td>Cleanest seam available: TM = git-tracked authoritative ledger, PEC = gitignored non-authoritative projection over it. Adopting a TM register <em>decides</em> §16-1 — the PRD must say so rather than decide it silently</td></tr>
+          <tr><td>Tier-0 / engines</td><td>Owner-ruled residual-work row convention in <code>_DECISIONS/_REGISTER.md</code></td><td>Tier-0 already has its ruled residue mechanism; TM federates with it, never duplicates it</td></tr>
+          <tr><td>Shared runtime</td><td>D-GOV-20; DEL-02-06 INITIALIZED-not-activated; daemon read API has no task route</td><td>Any runtime-side TM surface is DEL-02-06 work on the longest path in the program — defer explicitly</td></tr>
+          <tr><td>Reusable work surface (absent)</td><td>A-B-012 gap deliberately unfilled; charter's chief failure mode is filling it by construction</td><td>The owner's direction is the saving distinction: a disposition ledger is not a work-discovery surface, and the PRD must state that against A-B-012 by name</td></tr>
+          <tr><td>Resource governance (absent)</td><td>Zero paper</td><td>Coverage claims must state this spoke is uncovered; exclusion by named clause only</td></tr>
+          <tr><td>Human hinge</td><td>K-AUTH-1/-2; human_actors.md; HINGE-3 SHA-binding question; Receipt 89 owner refusal of a standing notice sweep</td><td>Register schema must bind evidence to SHAs, and hooks must be loop-adopted — never an imposed standing sweep</td></tr>
+        </tbody>
+      </table></div>
+      <p>
+        Scored against the wheel's own five criteria (one semantic owner, accepted
+        record, declared consumers, fallback, routed change path), Task Management
+        today scores <strong>zero of five</strong> — as the two absent spokes do. The
+        precedent for opening such a spoke is explicit: by PRD act, at the owner's
+        initiative, never through decomposition or SOW prose. One structural
+        asymmetry needs separate treatment in whatever instrument carries it: the
+        <em>register substrate</em> is squarely lawful under N-1/D-GOV-01 (git-tracked
+        files are the authority substrate), while every <em>scanner output</em> is lawful
+        only as a rebuildable, gitignored, never-cited projection.
+      </p>
+    </div>
+  </section>
+
+  <section id="adversarial">
+    <div class="card">
+      <p class="kicker">05 · The candidate under adversarial review (Reviewer D)</p>
+      <h2>Thirty findings; nine critical breaks; two claims held</h2>
+      <p>
+        The adversarial lens read the PRD candidate against the frozen tree. The
+        critical breaks, compressed — each is answered by a numbered amendment in
+        section 08:
+      </p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>ID</th><th>Break</th><th>Sev.</th></tr></thead>
+        <tbody>
+          <tr><td>F-1</td><td>The tier table assumes standing occupants; every tier is empty. Root loop IDLE; zero WORKING_ITEMS activations in 17 days; project AgentRuns are ephemeral owner sessions. A register triaged by an occupant that only exists mid-session doesn't survive sessions</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-5</td><td>"Elevation is a move, not a copy" is unimplementable under K-WRITE-1 write scopes — a package-scoped instance cannot write the program register; the real mechanism is a row plus a linked row written by each register's own owner</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-8/F-9/F-7</td><td>The exclusion set names a directory that only matches the PRD's own corpus, excludes the tree holding 246 of 517 RETURN files while §12.7 calls run records scan inputs, and misses measured false-positive sources (dispatch briefs, gate5 coverage, generated HTML, thesis, test fixtures)</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-10/F-11</td><td><code>TBD</code> is the mandated lawful token for unknowns (K-INVENT-1), not a concern signal; and the "three tight signatures" yield ~1, ~1, and 0 live hits — the high counts came from one-off derivative artifacts, not a standing signature ecosystem</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-19/F-20</td><td>"One checklist line" actually lands in ~11 agent files, triggers the agent-index change-notice rule against up to nine coordination surfaces and 37 pinned skeletons — and a normative gate line violates K-TM-4 on day one while an advisory one reproduces the 29/30 outcome</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-21</td><td>The proposed artifact already exists and already failed: the notice ledger is a git-tracked CSV+MD open-concern register, 29/30 open, never advanced, already stale. Four stacked no-duty clauses with one self-cancelling counterweight cannot break the one-directional-assertion loop</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-27</td><td><code>_TaskManagement/</code> as a tool root requires amending ratified SPEC §1.2 (a D-GOV act the adoption protocol omits), has no writing agent to declare (AUDIT_GOVERNANCE reports it by construction), and tool-root snapshot semantics contradict a mutable register</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-28</td><td>There is no <code>RETURN.md</code> contract to amend — returns are free text by typed runtime contract, runtime-owned under D-GOV-20/D-GOV-28, gated behind unactivated DEL-02-06, and mis-routed to HELPS_HUMANS</td><td><span class="tag bad">CRIT</span></td></tr>
+          <tr><td>F-13/F-14/F-16/F-17</td><td>Schema: no notice reference (measurement #1 uncomputable), no SHA binding (reproduces the 07-28 review's HINGE-3 defect), <code>RegisterSchemaVersion</code> promised but absent, and dual-authoritative CSV+MD with no precedence rule or consistency check</td><td><span class="tag warn">HIGH</span></td></tr>
+          <tr><td>F-22/F-23/F-24</td><td>Coverage: HOLD registers, 33 <code>FINDINGS.csv</code>, and review reports (including the 07-28 review's own ranked actions and held-open questions — tracked nowhere) are neither scanned, excluded, nor dispositioned by name</td><td><span class="tag warn">HIGH</span></td></tr>
+          <tr><td>F-25</td><td><code>AI-</code> identifier prefix collides with <code>AI-Reliance</code>, a governed KnowledgeType ID with 1,093 occurrences</td><td><span class="tag warn">HIGH</span></td></tr>
+          <tr><td>F-3/F-4/F-6</td><td>PEC's loop and execution tree live in different places; nine coordination levels exist against four tiers; program-tier triage with no session running is the human-memory dependency the thesis names</td><td><span class="tag warn">HIGH</span></td></tr>
+          <tr><td>F-12/F-26</td><td>Held: the FAILED_INPUTS value-position rule is correct and kills 2,492 boilerplate files; <code>taskmgmt</code>/<code>_TaskManagement</code> are collision-free; the AF-1 R15 correction was verified sound; source hashes re-verified</td><td><span class="tag good">HOLDS</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="fanin">
+    <div class="card">
+      <p class="kicker">06 · Fan-in without averaging</p>
+      <h2>Where the lenses agreed, added, and could not see</h2>
+      <h3>AGREED (independently converged)</h3>
+      <ul class="tight">
+        <li>The gap is real and specific: no mutable, obligated-to-be-read disposition surface exists for concerns that outlive a session; the invariant catalog itself names an unbuilt "human triage queue" (K-STALE-2).</li>
+        <li>Registers filed beside the flow fail (29/30, 0/12, 0/9); items adopted into loop instruments close (269/275). Any viable design binds the ledger into loop entry by loop ruling.</li>
+        <li>The tier model must collapse to loops. Loops are the real operating units with real cadence instruments; packages and tiers have no standing occupants.</li>
+        <li>Tree-wide free-text scanning is unviable; structured, closure-capable surfaces are the only day-one candidate sources, and the backlog they carry (~115 items) is tractable.</li>
+        <li>No new tool root, no agent-file fan-out, no runtime-contract change is needed for a first release — and each of those paths is fenced by an instrument the candidate had not priced.</li>
+      </ul>
+      <h3>ADD — one lens strengthened another</h3>
+      <ul class="tight">
+        <li>From B to the thesis: the observed re-litigation case (DEL-01-01 C001→C003) happened <em>with the earlier record found and cited</em> — record insufficiency, not record loss. Closure quality, not just closure existence, is in scope.</li>
+        <li>From B to the design: the owner refused a standing notice-sweep amendment (Receipt 89, "I explicitly do not want this") — hooks must be adopted per loop, and per-run steering remains the lawful mechanism for the uncommon case.</li>
+        <li>From C to the design: PEC PRD §16-1 reserves register structuring at source to the owner; a TM register decides it by construction, so the PRD must present that decision to the owner explicitly.</li>
+        <li>From the dry-run to D: the derivative-snapshot double-count (notice ledger copied verbatim into an <code>_Evaluation/</code> terminal package) requires a canonical-vs-copy dedup rule no lens had named.</li>
+      </ul>
+      <h3>STANDING_DIVERGENCE</h3>
+      <p>
+        None material. Reviewer A's framing ("the two layers are not connected by
+        any instruction") and Reviewer B's framing ("two classes of artifact carry
+        no obligation to be revisited") describe the same defect at different
+        altitudes. D's F-2 (loops are re-derivation-first, so a register is a
+        derivative claim agents are told to distrust) is answered by making the
+        register authoritative for exactly one thing — Action Item existence and
+        disposition — and derivative for everything it cites.
+      </p>
+      <h3>SHARED_BLIND_SPOT_RISK</h3>
+      <ul class="tight">
+        <li>No lens assessed whether the <em>owner's actual working practice</em> would sustain register triage cadence — the decisive variable, unmeasurable from paper.</li>
+        <li>All lenses read the same frozen basis; drift since (e.g. D-GOV-31 notices) was sampled, not swept.</li>
+        <li>The three-source professional corpus was treated as fixed input; no lens challenged whether the nine-domain framing itself fits a one-person program.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="changes">
+    <div class="card">
+      <p class="kicker">07 · What changes in the proposal</p>
+      <h2>The amendment list applied to the PRD candidate (Revision 2)</h2>
+      <ol class="tight">
+        <li><strong>Registers move to the loops.</strong> One register per development loop, living beside that loop's existing coordination surfaces (<code>_Coordination/_TaskManagement/</code>), owned by the loop's owner-plus-instruments; the root loop's register is the program register. No package or deliverable registers — deliverable association is a row field. No new SPEC §1.2 tool root is minted. <em>(answers F-1, F-3, F-4, F-27; OBJ-6; C's placement scoring)</em></li>
+        <li><strong>Adoption is per loop, by that loop's own ruling</strong> — exactly as the single-surface fences require and the notice doctrine already models: the TM PRD charters the standard and the program register; each other loop adopts, amends, or declines by its own decision record. <em>(F-APP-5/F-PIP-5; Receipt 89)</em></li>
+        <li><strong>The counterweight to 29/30 is loop-entry binding, not a checklist line in agent files.</strong> A loop that adopts a register amends its own <code>LOOP_INIT</code>/workplan (one loop-owned file, one ruling) so session entry reads open rows and session close records dispositions — the same mechanism that gives receipts their closure discipline. K-TM-4 is re-scoped: no act <em>outside a loop's own adopted instruments</em> may require a TM read or write. The root loop's existing parked-lanes entry step becomes the first binding. <em>(F-19, F-20, F-21)</em></li>
+        <li><strong>Elevation is re-specified as linked rows, not a move:</strong> the lower register's owner marks the row ELEVATED and routes the ordinary parent-ward notice; the higher register's owner opens a linked row citing it. Cross-register writes by one actor are prohibited, matching K-WRITE-1. <em>(F-5)</em></li>
+        <li><strong>The scanner is re-scoped to structured, closure-capable surfaces only:</strong> decision-register non-ruled rows, notice files vs. ledger state, <code>FINDINGS.csv</code>, <code>Review_Findings.csv</code> open rows, HOLD registers, handoff blockers, packet open-question/amendment-candidate rows, TBD registers, slate items, receipt parked-lanes. Free-text token scanning survives only as an explicit per-document mode. <code>TBD</code> is a signal only in disposition-bearing columns. The exclusion set is rebuilt from measured sources and gains a canonical-vs-derivative-copy dedup rule. <em>(F-7..F-11; dry-run RF-A/RF-B)</em></li>
+        <li><strong>Layer 2 is re-grounded:</strong> the return-contract amendment is withdrawn (no such contract exists; returns are runtime-owned and gated behind DEL-02-06). The governed capture path for out-of-brief observations is the loop receipt's <code>Parked lanes:</code> field — already contractual in receipt validators — plus an optional inline marker grammar. <em>(F-28; A's M14)</em></li>
+        <li><strong>Identifier scheme changes:</strong> marker becomes <code>TM-CANDIDATE:</code>; row IDs become <code>TM-&lt;LOOP&gt;-&lt;seq&gt;</code>, program-unique by loop namespace. <em>(F-25; OI-013 collision)</em></li>
+        <li><strong>Schema is repaired:</strong> <code>RegisterSchemaVersion</code> as column 1 per the v3.1 precedent; typed <code>NoticeRef</code> and <code>ScaRef</code>; <code>EvidenceSha</code> binding closure evidence to bytes per K-AUTH-2/HINGE-3; <code>EvidenceQuote</code>; single authoritative CSV with the MD file explicitly a non-authoritative summary in the <code>_DEPENDENCIES.md</code>-over-CSV pattern; a closure-capable-schema invariant (every register must be able to record its own closure). <em>(F-13, F-14, F-16, F-17, F-18; B's TP-EXPORT-006)</em></li>
+        <li><strong>Coverage duties extend by name</strong> to HOLD registers, evaluation findings, review reports and their ranked recommendations (the 07-28 review's §09 actions and §08 held-open questions become seed rows of the program register), and the K-STALE-2 triage-queue vacancy is claimed explicitly as the instrument being built. <em>(F-22, F-23, F-24; A's M10)</em></li>
+        <li><strong>New product duty — closure echo:</strong> views must show, as labeled display, when an item's source record still reads open after disposition (the "originating register never learns" pattern), without ever writing to the source. <em>(B)</em></li>
+        <li><strong>Boundary statements added:</strong> against A-B-012 (a disposition ledger is not a work-discovery surface — with the owner's direction quoted as the controlling distinction); against PEC §16-1 (adopting the register decides structure-at-source, presented as an explicit owner decision); against K-STALE-1 (transitive staleness stays with the fenced dependency surfaces; only K-STALE-2 semantics transfer). <em>(C; F-15)</em></li>
+        <li><strong>Stage A shrinks to one loop and zero agent-file changes:</strong> the register standard, the root-loop program register seeded with the measured backlog (~115 items), <code>taskmgmt scan/validate</code> over structured surfaces, and the root <code>LOOP_INIT</code> amendment — all by owner ruling in the root loop's own instruments. Other loops, the App projection, and any runtime route come later, each by its own gate. <em>(F-6; §17 rebuild)</em></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="sequence">
+    <div class="card">
+      <p class="kicker">08 · Risk and recommended sequence</p>
+      <h2>Where this design is most likely to fail on contact, and the smallest governed actions</h2>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Rank</th><th>Risk</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Triage cadence is still human.</strong> The design binds reading to loop entry, but nothing starts a loop session. If the owner does not open loops, rows age — the register makes that visible and measurable; it cannot make it false. This is the residual, honestly stated.</td></tr>
+          <tr><td>2</td><td><strong>Seed-backlog triage is itself a session of work.</strong> ~115 items, many stale, some already resolved downstream. If the first triage session is deferred, the register opens at 0% closure — indistinguishable from the notice ledger it replaces.</td></tr>
+          <tr><td>3</td><td><strong>Per-loop adoption may stall at one loop</strong>, exactly as the notice channel did. The design tolerates this (each loop's residue simply stays in its receipts), but cross-loop items then live only in the program register.</td></tr>
+          <tr><td>4</td><td><strong>Discipline drift in receipts.</strong> The <code>Parked lanes:</code> capture path works where practiced (pec: 68 mentions) and is nearly unused elsewhere (app-dev: 1). The register does not fix uneven receipt discipline; it only harvests what receipts record.</td></tr>
+          <tr><td>5</td><td><strong>The App projection and PEC seam invite scope creep</strong> back toward the coordination plane. The §16-1 presentation and the admitted-source framing must stay decisions of record, not drift.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Smallest governed actions, in order</h3>
+      <ol class="tight">
+        <li>Owner reviews PRD Revision 2 and, if satisfied, adopts by explicit act: the standard, the K-TM rows, the root-loop register home under <code>execution/_Coordination/</code>, and the root <code>LOOP_INIT</code> amendment — one loop, one ruling.</li>
+        <li>Seed the program register from the measured backlog and run the first triage session; dispositions land as ordinary owner rulings.</li>
+        <li>Route the standard as coordination notices to the other loops; each adopts, amends, or declines by its own decision record on its own cadence.</li>
+        <li>Only after two loops run registers through real sessions: consider <code>SOFTWARE_DECOMP</code> for the service tooling, the App admitted-source projection via App scope change, and any PEC reconciliation — each by its own gate.</li>
+      </ol>
+      <p>
+        How findings become governed work — unchanged: observation → evidence-linked
+        finding → challenge → fan-in → human disposition → owning instrument or
+        workflow → accepted change → affected-scope rerun. Nothing in this report
+        enters product scope without that route.
+      </p>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <strong>Method.</strong> Four sealed, independent Agent 2 reviewer lenses (concern
+    genesis over the instruction layer; concern fate over live execution state;
+    boundary seams over program instruments; adversarial review of the PRD
+    candidate) worked the same frozen basis at main@<code>a7371ed94</code>, orienting from
+    governed records. The first three lenses were sealed from the PRD candidate;
+    the fourth was sealed from the other three. An independent deterministic scan
+    (84,165 files) reproduced the quantitative claims. Fan-in classified rather
+    than averaged. Owner directions quoted in §01 were given in the 2026-07-31
+    working session and are direction of record for the PRD revision, not rulings
+    adopting it.
+    <br><br>
+    This report is a derivative, non-governing record. It does not amend any PRD,
+    create or alter a decomposition, mint any register or root, release or impose
+    any hold, or substitute for a governed decision record. Repository sources and
+    accepted instruments control wherever they differ from this interpretation.
+    Retention posture: keep in <code>plans/</code> while it informs the owner's
+    disposition of the Task Management PRD candidate; archive thereafter without
+    promoting it into product authority.
+  </div>
+
+</div>
+</body>
+</html>

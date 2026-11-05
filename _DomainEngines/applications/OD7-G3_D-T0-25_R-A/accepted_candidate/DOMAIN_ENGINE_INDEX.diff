@@ -1,0 +1,18 @@
+--- a/_DomainEngines/DOMAIN_ENGINE_INDEX.md
++++ b/_DomainEngines/DOMAIN_ENGINE_INDEX.md
+@@ -54,8 +54,10 @@
+
+ ## Shared runtime convergence
+
+-D-T0-23 registers app-dev and PEC as distinct clients of one root runtime.
+-Execution infrastructure is shared; project/domain authority is not. PEC
+-retains its profile, deterministic acts, RBAC, human-only acts, visibility and
+-data boundaries, and checkout-contained evidence. Migration proof remains
+-scratch/demo-only.
++D-T0-23 remains immutable historical authority for shared-runtime convergence.
++D-PEC-58 later retired the old PEC product and did not carry its deterministic-
++acts/RBAC/reporting/data-boundary adapter allocation into PEC v2. The current
++boundary preserves Root ownership of generic runtime semantics, distinct
++project/domain authority, checkout-contained evidence, no production dual
++execution loop, human-only-act restrictions, and fail-closed runtime-client
++behavior without making file-native governed work depend on PEC.

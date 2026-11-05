@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="7590425b1f9d8097b831c18959e3e6f6be7b0327611431f2d7d6bdb6316fabe4">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 04: Interpreting Requirements and Obligations · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 11 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-establish-why-the-statement-governs">Lesson 1: Establish why the statement governs</a></li>
+<li><a href="#lesson-2-read-the-requirement-in-its-context">Lesson 2: Read the requirement in its context</a></li>
+<li><a href="#lesson-3-connect-applicability-to-the-actual-assignment">Lesson 3: Connect applicability to the actual assignment</a></li>
+<li><a href="#lesson-4-resolve-ambiguity-without-inventing-authority">Lesson 4: Resolve ambiguity without inventing authority</a></li>
+<li><a href="#northbank-worked-example-flow-and-changeover">Northbank worked example: Flow and changeover</a></li>
+<li><a href="#transfer-example-a-software-availability-specification">Transfer example: A software availability specification</a></li>
+<li><a href="#practice-interpret-and-enquire">Practice: Interpret and enquire</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-establish-the-interpreted-basis">Assessed assignment: Establish the interpreted basis</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-establish-why-the-statement-governs">Lesson 1: Establish why the statement governs</a></li>
+<li><a href="#lesson-2-read-the-requirement-in-its-context">Lesson 2: Read the requirement in its context</a></li>
+<li><a href="#lesson-3-connect-applicability-to-the-actual-assignment">Lesson 3: Connect applicability to the actual assignment</a></li>
+<li><a href="#lesson-4-resolve-ambiguity-without-inventing-authority">Lesson 4: Resolve ambiguity without inventing authority</a></li>
+<li><a href="#northbank-worked-example-flow-and-changeover">Northbank worked example: Flow and changeover</a></li>
+<li><a href="#transfer-example-a-software-availability-specification">Transfer example: A software availability specification</a></li>
+<li><a href="#practice-interpret-and-enquire">Practice: Interpret and enquire</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-establish-the-interpreted-basis">Assessed assignment: Establish the interpreted basis</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="04-requirements-interpretation.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-04-interpreting-requirements-and-obligations">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-04-interpreting-requirements-and-obligations">Course 04: Interpreting Requirements and Obligations</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>Interpret a retrieved statement to understand whether and how it governs work. You must establish its authority, applicability, meaning, and conditions, and you must also recognize where the available sources cannot support a conclusion.</p>
+<p>This course teaches a method for interpreting project requirements and organizing an external-requirements enquiry, in a team where people work with AI agents. The offline exercise uses Northbank Packet A, but it does not assign Northbank a real jurisdiction or code edition.</p>
+<h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
+<p>Complete Courses 01 to 03. Read A01, A02, A05, and A06 closely. Keep your evidence packet available.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. Agents can find, compare, and summarize requirement text quickly, and they can draft readings of it. But people still establish applicability and the interpretation that is relied on, and decide with authority, because these depend on the actual instrument, the verified facts of the assignment, and an appointment. Agents can also produce convincing statutes, clauses, rulings, and exemptions that do not exist, so A06's rule against inventing them matters more.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. A06's instruction not to invent a statute, code clause, regulator ruling, or exemption applies to every agent you brief.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>By the end, you can:</p>
+<ul>
+<li>Identify the authority and purpose of a requirement source.</li>
+<li>Explain how applicability differs from technical relevance.</li>
+<li>Read definitions, conditions, exceptions, and cross-references in context.</li>
+<li>Distinguish a requirement, proposal, assumption, and interpretation.</li>
+<li>Prepare an interpretation memorandum with unresolved matters and affected decisions.</li>
+<li>Brief an agent for interpretation work so that it leaves ambiguity and missing authority visible, and examine its return.</li>
+</ul>
+<h2 id="lesson-1-establish-why-the-statement-governs">Lesson 1: Establish why the statement governs</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>Sources enter a project through different relationships. Legislation can impose obligations within its jurisdiction and scope, contracts can establish obligations between identified parties, and approved project decisions can define the assignment. A technical reference can inform analysis without itself governing the assignment.</p>
+<p>Establish the relationship for the actual source; do not infer it from a familiar title or an organization's reputation. A standard can be technically useful without being adopted into the governing requirements. Its role may also come from a contract or another applicable instrument.</p>
+<p>An applicable obligation can govern before the team recognizes it. Interpretation identifies that obligation, but it does not create project authority to waive it.</p>
+<p>The National Research Council explains that Canadian model construction codes acquire legal authority through government adoption; adoption can include amendments. This example shows why a publication's existence does not establish its applicability, but it does not identify the requirements for Northbank. <a href="https://nrc.canada.ca/en/certifications-evaluations-standards/codes-canada/canadas-construction-system-context-model-codes">NRC model-code context</a></p>
+<p>The governing edition needs evidence, because a recently published edition may differ from the edition adopted or specified for the assignment. Check the effective dates, relevant amendments, transition provisions, and actual work conditions, and get suitable expertise where the interpretation requires it.</p>
+<p>Do not build a universal order of precedence from source categories. Several obligations can apply together, and their relationship depends on the actual instruments and circumstances. A contract may specify a conflict process, but that process does not erase applicable external duties.</p>
+<p>Apply this authority enquiry:</p>
+<ol>
+<li>Identify the exact statement and source edition.</li>
+<li>Identify the instrument or decision that gives it standing.</li>
+<li>Identify the people, asset, activity, and location it covers.</li>
+<li>Check its effective period and amendments.</li>
+<li>State its role for this assignment.</li>
+<li>Record any missing basis for that role.</li>
+</ol>
+<p>At Northbank, A02 Rev 1 has a recorded project-development approval. A06 leaves external legal applicability open. These are separate findings.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that obtaining the actual instrument takes effort, so people are tempted to rely on a familiar title or a remembered edition. Its warnings are aimed at that familiarity. It also assumes that a person who names an instrument has seen it.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>An agent can name instruments, editions, and clauses fluently, and it can describe how codes are adopted. That fluency has the same weakness as familiarity, at greater scale. An agent may present an edition as current when its knowledge predates a later one, cite a clause number that does not exist, or describe an adoption that never happened, in the same confident form as an accurate statement.</p>
+<p>Standing cannot come from the agent. Step 2 asks for the instrument or decision that gives a statement its standing; an agent's statement that a code applies is not such an instrument, however well formed.</p>
+<p>Agents can still help with the enquiry. Given the actual instruments, an agent can locate the relevant provisions, compare editions, and find effective dates and amendments quickly.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Use agents to find candidate sources and to work through instruments that someone has obtained from their official source. Treat any instrument, edition, or clause an agent names without a supplied source as a candidate for investigation, labelled as such, until a person obtains the official text.</p>
+<p>For the Northbank offline exercise, give the agent A06's rule in its brief, and state that it must not name any instrument as applicable to Northbank. Keep Steps 2 and 5, standing and role, as your own findings.</p>
+<h2 id="lesson-2-read-the-requirement-in-its-context">Lesson 2: Read the requirement in its context</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>A clause can change meaning when separated from its definitions and conditions, so read enough of the source to keep those relationships. Follow relevant cross-references rather than assuming that the local sentence is complete.</p>
+<p>Find the actor, the required act or result, the object, the conditions, and the limits. Identify any exception and the evidence needed to invoke it. Check whether the source defines ordinary words differently, and keep those definitions in the interpretation.</p>
+<p>A statement can contain both a requirement and an unresolved definition. A02 requires 18 litres per second at the distribution header, and it also requires the project to establish the operating conditions. The number alone does not define a complete performance examination.</p>
+<p>Read qualifying language carefully. “Under the operating conditions that the project must establish” makes those conditions necessary for applying the requirement. Removing that phrase would make a single measurement appear to provide more evidence.</p>
+<p>Do not treat permission as an obligation, or a recommendation as an adopted commitment, without the relevant basis. Use the source's actual conventions, because the force of a word depends on the instrument and its definitions.</p>
+<p>Use a contextual reading method:</p>
+<ol>
+<li>Read the surrounding section.</li>
+<li>Identify the relevant definitions.</li>
+<li>Find the required actor and result.</li>
+<li>Identify the stated conditions and limits.</li>
+<li>Follow the relevant cross-references.</li>
+<li>Restate the requirement without losing its conditions.</li>
+</ol>
+<p>Keep the original passage available beside the restatement, and ask another participant to compare them. A useful interpretation makes the source actionable while preserving its meaning.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that reading the surrounding section and following cross-references is laborious, so the common failure is a shortcut: a restatement made from the local sentence alone.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>Agents remove much of that labour. An agent can read a whole instrument, follow its cross-references, and collect the definitions quickly, which can make Steps 1, 2, and 5 cheap.</p>
+<p>Step 6 is where an agent can fail. A restatement compresses the source, and compression is where conditions drop out. An agent's restatement of A02 can read “provide 18 litres per second at the distribution header” and lose “under the operating conditions that the project must establish.” An agent can also read words such as “shall,” “should,” and “may” by general convention, not by the instrument's own definitions.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Have the agent prepare the reading as a table: actor, required act or result, object, conditions, limits, exceptions, definitions, and cross-references, with the original passage beside each element. Then compare each row with the source yourself. The classical step of keeping the original passage beside the restatement becomes the main check.</p>
+<p>Ask the agent to report where the instrument defines a word it relied on, and where it did not find a definition.</p>
+<h2 id="lesson-3-connect-applicability-to-the-actual-assignment">Lesson 3: Connect applicability to the actual assignment</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>Applicability is the relationship that makes a requirement govern the work under stated conditions. Technical similarity alone cannot establish it: two systems may use similar components and still fall under different requirements.</p>
+<p>Identify the actual asset and work boundary. Determine what already exists, what changes, and which activities the assignment includes. Record relevant operating conditions and facility characteristics; these facts help the competent participants evaluate applicability.</p>
+<p>The Northbank description states that the water is non-potable, but that fact cannot establish a complete legal classification. The case gives no real jurisdiction, permit basis, adoption instrument, or contract references, and A06 requires the team to identify those gaps.</p>
+<p>For each candidate requirement, record the source, applicability conditions, matching project evidence, conclusion, and unresolved questions. A conclusion can be “unresolved” when a necessary fact or instrument is missing; explain the decisions that it prevents.</p>
+<p>Assign an owner who can get the input or arrange competent interpretation. State the point of need. An open enquiry becomes manageable when people know what result is required before dependent work proceeds.</p>
+<p>Apply this applicability method:</p>
+<ol>
+<li>Define the asset and work boundary.</li>
+<li>Identify the jurisdiction and relevant authorities.</li>
+<li>Identify the facility and activity classifications.</li>
+<li>Obtain the governing instruments and contract references.</li>
+<li>Compare their conditions with verified project facts.</li>
+<li>State the conclusion and unresolved matters.</li>
+<li>Identify the decisions that depend on resolution.</li>
+</ol>
+<p>The method guides an enquiry, but it does not make you a legal authority. Seek authoritative clarification or legal expertise where the actual question requires it.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that the slow part of an applicability enquiry is gathering the facts and instruments, and that a person comparing conditions with facts knows which facts are verified.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>Once the instruments and verified facts are supplied, an agent can compare their conditions quickly in Step 5, and it can keep the candidate-requirement table current as inputs arrive.</p>
+<p>Agents cannot establish the facts that applicability depends on. They cannot identify Northbank's jurisdiction, classify the facility, or fix the asset boundary; those come from the actual assignment and competent participants. An agent can, however, infer them from cues. Told that the water is non-potable, an agent may proceed as if that settled a classification, which is the error this lesson warns against. The method does not make an agent a legal authority any more than it makes you one.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Use agents to maintain the candidate-requirement table, flag missing inputs, and draft enquiries to the owners who can supply them. Give each agent only verified project facts, marked as such, and ask it to report any fact it needed but was not given.</p>
+<p>An agent's conclusion that a requirement “likely applies” is a candidate for investigation, not a conclusion. Each row stays “unresolved” until a person with the instrument and the verified facts resolves it.</p>
+<h2 id="lesson-4-resolve-ambiguity-without-inventing-authority">Lesson 4: Resolve ambiguity without inventing authority</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>An interpretation explains how a source applies or what it means. A decision authorizes an act within a stated authority. A change amends a controlled basis through its governing process. These acts can be related, but their effects differ.</p>
+<p>A project engineer may explain that A05 is a proposal, but the explanation does not reject the proposal or amend A02. The impact assessment that the sponsor requested gives the team further work to do.</p>
+<p>When sources seem inconsistent, keep their identities and ask what relationship explains the difference. An earlier draft, a proposed change, and an approved basis may contain different values without creating an unresolved authority conflict.</p>
+<p>Where a genuine conflict remains, identify both statements and the consequence, and use the actual clarification or dispute process. Do not choose the most convenient statement or automatically choose the one that seems more demanding; its technical effects may also need examination.</p>
+<p>An interpretation memorandum should state the question, sources, context, reasoning, conclusion, limits, and next action. Make uncertainty specific. “More information is needed” gives little direction, so identify the missing input and the decision it blocks.</p>
+<p>Use this memorandum method:</p>
+<ol>
+<li>State the question and proposed reliance.</li>
+<li>Cite the exact source revisions.</li>
+<li>Explain the relevant context and applicability.</li>
+<li>Compare the possible readings.</li>
+<li>State the supported interpretation.</li>
+<li>Identify the clarification or decision still required.</li>
+<li>Name affected work and receiving participants.</li>
+</ol>
+<p>An interpretation can reveal an existing obligation that is missing from the project basis. Record that obligation and assess the affected work. The obligation does not wait for the sponsor to adopt it.</p>
+<p>Any resulting scope, resource, or commitment change still needs its proper authority. Connect that decision to change control and keep the earlier reasoning. Notify affected owners and examine adoption in their work.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that inventing authority is a human failure under pressure: someone chooses the convenient reading, or claims a ruling to close an argument. Its safeguards are aimed at that temptation, and at the person who knows they lack a source.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>Agents can invent authority without any temptation. Asked to resolve an ambiguity, an agent can resolve it instead of reporting it unresolved. It may supply a plausible clause, ruling, or exemption; assert a general precedence rule such as “the more stringent requirement governs”; or treat A05 as amending A02 because A05 is the more recent request. Each of these can read as a reasoned interpretation.</p>
+<p>An agent's interpretation is a draft reading, not the interpretation the project relies on, and not a decision. It cannot reject A05, amend A02, or settle a genuine conflict, and its reading carries no standing of its own until a person examines it and adopts it as their interpretation.</p>
+<p>The classical memorandum still works, and agents can draft most of it. Step 4, comparing the possible readings, is where an agent helps most, if it is asked to list readings instead of choosing one.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Brief agents so that “unresolved” is an acceptable answer. Ask for the possible readings and the source support for each, not a single conclusion. State that the agent must not name a statute, clause, ruling, exemption, or precedence rule that is not in the supplied sources. Tie every authority claim in the return to a supplied source and revision.</p>
+<p>Then make Step 5, the supported interpretation, and Step 6, the clarification or decision still required, your own.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent works from supplied sources only</td>
+<td>No invented or superseded instrument enters the basis</td>
+<td>It may miss a candidate obligation that already governs the work</td>
+</tr>
+<tr>
+<td>Agent may draw on wider knowledge of codes</td>
+<td>It can suggest candidate obligations quickly</td>
+<td>Every instrument it names must be obtained and checked, or an invented one may enter the basis</td>
+</tr>
+<tr>
+<td>Agent lists readings; person decides</td>
+<td>The ambiguity and its consequences stay visible</td>
+<td>The person must do the comparison the agent declined to settle</td>
+</tr>
+<tr>
+<td>Agent proposes one interpretation</td>
+<td>A short return</td>
+<td>A plausible reading can pass as the only one</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The second row matters because an applicable obligation can govern before the team recognizes it. Restricting agents to supplied sources protects the basis, but it does not find what nobody supplied. Where the consequence warrants it, let an agent suggest candidates, label them as candidates, and have a competent person obtain and examine each one.</p>
+<h2 id="northbank-worked-example-flow-and-changeover">Northbank worked example: Flow and changeover</h2>
+<p>The evidence packet identified the governing source and the separate proposal. This example examines what their wording requires the team to do and what remains to be defined.</p>
+<p>The question is: “What must the equipment-development work provide under Packet A?” The consumer is the project engineer preparing the technical assignment.</p>
+<p>A02 Rev 1 requires 18 litres per second at the distribution header under conditions the project must establish. It requires two pump units, with one operating and one standby, and it requires confirmation of the changeover function with operations.</p>
+<p>A05 Rev 0 proposes 22 litres per second and automatic changeover, but it records no scope amendment. The sponsor requests an impact assessment.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Statement</th>
+<th>Interpretation</th>
+<th>Needed continuation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A02 flow requirement</td>
+<td>Use 18 litres per second for approved project development.</td>
+<td>Establish the operating conditions and examination basis.</td>
+</tr>
+<tr>
+<td>A02 two-unit arrangement</td>
+<td>Provide one operating unit and one standby unit.</td>
+<td>Define the related technical and operating interfaces.</td>
+</tr>
+<tr>
+<td>A02 changeover statement</td>
+<td>Obtain the required changeover definition from operations.</td>
+<td>Assess the definition and obtain any necessary scope decision.</td>
+</tr>
+<tr>
+<td>A05 proposal</td>
+<td>Investigate the requested increase and automatic function.</td>
+<td>Present consequences for the sponsor's decision.</td>
+</tr>
+<tr>
+<td>A06 open inquiry</td>
+<td>No actual legal applicability conclusion is available.</td>
+<td>Obtain the missing jurisdiction, classification, boundaries, and instruments.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The memorandum avoids calling automatic changeover an approved requirement, and it also avoids treating standby provision as a complete changeover design. The assignment can gather inputs and examine the proposal, but final dependent conclusions still need the stated basis.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>This account is a teaching assumption, not a Northbank record: the records do not say how any of the work was produced.</p>
+<p>The project engineer briefs an agent with A02 Rev 1 as approved for project development, A05 Rev 0 as a proposal with no recorded amendment, and A06 Rev 0 as an open inquiry with its rule against invention quoted. The brief asks for a reading table with the original passage beside each element, the possible readings of the changeover statement, and every matter the records leave unresolved.</p>
+<p>The agent returns a table. The project engineer compares each row with A02 and checks that “under the operating conditions that the project must establish” survives, that the duty to confirm the changeover function with operations has not become automatic changeover, that A05 appears as a proposal, and that the A06 row names no code or instrument.</p>
+<p>The interpretations are the same as in the classical account. The supported interpretation and the decision about what to ask operations remain the project engineer's own.</p>
+<h2 id="transfer-example-a-software-availability-specification">Transfer example: A software availability specification</h2>
+<p>Use this invented contract exercise: Specification S1 says, “Provide a monthly availability report using the measurement method agreed with the customer.” Request S2 says, “Please add automatic compensation calculations.” No amendment is recorded.</p>
+<p>S1 requires the report but leaves the measurement method for agreement, and S2 proposes additional work. The analyst must get the method and assess the proposed calculation scope, but cannot infer a compensation obligation from S2 alone.</p>
+<p>These are fictional assignment statements, not legislation, code clauses, or legal opinions.</p>
+<p>An agent asked to draft the S1 report could choose a common measurement method and present it as the method, or treat S2 as part of the scope. The analyst's brief states that the method is still to be agreed and that S2 is a request.</p>
+<h2 id="practice-interpret-and-enquire">Practice: Interpret and enquire</h2>
+<p>Use Packet A and Portfolio 03. No external reading is required.</p>
+<p>First prepare the A06 enquiry (output 3) yourself, without an agent: for each missing input, why it matters and which decision it prevents. The worked example gives only one row for A06, so this enquiry is your own baseline for judging what an agent's draft should contain. Work with an agent for the other outputs.</p>
+<p>Supply these outputs:</p>
+<ol>
+<li>An interpretation memorandum for the flow, two-unit, and changeover statements.</li>
+<li>A list distinguishing approved requirements, proposals, observations, and unresolved matters.</li>
+<li>An A06 enquiry covering jurisdiction, facility classification, asset boundary, permits, adoption instruments, and contract references.</li>
+<li>An affected-decision list for each missing applicability input.</li>
+<li>A request to the appropriate appointed participant for the next action.</li>
+</ol>
+<p>State which facts the case supplies and which it leaves open. Do not invent a statute, code clause, adoption edition, exemption, or regulator ruling. Ask a partner to identify any sentence that claims more authority than its source provides.</p>
+<p>For each agent-assisted output, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<p>Then complete three further exercises:</p>
+<ol>
+<li><strong>Guard against invention.</strong> Write the brief sentences that keep an agent within A06's rule. Brief an agent to draft the A06 enquiry, and record any statute, clause, edition, ruling, exemption, or precedence rule in its return and how you treated it, or record that there was none.</li>
+<li><strong>Compare the restatement.</strong> Compare an agent's restatement of A02 with your own reading, condition by condition. Record each condition it kept and each it dropped.</li>
+<li><strong>Leave the ambiguity visible.</strong> Give an agent A02's changeover statement and A05, and ask what changeover the project must provide. Examine whether its answer settles anything that needs an authority it does not have, and explain how you would brief it so the open matter stays open.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>How does technical relevance differ from applicability?</li>
+<li>Why does a published code edition not automatically govern an assignment?</li>
+<li>Which conditions must remain attached to A02's flow requirement?</li>
+<li>What is the relationship between A02's changeover statement and A05's automatic-changeover request?</li>
+<li>What inputs does A06 require before a real applicability conclusion?</li>
+<li>How do an interpretation, an authorized decision, and a controlled change differ?</li>
+<li>Agents can find, compare, and summarize requirement text quickly, and draft readings of it. Which parts of interpretation stay with people, and why?</li>
+<li>Why does A06's rule against inventing a statute, clause, ruling, or exemption matter more when agents draft the enquiry?</li>
+<li>An agent's memorandum states that “the more stringent requirement governs.” Why can you not rely on that as a basis?</li>
+<li>How do you brief an agent so that it leaves a genuine ambiguity unresolved instead of resolving it?</li>
+<li>Restricting agents to supplied sources protects the basis. What risk does it leave, and how do you treat it?</li>
+</ol>
+<h2 id="assessed-assignment-establish-the-interpreted-basis">Assessed assignment: Establish the interpreted basis</h2>
+<p>Prepare a memorandum for Northbank project development, working with agents, and include the practice outputs and a requirement table. State a proposed examination for each approved project requirement at the available level of definition. Add the briefs you used and your examination record.</p>
+<p>Then defend one interpretation to your instructor: show the passage, explain an alternative reading, and reason through changed premises such as a supplied jurisdiction and adoption instrument, a recorded amendment to A05, or an agent-cited exemption. Your instructor rates the defense as the <a href="../instructor-guide.html#assess-agent-assisted-work">teaching guide</a> describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>An instructor assesses eight observable criteria:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Evidence required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source standing</td>
+<td>The memorandum identifies the approval basis and preserves A06's unresolved external applicability. No instrument, clause, ruling, or exemption appears without a supplied source, whoever drafted the passage.</td>
+</tr>
+<tr>
+<td>Contextual meaning</td>
+<td>Restatements retain the source's actors, conditions, limits, and unresolved definitions.</td>
+</tr>
+<tr>
+<td>Status distinctions</td>
+<td>Requirements, proposals, observations, assumptions, and interpretations receive their appropriate roles.</td>
+</tr>
+<tr>
+<td>Enquiry quality</td>
+<td>Missing applicability inputs have owners, affected decisions, and a defined next result.</td>
+</tr>
+<tr>
+<td>Useful examination</td>
+<td>Proposed checks match the requirements and identify conditions that must first be established.</td>
+</tr>
+<tr>
+<td>Direction of agents</td>
+<td>The briefs carry A06's rule and permit an unresolved answer.</td>
+</tr>
+<tr>
+<td>Examination record</td>
+<td>The record shows each agent restatement you compared with its source, any authority an agent named and how you treated it, and what you found and changed.</td>
+</tr>
+<tr>
+<td>Defense</td>
+<td>You show the passage, explain an alternative reading, and reason correctly through the changed premises your instructor poses.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Repair any invented obligation or lost qualification. Acceptance in training grants no authority to determine real legal applicability.</p>
+<h2 id="portfolio-continuation-and-references">Portfolio continuation and references</h2>
+<p>Keep the memorandum as Portfolio 04, and link each requirement to its controlled source and evidence entry. Course 05 will use this basis to reason about alternatives, uncertainty, and recommendations.</p>
+<p>The <a href="../../alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.html">management manual (Edition 9)</a>, sections 2.3 and 2.4, supports treating requirements, assumptions, proposals, and open matters separately.</p>
+<p>The <a href="https://nrc.canada.ca/en/certifications-evaluations-standards/codes-canada/canadas-construction-system-context-model-codes">NRC model-code explanation</a> illustrates adoption in Canadian construction. It is background reading, not an adoption instrument for Northbank. Read the <a href="../references.html">series reference limits</a> before using an external source.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="04-requirements-interpretation.md">04-requirements-interpretation.md</a><br><code>7590425b1f9d8097b831c18959e3e6f6be7b0327611431f2d7d6bdb6316fabe4</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

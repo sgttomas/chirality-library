@@ -1,0 +1,52 @@
+id: DEL-03-02
+name: Inspect repository change and compare its means
+needs:
+- from: DEL-04-02
+  condition: Supply the selected evaluation question, useful repository state conditions, local goal or
+    improvement hypothesis, actual outcome meanings and comparison/examination basis. Preserve uncertainty
+    and human decision standing. The tool interface must support that use; full reflective-deliverable
+    completion is not a prerequisite for an adequate selected basis.
+  when: Designing or using a measurement, report, case or comparison profile
+  evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::CLM-003
+- from: external:private-library-maintenance-pilot
+  condition: The first private pilot supplies captured public Library bases, actual trial source results
+    and independent source-assessment evidence, retained outside the public repository. Overall amendment-authority
+    compatibility remains unknown because the governing contract was omitted. Before another state examination,
+    bind its actual selected sources and coverage; do not generalize this pilot or infer behavior from
+    a source diff.
+  when: Preparing a repository-state examination or linking work observations to a result
+  evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Actual private pilot and its finding
+- from: external:codex-desktop-jsonl
+  condition: The first adapter observes explicit selected-turn per-response token_usage_record data from
+    actual Codex desktop JSONL. Retain frozen inputs and source identity privately; coverage is partial
+    and other layouts/versions are unsupported until examined. Existing host dispatch/return executes
+    trials; the Library tool adds no runtime or permissions. Missing elapsed-time, monetary-cost or human-attention
+    observations remain unknown.
+  when: Implementing or claiming the initial supported record/execution route
+  evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Implemented meaning and examination
+- from: external:private-library-maintenance-pilot
+  condition: The first actual pilot uses isolated Library instruction-repair copies and an independently
+    examined source criterion. Its missing governing amendment contract prevents a categorical winner.
+    A future trial must bind an adequate outcome/examination basis, permitted inputs and declared resources
+    before comparison; no retroactive criterion change or claimed efficiency benefit is supplied by this
+    pilot.
+  when: Preparing baseline/variant trials or the combined actual-use examination
+  evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Actual private pilot and its finding
+- from: DEL-03-01
+  condition: When an existing library utility is selected for reuse, its actual input, command, dependency,
+    write-effect, failure and limitation contract must fit the chosen operation and relevant caller basis.
+    Inspect only the selected component and its applicable evidence; no general host adapter, trial runner
+    or whole-toolkit completion is inferred.
+  when: Reusing or changing an existing utility in the evaluation implementation
+  evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::CLM-002
+- from: doc:workflows/bounded-reconciliation/WORKFLOW.md
+  condition: Use the current selected method to compare the actual tool/result and evidence with affected
+    ScopeOfWork, Work and needs/pointers before integration. Preserve unchanged declarations and actual
+    owner choices; no mandatory benchmarking stage or extra receipt follows from this source.
+  when: Carrying an authorized implementation change through integration
+  evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::Production and Verification Method — Praxeology
+code_paths:
+- tools/undertaking_evaluation/**
+checks:
+- tools/undertaking_evaluation/test_evaluation.py
+- tools/scope_of_work/validate_scope_of_work.py

@@ -1,0 +1,6 @@
+- **2026-07-27 — Receipt 29** (D-T0-25 / OD7-G3 R-A executed: D-T0-23 residual classification published).
+  - Owner approved the exact current-basis R-A application candidate. The complete ruling is transcribed verbatim in `_DomainEngines/_DECISIONS/D-T0-25_d_t0_23_residual_classification.md` and `_DomainEngines/applications/OD7-G3_D-T0-25_R-A/OWNER_RULING.md`.
+  - Applied effect: D-T0-23 remains byte-identical historical authority; its relationship to PEC v2 is classified through the accepted clause register; the Tier-0 register gains D-T0-25; and only the `Shared runtime convergence` summary in `DOMAIN_ENGINE_INDEX.md` is updated.
+  - Authority fence: lineage classification only. No product, profile, project-local, PRD, decomposition, ScopeOfWork, dependency, runtime, implementation, lifecycle, release, compatibility, reliance, notice, pointer, or Git authority is created.
+  - P-A remains separately gated and unapplied.
+  - Gate outcome: EXECUTED pending separate Git closeout.

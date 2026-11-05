@@ -1,0 +1,55 @@
+{
+  "standing": "PROPOSED supplement to Group 2, pending owner acceptance at Group 3",
+  "slots": {
+    "<GROUP3_ACCEPTANCE_DATE>": "actual date of owner Group 3 decision",
+    "<GROUP3_REVIEWED_COMMIT>": "full exact independently reviewed candidate commit"
+  },
+  "input_sha256": {
+    "execution/_Coordination/LOOP_INIT.md": "d262bdd49aee6655627a3c3c0d7e520874d6cb8e61cf35406c81461030d8262d",
+    "execution/_Decomposition/_LATEST_ACCEPTED.md": "0457cccc5b1184861302a3e5b97c0fe76315c994bf8a295278dac9aa39601dbc",
+    "docs/PRD.md": "f056b43a21a4d57c0619e932b11c96c8a6684d7d6fe3777182fee0ce70d60830",
+    "execution/_Decomposition/PROJECT_DECOMP.md": "3b9be4e348d84dbad529b061ff0e2c147b2514fdf3599234485f40ade8752c8c"
+  },
+  "edits": [
+    {
+      "path": "docs/PRD.md",
+      "before": "**Status:** Working amendment candidate SCA-20261101-UNDERTAKING-EVALUATION;\nGroup 1 accepted, exact changes and poststate acceptance pending.\nThe predecessor was accepted by the owner on 2026-10-31.  \n",
+      "after": "**Status:** The owner accepted SCA-20261101-UNDERTAKING-EVALUATION on <GROUP3_ACCEPTANCE_DATE>, against candidate <GROUP3_REVIEWED_COMMIT>. The predecessor acceptance below remains historical.\n"
+    },
+    {
+      "path": "execution/_Decomposition/PROJECT_DECOMP.md",
+      "before": "**Amendment:** SCA-20261101-UNDERTAKING-EVALUATION. Group 1 accepted;\nGroup 2 exact amendment and Group 3 poststate decisions pending.\nThe [accepted pointer](_LATEST_ACCEPTED.md) continues to identify the predecessor.\nThis working candidate itself grants no setup, implementation or release authority.\nThe earlier accepted payload and decisions remain unchanged in their snapshot.\n\n",
+      "after": "**Amendment:** SCA-20261101-UNDERTAKING-EVALUATION, accepted by the owner on <GROUP3_ACCEPTANCE_DATE> against <GROUP3_REVIEWED_COMMIT>.\n[_LATEST_ACCEPTED.md](_LATEST_ACCEPTED.md) binds the actual decision and exact reviewed source. Earlier accepted payloads and decisions are preserved.\n\n"
+    },
+    {
+      "path": "execution/_Decomposition/PROJECT_DECOMP.md",
+      "before": "Five flat packages and eight deliverables are proposed.",
+      "after": "Five flat packages and eight deliverables are allocated under this accepted amendment."
+    },
+    {
+      "path": "execution/_Decomposition/PROJECT_DECOMP.md",
+      "before": "Eight bounded production commitments are proposed.",
+      "after": "Eight bounded production commitments are allocated under this accepted amendment."
+    },
+    {
+      "path": "execution/_Decomposition/PROJECT_DECOMP.md",
+      "before": "| Revision | SCA-20261101-UNDERTAKING-EVALUATION candidate; acceptance pending |",
+      "after": "| Revision | SCA-20261101-UNDERTAKING-EVALUATION, accepted <GROUP3_ACCEPTANCE_DATE> against <GROUP3_REVIEWED_COMMIT> |"
+    },
+    {
+      "path": "execution/_Decomposition/PROJECT_DECOMP.md",
+      "before": "| DeliverableCount | 8 proposed active, numeric identities preserved; DEL-05-02 removed and not reused |",
+      "after": "| DeliverableCount | 8 allocated, numeric identities preserved; DEL-03-02 setup/production remain separate obligations; DEL-05-02 remains reserved |"
+    },
+    {
+      "path": "execution/_Decomposition/_LATEST_ACCEPTED.md",
+      "before": "# Accepted final decomposition\n\nThe owner accepted the final decomposition as the basis for project setup and\nauthorized Agent 0 to manage preparation and directly delegated authoring.\n\n- [Accepted decomposition](checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md)\n- [Owner decision](checkpoint_snapshots/GROUP3-20261101T011431Z/DECISION.md)\n- [Manifest](checkpoint_snapshots/GROUP3-20261101T011431Z/ACCEPTED_MANIFEST.csv)\n- [Independent audit](checkpoint_snapshots/GROUP3-20261101T011431Z/GROUP3_AUDIT.md)\n- [Setup handoff](checkpoint_snapshots/GROUP3-20261101T011431Z/HANDOFF_STATE.md)\n\nThe decision supplies acceptance; pre-decision labels in the immutable payload\nare historical. Project setup uses the current flat locality route and retains\nthe formation obligations in \u00a78.1. Product acceptance and release remain separate.\n",
+      "after": "# Accepted decomposition basis\n\nThe owner accepted SCA-20261101-UNDERTAKING-EVALUATION on <GROUP3_ACCEPTANCE_DATE>\nagainst exact candidate `<GROUP3_REVIEWED_COMMIT>` and the conditional changes in\n[the amendment review](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP3_REVIEW.md).\n\nRecover the exact reviewed decomposition locally from this repository:\n\n```sh\ngit show <GROUP3_REVIEWED_COMMIT>:execution/_Decomposition/PROJECT_DECOMP.md\n```\n\nThe [working decomposition](PROJECT_DECOMP.md) differs from that reviewed content\nonly by the expressly accepted standing annotations. The [Group 2 plan](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP2_PLAN.md)\nand [Group 3 corrections](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP3_CORRECTIONS.md)\nidentify the propagation and conditional writes. No remote publication is implied\nor needed for this local recovery route; retain the named Git objects.\n\nThe [preceding formation payload](checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md),\n[decision](checkpoint_snapshots/GROUP3-20261101T011431Z/DECISION.md),\n[manifest](checkpoint_snapshots/GROUP3-20261101T011431Z/ACCEPTED_MANIFEST.csv)\nand [audit](checkpoint_snapshots/GROUP3-20261101T011431Z/GROUP3_AUDIT.md)\nremain unchanged. Their original seven-locality formation is historical.\n\nThe accepted addition requires current setup and scope/need authoring; the new\ncapability is not implemented or accepted as a product by this amendment.\nLibrary release and consumer adoption remain separate decisions.\n"
+    },
+    {
+      "path": "execution/_Coordination/LOOP_INIT.md",
+      "before": "The [accepted decomposition](../_Decomposition/_LATEST_ACCEPTED.md) gives the\nscope its five Package homes and seven bounded Deliverables. Initial setup is\nestablished. Advance those contributions through useful changes to the holdings\nand examination of their actual use; existing adequate material and applicable\nevidence can supply a result. Setup alone establishes no product fulfillment.",
+      "after": "The [accepted decomposition](../_Decomposition/_LATEST_ACCEPTED.md) allocates\nthe scope to five Package homes and eight bounded Deliverables under\nSCA-20261101-UNDERTAKING-EVALUATION. Original seven-locality setup remains\nestablished. DEL-03-02 setup, the deferred DEL-04-02 scope revision and selected\nWork/need propagation follow the amendment's actual acceptance and closure record;\nthe evaluation capability's production is not established by allocation or setup.\nConsult the [amendment review](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP3_REVIEW.md)\nfor the current decision and remaining obligations. Continue only the work selected\nby actual steering; earlier gate decisions retain their identified historical basis."
+    }
+  ]
+}

@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="864c1dfa3e87345d8e57dc9dd3b829fccc973c20473e41f2fa03c3943df5b82f">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 07: Defining an Engineering Project · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 13 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-establish-purpose-before-selecting-the-solution">Lesson 1: Establish purpose before selecting the solution</a></li>
+<li><a href="#lesson-2-assemble-the-project-basis">Lesson 2: Assemble the project basis</a></li>
+<li><a href="#lesson-3-make-requirements-and-examination-usable">Lesson 3: Make requirements and examination usable</a></li>
+<li><a href="#lesson-4-divide-work-without-dividing-away-responsibility">Lesson 4: Divide work without dividing away responsibility</a></li>
+<li><a href="#lesson-5-establish-readiness-and-the-treatment-of-open-matters">Lesson 5: Establish readiness and the treatment of open matters</a></li>
+<li><a href="#lesson-6-design-the-division-of-work-between-people-and-agents">Lesson 6: Design the division of work between people and agents</a></li>
+<li><a href="#worked-example-define-northbanks-purchase-preparation">Worked example: Define Northbank&#x27;s purchase preparation</a></li>
+<li><a href="#transfer-example-a-data-acquisition-upgrade">Transfer example: A data acquisition upgrade</a></li>
+<li><a href="#practice-repair-a-weak-assignment">Practice: Repair a weak assignment</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-prepare-a-coherent-project-definition">Assessed assignment: Prepare a coherent project definition</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-establish-purpose-before-selecting-the-solution">Lesson 1: Establish purpose before selecting the solution</a></li>
+<li><a href="#lesson-2-assemble-the-project-basis">Lesson 2: Assemble the project basis</a></li>
+<li><a href="#lesson-3-make-requirements-and-examination-usable">Lesson 3: Make requirements and examination usable</a></li>
+<li><a href="#lesson-4-divide-work-without-dividing-away-responsibility">Lesson 4: Divide work without dividing away responsibility</a></li>
+<li><a href="#lesson-5-establish-readiness-and-the-treatment-of-open-matters">Lesson 5: Establish readiness and the treatment of open matters</a></li>
+<li><a href="#lesson-6-design-the-division-of-work-between-people-and-agents">Lesson 6: Design the division of work between people and agents</a></li>
+<li><a href="#worked-example-define-northbanks-purchase-preparation">Worked example: Define Northbank&#x27;s purchase preparation</a></li>
+<li><a href="#transfer-example-a-data-acquisition-upgrade">Transfer example: A data acquisition upgrade</a></li>
+<li><a href="#practice-repair-a-weak-assignment">Practice: Repair a weak assignment</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-prepare-a-coherent-project-definition">Assessed assignment: Prepare a coherent project definition</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="07-project-definition.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-07-defining-an-engineering-project">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-07-defining-an-engineering-project">Course 07: Defining an Engineering Project</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Northbank case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>A project basis makes the project understandable to people who were absent from its first discussions. It connects purpose, requirements, scope, constraints, and decisions. Good definition leaves room for design while making commitments and unresolved matters clear, and it supports a division of work that can produce a coherent result.</p>
+<p>In this course you develop a project basis and an initial work allocation, in a team where people work with AI agents. Detailed planning and technical integration follow in Courses 08 and 09.</p>
+<h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
+<p>Complete Courses 01 to 06 and bring your source index, interpretation, decision memorandum, and meeting record.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. In this course the shifted constraint is the size of a contribution: both production capacity and the capacity to examine and integrate constrain it, and agents can change their relative costs, as Lesson 4 explains. Agents also read the basis they are given literally, so Lesson 2 assembles it for them, and Lesson 6 treats the division of work between people and agents as a design problem.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>; in this course, any description of what an agent might produce or which work agents might do in the case is a teaching assumption, and so is any examiner availability you assume.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>After this course, you can:</p>
+<ul>
+<li>Connect an intended result to its users and benefits.</li>
+<li>Distinguish outcomes, constraints, design choices, and proposals.</li>
+<li>Prepare a project basis with accountable unresolved matters.</li>
+<li>Define deliverables and their examination.</li>
+<li>Allocate scope while preserving interfaces and combined responsibility.</li>
+<li>Assemble a basis that agents read with its revisions and status, so that proposals stay proposals.</li>
+<li>Design the division of work between people and agents, and defend its tradeoffs.</li>
+<li>Direct, examine, and accept agent contributions, and show which judgments are your own.</li>
+</ul>
+<p>Use Northbank Packets A and B, and identify any new classroom decision separately from the supplied records.</p>
+<h2 id="lesson-1-establish-purpose-before-selecting-the-solution">Lesson 1: Establish purpose before selecting the solution</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>A requested component can hide the need it serves, so ask what activity the intended result supports and who will use it.</p>
+<p>Distinguish the product from the project. The product may be an installation or design package; the project organizes its development and delivery. Because the product may remain in use after the project ends, consider operating and maintenance responsibilities when you define the project.</p>
+<p>Describe the intended benefit without inventing evidence. If a benefit remains a sponsor expectation, identify it as such.</p>
+<p>Ask these questions:</p>
+<ol>
+<li>What problem or opportunity motivates the work?</li>
+<li>Who uses or is affected by the result?</li>
+<li>Which outcome would address the need?</li>
+<li>Which conditions constrain an acceptable solution?</li>
+<li>What evidence will show that the outcome has been achieved?</li>
+</ol>
+<p>Investigate alternatives before you lock in a means that has not been examined. Compare them against the same purpose, requirements, operating conditions, and resource constraints. Alternatives can include modification, replacement, staged work, or a different operating arrangement, but their technical and legal acceptability must be established.</p>
+<p>Where the sponsor has already adopted a solution boundary, preserve it. Propose a change through the applicable decision process if evidence justifies reconsideration.</p>
+<p>Record the reasons for choices that matter, because a later participant needs to understand why an attractive alternative was rejected under the original conditions.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that investigating alternatives is expensive. A team can develop only a few alternatives in enough depth to compare them, so it tends to choose a means early and carry it forward.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>Agents make exploration cheap. They can draft several alternatives, such as modification, replacement, staged work, or a different operating arrangement, and compare each against the same purpose and constraints. A team can keep alternatives open longer than it could afford before.</p>
+<p>Purpose does not become cheap. An agent cannot tell you which activity the result supports or who will use it; those answers come from the sponsor, operations, and other users. An agent may also describe a plausible benefit as if it were established, so the rule to describe benefits without inventing evidence applies to every agent draft.</p>
+<p>Agent-drafted alternatives can also ignore the adopted solution boundary. A02 Rev 1 reuses the existing tank and provides two pump units. An alternative outside that boundary is a proposal for the applicable decision process, however well it is argued.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Use agents to widen the set of alternatives inside the adopted boundary, and to compare them against the same purpose, requirements, operating conditions, and resource constraints. Then decide which alternatives deserve examination, because each one you keep open uses someone's attention.</p>
+<p>Keeping alternatives open is a choice with a cost:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep several alternatives open</td>
+<td>Later decisions can use better information, with less early lock-in</td>
+<td>Each alternative needs examination, and dependent work cannot settle its interfaces</td>
+</tr>
+<tr>
+<td>Close on one alternative early</td>
+<td>A stable basis for dependent work</td>
+<td>A means may be locked in before it has been examined</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Close an alternative when dependent work needs a settled basis, and record the reason, so that a later participant understands why it was rejected.</p>
+<h2 id="lesson-2-assemble-the-project-basis">Lesson 2: Assemble the project basis</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>The <strong>project basis</strong> identifies the purpose, requirements, scope, constraints, and decisions used to develop and execute the project. An organization may carry this information in several controlled documents, but their relationships must stay clear to the people who use them.</p>
+<p>Include enough information to govern the next work; extra detail has little value when no decision or activity uses it.</p>
+<p>Organize the basis around these subjects:</p>
+<ul>
+<li>Intended result, users, and operating activity.</li>
+<li>Applicable requirements and identified governing sources.</li>
+<li>Included scope and assignment boundaries.</li>
+<li>Existing assets and interfaces to preserve or modify.</li>
+<li>Budget, delivery target, and other constraints.</li>
+<li>Acceptance responsibilities and proposed examination.</li>
+<li>Unresolved inputs and their treatment.</li>
+</ul>
+<p>Identify the revision and status of each governing source, and explain whether a newer record supplements, replaces, or merely proposes to change the basis.</p>
+<p>Distinguish existing obligations, proposed interpretations, and proposed new project constraints. A supported interpretation can explain an obligation that already governs, and that obligation does not wait for sponsor adoption. A new project constraint requires the appropriate decision.</p>
+<p>Reconcile conflicting sources at the relevant subject, and do not solve a discrepancy by deleting the record that exposes it.</p>
+<p>Before you request acceptance, read the basis as a whole. Check for incompatible assumptions, missing boundaries, unclear terms, and unsupported commitments. Identify exactly which document revision the decision covers, and record any conditions on proceeding and the work they affect.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that the people who use the basis can tell which records govern. A07 shows how a shared folder can mislead: it holds A02 Rev 0 and Rev 1 under similar filenames, the library index omits the electrical survey, and a design note cites the legacy schedule without its source note. An experienced team member can resolve such problems through knowledge of the project and by asking a colleague.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>Agents read the basis they are given, quickly and literally, and they do not ask a colleague. An agent given the shared folder may use A02 Rev 0's 15 litres per second as readily as Rev 1's 18, or the 480 V that A03 lists. An agent given A05 without its status may treat 22 litres per second as the requirement. Every output the agent produces then carries that basis, and it can produce many outputs quickly.</p>
+<p>So the basis must be assembled so that agents read the identified basis, with revisions and status, and proposals such as A05 stay proposals. The classical instruction to explain whether a newer record supplements, replaces, or proposes to change the basis becomes an instruction you give the agents explicitly.</p>
+<p>Agents can also help check the assembled basis. They can cross-read it for incompatible assumptions, unclear terms, and missing boundaries faster than a person reading it whole. They cannot decide how a conflict is resolved, and a clean cross-reading does not establish that the basis expresses the intended result.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Give agents a basis index: each governing source with its identity, revision, status, and relationship to the basis, such as governs, supplements, proposes a change, or archived reference. Exclude superseded records, or label them as superseded. Check each agent output for the basis it actually used.</p>
+<p>Use agents to cross-read the assembled basis, then read their findings yourself, and resolve each conflict at its subject with the applicable authority.</p>
+<p>The choice of what agents read trades control against coverage:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>What agents read</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The whole shared folder</td>
+<td>The agent may find a record the index omits, as A07's library index omits the electrical survey</td>
+<td>The agent may read a superseded draft or an archived value as current</td>
+</tr>
+<tr>
+<td>A curated basis index</td>
+<td>The agents read the identified basis</td>
+<td>An index can omit a needed source, and agents may not notice its absence</td>
+</tr>
+<tr>
+<td>A curated index, with the folder available and any other record reported back</td>
+<td>Controlled reading with a route for omissions</td>
+<td>More to examine in each return</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-3-make-requirements-and-examination-usable">Lesson 3: Make requirements and examination usable</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>A requirement states a needed result or constraint, and it must preserve the conditions that give the statement its meaning.</p>
+<p>Specify the subject, required result, relevant conditions, source, and status. Where doing so improves responsibility, separate obligations that can be allocated independently. For example, one statement can define a transfer-flow outcome and another can define standby behavior, but their shared operating conditions remain connected.</p>
+<p>Avoid turning an unresolved input into a convenient design value; assign work to establish it before the decision that depends on it.</p>
+<p>Develop the examination alongside the requirement, and ask what observation, analysis, inspection, or test could establish that the requirement is satisfied.</p>
+<p>Use this relationship:</p>
+<p><strong>Requirement → contribution → examination → evidence → authorized decision</strong></p>
+<p>The examination must address the full claim; a normal-flow observation would leave the required changeover behavior unexamined.</p>
+<p>A requirement can be approved while its detailed examination is still in development. Identify who will complete the method before its point of need.</p>
+<p>Use this compact requirement record:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity and statement</td>
+<td>Establish the obligation and its conditions</td>
+</tr>
+<tr>
+<td>Source and status</td>
+<td>Establish its grounds and decision standing</td>
+</tr>
+<tr>
+<td>Contribution</td>
+<td>Identify the work expected to satisfy it</td>
+</tr>
+<tr>
+<td>Examination</td>
+<td>Explain how conformity or fitness will be established</td>
+</tr>
+<tr>
+<td>Open input</td>
+<td>Preserve the missing condition and resolution owner</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Do not invent test tolerances, code clauses, or acceptance thresholds; missing definitions require competent development and the appropriate decision.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that writing requirement records and examination methods takes effort. The person who writes a requirement thinks about its conditions while writing it, and the team writes examination methods where it needs them.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>Agents can draft a complete requirement table, with a proposed examination for each row, in minutes. Three risks come with that speed. An agent may fill an unresolved input with a convenient design value. It may invent a test tolerance, code clause, or acceptance threshold to complete a row. And when it separates a requirement into parts, it may drop the conditions that give the parts their meaning.</p>
+<p>The examination column also gains a second use. When agents produce the contributions, the examination defined with each requirement is what a person uses to check the agents' work. A requirement without a usable examination leaves agent-produced work with no way to examine it against that requirement.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Brief agents to mark open inputs as open, and to report any value, tolerance, or clause they cannot source. Examine each numeric value and each criterion for its source. Check that every separated requirement keeps its conditions. A02 applies the 18 litres per second requirement under the operating conditions that the project must establish, and a row that drops that clause states a different obligation.</p>
+<p>Define the examination when you define the requirement, and use it to examine agents' contributions as well as people's.</p>
+<h2 id="lesson-4-divide-work-without-dividing-away-responsibility">Lesson 4: Divide work without dividing away responsibility</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>Decomposition divides the project into manageable contributions. Its purpose is complete responsibility and usable exchanges between contributors.</p>
+<p>Choose boundaries around related work that someone can understand and carry through, and compare the cost of coordination across alternative boundaries.</p>
+<p>Preserve discipline responsibility where it applies. Identify the person who coordinates the combined technical result across those discipline contributions.</p>
+<p>Give each obligation one accountable home. Several people may contribute to it, but their inputs and interfaces must remain explicit. That home coordinates fulfillment; it does not erase the duties of contributors, reviewers, or other appointed authorities.</p>
+<p>Do not allocate the same whole obligation to two groups without explaining their distinct contributions, because such an allocation can hide both duplication and gaps.</p>
+<p>For each deliverable, state:</p>
+<ol>
+<li>Its purpose and required result.</li>
+<li>Its governing requirements and inputs.</li>
+<li>Its receiving participants and interfaces.</li>
+<li>Its producer and required review.</li>
+<li>Its examination and evidence.</li>
+</ol>
+<p>A deliverable title alone gives too little direction: “Electrical package” does not identify what it must establish for procurement or installation.</p>
+<p>Read the division in both directions: follow each requirement to its contributions, and follow each contribution back to its source obligation or justified project need. Then examine the boundaries: determine who supplies shared inputs, who resolves differences, and who assembles the whole.</p>
+<p>Separate work allocation from work satisfaction: an assigned deliverable has yet to be produced and examined.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that the division of work follows what one person or team can carry. The producer's capacity sets the size of a contribution, and the producer's understanding holds its interior together. The cost of coordination lies mainly in communication between the people on either side of a boundary.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>With agents, production capacity stops setting the size of a contribution, because an agent can draft a large contribution quickly. The division then follows what a person can examine and integrate. A contribution that no competent person can examine in the time available does not make a usable boundary, however quickly an agent can produce it.</p>
+<p>Accountability does not move to agents. Each obligation still needs one accountable home, and that home is a person or organization with an assigned responsibility. An agent holds no appointment under A01, so it cannot be an accountable home or a reviewer under A01. Discipline engineers keep responsibility for their technical contributions, including the parts that agents draft.</p>
+<p>Agent assignments create boundaries of their own. Each assignment boundary is an interface at which context passes through a brief and can be lost. An agent assignment that spans mechanical and electrical work can produce a coherent draft but blur the line between two discipline responsibilities, so both engineers must examine it.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>For each deliverable, state the same five items, and add which parts agents produce and who examines each part. Size each agent assignment to what its examiner can check.</p>
+<p>Read the division in both directions for agent work too. Each agent assignment traces to a deliverable with an accountable home, and each agent-produced part of a deliverable has an examiner.</p>
+<p>Each boundary for agent assignments gains something and costs something:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Boundary for agent assignments</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Within one discipline contribution</td>
+<td>The examiner and the responsibility are clear</td>
+<td>More assignments to brief and integrate</td>
+</tr>
+<tr>
+<td>Across disciplines, for one combined draft</td>
+<td>Fewer briefs, and the draft may be internally consistent</td>
+<td>Several engineers must examine it, and responsibility lines blur</td>
+</tr>
+<tr>
+<td>Many small assignments</td>
+<td>Each part is easy to examine</td>
+<td>Context is lost at each boundary, and integration work grows</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-5-establish-readiness-and-the-treatment-of-open-matters">Lesson 5: Establish readiness and the treatment of open matters</h2>
+<h3 id="the-classical-method-4">The classical method</h3>
+<p>Projects often begin development with unresolved conditions, so the basis must show which work can proceed and which work depends on their resolution.</p>
+<p>Give each open matter an owner, required resolution, affected decision, and point of need. Record its current evidence and any authorized interim assumption.</p>
+<p>An assumed value can support a bounded study if its status and limits are explicit. It cannot silently become a procurement requirement.</p>
+<p>State readiness for a specific activity: “Ready for investigation” differs from “ready for equipment order release”.</p>
+<p>Check readiness with these questions:</p>
+<ol>
+<li>Which result or act is being authorized?</li>
+<li>Which conditions does it require?</li>
+<li>What evidence establishes those conditions?</li>
+<li>Which unresolved matters can remain under stated limits?</li>
+<li>Who has authority to decide?</li>
+</ol>
+<p>A pending external requirement may limit several technical choices, but other authorized information gathering can continue.</p>
+<p>An exclusion also needs careful treatment. If another party supplies a required act, identify that party and the interface the project still needs. Placing an obligation outside one contributor's scope does not remove it, so determine where responsibility for it continues.</p>
+<p>After acceptance, communicate the basis to the people who use it. Follow later changes through the requirements, assignments, interfaces, and examination they affect.</p>
+<h3 id="what-it-assumes-4">What it assumes</h3>
+<p>The classical method assumes that dependent work moves at the pace of the people producing it. An assumed value spreads slowly through documents, so people have time to notice it before it becomes a requirement. Bounded studies on assumed values cost effort, so a team runs only those it needs.</p>
+<h3 id="what-changes-with-agents-4">What changes with agents</h3>
+<p>Cheap exploration lets a team run more bounded studies on assumed values while open matters stay open. But an assumed value can now spread through many documents quickly, so the rule that an assumed value cannot silently become a procurement requirement needs active checking.</p>
+<p>Readiness still needs decisions. An agent can report that an input exists; it cannot establish that the input meets its condition, and it cannot decide that an activity is ready. The people with authority for the act still decide that the project is ready for equipment order release. Readiness is a question for evidence and judgment, not for whether a file is present.</p>
+<p>External requirements and exclusions carry over unchanged. A06's open inquiry still limits the dependent technical choices, and no agent can settle legal applicability by inference.</p>
+<h3 id="the-extended-method-4">The extended method</h3>
+<p>Give each open matter a person as its owner. In every brief that touches the matter, state that the input is open, give any authorized interim assumption with its limits, and tell the agent not to fill it. Check agent outputs for assumed values that appear as requirements or design values.</p>
+<p>Decide which bounded studies to run, as Course 05 Lesson 3 describes, and state readiness for a specific activity, with the person who decides it.</p>
+<h2 id="lesson-6-design-the-division-of-work-between-people-and-agents">Lesson 6: Design the division of work between people and agents</h2>
+<p>In a human team, the division of work below the deliverable was left largely to the people doing it. A discipline engineer decided how to break down their own contribution, and their capacity and habits set its shape. With agents, someone must decide which parts agents produce, who examines each part, and where people's judgments enter. That is a design problem, and the classical method could leave it to habit.</p>
+<p>Design the division from the project basis and A01's responsibilities:</p>
+<ol>
+<li><strong>Start from the accountable homes.</strong> The deliverable allocation from Lesson 4 gives each obligation a person or organization. Agent work sits inside those homes; it does not create new ones.</li>
+<li><strong>Identify the judgments that stay with people.</strong> Some inputs and decisions can come only from people with the relevant role or competence. For Northbank, these include the operating conditions and changeover function that operations provides, the spare capacity, protection coordination, and equipment compatibility that A04 leaves to the electrical engineer, and the scope decision on A05 that A01 gives to the sponsor.</li>
+<li><strong>State the examination each agent contribution creates.</strong> For each agent contribution, name its examiner and what the examination involves. The records give no examiner availability, so state the availability you assume, label it as a teaching assumption, and keep the agent work consistent with it.</li>
+<li><strong>Check the design against the failure modes of definition.</strong> These include a proposal read as basis, a superseded revision used as current, an open input filled with a convenient value, an agent assignment that crosses a responsibility line without both owners examining it, and a record produced because it was cheap, not because anyone needs it.</li>
+</ol>
+<p><a href="08-project-execution.html#lesson-6-engineer-the-arrangement-that-does-the-work">Course 08 Lesson 6</a> covers the general design steps: allocating production by consequence and detectability, and sizing agent work to examination capacity. <a href="06-working-relationships.html#lesson-5-support-reliable-contributions">Course 06 Lesson 5</a> covers the brief and the return.</p>
+<p>Agents make it cheap to draft several divisions of work. Choosing among them remains a judgment about coordination, examination, and responsibility, and the person who coordinates the combined result makes it with the people whose work it divides.</p>
+<p>Course 08 treats the arrangement as a system during execution. In project definition, the design is part of the division of work you propose, and it changes as the basis develops.</p>
+<h2 id="worked-example-define-northbanks-purchase-preparation">Worked example: Define Northbank's purchase preparation</h2>
+<p>The supplier review and coordination meeting have identified work that remains open. This example turns those needs into a project definition with connected contributions and clear limits on order release.</p>
+<p>A02 Rev 1 establishes 18 litres per second, two pump units, tank reuse, and associated work; it also identifies unresolved hydraulic conditions.</p>
+<p>A01 distinguishes sponsor scope authority from project and discipline engineering responsibilities. B02 shows that procurement still needs an authorized purchase package.</p>
+<p>The project engineer prepares a definition for purchase preparation. Its purpose is to establish a technically reviewed, identified equipment requirement before order release.</p>
+<p>The mechanical contribution must establish the operating envelope and selected equipment basis, and it needs operating information and relevant electrical motor conditions.</p>
+<p>The electrical contribution must assess the existing supply and the selected motor arrangement. A04 supplies one checked observation but leaves important checks open.</p>
+<p>The controls contribution needs the changeover definition and alarm response; the civil contribution needs equipment loads, base dimensions, and access requirements.</p>
+<p>The project engineer gives coordination of these exchanges an explicit home. Each discipline keeps responsibility for its contribution.</p>
+<p>The supplier submission requires correction and additional evidence before it can support technical acceptance. The definition does not invent a corrected pump or motor.</p>
+<p>A05 is still a proposed scope change; its impact assessment gets a separate assignment and goes back to the sponsor for the scope decision.</p>
+<p>The definition records A06's unresolved external requirements. Instead of asserting legal applicability, it identifies the technical choices that depend on them.</p>
+<p>The proposed division allows source retrieval, operating clarification, commercial inquiry, and technical assessment to proceed, but order release still depends on its required conditions.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>Before any agent works on the definition, the project engineer assembles a basis index. It lists A01 Rev 0, A02 Rev 1 (approved for project development), A04 Rev 1 (checked site observation), A05 Rev 0 (proposal), A06 Rev 0 (open inquiry), A07 Rev 0 (source inventory), B01 Rev 0 (submitted for technical review, not accepted), B02 Rev 0, and B03 Rev 0. It labels A03 as an archived reference whose values were copied from an earlier planning estimate, and it excludes A02 Rev 0, the draft that A07 found in the shared folder.</p>
+<p>The project engineer proposes this division for the exercise. It is a teaching proposal, not a Northbank record:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 5; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Contribution</th>
+<th>Agents can draft</th>
+<th>Examined by</th>
+<th>Judgment that stays with a person</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement table from A02 Rev 1</td>
+<td>Rows with their conditions and open inputs</td>
+<td>Project engineer, with each discipline engineer for their rows</td>
+<td>Whether each row keeps its conditions, and how open inputs are treated</td>
+</tr>
+<tr>
+<td>Interface table from B03</td>
+<td>Exchanges with supplier, consumer, and required contribution</td>
+<td>Project engineer</td>
+<td>Owners and points of need, which B03 does not name; they stay proposals until assigned</td>
+</tr>
+<tr>
+<td>Electrical contribution</td>
+<td>A comparison of B01's 480 V offer with A04's observation</td>
+<td>Electrical engineer</td>
+<td>Spare capacity, protection coordination, and equipment compatibility</td>
+</tr>
+<tr>
+<td>Mechanical contribution</td>
+<td>A list of the hydraulic inputs that A02 leaves unresolved</td>
+<td>Mechanical engineer</td>
+<td>The operating envelope and the selected equipment basis</td>
+</tr>
+<tr>
+<td>Operating clarification</td>
+<td>Questions about the changeover function</td>
+<td>Project engineer, then operations</td>
+<td>The required changeover function, which operations confirms</td>
+</tr>
+<tr>
+<td>A05 impact-assessment route</td>
+<td>The scope of the assessment</td>
+<td>Project manager, with the project engineer</td>
+<td>The scope decision, which A01 gives to the sponsor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The engineer examines each agent draft for the basis it used. The checks include that the 18 litres per second requirement keeps its operating-conditions clause, that A05 appears only as proposed-change work, that B03's missing owners and dates are not filled in as facts, and that A06's open matter is connected to the dependent choices without a legal conclusion.</p>
+<p>Order release still depends on its required conditions. Agents change who drafts the definition and what the engineer must examine; they change none of those conditions.</p>
+<h2 id="transfer-example-a-data-acquisition-upgrade">Transfer example: A data acquisition upgrade</h2>
+<p>A plant wants better fault diagnosis. A team proposes new sensors but has not defined the events operators need to recognize.</p>
+<p>The project basis must establish those intended uses and operating conditions; sensor selection and acceptance then have a common purpose and examination basis.</p>
+<p>An agent can propose a complete sensor list in minutes. Without the defined events, the list has no purpose to be examined against, and the speed of the proposal can make that gap easier to miss.</p>
+<h2 id="practice-repair-a-weak-assignment">Practice: Repair a weak assignment</h2>
+<p>Treat this sentence as an exercise draft:</p>
+<blockquote>
+<p>Supply pumps quickly. Electrical will make them work. Operations can add the future flow requirement later.</p>
+</blockquote>
+<p>Use A01 to A06 and B01 to B03, and identify the missing purpose, requirements, conditions, responsibilities, interfaces, and examination.</p>
+<p>Replace the sentence with a bounded assignment for preparing the equipment requirement. Keep detailed technical inputs unresolved where the case leaves them unresolved.</p>
+<p>Make this repair yourself, without an agent. You then know what a sound return should contain.</p>
+<p>Prepare an interface table with suppliers, consumers, required contributions, owners, and points of need, and label proposed ownership assignments as proposals. You prepare it with an agent in the second exercise below.</p>
+<p>Then complete three exercises with agents. For each, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<ol>
+<li><strong>Assemble a basis index for agents.</strong> From A01 to A07 and B01 to B03, list each record with its identity, revision, status, and relationship to the basis. State how you treat A02 Rev 0, A03, and A05, and why.</li>
+<li><strong>Examine an agent's interface table.</strong> Brief an agent with your basis index and B03 to draft the interface table. Check that proposed owners and points of need are labelled as proposals, that open inputs stay open, and that every exchange traces to a record. If you find nothing to correct, record what you checked.</li>
+<li><strong>Design the division.</strong> For the purchase preparation, state for each contribution what agents produce, who examines it, what that examination involves, and which judgment stays with a person. State the examiner availability you assume as a teaching assumption, and two tradeoffs in your design.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>How do the product and project differ?</li>
+<li>Which subjects must a usable project basis establish?</li>
+<li>Why must a requirement retain its qualifying operating conditions?</li>
+<li>How can several contributors fulfill an obligation with one accountable home?</li>
+<li>What distinguishes work allocation from work satisfaction?</li>
+<li>What must be stated before unresolved information can remain open during dependent work?</li>
+<li>Why does the division of work follow what a person can examine and integrate when agents do much of the production?</li>
+<li>A07 shows A02 Rev 0 and Rev 1 in one shared folder. What must the basis given to agents state, and why does this matter more with agents than with experienced team members?</li>
+<li>Agents make it cheap to keep alternatives open. What does keeping an alternative open cost, and what still needs a decision?</li>
+<li>Can an agent be the accountable home for an obligation? Explain from A01 and the case's arrangement for agents.</li>
+</ol>
+<h2 id="assessed-assignment-prepare-a-coherent-project-definition">Assessed assignment: Prepare a coherent project definition</h2>
+<p>Prepare a proposed Northbank project basis using Packets A and B, working with agents, and preserve all approved A02 commitments and their identified limits.</p>
+<p>Include a requirement table, deliverable allocation, interface table, and open-matter treatment. Explain one alternative division of work and its coordination consequences; the alternative can be a different division between people and agents.</p>
+<p>Include A05's impact assessment as proposed-change work, and state the route for its scope decision without treating the proposal as adopted.</p>
+<p>Add the basis index you gave the agents, your design for dividing the work between people and agents, the briefs you used, and a short record of what you checked in each agent return, what you found, and what you changed.</p>
+<p>Present the definition to a peer or mentor, check coverage in both directions, and repair identified gaps.</p>
+<p>Then defend the definition to your instructor. Expect changed premises about the basis, such as an adopted 22 litres per second, and about the arrangement, such as agents that read the whole shared folder. Your instructor rates the defense as the teaching guide describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>The instructor assesses these seven observable criteria:</p>
+<ol>
+<li>The basis preserves source identities, approved scope, constraints, and proposed-change status, and the basis index given to the agents identifies each source's revision and status.</li>
+<li>Requirements retain their conditions and identify suitable examination or its missing definition.</li>
+<li>The work allocation gives each obligation an accountable home and covers the complete accepted scope.</li>
+<li>Interfaces identify contributions, proposed owners, points of need, and coordination responsibility.</li>
+<li>Open matters identify resolution, authority, and the specific work they limit without invented technical or legal conclusions.</li>
+<li>The division of work between people and agents gives each agent contribution an examiner, states the examination it creates and the examiner availability assumed as a teaching assumption, stays consistent with that assumption, and keeps with people the judgments that A01 and the records assign to them. Your own examination record shows what you checked in each agent return, what you found, and what you changed.</li>
+<li>In the defense, you explain the definition's main conclusions and their grounds, show what your examination of the agents' work found, identify which judgments are your own, and reason correctly through the changed premises your instructor poses.</li>
+</ol>
+<h2 id="portfolio-continuation-and-references">Portfolio continuation and references</h2>
+<p>Keep the repaired assignment, project basis, requirement table, and scope allocation as Portfolio 07, and link them to your earlier sources and decisions. Keep your basis index and division design with them.</p>
+<p>Carry these records into Course 08 for planning, and use their interfaces and readiness conditions in Course 09.</p>
+<p>Source adaptation: management manual (Edition 9) §§2.1–2.6, 3.1–3.3, and 4.3. These sections cover basis, scope, outputs, examination, consumers' needs, and the concurrency that examination capacity limits.</p>
+<p>Use the shared <a href="../references.html">references</a> for systems engineering fundamentals and project governance. External readings are optional for the supplied assignment.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="07-project-definition.md">07-project-definition.md</a><br><code>864c1dfa3e87345d8e57dc9dd3b829fccc973c20473e41f2fa03c3943df5b82f</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

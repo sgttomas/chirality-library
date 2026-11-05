@@ -1,0 +1,6 @@
+Action,Path,ApplicationRule
+MODIFY,_DomainEngines/_DECISIONS/_REGISTER.md,replace with exact accepted R-A postimage
+ADD,_DomainEngines/_DECISIONS/D-T0-25_d_t0_23_residual_classification.md,materialize ruled decision with verbatim owner ruling
+MODIFY,_DomainEngines/DOMAIN_ENGINE_INDEX.md,replace with exact accepted R-A postimage
+MODIFY,_DomainEngines/bridge/LOOP_RECEIPTS.md,append exact Receipt 29 after execution-time rescan
+ADD,_DomainEngines/applications/OD7-G3_D-T0-25_R-A/,preserve accepted inputs ruling validation manifests and handoff

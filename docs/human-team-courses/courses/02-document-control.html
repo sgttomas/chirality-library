@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="518468f127154b70df5d9e5a0179ac9d08fd2deeaf06094247cf90f5aa97d2e7">
+<meta name="source-basis-date" content="2026-11-01">
+<meta name="source-basis-revision" content="b9da4a3a5e20798185c55ff87d30265089bcf14d">
+<title>Course 02: Document and Configuration Control · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 12 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-give-information-a-stable-identity">Lesson 1: Give information a stable identity</a></li>
+<li><a href="#lesson-2-distinguish-revision-status-and-purpose">Lesson 2: Distinguish revision, status, and purpose</a></li>
+<li><a href="#lesson-3-control-a-change-through-its-consequences">Lesson 3: Control a change through its consequences</a></li>
+<li><a href="#lesson-4-connect-the-records-to-the-product">Lesson 4: Connect the records to the product</a></li>
+<li><a href="#lesson-5-govern-what-agents-read-and-write">Lesson 5: Govern what agents read and write</a></li>
+<li><a href="#northbank-worked-example-two-basis-revisions">Northbank worked example: Two basis revisions</a></li>
+<li><a href="#transfer-example-a-manufactured-product-drawing">Transfer example: A manufactured product drawing</a></li>
+<li><a href="#practice-recover-a-controlled-working-basis">Practice: Recover a controlled working basis</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-issue-a-controlled-basis">Assessed assignment: Issue a controlled basis</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#prerequisites-and-outcomes">Prerequisites and outcomes</a></li>
+<li><a href="#lesson-1-give-information-a-stable-identity">Lesson 1: Give information a stable identity</a></li>
+<li><a href="#lesson-2-distinguish-revision-status-and-purpose">Lesson 2: Distinguish revision, status, and purpose</a></li>
+<li><a href="#lesson-3-control-a-change-through-its-consequences">Lesson 3: Control a change through its consequences</a></li>
+<li><a href="#lesson-4-connect-the-records-to-the-product">Lesson 4: Connect the records to the product</a></li>
+<li><a href="#lesson-5-govern-what-agents-read-and-write">Lesson 5: Govern what agents read and write</a></li>
+<li><a href="#northbank-worked-example-two-basis-revisions">Northbank worked example: Two basis revisions</a></li>
+<li><a href="#transfer-example-a-manufactured-product-drawing">Transfer example: A manufactured product drawing</a></li>
+<li><a href="#practice-recover-a-controlled-working-basis">Practice: Recover a controlled working basis</a></li>
+<li><a href="#knowledge-check">Knowledge check</a></li>
+<li><a href="#assessed-assignment-issue-a-controlled-basis">Assessed assignment: Issue a controlled basis</a></li>
+<li><a href="#portfolio-continuation-and-references">Portfolio continuation and references</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="02-document-control.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="course-02-document-and-configuration-control">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="course-02-document-and-configuration-control">Course 02: Document and Configuration Control</h1>
+<p><a href="../index.html">Series</a> · <a href="../case-study.html">Case</a> · <a href="../glossary.html">Glossary</a> · <a href="../references.html">References</a></p>
+<p>People need to know which information governs their work and whether that information describes the actual product. Document control and configuration control establish these relationships.</p>
+<p>This course teaches a practical control method for a small project, in a team where people work with AI agents. You will identify records, establish their permitted use, distribute changes, and trace effects. You will preserve earlier information so another person can understand a decision's basis.</p>
+<h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
+<p>Complete Course 01 and read Northbank Packet A. Keep your appointment response available.</p>
+<h3 id="how-this-course-is-built">How this course is built</h3>
+<p>The series index explains <a href="../index.html#how-the-series-is-built">how the series is built</a>. The classical method was examined here in a working arrangement where preparing and checking each record takes people's time to write, copy, and distribute; with agents, records are cheap, so teams now risk keeping too many, and each surplus record takes the attention of the people who must read and maintain it. Controllers therefore need restraint about which records to keep, and they must govern which basis, by identity, revision, and status, each agent reads. Lesson 5 treats that as an arrangement to design.</p>
+<h3 id="the-teaching-arrangement">The teaching arrangement</h3>
+<p>Use the case's <a href="../case-study.html#working-with-agents-in-the-case">arrangement for working with agents</a>. In this course, agents prepare and copy records only as working material; issuing a controlled revision stays with the people who hold that authority.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>By the end, you can:</p>
+<ul>
+<li>Assign stable identities to project information.</li>
+<li>Distinguish revision, status, and authorized use.</li>
+<li>Establish a baseline for a stated purpose.</li>
+<li>Trace a change to its affected users and work.</li>
+<li>Identify differences between defining records and the actual configuration.</li>
+<li>Issue a controlled basis to an agent, and check which basis its output used.</li>
+<li>Decide which records a project needs, and keep the rest out of the controlled set.</li>
+</ul>
+<h2 id="lesson-1-give-information-a-stable-identity">Lesson 1: Give information a stable identity</h2>
+<h3 id="the-classical-method">The classical method</h3>
+<p>A filename helps you find a document, but it may not identify the document reliably. People copy files, rename them, and attach extracts to messages; similar filenames can contain different revisions.</p>
+<p>Use a stable identity that survives those movements. Northbank uses A02 for the project basis; Rev 0 and Rev 1 are different revisions of that identified document. A reference to “the basis file” leaves the reader uncertain.</p>
+<p>Record enough information to retrieve the exact item. Useful fields include identity, title, revision, status, origin, location, and issue date; add subject and use limits where they matter. An attachment copied into another folder should keep its identity and revision.</p>
+<p>An extract also needs identity, so state its parent source and the extent of the extract. A table copied without its source note can change how the reader understands it. At Northbank, the planning-estimate note on the legacy schedule is essential to its value as evidence.</p>
+<p>Use one authoritative location for a controlled item when the working system allows it; other copies should identify their origin and controlled status. Arrange access so the people doing the work can retrieve the required revision.</p>
+<p>Apply this identification method:</p>
+<ol>
+<li>Assign the item a stable identity.</li>
+<li>Record its revision and title.</li>
+<li>Identify its origin and retrievable location.</li>
+<li>Record its status and permitted use.</li>
+<li>Identify any parent source or attached evidence.</li>
+<li>Check that the intended user can retrieve it.</li>
+</ol>
+<p>Preserve earlier revisions according to the actual retention requirements: they help reconstruct a decision and explain a later change. Control access to sensitive information under the applicable arrangements.</p>
+<h3 id="what-it-assumes">What it assumes</h3>
+<p>The 'What it assumes' passages in this course describe working arrangements for comparison. They are not universal facts about human practice; examine whether they hold in the task at hand.</p>
+<p>The classical method assumes that copies and extracts multiply at the pace of people's work. It also assumes that a person reading a document brings some context: a draft watermark, an unfamiliar date, or a colleague's remark can make them pause before they use the wrong file.</p>
+<h3 id="what-changes-with-agents">What changes with agents</h3>
+<p>Agents copy, extract, summarize, and re-save at machine pace, and each derivative is a new item that can lose its identity. An agent's summary of A03 that omits the planning-estimate note is the classical extract problem, produced in seconds and possibly many times.</p>
+<p>Agents read what they are given or can reach. An agent given access to Northbank's shared folder meets A02 Rev 0 and Rev 1 under similar filenames, as A07 reports, and it has no institutional memory to tell it which one the team uses. Unless its brief or the record's own fields say which revision governs, it may use either one.</p>
+<p>Agents are also intended users now. Step 6 asks whether the intended user can retrieve the item; when an agent works from the record, that includes the agent.</p>
+<h3 id="the-extended-method">The extended method</h3>
+<p>Require identity on every agent derivative. An agent's extract, summary, or table states its parent source, revision, and extent, just as a person's extract must. Prefer links to the authoritative location over agent-made copies, because cheap copies multiply the items whose identity someone must keep.</p>
+<p>Brief agents with exact identities and revisions, not folder paths or descriptions such as “the basis file.” Ask the agent to report the identity and revision of each source it used, and check that report against the identified basis.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 1; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Give the agent the whole shared folder</td>
+<td>It can find a relevant item you did not name</td>
+<td>It may read a draft or superseded revision, such as A02 Rev 0</td>
+</tr>
+<tr>
+<td>Give the agent an identified set of records</td>
+<td>It works from the controlled basis</td>
+<td>It misses any relevant item left out of the set; A07 shows that the library index omits A04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-2-distinguish-revision-status-and-purpose">Lesson 2: Distinguish revision, status, and purpose</h2>
+<h3 id="the-classical-method-1">The classical method</h3>
+<p>A revision identifies a version, status describes its condition under the control process, and purpose describes what the item was issued for. These three fields answer different questions.</p>
+<p>The highest revision may be a draft; an older revision may remain the approved basis for a particular activity. A document issued for review may support comments but not be authorized for purchase or construction.</p>
+<p>Approval also has scope. A02 Rev 1 is approved for project development and states unresolved inputs; its approval does not establish that equipment selection is complete. A04 is a checked observation with explicit limits.</p>
+<p>Create a baseline when a group of identified information must serve as a controlled reference. State its purpose and change process, and include the relevant revisions, decisions, and unresolved conditions. A baseline can contain open matters if their treatment is explicit and suitable for its purpose.</p>
+<p>Before you rely on an item, ask:</p>
+<ul>
+<li>Is this the identified revision needed for the activity?</li>
+<li>Does its status permit this use?</li>
+<li>Does its approval cover this content and scope?</li>
+<li>Are its unresolved conditions compatible with the activity?</li>
+<li>Has a later decision changed its permitted use?</li>
+</ul>
+<p>Use an issue check:</p>
+<ol>
+<li>Identify the receiving activity.</li>
+<li>State the permitted use.</li>
+<li>Check the required review and approval evidence.</li>
+<li>List unresolved conditions that affect the use.</li>
+<li>Identify the issued revisions.</li>
+<li>Notify the intended recipients.</li>
+</ol>
+<p>Do not use a “current” label without defining what purpose it is current for. When several activities use different baselines, make their relationships explicit; otherwise, people can combine individually valid information into an inconsistent result.</p>
+<h3 id="what-it-assumes-1">What it assumes</h3>
+<p>The classical method assumes that the people who receive an issue read its status and purpose, and that a person who uses the wrong revision does so in one piece of work at a time. Someone usually notices before the error has travelled far.</p>
+<h3 id="what-changes-with-agents-1">What changes with agents</h3>
+<p>An agent reads status only if the status is in the material it receives and the brief makes it matter. Without that, it can treat the newest-looking file as current, or a proposal as basis.</p>
+<p>A superseded or draft revision used by an agent can spread faster. One designer who opened A02 Rev 0 affects the work that designer touched. An agent briefed with Rev 0 can carry 15 litres per second into every draft, calculation, and list it prepares, and other agents may then read those outputs as inputs.</p>
+<p>So the brief becomes an issue. Every agent assignment receives information for a purpose, which is exactly what the issue check governs.</p>
+<h3 id="the-extended-method-1">The extended method</h3>
+<p>Treat each agent brief as an issue of controlled information, and apply the issue check to it. State the receiving activity and its permitted use, identify the issued revisions with their status, and list the unresolved conditions that affect the work. For Northbank project development, that means A02 Rev 1 as approved for project development, with its unresolved operating conditions, and A05 Rev 0 marked as a proposal.</p>
+<p>When the basis changes, include agent work in progress among the recipients. An agent assignment briefed before the change is still working from the earlier basis until someone stops it or re-briefs it.</p>
+<h2 id="lesson-3-control-a-change-through-its-consequences">Lesson 3: Control a change through its consequences</h2>
+<h3 id="the-classical-method-2">The classical method</h3>
+<p>A changed document can affect work already completed, and it can also change inputs that another person is using. Revision control preserves the versions; change control deals with these consequences.</p>
+<p>Start with the proposed departure from the approved basis. Identify its reason, the requirements it affects, its technical and resource effects, and who has authority to decide it. Seek the necessary decision before you implement a reserved change.</p>
+<p>After approval, update the defining information and notify the affected people. Ask each receiving owner to examine the effect on their work. A sent message is evidence of distribution, but it does not establish that the recipient applied the change correctly.</p>
+<p>Different owners may need different actions. A flow change can affect pump selection, piping, electrical loads, controls, supports, tests, and operating information, but the exact effects require competent examination. Do not assume the list is complete just because it is long.</p>
+<p>Keep the original proposal and decision basis available, identify which revisions the new decision changes, and record any conditions on implementation. That lets a successor tell an authorized change apart from an unexplained document difference.</p>
+<p>Apply a controlled-change method:</p>
+<ol>
+<li>State the proposed departure.</li>
+<li>Identify the affected baseline.</li>
+<li>Assess the effects with the affected owners.</li>
+<li>Obtain the required decision.</li>
+<li>Revise the defining information.</li>
+<li>Distribute the identified revision.</li>
+<li>Check adoption in affected work.</li>
+<li>Preserve the decision and earlier basis.</li>
+</ol>
+<p>Where an input defect is found, correct its distribution promptly and assess the work that already used it. Preserve the defect and repair evidence when later examination needs them; a silent file replacement prevents that examination.</p>
+<h3 id="what-it-assumes-2">What it assumes</h3>
+<p>The classical method assumes that revising and distributing documents takes people's time, so changes move slowly. That slowness limits how far an error travels before someone notices it. Preparing an impact list also takes effort, so the list reflects someone's thought about each entry.</p>
+<h3 id="what-changes-with-agents-2">What changes with agents</h3>
+<p>Agents make several steps fast. An agent can draft an impact list for a flow change quickly, and the list may be long. The classical warning matters more: a long list is not a complete one, and a list an agent produced cheaply does not show that anyone examined each entry.</p>
+<p>An agent can revise defining information across many documents quickly, and it can carry a wrong value as quickly as a right one. Course 08 develops this for <a href="08-project-execution.html#lesson-4-connect-purchasing-risk-and-change">propagating dispositions</a>.</p>
+<p>Agents can check adoption at the level of text. An agent can search every output for 15 litres per second and report each place it appears. That search is useful for the impact enquiry, but it finds the value only where it is written. A pump duty or pipe size that someone derived from 15 litres per second does not contain the number, and finding it needs the owner's examination.</p>
+<p>Agents can also overwrite files. An agent that corrects a document by replacing it in place performs the silent file replacement that the classical method forbids, and it can do so many times before anyone notices.</p>
+<h3 id="the-extended-method-2">The extended method</h3>
+<p>Use the same eight steps. Agents can draft Step 3's impact list, perform the mechanical revisions of Step 5, distribute in Step 6, and run text searches that support Step 7. They do not decide in Step 4, and they do not establish technical adoption in Step 7: each affected owner examines whether their work actually adopted the change.</p>
+<p>Before any agent revises a document, confirm that the decision exists and identify its scope. Arrange for agents to create a new revision instead of overwriting the controlled one, so the defect and the repair both remain available.</p>
+<h2 id="lesson-4-connect-the-records-to-the-product">Lesson 4: Connect the records to the product</h2>
+<h3 id="the-classical-method-3">The classical method</h3>
+<p>Configuration means the arrangement and characteristics of the product or system. Its defining information can include drawings, specifications, software versions, equipment lists, settings, and selected vendor data.</p>
+<p>Document control alone cannot show what was installed: a revised drawing may be approved but not applied, a field change may exist without an updated drawing, and a test may cover a configuration different from the delivered one.</p>
+<p>Configuration control connects the product, its defining records, authorized changes, and examination evidence. For each important item, identify the actual configuration and the records that define it, and match observations to that configuration.</p>
+<p>In early Northbank development, the project has no selected pump configuration, and the product-family brochure cannot fill that gap. It may support investigation, but it does not identify a selected motor, curve, materials, or control arrangement.</p>
+<p>Use a configuration comparison at a meaningful transition:</p>
+<ol>
+<li>Identify the product or system under examination.</li>
+<li>List the records that define its relevant characteristics.</li>
+<li>Identify the actual configuration from suitable observations.</li>
+<li>Compare the defining records with those observations.</li>
+<li>Record discrepancies and affected evidence.</li>
+<li>Assign each discrepancy a required response.</li>
+</ol>
+<p>Use detail that serves a decision, dependency, examination, or recovery need. A small project can use a simple list, but complex products may need specialized systems. The control must make the relationship understandable to the people who rely on it.</p>
+<h3 id="what-it-assumes-3">What it assumes</h3>
+<p>The classical method assumes that records are costly to make, so a small project keeps few of them and each one has a reason. It also assumes that whoever writes a configuration record has some knowledge of the product it describes.</p>
+<h3 id="what-changes-with-agents-3">What changes with agents</h3>
+<p>Agents can produce configuration records cheaply and in volume. They can also produce a plausible configuration description from what they have: given the Northbank brochure, an agent can write an equipment list with a motor, a curve, and materials that reads like a selection. The classical rule that the brochure cannot fill the gap becomes more important, because the filled gap now looks like a record.</p>
+<p>Agents work on records, not on the product. Step 3 identifies the actual configuration from suitable observations, and those observations still come from people and instruments on site. An agent can compare the records with observations that someone supplies, but it cannot supply the observation.</p>
+<p>The classical rule about detail now does more work. Each record an agent adds has to be read, examined, and kept current by someone, and a stale record is one that a later agent may read as current.</p>
+<h3 id="the-extended-method-3">The extended method</h3>
+<p>Keep a record only when a concrete consumer needs it to decide, act, examine, or recover, or when an acceptance requirement calls for it. Prefer a link or a query to another maintained copy. Brief agents to mark any configuration entry that lacks a selection or an observation behind it, instead of filling it.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 2; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Gain</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Record everything agents can produce</td>
+<td>A complete trail and easy recovery</td>
+<td>Each record uses attention; signal is buried; more stale copies for agents to read</td>
+</tr>
+<tr>
+<td>Keep only records with a named consumer</td>
+<td>Less to read and keep current</td>
+<td>A consumer you did not anticipate may lack a record they needed</td>
+</tr>
+<tr>
+<td>Link to the authoritative source instead of copying</td>
+<td>One place to keep current</td>
+<td>The reader must be able to reach the source</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="lesson-5-govern-what-agents-read-and-write">Lesson 5: Govern what agents read and write</h2>
+<p>In a human team, which information people work from is governed partly by distribution and partly by habit. People know where the approved files are, ask a colleague when unsure, and rarely open a folder they have no reason to open. With agents, the information an agent works from is its brief and whatever it can reach. That is a design you choose, so the control arrangement must make it explicit.</p>
+<p>Design the arrangement from its required function: every agent works from an identified basis, and no agent output enters that basis without examination.</p>
+<p><strong>Control what agents read.</strong> Give each agent the identified records with revision and status, and the unresolved conditions that affect its work. Where an agent has broader access, state which revisions govern and which items are drafts, proposals, or archived references, such as A02 Rev 0, A05 Rev 0, and A03 Rev 0.</p>
+<p><strong>Control what agents write.</strong> Agent outputs are working material until someone examines them. Keep them apart from the controlled set, identify them as agent work with the basis they used, and admit them to the controlled set only through the issue check. Arrange for agents to create revisions, not overwrite controlled items.</p>
+<p><strong>Check the basis each output used.</strong> Ask each return to list its sources by identity and revision, and compare that list with the brief. An output built on the wrong revision can be well formed and wrong throughout.</p>
+<p><strong>Practise restraint.</strong> Agents make records cheap, but the attention of the people who read them is not. Ask of each record: who will use it, and for what question? Remove or link any record without an answer.</p>
+<p><strong>Design against the known failure modes:</strong></p>
+<ul>
+<li>A superseded or draft revision used as current, and its values carried into many outputs.</li>
+<li>An extract or summary that lost its parent identity or its source note.</li>
+<li>An agent output read by another agent as if it were controlled basis.</li>
+<li>A silent replacement that erases the defect and the evidence of repair.</li>
+<li>A text search for a changed value taken as proof that no derived work used it.</li>
+<li>Records produced because they are cheap, not because anyone needs them.</li>
+</ul>
+<p>Part of the classical discipline answered the cost of making and copying records by hand, and that part loses force when agents produce them. The parts that govern identity, status, approval scope, and the link between records and product keep their reasons, and agents make them more important, because more work now rests on whichever basis an agent was given.</p>
+<p>This is an argument from how the costs have changed, not a measured result. Agent capability and cost vary with the task and the system, so test the premise against your own work. Course 08 extends this view to <a href="08-project-execution.html#lesson-6-engineer-the-arrangement-that-does-the-work">the whole working arrangement</a>.</p>
+<h2 id="northbank-worked-example-two-basis-revisions">Northbank worked example: Two basis revisions</h2>
+<p>The responsibility brief depends on a clear working basis. Here, the task is to recover that basis and identify work affected by use of the wrong revision.</p>
+<p>A07 reports that the shared folder contains A02 Rev 0 and Rev 1 under similar filenames. A designer has opened Rev 0, whose draft flow is 15 litres per second.</p>
+<p>The document controller identifies A02 Rev 1 and its approval record. That revision's required flow is 18 litres per second. The controller preserves Rev 0 as an earlier draft and removes the ambiguity about whether it is the working basis.</p>
+<p>The project engineer then examines the affected work. The controller cannot determine technical impact just by relabeling the file. The designer must identify the calculations, sketches, and selection notes that used Rev 0.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 3; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Control response</th>
+<th>Further examination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A02 Rev 0</td>
+<td>Identify as an earlier draft; preserve its history.</td>
+<td>Find work that used its 15 litres per second value.</td>
+</tr>
+<tr>
+<td>A02 Rev 1</td>
+<td>Identify as approved for project development.</td>
+<td>Preserve its unresolved operating conditions.</td>
+</tr>
+<tr>
+<td>A03 Rev 0</td>
+<td>Preserve the archived status and planning-estimate note.</td>
+<td>Examine any design conclusion that treated it as a site survey.</td>
+</tr>
+<tr>
+<td>A04 Rev 1</td>
+<td>Add its checked observation and location to the working index.</td>
+<td>Keep capacity, protection, and compatibility unresolved.</td>
+</tr>
+<tr>
+<td>A05 Rev 0</td>
+<td>Retain as a proposal.</td>
+<td>Prepare the sponsor's requested impact assessment.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The correction does not create a new scope decision; it puts the already approved A02 Rev 1 back into working use. Any affected technical work still needs examination and repair.</p>
+<h3 id="the-same-work-with-agents">The same work with agents</h3>
+<p>This account is a teaching assumption, not a Northbank record: the records do not say how any of the work was produced.</p>
+<p>The document controller briefs an agent to draft the source-control list and to search the project's working outputs for the values 15 litres per second and 480 V. The brief identifies A02 to A07 with their revisions and status, states that A02 Rev 1 holds the approval record, and asks the agent to list each source it used by identity and revision.</p>
+<p>The controller does not accept the list because it is complete in form. The controller checks that Rev 1 is identified by its approval record, not by its filename; that A03 keeps its archived status and planning-estimate note; that A04 appears even though A07 reports that the library index omits it; and that A05 stays a proposal.</p>
+<p>The search results are leads for the impact enquiry, not its conclusion. A hit shows where a value is written. The absence of a hit does not show that no work used Rev 0, because a value derived from 15 litres per second need not contain the number. The designer and the project engineer still examine the affected work.</p>
+<p>If agents had been working from the shared folder while both revisions sat there, the enquiry would also cover their outputs.</p>
+<p>The control and technical responses are the same as in the classical account. Agents change who drafts the list and runs the search, and what the controller and the owners must check.</p>
+<h2 id="transfer-example-a-manufactured-product-drawing">Transfer example: A manufactured product drawing</h2>
+<p>A workshop holds Drawing D17 Rev 2, issued for manufacture. Engineering later creates Rev 3 as a review draft, and a technician finds Rev 3 in a message.</p>
+<p>The revision number alone does not authorize manufacture to Rev 3, so the technician checks the purpose it was issued for and its approval. If a physical part already follows Rev 3, the team examines that discrepancy before describing the part as conforming.</p>
+<p>Preserve the draft and the identity of the manufactured part. The technical owner determines the consequence, and document control supports that determination through reliable records.</p>
+<p>An agent preparing machining instructions from the drawing folder meets the same choice as the technician. If its brief names D17 Rev 2 as issued for manufacture, it can work from the right revision; if it does not, it may take Rev 3 because it is newer.</p>
+<h2 id="practice-recover-a-controlled-working-basis">Practice: Recover a controlled working basis</h2>
+<p>Use A02 to A07 and Portfolio 01. The supplied condition is the folder discrepancy reported in A07, and no additional approval or technical result is available.</p>
+<p>First prepare source-control entries for A01, A06, and A07 yourself, without an agent: identity, revision, status, permitted use, and limits. The worked example does not cover these records, so the entries are your own baseline for judging what an agent's list should contain. Work with an agent for the outputs that follow.</p>
+<p>Supply these outputs:</p>
+<ol>
+<li>A source-control list with identity, revision, status, permitted use, and limits.</li>
+<li>A short issue note identifying the project-development basis.</li>
+<li>A distribution list based on affected activities.</li>
+<li>An impact enquiry for work that may have used A02 Rev 0 or A03.</li>
+<li>A comparison checklist for a future selected equipment configuration.</li>
+</ol>
+<p>State which entries come from Packet A, and identify any missing location or distribution information. Do not invent a completed impact assessment. Ask a partner to retrieve the basis using your list.</p>
+<p>For each agent-assisted output, keep the brief you gave the agent and a short note of what you checked in its return, what you found, and what you changed.</p>
+<p>Then complete three further exercises:</p>
+<ol>
+<li><strong>Issue a basis to an agent.</strong> Write the brief for an agent that will draft the impact enquiry. Apply the issue check from Lesson 2 to the brief itself: receiving activity, permitted use, issued revisions with status, and unresolved conditions.</li>
+<li><strong>Check the basis used.</strong> Compare the sources that the agent reports using with the revisions you issued. Record any difference, or record that there was none and what the comparison would have caught.</li>
+<li><strong>Practise restraint.</strong> For each record you produced in this practice, including agent outputs, name its consumer and the question it answers. Remove or replace with a link any record without an answer, and explain one removal or one record you kept.</li>
+</ol>
+<h2 id="knowledge-check">Knowledge check</h2>
+<ol>
+<li>How does a stable document identity differ from a filename?</li>
+<li>Why can the highest revision be unsuitable for an activity?</li>
+<li>What does the approval of A02 Rev 1 permit and leave unresolved?</li>
+<li>Why does sending a revised document not establish adoption?</li>
+<li>What distinguishes document control from configuration control?</li>
+<li>What response is needed after work used the wrong basis revision?</li>
+<li>Why can an agent's use of A02 Rev 0 cause more damage than one designer's use of it?</li>
+<li>What does it mean to treat an agent brief as an issue of controlled information?</li>
+<li>Agents make records cheap. Why can a surplus record still be a cost, and what test decides whether a record should exist?</li>
+<li>An agent searches the project outputs and finds no remaining use of 15 litres per second. What does that establish, and what does it not establish?</li>
+<li>Name one document-control practice whose reason weakens when agents produce records, and one that becomes more important. Explain each from the cost it was answering.</li>
+</ol>
+<h2 id="assessed-assignment-issue-a-controlled-basis">Assessed assignment: Issue a controlled basis</h2>
+<p>Prepare a controlled-basis package for Northbank project development, working with agents. Use Packet A only, and include a revision list, an issue note, an affected-work enquiry, and a change method. Add a short account of how you arranged what the agents read and wrote, with the briefs you used and your examination record.</p>
+<p>Then defend the package to your instructor. Explain its main conclusions and what you checked, and reason through changed premises such as an agent that overwrote a revision, a recorded amendment to A05, or a further omission from the library index. Your instructor rates the defense as the <a href="../instructor-guide.html#assess-agent-assisted-work">teaching guide</a> describes; in text-only study it is rated on changed-premise reasoning with the medium recorded.</p>
+<p>An instructor assesses nine observable criteria:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table 4; scroll horizontally if needed">
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Evidence required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity and retrieval</td>
+<td>Each relevant item has an exact identity, revision, and retrievable source reference. Agent-made extracts and summaries identify their parent source and revision.</td>
+</tr>
+<tr>
+<td>Status and use</td>
+<td>The package distinguishes drafts, approved development information, observations, proposals, and open inquiries.</td>
+</tr>
+<tr>
+<td>History</td>
+<td>Earlier information remains identifiable without ambiguity about its permitted use.</td>
+</tr>
+<tr>
+<td>Change consequences</td>
+<td>The method assigns impact examination, decision, distribution, and adoption checks. It does not treat an agent's text search or distribution as evidence of technical adoption.</td>
+</tr>
+<tr>
+<td>Configuration relationship</td>
+<td>The package identifies missing product definition and limits the proposed comparison accordingly.</td>
+</tr>
+<tr>
+<td>Control of what agents read and write</td>
+<td>Each brief issues an identified basis with revisions and status, and agent outputs stay separate from the controlled set until examined.</td>
+</tr>
+<tr>
+<td>Record restraint</td>
+<td>Each record kept names its consumer and the question it answers.</td>
+</tr>
+<tr>
+<td>Examination record</td>
+<td>The record shows which basis each agent output actually used, what you checked, what you found, and what you changed.</td>
+</tr>
+<tr>
+<td>Defense</td>
+<td>You explain the package's main conclusions and their grounds, and reason correctly through the changed premises your instructor poses.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Demonstrate retrieval to a reviewer and explain one impact enquiry. Repair any ambiguous basis or unsupported configuration claim. Acceptance in training grants no authority to release a real purchase or construction package.</p>
+<h2 id="portfolio-continuation-and-references">Portfolio continuation and references</h2>
+<p>Keep the package as Portfolio 02 and link it to Portfolio 01. Course 03 will improve its subject index and assess the evidence behind selected claims.</p>
+<p>The <a href="../../alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.html">management manual (Edition 9)</a>, sections 6.3 and 6.6, explains why a record needs a concrete purpose and why reliance needs an identified edition.</p>
+<p>For optional study, compare your organization’s actual document and configuration procedures with the <a href="../glossary.html">series glossary</a>. Use the <a href="../references.html">reference guide</a> to distinguish each source's purpose and authority.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>1 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b9da4a3a5e20798185c55ff87d30265089bcf14d</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="02-document-control.md">02-document-control.md</a><br><code>518468f127154b70df5d9e5a0179ac9d08fd2deeaf06094247cf90f5aa97d2e7</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

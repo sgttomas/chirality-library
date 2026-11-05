@@ -1,0 +1,199 @@
+{
+  "status": "draft review; no registration or adoption",
+  "repository_basis": "00115c71931bcae79909602d653740d3bb72dfa1",
+  "authoring_method": {
+    "source": "bundled",
+    "sourceRootId": "chirality-root",
+    "kind": "workflow",
+    "name": "create-workflow"
+  },
+  "proposed_workflow_home": {
+    "source": "bundled",
+    "sourceRootId": "chirality-root",
+    "status": "proposed after owner review"
+  },
+  "wider_role_consultation": "HELP_HUMAN deliberately supplied full HELPS_HUMANS role for user-requested workflow design; TASK used for bounded discovery and independent draft checking. Historical examples were evidence, not operative context.",
+  "delegation": {
+    "mechanism": "delegated-harness-native collaboration.spawn_agent",
+    "parent": "/root",
+    "children": [
+      {
+        "id": "/root/workflow_drafts",
+        "role": "HELPS_HUMANS",
+        "configuration": "parent-inherited; exact serving model not reported by tool",
+        "write_scope": [
+          ".chirality/workflow-drafts/construct-local-work-graph/",
+          ".chirality/workflow-drafts/bounded-reconciliation/"
+        ],
+        "return": "two drafts and validation returned; parent integrated further corrections"
+      },
+      {
+        "id": "/root/proposal_impact_check",
+        "role": "TASK",
+        "model_configured": "gpt-5.6-terra",
+        "reasoning_configured": "high",
+        "write_scope": [],
+        "return": "affected-surface inventory returned"
+      },
+      {
+        "id": "/root/draft_contract_check",
+        "role": "TASK",
+        "model_configured": "gpt-5.6-terra",
+        "reasoning_configured": "high",
+        "write_scope": [],
+        "return": "one recovery finding repaired; bounded backcheck PASS"
+      }
+    ],
+    "limits": "shared filesystem; role/write restrictions instruction-asserted; no descendant delegation; exact launches and returns retained in task conversation"
+  },
+  "consulted_instruction_and_method_sources": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "d151dad92a074abebf8e6225c92c4c6e88fd586f2283377b50b5051eff39be7b"
+    },
+    {
+      "path": "agents/AGENT_HELP_HUMAN.md",
+      "sha256": "0c2fe7a3097ad26c93c0267e4da6aaf90c9264489df8dc368fad657bcac69183"
+    },
+    {
+      "path": "agents/AGENT_HELPS_HUMANS.md",
+      "sha256": "a0c9fb9443d8671d694c1f7b24ff3c402ffd626c781a2739342c938f2f3c3d1e"
+    },
+    {
+      "path": "agents/AGENT_TASK.md",
+      "sha256": "1a13a5b00b3ce01ff8519efe6b46bcbe0cd6a5b7985e24282fa7efa2c57c8fb7"
+    },
+    {
+      "path": "workflows/index.json",
+      "sha256": "4c7c580baad92599efae0ef7b4f8c27c61e0665b68cf2b27d3b9717ada2d4b7b"
+    },
+    {
+      "path": "workflows/create-workflow/WORKFLOW.md",
+      "sha256": "7d4443b63c474a8727a1391dca2e4c20b3a81a04d344d575d862be8f8536cf10"
+    },
+    {
+      "path": "workflows/reconciliation/WORKFLOW.md",
+      "sha256": "75948a77e7ee3ebd9cd9d8a2089c9aff75ca76b49d87260793e6fbdd152fa380"
+    },
+    {
+      "path": "workflows/reconciliation/resources/method.md",
+      "sha256": "d7b5e22a71a7de72445f8d2718d28b43764f9a7e4f069c674aecae1f33ccb86d"
+    },
+    {
+      "path": "workflows/README.md",
+      "sha256": "d45d5f3bf4ab28b857796d7995c8eb9a80af3b8002adce0e88a4999c0d108630"
+    },
+    {
+      "path": ".agents/skills/chirality-change/SKILL.md",
+      "sha256": "2b490e172436417896c1cd25dbcd543c676e3473aa58b7663985d75785ff7dba"
+    },
+    {
+      "path": "projects/chirality-app-dev/AGENTS.md",
+      "sha256": "5d65cce235a8d6f656a858e7f3836e1cbd4229a9567f215c3448353d23ae405c"
+    },
+    {
+      "path": "projects/chirality-piping/AGENTS.md",
+      "sha256": "eec1b9accc5dc4485fd0aab423678bed4c4c98396dc88b9089703965eb3d2005"
+    },
+    {
+      "path": "projects/chirality-app-dev/loop/LOOP_INIT.md",
+      "sha256": "9e37a5edfe1f5926431ec86818903f797fbf10236a1f4ab1cfea8da7a974d5ab"
+    },
+    {
+      "path": "projects/chirality-piping/loop/LOOP_INIT.md",
+      "sha256": "f327d5c6fe4d964a15786813f6de72170bc5e94471753846f461f622281e5f94"
+    }
+  ],
+  "reviewed_outputs": [
+    {
+      "path": ".chirality/workflow-drafts/bounded-reconciliation/WORKFLOW.md",
+      "sha256": "fb1021761dd6f8839eaee0af8b7e3702c861d93eb66bcd50e966ea9a410db320"
+    },
+    {
+      "path": ".chirality/workflow-drafts/construct-local-work-graph/WORKFLOW.md",
+      "sha256": "65d85631ba2ce20b4559c0802264c7992cebae46cb8aa681ef5e804a7a99cc4f"
+    },
+    {
+      "path": ".chirality/workflow-drafts/construct-local-work-graph/resources/work-graph-template.md",
+      "sha256": "f63c39bb6f69722e17121869959fecc083a64bcb00c3138a06f3d095964e406a"
+    },
+    {
+      "path": "plans/proposals/local-work-graph-loops/COMPANION_CHANGES.patch",
+      "sha256": "d192075388303fe8a11f41945e41c20bc9de8f8c8b2af6008b0848ff7d6f1bdd"
+    },
+    {
+      "path": "plans/proposals/local-work-graph-loops/README.md",
+      "sha256": "bd96dac3806f215b8891e2217487dd25a541e401e7507d0daa6ac12faaf08699"
+    },
+    {
+      "path": "plans/proposals/local-work-graph-loops/REVIEW.md",
+      "sha256": "b73f05451293e0819c1e425b0e05e0278a8354f7cfb4b1609b0fe9a0f8cbd94f"
+    },
+    {
+      "path": "plans/proposals/local-work-graph-loops/proposed/projects/chirality-app-dev/loop/LOOP_INIT.md",
+      "sha256": "5ad2f0a1e55b06a22b0413b602bdb64bd676c8c95857b61b46bda75a64196cbf"
+    },
+    {
+      "path": "plans/proposals/local-work-graph-loops/proposed/projects/chirality-piping/loop/LOOP_INIT.md",
+      "sha256": "0355a00dcab2ee2a8d64635c14c29d409161d577174d401960d5622b264ae407"
+    }
+  ],
+  "revision": "draft-2",
+  "revision_basis": {
+    "user_feedback": "Make user intent and route through the DAG an explicit part of construction; make deliverable-folder documents the target of code/docs reconciliation; retain the LOOP_INIT architecture.",
+    "intent_clarification_answer": "Infer and clarify material gaps",
+    "previous_draft": ".archive/draft-1.tar.gz",
+    "previous_draft_sha256": "b810783215aad2edb008a734f8af07a0ba35e14f3864aa3abaa210c319df1a83",
+    "current_review": "Revised methods independently checked; active-operation recovery finding moved to both loop \u00a70 drafts and backcheck passed."
+  },
+  "revision_delegation": {
+    "parent": "/root",
+    "author": "HELP_HUMAN integrating under previously consulted HELPS_HUMANS guidance and bundled create-workflow",
+    "mechanism": "collaboration.followup_task to existing native children",
+    "children": [
+      {
+        "id": "/root/proposal_impact_check",
+        "role": "TASK",
+        "model_configured": "gpt-5.6-terra",
+        "reasoning_configured": "high",
+        "scope": "read-only representative deliverable-file inspection",
+        "return": "file roles and current consolidated ScopeOfWork layout verified"
+      },
+      {
+        "id": "/root/draft_contract_check",
+        "role": "TASK",
+        "model_configured": "gpt-5.6-terra",
+        "reasoning_configured": "high",
+        "scope": "read-only revised methods and loop/patch contract check",
+        "return": "one recovery finding repaired; backcheck PASS"
+      }
+    ],
+    "limits": "instruction-asserted scopes in shared filesystem; no child writes this revision"
+  },
+  "revision_deliverable_evidence": [
+    {
+      "path": "projects/chirality-piping/execution/PKG-07_Graphical User Interface and Engineering Workflow/1_Working/DEL-07-01_3D viewport and centerline editor/ScopeOfWork.md",
+      "sha256": "e650371c6d0849b07a37d2bb618ebb8fc215fa971d9f9003abc3f17678368796"
+    },
+    {
+      "path": "projects/chirality-piping/execution/PKG-07_Graphical User Interface and Engineering Workflow/1_Working/DEL-07-01_3D viewport and centerline editor/_DEPENDENCIES.md",
+      "sha256": "aca9b0fd630d087a80fef307c3e7a649fd8c122c506b9304547d3d395560c77b"
+    },
+    {
+      "path": "projects/chirality-piping/execution/PKG-07_Graphical User Interface and Engineering Workflow/1_Working/DEL-07-01_3D viewport and centerline editor/_REFERENCES.md",
+      "sha256": "b0501c24fe1ab98263a67f7addf6f051e0c00e7e454c3053d59ce82960e06cd0"
+    },
+    {
+      "path": "projects/chirality-app-dev/execution/PKG-07_Filesystem_Execution_Lifecycle_and_Dependencies/1_Working/DEL-07-03_Deliverable_Metadata_and_Document_Kit_Contracts/ScopeOfWork.md",
+      "sha256": "870d7146c9a18aec749718319856e886ddd3d290515cb2058f40f1bddd2ee46b"
+    },
+    {
+      "path": "projects/chirality-app-dev/execution/PKG-02_Desktop_Shell_Navigation_and_Operator_State/1_Working/DEL-02-04_Toolkit_Options_and_Local_UI_State/ScopeOfWork.md",
+      "sha256": "2ebfe14aa3bf354b79111c5e0d4bc81b3e10e8292195d8c8aad5464a7f99cc8c"
+    },
+    {
+      "path": "projects/chirality-piping/execution/PKG-09_Verification, Validation, and Quality Oracles/1_Working/DEL-09-04_Validation manual skeleton/ScopeOfWork.md",
+      "sha256": "adc30cb6ef34bdda9c6e53d75e55c9c8fd44f218fb2878014f2f3f76cd9bf1be"
+    }
+  ]
+}

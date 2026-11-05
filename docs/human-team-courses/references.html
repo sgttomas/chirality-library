@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
+<meta name="source-sha256" content="cec58d569909070cbafc0e22cca757968592d6dd65420f85efe5f774d3b4b4f7">
+<meta name="source-basis-date" content="2026-10-25">
+<meta name="source-basis-revision" content="b50a2116352fd7a2bd5ddbeec7b6b6037e86deeb">
+<title>References for Project Practice · Chirality</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --canvas: #eeeeee;
+  --ink: #111111;
+  --muted: #505050;
+  --line: #cccccc;
+  --accent: #111111;
+  --tint: #eeeeee;
+  font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 2rem; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+a { color: var(--accent); text-underline-offset: .17em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: fixed; top: .6rem; left: .6rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--accent);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+.masthead { border-bottom: 1px solid var(--ink); background: var(--paper); }
+.masthead-inner {
+  max-width: 70rem; margin: auto; padding: 1.05rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.2rem;
+  align-items: baseline; justify-content: center; text-align: center;
+}
+.brand { font-size: .92rem; font-weight: 700; letter-spacing: .12em; }
+.masthead-label { color: var(--ink); font-size: .77rem; text-transform: uppercase; letter-spacing: .025em; }
+.layout {
+  max-width: 70rem; margin: auto; padding: 0 2.5rem;
+  display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem;
+}
+.sidebar {
+  position: sticky; top: 0; align-self: start; max-height: 100vh;
+  overflow-y: auto; padding: 2rem .8rem 2rem 0;
+  scrollbar-width: thin;
+}
+.nav-label, .eyebrow {
+  margin: 0 0 .85rem; color: var(--muted); font-size: .73rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.contents { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: .15rem 0; }
+.contents a {
+  display: block; padding: .34rem .65rem; border-left: 2px solid transparent;
+  color: var(--muted); text-decoration: none; font-size: .86rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.contents a:hover, .contents a:focus-visible {
+  color: var(--accent); background: var(--tint); border-left-color: var(--accent);
+}
+.nav-help { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.3rem; }
+.nav-help p, .nav-help a { font-size: .75rem; color: var(--muted); }
+.nav-help p { margin: .5rem 0; }
+kbd { font: inherit; padding: .05rem .25rem; border: 1px solid var(--line); border-radius: .2rem; }
+main { min-width: 0; max-width: 48.5rem; padding: 2rem 0 3rem; }
+.document-meta {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.5rem; margin: 0 0 1.5rem;
+  font-size: .73rem; color: var(--muted);
+}
+.document-meta div { min-width: 0; }
+.document-meta dt { font-weight: 700; letter-spacing: .025em; }
+.document-meta dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.document-meta code { font-size: .9em; background: none; padding: 0; }
+.fingerprint { grid-column: 1 / -1; }
+.paper {
+  min-width: 0; padding: 3.4rem 3rem 3rem;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+}
+article { max-width: 68ch; margin: auto; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { color: #000000; line-height: 1.22; text-wrap: balance; scroll-margin-top: 2rem; }
+h1 {
+  max-width: 19ch; margin: 0 auto 1.65rem; font-size: clamp(2.05rem, 3.8vw, 2.8rem);
+  text-align: center; text-transform: uppercase; letter-spacing: .015em;
+}
+article > h1 + p { margin-bottom: 2.4rem; text-align: center; font-size: .82rem; line-height: 1.45; }
+h2 { font-size: 1.5rem; margin: 3.4rem 0 1.1rem; }
+h3 { font-size: 1.13rem; margin: 2rem 0 .7rem; }
+h4, h5, h6 { font-size: 1.02rem; margin: 1.65rem 0 .6rem; }
+p { margin: 0 0 .78rem; }
+article p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+ul, ol { padding-left: 1.5rem; }
+li { padding-left: .2rem; margin: .35rem 0; }
+li > p { margin: .6rem 0; }
+hr { max-width: 75%; border: 0; border-top: 1px solid var(--ink); margin: 2.5rem auto; }
+blockquote {
+  margin: 1.4rem 1.25rem; padding: 0; background: none; border: 0;
+}
+blockquote > :last-child { margin-bottom: 0; }
+code, pre { font-family: "Liberation Mono", "SFMono-Regular", Consolas, monospace; font-size: .83em; hyphens: none; }
+code { background: #f1f1f1; padding: .08em .2em; overflow-wrap: anywhere; }
+pre {
+  max-width: 100%; overflow-x: auto; padding: 1rem 1.15rem; margin: 1.4rem 0;
+  color: #111111; background: #f6f6f6; border: 1px solid var(--line);
+  line-height: 1.5; tab-size: 4;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: 1em; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .87rem; line-height: 1.4; }
+th, td { padding: .65rem .75rem; text-align: left; vertical-align: top; border: 1px solid #b8b8b8; }
+th { color: #000000; background: #eeeeee; font-weight: 700; }
+tbody tr { background: #ffffff; }
+img, svg { max-width: 100%; height: auto; }
+a[id], a[name] { scroll-margin-top: 2rem; }
+p:has(> a[id]:only-child):empty { margin: 0; }
+p:has(> a[id]:only-child) { margin: 0; }
+h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-color: #777777; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.mobile-toc { display: none; }
+.document-footer { margin-top: 1.5rem; color: var(--muted); font-size: .73rem; }
+.document-footer p { margin: .4rem 0; }
+@media (max-width: 65rem) {
+  .layout { padding: 0 1.5rem; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1.5rem; }
+  .masthead-inner { padding: 1rem 1.5rem; }
+  .paper { padding: 2.6rem 2rem; }
+}
+@media (max-width: 54rem) {
+  html { scroll-padding-top: 4.5rem; }
+  .layout { display: block; padding: 0 1rem; }
+  .sidebar { display: none; }
+  .masthead-inner { padding: .85rem 1rem; gap: .2rem 1rem; }
+  .mobile-toc {
+    display: block; position: sticky; top: 0; z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .mobile-toc summary { padding: .75rem 1rem; cursor: pointer; color: var(--accent); font-weight: 700; font-size: .85rem; }
+  .mobile-toc nav { max-height: 65vh; overflow-y: auto; padding: 0 .5rem 1rem; }
+  .mobile-toc .contents a { padding: .55rem; }
+  main { padding-top: 1.25rem; }
+  .paper { padding: 2.2rem 1.4rem; }
+  article p { text-align: left; }
+  article > h1 + p { text-align: center; }
+  h2, h3, h4, h5, h6, a[id], a[name] { scroll-margin-top: 4.5rem; }
+  h2 { margin-top: 2.7rem; font-size: 1.4rem; }
+  .document-meta { gap: .75rem 1rem; }
+}
+@media (max-width: 25rem) {
+  :root { font-size: 17px; }
+  .layout { padding: 0 .5rem; }
+  .paper { padding: 1.4rem 1rem; }
+  .document-meta { padding: 0 .5rem; }
+}
+@media print {
+  @page { size: 6.75in 9.25in; margin: .68in .65in .67in .72in; }
+  :root { font-size: 10.5pt; line-height: 1.2; color-scheme: light; }
+  body, .paper { color: #111; background: white; }
+  .masthead, .sidebar, .mobile-toc, .skip-link, .back-top { display: none; }
+  .layout { display: block; max-width: none; padding: 0; }
+  main { max-width: none; padding: 0; }
+  .paper { padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  article { max-width: none; }
+  article p { margin-bottom: 4.6pt; text-align: justify; }
+  .document-meta { padding: 0 0 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #bbb; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 18pt; margin-top: 1.8rem; }
+  h3 { font-size: 12pt; }
+  h4, h5, h6 { font-size: 11pt; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: underline; }
+  .table-scroll { overflow: visible; border: 0; }
+  table { min-width: 0; table-layout: auto; font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { padding: .45rem; }
+  pre { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; border-color: #bbb; font-size: 8pt; line-height: 1.3; }
+  pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  blockquote { break-inside: avoid; background: white; }
+  .document-footer { border-top: 1px solid #bbb; padding-top: .75rem; }
+}
+</style>
+</head>
+<body id="manual-top">
+<a class="skip-link" href="#manual-content">Skip to manual</a>
+<header class="masthead">
+  <div class="masthead-inner"><span class="brand">CHIRALITY</span><span class="masthead-label">Human-agent team courses · offline reading edition</span></div>
+</header>
+<details class="mobile-toc">
+  <summary>Contents · 6 sections</summary>
+  <nav aria-label="Sections on small screens"><ol class="contents"><li><a href="#chirality-source-materials">Chirality source materials</a></li>
+<li><a href="#professional-practice">Professional practice</a></li>
+<li><a href="#codes-and-applicability">Codes and applicability</a></li>
+<li><a href="#project-and-technical-management">Project and technical management</a></li>
+<li><a href="#prose-style">Prose style</a></li>
+<li><a href="#use-the-readings">Use the readings</a></li></ol></nav>
+</details>
+<div class="layout">
+<aside class="sidebar">
+  <nav aria-label="Sections">
+    <p class="nav-label">In this manual</p>
+    <ol class="contents"><li><a href="#chirality-source-materials">Chirality source materials</a></li>
+<li><a href="#professional-practice">Professional practice</a></li>
+<li><a href="#codes-and-applicability">Codes and applicability</a></li>
+<li><a href="#project-and-technical-management">Project and technical management</a></li>
+<li><a href="#prose-style">Prose style</a></li>
+<li><a href="#use-the-readings">Use the readings</a></li></ol>
+  </nav>
+  <div class="nav-help">
+    <p>Find a term with <kbd>⌘ F</kbd> or <kbd>Ctrl F</kbd>. Use your browser’s print command for a paper copy.</p>
+    <p><a href="references.md">Markdown source</a> · <a href="#manual-top">Back to start ↑</a></p>
+  </div>
+</aside>
+<main id="manual-content" tabindex="-1">
+  <div class="paper">
+    <article aria-labelledby="references-for-project-practice">
+<!-- BEGIN MARKDOWN CONTENT -->
+<h1 id="references-for-project-practice">References for Project Practice</h1>
+<p>Use a reference for the question it can answer. Identify its jurisdiction, purpose, edition, and limits before you rely on it.</p>
+<h2 id="chirality-source-materials">Chirality source materials</h2>
+<p>The course series adapts these project principles: establish the basis, allocate work, define dependencies, examine results, control change, integrate, and transfer responsibility.</p>
+<ul>
+<li><a href="../alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.html">Project Management for Human Agent Teams</a>, management manual, Edition 9.</li>
+</ul>
+<p>The courses teach people to direct and examine agent work within human professional and organizational responsibilities. They do not import the manuals' agent role hierarchy, repository commands, or fixed stage labels.</p>
+<p>The <a href="../thesis/README.md">Root thesis</a> provides background on evidence, judgment, and professional reliance. Its architecture and regulatory interpretations are arguments to examine, not regulator determinations.</p>
+<h2 id="professional-practice">Professional practice</h2>
+<ul>
+<li><a href="https://www.apega.ca/about-apega/publications/engineering-and-geoscience-professions-act">APEGA Engineering and Geoscience Professions Act and Code of Ethics</a>.</li>
+<li><a href="https://www.apega.ca/about-apega/publications/standards-guidelines/ppmp">APEGA Professional Practice Management Plan</a>.</li>
+<li><a href="https://engineerscanada.ca/guidelines-and-papers/public-guideline-on-admission-to-the-practice-of-engineering-in-canada">Engineers Canada admission guideline and engineering competencies</a>.</li>
+<li><a href="https://engineerscanada.ca/guidelines-and-papers/public-guideline-on-the-code-of-ethics">Engineers Canada ethics guideline</a>.</li>
+</ul>
+<p>APEGA materials describe Alberta professional practice, so for another jurisdiction, check the actual legislation, regulator requirements, and appointment.</p>
+<p>Engineers Canada guidelines provide national guidance, but they do not replace the requirements of a provincial or territorial regulator.</p>
+<h2 id="codes-and-applicability">Codes and applicability</h2>
+<ul>
+<li><a href="https://www.nrc.canada.ca/en/certifications-evaluations-standards/codes-canada/canadas-construction-system-context-model-codes">National Research Council explanation of model codes and their regulatory context</a>.</li>
+<li><a href="https://nrc.canada.ca/en/certifications-evaluations-standards/codes-canada/codes-canada-publications">National Research Council code publications</a>.</li>
+</ul>
+<p>These references are about Canadian construction codes. The model-code example shows why adoption matters, but it does not establish which code governs the Northbank case.</p>
+<p>For a real applicability exercise, get the relevant adoption instrument and its amendments, and match its conditions to the actual facility and assignment.</p>
+<h2 id="project-and-technical-management">Project and technical management</h2>
+<ul>
+<li><a href="https://www.apm.org.uk/resources/what-is-project-management/">Association for Project Management description of project management</a>.</li>
+<li><a href="https://www.apm.org.uk/resources/what-is-project-management/what-is-governance/">Association for Project Management description of governance</a>.</li>
+<li><a href="https://www.nasa.gov/reference/2-0-fundamentals-of-systems-engineering/">NASA Systems Engineering Handbook fundamentals</a>.</li>
+<li><a href="https://www.nasa.gov/reference/6-0-crosscutting-technical-management/">NASA crosscutting technical management</a>.</li>
+<li>Frederick P. Brooks Jr., <em>The Mythical Man-Month: Essays on Software Engineering</em>, anniversary edition (Addison-Wesley, 1995).</li>
+</ul>
+<p>APM provides a professional account of project management. NASA supplies a useful account of technical planning, requirements, interfaces, risk, configuration, assessment, and decisions. Brooks explains why adding people to late work can slow it; Course 06 contrasts that coordination cost with the cost of briefing agents.</p>
+<p>Adapt methods to the work and its consequences. NASA's agency processes do not govern an unrelated industrial project.</p>
+<h2 id="prose-style">Prose style</h2>
+<ul>
+<li><a href="https://www.asd-ste100.org/STE_faq.html">ASD Simplified Technical English official explanation</a>.</li>
+<li><a href="https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf">ASD-STE100 Issue 9</a>.</li>
+</ul>
+<p>The course prose follows an STE100-like approach in its active verbs, stable terms, and one action per numbered step. It departs from that approach on sentence length: dependent sentences are joined so the reasoning between them stays visible, and some joined sentences exceed STE100's length limits. The series does not claim formal dictionary compliance.</p>
+<h2 id="use-the-readings">Use the readings</h2>
+<ol>
+<li>State the question that the reference must answer.</li>
+<li>Open the full source.</li>
+<li>Identify the passage and its conditions.</li>
+<li>Record the edition or update available when you read it.</li>
+<li>Explain what the passage supports.</li>
+<li>State what still needs another source or decision.</li>
+</ol>
+<p>External readings support further study, but the core offline exercises use the supplied Northbank records.</p>
+<p><a href="index.html">Return to the series</a>.</p>
+<!-- END MARKDOWN CONTENT -->
+    </article>
+  </div>
+  <footer class="document-footer">
+  <dl class="document-meta">
+    <div><dt>Source basis dated</dt><dd>25 October 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>b50a2116352fd7a2bd5ddbeec7b6b6037e86deeb</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="references.md">references.md</a><br><code>cec58d569909070cbafc0e22cca757968592d6dd65420f85efe5f774d3b4b4f7</code></dd></div>
+  </dl>
+    <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
+    <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
+    <p class="back-top"><a href="#manual-top">Back to start ↑</a></p>
+  </footer>
+</main>
+</div>
+<script>
+const mobileContents = document.querySelector('.mobile-toc');
+mobileContents.addEventListener('click', (event) => {
+  if (event.target.closest('a[href^="#"]')) mobileContents.open = false;
+});
+</script>
+</body>
+</html>

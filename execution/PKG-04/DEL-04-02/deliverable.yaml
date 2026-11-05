@@ -1,0 +1,76 @@
+id: DEL-04-02
+name: Reflective review of the practice
+needs:
+- from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
+  condition: Use the actual accepted formation payload, its decisions/manifests and independent audit,
+    following the preceding Group 1/2 bases where required. Preserve original qualifications; SOW-0011
+    formation exists and is not to be recommissioned.
+  when: Examining formation coverage or the accepted framing
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: doc:agents/AGENT_HELP_HUMAN.md
+  condition: Read the actual selected guidance on intended outcome, changed questions, commitments/evidence
+    and continuity before judging adequacy or proposing a revision. Keep its preceding basis available.
+  when: Using or revising reflective-practice guidance
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: doc:workflows/reflect-on-work/WORKFLOW.md
+  condition: Use the adopted bounded human-Agent 0 method for questioning purpose, commitments,
+    explanatory framing or chosen practice. Retain its preceding design/review basis; a future proposed revision
+    is not adopted or evidenced as executed merely by its presence. Reasoned retention and scoped change remain distinct choices.
+  when: A concrete finding calls the basis or practice into question
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: doc:workflows/coordinated-knowledge-work/WORKFLOW.md
+  condition: Read the selected method on premises, combined results, waiting and completion with the actual
+    bounded question; assess the cost and warrant of its use without inferring another monitoring layer.
+  when: Examining the coordination practice or a proposed guidance change
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: DEL-04-01
+  condition: Inspect the particular accepted/set-up localities and relevant reconciliation evidence for
+    the chosen question, keeping actual local owners and condition/maturity limits visible. Full reconciliation-deliverable
+    completion is not a prerequisite for using suitable case evidence.
+  when: A real reflection or A3 case relies on formed work and reconciliation
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: DEL-02-02
+  condition: 'Use the actual F-02 case in owning Work and PR #1783, integrated at 1357d706ea77497903976bf159f3880bea4d1360:
+    accepted goal, current-format caller condition, rejected af78739 interpretation, repaired 4ac85ca
+    candidate and examined affected uses. For reflection retain the actual owner feedback and changed
+    undertaking boundary described in this locality. This binds the selected case only; synthetic recovery
+    evidence and blanket fulfillment are not inferred.'
+  when: Establishing reflective application or A3 evidence
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: DEL-05-01
+  condition: Require Q-04 named contract/fixtures and revision, or Q-05 candidate/prior basis, only where
+    the reflective conclusion relies on those compatibility/publication claims. Preserve unknowns and
+    actual owner authority.
+  when: The selected reflective question has a named consumer or publication consequence
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: doc:docs/thesis/CHIRALITY_FRAMEWORK.md
+  condition: Use the framework's account of knowing, judgment, accountability and the limits of representations
+    as explanatory grounding alongside the thesis introduction, chapter 3's mutually corrective perspectives
+    and account of attention, chapter 9's limitations, and the README's dated evidence basis. Keep
+    commitments, design hypotheses and empirical claims distinct. The book adds no fresh App
+    or SWBPIPE product qualification or established cross-project learning practice by restating them.
+  when: Developing the book's relation to the thesis and cross-project experience
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: DEL-02-02
+  condition: Retain F-02's established distinctions about current Work navigation and historical Design
+    references, scoped adopted contracts, capability/authority and source-edition reliance in the new
+    book. This is a distinct successor-use condition, not a new F-02 implementation assignment.
+  when: The book explains meanings examined in F-02
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+- from: DEL-03-02
+  condition: For the selected R18 question, obtain source-bound repository state/change and
+    relevant effort observations, actual outcome evidence and a comparison whose conditions
+    and coverage are explicit. Tool limits may change the question; neither a result score nor
+    producer completion establishes useful change. Use preliminary supported observations where
+    sufficient; do not wait for whole-deliverable completion.
+  when: An undertaking selects tool-supported evaluation of repository change and its means
+  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md::Evaluation extension
+code_paths:
+- docs/alignment-manual/Chirality_in_Practice_Edition_1.*
+- agents/AGENT_HELP_HUMAN.md
+- workflows/coordinated-knowledge-work/**
+- workflows/reflect-on-work/**
+- execution/_Decomposition/**
+- workflows/evaluate-repository-change/**
+checks:
+- tools/scope_of_work/validate_scope_of_work.py

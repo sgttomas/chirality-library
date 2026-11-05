@@ -1,0 +1,68 @@
+# Whitespace policy for exact-byte governed artifacts.
+#
+# CRLF-terminated registers: the carriage return is the line terminator of
+# the file, not trailing whitespace. Optional local `git diff --check`
+# diagnostics should not flag CR at EOL on these paths. These attributes
+# preserve historical diagnostic choices; cosmetic whitespace does not gate CI.
+execution/_Decomposition/*.csv whitespace=cr-at-eol
+execution/_ScopeChange/**/*.csv whitespace=cr-at-eol
+projects/pec/execution/**/Dependencies.csv whitespace=cr-at-eol
+# Unified-diff artifacts carry format-mandated blank context lines
+# (a single space); disable whitespace checks for them entirely.
+execution/_ScopeChange/**/*.diff -whitespace
+_DomainEngines/bridge/PEC_V2_PROFILE_LIVE_PIN_AMENDMENT_D-T0-28_2026-08-02/TEST_PIN_PATCH.diff -whitespace
+projects/chirality-app-dev/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/pkg02-agents-presentation/author-v1/SOURCE.patch -whitespace
+# Closed D-APP-93 owner-operated trace package contains accepted, hash-bound
+# raw terminal/output bytes and frozen control objects. Preserve those bytes;
+# their adjacent hashes and intake manifests, rather than whitespace
+# normalization, are authoritative.
+projects/chirality-app-dev/execution/_Coordination/AgentRuns/APPDEV_DAPP93_OPTION_A_OWNER_OPERATED_PREPARATION_2026-08-06/** -whitespace
+# Accepted Runtime account-authority records retain exact sealed bytes. Each
+# exception below disables only the diagnosed representation feature.
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/AMENDMENT_ACTIONS_DRAFT.csv whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/AUTHOR_FREEZE.json whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/AUTHOR_V2_FREEZE.json whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/DECISION_SUBJECT.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/FINAL_HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/GATE5_REPAIR_DECISION_SUBJECT.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/GATE5_REPAIR_HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/IMPACT_AND_ORDERING_REFRESH.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/MANAGER_ENTRY.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/PREIMAGE_AUDIT.json whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/PROPAGATION_PLAN_DRAFT.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/author-v1/CANDIDATE.patch -whitespace
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/author-v2/CANDIDATE.patch -whitespace
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Amendment_Actions.csv whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Application_Journal.json whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Brief.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Decision_Log.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Handoff_State.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Impact_Assessment.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Post_Change_Coverage.json whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Pre_Change_Coverage.json whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Propagation_Plan.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/RUN_SUMMARY.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Supersession_Delta.csv whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Supersession_Map.csv whitespace=cr-at-eol
+projects/chirality-runtime/execution/_ScopeChange/SCA-002_2026-09-07_ACCOUNT_AUTHORITY/Supersession_Map_Findings.csv whitespace=cr-at-eol
+projects/chirality-runtime/execution/_ScopeChange/SCA-003_2026-09-07_1616/Supersession_Map.csv whitespace=cr-at-eol
+# Accepted App SOW-propagation evidence retains exact reviewed representation.
+# Each declaration disables only the diagnosed feature on the exact path.
+projects/chirality-app-dev/execution/_Evaluation/DecompCoverage/COV_SOW_PROPAGATION_SCA_APP_010_DEL05_2026-09-07/Handoff_State.md whitespace=-blank-at-eol
+projects/chirality-app-dev/execution/_ScopeChange/ACCEPTANCE_SCA_APP010_DEL05_PROPAGATION_2026-09-07/APP_POSTSTATE_DECISION.md whitespace=-blank-at-eof
+projects/chirality-app-dev/execution/_ScopeChange/ACCEPTANCE_SCA_APP010_DEL05_PROPAGATION_2026-09-07/CHANGE_HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-app-dev/execution/_ScopeChange/ACCEPTANCE_SCA_APP010_DEL05_PROPAGATION_2026-09-07/OWNER_ACCEPTANCE.md whitespace=-blank-at-eol
+projects/chirality-app-dev/execution/_ScopeChange/ACCEPTANCE_SCA_APP010_DEL05_PROPAGATION_2026-09-07/POINTER_JOURNAL.md whitespace=-blank-at-eol
+projects/chirality-app-dev/execution/_ScopeChange/SCA-APP-010_CARRIER_PROPAGATION_DEL-02-05_2026-09-07/APP.patch -whitespace
+projects/chirality-app-dev/execution/_ScopeChange/SCA-APP-010_CARRIER_PROPAGATION_DEL-02-05_2026-09-07/APPLICATION_JOURNAL.md whitespace=-blank-at-eol,-blank-at-eof
+projects/chirality-app-dev/execution/_ScopeChange/SCA-APP-010_CARRIER_PROPAGATION_DEL-02-05_2026-09-07/APP_DECISION_SUBJECT.md whitespace=-blank-at-eof
+projects/chirality-app-dev/execution/_ScopeChange/SCA-APP-010_CARRIER_PROPAGATION_DEL-02-05_2026-09-07/Handoff_State.md whitespace=-blank-at-eol,-blank-at-eof
+projects/chirality-app-dev/execution/_ScopeChange/SCA-APP-010_CARRIER_PROPAGATION_DEL-02-05_2026-09-07/RUN_SUMMARY.md whitespace=-blank-at-eof
+projects/chirality-app-dev/execution/_ScopeChange/SCA-APP-010_CARRIER_PROPAGATION_DEL-02-05_2026-09-07/VALIDATION.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/sow-propagation-poststate-manager-v1/APP_POSTSTATE_DECISION.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/sow-propagation-poststate-manager-v1/FINAL_HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/sow-propagation-poststate-manager-v1/RUNTIME_POSTSTATE_DECISION.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/sow-publication-handoff-manager-v1/CHANGE_HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/sow-publication-handoff-manager-v1/CROSS_PROJECT_HANDOFF.md whitespace=-blank-at-eof
+projects/chirality-runtime/execution/_Coordination/AgentRuns/APP_V3_CONSOLIDATED_RESUME_2026-09-07/scope/sow-publication-handoff-manager-v1/ROOT_RUNTIME_INPUT.json whitespace=-blank-at-eof

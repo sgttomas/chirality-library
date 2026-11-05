@@ -1,0 +1,15 @@
+{
+  "contract_source": "agents/AGENT_DOMAIN_ENGINE.md@77a327727",
+  "findings": [],
+  "profile_id": "pec",
+  "profile_path": "_DomainEngines/bridge/PEC_V2_PROFILE_SUCCESSOR_D-T0-27_2026-08-02/candidate/pec.yaml",
+  "profile_status": "ADOPTED",
+  "result": "VALID",
+  "schema": "domain-engine-profile-validation/v1",
+  "summary": {
+    "error_count": 0,
+    "warning_count": 0
+  },
+  "tool": "validate_domain_engine_profile",
+  "valid": true
+}

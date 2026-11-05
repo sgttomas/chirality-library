@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/PRD.md",
+    "candidate": "candidates/PRD.md",
+    "before_sha256": "e03cb48ee99287041bed343e12e7c3d0a99812f953831d4eba60e03c2883ad2a",
+    "after_sha256": "f056b43a21a4d57c0619e932b11c96c8a6684d7d6fe3777182fee0ce70d60830"
+  },
+  {
+    "path": "execution/_Decomposition/PROJECT_DECOMP.md",
+    "candidate": "candidates/PROJECT_DECOMP.md",
+    "before_sha256": "04fc22cd3bcb240b00bf12ab66b88afa4ec5e4a3dad2336851269cfe38d8a439",
+    "after_sha256": "3b4de442a7759e10e38e6455c9afc7d991125a6edc7257a612ff14826e14c84d"
+  }
+]

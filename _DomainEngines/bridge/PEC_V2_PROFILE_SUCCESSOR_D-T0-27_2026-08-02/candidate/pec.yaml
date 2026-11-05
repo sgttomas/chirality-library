@@ -1,0 +1,106 @@
+# PEC v2 Domain Engine Profile candidate
+#
+# Candidate only. D-T0-27 is awaiting owner ruling. These bytes are not the
+# live profile and authorize no profile-mediated invocation.
+
+domain_profile:
+  schema_version: "1.0"
+  id: "pec"
+  name: "PEC v2 coordination plane"
+  engine_type: "coordination-plane/file-truth-projection"
+  profile_version: "1.0"
+  profile_status: "ADOPTED"
+  integration_level: "READ_ONLY"
+  execution_policy: "DECLARED_READ_ONLY_AND_SUMMARY_TOOLS_ONLY"
+  historical_binding_only: false
+  data_residency: "REPO_COMMITTED_CONTENT_MINIMAL_ONLY"
+  governance_authority: "NONE_FILE_NATIVE_SOURCES_GOVERN"
+
+  domain_root_patterns:
+    - "projects/pec/v2/**"
+
+  authoritative_artifacts:
+    - "projects/pec/v2/contracts/api/v1/schema.json"
+
+  chirality_readable_artifacts:
+    - "projects/pec/v2/contracts/api/**"
+    - "projects/pec/v2/tests/contracts/api/**"
+    - "projects/pec/software-workflow.json"
+    - "projects/pec/docs/PRD.md"
+    - "projects/pec/execution/PKG-00_Architecture_Runway_Contracts/1_Working/DEL-00-01_v2_first_ADRs_core_isolation_carried_postures/artifacts/v2/ADRs.md"
+    - "projects/pec/execution/PKG-00_Architecture_Runway_Contracts/1_Working/DEL-00-03_v2_SPEC_seed/artifacts/v2/SPEC.md"
+    - "projects/pec/execution/_Coordination/D-PEC-74_FIRST_P1_SOURCE_SLICE_2026-08-01/EXECUTION_HANDOFF.md"
+
+  protected_write_paths:
+    - "_DomainEngines/profiles/pec.yaml"
+    - "projects/pec/v2/**"
+    - "projects/pec/software-workflow.json"
+    - "projects/pec/chirality.project.json"
+    - "projects/pec/AGENTS.md"
+    - "projects/pec/docs/**"
+    - "projects/pec/execution/_Decomposition/**"
+    - "projects/pec/execution/_ScopeChange/**"
+    - "projects/pec/execution/_Coordination/_DECISIONS/**"
+    - "projects/pec/execution/**/_STATUS.md"
+    - "projects/pec/execution/**/ScopeOfWork.md"
+
+  agent_writable_paths:
+    - "_DomainEngines/pec/**"
+    - "projects/pec/execution/_Coordination/** except _DECISIONS/** and owner-ruling records"
+
+  deterministic_tools:
+    - id: "pec.v2.registered_checks"
+      impl: "tools/software_workflow/run_registered_checks.py with projects/pec/software-workflow.json"
+      mode: "summary_write"
+      requires_human_confirmation: false
+      output_policy: "Normalized evidence only under an expressly authorized _DomainEngines/pec snapshot path"
+      validate_result_schema: "chirality-software-check-evidence/v1"
+      apply_result_schema: "TBD"
+    - id: "pec.v2.harness_self_check"
+      impl: "python3 tools/practitioner_harness/harness.py self-check"
+      mode: "read_only"
+      requires_human_confirmation: false
+      validate_result_schema: "TBD"
+      apply_result_schema: "TBD"
+
+  operation_proposal_policy: "DISABLED"
+  operation_proposal_contract:
+    lifecycle: ["draft", "ready_for_review", "accepted", "rejected", "applied"]
+    risk_classes: ["engine_checkable", "engine_silent"]
+    deterministic_check_result_schema: "chirality-software-check-evidence/v1"
+    accepted_or_applied_requires:
+      - "a separately enabled operation family and declared deterministic tool"
+      - "human approval bound to git SHA per K-AUTH-2"
+      - "domain-engine-controlled apply or external terminal acceptance record"
+
+  operation_risk_class_axis: ["engine_checkable", "engine_silent"]
+
+  human_gates:
+    - "D-T0-27 exact-profile Gate 2 adoption and effective application merge"
+    - "separate D-PEC packet for every project source or workflow-profile write"
+    - "profile amendment before any runtime, adapter-client, mutating, proposal, or external-result tool is declared or invoked"
+    - "separate owner act for artifact fitness, lifecycle, release, or professional reliance"
+
+  professional_boundary:
+    agent_must_not_claim:
+      - "PEC output is authoritative over governed file truth"
+      - "a governed act depends on a PEC read or write"
+      - "adoption, ruling, acceptance, rejection, force, or lifecycle state was written by PEC"
+      - "another loop must consume, poll, inject, subscribe to, or implement PEC"
+      - "professionally approved"
+      - "checked or check-accepted"
+      - "issued"
+      - "released"
+      - "code compliant"
+      - "certified"
+      - "sealed"
+      - "ready for construction"
+      - "external prover validated absent a cited human record"
+
+  open_issues:
+    - "No PEC v2 runtime store, service, transport, runtime client, event bridge, proposal operation, or external-result tool exists or is declared by this profile."
+    - "The authoritative_artifacts entry identifies the accepted PEC-owned API contract only; it is not authority over loop governance facts, which remain file-native."
+    - "Future source production remains governed by exact-path D-PEC packets. A production packet may override protected source paths only for its bounded development tranche; this profile grants no such override."
+    - "Before any future adapter or runtime-client invocation, amend this profile with exact inputs, outputs, paths, modes, side effects, failure behavior, result schemas, and human gates."
+    - "The frozen v0.4 profile version 0.3 remains historical lineage and must be preserved outside the live profiles/*.yaml discovery set when this successor becomes effective."
+    - "projects/pec/software-workflow.json is a project development check registry, not this Domain Engine Profile and not an authority or invocation grant."
