@@ -16,7 +16,7 @@ rendering evidence. Earlier editions retain their bytes and original standing.
 
 - **Optional repository-change evaluation.** [PR #1799](https://github.com/sgttomas/chirality/pull/1799)
   adds [a local CLI](../../../../tools/undertaking_evaluation/README.md) and
-  [evaluation workflow](../../../../workflows/evaluate-repository-change/WORKFLOW.md).
+  evaluation workflow (`sgttomas/chirality:workflows/evaluate-repository-change/WORKFLOW.md`, private archive).
   Inspect selected committed Git states, bind supplied outcome evidence, optionally
   import selected Codex response-usage records and compare identified reports.
   The tool exposes observations and limits; it neither judges improvement nor
@@ -92,5 +92,5 @@ exact source you use with the proposed release through the existing
 Select only applicable changes under your project's authority. Root's grants,
 acceptance and release do not transfer to App, SWBPIPE or another consumer.
 Historical sources remain recoverable through Git, earlier releases and the
-[recovery guide](../../../../projects/FROZEN.md). Publication and any downstream
+recovery guide (`sgttomas/chirality:projects/FROZEN.md`, private archive). Publication and any downstream
 notification delivery remain separate from this preparation.

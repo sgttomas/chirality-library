@@ -66,13 +66,13 @@ Verify that invariant IDs are consistent across the repo.
 - Record uncited K-* IDs as observations. Assess their significance against the governing contract rather than equating absence of citations with an invalid invariant.
 
 **3b. R1–R17 requirements:**
-- Build the canonical R-ID set from `docs/COMPATIBILITY_FORMATS.md#historical-authoring-identifiers`.
+- Build the canonical R-ID set from `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-authoring-identifiers` (private archive).
 - Scan all governance documents for R-ID references.
 - Report any R-ID cited that does not exist in the canonical set.
 - Record uncited R-IDs as observations and assess their significance against the accepted requirement; an unused reference alone does not establish nonconformance.
 
 **3c. I1–I10 invariants:**
-- Build the canonical I-ID set from `docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.
+- Build the canonical I-ID set from `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.
 - Scan all governance documents for I-ID references.
 - Report any I-ID cited that does not exist in the canonical set.
 - Report any I-ID in the canonical set that is never cited outside the defining document (orphaned invariants).

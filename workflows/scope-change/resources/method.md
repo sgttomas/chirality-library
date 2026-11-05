@@ -65,7 +65,7 @@ deliverable admits none.
      - Coverage & Telemetry consequences are identified up front.
 4) Assign `AMENDMENT_ID` (next available `SCA-{NNN}`). Scan existing: `tools/query/scan_next_amendment_id.sh {SCOPE_CHANGE_ROOT}` (or inline directory scan if no dedicated helper exists). Without a prefix the helper counts only unqualified `SCA-{NNN}` folders. A project whose accepted records use project-qualified IDs (for example `SCA-APP-{NNN}`) passes its prefix, `tools/query/scan_next_amendment_id.sh {SCOPE_CHANGE_ROOT} APP`, and keeps that form in every artifact.
 5) Capture the **pre-change baseline**:
-   - `PROJECT/SOFTWARE`: dispatch `TASK (workflow: audit-decomp)` (scoped to affected packages/deliverables; pass `DECOMP_VARIANT`) and store the `coverage_summary.json` path.
+   - `PROJECT/SOFTWARE`: run a bounded coverage review of the affected packages/deliverables with the project's register validator (for example `tools/validation/validate_decomposition_registers.py`) and store its output path. The former `audit-decomp` workflow was removed on 2026-11-04 and is preserved in the private `sgttomas/chirality` repository.
    - `DOMAIN`: run the deterministic coverage serializer against the current frozen decomposition state:
      `python3 tools/reporting/synthesize_domain_coverage_json.py --decomposition-root {CONTEXT_ROOT}/_Decomposition --output-json {snapshot}/Pre_Change_Coverage.json --missing-manifest-state NOT_FORMALIZED`
    - An existing baseline audit may be reused instead of a fresh run when its
@@ -256,7 +256,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
 2) **For `REMOVE` actions**
    - `PROJECT/SOFTWARE`:
      - Annotate the decomposition row `[RETIRED — {AMENDMENT_ID}]`.
-     - Read the deliverable `_STATUS.md` and sibling `_MEMORY.md` / `MEMORY.md` when present, then plan one appended `_STATUS.md` history line recording the retirement under the amendment, for example `- {YYYY-MM-DD} — Retired under {AMENDMENT_ID}; lifecycle state remains {CURRENT_STATE} ({ACTOR})`. Leave `**Current State:**` unchanged (`docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.2 lists no such state, and its historical-product extension says RETIRED is never an active project lifecycle value), and `tools/scaffolding/write_status.sh` is not used for retirement.
+     - Read the deliverable `_STATUS.md` and sibling `_MEMORY.md` / `MEMORY.md` when present, then plan one appended `_STATUS.md` history line recording the retirement under the amendment, for example `- {YYYY-MM-DD} — Retired under {AMENDMENT_ID}; lifecycle state remains {CURRENT_STATE} ({ACTOR})`. Leave `**Current State:**` unchanged (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` (private archive) §3.2 lists no such state, and its historical-product extension says RETIRED is never an active project lifecycle value), and `tools/scaffolding/write_status.sh` is not used for retirement.
      - Do **not** delete the folder or any files
      - If a `PACKAGE` is being retired, enumerate every child deliverable and Scope Ledger row being retired or remapped in the same amendment
    - `DOMAIN`:
@@ -266,7 +266,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
      - List any downstream generated knowledge artifacts that should be marked review-needed / retired by their owning workflow
 
 3) **For `MODIFY` actions**
-   - `PROJECT/SOFTWARE`: list specific `_CONTEXT.md` edits per affected deliverable, and record each deliverable's lifecycle state. For an `ISSUED` deliverable, state in the plan that this amendment, once accepted at checkpoint group 3, is the record that authorizes its reopening (`ISSUED → IN_PROGRESS`, `docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3): the human records the transition after acceptance, citing the accepted snapshot (with `write_status.sh --amendment`, which checks the committed record at the approval SHA), and `project-setup` in `INCREMENTAL` mode then routes the contract revision. For a `CHECKING` deliverable, state that the revision waits for a human reversal to `IN_PROGRESS`
+   - `PROJECT/SOFTWARE`: list specific `_CONTEXT.md` edits per affected deliverable, and record each deliverable's lifecycle state. For an `ISSUED` deliverable, state in the plan that this amendment, once accepted at checkpoint group 3, is the record that authorizes its reopening (`ISSUED → IN_PROGRESS`, `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3): the human records the transition after acceptance, citing the accepted snapshot (with `write_status.sh --amendment`, which checks the committed record at the approval SHA), and `project-setup` in `INCREMENTAL` mode then routes the contract revision. For a `CHECKING` deliverable, state that the revision waits for a human reversal to `IN_PROGRESS`
    - `DOMAIN`: list exact edits to the decomposition document and affected annex CSVs, and list any downstream KTY-local artifacts or terminology indexes that should be refreshed by their owning workflow
 
 4) **For `RECLASSIFY` actions**
@@ -287,7 +287,11 @@ Based on the approved amendment, produce a propagation plan **limited to the app
    - `PROJECT/SOFTWARE`: incremental setup (`project-setup`, `INCREMENTAL` mode) for added, retired and modified deliverables, including bounded local need assessment for them and affected consumers (derived on demand); estimate snapshot, scheduling, any scoped audits
    - `DOMAIN`: downstream knowledge-generation workflows, terminology QA / grep, and any coverage audit or regeneration workflow that consumes the decomposition
    - For `DOMAIN` amendments that affect KTY-local content, produce `KTY_Remediation_Manifest.csv` rows in the SCA snapshot plan. These rows are per-SCA action/evidence ledger rows, not a cumulative content-disposition surface.
-   - Manifest actions drive post-acceptance dispatch:
+   - Manifest actions drive post-acceptance dispatch. The DOMAIN KTY workflows
+     named here (`kty-content-remediate`, `domain-documents`,
+     `kty-metadata-align`) were removed on 2026-11-04 and are preserved in the
+     private `sgttomas/chirality` repository; this library does not provide
+     these DOMAIN lanes.
      - `ARCHIVE_AND_STUB` -> `TASK + kty-content-remediate` with `MODE: RETIRE_KTY`
      - `REGENERATE_CONTENT` -> `TASK + domain-documents` with `AUTHORITY_MODE: SCA_DRIVEN`
      - `VERIFY_ONLY` -> `TASK + kty-content-remediate` with `MODE: VERIFY_KTY`
@@ -378,9 +382,9 @@ under its owning checkpoint rules before proceeding.
        `project-setup` in `INCREMENTAL` mode in `Handoff_State.md`; it
        scaffolds the addition after checkpoint group 3 acceptance, against the
        accepted snapshot. An audit finding that an accepted addition has no
-       folder yet is an `EXPECTED_CONSEQUENCE` of that hand-back; the
-       post-acceptance `audit-scope-closure` run after incremental setup is
-       the check that the addition was scaffolded
+       folder yet is an `EXPECTED_CONSEQUENCE` of that hand-back; a
+       post-acceptance examination after incremental setup is the check that
+       the addition was scaffolded
      - `MERGE/SPLIT`: combine the above
      - Before any `_STATUS.md` read or update, read sibling `_MEMORY.md` / `MEMORY.md` when present as non-authoritative operational context only.
    - `DOMAIN`:
@@ -424,7 +428,7 @@ under its owning checkpoint rules before proceeding.
    - If the current SCA introduces no new supersession delta, omit `--delta` and carry forward accepted prior map rows through the same tool. Do not hand-merge cumulative supersession CSV rows.
    - If no prior map and no current delta exist, run the same tool with `--allow-empty` to create the header-only candidate map.
    - Capture the post-change baseline using the variant's authoritative coverage source:
-     - `PROJECT/SOFTWARE`: dispatch `TASK (workflow: audit-decomp)` and compare pre/post coverage outputs
+     - `PROJECT/SOFTWARE`: repeat the bounded coverage review and compare pre/post coverage outputs
      - `DOMAIN`: run `python3 tools/reporting/synthesize_domain_coverage_json.py --decomposition-root {CONTEXT_ROOT}/_Decomposition --scope-change-snapshot {CANDIDATE_SNAPSHOT} --output-json {CANDIDATE_SNAPSHOT}/Post_Change_Coverage.json`
    - Compare pre-change vs post-change state:
      - Confirm intended amendments occurred
@@ -451,7 +455,7 @@ under its owning checkpoint rules before proceeding.
          `CRITICAL` or `MAJOR` finding blocks closure until resolved or
          explicitly accepted as a non-closure state
        - the validator covers full decomposition package checks, including `UnassignedINUnits`, KTY/category and subject/KTY cardinality, coverage telemetry reconciliation, candidate artifact completeness, KTY remediation rollup consistency, and the candidate/current pointer distinction
-       - any `ADD` or `MODIFY` of a `CategoryID` or `KnowledgeTypeID` (including the successor entities of `MERGE`, `SPLIT`, or `RECLASSIFY` actions) MUST pass retrieval-driven scope ratification with a `CLUSTER_COHERENT` verdict against the current V2 source index (see the Category and Knowledge Type checks in `workflows/domain-decomp/resources/method.md`). The ratification register rows are appended to `CANDIDATE_SNAPSHOT`. If the source database or retrieval sidecars are stale relative to post-amendment source/audit/decomposition state, rebuild them with `tools/source_catalog/build_source_database.py` and `tools/retrieval/build_source_index.py` before ratification opens. A blocking verdict (`SCOPE_TOO_BROAD`, `SCOPE_TOO_NARROW`, or `SCOPE_REFINEMENT_NEEDED`) blocks poststate acceptance until resolved.
+       - any `ADD` or `MODIFY` of a `CategoryID` or `KnowledgeTypeID` (including the successor entities of `MERGE`, `SPLIT`, or `RECLASSIFY` actions) MUST pass retrieval-driven scope ratification with a `CLUSTER_COHERENT` verdict against the current V2 source index (see the Category and Knowledge Type checks in `sgttomas/chirality:workflows/domain-decomp/resources/method.md`, preserved in the private archive). The ratification register rows are appended to `CANDIDATE_SNAPSHOT`. If the source database or retrieval sidecars are stale relative to post-amendment source/audit/decomposition state, rebuild them with `tools/source_catalog/build_source_database.py` and `tools/retrieval/build_source_index.py` before ratification opens. A blocking verdict (`SCOPE_TOO_BROAD`, `SCOPE_TOO_NARROW`, or `SCOPE_REFINEMENT_NEEDED`) blocks poststate acceptance until resolved.
        - terminology changes are reflected consistently in changed sections
        - manifest evidence exists for every `ARCHIVE_AND_STUB`, `REGENERATE_CONTENT`, and `VERIFY_ONLY` row
        - no row with `FACTUAL_USE_GATE = BLOCK_FACTUAL_USE` is presented as ready for factual downstream use
@@ -499,9 +503,9 @@ under its owning checkpoint rules before proceeding.
      deliverable this amendment authorizes the human to reopen once accepted
      and each `CHECKING` deliverable held for a human reversal
    - Next owning workflow(s); name `project-setup` in `INCREMENTAL` mode
-     wherever added, retired or modified entities need setup, and
-     `audit-scope-closure` as the post-acceptance closure check of that
-     setup and of any other implementation and downstream reruns
+     wherever added, retired or modified entities need setup, and the
+     post-acceptance closure examination of that setup and of any other
+     implementation and downstream reruns
 
 8) Write all artifacts to a candidate snapshot folder that is not yet active:
    - `{SCOPE_CHANGE_ROOT}/SCA-{NNN}_{YYYY-MM-DD}_{HHMM}/`
@@ -537,7 +541,7 @@ applied state in a new append-only postacceptance record under
 `{SCOPE_CHANGE_ROOT}/_PostAcceptanceValidation/{AMENDMENT_ID}_{UTC}/`:
 
 - all variants: compare the applied bytes or hashes with the listed edits;
-- `PROJECT/SOFTWARE`: rerun `audit-decomp` or the project's register validator
+- `PROJECT/SOFTWARE`: rerun the project's register validator
   against the applied state;
 - `DOMAIN`: rerun the validator against the now-active snapshot in its default
   active mode (or with `--scope-change-snapshot-mode active`).

@@ -30,8 +30,9 @@ remain applicable to those selected projects, not to every current locality.
 3. Apply only accepted candidate edits and obtain independent scrutiny.
 4. Present the audited poststate and remaining obligations for the third decision.
 5. After acceptance, apply the listed acceptance-conditional edits and hand
-   affected setup/propagation to the selected `project-setup` route. Use the
-   matching `audit-scope-closure` route to examine actual closure.
+   affected setup/propagation to the selected `project-setup` route. Examine
+   actual closure directly; the former `audit-scope-closure` workflow was
+   removed and is preserved in the private `sgttomas/chirality` repository.
 
 A changed PRD or other governing carrier retains its own authority. Its exact
 edit must be included in the accepted write boundary or returned to its owner.

@@ -123,11 +123,6 @@
       "expected": {"discovered": [], "error": null}
     },
     {
-      "id": "converted-legacy-method",
-      "legacyInput": {"TaskSkill": "deliverable-consistency"},
-      "expected": {"kind": "skill", "name": "deliverable-consistency"}
-    },
-    {
       "id": "public-export-exclusion",
       "input": {"kind": "skill", "name": "chirality-change", "source": "project", "sourceRootId": "chirality-root-project"},
       "expected": {"included": false, "missingDiagnostic": false}

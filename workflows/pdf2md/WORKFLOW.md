@@ -130,7 +130,7 @@ The agent's native `Read` and `Write` tools are also used (for Step 2's multimod
 - Writing outside `{WORK_DIR}` and `{OUTPUT_PATH}`.
 - Embedding LLM reasoning inside any of the deterministic tool invocations — the tools must stay deterministic. The hybrid pattern is: tools deterministic, VLM transcription inside the TASK shell.
 - Asset mode (figure/table cropping + manifest generation) — that's WORKING_ITEMS’ Phase 3.5 work, not this workflow's.
-- Equation audit / fix loop — that's `equation-audit`'s job after assembly.
+- Equation audit / fix loop (the separate `equation-audit` workflow was removed; report equations as unverified).
 
 ## Outputs
 

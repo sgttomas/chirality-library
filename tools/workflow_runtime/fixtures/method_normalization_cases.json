@@ -1,0 +1,87 @@
+{
+  "schema": "chirality-method-normalization-cases/v1",
+  "cases": [
+    {
+      "id": "unqualified-workflow",
+      "input": {"workflow": "example"},
+      "outcome": {
+        "methods": [{"kind": "workflow", "name": "example"}],
+        "compatibilityInputs": ["Workflow"],
+        "decisions": [
+          {
+            "field": "Workflow",
+            "original": "example",
+            "mapping": "unqualified-workflow",
+            "resolved": {"sourceRootId": "fixture-bundle", "source": "bundled", "kind": "workflow", "name": "example"}
+          }
+        ]
+      }
+    },
+    {
+      "id": "qualified-workflow",
+      "input": {"workflow": "fixture-bundle:bundled:workflow:example"},
+      "outcome": {
+        "methods": [{"sourceRootId": "fixture-bundle", "source": "bundled", "kind": "workflow", "name": "example"}],
+        "compatibilityInputs": ["Workflow"],
+        "decisions": [
+          {
+            "field": "Workflow",
+            "original": "fixture-bundle:bundled:workflow:example",
+            "mapping": "qualified-workflow",
+            "resolved": {"sourceRootId": "fixture-bundle", "source": "bundled", "kind": "workflow", "name": "example"}
+          }
+        ]
+      }
+    },
+    {
+      "id": "workflow-equal-to-listed-method-resolves-once",
+      "input": {"workflow": "example", "methods": [{"kind": "workflow", "name": "example"}]},
+      "outcome": {
+        "methods": [{"kind": "workflow", "name": "example"}],
+        "compatibilityInputs": ["Workflow"],
+        "decisions": [
+          {
+            "field": "Workflow",
+            "original": "example",
+            "mapping": "unqualified-workflow",
+            "resolved": {"sourceRootId": "fixture-bundle", "source": "bundled", "kind": "workflow", "name": "example"}
+          }
+        ]
+      }
+    },
+    {
+      "id": "ordered-methods-preserved",
+      "input": {
+        "methods": [
+          {"kind": "skill", "name": "example-skill"},
+          {"kind": "workflow", "name": "example"}
+        ]
+      },
+      "outcome": {
+        "methods": [
+          {"kind": "skill", "name": "example-skill"},
+          {"kind": "workflow", "name": "example"}
+        ],
+        "compatibilityInputs": [],
+        "decisions": []
+      }
+    },
+    {
+      "id": "qualified-workflow-must-select-a-workflow",
+      "input": {"workflow": "fixture-bundle:bundled:skill:example-skill"},
+      "error": {"code": "INVALID_WORKFLOW_SELECTION", "messagePattern": "must select a workflow"}
+    },
+    {
+      "id": "foreign-qualified-origin-rejected",
+      "input": {"workflow": "foreign:user:workflow:example"},
+      "error": {"code": "UNSUPPORTED_METHOD_ORIGIN", "messagePattern": "outside the declared Root catalog"}
+    },
+    {
+      "id": "same-name-different-origin-not-deduplicated",
+      "input": {
+        "methods": [{"sourceRootId": "foreign", "source": "user", "kind": "skill", "name": "example-skill"}]
+      },
+      "error": {"code": "UNSUPPORTED_METHOD_ORIGIN", "messagePattern": "outside the declared Root catalog"}
+    }
+  ]
+}

@@ -1,20 +1,23 @@
 id: DEL-02-02
 name: Make library and adopted-product meanings explicit
 needs:
-- from: doc:docs/AGENT_WORKFLOW_RUNTIME.md
-  condition: Read the selected production-ownership, Root-governance, selection and retained-runtime passages
+- from: external:sgttomas/chirality
+  condition: The former runtime-interface reference, `sgttomas/chirality:docs/AGENT_WORKFLOW_RUNTIME.md`, was removed from
+    this repository on 2026-11-04 and is preserved in the private archive. Read the selected production-ownership, Root-governance, selection and retained-runtime passages
     with their introduction, historical/adoption qualifications and actual source revision before deciding
     applicability.
   when: Examining the bounded F-02 reference case
   evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: doc:docs/PRODUCT_BOUNDARIES.md
-  condition: Preserve the selected adopted-commitment, professional-accountability, invariant, domain
+- from: external:sgttomas/chirality
+  condition: The former product-boundary reference, `sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md`, was removed from
+    this repository on 2026-11-04 and is preserved in the private archive. Preserve the selected adopted-commitment, professional-accountability, invariant, domain
     and frozen-runtime meanings while examining the reference case; the opening qualifications are part
     of the evidence.
   when: Comparing authority and domain/product applicability
   evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: doc:docs/COMPATIBILITY_FORMATS.md
-  condition: Compare the selected current-locality, retained deployment/M2/G4 and legacy-format clauses
+- from: external:sgttomas/chirality
+  condition: The former compatibility-format reference, `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md`, was removed
+    from this repository on 2026-11-04 and is preserved in the private archive. Compare the selected current-locality, retained deployment/M2/G4 and legacy-format clauses
     at the actual basis. Preserve adopted containment and historical identities; do not infer a lifecycle
     migration from clarification.
   when: Distinguishing current Root setup from retained compatibility contracts
@@ -58,9 +61,6 @@ needs:
   when: Relying on a publication-change account or asserting preparation/update-inspection evidence
   evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
 code_paths:
-- docs/AGENT_WORKFLOW_RUNTIME.md
-- docs/PRODUCT_BOUNDARIES.md
-- docs/COMPATIBILITY_FORMATS.md
 - docs/thesis/04_architecture.md
 - docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.md
 checks:

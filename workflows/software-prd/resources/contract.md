@@ -20,7 +20,7 @@ resolve:
   `sourceRootId`, `name`) and content hash, and the active role;
 - `WORKING_ROOT`, the authorised project or authoring workspace;
 - `RUN_ROOT`, the existing PRD authoring run to continue, or a new explicitly
-  identified run location (`docs/COMPATIBILITY_FORMATS.md#legacy-path-tokens`: `WORKING_ROOT`-relative);
+  identified run location (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#legacy-path-tokens` (private archive): `WORKING_ROOT`-relative);
 - `PRD_TARGET`, the reader-facing location of the accepted PRD, and the
   permitted writes for this run;
 - supplied sources: conversation, existing specifications, observations,

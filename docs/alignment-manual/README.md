@@ -21,8 +21,8 @@ examines the relationship among the thesis, experience across projects and the s
 library's means of working. It is also material that reflection can question
 and revise. Reading it is neither an execution prerequisite nor adoption of
 new project obligations. The reading files above include the later editorial
-revision that removes predecessor framing. [Library 1.0.1](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.1)
-retains the published first edition at its identified source, with its download
+revision that removes predecessor framing. [Library 1.0.1](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.1),
+in the private `sgttomas/chirality` repository, retains the published first edition at its identified source, with its download
 and change account.
 
 Stable discovery link: `docs/alignment-manual/README.md#chirality-in-practice`.
@@ -103,12 +103,18 @@ The current App v4 basis states its forward selection separately.
 The owner retired the Field Book (v1, v2) and the Chirality Agent User Manual
 (v3, v4) on 2026-10-23. The Field Book condensed the earlier Project Management Manual; the Agent User
 Manual restated repository instructions, which are now the only home for current
-practice. Recover their text with, for example,
-`git show 4ac1315672:docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Field_Book_v2.md`.
+practice. Their text is recoverable from the private `sgttomas/chirality`
+repository, for example with
+`git show 4ac1315672:docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Field_Book_v2.md`
+there.
 
-- [Consolidated v7 Markdown](Project_Management_for_Human_Agent_Teams_Consolidated_v7.md). It stays in the working tree because the `software-prd` and `reverse-engineer-software` workflows cite its chapter 2 for the software PRD sequence.
+Consolidated v7 Markdown was removed on 2026-11-04; the `software-prd` and
+`reverse-engineer-software` workflows now cite chapter 2 of v9. Consolidated v8
+(Markdown, Word and PDF) was removed from the working tree on 2026-10-23.
 
-Consolidated v8 (Markdown, Word and PDF) was removed from the working tree on 2026-10-23; recover it with `git show 4ac1315672:docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v8.md`.
-
-Still earlier files and review evidence are recoverable from
-`archive/pre-manuals-2026-10-09` and `archive/pre-efficiency-cleanup-2026-10-09`.
+These earlier editions, the Field Book and Agent User Manual, and still earlier
+files and review evidence remain in the history of the private
+`sgttomas/chirality` repository, for example
+`git show 4ac1315672:docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v8.md`
+there, and its `archive/pre-manuals-2026-10-09` and
+`archive/pre-efficiency-cleanup-2026-10-09` branches.

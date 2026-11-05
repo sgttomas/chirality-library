@@ -116,6 +116,10 @@
             "tier": "supporting"
           },
           {
+            "name": "domain-knowledge-intake",
+            "tier": "supporting"
+          },
+          {
             "name": "software-test-planning"
           }
         ]

@@ -11,11 +11,11 @@ document. Give the human consequential choices with their reasons and
 consequences. Reserve judgment for people; agents contribute reckoning,
 preparation, and checks.
 
-This package implements the software PRD sequence of chapter 2 of the
-management manual
-(`docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v7.md#ch_2`,
-"The software PRD sequence"): six working steps and two grouped human
-checkpoints, A and B. Registration of this method and acceptance of a PRD
+This package applies chapter 2 of the management manual
+(`docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.md#ch_2`,
+"A basis that supports action") to a software PRD as six working steps and two
+grouped human checkpoints, A and B; section 2.5, "Prepare the decision before
+requesting it", governs how each checkpoint is prepared. Registration of this method and acceptance of a PRD
 produced by one of its runs are separate decisions.
 
 ## Applicability

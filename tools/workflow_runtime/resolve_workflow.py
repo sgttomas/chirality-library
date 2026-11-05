@@ -116,28 +116,6 @@ def parse_method_reference(value):
     return reference
 
 
-def load_legacy_methods(root: Path):
-    # An absent ledger means no converted aliases: every name resolves as a
-    # canonical workflow and legacy-only names fail as unknown.
-    if not (root / 'workflows/legacy-methods.json').exists():
-        return None, {}
-    path = contained(root, 'workflows/legacy-methods.json')
-    document = json.loads(path.read_text())
-    aliases = document.get('convertedWorkflowAliases') if isinstance(document, dict) else None
-    if not isinstance(document, dict) or document.get('schema') != 'chirality-legacy-methods/v1' or not isinstance(aliases, dict):
-        raise ValueError('unsupported legacy method mapping')
-    normalized = {}
-    for alias, target in aliases.items():
-        if not isinstance(alias, str) or not NAME.fullmatch(alias):
-            raise ValueError('invalid legacy method alias')
-        normalized[alias] = parse_method_reference(target)
-        if set(normalized[alias]) != {'kind', 'name'}:
-            raise ValueError('legacy method targets must be unqualified')
-    if document.get('unknownLegacyBehavior') != 'error':
-        raise ValueError('unsupported unknown legacy method behavior')
-    return path, normalized
-
-
 def load_catalog_identity(root: Path):
     path = contained(root, 'workflows/catalog.yaml')
     catalog = json.loads(path.read_text())
@@ -161,32 +139,18 @@ def qualify_local_method(root: Path, reference: dict) -> dict:
     return expected
 
 
-def normalize_method_selection(root: Path, workflow=None, task_skill=None, methods=()):
-    """Normalize compatibility fields without rewriting their recorded values.
+def normalize_method_selection(root: Path, workflow=None, methods=()):
+    """Normalize the Workflow compatibility field alongside ordered methods.
 
-    Unqualified Workflow and TaskSkill values use the explicit conversion ledger.
-    A fully source-qualified Workflow is an intentional historical workflow
-    selection and is therefore never redirected through that ledger.
+    An unqualified Workflow names a workflow package in the declared Root; a
+    fully source-qualified Workflow must belong to that Root. Recorded values
+    are kept as supplied.
     """
     requested_methods = [parse_method_reference(value) for value in methods]
     resolved_ordered = [qualify_local_method(root, value) for value in requested_methods]
     ordered = [dict(value) for value in requested_methods]
-    original = {'Workflow': workflow, 'TaskSkill': task_skill, 'methods': [dict(value) for value in requested_methods]}
+    original = {'Workflow': workflow, 'methods': [dict(value) for value in requested_methods]}
     decisions = []
-    mapping_path = None
-    aliases = None
-
-    def converted(alias):
-        nonlocal mapping_path, aliases
-        if aliases is None:
-            mapping_path, aliases = load_legacy_methods(root)
-        target = aliases.get(alias)
-        if target is None:
-            raise ValueError(f'unknown legacy method alias: {alias}')
-        return dict(target)
-
-    compatibility = []
-    compatibility_normalized = []
     if workflow is not None:
         if not isinstance(workflow, str):
             raise ValueError('Workflow must be a string')
@@ -194,47 +158,24 @@ def normalize_method_selection(root: Path, workflow=None, task_skill=None, metho
             reference = parse_method_reference(workflow)
             if reference['kind'] != 'workflow':
                 raise ValueError('Workflow qualified identity must select a workflow')
-            decision = 'explicit-qualified-historical-workflow'
+            decision = 'qualified-workflow'
         else:
             if not NAME.fullmatch(workflow):
                 raise ValueError('invalid Workflow name')
-            if aliases is None:
-                mapping_path, aliases = load_legacy_methods(root)
-            if workflow in aliases:
-                reference = dict(aliases[workflow])
-                decision = 'converted-alias'
-            else:
-                reference = {'kind': 'workflow', 'name': workflow}
-                decision = 'unmapped-canonical-workflow'
+            reference = {'kind': 'workflow', 'name': workflow}
+            decision = 'unqualified-workflow'
+        normalized = dict(reference)
         reference = qualify_local_method(root, reference)
-        compatibility.append(reference)
-        compatibility_normalized.append(parse_method_reference(workflow) if ':' in workflow else {'kind': reference['kind'], 'name': reference['name']})
         decisions.append({'field': 'Workflow', 'original': workflow, 'mapping': decision, 'resolved': dict(reference)})
-    if task_skill is not None:
-        if not isinstance(task_skill, str):
-            raise ValueError('TaskSkill must be a string')
-        alias = task_skill.replace('_', '-')
-        if not NAME.fullmatch(alias):
-            raise ValueError('invalid TaskSkill alias')
-        reference = converted(alias)
-        reference = qualify_local_method(root, reference)
-        compatibility.append(reference)
-        compatibility_normalized.append({'kind': reference['kind'], 'name': reference['name']})
-        decisions.append({'field': 'TaskSkill', 'original': task_skill, 'normalizedAlias': alias,
-                          'mapping': 'converted-alias', 'resolved': dict(reference)})
-    if compatibility and any(value != compatibility[0] for value in compatibility[1:]):
-        raise ValueError('conflicting Workflow/TaskSkill selections after legacy normalization')
-    selected = compatibility[0] if compatibility else None
-    if selected and selected not in resolved_ordered:
-        ordered.append(compatibility_normalized[0])
-        resolved_ordered.append(selected)
+        if reference not in resolved_ordered:
+            ordered.append(normalized)
+            resolved_ordered.append(reference)
     return {
         'methods': ordered,
         'resolved_methods': resolved_ordered,
-        'compatibility_inputs': [key for key in ('Workflow', 'TaskSkill') if original[key] is not None],
+        'compatibility_inputs': ['Workflow'] if workflow is not None else [],
         'original_inputs': original,
         'mapping_decisions': decisions,
-        'mapping_path': mapping_path,
     }
 
 
@@ -252,50 +193,13 @@ def method_package(root: Path, reference: dict) -> tuple[Path, str]:
     return package, entrypoint
 
 
-def resolve(root: Path, role: str, workflow=None, task_skill=None, resources=(), stage=None, policy=None, legacy_agent=None, methods=()):
+def resolve(root: Path, role: str, workflow=None, resources=(), stage=None, policy=None, methods=()):
     root = root.resolve()
     registry_path = contained(root, 'agents/registry.json')
     registry = json.loads(registry_path.read_text())
     if not isinstance(registry, dict) or registry.get('schema_version') != 1 or not isinstance(registry.get('roles'), dict) or role not in registry['roles']:
         raise ValueError('unsupported registry or unknown role')
-    alias = None
-    retired_route = None
-    if legacy_agent:
-        ledger = root / 'workflows/legacy-agents.json'
-        aliases = json.loads(contained(root, 'workflows/legacy-agents.json').read_text()) if ledger.exists() else {'aliases': {}}
-        alias = aliases['aliases'].get(legacy_agent)
-        if alias is None or alias['role'] != role:
-            raise ValueError('unknown legacy agent or incompatible target role')
-        if alias.get('workflow'):
-            if workflow is not None:
-                raise ValueError('conflicting Workflow/legacy-agent selections')
-            if (root / 'workflows' / alias['workflow'] / 'WORKFLOW.md').is_file():
-                _, library = load_catalog_identity(root)
-                workflow = f"{library['sourceRootId']}:{library['source']}:workflow:{alias['workflow']}"
-            else:
-                # The historical workflow package was retired; route to the
-                # recorded canonical successor and record that decision.
-                successor = alias.get('canonical_successor')
-                if not isinstance(successor, dict):
-                    raise ValueError(f"legacy agent workflow was retired without a canonical successor: {alias['workflow']}; use an ordinary authorized brief and the applicable repository conventions, or explicitly select an applicable maintained method")
-                retired_route = {'kind': successor['kind'], 'name': successor['name']}
-                methods = [*methods, retired_route]
-        if stage and alias.get('stage') and stage != alias['stage']:
-            raise ValueError('conflicting legacy stage')
-        stage = stage or alias.get('stage')
-    selection = normalize_method_selection(root, workflow, task_skill, methods)
-    if retired_route is not None:
-        # The successor stands in for the legacy agent's Workflow selection, so
-        # a different TaskSkill selection still conflicts as it did before.
-        resolved = next(m for m in selection['resolved_methods']
-                        if (m['kind'], m['name']) == (retired_route['kind'], retired_route['name']))
-        for decision in selection['mapping_decisions']:
-            if decision['field'] == 'TaskSkill' and decision['resolved'] != resolved:
-                raise ValueError('conflicting Workflow/TaskSkill selections after legacy normalization')
-        selection['mapping_decisions'].append({
-            'field': 'legacyAgent', 'original': legacy_agent, 'historicalWorkflow': alias['workflow'],
-            'mapping': 'retired-workflow-successor', 'resolved': dict(resolved),
-        })
+    selection = normalize_method_selection(root, workflow, methods)
     selected_methods = selection['resolved_methods']
     role_config = registry['roles'][role]
     if not isinstance(role_config, dict) or not isinstance(role_config.get('tools'), list) or not isinstance(role_config.get('instruction'), str):
@@ -305,10 +209,6 @@ def resolve(root: Path, role: str, workflow=None, task_skill=None, resources=(),
     if selected_methods:
         catalog_path, _ = load_catalog_identity(root)
         basis.append(fingerprint(catalog_path, root))
-    if selection['mapping_path']:
-        basis.append(fingerprint(selection['mapping_path'], root))
-    if legacy_agent:
-        basis.append(fingerprint(contained(root, 'workflows/legacy-agents.json'), root))
     execution = {}
     method_executions = []
     stage_config = {}
@@ -351,7 +251,7 @@ def resolve(root: Path, role: str, workflow=None, task_skill=None, resources=(),
                                 'original_inputs':selection['original_inputs'],
                                 'normalized_methods':selection['methods'],
                                 'mapping_decisions':selection['mapping_decisions']},
-            'stage':stage, 'legacy_alias':alias, 'role_configuration':role_config, 'execution':execution,
+            'stage':stage, 'role_configuration':role_config, 'execution':execution,
             'method_executions':method_executions, 'effective_tools':effective, 'resolved_commands':resolved_commands,
             'context':context, 'configuration_basis':basis, 'instruction_root':str(root), 'tool_root':str(root / 'tools'),
             'context_evidence':'mechanically-recorded resolver inputs; host context delivery unverified',
@@ -379,7 +279,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[2])
     p.add_argument('--role',required=True)
-    p.add_argument('--workflow'); p.add_argument('--task-skill'); p.add_argument('--legacy-agent')
+    p.add_argument('--workflow')
     p.add_argument('--method', action='append', default=[], help='Ordered method reference as JSON or a source-qualified identity')
     p.add_argument('--brief',type=Path,help='Structured inline brief JSON; explicit paths are rooted at --repo-root')
     p.add_argument('--repo-root',type=Path,help='Active writable checkout root, required with --brief')
@@ -392,10 +292,9 @@ def main():
             from normalize_brief import load_brief
             if not args.repo_root:raise ValueError('--brief requires --repo-root')
             brief=load_brief(json.loads(args.brief.read_text()),args.repo_root,args.root)
-            for cli, field in [('workflow','Workflow'),('task_skill','TaskSkill')]:
-                supplied=getattr(args,cli)
-                if supplied and brief.get(field) and supplied!=brief[field]:raise ValueError(f'CLI/brief disagree on {field}')
-                setattr(args,cli,supplied or brief.get(field))
+            if brief.get('TaskSkill'):raise ValueError('TaskSkill is retired; select the method with Workflow or methods')
+            if args.workflow and brief.get('Workflow') and args.workflow!=brief['Workflow']:raise ValueError('CLI/brief disagree on Workflow')
+            args.workflow=args.workflow or brief.get('Workflow')
             policy.setdefault('bindings',{}).update({'scope_path':brief['ScopePath'],'WORKING_ROOT':brief['WorkingRoot'],'INSTRUCTION_ROOT':str(args.root.resolve()),'REPO_ROOT':str(args.repo_root.resolve())})
             if 'AllowedTools' in brief:
                 inherited=policy.setdefault('brief',{})
@@ -408,7 +307,7 @@ def main():
             if methods:raise ValueError('methods supplied by both CLI and brief')
             if not isinstance(brief['methods'],list):raise ValueError('brief methods must be a list')
             methods=brief['methods']
-        result=resolve(args.root,args.role,args.workflow,args.task_skill,args.resource,None,policy,args.legacy_agent,methods)
+        result=resolve(args.root,args.role,args.workflow,args.resource,None,policy,methods)
         if args.policy:
             result['configuration_basis'].append(fingerprint(args.policy.resolve(),args.policy.resolve().parent))
         bind_write_authority(result, brief)

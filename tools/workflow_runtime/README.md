@@ -1,42 +1,38 @@
 # Root workflow runtime utilities
 
 `agents/registry.json` declares the four roles. `resolve_workflow.py` resolves
-ordered method selections, legacy compatibility fields, and requested
+ordered method selections, the `Workflow` compatibility field, and requested
 resources; it does not preload the library or launch an agent. App and Runtime
 adoption remains a separate owning-loop decision.
 
 ```sh
 python3 /declared/instruction/root/tools/workflow_runtime/resolve_workflow.py \
-  --root /declared/instruction/root --role TASK --workflow domain-documents \
+  --root /declared/instruction/root --role TASK --workflow dependency-extract \
   --resource resources/brief.md --policy /authorized/run/policy.json
 ```
 
 The JSON result includes the role, selected definition and resources with
 SHA-256 hashes, execution configuration, effective tools, and absolute tool
-paths. `TaskSkill` is accepted through `--task-skill`; its historical underscore
-spelling resolves to hyphens. Both it and an unqualified legacy `Workflow` name
-consume `workflows/legacy-methods.json`. Equal resolved identities resolve
-once; genuinely different identities conflict; an unknown `TaskSkill` alias
-fails. A source-qualified `Workflow` identity explicitly preserves its
-historical workflow and bypasses alias conversion. `--method` accepts ordered
-JSON references or source-qualified identities; distinct ordered methods stay
-ordered. Results record original fields, mapping decisions, normalized methods,
-and fully qualified resolved identities separately. `--legacy-agent` reads the
-explicit legacy-agent map and preserves its historical workflow route. When
-that workflow package has been retired, it resolves to the alias's recorded
-`canonical_successor` and records a `retired-workflow-successor` decision. Without
-one, resolution fails explicitly; it never silently substitutes a role-only run.
-In particular `CHANGE` retains its historical `change` identity but has no
-successor. New Git work uses an ordinary authorized brief and the applicable
-repository conventions; omit a workflow when the brief suffices. Explicit
-`change` or removed `chirality-change` package selections also fail. Read pinned
-historical packages at their recorded Git revision, not through current discovery.
+paths. `--workflow` (or a brief's `Workflow`) names a workflow in the declared
+Root; a source-qualified identity must belong to that Root. `--method` accepts
+ordered JSON references or source-qualified identities; distinct ordered methods
+stay ordered, and a `Workflow` equal to a listed method resolves once. Results
+record original fields, mapping decisions, normalized methods, and fully
+qualified resolved identities separately.
+
+The legacy alias ledgers have been removed. `TaskSkill` and legacy agent names
+are no longer accepted: a brief carrying `TaskSkill` fails, and a retired or
+removed name such as `change` or `chirality-change` fails as a missing package
+rather than being redirected. New Git work uses an ordinary authorized brief and
+the applicable repository conventions; omit a workflow when the brief suffices.
+Read pinned historical packages at their recorded Git revision, not through
+current discovery.
 
 A package's `compatible_roles` applies to the whole method. TASK receives a
 bounded child workflow or a brief. Resources are selected explicitly through
 repeatable `--resource` when exactly one method is selected; omitted resources
 are not read. Missing resources, escaping symlinks, unsupported qualified
-origins, unknown legacy aliases, and incompatible roles fail resolution.
+origins, unknown packages, and incompatible roles fail resolution.
 
 ## Policy composition and tools
 

@@ -1,0 +1,44 @@
+# Dependency declaration for the library's Python tools and checks. Nothing is
+# packaged or published: the tools run in place from a checkout
+# (`python3 tools/...` or `python3 -m tools....`), and installing this project
+# installs only their third-party dependencies.
+#
+#   python3 -m pip install ".[ci]"     # what CI installs
+#   python3 -m pip install ".[all]"    # every optional tool dependency
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chirality-library-tools"
+version = "0.0.0"
+description = "Dependencies of the Chirality library's Python tools and checks"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # Validators, index builder, deliverables graph, workflow runtime.
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+    "pytest-xdist>=3.5",
+]
+# tools/retrieval source index and tools/decomp proposal scoring.
+retrieval = ["numpy>=1.26"]
+# tools/pdf2md table export, page-asset images and PDF rasterization.
+pdf = [
+    "openpyxl>=3.1",
+    "pillow>=10.0",
+    "pymupdf>=1.24",
+]
+# workflows/data-app-spec/tools specification and design checks.
+data-app = ["jsonschema>=4.18"]
+ci = ["chirality-library-tools[test,retrieval]"]
+all = ["chirality-library-tools[test,retrieval,pdf,data-app]"]
+
+[tool.setuptools]
+# Tools run from the checkout; install no packages, only dependencies.
+packages = []

@@ -33,7 +33,7 @@ def load_profile() -> dict:
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 
 
-def test_bearing_dirs() -> set[str]:
+def _test_bearing_dirs() -> set[str]:
     return {
         f"tools/{path.parent.name}"
         for path in (REPO_ROOT / "tools").glob("*/test_*.py")
@@ -58,7 +58,7 @@ def test_every_test_bearing_dir_is_routed():
         for check in profile["checks"].values()
         for pytest_path in check["pytest_paths"]
     }
-    missing = test_bearing_dirs() - covered_dirs
+    missing = _test_bearing_dirs() - covered_dirs
     assert not missing, (
         f"test-bearing dirs absent from the routing profile: {sorted(missing)} "
         "— add a check + path_rule to tools/tools-test-routing.json"
@@ -129,6 +129,7 @@ def test_runner_routing_infrastructure_change_selects_everything():
     for trigger in ("tools/tools-test-routing.json",
                     "tools/run_affected_tests.py",
                     ".github/workflows/governance-harness.yml",
+                    "pyproject.toml",
                     "tools/validation/conftest.py"):
         selection = _dry_run("--paths", trigger)
         assert set(selection["checks"]) == set(profile["checks"]), trigger

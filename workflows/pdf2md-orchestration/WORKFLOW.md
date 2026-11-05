@@ -17,7 +17,7 @@ WORKING_ITEMS coordinates conversion. TASK performs visual interpretation on bou
 3. **Convert pages in batches.** Dispatch TASK with `Workflow: pdf2md-page-full`. Each worker reads the page image once and returns both raw Markdown and `pdf2md-page-assets/v1` JSON. Resume only complete, valid output pairs tied to the current source; incomplete pairs are requeued together.
 4. **Clean and materialize.** Run page cleanup and header/footer removal. With `ASSET_MODE=prose`, validate materialization resume state, crop or render assets, rewrite inline placeholders into working links, aggregate the asset manifest, and preserve unmatched assets explicitly. The canonical `page_NNNN.anchored.md` is regenerated from page Markdown and its materialization manifest; it is a mutable working product.
 5. **Assemble and assess.** Assemble the scoped page set, run final cleanup, and validate asset references when enabled. Report failed or empty pages, placeholder coverage, missing assets, orphan links, and manifest discrepancies. A degraded assembly requires explicit human acknowledgment before downstream use.
-6. **Hand off.** Record source identity, page coverage, output paths, degradation, and recovery requirements. For substantive mathematical content, continue with WORKING_ITEMS using `equation-audit`. Accepted source Markdown can then enter `domain-decomp`.
+6. **Hand off.** Record source identity, page coverage, output paths, degradation, and recovery requirements. For substantive mathematical content, report the equations as unverified; the `equation-audit` workflow was removed.
 
 ## Worker compatibility
 

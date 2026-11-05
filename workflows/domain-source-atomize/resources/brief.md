@@ -73,7 +73,7 @@ ExpectedOutputs:
 |---|---|---|---|
 | `MAX_ATOMS` | positive integer | `200` | smoke-test bound; halt when reached |
 | `SOURCE_HTML_PATH` | string | `audit/Pipe-Stress-Engineering.html` | when known, included in dual SourceRefs |
-| `SOURCE_REF_BASE` | string | `@repo/docs/PRODUCT_BOUNDARIES.md:L####\|domains/chirality/_Decomposition/source_review_html/SRC-DOCS-PRODUCT-BOUNDARIES.html#<SectionID>` | manifest-backed dual-citation template; replace `L####` and `<SectionID>` per atom |
+| `SOURCE_REF_BASE` | string | `@repo/docs/PRD.md:L####\|domains/chirality/_Decomposition/source_review_html/SRC-DOCS-PRD.html#<SectionID>` | manifest-backed dual-citation template; replace `L####` and `<SectionID>` per atom |
 | `SOURCE_REF_MODE` | string | `COMPONENT_MAP` | grouped-source mode; valid when the asset manifest contains `source_components` mapping generated MD lines to original repo component files |
 
 ## `AllowedWriteTargets`

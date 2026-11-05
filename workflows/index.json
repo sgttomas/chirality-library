@@ -678,6 +678,46 @@
     },
     {
       "kind": "workflow",
+      "name": "domain-knowledge-intake",
+      "source": "bundled",
+      "sourceRootId": "chirality-root",
+      "description": "Turn domain sources and expert input into an identified, warranted domain knowledge pack (criteria, methods and their applicability, parameter tables, assumptions, definitions and caveats), reconciled, examined by a competent domain reviewer and accepted for a stated scope of use by data-application specifications.",
+      "central": false,
+      "compatibility": "canonical",
+      "executionRoleIds": [
+        "HELP_HUMAN",
+        "HELPS_HUMANS",
+        "WORKING_ITEMS"
+      ],
+      "resources": [
+        "WORKFLOW.md",
+        "execution.json",
+        "resources/brief.md",
+        "resources/checks.md",
+        "resources/contract.md",
+        "resources/method.md"
+      ],
+      "navigation": {
+        "category": "specialist",
+        "tier": "supporting",
+        "order": 3,
+        "group": {
+          "key": "build-maintain-software",
+          "label": "Build & maintain software",
+          "order": 3
+        }
+      },
+      "execution": {
+        "schemaVersion": 1,
+        "compatibleRoles": [
+          "HELP_HUMAN",
+          "HELPS_HUMANS",
+          "WORKING_ITEMS"
+        ]
+      }
+    },
+    {
+      "kind": "workflow",
       "name": "domain-prose-validate",
       "source": "bundled",
       "sourceRootId": "chirality-root",
@@ -1555,7 +1595,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 3,
+        "order": 4,
         "group": {
           "key": "build-maintain-software",
           "label": "Build & maintain software",
@@ -1578,12 +1618,6 @@
       }
     }
   ],
-  "legacy": {
-    "retiredRoles": {},
-    "convertedWorkflowAliases": {},
-    "historicalOnly": [],
-    "unknownLegacyBehavior": "error"
-  },
   "discoveryContract": {
     "packageMetadata": "<package>/WORKFLOW.md#yaml-frontmatter",
     "executionCompanion": "execution.json",

@@ -57,8 +57,9 @@ needs:
     dependency or by an unresolved consumer binding.
   when: Making executable-use or supported-interface claims
   evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: doc:projects/FROZEN.md
-  condition: Preserve the documented archive/frozen recovery routes and identify the original pin/path
+- from: external:sgttomas/chirality
+  condition: The former frozen-project recovery note, `sgttomas/chirality:projects/FROZEN.md`, was removed from this
+    repository on 2026-11-04 and is preserved with the pre-migration history in the private archive. Preserve its documented archive/frozen recovery routes and identify the original pin/path
     and source before relying on historical bytes. Reuse applicable preservation evidence and disclose
     unexamined history; do not reactivate old work.
   when: Using commit-pinned historical material or explaining its recovery
@@ -79,7 +80,6 @@ needs:
 code_paths:
 - README.md
 - LICENSE.md
-- projects/FROZEN.md
 - docs/alignment-manual/README.md
 - tools/workflow_runtime/README.md
 - workflows/README.md

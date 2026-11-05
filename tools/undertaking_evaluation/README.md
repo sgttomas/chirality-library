@@ -27,8 +27,9 @@ silently converted into equivalent evidence.
 
 ## Prepare a case
 
-Use `workflows/evaluate-repository-change/WORKFLOW.md` when the selected Library
-provides that method, or prepare the same explicit basis under the actual brief.
+Prepare an explicit basis under the actual brief. (The former
+`evaluate-repository-change` workflow was removed on 2026-11-04 and is preserved
+in the private `sgttomas/chirality` repository.)
 Keep the case and raw/normalized records **outside the public repository**. This
 illustrative JSON uses placeholder revisions that must be replaced with actual
 40- or 64-character Git commit IDs:

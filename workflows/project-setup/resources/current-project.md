@@ -121,7 +121,9 @@ If the amendment already made the contract edit, verify it rather than repeat it
 For retirement or remapping, preserve the accepted historical source and IDs,
 check affected consumers, and implement only the accepted disposition. Do not
 create status/control files or infer a reopening from an issued library edition.
-Use `dependency-extract` for affected native needs, then the current-project
-`audit-scope-closure` profile for actual implementation/propagation closure.
+Use `dependency-extract` for affected native needs and `audit-dep-closure` for a
+bounded query over the resulting declarations. Implementation/propagation
+closure has no bundled audit since `audit-scope-closure` was removed; examine it
+directly.
 Report remaining obligations explicitly; setup does not authorize product
 acceptance, release or unrelated changes.

@@ -101,7 +101,7 @@ whole-deliverable finish-to-start gates.
 - **TBD-001** — Q-02 remains conditional: no demonstrated gap or implementation is selected for bespoke tooling, a file-only query interface, namespace adapter or companion. SOW-0033 has no production allocation. Continue supported utility work; return a demonstrated gap and consequence before any expanded commitment.
 - **TBD-002** — Q-04's named external contract/fixtures and exact revision are unbound. Root component checks and PR #1779's reported absence of a blocking consumer constraint do not establish A6. This limits named compatibility and incompatible-interface work, not independent instruction/utility assessment.
 - **TBD-003** — Q-05's verified publication candidate/version and prior comparison basis remain unbound in `DEL-05-01`. Any later claim about toolkit delivery or update inspection must bind those inputs; this setup contract supplies neither A7 evidence nor release authority.
-- **TBD-004** — Q-01 additional disposition remains reserved: retain `plans/`, `_DomainEngines/` and other unselected paths. Q-03 future production assignment remains open. Neither condition creates toolkit work or a permanent supplier appointment.
+- **TBD-004** — Q-01 additional disposition remains reserved for other unselected paths; `plans/` and `_DomainEngines/` were removed on 2026-11-04 and are preserved in the private `sgttomas/chirality` repository. Q-03 future production assignment remains open. Neither condition creates toolkit work or a permanent supplier appointment.
 
 ## Production and Verification Method — Praxeology
 

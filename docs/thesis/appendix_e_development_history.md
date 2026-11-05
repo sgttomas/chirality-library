@@ -163,7 +163,7 @@ establish that the next generator invocation remained usable.
 
 [PR #1224](https://github.com/sgttomas/chirality/pull/1224) removed App v3, Runtime
 and PEC from the working tree after accounting for active consumers. Their
-[recovery references](../../projects/FROZEN.md) preserve access without creating
+recovery references (`sgttomas/chirality:projects/FROZEN.md`, private archive) preserve access without creating
 current verification targets. App v2 and v3 included evolution and redesign;
 v4 identifies reuse candidates. A new PRD and version do not prove retained
 learning: tests, native-use findings, interfaces and owner decisions need to be

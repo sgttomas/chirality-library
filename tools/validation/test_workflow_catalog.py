@@ -37,11 +37,6 @@ def _fixture_root(tmp_path: Path) -> Path:
     workflows = tmp_path / "workflows"
     workflows.mkdir()
     _write_catalog(tmp_path)
-    (workflows / "legacy-agents.json").write_text(json.dumps({"schema_version": 1, "aliases": {}}))
-    (workflows / "legacy-methods.json").write_text(json.dumps({
-        "schema": "chirality-legacy-methods/v1", "convertedWorkflowAliases": {},
-        "historicalOnly": [], "unknownLegacyBehavior": "error",
-    }))
     for name in CORE:
         _write_package(workflows, name)
         (workflows / name / "execution.json").write_text(json.dumps({"schema_version": 1, "compatible_roles": ["WORKING_ITEMS"]}))
@@ -83,12 +78,11 @@ def test_root_index_is_fresh_and_classification_is_bounded():
     assert all(item["compatibility"] == "canonical" for item in workflows if item["name"] not in SUPERSEDED)
     assert len(skills) == 7 and {item["compatibility"] for item in skills} == {"canonical"}
     assert not any("navigation" in item for item in skills)
-    # The legacy ledgers were retired: no converted, retired or historical names remain.
-    assert index["legacy"] == {"retiredRoles": {}, "convertedWorkflowAliases": {}, "historicalOnly": [], "unknownLegacyBehavior": "error"}
+    # The legacy alias ledgers were retired; the index carries no alias section.
+    assert "legacy" not in index
     # Current dependency authoring has one native path, with no central-DAG
-    # package or legacy dispatch alias silently restoring the former method.
+    # package silently restoring the former method.
     assert not {"project-dag", "scc-resolution-case"} & {item["name"] for item in workflows}
-    assert not {"dependency-extract", "scc-resolution-case"} & set(index["legacy"]["convertedWorkflowAliases"])
 
 
 def test_root_navigation_partition_is_complete_and_ordered():
@@ -428,45 +422,6 @@ def test_canonical_skill_has_no_task_specific_companions(tmp_path):
     for name in ("BRIEF_SCHEMA.md", "TOOL_POLICY.md", "QA_CHECKS.md"):
         (skill / name).write_text(f"# {name}\n")
     assert validate_skill_dir(skill, tmp_path, legacy_task_contract=True)["valid"]
-
-
-def test_retired_role_workflow_requires_a_catalog_package_or_successor(tmp_path):
-    root = _fixture_root(tmp_path)
-    ledger = root / "workflows" / "legacy-agents.json"
-    ledger.write_text(json.dumps({"schema_version": 1, "aliases": {"LIVE": {"role": "WORKING_ITEMS", "workflow": CORE[0]}}}))
-    validate_and_build(root)
-    ledger.write_text(json.dumps({"schema_version": 1, "aliases": {"GONE": {"role": "TASK", "workflow": "removed"}}}))
-    with pytest.raises(ValueError, match="removed without a canonical successor"):
-        validate_and_build(root)
-
-
-def test_documented_historical_only_retirement_is_not_a_dangling_target(tmp_path):
-    root = _fixture_root(tmp_path)
-    agents = root / "workflows/legacy-agents.json"
-    methods = root / "workflows/legacy-methods.json"
-    mapping = {"role": "WORKING_ITEMS", "workflow": "removed",
-               "compatibility_note": "Use an ordinary authorized brief and repository conventions."}
-    agents.write_text(json.dumps({"schema_version": 1, "aliases": {"OLD": mapping}}))
-    # A note alone cannot excuse an accidentally removed target.
-    with pytest.raises(ValueError, match="documented historical-only retirement"):
-        validate_and_build(root)
-    ledger = json.loads(methods.read_text())
-    ledger["historicalOnly"] = ["removed"]
-    methods.write_text(json.dumps(ledger))
-    built = validate_and_build(root)
-    assert built["legacy"]["retiredRoles"]["OLD"] == mapping
-    assert "removed" not in {item["name"] for item in built["methods"]}
-    assert "removed" not in built["legacy"]["convertedWorkflowAliases"]
-    for bad in (None, "", "   "):
-        mapping["compatibility_note"] = bad
-        agents.write_text(json.dumps({"schema_version": 1, "aliases": {"OLD": mapping}}))
-        with pytest.raises(ValueError, match="documented historical-only retirement"):
-            validate_and_build(root)
-    # A declared retirement cannot hide a misspelled/different target.
-    mapping.update(workflow="typo", compatibility_note="Use the ordinary brief.")
-    agents.write_text(json.dumps({"schema_version": 1, "aliases": {"OLD": mapping}}))
-    with pytest.raises(ValueError, match="documented historical-only retirement"):
-        validate_and_build(root)
 
 
 def test_retained_root_only_skill_export_guard(tmp_path):

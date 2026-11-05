@@ -141,8 +141,7 @@ that the inputs, outputs, decisions, and recovery are usable. Scale further
 execution checks to the method; distinguish a walkthrough from a real run.
 
 In the Root source tree, useful references are `workflows/README.md`,
-`workflows/catalog.schema.json`, `docs/AGENT_WORKFLOW_RUNTIME.md`, and
-`tools/workflow_runtime/README.md`. Focused structural checks are
+`workflows/catalog.schema.json` and `tools/workflow_runtime/README.md`. Focused structural checks are
 `python3 tools/validation/validate_workflow_metadata.py`, which checks the
 folder `name`, the `description`, optional `execution.json`, and index
 freshness but not links, and

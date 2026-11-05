@@ -23,7 +23,7 @@ snapshot. Reopened decisions create successors; never overwrite a snapshot.
 ### Combined review for a small, reversible undertaking
 
 For a small, reversible undertaking, the human may choose to decide all three
-checkpoint groups in one sitting (`docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`, PROTOCOL,
+checkpoint groups in one sitting (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract` (private archive), PROTOCOL,
 combined review sitting). Propose it where it fits; the human chooses it. Then:
 
 - Prepare group 2 on the proposed group-1 state and group 3 on the proposed

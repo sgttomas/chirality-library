@@ -43,9 +43,9 @@ greater computational capability does not itself transfer it to a model.
 Three sources together help explain how models became participants in extended
 activities rather than generators of isolated answers. Wei et al.'s
 chain-of-thought work demonstrated the value of intermediate reasoning examples
-on selected reasoning tasks [1]. Yao et al.'s ReAct combined reasoning with
-interaction through external tools [2]. Schick et al.'s Toolformer examined
-learned API use [3].
+on selected reasoning tasks [CITE:Wei2022]. Yao et al.'s ReAct combined reasoning with
+interaction through external tools [CITE:Yao2023]. Schick et al.'s Toolformer examined
+learned API use [CITE:Schick2023].
 
 The practical lesson for Chirality is to connect assessment and action to
 inspectable inputs and outcomes. A model can select a tool, interpret its
@@ -62,10 +62,10 @@ model's private reasoning as an evidentiary requirement.
 ### 2.1.2 Multi-Agent Frameworks
 
 AutoGen studies composition through conversations among agents and human proxies
-[4]. MetaGPT applies software-engineering roles and standard procedures to
-collaborative production [5]. LangGraph provides a stateful, graph-based
-foundation for agent workflows [6]. Wang et al. offer a taxonomy of agent
-modules and applications [7]. These works show several ways to arrange
+[CITE:Wu2023]. MetaGPT applies software-engineering roles and standard procedures to
+collaborative production [CITE:Hong2024]. LangGraph provides a stateful, graph-based
+foundation for agent workflows [CITE:LangGraph2024]. Wang et al. offer a taxonomy of agent
+modules and applications [CITE:WangL2024]. These works show several ways to arrange
 contributions, and their different aims should not be treated as evidence that
 they lack all forms of governance.
 
@@ -85,7 +85,7 @@ others' capability and Chirality's governability.
 
 ### 2.1.3 Generative Agent Societies
 
-Park et al.'s generative-agent experiment combined stored observations, retrieval, reflection and planning in a simulated social environment [8]. It demonstrated temporally extended and socially coordinated behaviour under the study's conditions. It did not establish professional reliability or prescribe a record policy for engineering work.
+Park et al.'s generative-agent experiment combined stored observations, retrieval, reflection and planning in a simulated social environment [CITE:Park2023]. It demonstrated temporally extended and socially coordinated behaviour under the study's conditions. It did not establish professional reliability or prescribe a record policy for engineering work.
 
 The relevant question is how an agent recovers useful context. Current artifacts,
 selective tool queries, conversation and existing change history support continuity;
@@ -96,7 +96,7 @@ included in the assessment.
 
 ### 2.1.4 Principle-Based Alignment
 
-Constitutional AI uses stated principles in model critique and training [9]. It is relevant because it treats normative guidance as something that can shape behaviour, while leaving open the question of how a deployment checks particular actions.
+Constitutional AI uses stated principles in model critique and training [CITE:Bai2022]. It is relevant because it treats normative guidance as something that can shape behaviour, while leaving open the question of how a deployment checks particular actions.
 
 Chirality's instructions likewise express commitments and methods. They should
 not be described as hard constraints merely because they use mandatory language:
@@ -109,10 +109,10 @@ stated individually.
 ### 2.1.5 Hierarchical Agent Architectures
 
 Delegation hierarchies are one response to complex work. The Self-Organized
-Agents framework explores a mother–child arrangement for code generation [21].
+Agents framework explores a mother–child arrangement for code generation [CITE:Ishibashi2024].
 Research on faulty contributors compares resilience under different coordination
-arrangements [10]. Shavit et al. discuss practices for governing agentic
-systems, including oversight and reversibility [11]. These sources support
+arrangements [CITE:HuangJT2024]. Shavit et al. discuss practices for governing agentic
+systems, including oversight and reversibility [CITE:Shavit2023]. These sources support
 considering structure, but they do not establish that any single hierarchy is
 universally superior.
 
@@ -151,34 +151,6 @@ justify the attention, latency and integration costs they impose.
 
 ---
 
-### References — Section 2.1
-
-[1] J. Wei, X. Wang, D. Schuurmans, M. Bosma, B. Ichter, F. Xia, E. H. Chi, Q. V. Le, and D. Zhou, "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 35, New Orleans, LA, USA, 2022. [Online]. Available: https://arxiv.org/abs/2201.11903
-
-[2] S. Yao, J. Zhao, D. Yu, N. Du, I. Shafran, K. Narasimhan, and Y. Cao, "ReAct: Synergizing Reasoning and Acting in Language Models," in *Proc. 11th Int. Conf. Learning Representations (ICLR)*, Kigali, Rwanda, 2023. [Online]. Available: https://arxiv.org/abs/2210.03629
-
-[3] T. Schick, J. Dwivedi-Yu, R. Dessì, R. Raileanu, M. Lomeli, L. Zettlemoyer, N. Cancedda, and T. Scialom, "Toolformer: Language Models Can Teach Themselves to Use Tools," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 36, New Orleans, LA, USA, 2023. [Online]. Available: https://arxiv.org/abs/2302.04761
-
-[4] Q. Wu, G. Bansal, J. Zhang, Y. Wu, B. Li, E. Zhu, L. Jiang, X. Zhang, S. Zhang, J. Liu, A. H. Awadallah, R. W. White, D. Burger, and C. Wang, "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation," in *Proc. First Conf. on Language Modeling (COLM 2024)*, 2024. [Online]. Available: https://arxiv.org/abs/2308.08155
-
-[5] S. Hong, M. Zhuge, J. Chen, X. Zheng, Y. Cheng, C. Zhang, J. Wang, Z. Wang, S. K. S. Yau, Z. Lin, L. Zhou, C. Ran, L. Xiao, C. Wu, and J. Schmidhuber, "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework," in *Proc. 12th Int. Conf. Learning Representations (ICLR)*, Vienna, Austria, 2024. [Online]. Available: https://arxiv.org/abs/2308.00352
-
-[6] LangChain Inc., "LangGraph: Build Resilient Language Agents as Graphs," open-source software library, 2024. [Online]. Available: https://github.com/langchain-ai/langgraph
-
-[7] L. Wang, C. Ma, X. Feng, Z. Zhang, H. Yang, J. Zhang, Z. Chen, J. Tang, X. Chen, Y. Lin, W. X. Zhao, Z. Wei, and J.-R. Wen, "A Survey on Large Language Model based Autonomous Agents," *Frontiers of Computer Science*, vol. 18, no. 6, 2024. doi: 10.1007/s11704-024-40231-1. [Online]. Available: https://arxiv.org/abs/2308.11432
-
-[8] J. S. Park, J. C. O'Brien, C. J. Cai, M. R. Morris, P. Liang, and M. S. Bernstein, "Generative Agents: Interactive Simulacra of Human Behavior," in *Proc. 36th ACM Symp. User Interface Software and Technology (UIST)*, San Francisco, CA, USA, 2023, pp. 1–22. doi: 10.1145/3586183.3606763
-
-[9] Y. Bai, S. Jones, K. Ndousse, A. Askell, A. Chen, N. DasSarma, D. Drain, S. Fort, D. Ganguli, T. Henighan, et al., "Constitutional AI: Harmlessness from AI Feedback," *arXiv preprint arXiv:2212.08073*, 2022. [Online]. Available: https://arxiv.org/abs/2212.08073
-
-[10] J. Huang, J. Zhou, T. Jin, X. Zhou, Z. Chen, W. Wang, Y. Yuan, M. R. Lyu, and M. Sap, "On the Resilience of LLM-Based Multi-Agent Collaboration with Faulty Agents," *arXiv preprint arXiv:2408.00989*, 2024. [Online]. Available: https://arxiv.org/abs/2408.00989
-
-[11] Y. Shavit, S. Agarwal, et al., "Practices for Governing Agentic AI Systems," OpenAI Technical Report, Dec. 2023. [Online]. Available: https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf
-
-[21] Y. Ishibashi and Y. Nishimura, "Self-Organized Agents: A LLM Multi-Agent Framework toward Ultra Large-Scale Code Generation and Optimization," *arXiv preprint arXiv:2404.02183*, 2024. [Online]. Available: https://arxiv.org/abs/2404.02183
-
----
-
 ## 2.2 LLM Reliability, Hallucination, and Trustworthiness
 
 Reliability research concerns the relationship between generated material,
@@ -188,7 +160,7 @@ an attached metadata record for every sentence.
 
 ### 2.2.1 Hallucination: Definition and Taxonomy
 
-Ji et al. review hallucination across natural-language generation tasks and distinguish source-contradicting from source-extrinsic content [12]. Huang et al. examine factuality and faithfulness in large language models [13]. Maynez et al.'s summarisation study shows that surface-similarity metrics can fail to track faithfulness to the input [14].
+Ji et al. review hallucination across natural-language generation tasks and distinguish source-contradicting from source-extrinsic content [CITE:Ji2023]. Huang et al. examine factuality and faithfulness in large language models [CITE:Huang2023]. Maynez et al.'s summarisation study shows that surface-similarity metrics can fail to track faithfulness to the input [CITE:Maynez2020].
 
 These distinctions matter in professional work. A statement can accurately
 repeat a source whose assumptions do not fit the current case, and an inference
@@ -205,7 +177,7 @@ on the claim and its intended use.
 ### 2.2.2 Factuality Evaluation
 
 FActScore breaks generated text into atomic factual claims and evaluates whether
-an external knowledge source supports them [15]. Its value is that it examines
+an external knowledge source supports them [CITE:Min2023]. Its value is that it examines
 text claim by claim, because a long answer can contain both supported and
 unsupported material. Its reported results concern the evaluated
 biography-generation tasks and models, not all model outputs.
@@ -219,7 +191,7 @@ that ground supports the claim in context.
 
 ### 2.2.3 Alignment and Mitigation Approaches
 
-Ouyang et al.'s instruction-following work illustrates how human demonstrations and preferences can improve model behaviour [16]. Retrieval-augmented generation connects generation to external material [17]. Constitutional AI introduces principle-guided critique during training [9]. These approaches address different parts of the reliability problem and can be combined with application-level validation and review.
+Ouyang et al.'s instruction-following work illustrates how human demonstrations and preferences can improve model behaviour [CITE:Ouyang2022]. Retrieval-augmented generation connects generation to external material [CITE:Lewis2020]. Constitutional AI introduces principle-guided critique during training [CITE:Bai2022]. These approaches address different parts of the reliability problem and can be combined with application-level validation and review.
 
 It is misleading to set model improvement against governance, as though one
 reduces errors and the other necessarily detects all remaining errors. Better
@@ -237,7 +209,7 @@ selected needs grounds appropriate to the actual claim and possible failure.
 ### 2.2.4 Confidence Calibration
 
 Guo et al. show that, in the neural networks they evaluated, predictive
-confidence can differ from observed accuracy [18]. This motivates care when
+confidence can differ from observed accuracy [CITE:Guo2017]. This motivates care when
 interpreting confidence, though probability calibration in their setting is not
 the same as a language model's verbal confidence.
 
@@ -251,13 +223,13 @@ assessment without turning a derivation label into a certificate of truth.
 
 NIST's AI Risk Management Framework supplies a vocabulary for reliability,
 safety, transparency, accountability and other concerns, organised around
-Govern, Map, Measure and Manage [19]. It is a resource for asking whether a
+Govern, Map, Measure and Manage [CITE:NIST_AI_RMF2023]. It is a resource for asking whether a
 deployment's risks are understood and addressed. A local implementation can
 support some of those concerns without being an implementation or certification
 of the whole framework.
 
 The EU AI Act is included as a historical regulatory source relevant to
-transparency and human oversight [20]. Its duties depend on applicability,
+transparency and human oversight [CITE:EU_AIAct2024]. Its duties depend on applicability,
 system category, actor and implementation dates. This chapter does not classify
 Chirality or claim compliance. An architecture's evidence access and permission
 controls may be relevant to an assessment, but their existence does not
@@ -289,30 +261,6 @@ cost it imposes on actual work.
 
 ---
 
-### References — Section 2.2
-
-[12] Z. Ji, N. Lee, R. Frieske, T. Yu, D. Su, Y. Xu, E. Ishii, Y. J. Bang, A. Madotto, and P. Fung, "Survey of Hallucination in Natural Language Generation," *ACM Computing Surveys*, vol. 55, no. 12, article no. 248, Mar. 2023. doi: 10.1145/3571730
-
-[13] L. Huang, W. Yu, W. Ma, W. Zhong, Z. Feng, H. Wang, Q. Chen, W. Peng, X. Feng, B. Qin, and T. Liu, "A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions," *ACM Transactions on Information Systems*, vol. 43, no. 2, pp. 1–55, 2025. doi: 10.1145/3703155. [Online]. Available: https://arxiv.org/abs/2311.05232
-
-[14] J. Maynez, S. Narayan, B. Bohnet, and R. McDonald, "On Faithfulness and Factuality in Abstractive Summarization," in *Proc. 58th Annual Meeting of the Association for Computational Linguistics (ACL)*, Online, 2020, pp. 1906–1919. doi: 10.18653/v1/2020.acl-main.173
-
-[15] S. Min, K. Krishna, X. Lyu, M. Lewis, W.-T. Yih, P. W. Koh, M. Iyyer, L. Zettlemoyer, and H. Hajishirzi, "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation," in *Proc. 2023 Conf. Empirical Methods in Natural Language Processing (EMNLP)*, Singapore, 2023, pp. 12076–12100. [Online]. Available: https://arxiv.org/abs/2305.14251
-
-[16] L. Ouyang, J. Wu, X. Jiang, D. Almeida, C. Wainwright, P. Mishkin, C. Zhang, S. Agarwal, K. Slama, A. Ray, J. Schulman, J. Hilton, F. Kelton, L. Miller, M. Simens, A. Askell, P. Welinder, P. Christiano, J. Leike, and R. Lowe, "Training Language Models to Follow Instructions with Human Feedback," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 35, New Orleans, LA, USA, 2022. [Online]. Available: https://arxiv.org/abs/2203.02155
-
-[17] P. Lewis, E. Perez, A. Piktus, F. Petroni, V. Karpukhin, N. Goyal, H. Küttler, M. Lewis, W.-T. Yih, T. Rocktäschel, S. Riedel, and D. Kiela, "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 33, Virtual, 2020, pp. 9459–9474. [Online]. Available: https://arxiv.org/abs/2005.11401
-
-[18] C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, "On Calibration of Modern Neural Networks," in *Proc. 34th Int. Conf. Machine Learning (ICML)*, Sydney, Australia, 2017, pp. 1321–1330. [Online]. Available: https://proceedings.mlr.press/v70/guo17a.html
-
-[19] National Institute of Standards and Technology (NIST), "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, Gaithersburg, MD, USA, Jan. 2023. doi: 10.6028/NIST.AI.100-1. [Online]. Available: https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf
-
-[20] European Parliament and the Council of the European Union, "Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, L Series, 2024. [Online]. Available: https://eur-lex.europa.eu/
-
-[9] Y. Bai, S. Jones, K. Ndousse, A. Askell, A. Chen, N. DasSarma, D. Drain, S. Fort, D. Ganguli, T. Henighan, et al., "Constitutional AI: Harmlessness from AI Feedback," *arXiv preprint arXiv:2212.08073*, 2022. [Online]. Available: https://arxiv.org/abs/2212.08073
-
----
-
 ## 2.3 Formal Methods and Safety-Critical Systems Engineering
 
 Formal methods and safety engineering provide resources for specifying
@@ -323,7 +271,7 @@ implementation.
 
 ### 2.3.1 Safety Engineering Foundations: System-Theoretic Accident Models
 
-Leveson's STAMP and STPA treat safety as a system-level control problem, including interactions that cannot be understood from component reliability alone [1]. This perspective is useful when an agent, tool, interface and person can each perform their local task while their combined activity produces an unsafe result.
+Leveson's STAMP and STPA treat safety as a system-level control problem, including interactions that cannot be understood from component reliability alone [CITE:Leveson2011]. This perspective is useful when an agent, tool, interface and person can each perform their local task while their combined activity produces an unsafe result.
 
 For Chirality, this perspective motivates asking which actions, omissions,
 timing errors or misunderstandings could produce harm. The answer can inform a
@@ -333,7 +281,7 @@ resulting system is safe.
 
 ### 2.3.2 Avionics Software Assurance: DO-178C
 
-DO-178C provides a software-assurance framework for airborne systems [2]. It is
+DO-178C provides a software-assurance framework for airborne systems [CITE:DO178C2011]. It is
 relevant here for its disciplined connection between requirements,
 implementation and verification evidence, with assurance related to how
 significant a failure would be.
@@ -349,7 +297,7 @@ level or determine which writes a contributor is permitted to make.
 
 ### 2.3.3 Functional Safety: IEC 61508 and Safety Integrity Levels
 
-IEC 61508 is a reference for the treatment of functional safety and systematic software failures [3]. It supports attention to consequence, specification, verification and the limitations of claims based on component performance. The thesis borrows those questions without claiming conformity to the standard.
+IEC 61508 is a reference for the treatment of functional safety and systematic software failures [CITE:IEC61508]. It supports attention to consequence, specification, verification and the limitations of claims based on component performance. The thesis borrows those questions without claiming conformity to the standard.
 
 Instructions, prompts, runtime checks and human examination should not
 automatically be counted as independent protection layers, because they may
@@ -360,7 +308,7 @@ levels supplies no such argument by itself.
 
 ### 2.3.4 Partitioning and Fault Containment: Rushby on Avionics Architectures
 
-Rushby's work examines the requirements, mechanisms and assurance of partitioning in integrated avionics [4]. It gives a useful distinction between a component's behaviour and a boundary that contains the effects of its failure.
+Rushby's work examines the requirements, mechanisms and assurance of partitioning in integrated avionics [CITE:Rushby1999]. It gives a useful distinction between a component's behaviour and a boundary that contains the effects of its failure.
 
 Applied cautiously to agents, this directs attention to the host, filesystem
 permissions, process isolation and validated application operations. A prompt
@@ -377,7 +325,7 @@ rather than assertions that an agent cannot escape through reasoning.
 
 ### 2.3.5 Formal Verification in Safety-Critical Domains
 
-Hoare logic relates program actions to preconditions and postconditions [5]. Model checking explores a specified transition system against properties [6]. The NASA Formal Methods proceedings contain applications and developments in such techniques [7]. TLA+ provides a language and method for specifying concurrent systems [8]. These approaches are relevant to application state transitions, permission handling, persistence and recovery.
+Hoare logic relates program actions to preconditions and postconditions [CITE:Hoare1969]. Model checking explores a specified transition system against properties [CITE:Clarke1999]. The NASA Formal Methods proceedings contain applications and developments in such techniques [CITE:NASA_NFM]. TLA+ provides a language and method for specifying concurrent systems [CITE:Lamport2002]. These approaches are relevant to application state transitions, permission handling, persistence and recovery.
 
 Their scope is not restricted to deterministic algorithms: formal models can
 represent nondeterministic choices, and probabilistic verification is possible
@@ -389,15 +337,15 @@ semantic consequences of how an agent uses it.
 
 Smith's *The Limits of Correctness* distinguishes the relationship established
 between program and specification from the specification's relationship to the
-world [25]. MacKenzie's history of mechanised proof examines the human practices
-through which proof and assurance gain authority [26]. These sources set
+world [CITE:Smith1985]. MacKenzie's history of mechanised proof examines the human practices
+through which proof and assurance gain authority [CITE:MacKenzie2001]. These sources set
 important limits on the thesis's own claims. A verified operation can still
 implement an inadequate model; a person must consider whether its assumptions
 fit the work.
 
 ### 2.3.6 Formal Methods and AI Safety
 
-Hou et al. argue for combining language models with formal methods rather than expecting either to provide sufficient assurance alone [9]. The cited review of safety-critical machine learning examines verification methods and their scope [10]. Xu et al.'s governance-first proposal represents another attempt to make constraints explicit in agent engineering [11]. These are different approaches to a shared problem, not evidence that no prior approach exists.
+Hou et al. argue for combining language models with formal methods rather than expecting either to provide sufficient assurance alone [CITE:Hou2025]. The cited review of safety-critical machine learning examines verification methods and their scope [CITE:Newcomb2026]. Xu et al.'s governance-first proposal represents another attempt to make constraints explicit in agent engineering [CITE:Xu2025]. These are different approaches to a shared problem, not evidence that no prior approach exists.
 
 The useful application is local and stated precisely: a schema can reject
 malformed input; an operation can enforce a precondition; a permission check can
@@ -430,13 +378,13 @@ combined into a universal rule of liability or authentication.
 
 ### 2.4.1 APEGA: The Primary Regulatory Context
 
-The Alberta setting makes APEGA's practice standards relevant to the study. *Relying on the Work of Others and Outsourcing* and *Authenticating Professional Work Products* informed the questions about evidence, supervision and responsibility [12][13]. Applying either standard to a particular product or use requires its actual terms and the circumstances, not a correspondence table alone.
+The Alberta setting makes APEGA's practice standards relevant to the study. *Relying on the Work of Others and Outsourcing* and *Authenticating Professional Work Products* informed the questions about evidence, supervision and responsibility [CITE:APEGA_RWO2021][CITE:APEGA_Auth]. Applying either standard to a particular product or use requires its actual terms and the circumstances, not a correspondence table alone.
 
 APEGA's March 23, 2026 notice states that professionals using AI remain
 responsible for their work and must have the competence to assess AI risks,
 limitations and results. It treats the accuracy and appropriateness of AI
 results as a due-diligence matter, and connects use in professional work
-products to its authentication and validation standard [24]. This supports
+products to its authentication and validation standard [CITE:APEGA_AI2026]. This supports
 designing for meaningful examination of results, but the notice does not
 classify an AI agent as a licensed delegate or endorse a particular software
 architecture.
@@ -451,7 +399,7 @@ considered.
 ### 2.4.2 Engineers and Geoscientists British Columbia
 
 The cited November 2024 EGBC advisory discusses AI use in professional practice,
-including competence, automation bias, checking, supervision and review [14].
+including competence, automation bias, checking, supervision and review [CITE:EGBC2024].
 This study uses it to identify questions a useful system should help a
 professional address.
 
@@ -463,7 +411,7 @@ work is actually done.
 
 ### 2.4.3 Professional Engineers Ontario
 
-The earlier review consulted PEO's practice-resource collection and its reference to the EGBC material [15]. That historical search is not a finding that no Ontario-specific guidance exists at the time of every later revision.
+The earlier review consulted PEO's practice-resource collection and its reference to the EGBC material [CITE:PEO2025]. That historical search is not a finding that no Ontario-specific guidance exists at the time of every later revision.
 
 The methodological point is that applicability must be established in the jurisdiction and use at issue. A framework intended to transfer between applications should make the relevant requirements discoverable without presenting one province's interpretation as a universal technical contract.
 
@@ -471,7 +419,7 @@ The methodological point is that applicability must be established in the jurisd
 
 Engineers Canada's position on artificial intelligence, machine learning and
 data science places these technologies within competent professional work in the
-public interest [16]. National position statements contribute policy context,
+public interest [CITE:EngCan_AI2026]. National position statements contribute policy context,
 while provincial and territorial regulation governs the details of professional
 practice.
 
@@ -479,7 +427,7 @@ For the thesis, the relevant design concern is how a person can examine a result
 
 ### 2.4.5 American Professional Engineering Positions
 
-NSPE Position Statement 03-1774, revised February 2026, argues for professional standards in AI systems affecting public safety and addresses verification, transparency and accountability [17]. Its Board of Ethical Review supplies a separate case-based resource [23]. ASCE Policy Statement 573 addresses professional judgment and engineering responsibility in AI use [18].
+NSPE Position Statement 03-1774, revised February 2026, argues for professional standards in AI systems affecting public safety and addresses verification, transparency and accountability [CITE:NSPE_AI]. Its Board of Ethical Review supplies a separate case-based resource [CITE:NSPE_BER2024]. ASCE Policy Statement 573 addresses professional judgment and engineering responsibility in AI use [CITE:ASCE_PS573].
 
 These are professional positions and ethical resources, and their legal force is
 not interchangeable with that of a state licensing board. They motivate
@@ -489,7 +437,7 @@ Chirality or any particular gate structure satisfies an applicable requirement.
 ### 2.4.6 International Frameworks
 
 Engineers Australia's cited ethics guidance and the United Kingdom's February
-2024 guidance to regulators provide broader context [19][20]. Their audiences
+2024 guidance to regulators provide broader context [CITE:EngAus2022][CITE:DSIT2024]. Their audiences
 and purposes differ. This revision does not infer from earlier searches that
 AI-specific guidance is still absent, and it does not treat a government's
 advice to regulators as imposing the same duty on every practitioner.
@@ -500,7 +448,7 @@ The transfer question for Chirality is practical: can a new application identify
 
 The cited work on AI regulation and risk governance examines tensions among
 innovation, institutional responsibilities and practical accountability
-[21][22]. Such work helps explain why stating an obligation does not specify
+[CITE:Perboli2025][CITE:Hohma2023]. Such work helps explain why stating an obligation does not specify
 every means of fulfilling it, but such work does not establish that there is a single
 missing architectural solution.
 
@@ -526,71 +474,15 @@ The research question is whether the arrangements make professional examination 
 
 ---
 
-### References — Sections 2.3 and 2.4
-
-[1] N. G. Leveson, *Engineering a Safer World: Systems Thinking Applied to Safety*. Cambridge, MA: MIT Press, 2011. [Online]. Available: https://direct.mit.edu/books/oa-monograph/2908/Engineering-a-Safer-WorldSystems-Thinking-Applied. ISBN: 9780262533690.
-
-[2] RTCA, Inc. / EUROCAE, *DO-178C: Software Considerations in Airborne Systems and Equipment Certification*. Washington, DC: RTCA, Inc., Dec. 2011. [Also published as EUROCAE ED-12C.]
-
-[3] International Electrotechnical Commission, *IEC 61508: Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems*, Parts 1–7, 2nd ed. Geneva: IEC, 2010.
-
-[4] J. Rushby, "Partitioning in Avionics Architectures: Requirements, Mechanisms, and Assurance," NASA Contractor Report CR-1999-209347, Computer Science Laboratory, SRI International, Menlo Park, CA, Jun. 1999. [Online]. Available: https://ntrs.nasa.gov/api/citations/19990052867/downloads/19990052867.pdf.
-
-[5] C. A. R. Hoare, "An Axiomatic Basis for Computer Programming," *Communications of the ACM*, vol. 12, no. 10, pp. 576–580, Oct. 1969. DOI: 10.1145/363235.363259.
-
-[6] E. M. Clarke, O. Grumberg, and D. Peled, *Model Checking*. Cambridge, MA: MIT Press, 1999. ISBN: 9780262032704.
-
-[7] NASA Langley Research Center, "NASA Formal Methods Symposium (NFM) Proceedings Series," published annually since 2009 in Springer *Lecture Notes in Computer Science*. Most recent: NFM 2024 (16th), Moffett Field, CA, Jun. 2024. DOI: 10.1007/978-3-031-60698-4.
-
-[8] L. Lamport, *Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers*. Boston, MA: Addison-Wesley, 2002. [Online]. Available: https://lamport.azurewebsites.net/tla/book.html. ISBN: 9780321143068.
-
-[9] Z. Hou et al., "Position: Trustworthy AI Agents Require the Integration of Large Language Models and Formal Methods," in *Proc. 42nd Int. Conf. on Machine Learning (ICML 2025)*, Vancouver, Canada, Jul. 2025. [Online]. Available: https://zhehou.github.io/papers/Position-Trustworthy-AI-Agents-Require-the-Integration-of-Large-Language-Models-and-Formal-Methods.pdf.
-
-[10] A. Newcomb and O. Ochoa, "Formal Methods for Safety-Critical Machine Learning: A Systematic Literature Review," *Frontiers in Artificial Intelligence*, vol. 9, article 1749956, 2026. DOI: 10.3389/frai.2026.1749956.
-
-[11] Q. Xu, X. Wen, C. Xu, Z. Li, and J. Zhong, "From Craft to Constitution: A Governance-First Paradigm for Principled Agent Engineering," arXiv preprint arXiv:2510.13857, Oct. 2025. [Online]. Available: https://arxiv.org/abs/2510.13857.
-
-[12] Association of Professional Engineers and Geoscientists of Alberta (APEGA), *Relying on the Work of Others and Outsourcing*, Practice Standard, v4.0. Edmonton, AB: APEGA, May 2021 (enforceable May 2022). [Online]. Available: https://www.apega.ca/docs/default-source/pdfs/standards-guidelines/relying-on-the-work-of-others-and-outsourcing.pdf.
-
-[13] Association of Professional Engineers and Geoscientists of Alberta (APEGA), *Authenticating Professional Work Products*, Practice Standard, revised ed. Edmonton, AB: APEGA, Nov. 1, 2024. [Online]. Available: https://www.apega.ca/docs/default-source/pdfs/standards-guidelines/authenticating-professional-work-products.pdf.
-
-[14] Engineers and Geoscientists British Columbia (EGBC), *Use of Artificial Intelligence (AI) in Professional Practice*, Practice Advisory. Burnaby, BC: EGBC, Nov. 22, 2024. [Online]. Available: https://tools.egbc.ca/registrants/practice-resources/guidelines-advisories/Document/01525AMWZDBFA4VTKQBRHJXVI6AR4UUFGV/Use%20of%20Artificial%20Intelligence%20in%20Professional%20Work.
-
-[15] Professional Engineers Ontario (PEO), "Knowledge Centre — Practice Advice Resources and Guidelines," Toronto, ON: PEO, 2025. [Online]. Available: https://www.peo.on.ca/knowledge-centre/practice-advice-resources-and-guidelines/practice-guidelines. [Note: PEO references EGBC advisory; no Ontario-specific AI guideline issued as of Mar. 2026.]
-
-[16] Engineers Canada, "Artificial Intelligence, Machine Learning, and Data Science," National Position Statement, Ottawa, ON: Engineers Canada, Mar. 2026. [Online]. Available: https://engineerscanada.ca/public-policy/national-position-statements
-
-[17] National Society of Professional Engineers (NSPE), "Artificial Intelligence," Position Statement No. 03-1774, Alexandria, VA: NSPE, adopted Sep. 2023, latest revision Feb. 2026. [Online]. Available: https://www.nspe.org/nspe-advocacy/explore-issues/professional-policies-and-position-statements/artificial-intelligence.
-
-[18] American Society of Civil Engineers (ASCE), "Policy Statement 573 — Artificial Intelligence and Engineering Responsibility," Reston, VA: ASCE, adopted Jul. 18, 2024. [Online]. Available: https://www.asce.org/advocacy/policy-statements/ps573---artificial-intelligence-and-engineering-responsibility.
-
-[19] Engineers Australia, *Code of Ethics and Guidelines on Professional Conduct*. Canberra, ACT: Engineers Australia, 2022. [Online]. Available: https://www.engineersaustralia.org.au/about-us/professional-standards-framework. [Note: no normative AI practice standard as of Jul. 2026; see also Institution of Engineers Australia, "The impact of AI and generative technologies on the engineering profession," research report, Jan. 2025, ISBN 978-1-925627-92-3.]
-
-[20] Department for Science, Innovation and Technology (UK), *Implementing the UK's AI Regulatory Principles: Initial Guidance for Regulators*, UK Government, London: DSIT, Feb. 2024. [Online]. Available: https://assets.publishing.service.gov.uk/media/65c0b6bd63a23d0013c821a0/implementing_the_uk_ai_regulatory_principles_guidance_for_regulators.pdf.
-
-[21] G. Perboli, N. Simionato, and S. Pratali, "Navigating the AI Regulatory Landscape: Balancing Innovation, Ethics, and Global Governance," *Economic and Political Studies*, vol. 13, no. 4, pp. 367–397, 2025. DOI: 10.1080/20954816.2025.2569584.
-
-[22] E. Hohma, A. Boch, R. Trauth, and C. Lütge, "Investigating Accountability for Artificial Intelligence Through Risk Governance: A Workshop-Based Exploratory Study," *Frontiers in Psychology*, vol. 14, article 1073686, 2023. DOI: 10.3389/fpsyg.2023.1073686. PMC9905430.
-
-[23] National Society of Professional Engineers (NSPE), "Use of Artificial Intelligence in Engineering Practice," Board of Ethical Review Case, Alexandria, VA: NSPE, 2024. [Online]. Available: https://www.nspe.org/career-growth/ethics/board-ethical-review-cases/use-artificial-intelligence-engineering-practice.
-
-[24] Association of Professional Engineers and Geoscientists of Alberta (APEGA), "Guidance for Registrants Regarding the Use of Artificial Intelligence Tools," Edmonton, AB: APEGA, first published Jul. 2025, updated Mar. 23, 2026. [Online]. Available: https://www.apega.ca/news/2026/03/23/guidance-for-registrants-regarding-the-use-of-artificial-intelligence-tools
-
-[25] B. C. Smith, "The Limits of Correctness," *ACM SIGCAS Computers and Society*, vol. 14–15, no. 1–4, pp. 18–26, Jan. 1985. doi: 10.1145/379486.379512
-
-[26] D. MacKenzie, *Mechanizing Proof: Computing, Risk, and Trust*. Cambridge, MA, USA: MIT Press, 2001. ISBN: 978-0-262-13393-7.
-
----
-
 ## 2.5 Epistemic Frameworks and Knowledge Engineering
 
 Provenance, representation and social epistemology help explain what a system can make inspectable and what remains beyond a record. The review treats them as resources for asking better questions about work, not as independent proofs of a universal set of agent invariants.
 
 Naur's account of programming as theory building argues that code and
 documentation do not exhaust the understanding held by a programme's
-builders [13]. Collins distinguishes several forms of tacit knowledge, including
+builders [CITE:Naur1985]. Collins distinguishes several forms of tacit knowledge, including
 the collectively acquired understanding associated with participation in a
-practice [14]. These accounts do not make documentation futile, but they limit
+practice [CITE:Collins2010]. These accounts do not make documentation futile, but they limit
 the claim that copying or completing the record reproduces the understanding
 needed to continue the work.
 
@@ -604,7 +496,7 @@ adequate substitute for it.
 
 ### 2.5.1 Provenance Standards: W3C PROV
 
-PROV-DM supplies a model for describing entities, activities, agents and derivations [1]. The PROV family includes representations and interchange mechanisms for such information [2]. These resources make it possible to ask where something came from and which activities contributed to it.
+PROV-DM supplies a model for describing entities, activities, agents and derivations [CITE:W3C_PROV2013]. The PROV family includes representations and interchange mechanisms for such information [CITE:W3C_PROV_Overview2013]. These resources make it possible to ask where something came from and which activities contributed to it.
 
 **Relation to Chirality.** A result that matters may need a retrievable source,
 calculation basis or identified revision. Current source artifacts and their
@@ -616,7 +508,7 @@ useful where they answer an actual review, use or recovery need.
 
 ### 2.5.2 Database Provenance: Why, How, and Where
 
-Buneman, Khanna and Tan distinguish why- and where-provenance in data processing [3]. Cheney, Chiticariu and Tan survey derivation, location and related forms of provenance [4]. Their formal accounts concern computations with defined semantics.
+Buneman, Khanna and Tan distinguish why- and where-provenance in data processing [CITE:Buneman2001]. Cheney, Chiticariu and Tan survey derivation, location and related forms of provenance [CITE:Cheney2009]. Their formal accounts concern computations with defined semantics.
 
 **Relation to Chirality.** These distinctions help separate a pointer to a
 source from an explanation of how a conclusion follows. A quote does not
@@ -628,7 +520,7 @@ infer from presence alone that the condition is satisfied.
 
 ### 2.5.3 Knowledge Representation Foundations
 
-Sowa connects logic, ontology, language and computational representation [5].
+Sowa connects logic, ontology, language and computational representation [CITE:Sowa2000].
 The selected representation makes some distinctions available to reasoning and
 leaves others difficult or invisible. So formal consistency is not enough when
 the representation misstates or leaves out a relevant domain distinction.
@@ -643,7 +535,7 @@ itself.
 
 ### 2.5.4 Ontological Foundations: The Bunge–Wand–Weber Framework
 
-Wand and Weber apply Bunge's ontology to information-system representation and decomposition [6][7]. Their work supports examining how a modelling grammar represents a domain and where its constructs introduce ambiguity or omit distinctions.
+Wand and Weber apply Bunge's ontology to information-system representation and decomposition [CITE:Wand_Weber_ontology][CITE:Wand_Weber1995]. Their work supports examining how a modelling grammar represents a domain and where its constructs introduce ambiguity or omit distinctions.
 
 **Relation to Chirality.** The work must be distinguished from its
 representations. A dependency is a need between contributions; a declared row
@@ -660,7 +552,7 @@ state those declarations describe.
 
 ### 2.5.5 Social Epistemology: Goldman's Framework
 
-Goldman examines the processes by which beliefs are formed and the social arrangements that can support or undermine epistemic performance [8][9]. This extends attention beyond an isolated assertion to testimony, disagreement, institutions and the quality of inquiry.
+Goldman examines the processes by which beliefs are formed and the social arrangements that can support or undermine epistemic performance [CITE:Goldman1986][CITE:Goldman1999]. This extends attention beyond an isolated assertion to testimony, disagreement, institutions and the quality of inquiry.
 
 **Relation to Chirality.** A professional examines both a particular claim and
 the processes that produced it. A contributor who raises a relevant disagreement
@@ -676,13 +568,13 @@ mistake and revision, as Chapter 3 explains.
 
 ### 2.5.6 Epistemic Logic in Distributed Systems
 
-Halpern and Moses analyse knowledge and common knowledge in distributed environments, with results that depend on assumptions about communication and time [10]. The work cautions against assuming that participants share information merely because a message was sent or a local state changed.
+Halpern and Moses analyse knowledge and common knowledge in distributed environments, with results that depend on assumptions about communication and time [CITE:Halpern1990]. The work cautions against assuming that participants share information merely because a message was sent or a local state changed.
 
 **Relation to Chirality.** Contributors can work from different revisions and receive different evidence. Making the observed basis explicit and querying current relationships can expose relevant divergence. A coordinator must examine how returns fit together. The theory does not imply that a particular Conflict Table is necessary, or that agreement establishes correctness. Several contributors can share the same mistaken premise.
 
 ### 2.5.7 Trust Conditions and Epistemic Governance
 
-Jacovi et al. analyse trust in relation to specified contracts and distinguish trust from trustworthiness [11]. The practical implication is to identify what a user is relying on and the conditions under which that reliance would be appropriate. Natangelo's CUL/TCL preprint proposes an external arrangement for verification and claim status [12]. It is a related design proposal, not evidence of a settled consensus or a complete solution.
+Jacovi et al. analyse trust in relation to specified contracts and distinguish trust from trustworthiness [CITE:Jacovi2021]. The practical implication is to identify what a user is relying on and the conditions under which that reliance would be appropriate. Natangelo's CUL/TCL preprint proposes an external arrangement for verification and claim status [CITE:Natangelo2025]. It is a related design proposal, not evidence of a settled consensus or a complete solution.
 
 **Relation to Chirality.** A professional may need to inspect a source,
 reproduce a calculation, understand a limitation or examine a refusal. Different
@@ -721,38 +613,6 @@ additional metadata.
 
 ---
 
-### References — Section 2.5
-
-[1] L. Moreau and P. Missier, Eds., "PROV-DM: The PROV Data Model," W3C Recommendation, World Wide Web Consortium, 30 Apr. 2013. [Online]. Available: https://www.w3.org/TR/2013/REC-prov-dm-20130430/
-
-[2] L. Moreau and P. Missier, Eds., "PROV-Overview: An Overview of the PROV Family of Documents," W3C Working Group Note, World Wide Web Consortium, 30 Apr. 2013. [Online]. Available: https://www.w3.org/TR/prov-overview/
-
-[3] P. Buneman, S. Khanna, and W.-C. Tan, "Why and Where: A Characterization of Data Provenance," in *Proc. 8th Int. Conf. Database Theory (ICDT 2001)*, London, UK, Jan. 2001, pp. 316–330, Lecture Notes in Computer Science, vol. 1973. doi: 10.1007/3-540-44503-X_20
-
-[4] J. Cheney, L. Chiticariu, and W.-C. Tan, "Provenance in Databases: Why, How, and Where," *Foundations and Trends in Databases*, vol. 1, no. 4, pp. 379–474, 2009. doi: 10.1561/1900000006
-
-[5] J. F. Sowa, *Knowledge Representation: Logical, Philosophical, and Computational Foundations*. Pacific Grove, CA, USA: Brooks/Cole, 2000, ISBN: 0-534-94965-7.
-
-[6] Y. Wand and R. Weber, "An Ontological Model of an Information System," *IEEE Trans. Softw. Eng.*, vol. 16, no. 11, pp. 1282–1292, Nov. 1990. doi: 10.1109/32.60316
-
-[7] Y. Wand and R. Weber, "On the Deep Structure of Information Systems," *Inf. Syst. J.*, vol. 5, no. 3, pp. 203–223, 1995. doi: 10.1111/j.1365-2575.1995.tb00108.x
-
-[8] A. I. Goldman, *Epistemology and Cognition*. Cambridge, MA, USA: Harvard University Press, 1986. ISBN: 978-0-674-25895-2.
-
-[9] A. I. Goldman, *Knowledge in a Social World*. Oxford, UK: Clarendon Press, 1999. ISBN: 978-0-198-23777-8.
-
-[10] J. Y. Halpern and Y. Moses, "Knowledge and Common Knowledge in a Distributed Environment," *J. ACM*, vol. 37, no. 3, pp. 549–587, Jul. 1990. doi: 10.1145/79147.79161
-
-[11] A. Jacovi, A. Marasović, T. Miller, and Y. Goldberg, "Formalizing Trust in Artificial Intelligence: Prerequisites, Causes and Goals of Human Trust in AI," in *Proc. 2021 ACM Conf. Fairness, Accountability, and Transparency (FAccT '21)*, Virtual Event, Canada, Mar. 2021, pp. 624–635. doi: 10.1145/3442188.3445923
-
-[12] S. Natangelo, "Externalising Epistemic Governance for Stateless Large Language Models: The CUL/TCL Architecture," Zenodo preprint, Dec. 16, 2025. doi: 10.5281/zenodo.17953956
-
-[13] P. Naur, "Programming as Theory Building," *Microprocessing and Microprogramming*, vol. 15, no. 5, pp. 253–261, May 1985. doi: 10.1016/0165-6074(85)90032-8
-
-[14] H. Collins, *Tacit and Explicit Knowledge*. Chicago, IL, USA: University of Chicago Press, 2010. ISBN: 978-0-226-11380-7.
-
----
-
 ## 2.6 Synthesis: A Bounded Contribution to Accountable Work
 
 The five domains supply complementary questions and methods, but they do not
@@ -775,7 +635,7 @@ selectively loaded methods, coherent ownership, host-enforced permissions and
 verification proportionate to consequence are design hypotheses for supporting
 them.
 
-The repository supplies substantial longitudinal case evidence of useful
+The repository supplies longitudinal evidence, from one uncontrolled case, of useful
 production and preservation of meaning through redevelopment. Chapter 8 traces
 that result from working predecessor behavior through successor definition and
 deliverables to observed use of the rebuilt App, with functional extensions and

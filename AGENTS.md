@@ -20,7 +20,7 @@ remains accountable for acceptance and reliance.
 
 ## Coordination between projects
 
-Chirality Root (`sgttomas/chirality`), App v4 (`sgttomas/chirality-app`) and
+Chirality Root (`sgttomas/chirality-library`), App v4 (`sgttomas/chirality-app`) and
 SWBPIPE (`sgttomas/SWBPIPE`) each have one top-level Agent 0, working in its own
 T3 Code session. When work here needs App v4 or SWBPIPE, such as a shared interface, a
 library change a consumer will adopt, a defect found in the other project, or a
@@ -128,7 +128,7 @@ Model and effort choices come from session steering, not repository doctrine.
 
 ### Standing Git grant
 
-For `sgttomas/chirality` only, agents may commit, push, open, update and merge PRs
+For `sgttomas/chirality-library` only, agents may commit, push, open, update and merge PRs
 within authorized work after the verification above and required checks pass on
 the exact head. Explicit holds and reserved decisions apply. This grant excludes
 protection bypasses, history rewrites, force pushes, permission changes and

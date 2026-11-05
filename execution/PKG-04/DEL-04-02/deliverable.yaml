@@ -71,6 +71,5 @@ code_paths:
 - workflows/coordinated-knowledge-work/**
 - workflows/reflect-on-work/**
 - execution/_Decomposition/**
-- workflows/evaluate-repository-change/**
 checks:
 - tools/scope_of_work/validate_scope_of_work.py

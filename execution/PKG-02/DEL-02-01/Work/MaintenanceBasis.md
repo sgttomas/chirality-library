@@ -55,12 +55,12 @@ agents to do.” After discussing the Root-only skill and reflective methods,
 the owner authorized further proposal work: “Okay take this away and work on
 the PR further.” This authorizes the candidate, not its content adoption.
 
-Retire `workflows/change/` and `.agents/skills/chirality-change/` from the active
+Retire `sgttomas/chirality:workflows/change/` and `.agents/skills/chirality-change/` from the active
 library. Ordinary authorized briefs and repository conventions supply Git work.
 Root's AGENTS already carries scope, reconciliation, proportionate verification,
 authority and cleanup; add its missing compact main/branch/merge conventions
 and an eight-line holding/recovery entry. Detailed rare-use instructions live in
-one on-demand resource, docs/MAINTENANCE_RECOVERY.md, linked at that entry. Do not transplant the skill's
+one on-demand resource, `sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md`, linked at that entry. Do not transplant the skill's
 checklist or create a replacement Git method. Existing README owns publication
 and update inspection; bounded-reconciliation owns actual-result comparison;
 create-workflow governs reusable method design under its preceding basis.
@@ -68,7 +68,7 @@ create-workflow governs reusable method design under its preceding basis.
 Three output-home changes were explicitly proposed for owner review: DEL-02-01
 OUT-001's connected means use AGENTS, create-workflow and the on-demand resource;
 DEL-02-01 OUT-003's recovery/custody detail moves from the maintained change
-route/resources to docs/MAINTENANCE_RECOVERY.md linked from AGENTS; DEL-04-02
+route/resources to `sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md` linked from AGENTS; DEL-04-02
 OUT-002 uses reflect-on-work with retained role posture/orchestration inputs.
 Their purposes, scope, requirements and evaluation are preserved. The owning
 ScopeOfWork documents name all three source-home changes; the owner approved them. Git retains both integrated and unadopted prior package bytes. No accepted
@@ -98,6 +98,12 @@ guidance. Explicit removed-package selections fail too. This is deliberate
 retirement, not a role masquerading as a method. Root-only export exclusions and
 source-qualification guards remain for historical compatibility; they neither
 advertise an installed skill nor redirect CHANGE to one.
+
+The legacy ledgers (`workflows/legacy-agents.json` and
+`workflows/legacy-methods.json`) were later removed, with the builder, resolver
+and index `legacy` section that read them (2026-11-04, owner item #48). CHANGE,
+`TaskSkill` and retired agent names now fail as unknown; the historicalOnly
+mechanism described here and below no longer exists.
 
 ## Disposition of advice from the retired skill
 
@@ -165,7 +171,7 @@ not retroactively execute this proposal.
   route. [ConsumerBasis](../../../PKG-05/DEL-05-01/Work/ConsumerBasis.md) and #1784
   retain Q-04's named App-reader and Q-05's F-02/v9 source comparison evidence.
   Neither qualifies this changed catalog nor adopts it for a consumer.
-- **Recover/continue:** AGENTS links docs/MAINTENANCE_RECOVERY.md for reading
+- **Recover/continue:** AGENTS links `sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md` for reading
   actual state, owning work, review and steering together, including partial work
   and current authority. The
   labelled case below supplies bounded source recovery/reader-preservation
@@ -286,7 +292,7 @@ case, not that old PR's authority to restart work.
 `COMPATIBILITY_FORMATS.partial` and its prospective completed output, reserving
 completion/promotion of that extraction. The existing assignment and this owning
 Work section are the coordination mechanism, consistent with the preceding change contract's
-disjoint-write scopes at the case basis. The adopted on-demand docs/MAINTENANCE_RECOVERY.md,
+disjoint-write scopes at the case basis. The adopted on-demand `sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md`,
 linked from AGENTS, now provides the detailed guidance home. No other worker is assigned this scratch item. Agent 1
 may resume/release this safe case; Agent 0 resolves transfer if Agent 1 cannot
 continue. Release requires source-bound comparison, partial-work preservation

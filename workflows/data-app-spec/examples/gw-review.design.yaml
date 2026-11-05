@@ -360,7 +360,7 @@ tier:
   rationale: >-
     The stated use is regulatory reporting: the regulator receives the report and the
     professional of record authenticates it. The gates place regulatory reporting at T3
-    (workflows/app-spec/resources/gates.md). The worst error, a missed increase, is hard
+    (workflows/data-app-spec/resources/gates.md). The worst error, a missed increase, is hard
     to detect. A purely internal use would fit T2; the owner rules.
   ruling: r_tier
   standing: PROPOSAL

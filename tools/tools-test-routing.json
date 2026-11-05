@@ -103,15 +103,6 @@
   "path_rules": [
     {
       "paths": [
-        ".github/workflows/harness-premerge.yml",
-        ".github/workflows/pec-tests.yml"
-      ],
-      "checks": [
-        "software_workflow"
-      ]
-    },
-    {
-      "paths": [
         "tools/analysis/*"
       ],
       "checks": [
@@ -209,6 +200,7 @@
     {
       "paths": [
         ".github/workflows/governance-harness.yml",
+        "pyproject.toml",
         "tools/tools-test-routing.json",
         "tools/run_affected_tests.py",
         "tools/software_workflow/*",

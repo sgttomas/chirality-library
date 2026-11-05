@@ -31,7 +31,7 @@ Root-specific execution and grants do not automatically become consumer instruct
 
 `docs/alignment-manual/README.md` distinguishes stable discovery from reliance
 on an exact edition/source and gives the maintained rendering route.
-`projects/FROZEN.md` preserves the completed archive transition and frozen-product
+`sgttomas/chirality:projects/FROZEN.md` preserves the completed archive transition and frozen-product
 recovery references. Use those existing homes; do not create a second edition
 history or re-run the completed removal.
 

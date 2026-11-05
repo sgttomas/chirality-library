@@ -84,5 +84,5 @@ explicit package-local repair targets under `_Decomposition/` or `_ScopeChange/`
 
 - One invocation reviews one DOMAIN root only.
 - `REVIEW_ONLY` is the safe default.
-- Use `kty-metadata-align` for KTY-local metadata drift; do not widen this
+- Report KTY-local metadata drift (the `kty-metadata-align` workflow was removed); do not widen this
   review run into folder-local repair.

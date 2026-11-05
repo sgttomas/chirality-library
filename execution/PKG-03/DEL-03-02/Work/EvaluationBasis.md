@@ -12,7 +12,7 @@ retain the governing R18/A9 obligations.
 
 Use [the tool guide](../../../../tools/undertaking_evaluation/README.md) for the
 actual `python3 -m tools.undertaking_evaluation inspect` and `compare` interfaces.
-The [evaluation workflow](../../../../workflows/evaluate-repository-change/WORKFLOW.md)
+The evaluation workflow (`sgttomas/chirality:workflows/evaluate-repository-change/WORKFLOW.md`, private archive)
 provides the selected practice, and DEL-04-02 owns its interpretation/application.
 Python 3.10+ and Git are required; the implementation uses the standard library.
 
@@ -126,7 +126,7 @@ The unchanged renderer from `e57e0b783cc50a354819bc83bd38bd86a063ad77` was
 examined through actual `inspect` and `compare` output during publication
 preparation. The labelled rendering cases selected `README.md`,
 `docs/human-team-courses/courses/12-project-practicum.md` and
-`workflows/evaluate-repository-change/WORKFLOW.md` between published 1.0.2
+`sgttomas/chirality:workflows/evaluate-repository-change/WORKFLOW.md` between published 1.0.2
 (`59433388627773f008f550481c4159514f43c7e5`) and that implementation revision.
 These supplied unchanged, modified and added rows. No trace or real trial was
 represented; outcome was explicitly unknown and effort was absent.

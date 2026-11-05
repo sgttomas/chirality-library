@@ -10,6 +10,11 @@ approves the candidate content for integration. This is
 evidence toward AC-001–AC-004, not an accepted F-02 result, A4/A5 completion,
 a development gate or release.
 
+Removal note (2026-11-04): the three reference documents this contribution
+reviewed (runtime interface, product boundaries and compatibility formats) were
+removed from this repository by owner direction and are preserved in the private
+`sgttomas/chirality` repository, cited below as `sgttomas/chirality:<path>`.
+
 ## Basis and intended use
 
 The preceding source basis for every Root passage below is
@@ -33,7 +38,7 @@ is recorded above.
 Agent 0 retains consumer coordination and final integration; the owner approves
 proposed content before integration. The selected methods are repository
 `workflows/coordinated-knowledge-work/WORKFLOW.md`,
-`workflows/bounded-reconciliation/WORKFLOW.md` and `workflows/change/WORKFLOW.md`,
+`workflows/bounded-reconciliation/WORKFLOW.md` and `sgttomas/chirality:workflows/change/WORKFLOW.md`,
 with `.agents/skills/chirality-change/SKILL.md` supplying Git conventions, at the
 preceding basis. Proposed wording is examined under that basis.
 

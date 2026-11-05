@@ -47,7 +47,7 @@ Use the [change-inspection procedure](../../../../README.md#inspect-changes-befo
 to compare the exact basis in use with the proposed edition, read the applicable
 change accounts and examine affected local uses. Inspection does not adopt an
 update. Historical sources remain recoverable through Git and the
-[frozen-project recovery route](../../../../projects/FROZEN.md).
+frozen-project recovery route (`sgttomas/chirality:projects/FROZEN.md`, private archive).
 
 ## Consequential changes in this development increment
 
@@ -78,11 +78,11 @@ are the change accounts for the individual changes.
   guidance, with a bounded named App-reader case. #1787 extends the examined
   delivery subject to a complete source archive and selected standalone operations.
 - **Retired Git layers and focused reflection.** [#1785](https://github.com/sgttomas/chirality/pull/1785)
-  removes `workflows/change/` and `.agents/skills/chirality-change/`.
+  removes `sgttomas/chirality:workflows/change/` and `.agents/skills/chirality-change/`.
   Explicit selections of these packages and legacy `CHANGE` fail; there is no
   canonical successor or silent fallback. For ordinary authorized work, use the
   actual brief and applicable repository conventions. Root's concise Git rules
-  remain in AGENTS, with detailed [recovery guidance](../../../../docs/MAINTENANCE_RECOVERY.md)
+  remain in AGENTS, with detailed recovery guidance (`sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md`, private archive)
   loaded when needed. Historical enum/schema identities and source pins remain
   unchanged. The distinct [reflect-on-work](../../../../workflows/reflect-on-work/WORKFLOW.md)
   method supports human–Agent 0 examination of purpose and practice; it grants no

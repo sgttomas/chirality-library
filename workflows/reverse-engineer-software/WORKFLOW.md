@@ -192,9 +192,10 @@ affected choices when new evidence changes their grounds.
 For successor work, turn the agreed direction into a readable product basis.
 The [basis guide](resources/successor-basis.md) explains the output and handoff.
 The two human confirmation points in this workflow are checkpoints A and B of
-chapter 2 of the management manual
-(`docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v7.md#ch_2`,
-"The software PRD sequence"): confirmation of the proposed direction before
+the [software PRD](../software-prd/WORKFLOW.md) sequence, which applies chapter 2
+of the management manual
+(`docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.md#ch_2`,
+"A basis that supports action"): confirmation of the proposed direction before
 writing is checkpoint A, which existing human direction may already satisfy;
 acceptance of the examined candidate below is checkpoint B, the passage to
 decomposition. Writing, investigation, and repair between them add no approvals.

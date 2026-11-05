@@ -26,7 +26,7 @@ architecture descriptions remain readable without reinstating their mechanisms.
 | Commitment | An adopted obligation or a person's engagement with what they will stand behind. The subject and authority must be clear; a candidate mechanism is not automatically a commitment. | Chapter 3 §§3.2.2, 3.6.4 |
 | Configurational multiplicity | The openness by which identical information can occasion different knowledge across people, purposes, contexts or times. It does not make interpretations equally well supported. | Chapter 3 §3.6.3 |
 | Conflict | Incompatible claims requiring examination of their sources, scope or meaning. Inquiry can resolve some conflicts; a reserved choice must reach its decision owner. | Chapter 3 §3.2.2 |
-| Content-addressed approval | An approval tied to identified content, such as a Git SHA. For consumers that adopt K-AUTH-2, changing that content voids its approval. A hash establishes identity, not correctness or engagement; it creates no general reapproval gate for authorized development. | docs/PRODUCT_BOUNDARIES.md; Chapter 3 §3.2.2 |
+| Content-addressed approval | An approval tied to identified content, such as a Git SHA. For consumers that adopt K-AUTH-2, changing that content voids its approval. A hash establishes identity, not correctness or engagement; it creates no general reapproval gate for authorized development. | `sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md`; Chapter 3 §3.2.2 |
 | Decision capture | Preserving an attributable decision where it governs work and retaining the reason in the existing change record. It does not require an append register. | AGENTS.md |
 | Decision right | Authority to make a particular choice. Current repository commitments, acceptance criteria, releases, risk acceptance and explicit holds retain owner-reserved choices; ordinary work proceeds within existing authorization. | AGENTS.md |
 | Deliverable | An intended work product within an undertaking. The shared locality convention holds commitments in ScopeOfWork, needs in deliverable.yaml, and technical/execution material and locally kept artifacts/outputs in Work, with maturity and issue status explicit. Existing project locality conventions remain adopted; code and other outputs may retain their product/source homes. The folder is a representation and working home, not proof of completion or acceptance. | AGENTS.md; Chapter 3 §3.2.1 |
@@ -43,7 +43,7 @@ architecture descriptions remain readable without reinstating their mechanisms.
 | Gate | A decision boundary imposed by applicable authority or a requirement. An agent may not bypass it, but responsible work does not imply a gate at every phase. | AGENTS.md; Chapter 3 §3.2.3 |
 | Information | An externalizable substrate that can be recorded, transmitted, copied, cited, compared and organized. It may occasion knowing without being identical with the knower's achievement. | Chapter 3 §3.6.1 |
 | Integration | Bringing related contributions into a usable result, including their interfaces and unresolved matters. It requires an owner but not necessarily a separate agent. | workflows/coordinated-knowledge-work/WORKFLOW.md |
-| Invariant | A constraint intended to hold within a specified system or operation. Its scope and actual enforcement must be stated. A written invariant is not itself a mechanical guarantee; retained product identifiers apply only to adopted consumers. | docs/PRODUCT_BOUNDARIES.md; Chapter 7 |
+| Invariant | A constraint intended to hold within a specified system or operation. Its scope and actual enforcement must be stated. A written invariant is not itself a mechanical guarantee; retained product identifiers apply only to adopted consumers. | `sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md`; Chapter 7 |
 | Iteration | Reconsideration and action informed by what the work reveals. It may repair a result, revise a method or prompt an authorized change to a purpose or criterion. Repetition alone does not establish learning. | Shared introduction and conclusion |
 | Judgment | The person's situated, committed, world-involving engagement with what the work means, what matters and what they will stand behind. It shapes purpose, framing and action throughout the undertaking. Final approval is one expression, not its definition. | Smith, *The Promise of Artificial Intelligence* (2019); Chapter 3 §3.6.4 |
 | Knowledge graph | A representation of selected entities and relationships useful to inquiry. It is a view with a basis and limits, not an exhaustive model of knowing or an independent authority source. | Chapter 3 §§3.2.1, 3.6.3 |
@@ -85,7 +85,7 @@ These terms explain earlier designs. References to `TYPES.md`, `DIRECTIVE.md`
 and similar removed documents refer to their archived versions, recoverable
 from `archive/pre-docs-cleanup-1`. They impose no new current development duty.
 A retained product contract may still adopt a specific legacy format; consult
-`docs/COMPATIBILITY_FORMATS.md` for those consumers.
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md` for those consumers.
 
 | Term | Historical meaning | Current interpretation |
 |---|---|---|

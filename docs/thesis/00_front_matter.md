@@ -51,7 +51,9 @@ develop their relationship; Appendix E carries the development history.
 
 Recorded repair cycles show the method changing its own means, and selected
 SWBPIPE quantities agree with an external solver within declared comparison
-tolerances. These findings support the method's efficacy in the examined case.
+tolerances. These findings show what the method achieved in this one case.
+With a single developer, no comparison condition and partly private evidence,
+they do not establish its efficacy more generally.
 Comparative productivity, broader adoption and the adequacy of particular
 professional uses remain distinct questions. The argument keeps adopted
 commitments, design hypotheses and observed findings separate. Appendix D carries
@@ -72,7 +74,7 @@ The originating intuition behind Chirality was that meaning is not manufactured:
 
 ## Table of Contents
 
-1. [Introduction](01_introduction.md)
+1. [Introduction](INTRODUCTION.md)
 2. [Literature Review](02_literature_review.md)
 3. [Philosophical Framework](03_philosophical_framework.md)
 4. [Architecture](04_architecture.md)
@@ -81,7 +83,7 @@ The originating intuition behind Chirality was that meaning is not manufactured:
 7. [SE Design Analysis](07_se_design_analysis.md)
 8. [Evidence and Evaluation](08_implementation.md)
 9. [Discussion](09_discussion.md)
-10. [Conclusion](10_conclusion.md)
+10. [Conclusion](CONCLUSION.md)
 
 **Appendices**
 
