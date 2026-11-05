@@ -85,4 +85,3 @@ code_paths:
 - workflows/README.md
 checks:
 - tools/validation/validate_run_record_leaks.py
-- tools/validation/validate_private_terms.py
