@@ -635,7 +635,7 @@ selectively loaded methods, coherent ownership, host-enforced permissions and
 verification proportionate to consequence are design hypotheses for supporting
 them.
 
-The repository supplies substantial longitudinal case evidence of useful
+The repository supplies longitudinal evidence, from one uncontrolled case, of useful
 production and preservation of meaning through redevelopment. Chapter 8 traces
 that result from working predecessor behavior through successor definition and
 deliverables to observed use of the rebuilt App, with functional extensions and

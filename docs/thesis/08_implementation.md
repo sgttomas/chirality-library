@@ -440,7 +440,7 @@ comparisons, but the executed and traced results establish more than activity.
 
 ## 8.7 Summary
 
-The development record supplies substantial longitudinal case evidence for a
+The development record supplies longitudinal evidence from one uncontrolled case for a
 human-directed, agent-executed method that produces working software, carries
 core product meaning through redevelopment, and supports functional extension
 and correction. Sources, methods, relationships, authorization and continuing
