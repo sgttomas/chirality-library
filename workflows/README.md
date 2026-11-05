@@ -51,13 +51,11 @@ operation does not imply that the host exposes or enforces it.
 
 ## Compatibility and maintenance
 
-`TaskSkill: <name>` remains a legacy input spelling only for names explicitly
-mapped in [the converted-method ledger](legacy-methods.json). Supplying both
-fields with different selections fails. [The legacy agent map](legacy-agents.json)
-records retired names and their historical role/workflow or deterministic
-audit tool. A removed workflow resolves only when it has an explicit maintained
-successor; otherwise invocation fails. Those names are not additional roles. Unconverted legacy methods
-remain historical and are never inferred from files or prose.
+Select a method with `Workflow: <name>`, a source-qualified identity or an
+ordered method list. The legacy alias ledgers (converted `TaskSkill` names and
+retired agent names) have been removed: `TaskSkill` is no longer accepted, and a
+retired or removed name fails as unknown rather than being redirected. Historical
+methods are never inferred from files or prose.
 
 Method libraries may exist at project, user, and bundled scope. Resolution uses
 that precedence order. Identity is the complete tuple `source`, `sourceRootId`,

@@ -1578,12 +1578,6 @@
       }
     }
   ],
-  "legacy": {
-    "retiredRoles": {},
-    "convertedWorkflowAliases": {},
-    "historicalOnly": [],
-    "unknownLegacyBehavior": "error"
-  },
   "discoveryContract": {
     "packageMetadata": "<package>/WORKFLOW.md#yaml-frontmatter",
     "executionCompanion": "execution.json",

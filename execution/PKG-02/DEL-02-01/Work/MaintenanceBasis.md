@@ -99,6 +99,12 @@ retirement, not a role masquerading as a method. Root-only export exclusions and
 source-qualification guards remain for historical compatibility; they neither
 advertise an installed skill nor redirect CHANGE to one.
 
+The legacy ledgers (`workflows/legacy-agents.json` and
+`workflows/legacy-methods.json`) were later removed, with the builder, resolver
+and index `legacy` section that read them (2026-11-04, owner item #48). CHANGE,
+`TaskSkill` and retired agent names now fail as unknown; the historicalOnly
+mechanism described here and below no longer exists.
+
 ## Disposition of advice from the retired skill
 
 The prior skill was read against surviving sources rather than discarded as a

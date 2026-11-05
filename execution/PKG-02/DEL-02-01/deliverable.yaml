@@ -51,8 +51,6 @@ needs:
 code_paths:
 - AGENTS.md
 - docs/MAINTENANCE_RECOVERY.md
-- workflows/legacy-agents.json
-- workflows/legacy-methods.json
 - tools/workflow_runtime/resolve_workflow.py
 - tools/validation/build_workflow_index.py
 - workflows/create-workflow/**

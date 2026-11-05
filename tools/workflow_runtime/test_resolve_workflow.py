@@ -14,21 +14,12 @@ def root(tmp_path):
     (package/'CONTRACT.md').write_text('selected contract')
     (package/'other.md').write_text('unselected')
     (package/'execution.json').write_text(json.dumps({'schema_version':1,'compatible_roles':['TASK'],'tools':{'capabilities':['read','bash'],'commands':['python3 tools/run.py:{scope_path}/**']}}))
-    (tmp_path/'workflows/legacy-methods.json').write_text(json.dumps({
-        'schema':'chirality-legacy-methods/v1',
-        'convertedWorkflowAliases':{
-            'converted-skill':{'kind':'skill','name':'converted-skill'},
-            'old-workflow':{'kind':'workflow','name':'example'},
-        },
-        'historicalOnly':[],
-        'unknownLegacyBehavior':'error',
-    }))
     (tmp_path/'workflows/catalog.yaml').write_text(json.dumps({
         'schema':'chirality-workflow-catalog/v1',
         'library':{'source':'bundled','sourceRootId':'fixture-bundle'},
         'centralWorkflowNames':[],
     }))
-    skill=tmp_path/'.agents/skills/converted-skill';skill.mkdir(parents=True)
+    skill=tmp_path/'.agents/skills/example-skill';skill.mkdir(parents=True)
     (skill/'SKILL.md').write_text('selected skill')
     (skill/'execution.json').write_text(json.dumps({'schema_version':1,'compatible_roles':['TASK'],'tools':{'capabilities':['read']}}))
     (tmp_path/'tools').mkdir();(tmp_path/'tools/run.py').write_text('')
@@ -40,7 +31,7 @@ def policy():
 
 
 def test_selection_context_and_independent_restrictions(root):
-    result=resolve(root,'TASK','old-workflow','old_workflow',['CONTRACT.md'],policy=policy())
+    result=resolve(root,'TASK','example',['CONTRACT.md'],policy=policy())
     assert result['effective_tools']['capabilities']==['read']
     assert command_allowed(result['effective_tools']['commands'],'python3','tools/run.py',['output/a'])
     assert not command_allowed(result['effective_tools']['commands'],'python3','tools/run.py',['outside/a'])
@@ -49,7 +40,7 @@ def test_selection_context_and_independent_restrictions(root):
 
 
 def test_conflicts_missing_resource_empty_policy(root):
-    with pytest.raises(ValueError,match='conflicting'):resolve(root,'TASK','example','converted-skill')
+    with pytest.raises(ValueError,match='missing or escaping'):resolve(root,'TASK','old-workflow')
     with pytest.raises(ValueError,match='missing'):resolve(root,'TASK','example',resources=['missing'])
     p=policy();p['brief']['commands']=[];p['brief']['capabilities']=[]
     result=resolve(root,'TASK','example',policy=p)
@@ -114,31 +105,33 @@ def test_tool_paths_cannot_escape_tools_directory(root):
     with pytest.raises(ValueError,match='tools directory'):resolve_tool(root,'tools/escape.py')
 
 
-def test_legacy_normalization_shared_cases(root):
-    fixture=Path(__file__).with_name('fixtures')/'legacy_method_normalization_cases.json'
+def test_method_normalization_shared_cases(root):
+    fixture=Path(__file__).with_name('fixtures')/'method_normalization_cases.json'
     cases=json.loads(fixture.read_text())['cases']
     for case in cases:
         inputs=case['input']
         if 'error' in case:
             with pytest.raises(ValueError,match=case['error']['messagePattern']):
-                normalize_method_selection(root,inputs.get('workflow'),inputs.get('taskSkill'),inputs.get('methods',[]))
+                normalize_method_selection(root,inputs.get('workflow'),inputs.get('methods',[]))
             continue
-        result=normalize_method_selection(root,inputs.get('workflow'),inputs.get('taskSkill'),inputs.get('methods',[]))
+        result=normalize_method_selection(root,inputs.get('workflow'),inputs.get('methods',[]))
         assert result['methods']==case['outcome']['methods'],case['id']
         assert result['compatibility_inputs']==case['outcome']['compatibilityInputs'],case['id']
         assert result['mapping_decisions']==case['outcome']['decisions'],case['id']
 
 
-def test_converted_task_skill_loads_skill_and_records_mapping_basis(root):
-    result=resolve(root,'TASK',task_skill='converted_skill')
-    assert result['methods']==[{'sourceRootId':'fixture-bundle','source':'bundled','kind':'skill','name':'converted-skill'}]
-    assert result['workflow'] is None
-    assert [x['path'] for x in result['context']]==['agents/AGENT_TASK.md','.agents/skills/converted-skill/SKILL.md']
-    assert 'workflows/legacy-methods.json' in [x['path'] for x in result['configuration_basis']]
-    assert result['method_selection']['original_inputs']['TaskSkill']=='converted_skill'
+def test_retired_task_skill_brief_field_fails(root):
+    import subprocess
+    import sys
+    script=Path(__file__).with_name('resolve_workflow.py')
+    brief=root/'inline.json'
+    brief.write_text(json.dumps({'ScopePath':str(root),'TaskSkill':'example-skill'}))
+    proc=subprocess.run([sys.executable,str(script),'--root',str(root),'--role','TASK','--repo-root',str(root),'--brief',str(brief)],text=True,capture_output=True)
+    assert proc.returncode==2
+    assert 'TaskSkill is retired' in proc.stderr
 
 
-def test_explicit_historical_workflow_loads_workflow_package(root):
+def test_qualified_workflow_loads_workflow_package(root):
     result=resolve(root,'TASK',workflow='fixture-bundle:bundled:workflow:example',policy=policy())
     assert result['methods']==[{'sourceRootId':'fixture-bundle','source':'bundled','kind':'workflow','name':'example'}]
     assert result['workflow']=='example'
@@ -146,12 +139,12 @@ def test_explicit_historical_workflow_loads_workflow_package(root):
 
 
 def test_ordered_different_methods_remain_valid(root):
-    result=resolve(root,'TASK',workflow='old-workflow',methods=[{'kind':'skill','name':'converted-skill'}],policy=policy())
+    result=resolve(root,'TASK',workflow='example',methods=[{'kind':'skill','name':'example-skill'}],policy=policy())
     assert result['methods']==[
-        {'sourceRootId':'fixture-bundle','source':'bundled','kind':'skill','name':'converted-skill'},
+        {'sourceRootId':'fixture-bundle','source':'bundled','kind':'skill','name':'example-skill'},
         {'sourceRootId':'fixture-bundle','source':'bundled','kind':'workflow','name':'example'},
     ]
-    assert [x['path'] for x in result['context'][1:]]==['.agents/skills/converted-skill/SKILL.md','workflows/example/WORKFLOW.md']
+    assert [x['path'] for x in result['context'][1:]]==['.agents/skills/example-skill/SKILL.md','workflows/example/WORKFLOW.md']
 
 
 def test_foreign_qualified_identity_is_rejected(root):
@@ -162,48 +155,20 @@ def test_foreign_qualified_identity_is_rejected(root):
 def test_same_name_different_origin_is_not_deduplicated(root):
     with pytest.raises(ValueError,match='outside the declared Root catalog'):
         normalize_method_selection(
-            root,task_skill='converted-skill',
-            methods=[{'sourceRootId':'foreign','source':'user','kind':'skill','name':'converted-skill'}],
+            root,
+            methods=[{'sourceRootId':'foreign','source':'user','kind':'skill','name':'example-skill'}],
         )
 
 
 def test_catalog_identity_is_recorded_and_controls_qualification(root):
-    first=resolve(root,'TASK',task_skill='converted-skill')
+    first=resolve(root,'TASK',methods=[{'kind':'skill','name':'example-skill'}])
     first_basis=next(item for item in first['configuration_basis'] if item['path']=='workflows/catalog.yaml')
     catalog=root/'workflows/catalog.yaml'
     value=json.loads(catalog.read_text());value['library']['sourceRootId']='fixture-bundle-v2';catalog.write_text(json.dumps(value))
-    second=resolve(root,'TASK',task_skill='converted-skill')
+    second=resolve(root,'TASK',methods=[{'kind':'skill','name':'example-skill'}])
     second_basis=next(item for item in second['configuration_basis'] if item['path']=='workflows/catalog.yaml')
     assert first_basis['sha256'] != second_basis['sha256']
     assert second['methods'][0]['sourceRootId']=='fixture-bundle-v2'
-
-
-def test_legacy_agent_routes_retired_workflow_to_recorded_successor(root):
-    (root/'workflows/legacy-agents.json').write_text(json.dumps({'schema_version':1,'aliases':{
-        'LIVE':{'role':'TASK','workflow':'example'},
-        'RETIRED':{'role':'TASK','workflow':'removed','canonical_successor':{'kind':'skill','name':'converted-skill'}},
-        'ORPHANED':{'role':'TASK','workflow':'removed'},
-    }}))
-    live=resolve(root,'TASK',legacy_agent='LIVE',policy=policy())
-    assert live['methods'][0]['kind']=='workflow' and live['methods'][0]['name']=='example'
-    retired=resolve(root,'TASK',legacy_agent='RETIRED')
-    assert [(m['kind'],m['name']) for m in retired['methods']]==[('skill','converted-skill')]
-    assert retired['method_selection']['mapping_decisions'][-1]=={
-        'field':'legacyAgent','original':'RETIRED','historicalWorkflow':'removed',
-        'mapping':'retired-workflow-successor','resolved':retired['methods'][0]}
-    with pytest.raises(ValueError, match='retired without a canonical successor'):
-        resolve(root,'TASK',legacy_agent='ORPHANED')
-    same=resolve(root,'TASK',legacy_agent='RETIRED',task_skill='converted-skill')
-    assert [(m['kind'],m['name']) for m in same['methods']]==[('skill','converted-skill')]
-    (root/'.agents/skills/other-skill').mkdir()
-    (root/'.agents/skills/other-skill/SKILL.md').write_text('other skill')
-    legacy=json.loads((root/'workflows/legacy-methods.json').read_text())
-    legacy['convertedWorkflowAliases']['other-skill']={'kind':'skill','name':'other-skill'}
-    (root/'workflows/legacy-methods.json').write_text(json.dumps(legacy))
-    with pytest.raises(ValueError, match='conflicting Workflow/TaskSkill'):
-        resolve(root,'TASK',legacy_agent='RETIRED',task_skill='other-skill')
-    ordered=resolve(root,'TASK',legacy_agent='RETIRED',methods=['fixture-bundle:bundled:skill:other-skill'])
-    assert [m['name'] for m in ordered['methods']]==['other-skill','converted-skill']
 
 
 def test_help_human_assignment_write_authority_boundaries(tmp_path):
@@ -260,17 +225,11 @@ def test_task_still_cannot_delegate_under_broader_host_policy():
     assert 'delegate_agent' not in result['effective_tools']['capabilities']
 
 
-def test_root_change_retirement_has_no_implicit_successor():
+def test_removed_change_methods_do_not_resolve():
     source = Path(__file__).resolve().parents[2]
-    # The retired-role ledger was removed, so a retired role name is unknown.
-    assert not (source / 'workflows/legacy-agents.json').exists()
-    with pytest.raises(ValueError, match='unknown legacy agent'):
-        resolve(source, 'WORKING_ITEMS', legacy_agent='CHANGE')
     for selection in ('change', 'chirality-root:bundled:workflow:change'):
         with pytest.raises(ValueError, match='missing or escaping resource'):
             resolve(source, 'WORKING_ITEMS', workflow=selection)
-    with pytest.raises(ValueError, match='unknown legacy method alias'):
-        resolve(source, 'WORKING_ITEMS', task_skill='change')
     with pytest.raises(ValueError, match='missing or escaping resource'):
         resolve(source, 'WORKING_ITEMS', methods=['chirality-root-project:project:skill:chirality-change'])
     ordinary = resolve(source, 'WORKING_ITEMS')
@@ -281,14 +240,3 @@ def test_root_change_retirement_has_no_implicit_successor():
         assert [(item['kind'], item['name']) for item in reflective['methods']] == [('workflow', 'reflect-on-work')]
     with pytest.raises(ValueError, match='incompatible'):
         resolve(source, 'TASK', workflow='reflect-on-work')
-
-
-def test_retired_alias_does_not_fall_back_to_a_root_skill(root):
-    (root / 'workflows/legacy-agents.json').write_text(json.dumps({'schema_version': 1, 'aliases': {
-        'CHANGE': {'role': 'TASK', 'workflow': 'change', 'compatibility_note': 'Retired without successor.'}
-    }}))
-    skill = root / '.agents/skills/chirality-change'
-    skill.mkdir()
-    (skill / 'SKILL.md').write_text('Unrelated local skill must not be selected.')
-    with pytest.raises(ValueError, match='retired without a canonical successor'):
-        resolve(root, 'TASK', legacy_agent='CHANGE')

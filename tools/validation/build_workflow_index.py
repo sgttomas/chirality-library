@@ -11,7 +11,6 @@ import yaml
 
 CATALOG_SCHEMA = "chirality-workflow-catalog/v1"
 INDEX_SCHEMA = "chirality-method-index/v1"
-LEGACY_SCHEMA = "chirality-legacy-methods/v1"
 NAME_RE = re.compile(r"^(?=.{1,64}$)[a-z0-9]+(?:-[a-z0-9]+)*$")
 SOURCES = ("project", "user", "bundled")
 ROLES = ("HELP_HUMAN", "HELPS_HUMANS", "WORKING_ITEMS", "TASK")
@@ -267,12 +266,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
     if not isinstance(central_names, list) or tuple(central_names) != CENTRAL:
         raise ValueError("centralWorkflowNames must equal the ordered central workflows")
     navigation = parse_navigation(catalog["navigation"])
-    # Absent legacy ledgers mean no converted or retired names remain.
-    methods = (_load_json(workflows / "legacy-methods.json") if (workflows / "legacy-methods.json").exists()
-               else {"schema": LEGACY_SCHEMA, "convertedWorkflowAliases": {}, "historicalOnly": [], "unknownLegacyBehavior": "error"})
-    required_method_keys = {"schema", "convertedWorkflowAliases", "historicalOnly", "unknownLegacyBehavior"}
-    if methods.get("schema") != LEGACY_SCHEMA or set(methods) != required_method_keys:
-        raise ValueError("invalid legacy-method ledger")
     descriptors = []
     seen = set()
     package_dirs = [p for p in workflows.iterdir() if p.is_dir() and not p.name.startswith(".") and p.name != "chirality-change"]
@@ -342,7 +335,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
         raise ValueError("legacy compatibility must be reserved for superseded workflows")
 
     skills_root = root / ".agents" / "skills"
-    skill_names = set()
     if skills_root.is_dir():
         if not skills_root.resolve().is_relative_to(root):
             raise ValueError("skill collection escapes declared library root")
@@ -361,7 +353,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
             for resource in resources:
                 _contained_file(package_root, resource)
             execution = parse_execution(package_root, root, required=False)
-            skill_names.add(folder.name)
             method_source = "project" if folder.name == "chirality-change" else library["source"]
             method_root = "chirality-root-project" if folder.name == "chirality-change" else library["sourceRootId"]
             descriptor = {
@@ -376,45 +367,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
                 descriptor["execution"] = execution
             descriptors.append(descriptor)
 
-    if methods["unknownLegacyBehavior"] != "error" or not isinstance(methods["historicalOnly"], list):
-        raise ValueError("unconverted legacy methods must remain historical and unknown selection must error")
-    if any(not isinstance(name, str) or not NAME_RE.fullmatch(name) for name in methods["historicalOnly"]):
-        raise ValueError("historical-only methods must have valid names")
-    retired = (_load_json(workflows / "legacy-agents.json") if (workflows / "legacy-agents.json").exists()
-               else {"schema_version": 1, "aliases": {}})
-    if retired.get("schema_version") != 1 or not isinstance(retired.get("aliases"), dict):
-        raise ValueError("invalid retired-role ledger")
-    for alias, mapping in retired["aliases"].items():
-        if not isinstance(mapping, dict) or not isinstance(mapping.get("role"), str):
-            raise ValueError(f"malformed retired-role mapping: {alias}")
-        successor = mapping.get("canonical_successor")
-        if successor is not None:
-            if not isinstance(successor, dict) or successor.get("kind") not in ("workflow", "skill") or not isinstance(successor.get("name"), str):
-                raise ValueError(f"malformed canonical successor: {alias}")
-            if successor["kind"] == "workflow" and successor["name"] not in names:
-                raise ValueError(f"unknown workflow successor: {alias}")
-            if successor["kind"] == "skill" and successor["name"] not in skill_names:
-                raise ValueError(f"unknown skill successor: {alias}")
-        workflow_target = mapping.get("workflow")
-        if workflow_target is not None and workflow_target not in names and successor is None:
-            # An intentional no-successor retirement must be declared in the
-            # existing method ledger and explain the continuation route. A
-            # dangling target alone is still an error, never an implicit role.
-            note = mapping.get("compatibility_note")
-            if workflow_target not in methods["historicalOnly"] or not isinstance(note, str) or not note.strip():
-                raise ValueError(f"retired-role workflow was removed without a canonical successor or documented historical-only retirement: {alias}")
-    converted = methods["convertedWorkflowAliases"]
-    if not isinstance(converted, dict) or any(
-        not isinstance(k, str) or not isinstance(v, dict)
-        or set(v) != {"kind", "name"} or v["kind"] not in ("workflow", "skill")
-        or (v["kind"] == "workflow" and v["name"] not in names)
-        or (v["kind"] == "skill" and v["name"] not in skill_names)
-        for k, v in converted.items()
-    ):
-        raise ValueError("converted TaskSkill mapping targets unknown workflows")
-    if set(converted) & set(methods["historicalOnly"]):
-        raise ValueError("legacy methods cannot be both converted and historical-only")
-    converted_refs = dict(sorted(converted.items()))
     if public_export:
         descriptors = [item for item in descriptors if not (item["kind"] == "skill" and item["name"] == "chirality-change")]
     return {
@@ -423,12 +375,6 @@ def validate_and_build(root: Path, public_export: bool = False) -> dict:
         "precedence": list(SOURCES),
         "centralWorkflowNames": list(CENTRAL),
         "methods": sorted(descriptors, key=lambda item: (item["kind"], item["name"])),
-        "legacy": {
-            "retiredRoles": retired["aliases"],
-            "convertedWorkflowAliases": converted_refs,
-            "historicalOnly": methods["historicalOnly"],
-            "unknownLegacyBehavior": "error",
-        },
         "discoveryContract": {
             "packageMetadata": "<package>/WORKFLOW.md#yaml-frontmatter",
             "executionCompanion": "execution.json",
