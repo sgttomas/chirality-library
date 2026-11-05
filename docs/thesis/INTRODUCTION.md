@@ -2,6 +2,10 @@
 
 **An introduction to the Chirality thesis**
 
+This introduction is the thesis's first chapter. It states the question, the
+perspectives used to examine it, the standing of its contributions, the
+organization of the chapters and the limits of the case.
+
 Work begins with something that matters. A person meets a need, describes it
 for the first time, and tries to act. As the work reveals what was overlooked,
 the description changes. Other people contribute. Tools make some actions possible and some consequences
@@ -159,6 +163,71 @@ delegation and supervision are suitable. Capability alone does not transfer the
 person's commitment or supply a new decision right. The
 [shared vocabulary](glossary.md) keeps these distinctions available throughout
 the manuscript.
+
+## Contributions and their standing
+
+Shared structure can preserve distinctions and learning, but it can also draw
+attention away from the work and toward the structure's own categories.
+Prescribing every route can frustrate initiative; leaving every relationship
+implicit can lose purpose, evidence and responsibility as work expands.
+
+Chirality Root responds by opening the means of production to the same inquiry
+as their outputs: a role, method or tool can be examined and changed when it no
+longer serves its purpose. Learning can improve the working environment as well
+as the product. The repository gives this idea concrete form. Commitments,
+design and needs remain in current artifacts, and queries expose relevant
+relationships. Participants assess whether the available evidence meets the
+need. Continuing ownership carries findings into repairs and contributions into
+a usable whole. Changes to shared instructions must reach the tools and products
+that use them.
+
+These contributions have been exercised through software development and
+redevelopment. Chapter 8 traces working predecessor behavior through successor
+definition, deliverable allocation and native use of the rebuilt App. It finds
+preserved core meanings, functional extensions and corrections that reached
+their consumers. The method's own execution approach also changed through human
+steering and agent work. These are observed achievements in this case.
+
+Their wider value remains open to examination. A record can support continuity
+or become a competing body of work; a method can retain learning or repeat a
+cost whose purpose has disappeared. Chapter 8 assesses both results and limits;
+[Appendix E](appendix_e_development_history.md) retains the development history.
+Neither the presence of a mechanism nor its removal establishes an improvement
+in total effort and reliability.
+
+## How the thesis is organized
+
+The chapters develop the account in four steps. Chapters 2–3 establish its
+precedents and philosophical distinctions. Chapters 4–5 examine how architecture
+can make those distinctions useful in work. Chapters 6–7 assess how those
+distinctions are interpreted for professional practice, and the
+systems-engineering methods proposed to support them. Chapters 8–9 and the
+[conclusion](CONCLUSION.md) then distinguish what the development evidence
+supports from the claims that remain open.
+
+The App and SWBPIPE cases in Chapter 8 examine particular applications. In the
+App, authoring workflows makes method itself a subject of work; in SWBPIPE,
+piping design tests whether shared means preserve engineering meaning, numerical
+grounds and the conditions of use. Experience in either application can show a
+limitation in Root's methods or framing. So application development is part of
+the inquiry into the shared means, not a demonstration whose success can be
+assumed from the framework.
+
+## Scope and limitations
+
+This is a single case followed over time, joining one developer's purpose,
+judgment and steering with agent-led production and orchestration. That human
+contribution is foundational to the framework and its evidence. There is no
+comparison condition, and part of the evidence, including raw SWBPIPE comparison
+records, is held privately. Additional practitioners would bring their own
+direction and judgment to further cases.
+
+The evaluation separates transfer of development methods across the App and
+SWBPIPE, preservation of App meaning across implementations, embedded-agent
+product integration, and adoption in further settings. The first two have
+observed results; the latter questions need their own evidence. Comparative
+cost and reliability likewise require more than code volume or internal
+consistency.
 
 ## What the reader can expect
 

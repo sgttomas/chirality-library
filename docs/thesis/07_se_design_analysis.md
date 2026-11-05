@@ -8,7 +8,7 @@ verification, safety, requirements, control, formal analysis and human factors
 
 The analysis uses repository instructions, the
 [deliverable CLI](../../tools/deliverables/README.md) and
-[CI selection](../CI_SELECTION.md) at the stated source basis.
+CI selection (`sgttomas/chirality:docs/CI_SELECTION.md`, private archive) at the stated source basis.
 [Appendix E](appendix_e_development_history.md) retains the developmental
 comparisons. A rule as specified needs evidence of its actual operation.
 
@@ -349,10 +349,20 @@ in some reviews; they are not an exhaustive, mutually exclusive ontology of ever
 claim. A proposal can contain supported facts and untested assumptions. Checking
 a label's spelling cannot establish that its classification is appropriate.
 
-The exact legacy `FindingSeverity` enum remains in the standalone
-[SE companion, §7.3](SE_Design_Analysis.md#73-the-type-system) because the
-compatibility-format reference still cites it. Retaining that interface does not
-reinstate the older review gates.
+The legacy review-format vocabulary is retained exactly because the former
+compatibility-format reference, now preserved in the private
+`sgttomas/chirality` repository, cited it (formerly from the standalone SE
+companion, consolidated here on 2026-11-04):
+
+```text
+FindingSeverity : CRITICAL | MAJOR | MINOR | OBSERVATION
+```
+
+These values classify review findings about deliverable content for consumers of
+that format. They are distinct from historical governance-verifier severities
+(`BLOCK`, `REVIEW`, `WARN`, `INFO`, `NOT_APPLICABLE`). Retaining that interface
+does not reinstate the older review gates, and no enum value itself establishes
+the technical severity of a finding.
 
 ### 7.8.4 State Machines Where They Fit
 

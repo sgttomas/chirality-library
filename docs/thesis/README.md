@@ -7,10 +7,11 @@ supports that work, and how its results can be examined. Chirality App and
 SWBPIPE provide application cases within the argument. They are not separate
 manuscripts.
 
-Start with the [introduction](INTRODUCTION.md), then follow the chapters below.
+Start with the [introduction](INTRODUCTION.md) (Chapter 1), then follow the
+chapters below.
 The [worked example](WORKED_EXAMPLE.md) applies the argument to an illustrative
-engineering task. The [conclusion](CONCLUSION.md) brings the findings and open
-questions together. The [glossary](glossary.md) defines the terms.
+engineering task. The [conclusion](CONCLUSION.md) (Chapter 10) brings the findings and
+open questions together. The [glossary](glossary.md) defines the terms.
 
 ## Research question
 
@@ -30,7 +31,7 @@ instructions and adopted product commitments still govern development.
 | Chapter | Subject |
 |---|---|
 | [Front matter](00_front_matter.md) | Abstract, author's note and contents |
-| [1. Introduction](01_introduction.md) | Question, contribution and limits |
+| [1. Introduction](INTRODUCTION.md) | Question, perspectives, contribution and limits |
 | [2. Literature review](02_literature_review.md) | Precedents and scope of comparison |
 | [3. Philosophical framework](03_philosophical_framework.md) | Four perspectives; reckoning, judgment and situated knowing |
 | [4. Architecture](04_architecture.md) | Responsibilities, artifacts, queries and host boundaries |
@@ -39,7 +40,7 @@ instructions and adopted product commitments still govern development.
 | [7. Systems engineering analysis](07_se_design_analysis.md) | Design methods, contributions and limits |
 | [8. Evidence and evaluation](08_implementation.md) | Observed implementation and limits of the findings |
 | [9. Discussion](09_discussion.md) | Tensions, generalisation and evaluation |
-| [10. Conclusion](10_conclusion.md) | What the case supports and what remains open |
+| [10. Conclusion](CONCLUSION.md) | What the case supports and what remains open |
 | [Appendix A](appendix_a_invariant_catalog.md) | Historical controls and present interpretation |
 | [Appendix C](appendix_c_apega_mapping.md) | Regulatory mapping and limitations |
 | [Appendix D](appendix_d_framework_s.md) | Bounded philosophical conjecture |
@@ -47,10 +48,11 @@ instructions and adopted product commitments still govern development.
 | [References](references.md) / [Glossary](glossary.md) | Sources and terms |
 
 [The Chirality Framework](CHIRALITY_FRAMEWORK.md) offers a short path through
-the conceptual account. [Systems Engineering Design Analysis](SE_Design_Analysis.md)
-summarizes the technical analysis developed in Chapter 7. These companions can
-be read on their own or used to revisit the argument; neither is a required
-additional volume. There is no Appendix B; current role instructions are indexed
+the conceptual account. It can be read on its own or used to revisit the
+argument; it is not a required additional volume. The former standalone
+Systems Engineering Design Analysis summary and the separate numbered
+introduction and conclusion chapters were consolidated into Chapter 7,
+INTRODUCTION.md and CONCLUSION.md on 2026-11-04. There is no Appendix B; current role instructions are indexed
 in [AGENTS.md](../../AGENTS.md).
 
 ## Source basis and historical editions
@@ -66,7 +68,7 @@ separately. It reports documentary/source examination and checks of stored
 comparison evidence, not fresh product or solver runs.
 
 Regulatory discussion keeps its identified July 2, 2026 basis and source
-editions. Older editions remain in Git; the
+editions. Older editions remain in the Git history of the private `sgttomas/chirality` repository; the
 [development history](appendix_e_development_history.md) distinguishes dated
 observations, owner testimony and the October 30 synthesis.
 
@@ -88,5 +90,8 @@ The App's frozen `foundation/thesis` is an earlier evidence snapshot, not anothe
 maintained manuscript. Historical observations retain their identified basis.
 The October 30 evidence extension makes the longitudinal finding explicit:
 working software, preserved core meaning through redevelopment, functional
-extensions and repairs support the method's efficacy in this human-directed,
-agent-executed undertaking. Human steering is foundational throughout.
+extensions and repairs show what the method achieved in this one
+human-directed, agent-executed undertaking. A single case without a comparison
+condition, resting partly on private evidence, does not establish efficacy
+beyond it ([§9.2.1](09_discussion.md#921-what-the-case-shows-and-comparative-questions)).
+Human steering is foundational throughout.

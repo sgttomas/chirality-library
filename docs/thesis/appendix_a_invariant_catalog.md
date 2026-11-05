@@ -15,8 +15,8 @@ stood at one time.
 
 Current repository authority comes from [AGENTS.md](../../AGENTS.md), the
 conversation and applicable project commitments. Some historical identifiers
-remain in [Product boundaries](../PRODUCT_BOUNDARIES.md) for adopted consumers;
-[Compatibility formats](../COMPATIBILITY_FORMATS.md) preserves formats still
+remain in Product boundaries (`sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md`, private archive) for adopted consumers;
+Compatibility formats (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md`, private archive) preserves formats still
 read by tools. Those sources determine applicability. This appendix neither
 widens nor retires their contracts.
 
@@ -87,7 +87,7 @@ folder tree an exhaustive ontology or every path move a scope change. See the
 **K-AUTH-1**, **K-AUTH-2** and **K-BIND-1** concerned human approval, identified
 subjects and the distinction between binding acceptance and guidance. Adopted
 product consumers retain the applicable definitions in
-[Product boundaries](../PRODUCT_BOUNDARIES.md#retained-invariant-identifiers).
+Product boundaries (`sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md#retained-invariant-identifiers`, private archive).
 Their scope must be respected rather than inferred from this historical account.
 
 A content binding makes an acceptance's subject identifiable, but it neither
@@ -158,7 +158,7 @@ reliance, and releases remain owner acts.
 **K-PROV-1**, **K-INVENT-1**, **K-CONFLICT-1** and **K-CLAIM-1** addressed sources,
 unknowns, disagreements and claim strength. Their wording, as retained for
 adopted products, is in
-[Product boundaries](../PRODUCT_BOUNDARIES.md#retained-invariant-identifiers).
+Product boundaries (`sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md#retained-invariant-identifiers`, private archive).
 
 The important limitation is that a citation can be wrong or irrelevant, an unknown
 can remain undetected, and several reviewers can share a mistaken premise. These
@@ -176,7 +176,7 @@ fixed directory category. Explicit read-only conditions remain in effect.
 The [resolver](../../tools/workflow_runtime/resolve_workflow.py) reports policy
 and checks declared inputs, but it is not itself a sandbox. Applicable
 containment formats are still described in
-[Compatibility formats](../COMPATIBILITY_FORMATS.md#paths-and-containment).
+Compatibility formats (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#paths-and-containment`, private archive).
 Historical snapshot duties do not require new run folders. Evidence needed for a
 particular consumer or recovery still requires appropriate preservation.
 
@@ -193,7 +193,7 @@ index, govern repository work.
 
 **K-DOMAIN-1** through **K-DOMAIN-4** distinguish engine-owned state, protected
 writes, controlled proposal/application and professional acceptance. The adopted
-definitions remain in [Product boundaries](../PRODUCT_BOUNDARIES.md#domain-integration).
+definitions remain in Product boundaries (`sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md#domain-integration`, private archive).
 Removing administrative development records does not retire them.
 
 The phrase “authoritative domain truth” in the historical definition is read as

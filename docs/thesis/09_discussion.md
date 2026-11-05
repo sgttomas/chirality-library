@@ -26,12 +26,15 @@ by naming them. Its adequacy must be examined on actual connecting paths.
 
 ## 9.2 Limitations
 
-### 9.2.1 Demonstrated Efficacy and Comparative Questions
+### 9.2.1 What the Case Shows and Comparative Questions
 
 The longitudinal case demonstrates useful agent-led production, examination,
 repair and preservation of product meaning through redevelopment (§8.5.3).
 Human purpose, judgment and steering are foundational elements of that method.
-Their contribution belongs in the explanation of how it works.
+Their contribution belongs in the explanation of how it works. The case is
+single, directed by one developer and uncontrolled, and part of its evidence is
+private (§8.5.4). It shows what the method achieved there, not its efficacy in
+general or relative to other arrangements.
 
 Controlled comparison would address different questions. The case has not
 established that Chirality:

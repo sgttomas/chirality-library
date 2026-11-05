@@ -346,7 +346,7 @@ an opportunity to investigate whether work can run concurrently, not proof that
 shared writes or resources are absent.
 
 Domain applications add stronger object-level restrictions. The adopted
-[product boundaries](../PRODUCT_BOUNDARIES.md) reserve protected domain changes
+product boundaries (`sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md`, private archive) reserve protected domain changes
 to the declared engine-controlled path. The engine owns the canonical model
 state, but this is authority over storage and operations, not a guarantee of
 engineering truth. Applicable proposal, validation and human-acceptance
@@ -527,7 +527,7 @@ failures, useful interactions and supplier changes inform the design. Root helps
 make those sources accessible, but it does not mechanically compile them into
 one correct application. Earlier
 Apps, Runtime and PEC remain recoverable through
-[projects/FROZEN.md](../../projects/FROZEN.md), without current development duties.
+the frozen-project recovery note (`sgttomas/chirality:projects/FROZEN.md`, private archive), without current development duties.
 
 ## 4.9 Assignment and Result Interfaces
 

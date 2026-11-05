@@ -2,6 +2,10 @@
 
 **A conclusion to the Chirality thesis**
 
+This conclusion is the thesis's final chapter. It returns to the research
+question, states what the case supports and what it does not, and identifies the
+evidence that would strengthen, limit or revise the argument.
+
 The thesis examines a working relationship among purpose, participation,
 and judgment.
 Agents can enlarge what a person investigates and does. Applications can give
@@ -77,10 +81,41 @@ costs. The framework gives reasons to examine both keeping and changing. It
 grants no automatic authority to revise the person's commitments, and it creates
 no duty to rebuild an arrangement just because a more capable agent could.
 
+## Revisable means
+
+The means of work should help participants stay with the work. A representation
+that aids attention can also divert it. A role that preserves responsibility can
+become a compulsory handoff. A check that exposes error can become a ritual
+repeated after its evidence is already sufficient. The same mechanism can serve
+or frustrate the work under different conditions.
+
+This makes revisability of the means central to the argument. Root must
+preserve the purpose of a distinction while allowing its representation to
+change. It must keep responsibility for integration while allowing different
+staffing. It must support accountable judgment while giving agents room for
+substantial reckoning and action [CITE:Smith2019]. A fixed orchestration cannot settle those
+relationships once, for all future work. The four perspectives expose partial
+accounts and support correction; they do not prove a universal architecture.
+
+The person's attention is part of the system's finite capacity. Procedures that
+consume that attention have ethical and practical costs, especially when the
+person remains responsible for reliance. Removing a redundant
+control can therefore support accountability, but only where the relevant
+distinctions and grounds remain available; efficiency cannot turn a missing
+condition into an established result.
+
+Deriving an application poses the same question at a larger scale. An earlier
+implementation contains both valuable learning and contingent design choices. A
+product requirements document (PRD) can help distinguish current commitments
+from inherited mechanisms, but it cannot replace the interpretation of use,
+failure and changing capability. A new application is a substantive advance when
+it preserves what matters while improving how that is realised, rather than
+merely reproducing a familiar structure.
+
 ## What has been established
 
 The thesis offers a developed philosophical and architectural argument and
-substantial longitudinal case evidence for its practical method. The App's
+longitudinal evidence from one case for its practical method. The App's
 working predecessor was investigated, useful behavior and governing distinctions
 were expressed in an accepted successor basis, and deliverables carried them
 into a rebuilt application. Native use demonstrated preserved meanings, reuse
@@ -94,9 +129,14 @@ evidence extension examined on October 30. The extension includes the October
 declared tolerances. It preserves failures and unresolved findings alongside
 successful observations.
 
-These results establish efficacy in the examined human–agent undertaking.
-Human purpose, judgment and steering are foundational to that result. Further
-practitioners would bring those contributions to additional settings. A general
+These results show what the method achieved in one human–agent undertaking.
+They come from a single longitudinal case directed by one developer, with no
+comparison condition, and part of the evidence, including raw SWBPIPE comparison
+records, is held privately. They show that the method can work in such an
+undertaking; they do not establish its efficacy in general or relative to other
+arrangements. Human purpose, judgment and steering are foundational to the
+result. Further practitioners would bring those contributions to additional
+settings. A general
 productivity advantage, sufficient professional practice and a complete
 embedded-agent App–SWBPIPE activity remain distinct claims requiring their own
 evidence. Development-method transfer and temporal continuity have already been

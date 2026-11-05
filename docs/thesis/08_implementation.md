@@ -149,7 +149,8 @@ alone does not establish that work resumed without loss or duplicated action.
 
 ### 8.4.2 Selected Checks and Reuse
 
-The [CI selection reference](../CI_SELECTION.md) defines `harness` as the required
+The CI selection reference (`sgttomas/chirality:docs/CI_SELECTION.md`, private archive; the current
+workflow is [governance-harness.yml](../../.github/workflows/governance-harness.yml)) defines `harness` as the required
 aggregate result for repository checks and selected active-product workflows.
 Unrelated jobs can be skipped explicitly. A selected job that fails, is cancelled
 or is missing must prevent the aggregate from passing. Selection and failure
@@ -434,7 +435,7 @@ for a particular deployment and sustained adoption across further settings
 remain separate questions. The observations do not isolate the contribution of
 each mechanism from changing model capabilities, accumulated knowledge or task
 mix. Human purpose, judgment and steering are foundational parts of the method
-whose local efficacy is observed. Activity counts cannot establish the broader
+whose local results are observed. Activity counts cannot establish the broader
 comparisons, but the executed and traced results establish more than activity.
 
 ## 8.7 Summary
