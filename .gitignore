@@ -88,5 +88,3 @@ _harness_generated/
 
 # taskmgmt scan/federation outputs — derived, rebuildable candidate views (D-GOV-01)
 execution/_Coordination/_TaskManagement/.candidates/
-projects/*/execution/_Coordination/_TaskManagement/.candidates/
-_DomainEngines/*/_TaskManagement/.candidates/

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Canonical research-packet schema (single source of truth).
 
-These constants mirror the packet contract defined in `workflows/research-orchestration/WORKFLOW.md`
+These constants mirror the packet contract defined in `sgttomas/chirality:workflows/research-orchestration/WORKFLOW.md` (private archive)
 (packet contract). `scaffold_research_packet.py` emits files with these headers and
 `query_source_index.py` logs with `QUERY_LOG_COLUMNS`, so the workflow and tools
 cannot silently diverge. If the research packet contract changes, update this module.

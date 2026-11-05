@@ -72,7 +72,7 @@ Cluster rows whose disposition rests on mechanism-level wording (the claim
 describes how the implementation works rather than what it must satisfy) as
 a granularity cause, so that R4 can put the repair posture to the human once
 rather than packet by packet. The test is the shared method's claim
-granularity rule (`docs/COMPATIBILITY_FORMATS.md#historical-concordance-method` §3.1).
+granularity rule (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-concordance-method` (private archive) §3.1).
 
 ### R4 — Human and engineering decision gate
 
@@ -127,7 +127,7 @@ rows and affected claims exactly; mechanical selectability is never execution
 authority.
 
 Write repairs at claim level. For each repaired claim the worker applies the
-claim granularity rule (`docs/COMPATIBILITY_FORMATS.md#historical-concordance-method` §3.1) in
+claim granularity rule (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-concordance-method` §3.1) in
 this order:
 
 1. **Decision.** Would changing the implementation so the statement no longer

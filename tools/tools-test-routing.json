@@ -103,15 +103,6 @@
   "path_rules": [
     {
       "paths": [
-        ".github/workflows/harness-premerge.yml",
-        ".github/workflows/pec-tests.yml"
-      ],
-      "checks": [
-        "software_workflow"
-      ]
-    },
-    {
-      "paths": [
         "tools/analysis/*"
       ],
       "checks": [

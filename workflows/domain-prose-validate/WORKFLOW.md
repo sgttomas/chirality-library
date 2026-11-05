@@ -8,7 +8,7 @@ description: Independently re-extract one rasterized PDF page's prose, equations
 
 ## Purpose
 
-Produce an **independent** Markdown re-extract of one rasterized PDF page so that a downstream deterministic comparator (Gate 1.5-P Stage 2) can detect divergences against the original `pdf2md` extract. This workflow is the perception stage of the Gate 1.5-P extraction-reproducibility prefilter described in `workflows/domain-decomp/WORKFLOW.md`.
+Produce an **independent** Markdown re-extract of one rasterized PDF page so that a downstream deterministic comparator (Gate 1.5-P Stage 2) can detect divergences against the original `pdf2md` extract. This workflow is the perception stage of the Gate 1.5-P extraction-reproducibility prefilter described in `sgttomas/chirality:workflows/domain-decomp/WORKFLOW.md` (the `domain-decomp` workflow was removed on 2026-11-04 and is preserved in the private `sgttomas/chirality` repository).
 
 The workflow reads one page image plus a bbox-hints JSON describing where assets are expected, and writes one Markdown file containing:
 
@@ -27,7 +27,7 @@ Not the right fit for:
 - whole-PDF re-extraction
 - cross-page reasoning
 - comparator/diff logic (Stage 2 is deterministic, not VLM)
-- adjudicating equation differences (Stage 3 dispatches `equation-flag-interpret`)
+- adjudicating equation differences (Stage 3 dispatched the removed `equation-flag-interpret` workflow)
 - asset materialization, manifest aggregation, or filename assignment
 
 ## Inputs

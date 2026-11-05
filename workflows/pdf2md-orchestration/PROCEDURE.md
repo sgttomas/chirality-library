@@ -76,7 +76,7 @@ The merged workflow produces BOTH `page_{NNNN}.md` and `page_{NNNN}_assets.json`
 
 Page-worker dispatches use TASK with `Workflow: pdf2md-page-full`. Declare `WORKFLOW.md` and the selected package's `CONTRACT.md` as context. Record actual supplied files and fingerprints when the harness exposes them; otherwise identify loading as instruction-asserted.
 
-Each dispatch brief is rendered by `tools/pdf2md/build_page_full_brief.py` and follows the bounded brief contract in `docs/AGENT_WORKFLOW_RUNTIME.md`. The tool emits this envelope:
+Each dispatch brief is rendered by `tools/pdf2md/build_page_full_brief.py` and follows the structured brief contract in `tools/workflow_runtime/README.md`. The tool emits this envelope:
 
 ```md
 PURPOSE: Convert one PDF page image to BOTH raw Markdown AND asset JSON from a single multimodal vision read
@@ -193,16 +193,14 @@ Run this phase only when `ASSET_MODE=prose`. The per-page asset JSON was already
 5. **Degraded-output guidance.** If any pages are failed, empty, contain only placeholder text, or asset validation fails:
    - List each affected page number and its failure mode (`FAILED`, `FAILED_INPUTS`, `empty`).
    - If asset validation failed, list the validation finding categories and counts.
-   - State: "This assembly is degraded because it contains placeholder pages and/or unresolved asset references. Recommend rerunning failed pages or failed asset materialization before passing to domain-decomp."
-   - The human must explicitly acknowledge the degraded state before downstream use. Automatic pipeline transition to domain-decomp with placeholder-containing output is not a valid workflow.
+   - State: "This assembly is degraded because it contains placeholder pages and/or unresolved asset references. Recommend rerunning failed pages or failed asset materialization before downstream use."
+   - The human must explicitly acknowledge the degraded state before downstream use. Automatic transition to a downstream consumer with placeholder-containing output is not valid.
 
-### Phase 5 — Equation-audit handoff (optional, recommended for math-heavy sources)
+### Phase 5 — Equation verification (not provided)
 
-If the assembled `OUTPUT_PATH` contains substantive mathematical content (display equations rendered as `$$...$$` blocks), hand off to WORKING_ITEMS using `equation-audit` (`workflows/equation-audit/WORKFLOW.md`) before downstream consumers (domain-decomp) treat the source as canonical.
-
-WORKING_ITEMS continues with the separate `equation-audit` workflow when selected. Freeze its review basis and begin its Gate 0; conversion completion alone does not establish equation verification.
-
-Report:
-> "Phase 5 (equation audit) is recommended for this source if it contains substantive mathematical content. To start: WORKING_ITEMS using `Workflow: equation-audit` with WORK_DIR={WORK_DIR}, SOURCE_MD={OUTPUT_PATH}."
-
-For text-only sources (no display equations), skip Phase 5 and proceed directly to domain-decomp.
+The `equation-audit` workflow that verified display equations was removed on
+2026-11-04 and is preserved in the private `sgttomas/chirality` repository.
+Conversion completion alone does not establish equation verification. If the
+assembled `OUTPUT_PATH` contains substantive mathematical content (display
+equations rendered as `$$...$$` blocks), report the equations as unverified
+before any downstream consumer treats the source as canonical.

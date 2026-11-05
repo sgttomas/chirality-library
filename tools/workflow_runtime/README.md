@@ -7,7 +7,7 @@ adoption remains a separate owning-loop decision.
 
 ```sh
 python3 /declared/instruction/root/tools/workflow_runtime/resolve_workflow.py \
-  --root /declared/instruction/root --role TASK --workflow domain-documents \
+  --root /declared/instruction/root --role TASK --workflow dependency-extract \
   --resource resources/brief.md --policy /authorized/run/policy.json
 ```
 

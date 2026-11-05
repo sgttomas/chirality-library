@@ -3,7 +3,7 @@
 
 Creates RESEARCH_NOTE.md, Query_Log.csv, Evidence_Map.csv, Amendment_Candidates.csv,
 Open_Questions.csv, Conflicts.csv, and HANDOFF_STATE.md with canonical headers (per
-workflows/research-orchestration/WORKFLOW.md, via research_packet.py) and refreshes {RESEARCH_ROOT}/_LATEST.md.
+sgttomas/chirality:workflows/research-orchestration/WORKFLOW.md (private archive), via research_packet.py) and refreshes {RESEARCH_ROOT}/_LATEST.md.
 Refuses to overwrite an existing packet (packets are immutable run snapshots), so the packet
 shape is never re-derived by reasoning.
 

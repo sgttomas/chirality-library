@@ -237,4 +237,4 @@ This workflow is the per-dispatch-unit worker invoked by the `WORKING_ITEMS (wor
 - runs `tools/decomp/render_source_html.py --mode atom-review` to produce the Gate-2 atom-review surface in the browser,
 - proceeds to Gate 3 with the merged ledger.
 
-This workflow is a sibling of `pdf2md-page` and `drawing-extract-page` — same per-item fanout pattern, but per-MD-slice atomization instead of per-page extraction.
+This workflow is a sibling of `pdf2md-page` — same per-item fanout pattern, but per-MD-slice atomization instead of per-page extraction.

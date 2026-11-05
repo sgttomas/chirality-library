@@ -11,7 +11,7 @@ Reads the merged ledger and the KA file tree, reports per-KTY:
 Output is informational. NOT a coverage target. Used as a preflight
 before each KA dispatch to surface MISSING/LEAN/WELL_COVERED defects
 for human ruling. The skill's "Relationship to the HBA / atomic-ledger
-layer" section in workflows/domain-documents/WORKFLOW.md describes the
+layer" section in sgttomas/chirality:workflows/domain-documents/WORKFLOW.md (private archive) describes the
 intent (KA-as-contextualizer; coverage% is diagnostic, not target).
 
 Usage:

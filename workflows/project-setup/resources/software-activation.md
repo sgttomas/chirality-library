@@ -1,6 +1,6 @@
 # Software undertaking activation
 
-WORKING_ITEMS loads the accepted project-local software-workflow.json under docs/SOFTWARE_WORKFLOW_PROFILE.md. It supplies methods, repository roots, check registries, and tool bindings within the existing authorization.
+WORKING_ITEMS loads the accepted project-local software-workflow.json, as loaded and validated by tools/software_workflow/software_workflow_common.py. It supplies methods, repository roots, check registries, and tool bindings within the existing authorization.
 
 Select the `software-repository-reconnaissance` workflow for unfamiliar architecture, the `software-test-planning` workflow for verification design, the `software-defect-diagnosis` skill for causal investigation, and the `software-code-review` skill for independent review at implementation fan-in. Commission an accepted change as a bounded TASK assignment whose brief carries the objective, accepted basis, write fence, exclusions, acceptance criteria and authorized checks; `construct-local-work-graph` states the node requirements. Only profile-registered checks authorized by the child brief execute.
 

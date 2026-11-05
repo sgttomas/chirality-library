@@ -10,7 +10,7 @@ Organize software intent into cohesive work domains and implementable bounded co
 WORKING_ITEMS coordinates this undertaking and assigns bounded contributions to TASK.
 
 This package implements the grouped-checkpoint Chirality v3 edition of
-`docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract` (commit `9b005c23a`, 2026-09-09; a prospective
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract` (private archive) (commit `9b005c23a`, 2026-09-09; a prospective
 amendment, see the standard's status note), as amended by D-GOV-47
 (2026-09-26: optional combined review for a small, reversible undertaking) and
 D-GOV-48 (2026-09-26: every scope item, whether IN, OUT or TBD, has one Package

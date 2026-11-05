@@ -112,7 +112,7 @@ criteria; route a question about purpose or criteria through DEL-04-02 and the
 actual owner.
 
 The first implementation is maintained in `tools/undertaking_evaluation/`, with
-the selected practice in `workflows/evaluate-repository-change/`. Further
+the selected practice in `sgttomas/chirality:workflows/evaluate-repository-change/`. Further
 production follows an actual brief and keeps the local contract, Work and useful
 needs/pointers reconciled with its results.
 

@@ -8,7 +8,7 @@ Deterministic tools run **outside** this workflow, under the Gate 1.5-P orchestr
 
 1. The Stage 1 orchestrator builds the per-page hints JSON from the asset manifest and dispatches one TASK per page.
 2. `tools/source_audit/compare_extracts.py` (Stage 2) deterministically aligns the original `page_NNNN.md` against this workflow's `page_NNNN.reextract.md` and emits `prose_validation.json`.
-3. Stage 3 (persona) consolidates findings, dispatches `pdf2md-page-assets` re-dispatch for structural fails, and dispatches `equation-flag-interpret` for equation-content proposals.
+3. Stage 3 (persona) consolidates findings, dispatches `pdf2md-page-assets` re-dispatch for structural fails, and dispatches `equation-flag-interpret` (removed; preserved in the private `sgttomas/chirality` repository) for equation-content proposals.
 
 ## Allowed deterministic tools
 

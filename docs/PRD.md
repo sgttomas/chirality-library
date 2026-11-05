@@ -91,8 +91,9 @@ new permanent register.
   public library. Public examples and fixtures must be suitable for publication.
 - No standing global audit, central relationship graph, subscriber registry,
   automated project management or mandatory companion installation is in scope.
-- `plans/`, `_DomainEngines/` and additional archival removals remain subject to
-  the disposition in §5.
+- `plans/` and `_DomainEngines/` were removed from this repository on
+  2026-11-04 and remain in the private `sgttomas/chirality` repository.
+  Additional archival removals remain subject to the disposition in §5.
 
 ## 3. Requirements
 
@@ -339,8 +340,10 @@ and criteria. Decomposition, its deliverables and later implementation results
 retain their applicable review and acceptance requirements.
 
 **Additional archival scope:** the recommendation is to archive only the old
-execution selected by the owner, retaining `plans/` and `_DomainEngines/` pending
-specific disposition. Classification as historical does not authorize removal.
+execution selected by the owner. The owner later disposed of `plans/` and
+`_DomainEngines/`; they were removed from this repository on 2026-11-04 and
+remain in the private `sgttomas/chirality` repository. Classification as
+historical does not authorize removal.
 Principles, thesis, manuals and courses remain library holdings. Existing indexes
 are retained or deliberately migrated according to actual consumer needs.
 
@@ -369,9 +372,10 @@ invalidate an earlier accepted edition or authorize a successor release.
 | R18 evaluation inputs | Identified repository states, available host records and permitted data, actual tool/execution interface, selected question and outcome/comparison basis; unknown coverage stays explicit |
 | Pre-removal source history | Recovery and historical consumer pins; verify reachability and selected bytes before relying on the archive |
 
-The initial compatibility questions include Root-specific versus reusable
-instruction scope in `docs/AGENT_WORKFLOW_RUNTIME.md`, `docs/PRODUCT_BOUNDARIES.md`
-and `docs/COMPATIBILITY_FORMATS.md`; publication source/edition bindings; and the
+The initial compatibility questions included Root-specific versus reusable
+instruction scope in the former runtime-interface, product-boundary and
+compatibility-format references (removed on 2026-11-04; retained in the private
+`sgttomas/chirality` repository); publication source/edition bindings; and the
 deliverables format and queries consumed by the products and private planning.
 These identify relevant inputs, not preassigned work packages.
 

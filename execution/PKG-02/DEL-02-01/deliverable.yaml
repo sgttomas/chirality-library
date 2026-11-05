@@ -35,8 +35,8 @@ needs:
     continue.
   when: The maintenance case encounters inconsistent shared-reference meaning
   evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
-- from: doc:docs/MAINTENANCE_RECOVERY.md
-  condition: Use the assignment/disjoint-write coordination in the on-demand recovery resource for the labelled retained-source
+- from: doc:AGENTS.md
+  condition: Use the assignment/disjoint-write coordination in the AGENTS.md Holding changes and recovery section for the labelled retained-source
     recovery case in MaintenanceBasis.md, with its holder, scratch item, reserved completion, current
     authority and release/recovery conditions. Its observed lack of filesystem exclusion does not meet
     a need for enforced locking; bind and exercise a stronger mechanism before making that claim.
@@ -50,13 +50,11 @@ needs:
   evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
 code_paths:
 - AGENTS.md
-- docs/MAINTENANCE_RECOVERY.md
 - tools/workflow_runtime/resolve_workflow.py
 - tools/validation/build_workflow_index.py
 - workflows/create-workflow/**
 - workflows/scope-change/**
 - workflows/scope-of-work/**
 - workflows/project-setup/resources/current-project.md
-- workflows/audit-scope-closure/**
 checks:
 - tools/validation/validate_workflow_metadata.py

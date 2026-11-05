@@ -43,7 +43,7 @@ Read only what's needed to answer those axes. Do not ceremonially read every coo
 - Decomposition absent → Function 1 (Initialize).
 - Decomposition accepted + no scaffolded folders → Phase 2.1 (scaffolding with the effective source-qualified `preparation` skill by an eligible actor).
 - Scaffolded folders + retrieval index present + no KAs → Phase 2.1b (retrieval preflight) → Phase 2.2 (authoring).
-- KAs present + no hypergraph snapshot → Phase 2.6 (TASK (workflow: domain-hypergraph)).
+- KAs present + no hypergraph snapshot → Phase 2.6 (not provided).
 - All initialization phases complete → Function 3 (Scan & report) or Function 4 (Estimating) per human request.
 - Amendment in progress under `_ScopeChange/` → WORKING_ITEMS (workflow: scope-change) takes precedence; setup of the amended scope waits for its checkpoint group 3 acceptance.
 - Accepted amendment with setup handed back and not yet recorded complete → Function 5 (Incremental setup) against that accepted snapshot.
@@ -64,7 +64,7 @@ If the observed state doesn't match a phase cleanly (e.g., partial scaffolding f
 - **Coordination representation is human-owned.** WORKING_ITEMS records how the human chooses to coordinate work; the dependency declaration has one current form, consumer-local `deliverable.yaml`.
 - **No forced false precision.** Local needs record actual input conditions, not a complete accepted network or a lifecycle-derived availability verdict. Judge conditions for the selected undertaking from evidence and responsible judgment.
 - **Bounded sub-agents only.** Spawn sub-agents only for clearly bounded work with explicit scope. When a deterministic tool exists for a structural or query operation, route that operation through the tool and reserve language-model work for reading, summarizing, or populating source-grounded text.
-- **Bounded workflow stages use TASK.** Reusable method work such as `semantic-matrix-build`, `lens-register`, `dependency-extract`, `estimate-snapshot`, and `content-digest` is dispatched as `TASK + Workflow`, not by minting a new persona agent. WORKING_ITEMS writes or resolves the bounded brief; TASK normalizes scope, loads the selected workflow resources, follows its effective write boundary, supplies run evidence, and returns the auditable report.
+- **Bounded workflow stages use TASK.** Reusable method work such as `dependency-extract` and `estimate-snapshot` is dispatched as `TASK + Workflow`, not by minting a new persona agent. WORKING_ITEMS writes or resolves the bounded brief; TASK normalizes scope, loads the selected workflow resources, follows its effective write boundary, supplies run evidence, and returns the auditable report.
 - **Accepted work selection.** The human establishes the undertaking’s scope. WORKING_ITEMS assigns bounded contributions within that accepted scope and reports proposed scope changes for human decision.
 - **Human-owned schedule basis.** Dependency evidence is not automatically a schedule constraint. Before schedule work, the human selects `PRECEDENCE | CONSTRAINT | HYBRID`, scope, hard-versus-soft edge rules, duration posture, calendars, and milestones.
 - **No invented schedule facts.** Structure traces to accepted decomposition IDs; constraints trace to the actual declared input/use conditions selected for that undertaking or explicit human rulings. Durations remain blank unless proposals are explicitly enabled and labeled.
@@ -80,16 +80,14 @@ Recommended lifecycle ownership (may vary by project):
 - **`scope-of-work`, `MODE=INIT`** is the new PROJECT/SOFTWARE production
   initialization route and may support `INITIALIZED` only after validated
   `SOW_V1` exists under the human-confirmed lifecycle policy.
-- **`four-documents`** remains compatibility-only for an existing complete
-  `LEGACY_FOUR_DOC`; it does not initialize new production or advance state.
-- **Semantic matrix generation** (`TASK + semantic-matrix-build`, Phase 2.3) produces the `_SEMANTIC.md` lens scaffold under `STATUS_POLICY=PRESERVE_CURRENT` and may append `_STATUS.md` history, but must not advance the lifecycle state to `SEMANTIC_READY` unless the human-confirmed project policy explicitly makes semantic-matrix validation the readiness gate (`STATUS_POLICY=ADVANCE_ON_PASS` with `_STATUS.md` write authorization).
-- **Semantic enrichment completion:** for an existing `LEGACY_FOUR_DOC` kit,
-  `four-documents` with `RUN_PASSES: P3_ONLY` applies `_SEMANTIC_LENSING.md`
-  and may set `SEMANTIC_READY` when the semantic artifacts exist and the
-  human-confirmed policy authorizes it. For `SOW_V1`, no bundled workflow
-  currently applies `_SEMANTIC_LENSING.md` to `ScopeOfWork.md`, and
-  `scope-of-work` never edits `_STATUS.md`; `SEMANTIC_READY` then requires a
-  separately authorized status act under the recorded project policy.
+- **`LEGACY_FOUR_DOC`** kits have no bundled maintenance workflow; the
+  compatibility-only `four-documents` workflow was removed on 2026-11-04 and is
+  preserved in the private `sgttomas/chirality` repository.
+- **Semantic lensing** (Phases 2.3–2.5) is not provided: its workflows were
+  removed with `four-documents`. Existing `_SEMANTIC.md` and
+  `_SEMANTIC_LENSING.md` files are lens scaffolds, not engineering authority.
+  For `SOW_V1`, `scope-of-work` never edits `_STATUS.md`; `SEMANTIC_READY`
+  requires a separately authorized status act under the recorded project policy.
 - Humans decide whether/when to set `IN_PROGRESS`, `CHECKING`, `ISSUED` (or delegate via a dedicated state manager).
 
 ---
@@ -113,7 +111,7 @@ Functions 3 (Scan & report) and 4 (Estimating) apply in either mode on request.
 | Amended decomposition | `{DECOMP_ROOT}/`, as applied by the amendment | Source of IDs, names, parent bindings and metadata for added entities. |
 | Coordination record | `{COORDINATION_ROOT}/_COORDINATION.md` | The existing coordination arrangements and recorded technical holds are reused, not re-asked. Historical dependency labels do not select another writer or dependency method. Read only; this workflow does not write the human-owned record in `INCREMENTAL` mode. |
 | Setup log | `{COORDINATION_ROOT}/SETUP_LOG.md` | Agent-owned and append-only (see [Setup log](#setup_logmd-project-level-agent-owned-append-only)). Holds the adoption baseline and one line per incremental run. Created at the end of `INITIAL` setup (method Phase 2.7), or by the adoption step (Phase 5.0) in a project set up before incremental setup existed. |
-| Production format | Each affected deliverable, resolved per `docs/COMPATIBILITY_FORMATS.md#historical-specification` §2.2 | Selects the update path for `MODIFY`. |
+| Production format | Each affected deliverable, resolved per `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` (private archive) §2.2 | Selects the update path for `MODIFY`. |
 
 If any input is missing, unaccepted or inconsistent with the workspace (for example a `REMOVE` without its decomposition annotation), report the discrepancy and return it to `scope-change` rather than repairing decomposition truth here.
 
@@ -123,8 +121,8 @@ If any input is missing, unaccepted or inconsistent with the workspace (for exam
 |---|---|
 | `ADD` (and successor entities of `MERGE`/`SPLIT`) | Scaffold only the new package, deliverable, category or knowledge type with the source-qualified `preparation` skill (Phase 2.1 rules), then initialize production with the project's contract (`SOW_V1` via `scope-of-work`, `MODE=INIT`; DOMAIN via `domain-documents` with `AUTHORITY_MODE: SCA_DRIVEN` as the amendment's hand-off) and create its local needs declaration and status records (DEL only for needs). |
 | `REMOVE` (and sources retired by `MERGE`/`SPLIT`) | No deletion of folders or files. Confirm the `scope-change` retirement rule was applied: the `[RETIRED — {AMENDMENT_ID}]` decomposition annotation and one appended `_STATUS.md` history line, lifecycle state unchanged, `write_status.sh` not used. Append the history line only where the accepted poststate lacks it. |
-| `MODIFY` | No re-scaffolding. Route the deliverable to its production contract's update path (Function 5, Phase 5.5): for `SOW_V1`, `scope-of-work` `MODE=REVISE` ending in `MODE=VERIFY`. A `CHECKING` or `ISSUED` deliverable is held for the human; an `ISSUED` deliverable reopens only as `docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3 allows. `_CONTEXT.md` edits belong to the amendment itself. |
-| `RECLASSIFY` | Routed as `MODIFY` (Phase 5.5). An `ISSUED` deliverable reopens only for a scope-changing `RECLASSIFY` (`docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3). Move a folder only when the accepted propagation plan names the relocation and the human confirms it in the incremental plan; move it whole, keeping content and `_STATUS.md`. |
+| `MODIFY` | No re-scaffolding. Route the deliverable to its production contract's update path (Function 5, Phase 5.5): for `SOW_V1`, `scope-of-work` `MODE=REVISE` ending in `MODE=VERIFY`. A `CHECKING` or `ISSUED` deliverable is held for the human; an `ISSUED` deliverable reopens only as `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3 allows. `_CONTEXT.md` edits belong to the amendment itself. |
+| `RECLASSIFY` | Routed as `MODIFY` (Phase 5.5). An `ISSUED` deliverable reopens only for a scope-changing `RECLASSIFY` (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3). Move a folder only when the accepted propagation plan names the relocation and the human confirms it in the incremental plan; move it whole, keeping content and `_STATUS.md`. |
 
 The affected set is the deliverables named by the accepted actions. Derive
 their neighbours and affected consumers on demand from `deliverable.yaml`
@@ -260,8 +258,8 @@ Every deliverable folder should be seeded with:
 | `_STATUS.md` | Lifecycle state | Authoritative lifecycle indicator |
 | `_REFERENCES.md` | Sources index | Pointers to package references and other materials |
 | `deliverable.yaml` | Consumer-local input conditions (DEL only) | Schema-valid accepted numeric identity and initial `needs: []`; `dependency-extract` authors actual needs after scope exists |
-| `_SEMANTIC.md` | Semantic lens scaffold | Required placeholder at scaffold time; lens content optional and created/overwritten by TASK+semantic-matrix-build |
-| `_SEMANTIC_LENSING.md` | Enrichment register | Optional; created by TASK+lens-register |
+| `_SEMANTIC.md` | Semantic lens scaffold | Required placeholder at scaffold time; lens content optional (its generating workflow was removed) |
+| `_SEMANTIC_LENSING.md` | Enrichment register | Optional; existing files only (its generating workflow was removed) |
 
 ---
 
@@ -340,7 +338,7 @@ The selected setup phases produce these durable artifacts:
 - Package and deliverable folders (via the actual eligible actor using the
   selected source-qualified `preparation` skill)
 - Bounded contribution outputs, including TASK outputs when dispatch was used
-- For `INCREMENTAL` mode, a run record under `{COORDINATION_ROOT}/AgentRuns/<RunID>/` (`docs/COMPATIBILITY_FORMATS.md#historical-specification` §9.8) holding the confirmed incremental plan, the amendment snapshot path and register hash, briefs, returns, created and skipped paths, dependency-stage evidence and the final report
+- For `INCREMENTAL` mode, a run record under `{COORDINATION_ROOT}/AgentRuns/<RunID>/` (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §9.8) holding the confirmed incremental plan, the amendment snapshot path and register hash, briefs, returns, created and skipped paths, dependency-stage evidence and the final report
 
 These artifacts persist in the filesystem and are git-tracked. Phase-boundary evidence and any accepted snapshot references are recorded in the undertaking’s handoff.
 

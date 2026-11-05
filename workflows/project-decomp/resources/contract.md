@@ -3,7 +3,7 @@
 ## Precedence (conflict resolution)
 
 This package follows the precedence order required by
-`docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`:
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract` (private archive):
 
 1. **PROTOCOL** — [method](method.md#method) governs sequencing and interaction
    rules.
@@ -96,7 +96,7 @@ change the canonical suffix-bearing PROJECT ID, metadata spelling or numbering.
 
 ## Package Architecture (PROJECT variant)
 
-The `project-decomp` workflow conforms to the package architecture defined in `docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`. The PROJECT canonical working package consists of:
+The `project-decomp` workflow conforms to the package architecture defined in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`. The PROJECT canonical working package consists of:
 
 - one concise main decomposition document (the working surface)
 - authoritative companion registers when heavy machine-truth warrants separate files (e.g., Scope Ledger CSV, objective mappings, coverage telemetry)

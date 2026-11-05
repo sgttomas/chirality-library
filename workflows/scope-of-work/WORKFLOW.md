@@ -14,7 +14,7 @@ legacy source range in an isolated `MIGRATION_DUAL` workspace; `MODE=REVISE`
 revises an existing `SOW_V1` contract only where an accepted `scope-change`
 amendment changes its scope; `MODE=VERIFY` is read-only on production content.
 The ratified
-`docs/COMPATIBILITY_FORMATS.md#historical-scope-conversion-contract` governs all modes.
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-scope-conversion-contract` (private archive) governs all modes.
 
 Read [resources/brief.md](resources/brief.md) before accepting a run. Read
 [resources/tools.md](resources/tools.md) before invoking tools and use
@@ -114,7 +114,7 @@ where explicitly adopted, retained `INCREMENTAL` mode.
    and return `UNSUPPORTED_STATE` so the deliverable is held for the human.
    `CHECKING` changes only after a human reversal to `IN_PROGRESS`; `ISSUED`
    only after the human records `ISSUED → IN_PROGRESS` under the accepted
-   amendment (`docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3). Also refuse `LEGACY_FOUR_DOC`,
+   amendment (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3). Also refuse `LEGACY_FOUR_DOC`,
    `MIGRATION_DUAL`, and a contract that does not validate before revision.
    For the current profile, inspect actual holds and authority without inventing
    lifecycle state. Both profiles reject invalid or ambiguous input formats.

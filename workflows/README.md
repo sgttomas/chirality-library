@@ -14,7 +14,7 @@ context loads no workflow catalog or bodies.
 Resolve a selected workflow from any working directory:
 
 ```bash
-python3 "$INSTRUCTION_ROOT/tools/workflow_runtime/resolve_workflow.py"   --root "$INSTRUCTION_ROOT" --role TASK --workflow audit-decomp
+python3 "$INSTRUCTION_ROOT/tools/workflow_runtime/resolve_workflow.py"   --root "$INSTRUCTION_ROOT" --role TASK --workflow dependency-extract
 ```
 
 Supply `--resource CONTRACT.md` or another package-relative resource only when the
@@ -45,7 +45,7 @@ authoring and validation tool, not a production parser.
 Optional `execution.json` provides compatible roles and capability/command
 restrictions. Stage-specific resources are selected explicitly without changing
 role compatibility. See
-[the runtime contract](../docs/AGENT_WORKFLOW_RUNTIME.md). A command is invoked
+[the workflow runtime utilities](../tools/workflow_runtime/README.md). A command is invoked
 through the available session tools, against the declared tool root. A documented
 operation does not imply that the host exposes or enforces it.
 
@@ -65,9 +65,10 @@ higher-precedence package blocks that unqualified identity instead of falling
 through. Project files such as a flat `WORKFLOW.md` outside a package with
 canonical metadata are documents only and never become discoverable methods.
 
-Existing package names and legacy status survive this migration. In particular,
-`dbm-concordance-seed` remains legacy; `four-documents` serves legacy production
-compatibility while `scope-of-work` carries the current SOW_V1 method. Historical
+Existing package names and legacy status survive this migration;
+`scope-of-work` carries the current SOW_V1 method. The legacy
+`dbm-concordance-seed` and `four-documents` packages were removed on 2026-11-04
+and are preserved in the private `sgttomas/chirality` repository. Historical
 briefs, snapshots, and pinned evidence retain their original identifiers.
 
 ### Retired packages
@@ -77,20 +78,21 @@ active discovery. They have no replacement Git method. Use an ordinary authorize
 brief and the repository's own conventions; Root's surviving conventions are in
 [AGENTS.md](../AGENTS.md#standing-git-grant), with holding recovery/custody in its
 [working instructions](../AGENTS.md#holding-changes-and-recovery). Root's grant
-never transfers to a consumer. Legacy `CHANGE` remains an identified historical
-route but fails current invocation without a successor; explicit removed-package
-selections also fail. No automatic skill substitution or consumer repin occurs.
+never transfers to a consumer. The legacy `CHANGE` name and explicit
+removed-package selections fail. No automatic skill substitution or consumer
+repin occurs.
 
 The last integrated pre-retirement source is
-`8d0c5d1a19eec865a8a92750cb3de590d04f9c02`. Use
-`git show <selected-revision>:workflows/change/WORKFLOW.md` (or the skill path)
-to read that historical basis. Existing consumer declarations and copies retain
+`8d0c5d1a19eec865a8a92750cb3de590d04f9c02` in the private `sgttomas/chirality`
+repository. Use `git show <selected-revision>:workflows/change/WORKFLOW.md` (or
+the skill path) there to read that historical basis. Existing consumer declarations and copies retain
 their own source identities; a consumer owns any current pointer/wording repair.
 
 These workflow packages were retired on 2026-09-26 because a canonical skill of
-the same name replaced them under D-GOV-42. The legacy-method ledger resolves an
-unqualified legacy selection of each name to its skill. The last revision
-holds the package's final bytes for historical replay.
+the same name replaced them under D-GOV-42. Select the skill by its own name;
+the legacy alias ledger that redirected the old workflow names was removed. The
+last revisions below are in the private `sgttomas/chirality` repository and hold
+each package's final bytes for historical replay.
 
 | Retired workflow | Canonical successor | Last revision |
 |---|---|---|
@@ -105,9 +107,9 @@ holds the package's final bytes for historical replay.
 package. Implementation is commissioned as a bounded TASK assignment whose brief
 carries the objective, accepted basis, write fence, exclusions, acceptance
 criteria and authorized checks; `construct-local-work-graph` states the node
-requirements. The legacy-method ledger lists it as historical only; it is no longer
-bundled or aliased, so a bundled selection of the name fails. Its last revision is
-`d1166698d433da2fefbb6e3caee68b7d7910f27d`.
+requirements. It is no longer bundled or aliased, so a bundled selection of the
+name fails. Its last revision is `d1166698d433da2fefbb6e3caee68b7d7910f27d` in
+the private `sgttomas/chirality` repository.
 
 HELPS_HUMANS helps develop or revise workflows; WORKING_ITEMS coordinates their
 implementation. Validate a package with the Root workflow validator and review
@@ -119,5 +121,11 @@ license notices and original source identity. A copied package is not automatica
 a registered workflow or a replacement for a product's pinned bundle. Check the
 actual receiving contract before claiming compatibility; preserve a supported
 path or coordinated adapter before an incompatible change. Export staging is not
-a release. Runtime is frozen. The [interface reference](../docs/AGENT_WORKFLOW_RUNTIME.md)
-describes scoped contracts; a consumer's own adoption determines which apply.
+a release. Runtime is frozen. A consumer's own adoption determines which scoped
+contracts apply.
+
+Some workflow resources cite historical contracts as
+`sgttomas/chirality:<path>`, for example
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.
+Those documents were removed from this repository on 2026-11-04 and are
+preserved in the private `sgttomas/chirality` repository.

@@ -82,7 +82,7 @@ accept the product or advance a gate. DEL-02-01's labelled extraction/custody ca
 
 PR #1785 retired the generic change workflow and Root Git skill.
 AGENTS retains compact repository conventions and links the on-demand
-`docs/MAINTENANCE_RECOVERY.md` instructions for interrupted work/custody;
+`sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md` instructions for interrupted work/custody;
 ordinary authorized briefs carry Git work. DEL-04-02 supplies the adopted reflect-on-work method for
 human–Agent 0 examination of purpose, commitments, framing and practice. This
 locality's bounded-reconciliation method remains unchanged: compare the actual

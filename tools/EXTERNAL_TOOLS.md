@@ -37,7 +37,7 @@ For the authoritative pipeline specification — entity type registry, ID namesp
 
 ## What Each System Produces
 
-**chirality-domain-test agents produce:**
+**chirality-domain-test agents produced** (historical; the producing workflows were removed with the DOMAIN pipeline below):
 - Structural hypergraph (DOMAIN_HYPERGRAPH): `nodes.csv`, `hyperedges.csv`, `incidence.csv` — Categories, Knowledge Types, Artifacts, Ledger bindings, Objectives and their n-ary relationships
 - Knowledge Artifacts (TASK+domain-documents): Reference.md, Standard.md, Procedure.md, Guidance.md per Knowledge Type — the actual domain content
 - Semantic matrices (TASK+semantic-matrix-build): `_SEMANTIC.md` — conceptual coordinate system per Knowledge Type
@@ -68,6 +68,12 @@ For the authoritative pipeline specification — entity type registry, ID namesp
 ---
 
 ## The DOMAIN Pipeline
+
+**Historical.** Steps 1 and 3–5 below used the `domain-decomp`,
+`domain-documents`, `domain-hypergraph` and `audit-hypergraph-closure`
+workflows, which were removed from this library on 2026-11-04 and are preserved
+in the private `sgttomas/chirality` repository. Only Step 0 (`pdf2md`) and the
+deterministic tools remain here.
 
 ```
 _Sources/ (handbooks, reference materials — typically PDFs)

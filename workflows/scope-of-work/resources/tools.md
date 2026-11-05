@@ -74,4 +74,4 @@ fails before output for invalid or unauthorized ambiguous input.
 - No HTML tracking as canonical or accepted truth.
 - In `CONVERT`, no checklist, HTML rendering, or integration from an
   evidence-rich candidate.
-- No removal of `workflows/four-documents`, legacy readers, or compatibility callers.
+- No removal of legacy readers or compatibility callers.

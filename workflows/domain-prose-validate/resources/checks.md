@@ -55,4 +55,4 @@ These checks belong to the Gate 1.5-P orchestration, not this workflow:
 - Confirming no `page_*.md` was opened during the TASK (audit-log inspection where available).
 - Running `tools/source_audit/compare_extracts.py` against each `(page_NNNN.md, page_NNNN.reextract.md)` pair to produce `prose_validation.json` (Stage 2).
 - Dispatching `pdf2md-page-assets` re-extraction for pages flagged with structural fails (Stage 3).
-- Dispatching `equation-flag-interpret` for equation-content proposals before writing to `equations_backcheck.json` with `source: "1.5-P-machine"` (Stage 3).
+- Dispatching `equation-flag-interpret` (removed; preserved in the private `sgttomas/chirality` repository) for equation-content proposals before writing to `equations_backcheck.json` with `source: "1.5-P-machine"` (Stage 3).

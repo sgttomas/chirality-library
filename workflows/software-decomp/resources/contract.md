@@ -3,7 +3,7 @@
 ## Precedence (conflict resolution)
 
 This package follows the precedence order required by
-`docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`:
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract` (private archive):
 
 1. **PROTOCOL** — [method](method.md#method) governs sequencing and interaction
    rules.
@@ -32,7 +32,7 @@ Inputs:
   decompositions named in the brief.
 
 Outputs are written under `DECOMP_ROOT = {EXECUTION_ROOT}/_Decomposition/`
-(`docs/COMPATIBILITY_FORMATS.md#legacy-path-tokens` path tokens):
+(`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#legacy-path-tokens` path tokens):
 
 | Output | Package role |
 |---|---|
@@ -108,7 +108,7 @@ remain with their actual authorities.
 - **No overlap / no gaps at the package level.** Every SSOW scope item, whether `IN`, `OUT` or `TBD`, must be assigned to exactly one Package as its accountable home (forced decision if ambiguous; human resolves at checkpoint group 2). Only IN items map to Deliverables; an OUT or TBD item keeps its Package home and `SourceRef` for traceability and needs no production mapping.
 - **Deliverables are the smallest unit.** There is no task sub-level inside a deliverable. Therefore deliverables MUST be sized to be executable by a Type 2 specialist with bounded context.
 - **Stable identifiers.** Once assigned, IDs must remain stable across revisions unless the human explicitly requests renumbering.
-- **Identifier format must conform to `docs/COMPATIBILITY_FORMATS.md#historical-vocabulary` §2 (Stable Identifiers) and the conforming-workflows table in `docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.**
+- **Identifier format must conform to `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-vocabulary` §2 (Stable Identifiers) and the conforming-workflows table in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.**
   - Packages: `PKG-XX` (two digits, zero-padded)
   - Deliverables: `DEL-XX-YY` (two digits for package, two digits within package)
   - If other instruction sets or legacy materials require a different width (e.g., `PKG-XXX`), the agent MUST surface the mismatch as a contradiction and request a human ruling before proceeding.
@@ -137,7 +137,7 @@ remain with their actual authorities.
 
 ## Package Architecture (SOFTWARE variant)
 
-The `software-decomp` workflow conforms to the package architecture defined in `docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`. The SOFTWARE canonical working package consists of:
+The `software-decomp` workflow conforms to the package architecture defined in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`. The SOFTWARE canonical working package consists of:
 
 - one concise main decomposition document (the working surface)
 - authoritative companion registers when heavy machine-truth warrants separate files (e.g., Scope Ledger CSV, Context Budget QA, coverage telemetry)
@@ -240,7 +240,7 @@ This section defines the entities and required tables in the decomposition outpu
 - `Exclusions` (optional)
 
 #### Deliverable (Agent-executable unit)
-Minimum fields (in addition to the deliverable attributes in `docs/COMPATIBILITY_FORMATS.md#historical-vocabulary` §1.2):
+Minimum fields (in addition to the deliverable attributes in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-vocabulary` §1.2):
 - `DeliverableID` (stable; `DEL-XX-YY`)
 - `Name`
 - `ParentPackageID`

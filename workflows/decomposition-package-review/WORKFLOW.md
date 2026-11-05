@@ -112,7 +112,7 @@ The workflow must never write:
 Disallowed behavior:
 
 - No use of this workflow for cross-root conformity review.
-- No KTY-local metadata repair; use `kty-metadata-align` for that.
+- No KTY-local metadata repair. The `kty-metadata-align` workflow that did it was removed on 2026-11-04 and is preserved in the private `sgttomas/chirality` repository.
 - No silent repair of ambiguous truth conflicts.
 - No invention of missing snapshot artifacts, missing decomposition rows, or
   phase-completion claims that are not supported by package evidence.
