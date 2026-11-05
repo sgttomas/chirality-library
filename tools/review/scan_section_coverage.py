@@ -35,7 +35,7 @@ import csv
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Dict, List, Sequence, Tuple
 
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")

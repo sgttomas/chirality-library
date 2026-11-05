@@ -88,7 +88,7 @@
 # SHA verifiable, actor class, state-machine shape); it never evaluates or blocks
 # the CHECKING→ISSUED judgment itself.
 # Preconditions reconciled with frontend transition.ts (DEL-07-04) — divergences
-# recorded in tools/practitioner_harness/README.md §Guard reconciliation.
+# recorded in tools/scaffolding/README.md §Guard reconciliation.
 
 # Git reads below (and in the amendment checker, which inherits these) ignore
 # local replace refs and grafts, so object substitution cannot change what the

@@ -47,7 +47,6 @@ import html
 import json
 import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 INLINE_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
@@ -160,42 +159,6 @@ def build_page_line_index(lines: list[str]) -> list[tuple[int, int]]:
         if m:
             out.append((i, int(m.group(1))))
     return out
-
-
-def build_dense_page_anchors(
-    lines: list[str],
-    asset_index: dict[str, dict],
-) -> list[tuple[int, int]]:
-    """Return [(line_no, page)] anchors derived from page markers PLUS the
-    first appearance of each manifested asset (since assets carry their page
-    number explicitly). Sparse page markers alone miss most lines."""
-    anchors: list[tuple[int, int]] = []
-    for i, raw in enumerate(lines, start=1):
-        m = PAGE_MARKER_RE.search(raw)
-        if m:
-            anchors.append((i, int(m.group(1))))
-        for m in INLINE_IMAGE_RE.finditer(raw):
-            asset = asset_index.get(Path(m.group(2)).name)
-            if asset and isinstance(asset.get("page"), int):
-                anchors.append((i, asset["page"]))
-        for m in INLINE_LINK_RE.finditer(raw):
-            src = m.group(2)
-            if not src.endswith((".png", ".xlsx")):
-                continue
-            asset = asset_index.get(Path(src).name)
-            if not asset:
-                stem = Path(src).stem
-                asset = asset_index.get(stem + ".png")
-            if asset and isinstance(asset.get("page"), int):
-                anchors.append((i, asset["page"]))
-    anchors.sort(key=lambda t: t[0])
-    # Deduplicate consecutive entries with the same page
-    dedup: list[tuple[int, int]] = []
-    for entry in anchors:
-        if dedup and dedup[-1][1] == entry[1]:
-            continue
-        dedup.append(entry)
-    return dedup
 
 
 def page_for_line(line_no: int, anchors: list[tuple[int, int]]) -> int | None:
@@ -480,7 +443,6 @@ def main() -> int:
     for pg_rec in manifest.get("pages", []):
         if isinstance(pg_rec, dict) and isinstance(pg_rec.get("page"), int):
             page_labels[pg_rec["page"]] = pg_rec.get("page_label")
-    page_anchors = build_dense_page_anchors(md_lines, asset_index)
 
     # Sidecar load — only section + atom state (per-kind asset state lives
     # under the per-kind audit surfaces' own sidecars now).
@@ -504,11 +466,7 @@ def main() -> int:
     cross_refs = build_cross_ref_indexes(sections, md_lines, asset_index)
     fig_map, tbl_map, eq_map, sec_map = cross_refs
 
-    output_html_dir = args.output_html.parent
     pages_rel = args.pages_dir_rel.rstrip("/")
-
-    # Section index → assets-by-section for figure/table rendering
-    sections_by_id = {s["section_id"]: s for s in sections}
 
     body_html_parts: list[str] = []
     section_node_rows: list[dict] = []

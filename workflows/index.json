@@ -1624,12 +1624,6 @@
     "flatProjectMarkdown": "document-only",
     "malformedHigherPrecedence": "block-identity",
     "collisionHandling": "expose-all-qualified-candidates",
-    "resourceContainment": "realpath-within-package-root",
-    "publicExportExclusions": [
-      {
-        "kind": "skill",
-        "name": "chirality-change"
-      }
-    ]
+    "resourceContainment": "realpath-within-package-root"
   }
 }

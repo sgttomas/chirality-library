@@ -1,4 +1,3 @@
-from pathlib import Path
 import pytest
 from normalize_brief import normalize, load_brief
 

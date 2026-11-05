@@ -352,7 +352,7 @@ Repeat Phase 4.1 for each subsequent tier until all tiers are complete.
 #### Phase 4.3 (Optional): Aggregation
 
 **Not provided.** This phase dispatched the removed `aggregation` workflow (see
-Applicability). The deterministic tools in `tools/aggregation/` remain.
+Applicability).
 
 ---
 

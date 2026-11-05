@@ -118,7 +118,9 @@ def parse_method_reference(value):
 
 def load_catalog_identity(root: Path):
     path = contained(root, 'workflows/catalog.yaml')
-    catalog = json.loads(path.read_text())
+    # catalog.yaml is authored in JSON, the YAML 1.2 subset that
+    # tools/validation/build_workflow_index.py also reads with json.loads.
+    catalog = json.loads(path.read_text(encoding='utf-8'))
     library = catalog.get('library') if isinstance(catalog, dict) else None
     if (catalog.get('schema') != 'chirality-workflow-catalog/v1' or not isinstance(library, dict)
             or set(library) != {'source', 'sourceRootId'} or library.get('source') not in SOURCES
@@ -130,10 +132,7 @@ def load_catalog_identity(root: Path):
 def qualify_local_method(root: Path, reference: dict) -> dict:
     """Bind an unqualified reference to this resolver's single declared Root."""
     _, library = load_catalog_identity(root)
-    if reference['kind'] == 'skill' and reference['name'] == 'chirality-change':
-        expected = {'sourceRootId': f"{library['sourceRootId']}-project", 'source': 'project', **{k: reference[k] for k in ('kind', 'name')}}
-    else:
-        expected = {'sourceRootId': library['sourceRootId'], 'source': library['source'], **{k: reference[k] for k in ('kind', 'name')}}
+    expected = {'sourceRootId': library['sourceRootId'], 'source': library['source'], **{k: reference[k] for k in ('kind', 'name')}}
     if 'sourceRootId' in reference and reference != expected:
         raise ValueError('qualified method identity is outside the declared Root catalog')
     return expected
@@ -193,7 +192,7 @@ def method_package(root: Path, reference: dict) -> tuple[Path, str]:
     return package, entrypoint
 
 
-def resolve(root: Path, role: str, workflow=None, resources=(), stage=None, policy=None, methods=()):
+def resolve(root: Path, role: str, workflow=None, resources=(), policy=None, methods=()):
     root = root.resolve()
     registry_path = contained(root, 'agents/registry.json')
     registry = json.loads(registry_path.read_text())
@@ -211,7 +210,6 @@ def resolve(root: Path, role: str, workflow=None, resources=(), stage=None, poli
         basis.append(fingerprint(catalog_path, root))
     execution = {}
     method_executions = []
-    stage_config = {}
     packages = []
     for reference in selected_methods:
         package, entrypoint = method_package(root, reference)
@@ -228,8 +226,6 @@ def resolve(root: Path, role: str, workflow=None, resources=(), stage=None, poli
         if compatible is not None and role not in compatible:
             raise ValueError('method incompatible with role')
         method_executions.append({'method': dict(reference), 'execution': method_execution})
-    if stage:
-        raise ValueError('select bounded workflow resources explicitly; stage overrides are unsupported')
     if resources:
         if len(packages) != 1:
             raise ValueError('resources require exactly one selected method')
@@ -240,8 +236,8 @@ def resolve(root: Path, role: str, workflow=None, resources=(), stage=None, poli
     if not isinstance(policy,dict):raise ValueError('policy must be a mapping')
     tool_policies = [policy.get('host', {}), {'capabilities': role_config['tools']}]
     tool_policies.extend(item['execution'].get('tools', {}) for item in method_executions)
-    tool_policies.extend([stage_config.get('tools', {}), policy.get('brief', {})])
-    if not isinstance(policy, dict) or any(not isinstance(p, dict) for p in tool_policies):
+    tool_policies.append(policy.get('brief', {}))
+    if any(not isinstance(p, dict) for p in tool_policies):
         raise ValueError('policy layers must be mappings')
     commands, resolved_commands = command_constraints(tool_policies, root, policy.get('bindings', {}))
     effective = {'capabilities': intersect(*(p.get('capabilities') for p in tool_policies)), 'commands': commands}
@@ -251,7 +247,7 @@ def resolve(root: Path, role: str, workflow=None, resources=(), stage=None, poli
                                 'original_inputs':selection['original_inputs'],
                                 'normalized_methods':selection['methods'],
                                 'mapping_decisions':selection['mapping_decisions']},
-            'stage':stage, 'role_configuration':role_config, 'execution':execution,
+            'role_configuration':role_config, 'execution':execution,
             'method_executions':method_executions, 'effective_tools':effective, 'resolved_commands':resolved_commands,
             'context':context, 'configuration_basis':basis, 'instruction_root':str(root), 'tool_root':str(root / 'tools'),
             'context_evidence':'mechanically-recorded resolver inputs; host context delivery unverified',
@@ -289,7 +285,10 @@ def main():
         policy=json.loads(args.policy.read_text()) if args.policy else {}
         brief=None
         if args.brief:
-            from normalize_brief import load_brief
+            if __package__:
+                from .normalize_brief import load_brief
+            else:
+                from normalize_brief import load_brief
             if not args.repo_root:raise ValueError('--brief requires --repo-root')
             brief=load_brief(json.loads(args.brief.read_text()),args.repo_root,args.root)
             if brief.get('TaskSkill'):raise ValueError('TaskSkill is retired; select the method with Workflow or methods')
@@ -307,7 +306,7 @@ def main():
             if methods:raise ValueError('methods supplied by both CLI and brief')
             if not isinstance(brief['methods'],list):raise ValueError('brief methods must be a list')
             methods=brief['methods']
-        result=resolve(args.root,args.role,args.workflow,args.resource,None,policy,methods)
+        result=resolve(args.root,args.role,args.workflow,args.resource,policy,methods)
         if args.policy:
             result['configuration_basis'].append(fingerprint(args.policy.resolve(),args.policy.resolve().parent))
         bind_write_authority(result, brief)

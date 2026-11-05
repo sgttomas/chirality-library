@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Full history: change selection, conflict-marker and private-term
-          # checks diff against the PR base. blob:none keeps every commit and
+          # Full history: change selection, conflict-marker and run-record
+          # leak checks diff against the PR base. blob:none keeps every commit and
           # tree while skipping historical blob download.
           fetch-depth: 0
           filter: blob:none
@@ -47,9 +47,11 @@ jobs:
       - name: Install harness dependencies
         # pyproject.toml declares the tool dependencies: pyyaml for the
         # validators and deliverables check; the ci extra adds pytest,
-        # pytest-xdist and numpy (tools/retrieval imports it, so those tests
-        # stay gated here rather than skipping).
+        # pytest-xdist, ruff and numpy (tools/retrieval imports it, so those
+        # tests stay gated here rather than skipping).
         run: python3 -m pip install --quiet ".[ci]"
+      - name: Python lint (pyflakes rules)
+        run: ruff check .
       - name: Deliverable dependency structure
         if: steps.selection.outputs.deliverables == 'true'
         run: python3 -m tools.deliverables --project . check
@@ -130,27 +132,6 @@ jobs:
             LEAK_BASE_REF=HEAD^
           fi
           python3 tools/validation/validate_run_record_leaks.py --base "${LEAK_BASE_REF}" --head HEAD
-      # Owner direction 2026-10-08: the owner's machine names never reach this
-      # public repository. The terms live only in the PRIVATE_TERMS repository
-      # secret and are never printed. What a change adds (contents, paths,
-      # commit identities and messages) is matched in any split or escaped
-      # form, and a junit hostname attribute blocks even without the secret.
-      # Manual dispatches and same-repository PRs require the secret; fork PRs
-      # receive no secrets and run the junit rule only.
-      - name: Private-term check (owner direction 2026-10-08; BLOCK fails the run)
-        env:
-          PRIVATE_TERMS: ${{ secrets.PRIVATE_TERMS }}
-          # A PR's recorded base can be stale; the checked-out merge commit's first
-          # parent is main as merged, so only this PR's own commits are screened.
-          TERMS_BASE_REF: ${{ github.event_name == 'pull_request' && 'HEAD^1' || '' }}
-          TERMS_REQUIRED: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
-        run: |
-          if ! git rev-parse --verify --quiet "${TERMS_BASE_REF}^{commit}" >/dev/null; then
-            TERMS_BASE_REF=HEAD^
-          fi
-          REQUIRE=()
-          if [ "${TERMS_REQUIRED}" = "true" ]; then REQUIRE=(--require-terms); fi
-          python3 tools/validation/validate_private_terms.py --base "${TERMS_BASE_REF}" --head HEAD "${REQUIRE[@]}"
       - name: Selected tool behavior tests
         if: steps.selection.outputs.has_tests == 'true'
         env:

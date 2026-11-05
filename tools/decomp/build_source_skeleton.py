@@ -327,7 +327,6 @@ def build_sections(
     assign_parents(headings)
     total_lines = len(lines)
     sections: list[dict] = []
-    parent_chapter_seen: list[bool] = []
 
     chapter_ancestry = [False] * len(headings)
     for idx, h in enumerate(headings):

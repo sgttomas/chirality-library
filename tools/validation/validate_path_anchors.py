@@ -15,9 +15,9 @@ import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-HARNESS_DIR = Path(__file__).resolve().parents[1] / "practitioner_harness"
-if str(HARNESS_DIR) not in sys.path:
-    sys.path.insert(0, str(HARNESS_DIR))
+_HERE = Path(__file__).resolve().parent
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
 
 from surface_roles import (  # noqa: E402
     MACHINE_ABS_PATH_RE,

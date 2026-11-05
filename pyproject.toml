@@ -26,7 +26,9 @@ test = [
     "pytest>=8.0",
     "pytest-xdist>=3.5",
 ]
-# tools/retrieval source index and tools/decomp proposal scoring.
+# Python lint gate (pyflakes rules only; see [tool.ruff.lint]).
+lint = ["ruff>=0.6"]
+# tools/retrieval source index.
 retrieval = ["numpy>=1.26"]
 # tools/pdf2md table export, page-asset images and PDF rasterization.
 pdf = [
@@ -36,9 +38,14 @@ pdf = [
 ]
 # workflows/data-app-spec/tools specification and design checks.
 data-app = ["jsonschema>=4.18"]
-ci = ["chirality-library-tools[test,retrieval]"]
-all = ["chirality-library-tools[test,retrieval,pdf,data-app]"]
+ci = ["chirality-library-tools[test,retrieval,lint]"]
+all = ["chirality-library-tools[test,retrieval,pdf,data-app,lint]"]
 
 [tool.setuptools]
 # Tools run from the checkout; install no packages, only dependencies.
 packages = []
+
+[tool.ruff.lint]
+# Pyflakes-class findings only (unused or undefined names, f-strings without
+# placeholders and similar). No formatting or style gate.
+select = ["F"]

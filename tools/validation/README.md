@@ -5,7 +5,7 @@
 `validate_path_anchors.py` checks executable repo-level instructions and
 project live-entry surfaces for machine-local home paths. For a project that
 declares `validation/portability_policy.json`, it also scans active AgentRuns
-records and consumes the shared `tools/practitioner_harness/surface_roles.py`
+records and consumes the shared `tools/validation/surface_roles.py`
 classification:
 
 - active `CONTROL` records must use repo-relative paths or root tokens;
@@ -16,8 +16,7 @@ classification:
 
 The validator reports semantic invariant counts rather than pinning aggregate
 finding totals or a full-tree path list. Historical/non-active plans and
-decisions are outside its execution-entry boundary; changed coordination files
-remain protected by practitioner-harness `coord-check`.
+decisions are outside its execution-entry boundary.
 
 Raw reproduction stdout/stderr storage is independent of path portability.
 The piping `.gitattributes` rules apply `-diff -merge -text` only to those
@@ -53,6 +52,7 @@ Run `python3 tools/validation/validate_agent_instructions.py --json` and
 `python3 tools/validation/validate_workflow_metadata.py --json` for the current
 Root contract. Agent runtime configuration lives in `agents/registry.json`;
 workflow resources are optional and restrictions live in `execution.json`.
-Explicit historical instruction snapshots and skill directories retain their
-old reader contracts. Root G2/G3/G4 checks recognize `workflows/` as an
+The agent validator requires that registry; read historical instruction
+snapshots at their recorded revision. Explicit historical skill directories
+retain their old reader contract. Root G2/G3/G4 checks recognize `workflows/` as an
 instruction surface alongside historical `skills/` inputs.

@@ -34,7 +34,6 @@ from tools.source_audit.normalize_prose import normalize_for_diff
 from tools.source_audit.sidecar import content_hash
 from tools.source_audit.tokenize_md import (
     AssetRef,
-    Blank,
     EquationBlock,
     Placeholder,
     ProseLine,

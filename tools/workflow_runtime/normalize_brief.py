@@ -74,7 +74,6 @@ def normalize(inline, repo_root, instruction_root, file_values=None):
 
 def load_brief(inline, repo_root, instruction_root):
     """Read JSON or YAML structured INIT-TASK input, filling omitted inline fields."""
-    import json
     import yaml
     bindings={'REPO_ROOT':Path(repo_root).resolve(),'INSTRUCTION_ROOT':Path(instruction_root).resolve()}
     working=inline.get('WorkingRoot',inline.get('WORKING_ROOT'))

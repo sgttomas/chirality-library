@@ -27,7 +27,7 @@ import os
 from fnmatch import fnmatchcase
 import subprocess
 import sys
-from importlib.util import find_spec, module_from_spec, spec_from_file_location
+from importlib.util import find_spec
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]

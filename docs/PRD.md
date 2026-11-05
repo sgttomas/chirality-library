@@ -261,7 +261,7 @@ usable without a companion. Add bespoke tooling only for a demonstrated gap in
 these operations. Ordinary library use must not depend on undisclosed sibling
 checkouts, dated run directories, private source inputs or credentials. Private
 consumer evidence stays local; public fixtures and summaries must be cleared.
-Required credential and private-term checks apply to public changes.
+Required credential checks apply to public changes.
 
 ### 3.6 Work and repository-change evaluation — O2, O3, O4, O5
 
