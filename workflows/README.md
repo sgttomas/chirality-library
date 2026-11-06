@@ -67,9 +67,11 @@ canonical metadata are documents only and never become discoverable methods.
 
 Existing package names and legacy status survive this migration;
 `scope-of-work` carries the current SOW_V1 method. The legacy
-`dbm-concordance-seed` and `four-documents` packages were removed on 2026-11-04
-and are preserved in the private `sgttomas/chirality` repository. Historical
-briefs, snapshots, and pinned evidence retain their original identifiers.
+`dbm-concordance-seed` package was restored for explicitly selected historical
+or resumed work; its own instructions identify it as legacy. The
+`four-documents` package was removed on 2026-11-04 and is preserved in the
+private `sgttomas/chirality` repository. Historical briefs, snapshots, and
+pinned evidence retain their original identifiers.
 
 ### Retired packages
 
