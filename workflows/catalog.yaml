@@ -55,6 +55,26 @@
           },
           {
             "name": "coordinated-knowledge-work"
+          },
+          {
+            "name": "domain-decomp"
+          },
+          {
+            "name": "domain-engine"
+          },
+          {
+            "name": "domain-hypergraph"
+          },
+          {
+            "name": "semantic-matrix-build",
+            "tier": "supporting"
+          },
+          {
+            "name": "lens-register",
+            "tier": "supporting"
+          },
+          {
+            "name": "semantic-lensing"
           }
         ]
       },
@@ -67,6 +87,12 @@
           },
           {
             "name": "reverse-engineer-software"
+          },
+          {
+            "name": "research-orchestration"
+          },
+          {
+            "name": "content-digest"
           }
         ]
       },
@@ -97,6 +123,25 @@
           },
           {
             "name": "domain-prose-validate",
+            "tier": "supporting"
+          },
+          {
+            "name": "drawing-extract"
+          },
+          {
+            "name": "drawing-extract-page",
+            "tier": "supporting"
+          },
+          {
+            "name": "drawing-titleblock-page",
+            "tier": "supporting"
+          },
+          {
+            "name": "equipment-extract",
+            "tier": "supporting"
+          },
+          {
+            "name": "equipment-costing-extract",
             "tier": "supporting"
           }
         ]
@@ -154,6 +199,57 @@
           },
           {
             "name": "reflect-on-work"
+          },
+          {
+            "name": "audit-agents"
+          },
+          {
+            "name": "audit-decomp"
+          },
+          {
+            "name": "audit-epistemic"
+          },
+          {
+            "name": "audit-hypergraph-closure"
+          },
+          {
+            "name": "audit-scope-closure"
+          },
+          {
+            "name": "equation-audit"
+          },
+          {
+            "name": "equation-bbox-detect",
+            "tier": "supporting"
+          },
+          {
+            "name": "equation-flag-interpret",
+            "tier": "supporting"
+          },
+          {
+            "name": "evaluate-repository-change"
+          },
+          {
+            "name": "evaluation-protocol"
+          },
+          {
+            "name": "evaluation-report",
+            "tier": "supporting"
+          },
+          {
+            "name": "review"
+          },
+          {
+            "name": "dbm-concordance-verify",
+            "tier": "supporting"
+          },
+          {
+            "name": "dbm-draft-review",
+            "tier": "supporting"
+          },
+          {
+            "name": "dbm-postauthor-concordance",
+            "tier": "supporting"
           }
         ]
       },
@@ -163,6 +259,38 @@
         "workflows": [
           {
             "name": "scope-change-packet"
+          },
+          {
+            "name": "kty-content-remediate",
+            "tier": "supporting"
+          },
+          {
+            "name": "kty-metadata-align",
+            "tier": "supporting"
+          }
+        ]
+      },
+      {
+        "key": "author-publish",
+        "label": "Author & publish",
+        "workflows": [
+          {
+            "name": "domain-documents"
+          },
+          {
+            "name": "dbm-publisher"
+          },
+          {
+            "name": "dbm-concordance-seed",
+            "tier": "supporting"
+          },
+          {
+            "name": "dbm-publish",
+            "tier": "supporting"
+          },
+          {
+            "name": "dbm-section-publish",
+            "tier": "supporting"
           }
         ]
       }

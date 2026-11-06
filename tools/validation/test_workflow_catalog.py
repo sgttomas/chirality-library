@@ -56,6 +56,7 @@ SPECIALIST_GROUPS = [
     ("estimate-cost", "Estimate & cost"),
     ("review-check", "Review & check"),
     ("manage-changes", "Manage changes"),
+    ("author-publish", "Author & publish"),
 ]
 
 

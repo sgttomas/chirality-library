@@ -83,6 +83,21 @@
       "pytest_paths": [
         "tools/undertaking_evaluation"
       ]
+    },
+    "drawing_extract": {
+      "pytest_paths": [
+        "tools/drawing_extract"
+      ]
+    },
+    "equation_audit": {
+      "pytest_paths": [
+        "tools/equation_audit"
+      ]
+    },
+    "publication": {
+      "pytest_paths": [
+        "tools/publication"
+      ]
     }
   },
   "path_rules": [
@@ -191,7 +206,10 @@
         "evaluation",
         "scaffolding",
         "deliverables",
-        "undertaking_evaluation"
+        "undertaking_evaluation",
+        "drawing_extract",
+        "equation_audit",
+        "publication"
       ]
     },
     {
@@ -261,6 +279,30 @@
       ],
       "checks": [
         "scaffolding"
+      ]
+    },
+    {
+      "paths": [
+        "tools/drawing_extract/*"
+      ],
+      "checks": [
+        "drawing_extract"
+      ]
+    },
+    {
+      "paths": [
+        "tools/equation_audit/*"
+      ],
+      "checks": [
+        "equation_audit"
+      ]
+    },
+    {
+      "paths": [
+        "tools/publication/*"
+      ],
+      "checks": [
+        "publication"
       ]
     }
   ]

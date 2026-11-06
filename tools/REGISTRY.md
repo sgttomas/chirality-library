@@ -120,27 +120,22 @@ change, ISSUED replacement, integration, or legacy retirement.
 | `validate_asset_resume.py` | Python 3 | Validate existing per-page asset materialization manifests against current page rasters and referenced anchored Markdown / asset files before reuse | work_dir, [--pages 1-10,12] | `resume_safety=OK` or mismatch report (exit 0/1/2) |
 | `validate_assets.py` | Python 3 | Validate assembled Markdown asset links against the public asset manifest and files on disk; reports missing files, orphan links, manifest widows, and unmanifested files | --markdown, --manifest, --assets-root | PASS/FAIL summary (exit 0/1/2) |
 
-## Removed tool families
+## Restored and removed tool families
 
-The equation-audit, drawing-extraction (equipment, sheet inventory and P&ID
-valve), pipe-spec and domain-extraction tools, with the workflows that used
-them, were removed from this repository on 2026-11-04. They are preserved in
-the private `sgttomas/chirality` repository.
+The restored workflows use tools in `drawing_extract/`, `equation_audit/`,
+`domain_extract/`, `publication/`, `aggregation/`, and `diagnostics/`. Their
+workflow contracts name their operations and inputs. The pipe-spec tools remain
+removed and are preserved in the private `sgttomas/chirality` repository.
 
-The practitioner harness (frozen App v3/PEC/Piping observation CLI), the
-publication tools that served the removed DBM workflows, the aggregation
-hypergraph builder and its fixture check, the runtime-analysis inventory, the
-domain-engine profile validator, the AgentRuns archiver, the Chirality
-self-domain Gate 3–5 and batch adapters (`propose_gate4_kty.py`,
-`refine_gate3_categories.py`, `build_gate5_coverage.py`,
-`build_skill_pack_batch.py`, `build_manifest_domain_adapter.py`), the piping KA
-coverage audit and the App v3 harness-contract pull check were removed on
-2026-11-05 (owner item #35). They remain recoverable from this repository's Git
-history.
+The practitioner harness (frozen App v3/PEC/Piping observation CLI), runtime-analysis
+inventory, domain-engine profile validator, AgentRuns archiver, Chirality
+self-domain Gate 3–5 and batch adapters, and App v3 harness-contract pull check
+were removed on 2026-11-05 (owner item #35). They remain recoverable from this
+repository's Git history.
 
 ## Decomposition
 
-Per-source skeleton lift, dispatch-unit planning, HTML rendering, and atom/vocabulary merge tools for per-source decomposition fan-out (the per-item dispatch pattern PDF2MD also uses). The `domain-decomp` workflow they were built for was removed on 2026-11-04 and is preserved in the private `sgttomas/chirality` repository.
+Per-source skeleton lift, dispatch-unit planning, HTML rendering, and atom/vocabulary merge tools for per-source decomposition fan-out (the per-item dispatch pattern PDF2MD also uses). The restored `domain-decomp` workflow can use these tools.
 
 | Name | Language | Purpose | Inputs | Outputs |
 |------|----------|---------|--------|---------|
@@ -154,7 +149,7 @@ Per-source skeleton lift, dispatch-unit planning, HTML rendering, and atom/vocab
 | `source_audit/audit_tables.py` | Python 3 | Render `tables.html` — the per-table Gate 1.5-T review surface. One chunk per `kind=tbl` asset (bbox crop + caption + XLSX link + JSON sidecar link + accept/flag controls); tables flagged `needs_extraction: true` render with a distinct chip and no XLSX/JSON links. Sidecars: `<source>_tables_verified_<TS>.json` / `<source>_tables_flagged_<TS>.json` | `--asset-manifest`, `--audit-dir`, `--output-html`, `[--pages-dir-rel]`, `[--title]` | `tables.html` |
 | `source_audit/audit_images.py` | Python 3 | Render `images.html` — the per-image Gate 1.5-I review surface. One chunk per `kind=img` asset (bbox crop + caption + accept/flag). Bucket is the catch-all for non-figure/non-table raster assets (mastheads, logos, decorative ornaments, photographs); review motion is mostly false-positive triage. Sidecars: `<source>_images_verified_<TS>.json` / `<source>_images_flagged_<TS>.json` | `--asset-manifest`, `--audit-dir`, `--output-html`, `[--pages-dir-rel]`, `[--title]` | `images.html` |
 | `source_audit/audit_folios.py` | Python 3 | Render `folios.html` — the per-page Gate 1.5-Fo review surface (conditionally required when folio extraction has been run on the source). One chunk per page showing the VLM-emitted printed folio + confidence + location chips + page raster. Sidecars: `<source>_folios_verified_<TS>.json` / `<source>_folios_flagged_<TS>.json` | `--page-folios-json`, `--audit-dir`, `--output-html`, `[--pages-dir-rel]`, `[--title]` | `folios.html` |
-| `source_audit/equations.py` | Python 3 | Kind-specific module for the equations audit surface. `scan_pages` extracts every `$$..$$`; `render_equations_audit_page` composes the shared base with optional per-equation source crops from `crops/page_NNNN_eq_NN.png`, KaTeX preview, 4-state Backcheck UI, `1.5-P-machine` / `EQUATION_AUDIT-phase3` source badges on Backcheck entries, and a Reject-proposal action that writes `equations_rejected.json` keyed by `(equation_hash, proposal_hash)` for sticky-per-proposal rejection of 1.5-P proposals. Its former consumer, `tools/equation_audit/`, was removed | — (library) | — |
+| `source_audit/equations.py` | Python 3 | Kind-specific module for the equations audit surface. `scan_pages` extracts every `$$..$$`; `render_equations_audit_page` composes the shared base with optional per-equation source crops from `crops/page_NNNN_eq_NN.png`, KaTeX preview, 4-state Backcheck UI, `1.5-P-machine` / `EQUATION_AUDIT-phase3` source badges on Backcheck entries, and a Reject-proposal action that writes `equations_rejected.json` keyed by `(equation_hash, proposal_hash)` for sticky-per-proposal rejection of 1.5-P proposals. The restored `tools/equation_audit/` is a consumer | — (library) | — |
 | `source_audit/tokenize_md.py` | Python 3 | Gate 1.5-P helper: Markdown tokenizer that splits a per-page extract into a typed stream (`ProseLine`, `EquationBlock`, `AssetRef`, `Placeholder`, `Blank`) for the deterministic comparator | — (library) | — |
 | `source_audit/normalize_prose.py` | Python 3 | Gate 1.5-P helper: deterministic prose normalization (NFKC, ligatures, smart quotes, soft hyphens, line-break hyphenation, multi-space). `normalize_for_diff` adds whitespace and trailing-punctuation collapse for the strict prose compare | — (library) | — |
 | `source_audit/canonicalize_latex.py` | Python 3 | Gate 1.5-P helper: textual v1 LaTeX canonicalizer (`\frac` ≡ `\dfrac` ≡ `\tfrac`, `\mathrm{}` ≡ `{\rm }`, `\operatorname{}` → `\mathrm{}`, thin spaces dropped, `\left`/`\right` dropped, brace-around-single-decorative-token stripped). v2 (AST) deferred | — (library) | — |
@@ -200,7 +195,7 @@ Canonical versions at `tools/evaluation/`. Project-specific variants may also ex
 |------|----------|---------|--------|---------|
 | `build_source_index.py` | Python 3 | Build V2 BM25 + optional dense embedding sidecars from a source database snapshot's `chunks` table. Uses stable `chunk_id` / `artifact_id` public identity and stores internal row alignment in SQLite `index_rows` | `--snapshot`, `[--domain-root]`, `[--model]`, `[--dim]`, `[--batch]`, `[--no-embeddings]`, `[--force]` | Snapshot-local `bm25/`, optional `embeddings.npy` / `embeddings_norm.npy`, updated `catalog.sqlite.index_rows` and `index_builds` |
 | `query_source_index.py` | Python 3 | Query a V2 source database snapshot with selectable `hybrid`, `dense`, or `bm25` retrieval, returning stable chunk/artifact IDs and provenance paths. Supports filters over source doc, artifact role, chunk type, audit kind, structural IDs, and archive state. Optionally appends one canonical `Query_Log.csv` row per query for research-packet provenance (off by default; never writes inside an immutable snapshot) | `--snapshot`, `--query` or `--batch`, `[--mode]`, `[--k]`, `[--json]`, `[--source-doc]`, `[--artifact-role]`, `[--chunk-type]`, `[--audit-kind]`, `[--category-id]`, `[--knowledge-type-id]`, `[--subject-id]`, `[--archive-state]`, `[--run-log]`, `[--log-dir]` | Ranked result rows with `chunk_id`, `artifact_id`, `rel_path`, `source_ref`, retrieval mode, retrieval scores, metadata, and text preview; optional appended `Query_Log.csv` row |
-| `scaffold_research_packet.py` | Python 3 | Create one immutable `RCH_<UTC>_<slug>/` research packet (RESEARCH_NOTE.md, Query_Log.csv, Evidence_Map.csv, Amendment_Candidates.csv, Open_Questions.csv, Conflicts.csv, HANDOFF_STATE.md) with canonical headers defined in `research_packet.py` (the `research-orchestration` workflow was removed), and refresh `_Research/_LATEST.md`. Refuses to overwrite an existing packet (immutable) | `--research-root`, `--slug`, `[--topic]`, `[--utc]`, `[--no-update-latest]`, `[--json]` | New packet dir + 7 seeded files + updated `_LATEST.md`; exit 0 created / 1 packet exists / 2 invalid |
+| `scaffold_research_packet.py` | Python 3 | Create one immutable `RCH_<UTC>_<slug>/` research packet (RESEARCH_NOTE.md, Query_Log.csv, Evidence_Map.csv, Amendment_Candidates.csv, Open_Questions.csv, Conflicts.csv, HANDOFF_STATE.md) with canonical headers defined in `research_packet.py` (used by `research-orchestration`), and refresh `_Research/_LATEST.md`. Refuses to overwrite an existing packet (immutable) | `--research-root`, `--slug`, `[--topic]`, `[--utc]`, `[--no-update-latest]`, `[--json]` | New packet dir + 7 seeded files + updated `_LATEST.md`; exit 0 created / 1 packet exists / 2 invalid |
 
 ## Source Catalog
 
