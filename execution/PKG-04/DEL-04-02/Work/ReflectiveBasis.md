@@ -38,6 +38,48 @@ actual worker practice, and human–Agent 0 dialogue examines whether that pract
 and its framing serve the purpose. It does not alone establish A3, which needs
 actual action and input-condition evidence on accepted/set-up work.
 
+## Coordination method revision — 2026-11-07
+
+The current bounded revision concerns OUT-002's orchestration input,
+[coordinated-knowledge-work](../../../../workflows/coordinated-knowledge-work/WORKFLOW.md),
+under the preceding Library source
+`c35b7bbc463f81c1fed566c744ea49d168d29eee` and its `create-workflow` method.
+It retains full assignments, integration ownership, required independent
+examination, substantive first returns and ownership through ordinary repair.
+Staffing, context delivery and recovery now depend on the actual undertaking
+and host route. The reported corpus and missed-return incidents remain in the
+package's [experience notes](../../../../workflows/coordinated-knowledge-work/REVIEW-NOTES.md),
+with their original qualifications.
+
+The reason for the revision is the difference between maintaining these
+responsibilities and mandating one arrangement: a brief need not be a
+contributor's only context, and an independent scheduled backstop is neither
+needed nor available on every route. The candidate keeps explicit delivery of
+missing host, safety, data and silent-failure rules. It does not authorize a
+host operation, remove project-required scrutiny, or require a new investigation
+at every dispatch.
+
+Source-reviewed walkthroughs of the candidate distinguish:
+
+- A route that reliably supplies repository instructions and delivers a
+  completion notice: the assignment still names its basis and integration
+  owner; retrievable context need not be copied, and no separate timer is
+  prescribed.
+- An isolated contributor or a message-dependent return that can be missed:
+  missing rules/context must be supplied, and supported recovery must address
+  the actual failure. If polling or timers are prohibited, choose an available
+  delivery route or expose the limitation rather than inventing a backstop.
+
+These are constructed walkthroughs of instructions, not enacted host tests,
+successful transfer evidence or App runtime qualification. The App's packaged
+copy at `sgttomas/chirality-app@92649294f2481fa9a10277a2e2c5bd19049a39bd`
+matches the preceding workflow bytes; any adoption and receiving verification
+remain with that project's Agent 0. The owner approved the exact candidate
+`91ae028e0c566508a5e9d608562812a14f3b3f5b` and this standing update in
+[PR #9](https://github.com/sgttomas/chirality-library/pull/9): “Yes I approve #9”.
+This authorizes Library integration, not a release or automatic consumer update.
+Existing ScopeOfWork commitments and declared input conditions remain unchanged.
+
 ## Next use and boundaries
 
 Begin from a real changed question, burden or mismatch in an authorized
