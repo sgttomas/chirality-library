@@ -229,12 +229,12 @@ Tools identified as useful but not yet needed — either used by only one agent,
 EOF
 
 
-## Four-role workflow runtime (D-GOV-41)
+## Role registry and workflow runtime (D-GOV-41)
 
 - `tools/workflow_runtime/resolve_workflow.py`: explicit workflow and method resolution, selected context fingerprints and independent policy intersections.
 - `tools/workflow_runtime/normalize_brief.py`: structured inline/file brief normalization and explicit writable-root containment; imported by the resolver.
 - `tools/validation/validate_workflow_metadata.py`: workflow entrypoint and optional execution-policy validation.
-- `tools/validation/validate_agent_instructions.py`: four-role registry and four-section instruction validation; requires `agents/registry.json`.
+- `tools/validation/validate_agent_instructions.py`: canonical role registry (four core roles plus opt-in INTERLOCUTOR) and four-section instruction validation; requires `agents/registry.json`.
 - `tools/validation/validate_skill_metadata.py`: compatibility CLI; defaults to the workflow validator, while explicit historical skills directories use historical validation.
 
 For invocation and returned policy semantics, see `tools/workflow_runtime/README.md`.

@@ -253,3 +253,139 @@ def test_removed_change_methods_do_not_resolve():
         assert [(item['kind'], item['name']) for item in reflective['methods']] == [('workflow', 'reflect-on-work')]
     with pytest.raises(ValueError, match='incompatible'):
         resolve(source, 'TASK', workflow='reflect-on-work')
+
+
+REPO = Path(__file__).resolve().parents[2]
+LEGACY_FOUR = ('HELP_HUMAN', 'HELPS_HUMANS', 'WORKING_ITEMS', 'TASK')
+
+
+@pytest.fixture
+def five_role_root(tmp_path):
+    """A fixture root carrying the live registry and methods with differing companions."""
+    (tmp_path/'agents').mkdir()
+    registry = json.loads((REPO/'agents/registry.json').read_text())
+    for name, config in registry['roles'].items():
+        (tmp_path/config['instruction']).write_text(f'# {name}\n')
+    (tmp_path/'agents/registry.json').write_text(json.dumps(registry))
+    (tmp_path/'workflows').mkdir()
+    (tmp_path/'workflows/catalog.yaml').write_text(json.dumps({
+        'schema': 'chirality-workflow-catalog/v1',
+        'library': {'source': 'bundled', 'sourceRootId': 'fixture-bundle'},
+        'centralWorkflowNames': [],
+    }))
+    companions = {
+        'no-companion': None,
+        'no-roles-field': {'schema_version': 1},
+        'four-roles': {'schema_version': 1, 'compatible_roles': list(LEGACY_FOUR)},
+        'empty-roles': {'schema_version': 1, 'compatible_roles': []},
+        'interlocutor-opt-in': {'schema_version': 1, 'compatible_roles': ['INTERLOCUTOR']},
+        'string-roles': {'schema_version': 1, 'compatible_roles': 'TASK'},
+    }
+    for name, companion in companions.items():
+        package = tmp_path/'workflows'/name
+        package.mkdir()
+        (package/'WORKFLOW.md').write_text(f'---\nname: {name}\ndescription: Fixture\n---\n')
+        if companion is not None:
+            (package/'execution.json').write_text(json.dumps(companion))
+    skill = tmp_path/'.agents/skills/plain-skill'
+    skill.mkdir(parents=True)
+    (skill/'SKILL.md').write_text('---\nname: plain-skill\ndescription: Fixture\n---\n')
+    return tmp_path
+
+
+def test_interlocutor_resolves_standalone_with_its_own_context():
+    result = resolve(REPO, 'INTERLOCUTOR')
+    assert result['methods'] == [] and result['workflow'] is None
+    assert [item['path'] for item in result['context']] == ['agents/AGENT_INTERLOCUTOR.md']
+    assert result['context'][0]['content'].startswith('# INTERLOCUTOR\n')
+    config = result['role_configuration']
+    assert (config['type'], config['direct_entry'], config['default_for_new_chat']) == (2, False, False)
+    assert config['delegates_to'] == [] and config['allow_generalist_agent2'] is False
+
+
+@pytest.mark.parametrize('role', ['TASK', 'INTERLOCUTOR'])
+def test_type2_roles_cannot_delegate_under_broad_host_policy(role):
+    broad = ['read', 'write', 'bash', 'delegate_agent', 'send_agent_update', 'report_coordination_notice', 'ack_agent_update']
+    result = resolve(REPO, role, policy={'host': {'capabilities': broad}})
+    assert result['role_configuration']['delegates_to'] == []
+    assert not result['role_configuration']['allow_generalist_agent2']
+    assert not {'delegate_agent', 'send_agent_update'} & set(result['effective_tools']['capabilities'])
+    assert result['effective_tools']['capabilities'] == sorted(result['role_configuration']['tools'])
+
+
+def test_interlocutor_write_needs_explicit_assignment_targets(tmp_path):
+    import subprocess
+    import sys
+    script = Path(__file__).with_name('resolve_workflow.py')
+    work = tmp_path/'work'
+    work.mkdir()
+    policy_file = tmp_path/'policy.json'
+    policy_file.write_text(json.dumps({'host': {'capabilities': ['read', 'write', 'bash', 'delegate_agent']}}))
+    brief_file = tmp_path/'brief.json'
+
+    def run(brief=None):
+        command = [sys.executable, str(script), '--root', str(REPO), '--role', 'INTERLOCUTOR', '--policy', str(policy_file)]
+        if brief is not None:
+            brief_file.write_text(json.dumps({'ScopePath': str(work), **brief}))
+            command += ['--repo-root', str(work), '--brief', str(brief_file)]
+        proc = subprocess.run(command, capture_output=True, text=True)
+        assert proc.returncode == 0, proc.stderr
+        return json.loads(proc.stdout)
+
+    for brief in (None, {}, {'ApplyEdits': True}):
+        result = run(brief)
+        assert result['allowed_write_targets'] == []
+        assert 'write' not in result['effective_tools']['capabilities']
+        assert 'delegate_agent' not in result['effective_tools']['capabilities']
+    target = str(work/'notes.md')
+    result = run({'ApplyEdits': True, 'AllowedWriteTargets': [target]})
+    assert result['allowed_write_targets'] == [target]
+    assert 'write' in result['effective_tools']['capabilities']
+
+
+def test_omitted_compatible_roles_inherit_only_the_legacy_four(five_role_root):
+    for role in LEGACY_FOUR:
+        for selection in ('no-companion', 'four-roles'):
+            assert resolve(five_role_root, role, selection)['workflow'] == selection
+        assert resolve(five_role_root, role, methods=[{'kind': 'skill', 'name': 'plain-skill'}])['methods']
+    for selection in ('no-companion', 'four-roles', 'empty-roles'):
+        with pytest.raises(ValueError, match='incompatible'):
+            resolve(five_role_root, 'INTERLOCUTOR', selection)
+    with pytest.raises(ValueError, match='incompatible'):
+        resolve(five_role_root, 'INTERLOCUTOR', methods=[{'kind': 'skill', 'name': 'plain-skill'}])
+
+
+def test_interlocutor_method_selection_requires_explicit_opt_in(five_role_root):
+    result = resolve(five_role_root, 'INTERLOCUTOR', 'interlocutor-opt-in')
+    assert result['workflow'] == 'interlocutor-opt-in'
+    for role in LEGACY_FOUR:
+        with pytest.raises(ValueError, match='incompatible'):
+            resolve(five_role_root, role, 'interlocutor-opt-in')
+        with pytest.raises(ValueError, match='incompatible'):
+            resolve(five_role_root, role, 'empty-roles')
+
+
+def test_malformed_compatible_roles_fail_rather_than_substring_match(five_role_root):
+    for role in ('TASK', 'INTERLOCUTOR'):
+        for selection in ('string-roles', 'no-roles-field'):
+            with pytest.raises(ValueError, match='malformed compatible_roles'):
+                resolve(five_role_root, role, selection)
+
+
+def test_resolver_eligibility_agrees_with_published_index():
+    index = json.loads((REPO/'workflows/index.json').read_text())
+    roles = json.loads((REPO/'agents/registry.json').read_text())['roles']
+    assert not any('INTERLOCUTOR' in method['executionRoleIds'] for method in index['methods'])
+    for method in index['methods']:
+        if 'execution' not in method:
+            assert method['executionRoleIds'] == list(LEGACY_FOUR), method['name']
+        for role in roles:
+            reference = {'kind': method['kind'], 'name': method['name']}
+            try:
+                resolve(REPO, role, methods=[reference])
+                eligible = True
+            except ValueError as exc:
+                if 'incompatible' not in str(exc) and 'unbound' not in str(exc):
+                    raise
+                eligible = 'unbound' in str(exc)
+            assert eligible is (role in method['executionRoleIds']), (method['name'], role)

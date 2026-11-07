@@ -183,11 +183,18 @@ Its adopted work locality holds the related technical and execution material.
 | HELPS_HUMANS | 1 | Design workflows, tools and projects with the owner |
 | WORKING_ITEMS | 1 | Own implementation, assignments and integration |
 | TASK | 2 | Execute one bounded assignment; does not delegate |
+| INTERLOCUTOR | 2 | Opt-in second opinion to Agent 0; advises, does not delegate |
 
 The agent working with the owner holds Agent 0’s responsibilities for purpose,
 continuity and reserved choices, whatever role it entered through. Other roles
 are taken up as the work needs them. This grants no additional host permissions.
 Use only the hierarchy the undertaking needs.
+INTERLOCUTOR is opt-in per session. Agent 0 delegates it only when session
+steering selects it; Agent 0 then shares periodic activity summaries and
+relevant prior feedback and consults it at least before every PR merge, as
+`agents/AGENT_INTERLOCUTOR.md` describes. Its advice requires no sign-off and
+carries no veto; Agent 0 keeps its decisions and the owner keeps reserved
+choices. Sessions that do not select it have no consultation step.
 Load the active role's `agents/AGENT_<ROLE>.md`; other role, workflow and skill
 bodies are on demand. Keep ownership of integration and route returns through
 the host's actual mechanisms. Roles, methods and limits come from these

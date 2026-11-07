@@ -1,6 +1,7 @@
 # Library workflow runtime utilities
 
-`agents/registry.json` declares the four roles. `resolve_workflow.py` resolves
+`agents/registry.json` declares the roles: HELP_HUMAN, HELPS_HUMANS,
+WORKING_ITEMS, TASK and the opt-in Type 2 INTERLOCUTOR. `resolve_workflow.py` resolves
 ordered method selections, the `Workflow` compatibility field, and requested
 resources; it does not preload the library or launch an agent. App and Runtime
 adoption remains a separate owning-loop decision.
@@ -30,7 +31,15 @@ Read pinned historical packages at their recorded Git revision, not through
 current discovery.
 
 A package's `compatible_roles` applies to the whole method. TASK receives a
-bounded child workflow or a brief. Resources are selected explicitly through
+bounded child workflow or a brief. A package without an execution companion
+is compatible with HELP_HUMAN,
+HELPS_HUMANS, WORKING_ITEMS and TASK, matching the published index; an empty list
+denies every role. INTERLOCUTOR resolves without a method for its ordinary
+advisory brief and selects a method only when `compatible_roles` names it.
+When an execution companion is present, it must supply a `compatible_roles`
+list; missing, null or string values are malformed, matching index validation.
+Consumers that pin exactly four roles must adopt INTERLOCUTOR deliberately; the
+new role does not widen any existing method's eligibility. Resources are selected explicitly through
 repeatable `--resource` when exactly one method is selected; omitted resources
 are not read. Missing resources, escaping symlinks, unsupported qualified
 origins, unknown packages, and incompatible roles fail resolution.

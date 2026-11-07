@@ -23,7 +23,8 @@ A workflow can be omitted for an assignment expressed entirely through its brief
 
 WORKING_ITEMS owns orchestration. TASK performs a bounded contribution, including
 a separately specified stage of a larger workflow. HELPS_HUMANS can use a
-compatible workflow while developing the design. Loading a method grants no
+compatible workflow while developing the design. An opt-in INTERLOCUTOR
+advises Agent 0 from its brief and needs no method. Loading a method grants no
 additional capabilities or decision rights.
 
 ## Package form and catalog
@@ -43,7 +44,9 @@ parse the canonical frontmatter and execution metadata themselves; the Library's
 authoring and validation tool, not a production parser.
 
 Optional `execution.json` provides compatible roles and capability/command
-restrictions. Stage-specific resources are selected explicitly without changing
+restrictions. Without it, the package is compatible with HELP_HUMAN,
+HELPS_HUMANS, WORKING_ITEMS and TASK; INTERLOCUTOR is eligible only where
+`compatible_roles` names it. Stage-specific resources are selected explicitly without changing
 role compatibility. See
 [the workflow runtime utilities](../tools/workflow_runtime/README.md). A command is invoked
 through the available session tools, against the declared tool root. A documented

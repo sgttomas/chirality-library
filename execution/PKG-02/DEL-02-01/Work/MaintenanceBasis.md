@@ -457,3 +457,22 @@ The checks, the packages' public-material review and the remaining owner review 
 recorded in the PR; per create-workflow, the owner reviews the exact packages there
 before integration registers them. No release, consumer adoption or product acceptance
 is established here.
+
+## INTERLOCUTOR role adoption
+
+The owner approved the drafted INTERLOCUTOR instruction as an official role:
+"I approve the AGENT_INTERLOCUTOR.md and it will be opt-in per session as drafted.
+Adopt this as an official agent instruction and update any impacted documents in
+this repo". The approved body is adopted unchanged as
+[agents/AGENT_INTERLOCUTOR.md](../../../../agents/AGENT_INTERLOCUTOR.md), a
+Type 2, non-direct-entry role that does not delegate. HELP_HUMAN, HELPS_HUMANS and
+WORKING_ITEMS may delegate it, because Agent 0's responsibilities can be held
+through each. Its capability ceiling and write scope match TASK's; writes still
+need explicit assignment targets. AGENTS.md describes the per-session opt-in.
+
+Existing method eligibility is unchanged. A package with no execution companion
+remains compatible with the four core roles only, and the resolver now applies
+that default as the published index does. INTERLOCUTOR selects a method only
+where `compatible_roles` names it. Consumers that enumerate exactly four roles
+must adopt the fifth deliberately; notifying consumers and their adoption are
+separate from this change.

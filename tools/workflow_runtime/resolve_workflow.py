@@ -13,6 +13,11 @@ NAME = re.compile(r'^(?=.{1,64}$)[a-z0-9]+(?:-[a-z0-9]+)*$')
 SOURCE_ROOT_ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$')
 SOURCES = {'project', 'user', 'bundled'}
 KINDS = {'skill', 'workflow'}
+# Roles that inherit a method with no execution companion, matching
+# LEGACY_DEFAULT_ROLES in
+# tools/validation/build_workflow_index.py. Any other role, including
+# INTERLOCUTOR, selects a method only when compatible_roles names it.
+LEGACY_DEFAULT_ROLES = ('HELP_HUMAN', 'HELPS_HUMANS', 'WORKING_ITEMS', 'TASK')
 
 
 def contained(root: Path, relative: str) -> Path:
@@ -222,8 +227,13 @@ def resolve(root: Path, role: str, workflow=None, resources=(), policy=None, met
             if method_execution.get('schema_version') != 1:
                 raise ValueError('unsupported execution schema')
             basis.append(fingerprint(companion.resolve(), root))
-        compatible = method_execution.get('compatible_roles')
-        if compatible is not None and role not in compatible:
+        if companion.exists():
+            compatible = method_execution.get('compatible_roles')
+            if not isinstance(compatible, list) or any(not isinstance(x, str) for x in compatible):
+                raise ValueError('malformed compatible_roles')
+        else:
+            compatible = LEGACY_DEFAULT_ROLES
+        if role not in compatible:
             raise ValueError('method incompatible with role')
         method_executions.append({'method': dict(reference), 'execution': method_execution})
     if resources:

@@ -46,12 +46,14 @@ The Library's `.editorconfig` settings may trim trailing whitespace in compatibl
 editors. Preserve intentional Markdown hard breaks and raw evidence bytes;
 formatting alone does not warrant an evidence-repair or approval cycle.
 
-## Four-role and workflow validation
+## Role and workflow validation
 
 Run `python3 tools/validation/validate_agent_instructions.py --json` and
 `python3 tools/validation/validate_workflow_metadata.py --json` for the current
 Library contract. Agent runtime configuration lives in `agents/registry.json`;
 workflow resources are optional and restrictions live in `execution.json`.
+`compatible_roles` may name any canonical role, including INTERLOCUTOR; a package
+without a companion is indexed for the four core roles only.
 The agent validator requires that registry; read historical instruction
 snapshots at their recorded revision. Explicit historical skill directories
 retain their old reader contract. Library G2/G3/G4 checks recognize `workflows/` as an

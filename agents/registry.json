@@ -15,7 +15,8 @@
       "delegates_to": [
         "HELPS_HUMANS",
         "WORKING_ITEMS",
-        "TASK"
+        "TASK",
+        "INTERLOCUTOR"
       ],
       "allow_generalist_agent2": true,
       "tools": [
@@ -34,7 +35,8 @@
       "direct_entry": true,
       "default_for_new_chat": false,
       "delegates_to": [
-        "TASK"
+        "TASK",
+        "INTERLOCUTOR"
       ],
       "allow_generalist_agent2": true,
       "tools": [
@@ -55,7 +57,8 @@
       "direct_entry": true,
       "default_for_new_chat": false,
       "delegates_to": [
-        "TASK"
+        "TASK",
+        "INTERLOCUTOR"
       ],
       "allow_generalist_agent2": true,
       "tools": [
@@ -72,6 +75,23 @@
     "TASK": {
       "description": "Execute one bounded assignment using a selected method when applicable.",
       "instruction": "agents/AGENT_TASK.md",
+      "type": 2,
+      "direct_entry": false,
+      "default_for_new_chat": false,
+      "delegates_to": [],
+      "allow_generalist_agent2": false,
+      "tools": [
+        "read",
+        "write",
+        "bash",
+        "report_coordination_notice",
+        "ack_agent_update"
+      ],
+      "write_scope": "explicit brief targets within authorized working root"
+    },
+    "INTERLOCUTOR": {
+      "description": "When a session selects it, give Agent 0 bounded, candid advice on its conduct and direction toward the owner's objectives.",
+      "instruction": "agents/AGENT_INTERLOCUTOR.md",
       "type": 2,
       "direct_entry": false,
       "default_for_new_chat": false,

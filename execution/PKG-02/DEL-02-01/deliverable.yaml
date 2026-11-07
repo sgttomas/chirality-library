@@ -50,6 +50,7 @@ needs:
   evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
 code_paths:
 - AGENTS.md
+- agents/**
 - tools/workflow_runtime/resolve_workflow.py
 - tools/validation/build_workflow_index.py
 - workflows/create-workflow/**

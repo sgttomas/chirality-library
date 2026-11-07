@@ -13,7 +13,13 @@ CATALOG_SCHEMA = "chirality-workflow-catalog/v1"
 INDEX_SCHEMA = "chirality-method-index/v1"
 NAME_RE = re.compile(r"^(?=.{1,64}$)[a-z0-9]+(?:-[a-z0-9]+)*$")
 SOURCES = ("project", "user", "bundled")
-ROLES = ("HELP_HUMAN", "HELPS_HUMANS", "WORKING_ITEMS", "TASK")
+# Role IDs a package may name in compatible_roles.
+KNOWN_ROLES = ("HELP_HUMAN", "HELPS_HUMANS", "WORKING_ITEMS", "TASK", "INTERLOCUTOR")
+# Roles that inherit a package without an execution companion. This legacy
+# default keeps existing eligibility unchanged; INTERLOCUTOR is selectable for
+# a method only when its compatible_roles name it explicitly.
+LEGACY_DEFAULT_ROLES = ("HELP_HUMAN", "HELPS_HUMANS", "WORKING_ITEMS", "TASK")
+ROLES = KNOWN_ROLES  # retained name for existing importers
 CENTRAL = (
     "create-workflow",
     "project-setup",
@@ -227,7 +233,7 @@ def parse_execution(package_root: Path, repo_root: Path, required: bool) -> dict
     roles = execution.get("compatible_roles")
     if execution.get("schema_version") != 1 or not isinstance(roles, list):
         raise ValueError(f"malformed execution.json: {package_root.name}")
-    if any(not isinstance(role, str) or role not in ROLES for role in roles) or len(roles) != len(set(roles)):
+    if any(not isinstance(role, str) or role not in KNOWN_ROLES for role in roles) or len(roles) != len(set(roles)):
         raise ValueError(f"malformed compatible_roles: {package_root.name}")
     tools = execution.get("tools")
     if tools is not None:
@@ -283,7 +289,7 @@ def validate_and_build(root: Path) -> dict:
             "name": metadata["name"],
             "description": metadata["description"],
             "compatibility": "legacy" if placement is not None and placement["category"] == "superseded" else "canonical",
-            "executionRoleIds": execution["compatibleRoles"] if execution is not None else list(ROLES),
+            "executionRoleIds": execution["compatibleRoles"] if execution is not None else list(LEGACY_DEFAULT_ROLES),
             "resources": resources,
         }
         package_metadata = metadata.get("metadata")
@@ -358,7 +364,7 @@ def validate_and_build(root: Path) -> dict:
                 "source": library["source"], "sourceRootId": library["sourceRootId"],
                 "description": metadata["description"], "central": False,
                 "compatibility": "canonical",
-                "executionRoleIds": execution["compatibleRoles"] if execution is not None else list(ROLES),
+                "executionRoleIds": execution["compatibleRoles"] if execution is not None else list(LEGACY_DEFAULT_ROLES),
                 "resources": resources,
             }
             if execution is not None:

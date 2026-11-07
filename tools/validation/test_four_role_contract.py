@@ -48,3 +48,35 @@ def test_malformed_registry_shapes(tmp_path):
         with pytest.raises(ValueError,match='mapping'):agents.validate_registry(tmp_path)
     path.write_text(json.dumps({'schema_version':1,'roles':{'TASK':[]}}))
     assert 'ROLE_SHAPE' in {x.code for x in agents.validate_registry(tmp_path)}
+
+
+def test_interlocutor_is_opt_in_type2_delegated_by_each_entry_role():
+    roles=json.loads((Path(__file__).resolve().parents[2]/'agents/registry.json').read_text())['roles']
+    interlocutor,task=roles['INTERLOCUTOR'],roles['TASK']
+    assert (interlocutor['type'],interlocutor['direct_entry'],interlocutor['default_for_new_chat'])==(2,False,False)
+    assert interlocutor['delegates_to']==[] and interlocutor['allow_generalist_agent2'] is False
+    assert interlocutor['tools']==task['tools'] and interlocutor['write_scope']==task['write_scope']
+    for parent in ('HELP_HUMAN','HELPS_HUMANS','WORKING_ITEMS'):
+        assert 'INTERLOCUTOR' in roles[parent]['delegates_to']
+    assert 'INTERLOCUTOR' not in task['delegates_to']
+
+
+def test_interlocutor_registry_violations_are_reported(tmp_path):
+    base=fixture(tmp_path)
+    path=tmp_path/'agents/registry.json'
+
+    def codes(mutate):
+        registry=json.loads(json.dumps(base));mutate(registry['roles'])
+        path.write_text(json.dumps(registry))
+        return {x.code for x in agents.validate_registry(tmp_path)}
+
+    def delegating(r):
+        r['INTERLOCUTOR']['delegates_to']=['TASK'];r['INTERLOCUTOR']['tools'].append('delegate_agent');r['INTERLOCUTOR']['allow_generalist_agent2']=True
+    assert {'ROLE_DELEGATION','TYPE2_DELEGATION'}<=codes(delegating)
+    assert 'ROLE_ENTRY' in codes(lambda r:r['INTERLOCUTOR'].update(direct_entry=True))
+    assert 'ROLE_DESCRIPTOR' in codes(lambda r:r['INTERLOCUTOR'].update(default_for_new_chat=True))
+    assert 'ROLE_ENTRY' in codes(lambda r:r['INTERLOCUTOR'].update(type=1))
+    for parent in ('HELP_HUMAN','HELPS_HUMANS','WORKING_ITEMS'):
+        assert 'ROLE_DELEGATION' in codes(lambda r,p=parent:r[p]['delegates_to'].remove('INTERLOCUTOR'))
+    assert 'ROLE_DELEGATION' in codes(lambda r:r['TASK']['delegates_to'].append('INTERLOCUTOR'))
+    assert 'ROLE_REGISTRY' in codes(lambda r:r.pop('INTERLOCUTOR'))

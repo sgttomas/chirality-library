@@ -183,7 +183,7 @@ particular consumer or recovery still requires appropriate preservation.
 ### A.3.11 Agent Index and Governance Surface
 
 **K-AGENTS-1** coupled the entry file, registry and former runtime hierarchy.
-The current four roles describe contributions. Agent 0's continuity is the
+The current roles describe contributions. Agent 0's continuity is the
 given; other contributions are engaged as useful. TASK's no-delegation boundary
 remains. A registry cannot grant host permissions or silently override the
 authorized assignment. The active entry and role files, rather than an archived
