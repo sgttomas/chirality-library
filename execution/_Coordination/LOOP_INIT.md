@@ -1,7 +1,8 @@
 # Chirality library development
 
 This entry belongs to the Chirality Library (`sgttomas/chirality-library`).
-Chirality Root is the separate private `sgttomas/chirality`; records here
+Chirality Root is the separate private `sgttomas/chirality`, which measures and
+improves how agents deliver work across the projects; records here
 written before 2026-11-05 use "Root" for the Library. See
 [AGENTS.md](../../AGENTS.md#library-and-root).
 
@@ -113,7 +114,8 @@ consumed indexes when their sources change.
 
 App v4 and SWBPIPE own adoption and product work in their repositories; the Library's
 instructions and Git grant do not transfer to them. Follow AGENTS.md for any
-needed coordination. App v3 and Runtime remain frozen. Old execution is
-preserved in the private `sgttomas/chirality` repository as history, not a standing backlog. Private information
+needed coordination. App v3 and Runtime remain frozen. Old execution survives
+only in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`),
+as history, not a standing backlog. Private information
 stays outside this public library. Acceptance and release remain owner acts;
 initialization alone assigns no undertaking.

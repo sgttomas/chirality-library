@@ -11,13 +11,22 @@ remains accountable for acceptance and reliance.
 
 <a id="library-and-root"></a>
 **Library and Root.** This repository is the Chirality **Library**
-(`sgttomas/chirality-library`): the shared roles, workflows, tools and
-references that projects use. Chirality **Root** is the separate private
-repository `sgttomas/chirality`, which reflects on the wider undertaking across
-Root, the Library, App and SWBPIPE; that reflection grants Root no authority
-over another project's work. Accepted commitments, decomposition, Work and
-other records written before 2026-11-05 use "Root" for what is now the
-Library; read them that way. Mapping of DEL-04-02 and exact holding ownership
+(`sgttomas/chirality-library`): reference material for the whole Chirality
+Project, namely the roles, workflows, tools and publications used by Root, App,
+SWBPIPE and other applications built for the App's agent harness. Chirality
+**Root** is the separate private repository `sgttomas/chirality`. It measures
+how agents deliver work across the Chirality projects and improves it, and hosts
+what is best delivered as a shared service. Its agents read session telemetry
+read-only, segregated by repository, and the owner reviews every finding. Root
+never changes another project's files, branches or PRs; its only action in
+another repository is opening a GitHub issue for an owner-approved finding,
+with content cleared for publication. Routine adherence checks of this
+project's deliverables are run by this project's own Agent 0 through a Library
+workflow. Root's `main` was rebuilt on 2026-11-04; earlier monorepo content,
+including what this repository calls archived or preserved there, is
+recoverable only from Root's Git history at or before commit `05d96f3e11`.
+Accepted commitments, decomposition, Work and other records written before
+2026-11-05 use "Root" for what is now the Library; read them that way. Mapping of DEL-04-02 and exact holding ownership
 between the two remains open; this naming does not move them.
 
 ## Where work happens
@@ -25,10 +34,10 @@ between the two remains open; this naming does not move them.
 | Scope | Entry | Standing |
 |---|---|---|
 | Library: shared instructions, workflows, skills, tools and CI | `execution/_Coordination/LOOP_INIT.md` | Work as steered |
-| Root: reflection on the wider undertaking | Private `sgttomas/chirality` | Its own instructions; no authority over other projects' work |
+| Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; changes nothing here, may open owner-approved issues |
 | App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Development resumed (owner, 2026-10-28); consult its local instructions |
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Active; consult its local instructions |
-| App v3, Runtime | Archived in the private `sgttomas/chirality` repository | Frozen; no development or verification without explicit reactivation |
+| App v3, Runtime | Archived in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`) | Frozen; no development or verification without explicit reactivation |
 
 ## Coordination between projects
 
@@ -46,7 +55,9 @@ whether it blocks the sender. The recipient decides and acts within its own
 repository and authority. A message carries no owner authority and changes
 nothing in another repository. Record an agreed decision by editing the
 governing text in the repository that owns it, and take reserved choices to the
-owner. Do not message a project the work does not affect.
+owner. Do not message a project the work does not affect. Root may also open a
+GitHub issue here for an owner-approved finding; this project decides how to
+act on it, as with a message.
 
 ## Working cycle
 
@@ -98,8 +109,9 @@ retain their actual product/source homes, referenced from the locality. The
 consumer states its needs; tools derive reverse links and graphs.
 
 App v4 and SWBPIPE use `Work/`; their older references to a deliverable's
-`Design/` mean its `Work/`. Pre-library execution is archived in the private
-Root repository, `sgttomas/chirality`.
+`Design/` mean its `Work/`. Pre-library execution is recoverable from the
+private Root repository's Git history (`sgttomas/chirality`, at or before
+`05d96f3e11`).
 The accepted [Library PRD](docs/PRD.md) and
 [final decomposition](execution/_Decomposition/_LATEST_ACCEPTED.md) supply the
 basis for the current Library localities. Read the selected ScopeOfWork, Work and
