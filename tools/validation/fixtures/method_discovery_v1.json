@@ -5,7 +5,8 @@
     {"id": "HELP_HUMAN", "agentType": 0, "directEntry": true, "defaultForNewChat": true, "description": "Supervising role", "instruction": "agents/AGENT_HELP_HUMAN.md"},
     {"id": "HELPS_HUMANS", "agentType": 1, "directEntry": true, "defaultForNewChat": false, "description": "Design manager", "instruction": "agents/AGENT_HELPS_HUMANS.md"},
     {"id": "WORKING_ITEMS", "agentType": 1, "directEntry": true, "defaultForNewChat": false, "description": "Implementation manager", "instruction": "agents/AGENT_WORKING_ITEMS.md"},
-    {"id": "TASK", "agentType": 2, "directEntry": false, "defaultForNewChat": false, "description": "Bounded executor", "instruction": "agents/AGENT_TASK.md"}
+    {"id": "TASK", "agentType": 2, "directEntry": false, "defaultForNewChat": false, "description": "Bounded executor", "instruction": "agents/AGENT_TASK.md"},
+    {"id": "INTERLOCUTOR", "agentType": 2, "directEntry": false, "defaultForNewChat": false, "description": "Opt-in advisor to Agent 0", "instruction": "agents/AGENT_INTERLOCUTOR.md"}
   ],
   "packageYamlCases": [
     {
@@ -59,6 +60,11 @@
       "expectedExecution": null
     },
     {
+      "id": "missing-compatible-roles-is-malformed",
+      "executionJson": {"schema_version": 1},
+      "expectedError": "MALFORMED_EXECUTION_METADATA"
+    },
+    {
       "id": "empty-compatible-roles-denies-all",
       "executionJson": {"schema_version": 1, "compatible_roles": []},
       "expectedExecutionRoleIds": [],
@@ -68,6 +74,12 @@
       "id": "malformed-compatible-roles-type",
       "executionJson": {"schema_version": 1, "compatible_roles": "TASK"},
       "expectedError": "MALFORMED_EXECUTION_METADATA"
+    },
+    {
+      "id": "explicit-interlocutor-opt-in",
+      "executionJson": {"schema_version": 1, "compatible_roles": ["INTERLOCUTOR"]},
+      "expectedExecutionRoleIds": ["INTERLOCUTOR"],
+      "expectedExecution": {"schemaVersion": 1, "compatibleRoles": ["INTERLOCUTOR"]}
     }
   ],
   "skillExecutionCases": [
@@ -76,6 +88,11 @@
       "executionJson": null,
       "expectedExecutionRoleIds": ["HELP_HUMAN", "HELPS_HUMANS", "WORKING_ITEMS", "TASK"],
       "expectedExecution": null
+    },
+    {
+      "id": "missing-compatible-roles-is-malformed",
+      "executionJson": {"schema_version": 1},
+      "expectedError": "MALFORMED_EXECUTION_METADATA"
     },
     {
       "id": "empty-compatible-roles-denies-all",

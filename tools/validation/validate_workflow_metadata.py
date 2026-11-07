@@ -5,9 +5,9 @@ import json
 import re
 from pathlib import Path
 import yaml
-from build_workflow_index import _frontmatter
+from build_workflow_index import KNOWN_ROLES, _frontmatter
 
-ROLES={'HELP_HUMAN','HELPS_HUMANS','WORKING_ITEMS','TASK'}
+ROLES=set(KNOWN_ROLES)
 NAME_RE=re.compile(r'^(?=.{1,64}$)[a-z0-9]+(?:-[a-z0-9]+)*$')
 
 
@@ -28,7 +28,7 @@ def validate_workflow_dir(folder, repo_root):
             if not isinstance(stages,dict): raise ValueError('stages must be a mapping')
             for item in [config,*stages.values()]:
                 compatible=item.get('compatible_roles')
-                if compatible is not None and (not isinstance(compatible,list) or not set(compatible)<=ROLES): issues.append('invalid compatible_roles')
+                if compatible is not None and (not isinstance(compatible,list) or any(not isinstance(role,str) or role not in ROLES for role in compatible)): issues.append('invalid compatible_roles')
                 tools=item.get('tools',{})
                 if not isinstance(tools,dict) or set(tools)-{'capabilities','commands'}: raise ValueError('invalid tools mapping')
                 for kind,values in tools.items():

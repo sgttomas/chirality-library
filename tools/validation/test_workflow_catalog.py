@@ -431,3 +431,72 @@ def test_bundled_skill_takes_the_library_identity(tmp_path):
     index = validate_and_build(root)
     descriptor = next(item for item in index["methods"] if item["name"] == "chirality-change")
     assert (descriptor["source"], descriptor["sourceRootId"]) == (index["library"]["source"], index["library"]["sourceRootId"])
+
+
+def test_role_sets_agree_across_registry_validators_resolver_and_fixture():
+    import importlib.util
+    import build_workflow_index
+    import validate_agent_instructions
+    import validate_workflow_metadata
+    spec = importlib.util.spec_from_file_location("resolve_workflow_for_test", ROOT / "tools/workflow_runtime/resolve_workflow.py")
+    resolver = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(resolver)
+
+    roles = json.loads((ROOT / "agents/registry.json").read_text())["roles"]
+    known = build_workflow_index.KNOWN_ROLES
+    assert tuple(roles) == known
+    assert tuple(name for name, _ in validate_agent_instructions.CANONICAL_ROLES) == known
+    assert {name: typ for name, typ in validate_agent_instructions.CANONICAL_ROLES} == {name: cfg["type"] for name, cfg in roles.items()}
+    assert validate_workflow_metadata.ROLES == set(known)
+    legacy = build_workflow_index.LEGACY_DEFAULT_ROLES
+    assert legacy == resolver.LEGACY_DEFAULT_ROLES == tuple(name for name in known if name != "INTERLOCUTOR")
+
+    fixture = json.loads((ROOT / "tools/validation/fixtures/method_discovery_v1.json").read_text())
+    descriptors = fixture["roleDescriptors"]
+    assert tuple(item["id"] for item in descriptors) == known
+    for item in descriptors:
+        config = roles[item["id"]]
+        assert (item["agentType"], item["directEntry"], item["defaultForNewChat"], item["instruction"]) == (
+            config["type"], config["direct_entry"], config["default_for_new_chat"], config["instruction"])
+    for group in ("workflowExecutionCases", "skillExecutionCases"):
+        absent = next(case for case in fixture[group] if case["id"] == "absent-companion-inherits")
+        assert absent["expectedExecutionRoleIds"] == list(legacy)
+
+
+@pytest.mark.parametrize("group", ["workflowExecutionCases", "skillExecutionCases"])
+def test_shared_execution_fixture_cases_build_as_declared(tmp_path, group):
+    fixture = json.loads((ROOT / "tools/validation/fixtures/method_discovery_v1.json").read_text())
+    root = _fixture_root(tmp_path)
+    if group == "workflowExecutionCases":
+        package, kind, name = root / "workflows" / CENTRAL[0], "workflow", CENTRAL[0]
+    else:
+        package, kind, name = root / ".agents/skills/fixture-skill", "skill", "fixture-skill"
+        package.mkdir(parents=True)
+        (package / "SKILL.md").write_text("---\nname: fixture-skill\ndescription: Fixture\n---\n")
+    for case in fixture[group]:
+        companion = package / "execution.json"
+        companion.unlink(missing_ok=True)
+        if case["executionJson"] is not None:
+            companion.write_text(json.dumps(case["executionJson"]))
+        if "expectedError" in case:
+            with pytest.raises(ValueError, match="malformed"):
+                validate_and_build(root)
+            continue
+        method = next(item for item in validate_and_build(root)["methods"] if (item["kind"], item["name"]) == (kind, name))
+        assert method["executionRoleIds"] == case["expectedExecutionRoleIds"], case["id"]
+        if "expectedExecution" in case:
+            assert method.get("execution") == case["expectedExecution"], case["id"]
+        if "expectedCommands" in case:
+            assert method["execution"]["tools"]["commands"] == case["expectedCommands"], case["id"]
+
+
+def test_interlocutor_is_a_known_but_not_inherited_method_role(tmp_path):
+    workflow = tmp_path / "advisory"
+    workflow.mkdir()
+    (workflow / "WORKFLOW.md").write_text("---\nname: advisory\ndescription: Fixture\n---\n")
+    (workflow / "execution.json").write_text(json.dumps({"schema_version": 1, "compatible_roles": ["INTERLOCUTOR"]}))
+    assert validate_workflow_dir(workflow, tmp_path)["valid"]
+    (workflow / "execution.json").write_text(json.dumps({"schema_version": 1, "compatible_roles": ["ADVISOR"]}))
+    assert not validate_workflow_dir(workflow, tmp_path)["valid"]
+    index = validate_and_build(ROOT)
+    assert not any("INTERLOCUTOR" in method["executionRoleIds"] for method in index["methods"])

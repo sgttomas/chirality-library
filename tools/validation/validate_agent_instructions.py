@@ -6,9 +6,10 @@ Usage:
     python3 tools/validation/validate_agent_instructions.py agents/AGENT_TASK.md
     python3 tools/validation/validate_agent_instructions.py --json
 
-Checks the four-role registry (agents/registry.json), direct entry and
-delegation eligibility, role capability configuration, and the four ordered
-prose sections. A repository without the registry is an input failure; read
+Checks the canonical role registry (agents/registry.json): HELP_HUMAN,
+HELPS_HUMANS, WORKING_ITEMS, TASK and the opt-in INTERLOCUTOR. It checks direct
+entry and delegation eligibility, role capability configuration, and the four
+ordered prose sections. A repository without the registry is an input failure; read
 historical snapshots at their recorded revision with the validator of that
 revision. Semantic role quality remains a judgment review.
 
@@ -26,6 +27,24 @@ import re
 import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
+
+
+# Canonical roles and their agent types. INTERLOCUTOR is the opt-in Type 2
+# advisor to Agent 0; it is delegated, never entered directly.
+CANONICAL_ROLES = (
+    ('HELP_HUMAN', 0),
+    ('HELPS_HUMANS', 1),
+    ('WORKING_ITEMS', 1),
+    ('TASK', 2),
+    ('INTERLOCUTOR', 2),
+)
+# Required child eligibility by parent type. Agent 0 responsibilities can be
+# held through any direct-entry role, so each may delegate INTERLOCUTOR.
+CHILDREN = {
+    0: ('HELPS_HUMANS', 'WORKING_ITEMS', 'TASK', 'INTERLOCUTOR'),
+    1: ('TASK', 'INTERLOCUTOR'),
+    2: (),
+}
 
 
 @dataclass(frozen=True)
@@ -70,11 +89,11 @@ def validate_registry(repo_root: Path) -> list[Finding]:
     if not isinstance(registry, dict) or not isinstance(registry.get('roles'), dict):
         raise ValueError('registry and roles must be mappings')
     roles = registry['roles']
-    expected = {'HELP_HUMAN': 0, 'HELPS_HUMANS': 1, 'WORKING_ITEMS': 1, 'TASK': 2}
+    expected = dict(CANONICAL_ROLES)
     def error(code, message):
         add(findings, 'ERROR', code, path.relative_to(repo_root), message)
     if registry.get('schema_version') != 1 or set(roles) != set(expected):
-        error('ROLE_REGISTRY', 'schema_version 1 and exactly four canonical roles required')
+        error('ROLE_REGISTRY', f'schema_version 1 and exactly the canonical roles required: {", ".join(expected)}')
     catalog = registry.get('workflow_catalog')
     if not isinstance(catalog, dict) or set(catalog) != {'schema','catalog','index'}:
         error('WORKFLOW_CATALOG_REF', 'workflow_catalog must contain stable schema, catalog, and index references')
@@ -96,14 +115,14 @@ def validate_registry(repo_root: Path) -> list[Finding]:
             error('ROLE_SHAPE', f'{name}: delegates_to must be a string list')
             child_list = []
         children = set(child_list)
-        required = {'HELPS_HUMANS','WORKING_ITEMS','TASK'} if typ == 0 else {'TASK'} if typ == 1 else set()
+        required = set(CHILDREN.get(typ, ()))
         if children != required or config.get('allow_generalist_agent2') is not (typ in (0, 1)):
             error('ROLE_DELEGATION', f'{name}: invalid child eligibility')
         if not isinstance(config.get('tools'), list) or any(not isinstance(x,str) for x in config.get('tools', [])) or not isinstance(config.get('write_scope'), str):
             error('ROLE_POLICY', f'{name}: tools and write_scope required')
             continue
         if typ == 2 and ('delegate_agent' in (config.get('tools') or []) or config.get('allow_generalist_agent2')):
-            error('TYPE2_DELEGATION', 'TASK cannot delegate')
+            error('TYPE2_DELEGATION', f'{name}: Type 2 roles cannot delegate')
         instruction = repo_root / str(config.get('instruction', ''))
         if not instruction.resolve().is_relative_to((repo_root/'agents').resolve()) or not instruction.is_file():
             error('ROLE_INSTRUCTION', f'{name}: missing or escaping instruction path')

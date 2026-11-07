@@ -26,7 +26,7 @@ def test_live_registry_has_no_errors() -> None:
     assert result.returncode == 0, result.stdout + result.stderr
     report = json.loads(result.stdout)
     assert report["errors"] == 0
-    assert report["files_checked"] == 4
+    assert report["files_checked"] == 5
 
 
 def test_live_help_human_declares_narrow_agent0_direct_agent2_metadata() -> None:

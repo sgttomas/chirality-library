@@ -1,5 +1,14 @@
 # Consumer use and publication inputs
 
+For the current owner-authorized 2.1.0 publication, see
+[PublicationNotes-2.1.0.md](PublicationNotes-2.1.0.md). The owner approved the
+INTERLOCUTOR instruction and session opt-in, then directed: “this also means you
+need to publish a new official library package incrementing to v2.1.0”. Release
+the complete checked integrated source with its identity and archive checksum;
+the PR and release bind the observed result. Earlier cases below retain their
+own subjects and evidence limits. Consumer notifications leave adoption to the
+owning projects.
+
 For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
 Earlier case/basis statements below retain their recorded subjects and limits.
 
