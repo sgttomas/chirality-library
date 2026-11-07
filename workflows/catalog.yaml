@@ -201,9 +201,6 @@
             "name": "reflect-on-work"
           },
           {
-            "name": "audit-agents"
-          },
-          {
             "name": "audit-decomp"
           },
           {
@@ -225,9 +222,6 @@
           {
             "name": "equation-flag-interpret",
             "tier": "supporting"
-          },
-          {
-            "name": "evaluate-repository-change"
           },
           {
             "name": "evaluation-protocol"

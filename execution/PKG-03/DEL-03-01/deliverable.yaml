@@ -1,6 +1,14 @@
 id: DEL-03-01
 name: Support current localities with actual reusable tools
 needs:
+- from: external:root-adherence-result-format
+  condition: Root DEL-04-02 proposes its R-24 machine-readable result and the projects agree
+    the output contract, evidence and revision binding. The Library amendment must explicitly
+    authorize the narrow result-file write in the checked deliverable's Work/ while leaving
+    checked subject material read-only. No schema, filename or fulfilled integration is
+    established at setup; retain evaluation-protocol, evaluation-report and tools/evaluation.
+  when: Adding the agreed adherence-result format to evaluation-protocol's output contract
+  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md::Pending Root adherence-result interface
 - from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
   condition: Use the accepted identities, current locality convention and actual setup authority with
     inspected target contents before live creation. Sections 8.1 and 6.1 distinguish formation scope from
@@ -47,7 +55,7 @@ needs:
   condition: Before changing an existing utility for a selected R18 caller, bind that caller’s
     actual input/output contract, source revision and relevant evidence. New deliverable allocation
     alone does not select a utility modification or establish its suitability.
-  when: Evaluation-tool implementation selects reuse requiring a change to an existing utility
+  when: Historical use under the accepted R18 amendment — examining the original evaluation-tool caller and utility basis
   evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md::Evaluation extension
 code_paths:
 - tools/scaffolding/**

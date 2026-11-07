@@ -170,6 +170,12 @@ Per-source skeleton lift, dispatch-unit planning, HTML rendering, and atom/vocab
 
 Canonical versions at `tools/evaluation/`. Project-specific variants may also exist at `{EXECUTION_ROOT}/_Evaluation/tools/`.
 
+These adherence tools remain in the Library. The former
+`tools/undertaking_evaluation/` holding moves to private Chirality Root as
+starting material, separately from this toolkit. Its recoverable Library source
+and accepted commitment standing are identified in
+[DEL-03-02's evaluation basis](../execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
+
 | Name | Language | Purpose | Inputs | Outputs |
 |------|----------|---------|--------|---------|
 | `verify_digest_coverage.sh` | zsh | Verify 1:1 deliverable-to-digest mapping | EXECUTION_ROOT | PASS/FAIL (exit code) |

@@ -346,6 +346,10 @@ categorical memory and transmission claims without transferring A01 appointments
 
 ## Evaluation extension
 
+This section records the original R18 allocation. Its accepted historical
+standing and source recovery are identified in
+[DEL-03-02’s current evaluation basis](../../../PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
+
 The owner accepted SCA-20261101-UNDERTAKING-EVALUATION, including its audited
 corrections, on 2026-11-01 against `e157d14910e84cf149f2ead524d585467b18e0f7`. PRD R18/A9 allocate the optional
 work-and-repository evaluation capability. The state change and the conditions

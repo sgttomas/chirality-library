@@ -289,49 +289,6 @@
     },
     {
       "kind": "workflow",
-      "name": "audit-agents",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Assess role instructions against a named design basis and propose evidence-linked repairs.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md",
-        "execution.json",
-        "resources/contract.md",
-        "resources/method.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 5,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 5
-        }
-      },
-      "execution": {
-        "schemaVersion": 1,
-        "compatibleRoles": [
-          "TASK"
-        ],
-        "tools": {
-          "capabilities": [
-            "read",
-            "write",
-            "bash",
-            "report_coordination_notice",
-            "ack_agent_update"
-          ]
-        }
-      }
-    },
-    {
-      "kind": "workflow",
       "name": "audit-decomp",
       "source": "bundled",
       "sourceRootId": "chirality-root",
@@ -350,7 +307,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 6,
+        "order": 5,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -425,7 +382,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 7,
+        "order": 6,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -511,7 +468,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 8,
+        "order": 7,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -555,7 +512,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 9,
+        "order": 8,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -886,7 +843,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 17,
+        "order": 15,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -926,7 +883,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 18,
+        "order": 16,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -971,7 +928,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 19,
+        "order": 17,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1655,7 +1612,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 10,
+        "order": 9,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1690,7 +1647,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 11,
+        "order": 10,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1730,7 +1687,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 12,
+        "order": 11,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1919,34 +1876,6 @@
     },
     {
       "kind": "workflow",
-      "name": "evaluate-repository-change",
-      "source": "bundled",
-      "sourceRootId": "chirality-root",
-      "description": "Examine identified repository state changes, the conditions under which they justify effort, and bounded hypotheses for improving the means of work.",
-      "central": false,
-      "compatibility": "canonical",
-      "executionRoleIds": [
-        "HELP_HUMAN",
-        "HELPS_HUMANS",
-        "WORKING_ITEMS",
-        "TASK"
-      ],
-      "resources": [
-        "WORKFLOW.md"
-      ],
-      "navigation": {
-        "category": "specialist",
-        "tier": "primary",
-        "order": 13,
-        "group": {
-          "key": "review-check",
-          "label": "Review & check",
-          "order": 5
-        }
-      }
-    },
-    {
-      "kind": "workflow",
       "name": "evaluation-protocol",
       "source": "bundled",
       "sourceRootId": "chirality-root",
@@ -1968,7 +1897,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 14,
+        "order": 12,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -2013,7 +1942,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 15,
+        "order": 13,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -2670,7 +2599,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 16,
+        "order": 14,
         "group": {
           "key": "review-check",
           "label": "Review & check",

@@ -15,8 +15,8 @@ rendering evidence. Earlier editions retain their bytes and original standing.
 ## What changes for a consumer
 
 - **Optional repository-change evaluation.** [PR #1799](https://github.com/sgttomas/chirality/pull/1799)
-  adds [a local CLI](../../../../tools/undertaking_evaluation/README.md) and
-  evaluation workflow (`sgttomas/chirality:workflows/evaluate-repository-change/WORKFLOW.md`, private archive).
+  adds [a local CLI at the retained pre-removal Library source](https://github.com/sgttomas/chirality-library/blob/a000e2f40f724dcda9f1158cf3c4c3ed4378884c/tools/undertaking_evaluation/README.md) and
+  [evaluation workflow at that same source](https://github.com/sgttomas/chirality-library/blob/a000e2f40f724dcda9f1158cf3c4c3ed4378884c/workflows/evaluate-repository-change/WORKFLOW.md).
   Inspect selected committed Git states, bind supplied outcome evidence, optionally
   import selected Codex response-usage records and compare identified reports.
   The tool exposes observations and limits; it neither judges improvement nor

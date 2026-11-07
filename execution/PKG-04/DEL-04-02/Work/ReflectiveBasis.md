@@ -1,7 +1,15 @@
 # Reflective practice and formation basis
 
-For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
+For the original accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
 Earlier case/basis statements below retain their recorded subjects and limits.
+
+The R18 executable holding and paired workflow have an authorized transfer to
+private Root as starting material. Their public pre-removal source, verified transfer
+and current commitment disposition are in
+[DEL-03-02's evaluation basis](../../../PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
+The accepted scope amendment makes OUT-005's production and combined-application
+obligation historical under the governing PRD disposition.
+Existing reflective practice and the other outputs remain usable independently.
 
 Maturity: adopted reflective method with retained formation and actual
 application assessment. The owner approved this content and its output homes at
@@ -444,8 +452,9 @@ is not a whole-deliverable finish-to-start gate.
 The initial host record/invocation route, Library instruction-repair pilot and
 its outcome-examination limits are identified in the application below and
 DEL-03-02's Work. A recorded completion claim, Git diff or positive metric does not
-establish useful change. The reusable method was integrated by PR #1799; further
-method revisions follow create-workflow under their preceding instructions.
+establish useful change. The reusable method was integrated by PR #1799; this
+extension retains that historical allocation and its evidence limits. Current
+source availability and the accepted disposition are identified above.
 A small assessment can be directly assigned to TASK; a larger study has
 one continuing WORKING_ITEMS owner. No standing observer or compulsory evaluation
 at each merge is selected. The technical basis is linked from
