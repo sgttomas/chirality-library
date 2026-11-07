@@ -79,11 +79,6 @@
         "tools/deliverables"
       ]
     },
-    "undertaking_evaluation": {
-      "pytest_paths": [
-        "tools/undertaking_evaluation"
-      ]
-    },
     "drawing_extract": {
       "pytest_paths": [
         "tools/drawing_extract"
@@ -206,7 +201,6 @@
         "evaluation",
         "scaffolding",
         "deliverables",
-        "undertaking_evaluation",
         "drawing_extract",
         "equation_audit",
         "publication"
@@ -263,14 +257,6 @@
       ],
       "checks": [
         "software_workflow"
-      ]
-    },
-    {
-      "paths": [
-        "tools/undertaking_evaluation/*"
-      ],
-      "checks": [
-        "undertaking_evaluation"
       ]
     },
     {

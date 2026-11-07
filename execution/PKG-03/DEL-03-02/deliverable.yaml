@@ -1,6 +1,14 @@
 id: DEL-03-02
 name: Inspect repository change and compare its means
 needs:
+- from: external:root-integrated-holding-destination
+  condition: Before integrating removal, verify Root's integrated destination revision and per-file
+    hashes against Library a000e2f40f724dcda9f1158cf3c4c3ed4378884c, preserving source continuity.
+    Separately obtain the owner's explicit decision on the proposed Library PRD R18/A9 and
+    DEL-03-02/DEL-04-02 commitment amendment. Copies or setup do not establish rework, adoption,
+    fulfillment or retirement, and ordinary Library use gains no private Root dependency.
+  when: Integrating the authorized holding removal and its proposed commitment disposition
+  evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Holding transfer and current availability
 - from: DEL-04-02
   condition: Supply the selected evaluation question, useful repository state conditions, local goal or
     improvement hypothesis, actual outcome meanings and comparison/examination basis. Preserve uncertainty
@@ -45,8 +53,6 @@ needs:
     owner choices; no mandatory benchmarking stage or extra receipt follows from this source.
   when: Carrying an authorized implementation change through integration
   evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::Production and Verification Method — Praxeology
-code_paths:
-- tools/undertaking_evaluation/**
+code_paths: []
 checks:
-- tools/undertaking_evaluation/test_evaluation.py
 - tools/scope_of_work/validate_scope_of_work.py

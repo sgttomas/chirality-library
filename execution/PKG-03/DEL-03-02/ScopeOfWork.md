@@ -9,6 +9,31 @@ package_objective_refs: [OBJ-002, OBJ-003, OBJ-004, OBJ-005]
 
 # Inspect repository change and compare its means
 
+## Proposed current-scope disposition — owner decision pending
+
+The owner has authorized relocation/removal of the executable holding and its
+paired workflow to private Chirality Root. The separate proposed Library PRD
+R18/A9 amendment would replace this deliverable's ongoing executable production
+obligations with retention of the identified historical contract, recoverable
+source and bounded evidence in [Work/EvaluationBasis.md](Work/EvaluationBasis.md).
+No new importer, measurements, reports, trial support, workflow or actual-use
+qualification is commissioned in the Library by that retained history. Ordinary
+Library use acquires no dependency on private Root.
+
+Specifically, OUT-001–003, REQ-001–009, AC-001–006 and VER-001–006 below would
+remain the original accepted basis for historical examination, rather than
+current successor production or acceptance criteria. Their wording and original
+qualifications are retained; no criterion is declared met, waived or retired.
+CLM-003's combined-application relationship with DEL-04-02 would likewise be
+historical. Other Library toolkit, reconciliation, reflection, discovery and
+publication commitments remain with their existing contributions.
+
+This disposition requires the owner's explicit acceptance of the exact proposed
+PRD and scope changes. Until then the preceding obligations still govern.
+Removal also remains held on Root's integrated destination revision and matching
+file hashes. The following original contract is retained for that decision and
+for recovery; its source-home statements describe the pre-transfer basis.
+
 ## Purpose and Objective Traceability
 
 Supply the executable part of the optional local work-and-repository evaluation
@@ -111,10 +136,12 @@ uncertain results. Correct ordinary defects without weakening the governing
 criteria; route a question about purpose or criteria through DEL-04-02 and the
 actual owner.
 
-The first implementation is maintained in `tools/undertaking_evaluation/`, with
-the selected practice in `sgttomas/chirality:workflows/evaluate-repository-change/`. Further
-production follows an actual brief and keeps the local contract, Work and useful
-needs/pointers reconciled with its results.
+At the pre-transfer Library basis, the first implementation was maintained in
+`tools/undertaking_evaluation/`, with the selected practice in
+`workflows/evaluate-repository-change/`. The exact recoverable source and proposed
+current disposition are identified in Work/EvaluationBasis.md. Historical
+production followed an actual brief and reconciled local contract, Work and
+useful needs/pointers with its results.
 
 - **VER-001** — Compare importer and measurement outputs with independently inspectable source records and hand-derived or independently computed expected observations for the selected cases. Exercise missing/malformed/partial input, retries, concurrency, basis changes and selected token/cost categories. Check that absent or unobservable values remain unknown. Bind tool, input, expected interpretation and actual result versions. Numerical/persistence/permission consequences receive targeted regression and independent scrutiny appropriate to the claim.
 - **VER-002** — Examine selected before/after source bases and their actual changed/unchanged material against the report. Include source-only, changed-evidence and newly extended-scope cases; identify which behavior claims have their own applicable checks. Demonstrate an adequate repository-only comparison without a host trace, and confirm that unknown attribution is not converted to cause. Preserve issued/history identities and state captured-material limits.
@@ -129,7 +156,7 @@ needs/pointers reconciled with its results.
 - **AX-002** — Human judgment shapes purpose, consequences and reliance throughout. Tools and agent reckoning can extend inquiry and action without acquiring that accountability. Local goals and feedback remain correctable through evidence and effects on neighboring work.
 - **AX-003** — Treat the four perspectives as mutually corrective: representation can hide a material difference, evidence can undermine a category, the method can become burdensome, and a nominal saving can damage the intended use. No four-report ceremony or recursive observer hierarchy follows.
 - **TBD-001** — The first route is bound to selected Codex desktop per-response JSONL records and actual Library instruction-repair trials, using the existing host dispatch/return mechanism. The pilot lacks the governing amendment contract needed for a categorical outcome judgment. Wider host compatibility and full R18/A9 fulfillment remain unestablished; see Work/EvaluationBasis.md.
-- **TBD-002** — The initial source home, Python/Git dependencies, case schema, private JSON/HTML reports and fresh-output/recovery rules are established in tools/undertaking_evaluation/README.md. Working-tree capture, other host schemas and broader platform qualification remain unsupported; no universal schema, reward formula or performance target is supplied.
+- **TBD-002** — The initial source home, Python/Git dependencies, case schema, private JSON/HTML reports and fresh-output/recovery rules are established in the historical tool guide linked from Work/EvaluationBasis.md. Working-tree capture, other host schemas and broader platform qualification remain unsupported; no universal schema, reward formula or performance target is supplied.
 - **TBD-003** — Actual pilot inputs and their limits are identified in Work/EvaluationBasis.md; operational records remain private. Suitability for another consumer or question requires its own examination. The needs in deliverable.yaml state conditions, not supplier commitments or completion. The pilot does not establish a preferred method or efficiency gain.
 
 ## Output and Evaluation Matrix

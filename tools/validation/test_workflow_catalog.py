@@ -379,7 +379,9 @@ def test_exact_central_refs_and_retired_methods_absent():
     }
     index = validate_and_build(ROOT)
     assert index["centralWorkflowNames"] == list(CENTRAL)
-    assert not any(item["name"] in {"change", "chirality-change"} for item in index["methods"])
+    names = {item["name"] for item in index["methods"]}
+    assert not {"change", "chirality-change", "evaluate-repository-change", "audit-agents"} & names
+    assert {"evaluation-protocol", "evaluation-report"} <= names
 
 
 def test_shared_discovery_fixture_contract():

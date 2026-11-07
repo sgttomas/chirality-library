@@ -1,5 +1,34 @@
 # Evaluation tools — first implementation and current limits
 
+## Holding transfer and current availability
+
+The owner authorized removal of `tools/undertaking_evaluation/` and
+`workflows/evaluate-repository-change/` from the Library for byte-preserving
+transfer to private Chirality Root as starting material. `workflows/audit-agents/`
+has the same transfer disposition. This candidate removes those holdings; Root
+owns their subsequent rework, not public Library adoption.
+
+The complete pre-removal Library source is
+`a000e2f40f724dcda9f1158cf3c4c3ed4378884c`. The
+[historical tool guide](https://github.com/sgttomas/chirality-library/blob/a000e2f40f724dcda9f1158cf3c4c3ed4378884c/tools/undertaking_evaluation/README.md),
+[evaluation workflow](https://github.com/sgttomas/chirality-library/blob/a000e2f40f724dcda9f1158cf3c4c3ed4378884c/workflows/evaluate-repository-change/WORKFLOW.md)
+and [instruction-audit workflow](https://github.com/sgttomas/chirality-library/blob/a000e2f40f724dcda9f1158cf3c4c3ed4378884c/workflows/audit-agents/WORKFLOW.md)
+remain recoverable at that public revision, including the executable source and
+its tests. The original ScopeOfWork, accepted amendment, earlier editions and
+bounded pilot evidence retain their original standing and limitations.
+
+Removal integration is held on two distinct conditions: Root's integrated
+destination revision with matching per-file hashes, and the owner's explicit
+decision on the proposed Library PRD R18/A9 and DEL-03-02/DEL-04-02 commitment
+amendment. The PR carries that decision interface and the checked candidate.
+Root copies alone establish neither substantive rework nor fulfillment here.
+There is no current executable route supplied by this Library candidate and no
+private sibling dependency for ordinary Library use. Retained adherence methods
+and `tools/evaluation/` are separate holdings and remain available.
+
+The sections below describe the first implementation and its historical evidence;
+they do not commission new Library production through the moved source.
+
 ## Standing and usable entry
 
 The owner authorized integration and the first implementation, selecting Library
@@ -10,10 +39,10 @@ software increment, not product acceptance, full qualification or a Library rele
 The [ScopeOfWork](../ScopeOfWork.md) and [accepted decomposition](../../../_Decomposition/_LATEST_ACCEPTED.md)
 retain the governing R18/A9 obligations.
 
-Use [the tool guide](../../../../tools/undertaking_evaluation/README.md) for the
-actual `python3 -m tools.undertaking_evaluation inspect` and `compare` interfaces.
-The evaluation workflow (`sgttomas/chirality:workflows/evaluate-repository-change/WORKFLOW.md`, private archive)
-provides the selected practice, and DEL-04-02 owns its interpretation/application.
+At the pre-transfer source linked above, the tool guide describes the actual
+`python3 -m tools.undertaking_evaluation inspect` and `compare` interfaces.
+The evaluation workflow supplied the selected practice, with DEL-04-02 owning
+its interpretation/application under the original accepted allocation.
 Python 3.10+ and Git are required; the implementation uses the standard library.
 
 The first route reads selected immutable Git commits and literal repository paths,

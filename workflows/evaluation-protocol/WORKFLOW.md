@@ -84,7 +84,7 @@ the method reference, not a grant to dispatch anything absent from the brief.
 | Dependency integrity and closure | `tools/evaluation/audit_dependencies.py`, `TASK (workflow: audit-dep-closure)` |
 | Decomposition conformance | `TASK (workflow: audit-decomp)` |
 | Epistemic ontology | `TASK (workflow: audit-epistemic)` |
-| Governance and instruction conformance | `TASK (workflow: audit-governance)`, `TASK (workflow: audit-agents)` |
+| Governance and instruction conformance | `TASK (workflow: audit-governance)` |
 | Hypergraph closure | `TASK (workflow: audit-hypergraph-closure)` |
 | Deliverable content summaries | `TASK + content-digest` |
 | Scored dimensions | `TASK (workflow: evaluation-report)` |

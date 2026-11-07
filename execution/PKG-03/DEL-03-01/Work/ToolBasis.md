@@ -7,6 +7,37 @@ Maturity: setup-use assessment, not full toolkit fulfillment. The adjacent
 ScopeOfWork defines the utility claims. Source basis:
 `fd847ac9ac68250b2f35d2e9c0087c16e86b510a`, plus this setup's local declarations.
 
+## Pending Root adherence-result interface
+
+Root's DEL-04-02 will propose the machine-readable adherence result required by
+its R-24. The Library consumer interface is the output contract in
+`workflows/evaluation-protocol/WORKFLOW.md` (Output structure, Report content
+contract, Outputs and QA expectations), with `resources/contract.md` (Artifacts
+and schemas), `resources/brief.md` and `resources/checks.md` kept consistent.
+`evaluation-report` and `tools/evaluation/` remain available; this preparation
+does not change their formats or claim adherence-format integration.
+
+The proposed result must identify the deliverable, checked ScopeOfWork and code
+revisions, per-acceptance-criterion met/not met/unknown verdicts with evidence,
+checking session and date. Root will read the saved result through Git at an
+identified revision. Exact schema, filename, revision conventions and evidence
+locators remain for Root to propose and the two projects to agree; none is
+implemented or fulfilled by this note.
+
+The current workflow quarantines writes under the authorized `_Evaluation/`
+targets and treats deliverables as read-only subjects. R-24 instead requires
+this result in the checked deliverable's `Work/`. A later agreed amendment must
+explicitly authorize that narrow result-file write in the output contract and
+brief, while keeping the checked ScopeOfWork, code, commitments and other
+subject material read-only. Do not infer permission from a schema or enlarge
+the brief's write boundary. Preserve accepted evaluation basis/toolbelt,
+evidence-linked findings, unknowns, invalid-return handling and optional scoring
+only under an accepted rubric; a result file does not confer acceptance.
+
+Root format production and the Library contract amendment remain a named
+downstream input. They do not block unaffected holding-removal preparation and
+are not a setup completion claim.
+
 ## Current setup path
 
 PR #1779 supplied the explicit `--current` scaffolding and checks, separating

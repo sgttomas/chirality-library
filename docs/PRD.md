@@ -57,9 +57,10 @@ support several objectives, and an objective may require several deliverables.
 ### 2.2 In scope
 
 - Library entry, organization, categorization and directed discovery instructions.
-- Optional tool-supported evaluation of repository states, their changes and
-  the efforts/means associated with them, including identified comparative cases,
-  an inspectable local report and a reusable agent workflow.
+- Reusable evaluation methods and deterministic adherence tools retained in the
+  Library. The repository-change executable capability and its paired workflow
+  have the proposed disposition in R18; they are not a private dependency of
+  ordinary Library use.
 - Instructions and tools for maintaining the holdings, including the means of
   revising those maintenance instructions and tools.
 - Scope-bounded reconciliation of instructions, executable behavior, shared
@@ -265,7 +266,32 @@ checkouts, dated run directories, private source inputs or credentials. Private
 consumer evidence stays local; public fixtures and summaries must be cleared.
 Required credential checks apply to public changes.
 
-### 3.6 Work and repository-change evaluation — O2, O3, O4, O5
+### 3.6 Evaluation boundary and retained history — O2, O3, O4, O5
+
+**Proposed R18/A9 amendment — owner decision pending.** The relocation/removal
+of `tools/undertaking_evaluation/`, `evaluate-repository-change` and
+`audit-agents` is already authorized. This proposal separately changes the
+Library's current product commitments: the executable record-import,
+repository-state report and case/trial comparison route, and its paired
+repository-change evaluation workflow, cease to be current Library production
+or acceptance obligations. DEL-03-02 retains their identified historical source,
+contract and bounded evidence; DEL-04-02 retains its other reflective
+contributions, without an obligation to supply that moved workflow or a new
+combined application through the moved software. This is a prospective scope
+amendment, not a finding of fulfillment, retirement or prior acceptance.
+
+`evaluation-protocol`, `evaluation-report` and `tools/evaluation/` remain Library
+holdings for locally authorized evaluation and adherence checks. Ordinary Library
+use requires no private Root checkout, runtime, credentials or adoption. Root's
+copies are starting material under Root's independent commitments; their presence
+does not fulfill a Library criterion or qualify a public replacement.
+
+The original R18 text below and A9 row remain the historical accepted basis for
+their original editions and evidence. They do not impose successor production
+obligations if this amendment is accepted. Until that owner decision, the
+preceding Library commitments still govern and removal remains held.
+
+#### Original R18 — historical accepted text, preserved unchanged
 
 **R18 — Evaluate useful state change and its means.** Supply an optional local
 capability to select an evaluation question, bind before/after repository bases
@@ -321,7 +347,7 @@ evidence and distinguish walkthroughs, synthetic cases and actual observed work.
 | A6 | Obtain and use identified material through a documented consumer path. Test claimed compatibility against a named consumer's maintained contract or fixtures at a specified revision. Confirm notices, required resources and source identity. | R13, R17 | O5 |
 | A7 | Prepare an identifiable publication candidate and meaningful change account; exercise the documented change-inspection procedure against a prior basis. Distinguish proposed, integrated, published, examined and adopted material. Actual release is an owner act. | R15–R17 | O3, O5 |
 | A8 | Recover real retained work or a labelled recovery case from its locality and review record. Establish the usable basis and remaining conditions; where custody applies, verify release/recovery and its actual enforcement boundary. | R08, R12, R14 | O4, O5 |
-| A9 | On a named project/task family, demonstrate an actual supported host-record route, identified repository before/after examination and baseline/variant comparison. Trace a useful state condition through a local goal or improvement hypothesis to the examined state change and relevant effort. Establish faithful data binding, meaningful outcome examination, comparability and limits; expose missing/malformed evidence and unsupported attribution. Return a warranted conclusion without requiring a positive improvement. The recipient can inspect findings and their grounds. | R05, R11–R13, R17–R18 | O2, O3, O4, O5 |
+| A9 | **Historical criterion under the proposed R18 amendment; owner decision pending.** Original criterion: On a named project/task family, demonstrate an actual supported host-record route, identified repository before/after examination and baseline/variant comparison. Trace a useful state condition through a local goal or improvement hypothesis to the examined state change and relevant effort. Establish faithful data binding, meaningful outcome examination, comparability and limits; expose missing/malformed evidence and unsupported attribution. Return a warranted conclusion without requiring a positive improvement. The recipient can inspect findings and their grounds. | R05, R11–R13, R17–R18 | O2, O3, O4, O5 |
 
 A repaired output alone does not establish that its maintenance procedure is
 available in the library. A walkthrough does not establish executable behavior.
@@ -358,6 +384,15 @@ corrections on 2026-11-01 against `e157d14910e84cf149f2ead524d585467b18e0f7`.
 Setup and product implementation remain separately examined obligations. Other
 bespoke tooling and companions remain conditional. This does not reopen or
 invalidate an earlier accepted edition or authorize a successor release.
+
+**Pending holding-transfer commitment disposition:** approve or reject the exact
+R18/A9 amendment above and the corresponding current-scope dispositions in
+DEL-03-02 and DEL-04-02. Approval would end the Library's ongoing obligation to
+supply the moved executable route and paired workflow; it would preserve their
+original contracts, editions, actual evidence and unverified claims as history.
+The already-authorized holding relocation alone does not make this decision.
+Removal is also held until Root supplies its integrated destination revision and
+matching file hashes. No Library release or consumer adoption is authorized here.
 
 ## 6. Inputs, dependency considerations and downstream use
 
