@@ -135,7 +135,7 @@ actual owner.
 At the pre-transfer Library basis, the first implementation was maintained in
 `tools/undertaking_evaluation/`, with the selected practice in
 `workflows/evaluate-repository-change/`. The exact recoverable source and current
-current disposition are identified in Work/EvaluationBasis.md. Historical
+disposition are identified in Work/EvaluationBasis.md. Historical
 production followed an actual brief and reconciled local contract, Work and
 useful needs/pointers with its results.
 
