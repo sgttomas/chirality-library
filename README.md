@@ -11,10 +11,11 @@ revision as experience shows what serves the work and what does not.
 [Website](https://chirality.ai) · [Thesis](docs/thesis/README.md) · [Books and reflection](docs/alignment-manual/README.md)
 
 This repository is the Chirality **Library**: the shared roles, workflows, tools
-and references projects draw on. Chirality **Root**, a separate private
-repository, reflects on the wider undertaking and holds no authority over the
-Library or other projects. Records written before 2026-11-05 call this
-repository "Root".
+and publications the Chirality projects draw on. Chirality **Root**, a separate
+private repository, measures how agents deliver work across the Chirality
+projects and improves it. It changes no other project's files; its only action
+in another repository is opening a GitHub issue for a finding the owner has
+approved. Records written before 2026-11-05 call this repository "Root".
 
 <a id="the-shared-library"></a>
 <a id="obtain-and-use-the-library"></a>

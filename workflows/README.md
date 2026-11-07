@@ -69,9 +69,9 @@ Existing package names and legacy status survive this migration;
 `scope-of-work` carries the current SOW_V1 method. The legacy
 `dbm-concordance-seed` package was restored for explicitly selected historical
 or resumed work; its own instructions identify it as legacy. The
-`four-documents` package was removed on 2026-11-04 and is preserved in the
-private `sgttomas/chirality` repository. Historical briefs, snapshots, and
-pinned evidence retain their original identifiers.
+`four-documents` package was removed on 2026-11-04 and is recoverable from the
+private `sgttomas/chirality` Git history at or before `05d96f3e11`. Historical
+briefs, snapshots, and pinned evidence retain their original identifiers.
 
 ### Retired packages
 
@@ -93,7 +93,7 @@ their own source identities; a consumer owns any current pointer/wording repair.
 These workflow packages were retired on 2026-09-26 because a canonical skill of
 the same name replaced them under D-GOV-42. Select the skill by its own name;
 the legacy alias ledger that redirected the old workflow names was removed. The
-last revisions below are in the private `sgttomas/chirality` repository and hold
+last revisions below are in the private `sgttomas/chirality` Git history and hold
 each package's final bytes for historical replay.
 
 | Retired workflow | Canonical successor | Last revision |
@@ -129,5 +129,8 @@ contracts apply.
 Some workflow resources cite historical contracts as
 `sgttomas/chirality:<path>`, for example
 `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.
-Those documents were removed from this repository on 2026-11-04 and are
-preserved in the private `sgttomas/chirality` repository.
+Those documents were removed from this repository on 2026-11-04. They, and
+anything a citation labels "private archive" or "preserved in the private
+`sgttomas/chirality` repository", are not on that repository's `main`; read
+them from its Git history at or before `05d96f3e11`, for example
+`git show 05d96f3e11:docs/COMPATIBILITY_FORMATS.md`.
