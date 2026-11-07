@@ -38,7 +38,7 @@ actual worker practice, and human–Agent 0 dialogue examines whether that pract
 and its framing serve the purpose. It does not alone establish A3, which needs
 actual action and input-condition evidence on accepted/set-up work.
 
-## Coordination method candidate — 2026-11-07
+## Coordination method revision — 2026-11-07
 
 The current bounded revision concerns OUT-002's orchestration input,
 [coordinated-knowledge-work](../../../../workflows/coordinated-knowledge-work/WORKFLOW.md),
@@ -74,9 +74,11 @@ These are constructed walkthroughs of instructions, not enacted host tests,
 successful transfer evidence or App runtime qualification. The App's packaged
 copy at `sgttomas/chirality-app@92649294f2481fa9a10277a2e2c5bd19049a39bd`
 matches the preceding workflow bytes; any adoption and receiving verification
-remain with that project's Agent 0. This is a Library draft for candidate and
-owner content review, not a release or automatic consumer update. Existing
-ScopeOfWork commitments and declared input conditions remain unchanged.
+remain with that project's Agent 0. The owner approved the exact candidate
+`91ae028e0c566508a5e9d608562812a14f3b3f5b` and this standing update in
+[PR #9](https://github.com/sgttomas/chirality-library/pull/9): “Yes I approve #9”.
+This authorizes Library integration, not a release or automatic consumer update.
+Existing ScopeOfWork commitments and declared input conditions remain unchanged.
 
 ## Next use and boundaries
 
