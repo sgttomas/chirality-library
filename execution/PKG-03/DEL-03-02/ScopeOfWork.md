@@ -9,26 +9,26 @@ package_objective_refs: [OBJ-002, OBJ-003, OBJ-004, OBJ-005]
 
 # Inspect repository change and compare its means
 
-## Proposed current-scope disposition — owner decision pending
+## Current scope after the accepted R18 amendment
 
-Under the [proposed Library PRD R18/A9 amendment](../../../docs/PRD.md),
-this deliverable would retain the identified historical contract, recoverable
+Under the [accepted Library PRD R18/A9 amendment](../../../docs/PRD.md),
+this deliverable retains the identified historical contract, recoverable
 source and bounded evidence in [Work/EvaluationBasis.md](Work/EvaluationBasis.md)
 instead of supplying continuing executable production. No new importer,
-measurements, reports, trial support, workflow or actual-use qualification would
-be commissioned in the Library by that retained history.
+measurements, reports, trial support, workflow or actual-use qualification is
+commissioned in the Library by that retained history.
 
-Specifically, OUT-001–003, REQ-001–009, AC-001–006 and VER-001–006 below would
+Specifically, OUT-001–003, REQ-001–009, AC-001–006 and VER-001–006 below
 remain the original accepted basis for historical examination, rather than
 current successor production or acceptance criteria. Their wording and original
 qualifications are retained; no criterion is declared met, waived or retired.
-CLM-003's combined-application relationship with DEL-04-02 would likewise be
+CLM-003's combined-application relationship with DEL-04-02 is likewise
 historical. Other Library toolkit, reconciliation, reflection, discovery and
 publication commitments remain with their existing contributions.
 
-The PRD proposal governs decision authority, the two removal holds and the public
-boundary. The following original contract is retained for the pending decision
-and recovery; its source-home statements describe the pre-transfer basis.
+The accepted PRD amendment governs decision authority and the public boundary.
+The following original contract is retained for historical examination and
+recovery; its source-home statements describe the pre-transfer basis.
 
 ## Purpose and Objective Traceability
 
@@ -134,7 +134,7 @@ actual owner.
 
 At the pre-transfer Library basis, the first implementation was maintained in
 `tools/undertaking_evaluation/`, with the selected practice in
-`workflows/evaluate-repository-change/`. The exact recoverable source and proposed
+`workflows/evaluate-repository-change/`. The exact recoverable source and current
 current disposition are identified in Work/EvaluationBasis.md. Historical
 production followed an actual brief and reconciled local contract, Work and
 useful needs/pointers with its results.

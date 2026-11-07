@@ -5,7 +5,7 @@
 The owner authorized removal of `tools/undertaking_evaluation/` and
 `workflows/evaluate-repository-change/` from the Library for byte-preserving
 transfer to private Chirality Root as starting material. `workflows/audit-agents/`
-has the same transfer disposition. This candidate removes those holdings; Root
+has the same transfer disposition. This revision removes those holdings; Root
 owns their subsequent rework, not public Library adoption.
 
 The complete pre-removal Library source is
@@ -17,12 +17,18 @@ remain recoverable at that public revision, including the executable source and
 its tests. The original ScopeOfWork, accepted amendment, earlier editions and
 bounded pilot evidence retain their original standing and limitations.
 
-Removal integration is held on two distinct conditions: Root's integrated
-destination revision with matching per-file hashes, and the owner's explicit
-decision on the proposed Library PRD R18/A9 and DEL-03-02/DEL-04-02 commitment
-amendment. The PR carries that decision interface and the checked candidate.
+Root's destination is integrated by PR #1814 at
+`6a0a274c37a823e4384e7e0eaec1cf0e3e4279fb`. All ten files were independently
+read from its Git objects and match the public Library source above in inventory,
+SHA-256 and Git mode. Preserved-copy commit
+`d86802e5fed79135dc59152abefc54b3e926c7c3` is an ancestor; the merge tree equals
+checked head `02711788c53b2cc18984dc722fcbc414ba809d85`. Root's transfer evidence
+is `execution/PKG-06/DEL-06-02/Work/Transfer.md` at that integrated revision.
+The owner's separate Library commitment decision is applied in
+[PRD R18/A9](../../../../docs/PRD.md) and both affected scopes; the PR carries
+the exact approval and checked source.
 Root copies alone establish neither substantive rework nor fulfillment here.
-There is no current executable route supplied by this Library candidate and no
+There is no current executable route supplied by this Library revision and no
 private sibling dependency for ordinary Library use. Retained adherence methods
 and `tools/evaluation/` are separate holdings and remain available.
 
@@ -37,7 +43,7 @@ private. The accepted amendment/setup is integrated by PR #1798 at
 `8b8bd691d1e680749612c02c207dd276e7c5f982`. This Work describes a bounded first
 software increment, not product acceptance, full qualification or a Library release.
 The [ScopeOfWork](../ScopeOfWork.md) and [accepted decomposition](../../../_Decomposition/_LATEST_ACCEPTED.md)
-retain the governing R18/A9 obligations.
+retain the original R18/A9 basis under the current accepted disposition above.
 
 At the pre-transfer source linked above, the tool guide describes the actual
 `python3 -m tools.undertaking_evaluation inspect` and `compare` interfaces.

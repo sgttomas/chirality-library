@@ -241,7 +241,7 @@ locality owns their entry/discovery connection, not their assessment authority.
 
 ## Evaluation extension
 
-This section records the original R18 allocation. Its proposed historical
+This section records the original R18 allocation. Its accepted historical
 standing and source recovery are identified in
 [DEL-03-02’s current evaluation basis](../../../PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
 

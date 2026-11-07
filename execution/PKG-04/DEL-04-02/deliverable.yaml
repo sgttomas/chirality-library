@@ -58,14 +58,14 @@ needs:
   when: The book explains meanings examined in F-02
   evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
 - from: DEL-03-02
-  condition: Under the proposed R18 amendment, this is an original OUT-005 production need retained
-    for historical recovery and examination only; the preceding commitment governs until the owner
-    decides. For that original question, identify the source-bound repository state/change and
+  condition: Under the accepted R18 amendment, this is an original OUT-005 production need retained
+    for historical recovery and examination only. For that original question, identify the
+    source-bound repository state/change and
     relevant effort observations, actual outcome evidence and a comparison whose conditions
     and coverage are explicit. Tool limits may change the question; neither a result score nor
     producer completion establishes useful change. Use preliminary supported observations where
     sufficient; do not wait for whole-deliverable completion.
-  when: Proposed historical use after the pending R18 decision — examining the original OUT-005 application and source-bound observations
+  when: Historical use under the accepted R18 amendment — examining the original OUT-005 application and source-bound observations
   evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md::Evaluation extension
 code_paths:
 - docs/alignment-manual/Chirality_in_Practice_Edition_1.*

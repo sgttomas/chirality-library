@@ -55,7 +55,7 @@ needs:
   condition: Before changing an existing utility for a selected R18 caller, bind that caller’s
     actual input/output contract, source revision and relevant evidence. New deliverable allocation
     alone does not select a utility modification or establish its suitability.
-  when: Proposed historical use after the pending R18 decision — examining the original evaluation-tool caller and utility basis
+  when: Historical use under the accepted R18 amendment — examining the original evaluation-tool caller and utility basis
   evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md::Evaluation extension
 code_paths:
 - tools/scaffolding/**

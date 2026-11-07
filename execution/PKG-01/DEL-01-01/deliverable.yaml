@@ -38,7 +38,7 @@ needs:
       its actual maintained usage contract, required resources, source identity and applicable
       behavior evidence. Accepted allocation or prepared files alone permit no implemented-capability
       claim.
-    when: Proposed historical use after the pending R18 decision — examining discovery of the original evaluation route
+    when: Historical use under the accepted R18 amendment — examining discovery of the original evaluation route
     evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::Evaluation extension
 code_paths:
   - AGENTS.md

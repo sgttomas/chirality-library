@@ -9,23 +9,23 @@ package_objective_refs: [OBJ-001, OBJ-002, OBJ-003, OBJ-004]
 
 # Reflective review of the practice
 
-## Proposed R18 extension disposition — owner decision pending
+## R18 extension after the accepted amendment
 
-The [proposed Library PRD R18/A9 amendment](../../../docs/PRD.md) would remove the continuing
-Library obligation to supply the moved repository-change evaluation workflow and
+The [accepted Library PRD R18/A9 amendment](../../../docs/PRD.md) removes the
+continuing Library obligation to supply the moved repository-change evaluation workflow and
 a combined actual application through the moved DEL-03-02 software. OUT-005,
 CLM-005, REQ-010–011, AC-008, VER-008 and the OUT-005 matrix row below remain
 the original accepted extension and evidence basis, rather than current
-successor production or acceptance obligations if that amendment is accepted.
+successor production or acceptance obligations under that amendment.
 The R18-specific ownership and tool-route statements in CLM-003, REQ-006–007
-and TBD-003 then describe that historical allocation. They do not impose a
+and TBD-003 describe that historical allocation. They do not impose a
 private Root dependency or transfer Root implementation into this locality.
 
 OUT-001–004 and their non-R18 requirements, criteria and verification remain
 unchanged, including ordinary reflective practice, formation evidence and the
-book. The PRD proposal governs decision authority, historical standing and the
-public boundary; the preceding commitments still govern pending that decision.
-Source recovery and remaining transfer conditions are connected from
+book. The accepted PRD amendment governs decision authority, historical standing
+and the public boundary. Source recovery and verified transfer evidence are
+connected from
 [Work/ReflectiveBasis.md](Work/ReflectiveBasis.md).
 
 ## Purpose and Objective Traceability

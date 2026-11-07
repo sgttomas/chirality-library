@@ -173,7 +173,7 @@ Canonical versions at `tools/evaluation/`. Project-specific variants may also ex
 These adherence tools remain in the Library. The former
 `tools/undertaking_evaluation/` holding moves to private Chirality Root as
 starting material, separately from this toolkit. Its recoverable Library source
-and unresolved commitment standing are identified in
+and accepted commitment standing are identified in
 [DEL-03-02's evaluation basis](../execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
 
 | Name | Language | Purpose | Inputs | Outputs |

@@ -8,18 +8,18 @@ needs:
   when: Integrating the authorized holding removal
   evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Holding transfer and current availability
 - from: external:library-owner-commitment-disposition
-  condition: The Library owner explicitly accepts or returns the exact proposed PRD R18/A9 and
-    DEL-03-02/DEL-04-02 scope amendment. Until approval, preceding commitments govern; if accepted,
-    the former executable production needs below serve historical recovery and examination only.
-    Root's relocation authority does not supply this separate Library commitment decision.
-  when: Integrating the proposed Library commitment disposition with holding removal
+  condition: Apply the Library owner's accepted PRD R18/A9 and DEL-03-02/DEL-04-02 scope
+    amendment at the proposal basis identified in the PRD. The former executable production
+    needs below serve historical recovery and examination only. Root's relocation authority
+    does not replace this separate Library commitment decision.
+  when: Integrating the accepted Library commitment disposition with holding removal
   evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Holding transfer and current availability
 - from: DEL-04-02
   condition: Supply the selected evaluation question, useful repository state conditions, local goal or
     improvement hypothesis, actual outcome meanings and comparison/examination basis. Preserve uncertainty
     and human decision standing. The tool interface must support that use; full reflective-deliverable
     completion is not a prerequisite for an adequate selected basis.
-  when: Proposed historical use after the pending R18 decision — examining the original measurement, report, case or comparison basis
+  when: Historical use under the accepted R18 amendment — examining the original measurement, report, case or comparison basis
   evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::CLM-003
 - from: external:private-library-maintenance-pilot
   condition: The first private pilot supplies captured public Library bases, actual trial source results
@@ -27,7 +27,7 @@ needs:
     compatibility remains unknown because the governing contract was omitted. Before another state examination,
     bind its actual selected sources and coverage; do not generalize this pilot or infer behavior from
     a source diff.
-  when: Proposed historical use after the pending R18 decision — recovering the original repository-state examination and result bindings
+  when: Historical use under the accepted R18 amendment — recovering the original repository-state examination and result bindings
   evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Actual private pilot and its finding
 - from: external:codex-desktop-jsonl
   condition: The first adapter observes explicit selected-turn per-response token_usage_record data from
@@ -35,7 +35,7 @@ needs:
     and other layouts/versions are unsupported until examined. Existing host dispatch/return executes
     trials; the Library tool adds no runtime or permissions. Missing elapsed-time, monetary-cost or human-attention
     observations remain unknown.
-  when: Proposed historical use after the pending R18 decision — examining the original supported record/execution route and its limits
+  when: Historical use under the accepted R18 amendment — examining the original supported record/execution route and its limits
   evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Implemented meaning and examination
 - from: external:private-library-maintenance-pilot
   condition: The first actual pilot uses isolated Library instruction-repair copies and an independently
@@ -43,20 +43,20 @@ needs:
     A future trial must bind an adequate outcome/examination basis, permitted inputs and declared resources
     before comparison; no retroactive criterion change or claimed efficiency benefit is supplied by this
     pilot.
-  when: Proposed historical use after the pending R18 decision — recovering the original trials and actual-use evidence
+  when: Historical use under the accepted R18 amendment — recovering the original trials and actual-use evidence
   evidence: execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md::Actual private pilot and its finding
 - from: DEL-03-01
   condition: When an existing library utility is selected for reuse, its actual input, command, dependency,
     write-effect, failure and limitation contract must fit the chosen operation and relevant caller basis.
     Inspect only the selected component and its applicable evidence; no general host adapter, trial runner
     or whole-toolkit completion is inferred.
-  when: Proposed historical use after the pending R18 decision — examining utility contracts used by the original implementation
+  when: Historical use under the accepted R18 amendment — examining utility contracts used by the original implementation
   evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::CLM-002
 - from: doc:workflows/bounded-reconciliation/WORKFLOW.md
   condition: Use the current selected method to compare the actual tool/result and evidence with affected
     ScopeOfWork, Work and needs/pointers before integration. Preserve unchanged declarations and actual
     owner choices; no mandatory benchmarking stage or extra receipt follows from this source.
-  when: Proposed historical use after the pending R18 decision — examining the original implementation and its reconciliation basis
+  when: Historical use under the accepted R18 amendment — examining the original implementation and its reconciliation basis
   evidence: execution/PKG-03/DEL-03-02/ScopeOfWork.md::Production and Verification Method — Praxeology
 code_paths: []
 checks:
