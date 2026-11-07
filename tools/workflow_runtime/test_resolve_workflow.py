@@ -345,10 +345,10 @@ def test_interlocutor_write_needs_explicit_assignment_targets(tmp_path):
 
 def test_omitted_compatible_roles_inherit_only_the_legacy_four(five_role_root):
     for role in LEGACY_FOUR:
-        for selection in ('no-companion', 'four-roles'):
+        for selection in ('no-companion', 'no-roles-field', 'four-roles'):
             assert resolve(five_role_root, role, selection)['workflow'] == selection
         assert resolve(five_role_root, role, methods=[{'kind': 'skill', 'name': 'plain-skill'}])['methods']
-    for selection in ('no-companion', 'four-roles', 'empty-roles'):
+    for selection in ('no-companion', 'no-roles-field', 'four-roles', 'empty-roles'):
         with pytest.raises(ValueError, match='incompatible'):
             resolve(five_role_root, 'INTERLOCUTOR', selection)
     with pytest.raises(ValueError, match='incompatible'):
@@ -367,9 +367,18 @@ def test_interlocutor_method_selection_requires_explicit_opt_in(five_role_root):
 
 def test_malformed_compatible_roles_fail_rather_than_substring_match(five_role_root):
     for role in ('TASK', 'INTERLOCUTOR'):
-        for selection in ('string-roles', 'no-roles-field'):
+        for selection in ('string-roles',):
             with pytest.raises(ValueError, match='malformed compatible_roles'):
                 resolve(five_role_root, role, selection)
+
+
+def test_existing_custom_role_inheritance_is_preserved(five_role_root):
+    registry_path = five_role_root/'agents/registry.json'
+    registry = json.loads(registry_path.read_text())
+    registry['roles']['CUSTOM'] = dict(registry['roles']['TASK'])
+    registry_path.write_text(json.dumps(registry))
+    for selection in ('no-companion', 'no-roles-field'):
+        assert resolve(five_role_root, 'CUSTOM', selection)['workflow'] == selection
 
 
 def test_resolver_eligibility_agrees_with_published_index():

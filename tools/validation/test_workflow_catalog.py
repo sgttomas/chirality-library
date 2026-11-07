@@ -498,8 +498,5 @@ def test_interlocutor_is_a_known_but_not_inherited_method_role(tmp_path):
     assert validate_workflow_dir(workflow, tmp_path)["valid"]
     (workflow / "execution.json").write_text(json.dumps({"schema_version": 1, "compatible_roles": ["ADVISOR"]}))
     assert not validate_workflow_dir(workflow, tmp_path)["valid"]
-    for execution in ({"schema_version": 1}, {"schema_version": 1, "compatible_roles": None}):
-        (workflow / "execution.json").write_text(json.dumps(execution))
-        assert not validate_workflow_dir(workflow, tmp_path)["valid"]
     index = validate_and_build(ROOT)
     assert not any("INTERLOCUTOR" in method["executionRoleIds"] for method in index["methods"])

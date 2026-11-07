@@ -36,8 +36,10 @@ is compatible with HELP_HUMAN,
 HELPS_HUMANS, WORKING_ITEMS and TASK, matching the published index; an empty list
 denies every role. INTERLOCUTOR resolves without a method for its ordinary
 advisory brief and selects a method only when `compatible_roles` names it.
-When an execution companion is present, it must supply a `compatible_roles`
-list; missing, null or string values are malformed, matching index validation.
+Legacy resolver behavior for other registered roles and omitted role lists is
+preserved; the new explicit-selection requirement is specific to INTERLOCUTOR.
+The index authoring check continues to require a roles list in an execution
+companion. A string is not a valid roles list.
 Consumers that pin exactly four roles must adopt INTERLOCUTOR deliberately; the
 new role does not widen any existing method's eligibility. Resources are selected explicitly through
 repeatable `--resource` when exactly one method is selected; omitted resources

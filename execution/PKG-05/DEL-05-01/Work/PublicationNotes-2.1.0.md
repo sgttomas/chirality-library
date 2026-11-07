@@ -22,9 +22,9 @@ The comparison basis is `library-v2.0.0`, source
   INTERLOCUTOR; neither Type 2 role delegates. Existing method eligibility stays
   unchanged: methods without an execution companion inherit the original four
   roles. INTERLOCUTOR needs explicit `compatible_roles` to select a method and
-  needs no method for its ordinary advisory brief. An execution companion that
-  exists must contain a roles list; missing, null and string values are rejected
-  consistently by the resolver and authoring checks. Explicit write targets and
+  needs no method for its ordinary advisory brief. Existing resolver behavior for
+  other registered roles and omitted role lists is preserved. Strings are rejected
+  as malformed role lists. Explicit write targets and
   actual host permissions remain necessary for writes.
 - **Restored methods and tools.** [PR #5](https://github.com/sgttomas/chirality-library/pull/5)
   restored workflows and supporting tools removed before 2.0.0, including
@@ -48,13 +48,15 @@ The comparison basis is `library-v2.0.0`, source
 
 ## Consumer adoption
 
+**Removed:** `tools/undertaking_evaluation/` shipped in 2.0.0 and is absent from
+2.1.0, with no public replacement. Keep 2.0.0 or the identified pre-removal public
+source if you depend on that evaluator; private Root is not an adoption route.
+
 Consumers that enumerate exactly four roles must deliberately support the fifth
 descriptor, its Type 2 nondelegation and session opt-in. The method index schema
 remains `chirality-method-index/v1`; the discovery fixture adds the role and
-compatibility cases. Consumers with custom role IDs can no longer infer method
-eligibility from a missing execution companion: name those roles explicitly in
-`compatible_roles`. Repair execution companions missing a roles list before
-using them with the current resolver. No live bundled method needs that repair.
+compatibility cases. Existing custom-role inheritance remains as before. To use a
+method with INTERLOCUTOR, give that method an explicit roles list including it.
 
 Choose adoption under your project's authority. Preserve complete packages,
 relative resources and notices, and compare the exact edition currently used.
@@ -74,7 +76,6 @@ archive; ordinary role reading and selected method resolution need no sibling
 checkout or private operational evidence.
 
 Root, App v4 and SWBPIPE own their adoption work. Notification does not establish
-consumer integration. Root's R-24 adherence-result format remains a downstream
-proposal, including narrow checked-deliverable `Work/` write authorization;
-this edition implements no format or fulfillment claim. No new comparative
+consumer integration. This edition implements no new adherence-result format.
+No new comparative
 productivity, host enforcement or broad product compatibility claim is supplied.
