@@ -7,10 +7,9 @@ The R18 executable holding and paired workflow have an authorized transfer to
 private Root as starting material. Their public pre-removal source, removal holds
 and proposed current commitment disposition are in
 [DEL-03-02's evaluation basis](../../../PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
-The separate proposed PRD/scope amendment would end this locality's OUT-005
-production and combined-application obligation; it declares no AC-008/A9
-fulfillment or retirement. The owner decision is pending. Existing reflective
-practice and the other outputs remain usable without private Root.
+The proposed scope amendment concerns OUT-005's production and combined-application
+obligation; the PRD proposal governs its pending decision and historical standing.
+Existing reflective practice and the other outputs remain usable independently.
 
 Maturity: adopted reflective method with retained formation and actual
 application assessment. The owner approved this content and its output homes at

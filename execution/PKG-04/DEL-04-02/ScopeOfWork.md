@@ -11,7 +11,7 @@ package_objective_refs: [OBJ-001, OBJ-002, OBJ-003, OBJ-004]
 
 ## Proposed R18 extension disposition — owner decision pending
 
-The separate proposed Library PRD R18/A9 amendment would remove the continuing
+The [proposed Library PRD R18/A9 amendment](../../../docs/PRD.md) would remove the continuing
 Library obligation to supply the moved repository-change evaluation workflow and
 a combined actual application through the moved DEL-03-02 software. OUT-005,
 CLM-005, REQ-010–011, AC-008, VER-008 and the OUT-005 matrix row below remain
@@ -23,9 +23,8 @@ private Root dependency or transfer Root implementation into this locality.
 
 OUT-001–004 and their non-R18 requirements, criteria and verification remain
 unchanged, including ordinary reflective practice, formation evidence and the
-book. Existing evaluation evidence retains its actual limits; this proposal
-declares neither AC-008/A9 fulfillment nor retirement. The preceding commitments
-continue to govern until the owner approves the exact PRD/scope amendment.
+book. The PRD proposal governs decision authority, historical standing and the
+public boundary; the preceding commitments still govern pending that decision.
 Source recovery and remaining transfer conditions are connected from
 [Work/ReflectiveBasis.md](Work/ReflectiveBasis.md).
 

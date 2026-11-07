@@ -11,14 +11,12 @@ package_objective_refs: [OBJ-002, OBJ-003, OBJ-004, OBJ-005]
 
 ## Proposed current-scope disposition — owner decision pending
 
-The owner has authorized relocation/removal of the executable holding and its
-paired workflow to private Chirality Root. The separate proposed Library PRD
-R18/A9 amendment would replace this deliverable's ongoing executable production
-obligations with retention of the identified historical contract, recoverable
-source and bounded evidence in [Work/EvaluationBasis.md](Work/EvaluationBasis.md).
-No new importer, measurements, reports, trial support, workflow or actual-use
-qualification is commissioned in the Library by that retained history. Ordinary
-Library use acquires no dependency on private Root.
+Under the [proposed Library PRD R18/A9 amendment](../../../docs/PRD.md),
+this deliverable would retain the identified historical contract, recoverable
+source and bounded evidence in [Work/EvaluationBasis.md](Work/EvaluationBasis.md)
+instead of supplying continuing executable production. No new importer,
+measurements, reports, trial support, workflow or actual-use qualification would
+be commissioned in the Library by that retained history.
 
 Specifically, OUT-001–003, REQ-001–009, AC-001–006 and VER-001–006 below would
 remain the original accepted basis for historical examination, rather than
@@ -28,11 +26,9 @@ CLM-003's combined-application relationship with DEL-04-02 would likewise be
 historical. Other Library toolkit, reconciliation, reflection, discovery and
 publication commitments remain with their existing contributions.
 
-This disposition requires the owner's explicit acceptance of the exact proposed
-PRD and scope changes. Until then the preceding obligations still govern.
-Removal also remains held on Root's integrated destination revision and matching
-file hashes. The following original contract is retained for that decision and
-for recovery; its source-home statements describe the pre-transfer basis.
+The PRD proposal governs decision authority, the two removal holds and the public
+boundary. The following original contract is retained for the pending decision
+and recovery; its source-home statements describe the pre-transfer basis.
 
 ## Purpose and Objective Traceability
 

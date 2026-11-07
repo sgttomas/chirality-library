@@ -57,7 +57,8 @@ support several objectives, and an objective may require several deliverables.
 ### 2.2 In scope
 
 - Library entry, organization, categorization and directed discovery instructions.
-- Reusable evaluation methods and deterministic adherence tools retained in the
+- **Proposed replacement, owner decision pending:** reusable evaluation methods
+  and deterministic adherence tools retained in the
   Library. The repository-change executable capability and its paired workflow
   have the proposed disposition in R18; they are not a private dependency of
   ordinary Library use.
@@ -266,7 +267,7 @@ checkouts, dated run directories, private source inputs or credentials. Private
 consumer evidence stays local; public fixtures and summaries must be cleared.
 Required credential checks apply to public changes.
 
-### 3.6 Evaluation boundary and retained history — O2, O3, O4, O5
+### 3.6 Work and repository-change evaluation — O2, O3, O4, O5
 
 **Proposed R18/A9 amendment — owner decision pending.** The relocation/removal
 of `tools/undertaking_evaluation/`, `evaluate-repository-change` and
@@ -285,6 +286,11 @@ holdings for locally authorized evaluation and adherence checks. Ordinary Librar
 use requires no private Root checkout, runtime, credentials or adoption. Root's
 copies are starting material under Root's independent commitments; their presence
 does not fulfill a Library criterion or qualify a public replacement.
+
+After approved removal, public Library users will have no runnable
+repository-change evaluator in the current source. The former evaluator remains
+recoverable at the identified public pre-removal revision; Root's private copy
+is starting material, not a replacement public service or supported adoption route.
 
 The original R18 text below and A9 row remain the historical accepted basis for
 their original editions and evidence. They do not impose successor production
