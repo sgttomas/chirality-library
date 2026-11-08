@@ -179,11 +179,12 @@ The agent working with the owner holds Agent 0’s responsibilities for purpose,
 continuity and reserved choices, whatever role it entered through. Other roles
 are taken up as the work needs them. This grants no additional host permissions.
 Use only the hierarchy the undertaking needs.
-INTERLOCUTOR is opt-in per session. Agent 0 delegates it only when session
-steering selects it; Agent 0 then shares periodic activity summaries and
-relevant prior feedback and consults it at least before every PR merge, as
-`agents/AGENT_INTERLOCUTOR.md` describes. Its advice requires no sign-off and
-carries no veto; Agent 0 keeps its decisions and the owner keeps reserved
+INTERLOCUTOR is opt-in per session. When session steering selects it, Agent 0
+starts one INTERLOCUTOR session and continues it by message for the life of the
+Agent 0 session; a replacement starts only if that session is lost or the owner
+asks. Agent 0 sends periodic activity summaries and consults it at least before
+every PR merge, as `agents/AGENT_INTERLOCUTOR.md` describes. Its advice requires
+no sign-off and carries no veto; Agent 0 keeps its decisions and the owner keeps reserved
 choices. Sessions that do not select it have no consultation step.
 Load the active role's `agents/AGENT_<ROLE>.md`; other role, workflow and skill
 bodies are on demand. Keep ownership of integration and route returns through
