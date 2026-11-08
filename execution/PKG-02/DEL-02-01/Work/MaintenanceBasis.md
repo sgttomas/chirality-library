@@ -204,7 +204,7 @@ are explicitly at AGENTS; historical declarations retain their selected sources.
 
 ## Completed cases: reused evidence and fresh examination
 
-The following cases retain their source identities and claim-specific limits. Reported earlier evidence is not a new execution.
+The following cases retain their source identities and claim-specific limits. Reported earlier evidence is not a new execution. The examination at `7d0933d70ab983068a55c055f31ff2df4423055f` covered the earlier labelled-case limits; it did not cover the subsequent retirement/reflection design.
 
 - [PR #1779](https://github.com/sgttomas/chirality/pull/1779), checked head
   `a0bb0dc77a53b041262571f658f9fd9590d44269`, merge
