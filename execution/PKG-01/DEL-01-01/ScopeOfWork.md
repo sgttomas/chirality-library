@@ -35,14 +35,13 @@ The accepted `docs/PRD.md` revision 2026-10-31 has SHA-256
 | SOW-0002 | Make the traversed holdings intelligible through purpose, applicability, standing, resources, outputs and limits at their own homes. | OBJ-001, OBJ-003, OBJ-005; PRD R02, A1 and the source/resource contribution to A6 |
 | SOW-0003 | Supply directed search, reference following and structured-query guidance with provenance, relationship distinctions and honest search limits. | OBJ-001, OBJ-003, OBJ-005; PRD R03, A1 |
 
-Maturity: the owner-approved entry revision is integrated. The current authorized
-undertaking examines a fresh reader’s route through maintenance, publication and
-tool instructions, with findings in the linked Work. Product-wide fulfillment,
-acceptance and release remain unestablished.
+Maturity: the entry route is maintained. The linked Work records bounded discovery
+and fresh-reader examinations; product-wide fulfillment, acceptance and release
+remain unestablished. Consumer-local needs are declared in `deliverable.yaml`;
+their presence establishes no satisfaction claim.
 
-The source assessment, approved entry revision and continuation questions are in
-[Work/DiscoveryBasis.md](Work/DiscoveryBasis.md). Consumer-local needs are now
-declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
+The source assessment and discovery findings are in
+[Work/DiscoveryBasis.md](Work/DiscoveryBasis.md).
 
 ## Deliverable Definition — Ontology
 
@@ -97,8 +96,8 @@ satisfy them or constitute human acceptance.
 ### Inputs and use conditions for subsequent native need authoring
 
 These are consumer conditions, not supplier commitments or a complete graph.
-Parent-managed dependency authoring follows scopes; this contract does not edit
-`deliverable.yaml` or assert that its initial empty needs list is adequate.
+The declared needs are in `deliverable.yaml`; their presence does not establish
+that the conditions are satisfied.
 
 | Input / source | Intended use and trigger | Required condition / unresolved binding |
 | --- | --- | --- |
@@ -109,7 +108,7 @@ Parent-managed dependency authoring follows scopes; this contract does not edit
 | `tools/deliverables/README.md` and selected query/tool usage sources | When the discovery route invokes a structured query | Use actual declared prerequisites and limits; preserve source declarations and unknowns. Tool defect/behavior repair belongs to DEL-03-01; method selection does not commission it. |
 | Shared-meaning or consumer guidance, accepted sibling cards | When navigation encounters disputed meaning or shares README/index content | Clarification belongs to DEL-02-02; obtaining/version/use conditions to DEL-05-01. Agent 0 coordinates one shared-file editor. Exact future input/source revisions remain conditional on the affected claim, not on concurrently drafted contracts. |
 
-- **TBD-001** — The earlier bounded case is the owner-directed entry-instruction revision from integrated basis `11bdb448323877268c90296a5497fd71ede1baee`, with selected holdings, proposed changes and discovery/query examination in Work/DiscoveryBasis.md. The owner approved the presented entry proposal; its checked revision and integration are identified in the actual PR. The bounded fresh-reader route examination at `047da79894bc5631dca564a30113f2cd26ec7ae1` now adds publication/source and controlled-fallback evidence in Work/DiscoveryBasis.md; it performed no actual companion amendment. Broader maintenance-use cases and product-wide fulfillment remain unestablished.
+- **TBD-001** — The bounded entry-instruction case from integrated basis `11bdb448323877268c90296a5497fd71ede1baee` and the fresh-reader examination at `047da79894bc5631dca564a30113f2cd26ec7ae1` are described in Work/DiscoveryBasis.md. The latter supplies publication/source and controlled-fallback evidence; it performed no companion amendment. Broader maintenance-use cases and product-wide fulfillment remain unestablished.
 - **TBD-002** — Q-03 future production assignment remains open. Agent 0 assigns bounded work; this setup author appointment does not establish permanent responsibility or an external supplier.
 - **TBD-003** — Q-01 further archival disposition remains reserved for unselected paths; `plans/` and `_DomainEngines/` were removed from this repository on 2026-11-04 and are preserved in the private `sgttomas/chirality` repository. Q-02 additional bespoke tooling remains conditional: demonstrate a gap before proposing separately authorized implementation. Neither blocks unaffected discovery work or permits a new registry.
 - **TBD-004** — Q-04 named consumer contract/fixture and exact revision, and Q-05 verified publication candidate/version and prior comparison basis, remain unresolved with DEL-05-01. They matter if navigation repeats a compatibility or publication claim; link and qualify such claims rather than imply those inputs or their evidence exist. They do not hold ordinary navigation work.
