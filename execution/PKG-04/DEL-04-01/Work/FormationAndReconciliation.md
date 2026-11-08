@@ -51,10 +51,10 @@ incorrectly treated all format resolution as legacy conversion. Independent
 examination found that current SOW_V1 validation and checklist callers still
 consume those rules. The source therefore did not support the proposed reading.
 The contribution owner repaired the interpretation at
-`4ac85ca97caa716a31bf68b726ffac931cb7ca08`, preserving the commitment. Five
-focused existing tests and actual current-contract/checklist use examined the
-affected path. Its Work and conflict description were reconciled before the
-owner-approved integration at `1357d706ea77497903976bf159f3880bea4d1360`.
+`4ac85ca97caa716a31bf68b726ffac931cb7ca08`, preserving the commitment. Focused existing tests and actual current-contract/
+checklist use examined the
+affected path. Its Work and conflict description were reconciled at integration
+`1357d706ea77497903976bf159f3880bea4d1360`.
 
 The valid manual representation evidence was reused; unknown transitive
 historical adoption continued to hold incompatible changes. Agent 0 assesses
