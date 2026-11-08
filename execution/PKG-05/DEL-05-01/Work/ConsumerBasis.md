@@ -26,9 +26,10 @@ The owner directed it to wait for the next real Library change; no release is
 pending. Library Agent 0 carries it into that change's publication proposal;
 only the owner can authorize release.
 
-The shared consumer checkout moves only on an explicit coordinator request or
-owner direction. This constraint applies to that checkout, not the Library
-development worktree or other consumers.
+The shared Library checkout identified in Root, App and SWBPIPE's standing
+instructions moves only on an explicit coordinator request or owner direction.
+This constraint applies to that checkout, not the Library development worktree
+or other consumers.
 
 ### Maintained outputs
 
