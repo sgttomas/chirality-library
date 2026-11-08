@@ -7,9 +7,10 @@ metadata:
 ---
 # Compare Library derivations
 
-Use this method for a selected comparison of Library-derived project documents.
-The undertaking chooses the files, trigger, target basis and participants, and
-whether to return proposals or apply agreed edits through the project's process.
+Compare selected Library-derived project documents when adopting a Library
+release or when explicitly selected. The undertaking identifies the files and
+target basis. Either the project's Agent 0 or the coordinator runs the comparison
+under actual authority; the project's Agent 0 carries edits and integration.
 
 ## Map the sources
 
@@ -47,8 +48,9 @@ problem, source basis, proposed change and consequences.
 ## Reconcile and return
 
 Apply agreed edits within the undertaking's authority and run the project's
-proportionate document, link and metadata checks. Add or advance
-`metadata.upstream` only after the whole adapted document is reconciled against
+proportionate document, link and metadata checks. During adoption, add
+`metadata.upstream` for the documents actually reconciled. Add or advance the
+field only after the whole adapted document is reconciled against
 the applicable source content of the recorded published edition, consequential
 differences have justified dispositions, and required edits are present and
 checked. Retained local adaptations permit advancement. After partial comparison

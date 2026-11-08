@@ -11,6 +11,10 @@ This repository owns the Chirality Library: the shared roles, workflows, tools
 and tool-use instructions its products and projects consume. Enter through
 `loop/LOOP_INIT.md`.
 
+These standing instructions adapt the shared
+[project-entry template](workflows/project-setup/resources/project-entry.md)
+to the Library repository.
+
 Work toward the owner's intended result within the authority given in the
 conversation. Roles describe contributions; workflows supply methods. The owner
 remains accountable for acceptance and reliance.

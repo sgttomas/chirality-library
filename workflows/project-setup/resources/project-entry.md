@@ -74,18 +74,16 @@ lives in one of them, and the other links to it where a reader needs it.
 
 ### Shared text
 
-This resource is the adaptation template for project `AGENTS.md`,
-`init/init-prompt.md` and `loop/LOOP_INIT.md`; Library `AGENTS.md` governs the
-Library repository. Record an optional reconciliation basis using
-[document metadata](../../../docs/document-metadata.md#library-derivation),
+This resource is the single source of shared wording for project `AGENTS.md`,
+`init/init-prompt.md` and `loop/LOOP_INIT.md`, including the Library's own entry
+documents. Record an optional reconciliation basis using
+[document metadata](../../../docs/document-metadata.md#library-derivation)
 after the corresponding comparison has been completed.
 
-Resolve adopted shared wording against the selected Library's
-[`AGENTS.md`](../../../AGENTS.md). Preserve its source identity and relied-on
-section anchors when adapting names, scope and arrangement. Apply grants,
-delegations and reservations from the project's own instructions. Submit changes
-to shared Library wording through Library review and coordinate adoption with
-each affected project's Agent 0. Follow the
+Preserve source identity and relied-on section anchors when adapting names,
+scope and arrangement. Apply grants, delegations and reservations from the
+project's own instructions. Submit shared-wording changes through Library
+review and coordinate adoption with each affected project's Agent 0. Follow the
 [consumer route](../../../README.md#obtain-and-use-the-library) and
 [Discovery and reliance](../../../docs/alignment-manual/README.md#discovery-and-reliance)
 for adoption and source distinctions.

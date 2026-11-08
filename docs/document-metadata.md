@@ -93,8 +93,9 @@ A matching filename does not establish derivation.
 
 Both members are required when `upstream` is present. Omit the object where
 there is no established Library derivation or justified reconciliation edition.
-Library source documents themselves do not need it. Do not infer a baseline
-from the current Library selection or latest release. This object records one
+Canonical Library source documents need no upstream field. The Library's own
+project entry documents are template adaptations like those of other projects.
+Do not infer a baseline from the current Library selection or latest release. This object records one
 source relationship, not a general reference or copy inventory.
 
 Schema validation checks structure and edition-tag spelling. Inspect the

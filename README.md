@@ -92,11 +92,12 @@ current basis, and address applicable dependencies or migration steps. Make and
 check the update through your own change process. For an unpublished development
 revision, use its merged PR description as the change account.
 
-For adapted project instructions or workflows, an undertaking may select
-[Compare Library derivations](workflows/compare-library-derivations/WORKFLOW.md)
-to examine differences without erasing local adaptations. Optional
-[upstream metadata](docs/document-metadata.md#library-derivation) records the
-published edition last reconciled against; adoption alone does not set it.
+When adopting a Library release, or for an explicitly selected comparison of
+adapted project instructions or workflows, use
+[Compare Library derivations](workflows/compare-library-derivations/WORKFLOW.md).
+It preserves deliberate local adaptations. Add optional
+[upstream metadata](docs/document-metadata.md#library-derivation) for documents
+actually reconciled against the published edition; adoption alone does not set it.
 
 GitHub's comparison view or `git diff` can show the differences. A failed comparison
 is not “no change”; a path-limited comparison says nothing about other material.
