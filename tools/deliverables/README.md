@@ -97,7 +97,9 @@ not needed for local queries. Unmapped paths remain visible. On PRs,
 `governance-harness` reports relevance and unmapped paths without failing its job.
 
 `dag-diff` compares declarations at a supplied Git revision with working files,
-preserving condition fields and multiplicity. Its name does not establish a
-central DAG authority, accepted baseline, acyclicity or condition satisfaction.
+preserving condition fields and multiplicity. Use the comparison to examine
+changed declarations; establish an accepted baseline, acyclicity or condition
+satisfaction from their applicable sources and checks. Keep dependency authority
+in consumer-local declarations.
 No CSV/Markdown dependency register, central currency record, migration adapter
 or lifecycle state is read or written by this method.

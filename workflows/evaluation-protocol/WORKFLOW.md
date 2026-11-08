@@ -215,15 +215,14 @@ snapshot, tool output, or validated Agent 2 return). Unsupported rows are labele
 - `_Evaluation/returns/<DispatchID>/`, `reports/`, `content-digests/` — preserved
   child returns and evidence, as produced.
 
-Exact filenames and the write root come from the brief. This workflow never writes
-outside the brief's `AllowedWriteTargets`.
+Take exact filenames and the write root from the brief. Keep all writes within
+the brief's `AllowedWriteTargets`.
 
 ## Non-negotiable constraints
 
-- **Method only, no write authority.** This workflow carries no write scope. Write
-  targets come solely from the dispatching brief (normally under
-  `{EXECUTION_ROOT}/_Evaluation/`). The workflow never widens write authority
-  beyond what the executing role and effective brief allow.
+- **Authorized write targets.** Take write targets solely from the dispatching
+  brief (normally under `{EXECUTION_ROOT}/_Evaluation/`) and keep writes within
+  the authority of the executing role and effective brief.
 - **WORKING_ITEMS owns this undertaking.** It develops the evaluation plan and toolbelt, dispatches children, validates fan-in, and records decisions. The human establishes stakes and accepts the plan/toolbelt, any waiver of required returns, and any scoring rubric. WORKING_ITEMS applies the accepted decisions.
 - **Read-only subject.** Never modify deliverables, decomposition truth, source
   material, tool roots, or Git state. Proposed changes are recommendations or

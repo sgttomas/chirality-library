@@ -7,9 +7,9 @@ metadata:
 ---
 # Integrated engineering estimate and schedule
 
-Prepare one coupled engineering estimate and resource-loaded schedule whose effort, price, technical handoffs, resource assumptions and consumer outputs agree. Use this method to construct, reproduce or revise that case. A bounded revision can reuse compatible validated counterpart inputs/results; it still returns the effects and limits on the coupled basis. This method does not establish actual engineering readiness, accepted scope, committed resources or an execution baseline.
+Prepare one coupled engineering estimate and resource-loaded schedule whose effort, price, technical handoffs, resource assumptions and consumer outputs agree. Use this method to construct, reproduce or revise that case. A bounded revision can reuse compatible validated counterpart inputs/results; it still returns the effects and limits on the coupled basis. Establish actual engineering readiness, scope acceptance, resource commitments and any execution baseline through their applicable evidence and decision owners before relying on them.
 
-The reusable method is here and in [Methods](METHODS.md). Supply applicable project tools and implementation adapters through the assignment; this package does not include an executable planning engine.
+Use [Methods](METHODS.md) for the modeling detail. Supply applicable project tools, any executable planning engine and implementation adapters through the assignment.
 
 ## 1. Establish the intended use and authority
 

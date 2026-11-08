@@ -10,9 +10,10 @@ metadata:
 
 # review
 
-For repository development, Root `AGENTS.md` supersedes lifecycle and record
-procedures below. Select this formal product-review method only when the
-assignment calls for it; it does not require development status files.
+For repository development, follow the project's `AGENTS.md` for lifecycle and
+record procedures. Select this formal product-review method only when the
+assignment calls for it. Keep routine development records under those project
+instructions rather than creating lifecycle status files for this method.
 
 Guide evidence review and human disposition for one deliverable's lifecycle
 transition under `docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3–3.4: a candidacy check for entry to

@@ -57,8 +57,9 @@ INTERLOCUTOR session under AGENTS.md.
 A consumer request or contributed candidate enters through Library Agent 0.
 Establish its purpose, exact source basis, owning locality, affected uses,
 bounded writes, decision and review rights, checks and supported return route.
-A contribution does not authorize integration or action in another repository.
-The contributing project owns its adoption and product work.
+Obtain the required Library content approval before integration. Route action
+in another repository through that project's Agent 0. The contributing project
+owns its adoption and product work.
 
 Before changing a holding, inspect the uses and required resources the change
 affects. For relocation or retirement, establish authority, replacement or
@@ -85,7 +86,8 @@ maintenance; no document type or improvement class is exempt unless the owner
 says so. Investigation, drafting and verification may proceed within the
 authorized undertaking. Apply decisions already given; obtain approval for
 changes outside the approved proposal before integration. Proposed replacement
-instructions are examined under their preceding basis and do not authorize their own adoption.
+instructions are examined under their preceding basis. Obtain their adoption
+approval under that basis before applying them.
 
 ## Examine, publish and coordinate adoption
 

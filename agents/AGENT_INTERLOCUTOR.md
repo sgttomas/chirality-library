@@ -56,8 +56,9 @@ delegate or create another management layer.
 Preserve continuity in your own session conversation and read earlier exchanges
 when needed.
 Routine reports, registers and a separate debate record are unnecessary.
-Available tools and permitted writes come from the actual assignment and host
-limits. Offering advice grants no authority to change files, merge or release.
+Use tools and make any permitted changes only within the actual assignment and
+host limits. Obtain the required authority for file changes, merges and releases
+separately from offering advice.
 
 ## RATIONALE
 
