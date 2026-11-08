@@ -1,34 +1,26 @@
 # Consumer use and publication inputs
 
-For the current owner-authorized 2.1.0 publication, see
-[PublicationNotes-2.1.0.md](PublicationNotes-2.1.0.md). The owner approved the
-INTERLOCUTOR instruction and session opt-in, then directed: “this also means you
-need to publish a new official library package incrementing to v2.1.0”. Release
-the complete checked integrated source with its identity and archive checksum;
-the PR and release bind the observed result. Earlier cases below retain their
-own subjects and evidence limits. Consumer notifications leave adoption to the
-owning projects.
+Use the [consumer route](../../../../README.md#obtain-and-use-the-library) to
+select material, obtain its resources and inspect updates. The
+[releases page](https://github.com/sgttomas/chirality-library/releases) identifies
+published editions. Edition-specific notes remain in
+[PublicationNotes.md](PublicationNotes.md),
+[PublicationNotes-1.1.0.md](PublicationNotes-1.1.0.md) and
+[PublicationNotes-2.1.0.md](PublicationNotes-2.1.0.md).
+
+Maturity: maintained obtaining/use and update guidance with bounded App
+package-reader and archived-source evidence. Other operations and revisions
+need their own source bindings and evidence.
 
 For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
-Earlier case/basis statements below retain their recorded subjects and limits.
-
-Maturity: obtaining/use and change-inspection candidate with bounded named-reader
-evidence and independent examination. The owner approved the six-file content
-proposal at `4d33dfed9e2388efad504d7736275e8d55d41722` with “approved.”
-Integration is recorded in PR #1784; product acceptance and release remain separate. Initial assessment
-used `fd847ac9ac68250b2f35d2e9c0087c16e86b510a`. The current undertaking uses the
-integrated F-02 result at `1357d706ea77497903976bf159f3880bea4d1360` as its real
-source candidate, compared with `257ab4c18014bf872a1c72eeb7593a7ad3d135c0`.
-No library release or consumer adoption is performed.
 
 ## Current undertaking and outputs
 
 Give an independent consumer a usable way to select material, obtain its actual
-bytes/resources/notices, examine changes and decide adoption. The owner-approved README
+bytes/resources/notices, examine changes and decide adoption. The README
 route and workflow-package guidance are the maintained outputs. This locality
-holds their source basis, actual examination and limits. The existing F-02
-change account supplies the reason and meaning of that candidate's changes;
-it is not reproduced as a new version/history register.
+holds their source basis, actual examination and limits. The F-02 change account
+in PR #1783 supplies the reason and meaning of that candidate's changes.
 
 ## Reusable sources
 
@@ -45,6 +37,10 @@ recovery references. Use those existing homes; do not create a second edition
 history or re-run the completed removal.
 
 ## Selected consumer and publication bases
+
+The F-02 source candidate is
+`1357d706ea77497903976bf159f3880bea4d1360`, compared with
+`257ab4c18014bf872a1c72eeb7593a7ad3d135c0`.
 
 For Q-04, App Agent 0 identified the actual package reader at App revision
 `366e7a6656d807142e7bdeda0ccf99c37d7227b1`:
@@ -155,12 +151,10 @@ Inspection leaves the consumer's selected basis unchanged.
 
 ## Remaining use and decisions
 
-Q-04 is now bound for the selected App reader claim. Q-05 has the identified
-source/edition candidate and prior comparison basis; no owner publication is
-claimed. Other interfaces and uses still need their own bindings and evidence.
-Independent review found no blockers; its clarity corrections are incorporated.
-The owner approved this content for integration. Bind only the resources and conditions
-needed by a selected use.
+Q-04 is bound for the selected App reader claim. Q-05 has the identified
+F-02 source/edition candidate and prior comparison basis. Other interfaces and
+uses need their own bindings and evidence. Bind the resources and conditions
+needed by the selected use.
 Coordinate shared README edits with DEL-01-01, which owns navigation; this
 locality owns obtaining/version/compatibility meaning. DEL-02-02 may need a
 named adopter's basis before changing a disputed clause; DEL-03-01 owns any
@@ -182,13 +176,10 @@ unresolved was stale. Other publication uses still require their own bindings.
 
 The broader delivery subject is the complete tracked library repository at
 `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5`, described as **Chirality library source
-candidate at that revision**. The owner approved this exact source-delivery candidate and the six-file
-content proposal at `4a4e6452931e78c0ebdb405b651e434bcf40bdc7` with “Approved”.
-That decision is not an owner release or semantic-version selection. Its preceding comparison basis is
+candidate at that revision**. Its preceding comparison basis is
 `547e7d7f833f9bec351f7a034bddd7c1a37db15a`. The source candidate adds the structured
 brief's PyYAML dependency explanation and the corresponding toolkit examination;
-no executable capability changed. The current PR's subsequent evidence updates
-are not silently included in that identified archive.
+no executable capability changed.
 
 The complete archive was produced with `git archive --format=tar` at the exact
 revision. Its SHA-256 is
@@ -236,36 +227,30 @@ resources and applicable legacy maps. Query Git/HEAD prerequisites remain in for
 Full-tree correspondence establishes source-delivery identity; behavioral evidence
 is limited to the operations above on the observed platform/filesystem. Historical
 and Root-only holdings keep their declared standing. No frozen product was run,
-no broader App qualification is inferred, and owner content/delivery approval is recorded in PR #1787. The earlier named App-reader and manual-edition cases retain
-their own exact bases and limits.
+no broader App qualification is inferred. The earlier named App-reader and
+manual-edition cases retain their own exact bases and limits.
 
 ## Post-90 publication preparation
 
-The owner requested a deliverable-by-deliverable publication roadmap and approved
-its course with “Proceed accordingly.” The [roadmap](../../../_Coordination/PUBLICATION_ROADMAP.md)
-connects existing bounded evidence to remaining delivery work. The
-[publication notes](PublicationNotes.md) consolidate the change account,
-obtaining route, dependencies and limitations and propose `library-v1.0.0` as a
-distinct library edition name. The owner approved their content and edition name
-at `c444ec139e3a65c5707264087ac89022abd190dc` in PR #1790 with “Approved.”
-The subsequent acceptance and release decision is recorded below. Existing
-scopes, output homes and criteria are unchanged.
+The [publication roadmap](../../../_Coordination/PUBLICATION_ROADMAP.md)
+connects the original bounded evidence to the 1.0.0 delivery subject. The
+[publication notes](PublicationNotes.md) hold that edition's change account,
+obtaining route, dependencies and limitations.
 
 The preparation basis is `35273905a90ee6c1032a7f49db2236ed19371029`; its complete
 source archive has SHA-256
 `c8823062887f536db8c201a7cd9c38b900f6bb333d9a54d35d5ec77a16932f3a`.
 Its 1,052 files match Git bytes/modes. Compared with the earlier examined
 `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5` archive, ten execution/needs/loop files
-changed and operational sources are unchanged. The earlier archive remains its
-own approved subject. This proposal adds publication records only. Its PR binds
-the actual candidate head, archive identity, scoped checks and evidence reuse;
-a later integrated release source requires its own correspondence check.
+changed and operational sources are unchanged. The earlier archive retains its
+own source identity. A later integrated release source requires its own
+correspondence check.
 
 ## Accepted and published library edition
 
-The owner approved final product acceptance and public release of
-`fc73de583d25bf792d5c3abb3bf1ac8e0c38f7d6` as `library-v1.0.0`: “I approve both
-decisions.” [The release](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.0)
+Library 1.0.0 was accepted and published from
+`fc73de583d25bf792d5c3abb3bf1ac8e0c38f7d6` as `library-v1.0.0`.
+[The release](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.0)
 publishes that exact source with approved notes, the 1,054-file tracked-source
 archive and SHA256SUMS. Its SHA-256 is
 `e75ce1396e8bb92d4e2f144ba13336ee93a7ad7579494b2a6d21117857733567`.
@@ -273,8 +258,8 @@ The tag target, anonymous archive download, embedded tar commit identity and
 checksum download were verified on 2026-11-01. Every file matches its Git blob
 and executable mode; operational sources are unchanged from the earlier examined
 archive, so selected behavioral evidence is reused with its original limits.
-Full-archive credential and three locally available private-term checks returned
-zero findings; required hosted checks passed on the identical integrated PR tree.
+Public-material screening of this archive: the credential scan and three locally
+available private-term checks returned zero findings.
 
 Current standing and discovery-pointer annotations are later source changes, not
 changes to the published archive. Its pre-release records remain historical.
@@ -283,71 +268,63 @@ consumer adoption, broader compatibility and future publication remain distinct.
 
 ## Consumer subscription and update guidance
 
-The owner approved the four-step consumer-entry proposal and directed integration
-via PR. README now explains choosing a version and material, GitHub release
+README explains choosing a version and material, GitHub release
 notifications, the Atom feed, manual discovery and deliberate update inspection.
 Optional CLI discovery retains failed-query and partial-comparison limits.
 Copies retain source identity, resources and notices; consumers retain authority.
 The subscription routes use GitHub/feed-reader facilities: no subscription was
 configured for a user and no notification delivery was tested. The returning-user
 walkthrough follows release discovery, notes and comparison without assuming
-adoption. Library 1.0.0 remains unchanged; these development instructions require
-a separate publication decision to become a later edition.
+adoption.
 
 ## Reflective successor and consumer standing
 
-The approved new book changes the character of the publication, so the current
+The book changes the character of the publication, so the current
 README/index explicitly preserve v9's agent-directed use as a separate selection.
 The successor is material for reflection; roles and workflows remain the route
-to operational methods under each project's own instructions. The owner approved the book and rendered form at
-`43c4d414304e436a7f9cdceb21ed2b4e05c26543` and authorized library 1.0.1. Named App-reader evidence
+to operational methods under each project's own instructions. Named App-reader evidence
 and all archive/publication pins above retain their actual subjects. No external
 consumer adoption or source repinning is performed. The discovery changes are
 coordinated with DEL-01-01; no new obtaining mechanism or interface is claimed.
 
 ## Library 1.0.1 approval and release basis
 
-The owner approved the complete candidate at
-`43c4d414304e436a7f9cdceb21ed2b4e05c26543`: “Approved. This will increment the
-published library to v1.0.1”. This includes the book, explicit DEL-04-02 addition,
-consumer/discovery reconciliation and optional method reference. Publication uses
-the normally checked integration revision, with approval annotations only after
-that reviewed subject. The [release](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.1)
+The source proposal `43c4d414304e436a7f9cdceb21ed2b4e05c26543` supplied the book,
+explicit DEL-04-02 addition, consumer/discovery reconciliation and optional
+method reference.
+The [1.0.1 release](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.1)
 identifies the exact merged source, source-archive checksum and change account;
-the actual artifact/download verification is recorded in PR #1793. The approved
-book's Markdown and rendered bytes remain unchanged by these annotations.
-Library 1.0.0 remains recoverable at its original tag and archive. Consumers
+the actual artifact/download verification is recorded in PR #1793. Library 1.0.0
+remains recoverable at its original tag and archive. Consumers
 choose whether to adopt 1.0.1; neither publication nor the new book changes their
 selected v9 instructions, operational authority or product behavior.
 
 ## Book framing after library 1.0.1
 
-The owner authorized removing predecessor-manual continuity from the maintained
-book. Its current presentation and source-basis note do not require familiarity
-with an earlier manual. Historical sources and consumer-selected pins remain
+The maintained book presents its subject independently of the earlier manual.
+Historical sources and consumer-selected pins remain
 available separately; library 1.0.1 retains its actual published bytes. The
 publication index explicitly distinguishes this later maintained text. The
 change does not publish a replacement archive or adopt it in a consumer project.
 
 ## Course source and reading-edition repair
 
-The owner approved preparation of a bounded course revision, including repair of
-the mismatched course README/index.html discovered in the published 1.0.1 and
-1.0.2 source trees. Other existing course pairs matched their source fingerprints
+The course revision repairs the mismatched README/index.html in the published
+1.0.1 and 1.0.2 source trees. Other existing course pairs matched their source
+fingerprints
 at investigation. The revised reading files are regenerated from committed
 Markdown; changed course content and the explicit practicum assessment addition
-remain reviewable together in the candidate PR. Northbank's records and keyed
+are part of that revision. Northbank's records and keyed
 numeric answers remain their original exercise basis. The courses remain
 host-independent, with no claim of App course integration or improved learner
 outcomes. No released archive is overwritten; a later edition requires its own
 publication decision.
 
 
-The course review identified cross-file inconsistencies in the initial draft.
-Repairs align Course 12 setup, rotation, companion guidance and Criterion 6:
+Course 12 setup, rotation, companion guidance and Criterion 6 align:
 production direction includes consequential agent-written briefs, and examination
 covers the returns relied on rather than requiring every child message. This is
-an explicit assessment change for owner review. Course 06 and its companion's
+an explicit assessment change. Course 06 and its companion's
 keyed answer 7 now permit retained but stale history; the expected reasoning
 about potentially lossy context transfer remains. No numeric keyed answer or
 Northbank case record changes. A scoped capability/responsibility pass repairs
@@ -383,11 +360,6 @@ and its limits alongside the other changes since 1.0.2. Existing publication
 criteria and owner release authority remain unchanged.
 
 ## Library 1.1.0 preparation
-
-The owner selected 1.1.0 (“I agree with 1.1.0”) and authorized integration after
-repair, independent review and passing CI: “If you fix those and review it and
-the CI is green you can merge the PR on this delegated approval.” This is
-preparation and merge authority; publication remains a separate owner decision.
 
 [Publication notes](PublicationNotes-1.1.0.md) cover the complete change from
 `library-v1.0.2` at `59433388627773f008f550481c4159514f43c7e5`: courses, the
