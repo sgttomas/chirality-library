@@ -109,9 +109,10 @@ for adoption and source distinctions.
   ownership and review/decision rights.
 - **Coordination between projects.** Each project has one top-level Agent 0 in
   its own T3 Code session. When work needs another project, this Agent 0
-  messages that one directly, after reading its session to confirm it is
-  current. A message states the need, the revision and files, and whether it
-  blocks. The recipient decides within its own authority; a message carries no
+  messages the cross-project coordinator session using current session steering,
+  after reading its session to confirm it is current. A message states the need,
+  the revision and files, and whether it blocks. Each affected project decides
+  within its own authority; a message carries no
   owner authority and changes nothing elsewhere. Agreed decisions are recorded
   by editing the governing text where it lives; reserved choices go to the
   owner. Do not message a project the work does not affect.
@@ -121,9 +122,11 @@ for adoption and source distinctions.
   for publication. Routine adherence checks of this project's deliverables are
   run by this project's Agent 0 through a Library workflow.
 - **Work and verification.** `execution/PKG-nn/DEL-nn-nn/` holds
-  `ScopeOfWork.md` (commitments), `deliverable.yaml` (needs and pointers) and
-  `Work/` (current findings with their reasons, working artifacts and outputs).
-  Keep approval quotes and review/check narrative in the PR. Reconcile changed
+  `ScopeOfWork.md` (commitments) and `deliverable.yaml` (needs and pointers).
+
+  `Work/` holds the current account: findings with their reasons, working artifacts and outputs. Revise it in place rather than appending history; never rewrite fidelity copies, frozen snapshots or accepted evidence. How the work went (approval quotes, review rounds, retries, run IDs, check results) belongs in the PR description, which states what changed, why, what was checked and what remains open. Cite SHAs or hashes only where they pin something a result relies on. State a fact once and link to it.
+
+  Reconcile changed
   meaning and dependency conditions in the same change; leave unchanged declarations
   alone. Verification is proportionate: routine reversible changes are
   inspected; ordinary implementation gets a focused check; high-consequence
