@@ -1,12 +1,9 @@
 # Formation and reconciliation basis
 
 For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
-Earlier case/basis statements below retain their recorded subjects and limits.
 
-Maturity: integrated setup with a real reconciliation case assessed below;
-the owner approved this content in PR #1785; product acceptance remains separate. This note explains
-the concrete formation work and remaining application evidence; it is not a
-central copy of other deliverables' work or a recurring reconciliation report.
+Maturity: integrated seven-locality setup with a bounded F-02 reconciliation
+case. Broader product fulfillment remains unestablished.
 
 ## Actual formation
 
@@ -15,41 +12,30 @@ of setup. The original `execution/_Decomposition/checkpoint_snapshots/GROUP3-202
 retains the immutable payload, decision, audit and manifest committed at
 `fd847ac9ac68250b2f35d2e9c0087c16e86b510a`. Earlier accepted snapshots remain intact.
 
-Agent 0 prepared the seven numeric localities with the current helpers; Type 2
-contributors authored their real ScopeOfWork contracts. Agent 0 reviewed their
-source fidelity and combined boundaries, supplied initial owning Work, and
-authored consumer needs after the scopes. These actual local files are OUT-003
-and OUT-004's formation material; generic setup guidance is not a substitute.
-The integration PR carries checked-revision evidence and any outstanding findings.
+The original formation produced seven numeric localities with substantive
+ScopeOfWork contracts, initial owning Work and consumer-local needs. These are
+OUT-003 and OUT-004's formation material. Each locality retains its source
+assessment, unknowns, conditions and useful source/check pointers.
 
 ## How reconciliation applies here
 
-`workflows/bounded-reconciliation/WORKFLOW.md` already defines same-PR comparison
-of actual results and checks with current commitments, Work and conditions.
-Use that method and its existing invocation points; a new procedure or assessment
-stage is unnecessary without a demonstrated gap. PR #1779 is reusable evidence
-for the repaired means, not proof that all present product criteria are fulfilled.
+Use [bounded reconciliation](../../../../workflows/bounded-reconciliation/WORKFLOW.md)
+for the same-PR comparison of results and evidence with affected commitments,
+Work and conditions. PR #1779 supplies evidence for the repaired means at its
+identified source basis.
 
-Each locality retains its own initial source assessment, unknowns and conditions.
-The loop entry is updated to the actual formation standing. Unchanged production
-holdings and accepted commitments are retained; no content repair is inferred
-merely from the creation of this accountable scope home.
+## Application coverage and limits
 
-## What formation does not establish
-
-The seven contracts, initial Work and needs can be examined for their setup
-purpose. They do not prove full reconciliation-practice coverage or the A3
-application criterion. That criterion still needs an actual authorized action
-on accepted/set-up scope, selected using a meaningful input condition, a finding
-that changes the route or understanding, and examination of affected uses.
-The real F-02 case is now bound below; the separate labelled recovery case
-does not supply this actual-action evidence.
+A3 requires an actual authorized action on accepted/set-up scope, selected using
+a meaningful input condition, a finding that changes the route or understanding,
+and examination of affected uses. The F-02 case below supplies this action
+basis; the separate labelled recovery case covers recovery only.
 
 DEL-04-02 examines purpose and framing through human–Agent 0 judgment. This
-locality accounts for the actual source reconciliation and setup/needs coverage.
-No whole-deliverable completion gate follows from that reciprocal relationship.
-Q-04/Q-05 condition only named compatibility/publication consequences; local
-source corrections do not create authority to accept those claims.
+locality accounts for source reconciliation and setup/needs coverage. Use the
+specific input needed from either contribution without awaiting the whole
+neighboring deliverable. Bind Q-04/Q-05 for named compatibility or publication
+consequences.
 
 ## Agent 0 assessment of the actual F-02 case
 
@@ -74,23 +60,18 @@ The valid manual representation evidence was reused; unknown transitive
 historical adoption continued to hold incompatible changes. Agent 0 assesses
 this chain as concrete support for AC-002/005, with the detailed source account
 retained in [DEL-02-02 Work](../../../PKG-02/DEL-02-02/Work/Applicability.md) and
-[PR #1783](https://github.com/sgttomas/chirality/pull/1783). This assessment was approved for integration in PR #1785; it does not itself
-accept the product or advance a gate. DEL-02-01's labelled extraction/custody case supplies no A3 evidence.
+[PR #1783](https://github.com/sgttomas/chirality/pull/1783). DEL-02-01's labelled extraction/custody case supplies no A3 evidence.
 
 
 ## Revised maintenance and reflective source homes
 
-PR #1785 retired the generic change workflow and Root Git skill.
-AGENTS retains compact repository conventions and links the on-demand
-`sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md` instructions for interrupted work/custody;
-ordinary authorized briefs carry Git work. DEL-04-02 supplies the adopted reflect-on-work method for
-human–Agent 0 examination of purpose, commitments, framing and practice. This
-locality's bounded-reconciliation method remains unchanged: compare the actual
-result under current commitments and return a reserved choice when needed.
-The existing F-02 and formation assessments above retain their original warrant.
-Current source-home/need pointers are reconciled in their owning localities;
-no accepted formation bytes or criteria change. The new method was adopted through owner approval and integration in PR #1785,
-not inferred from its presence or the earlier candidate's review.
+[AGENTS.md](../../../../AGENTS.md#holding-changes-and-recovery) holds the current
+holding/recovery and repository Git conventions. DEL-04-02 supplies the adopted
+[reflect-on-work](../../../../workflows/reflect-on-work/WORKFLOW.md) method for
+human–Agent 0 examination of purpose, commitments, framing and practice.
+Bounded reconciliation compares the actual result under current commitments
+and returns reserved choices to their owner. The F-02 and original formation
+cases retain their identified historical bases.
 
 ## Evaluation extension
 
