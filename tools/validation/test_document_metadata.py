@@ -68,3 +68,35 @@ def test_bootstrap_wrapper_and_claude_entry_are_preserved():
     assert text.index('\n---\n') < text.index('<init-prompt>')
     assert text.count('<init-prompt>') == text.count('</init-prompt>') == 1
     assert (ROOT / 'CLAUDE.md').read_text() == '@AGENTS.md\n'
+
+
+@pytest.mark.parametrize('edition', ['library-v3.2.1', 'library-v3.3.0'])
+def test_adapted_project_header_records_source_and_reconciled_library_edition(edition):
+    data = header(ROOT / 'AGENTS.md')
+    data['metadata']['upstream'] = {
+        'source': 'workflows/project-setup/resources/project-entry.md',
+        'edition': edition,
+    }
+    data['metadata']['applicability'] = 'Project-specific entry instructions'
+    VALIDATOR.validate(data)
+
+
+@pytest.mark.parametrize('upstream', [
+    None, 'library-v3.3.0', {},
+    {'source': 'workflows/project-setup/resources/project-entry.md'},
+    {'edition': 'library-v3.3.0'},
+    {'source': '', 'edition': 'library-v3.3.0'},
+    {'source': ' \t', 'edition': 'library-v3.3.0'},
+    {'source': 'workflows/source.md\n', 'edition': 'library-v3.3.0'},
+    {'source': 'workflows/source.md', 'edition': 'latest'},
+    {'source': 'workflows/source.md', 'edition': '3.3.0'},
+    {'source': 'workflows/source.md', 'edition': 'library-v3.3.0\n'},
+    {'source': 'workflows/source.md', 'edition': 3.3},
+    {'source': 'workflows/source.md', 'edition': 'library-v3.3.0', 'revision': 'local'},
+    {'source': 'workflows/source.md', 'edition': 'library-v3.3.0', 'version': 'local'},
+])
+def test_incomplete_or_malformed_reconciliation_claim_is_rejected(upstream):
+    data = header(ROOT / 'AGENTS.md')
+    data['metadata']['upstream'] = upstream
+    with pytest.raises(jsonschema.ValidationError):
+        VALIDATOR.validate(data)

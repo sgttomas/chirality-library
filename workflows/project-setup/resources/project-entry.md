@@ -74,6 +74,12 @@ lives in one of them, and the other links to it where a reader needs it.
 
 ### Shared text
 
+This resource is the adaptation template for project `AGENTS.md`,
+`init/init-prompt.md` and `loop/LOOP_INIT.md`; Library `AGENTS.md` governs the
+Library repository. Record an optional reconciliation basis using
+[document metadata](../../../docs/document-metadata.md#library-derivation),
+after the corresponding comparison has been completed.
+
 Resolve adopted shared wording against the selected Library's
 [`AGENTS.md`](../../../AGENTS.md). Preserve its source identity and relied-on
 section anchors when adapting names, scope and arrangement. Apply grants,
@@ -137,6 +143,18 @@ for adoption and source distinctions.
   decisions and settings/protection changes to the owner. When an owner
   instruction overrides a standing rule, note the exception in the PR and ask
   once whether the standing rule should change.
+- **What the repository keeps.** Produce the work and the minimum information
+  needed to review, use or recover it. A record needs a concrete consumer,
+  acceptance requirement or recovery need. Decisions edit the text they govern,
+  not append registers. No routine receipts, notices, run records or handoff
+  chains; never hand-maintain derived progress or lifecycle state. Keep one
+  replaceable recovery note only where continuity needs it. Roles and methods
+  come from repository files, never host-side agent definitions or harness
+  configuration. Session routes are ephemeral: find current sessions by listing
+  T3 threads. Agents save no memories; durable knowledge lives in Chirality.
+  Scratch holds evidence, outputs and logs, never instructions. Once work is
+  integrated, delete its scratch, worktrees, branches and build output unless an
+  open review, named consumer or recovery need still uses them.
 - **Standing Git grant.** Record the owner's actual repository-scoped grant with their words; never write one by copying.
 
 ### Packaged product instructions

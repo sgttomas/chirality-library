@@ -311,7 +311,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 5,
+        "order": 6,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -356,7 +356,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 1,
+        "order": 2,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -394,7 +394,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 6,
+        "order": 7,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -441,7 +441,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 2,
+        "order": 3,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -488,7 +488,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 7,
+        "order": 8,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -536,7 +536,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 8,
+        "order": 9,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -584,6 +584,38 @@
         "category": "specialist",
         "tier": "primary",
         "order": 0,
+        "group": {
+          "key": "review-check",
+          "label": "Review & check",
+          "order": 5
+        }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
+      }
+    },
+    {
+      "kind": "workflow",
+      "name": "compare-library-derivations",
+      "source": "bundled",
+      "sourceRootId": "chirality-root",
+      "description": "Compare selected Library-derived project files with their actual sources and discuss which differences to retain, change or propose upstream.",
+      "central": false,
+      "compatibility": "canonical",
+      "executionRoleIds": [
+        "HELP_HUMAN",
+        "HELPS_HUMANS",
+        "WORKING_ITEMS",
+        "TASK"
+      ],
+      "resources": [
+        "WORKFLOW.md"
+      ],
+      "navigation": {
+        "category": "specialist",
+        "tier": "primary",
+        "order": 1,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -903,7 +935,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 15,
+        "order": 16,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -947,7 +979,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 16,
+        "order": 17,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -996,7 +1028,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 17,
+        "order": 18,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1179,7 +1211,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 3,
+        "order": 4,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1744,7 +1776,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 9,
+        "order": 10,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1783,7 +1815,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 10,
+        "order": 11,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -1827,7 +1859,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 11,
+        "order": 12,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -2057,7 +2089,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 12,
+        "order": 13,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -2106,7 +2138,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 13,
+        "order": 14,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -2702,7 +2734,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 4,
+        "order": 5,
         "group": {
           "key": "review-check",
           "label": "Review & check",
@@ -2828,7 +2860,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 14,
+        "order": 15,
         "group": {
           "key": "review-check",
           "label": "Review & check",
