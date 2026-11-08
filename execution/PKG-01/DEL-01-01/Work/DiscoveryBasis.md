@@ -265,12 +265,14 @@ implemented capability. Existing discovery guidance and acceptance criteria rema
 unchanged; public consumer-facing entry changes await an actual supported result.
 
 
-## Top-level operating entry (2026-11-07 candidate)
+## Top-level operating entry (owner-approved 2026-11-07)
 
 The owner directed the shared `init/` → `loop/LOOP_INIT.md` entry shape and
-said “Proceed as recommended.” This candidate remains subject to review of its
-actual content under the preceding entry's content-review rule. Agent 0 owns
-the connected change; no consumer repository or selected checkout is updated.
+said “Proceed as recommended.” The owner then approved the exact proposal at
+`e2ff46213b599a24f9cd4bcbbbf8dd78fa1141f6` in
+[PR #10](https://github.com/sgttomas/chirality-library/pull/10): “I approve. Merge.”
+This records acceptance under the preceding entry's content-review rule. Agent 0
+owns the connected change; no consumer repository or selected checkout is updated.
 
 The maintained loop separates ongoing operation from execution records. A dated
 pointer preserves the old path through the next edition; removal is a reviewed
