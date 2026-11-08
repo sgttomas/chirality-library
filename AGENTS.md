@@ -105,7 +105,9 @@ uses deliverable localities under `execution/PKG-nn/DEL-nn-nn/`:
 `ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
 holds needs, conditions and code/check pointers; `Work/` holds current findings
 and their reasons, working artifacts and deliverable outputs kept
-locally. Make maturity and issue status explicit. Use
+locally.
+Code that runs (implementation, tests, generators, harnesses) lives outside `execution/`, in the project's code locations, and deliverables link to it; `Work/` may keep documentation-only examples that are never run.
+Make maturity and issue status explicit. Use
 [document metadata](docs/document-metadata.md) for maintained Markdown headers. Code and other outputs may
 retain their actual product/source homes, referenced from the locality. For
 agent instructions bundled with an application, maintain the source in the named
