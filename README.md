@@ -116,8 +116,8 @@ git diff <old-basis> <candidate-basis> -- <selected-paths>
 ```
 
 Polling can repeat these checks. Keep your interests and last examined basis
-locally. Scheduling or external delivery requires your own configured operator
-and authority; the library provides no subscription service or automatic adoption.
+locally. Configure any scheduling or external delivery through your own operator
+and authority. Adopt an update through your project's change process.
 
 </details>
 

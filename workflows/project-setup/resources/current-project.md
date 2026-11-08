@@ -132,5 +132,5 @@ Use `dependency-extract` for affected native needs and `audit-dep-closure` for a
 bounded query over the resulting declarations. Implementation/propagation
 closure has no bundled audit since `audit-scope-closure` was removed; examine it
 directly.
-Report remaining obligations explicitly; setup does not authorize product
-acceptance, release or unrelated changes.
+Report remaining obligations explicitly. Obtain the required product acceptance
+and release decisions separately, and keep changes within the authorized scope.

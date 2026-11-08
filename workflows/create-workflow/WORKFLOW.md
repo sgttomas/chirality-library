@@ -12,8 +12,9 @@ request to save a useful plan from ordinary conversation. The result is a
 locatable method another person or agent can adapt to a later undertaking.
 Choose the reasoning, writing approach, plan, and delegation that suit the work;
 a small workflow can be a single file. The human reviews the proposed method
-before it is registered for reuse. This method grants no host permissions and
-does not require a particular agent roster or Git process.
+before it is registered for reuse. Work within the actual host permissions and
+project authority; choose the agent roster and Git process that serve the work
+under that authority.
 
 ## Establish purpose and destination
 

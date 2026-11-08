@@ -45,7 +45,7 @@ purpose or commitments, risk acceptance and other reserved decisions. Apply
 already-given decisions within their scope; do not ask again merely because the
 work has moved to another contributor. Hold only the action needing a missing
 decision, and make that decision reviewable rather than silently relaxing a
-criterion. This method grants no new authority.
+criterion. Keep actions within the authority given by the owner and the project.
 
 Carry authorized consequences to the source that governs them through its
 responsible owner. For ordinary result/document disagreement under current

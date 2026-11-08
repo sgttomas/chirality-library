@@ -43,9 +43,9 @@ JSON schema v2 has `root`, `run_status`, `subject_status`, `issues`, `assessment
 valid deliverables, needs, unknown references and native cycle components.
 `PASS` means only that the query found no structural errors in the metadata it
 read. Invalid metadata produces `FAIL` and preserves usable partial results;
-no metadata produces `NOT_ASSESSED`. This does not establish that every intended
-locality exists or that all useful needs were declared. Use a selected structure
-inventory or decomposition comparison for that separate question.
+no metadata produces `NOT_ASSESSED`. Assess coverage of intended localities and
+useful needs separately through a selected structure inventory or decomposition
+comparison.
 
 Unknown references and cycles do not fail this structural subject assessment.
 The cycle graph includes upstream relations between native DEL declarations,

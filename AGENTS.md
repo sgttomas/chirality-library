@@ -115,8 +115,9 @@ private Root repository's Git history (`sgttomas/chirality`, at or before
 The accepted [Library PRD](docs/PRD.md) and
 [final decomposition](execution/_Decomposition/_LATEST_ACCEPTED.md) supply the
 basis for the current Library localities. Read the selected ScopeOfWork, Work and
-consumer-local needs for their commitments, maturity and unresolved conditions;
-setup does not establish product fulfillment or acceptance.
+consumer-local needs for their commitments, maturity and unresolved conditions.
+Assess product fulfillment against actual results and obtain the owner's
+acceptance separately from setup.
 
 The operating entry gives query usage; the [query guide](tools/deliverables/README.md)
 defines arguments, prerequisites and limits. Results are facts and unknowns,
