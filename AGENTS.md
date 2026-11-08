@@ -32,8 +32,11 @@ workflow. Root's `main` was rebuilt on 2026-11-04; earlier monorepo content,
 including what this repository calls archived or preserved there, is
 recoverable only from Root's Git history at or before commit `05d96f3e11`.
 Accepted commitments, decomposition, Work and other records written before
-2026-11-05 use "Root" for what is now the Library; read them that way. Mapping of DEL-04-02 and exact holding ownership
-between the two remains open; this naming does not move them.
+2026-11-05 use "Root" for what is now the Library; read them that way.
+[DEL-04-02's scope](execution/PKG-04/DEL-04-02/ScopeOfWork.md) retains its
+OUT-001–004 and non-R18 obligations in the Library. The
+[evaluation basis](execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability)
+records the R18 holding transfer and current availability.
 
 ## Where work happens
 
