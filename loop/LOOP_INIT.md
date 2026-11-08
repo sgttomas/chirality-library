@@ -42,6 +42,8 @@ consumed index, retaining source-qualified identity and loading only needed
 resources. Use [coordinated knowledge work](../workflows/coordinated-knowledge-work/WORKFLOW.md)
 for related contributions. Agent 0 retains purpose and continuity; implementation
 owners carry their contributions through ordinary repairs and integration.
+If opted in, send activity summaries and consultations to the existing
+INTERLOCUTOR session under AGENTS.md.
 
 ## Maintain holdings and receive contributions
 

@@ -92,7 +92,10 @@ for adoption and source distinctions.
   identifies neither. Use the role table (HELP_HUMAN 0, HELPS_HUMANS 1,
   WORKING_ITEMS 1, TASK 2, INTERLOCUTOR 2) and the selected source's exact
   [`agents/AGENT_INTERLOCUTOR.md`](../../../agents/AGENT_INTERLOCUTOR.md)
-  for INTERLOCUTOR instructions. The owner-facing agent holds Agent 0's
+  for INTERLOCUTOR instructions. When session steering selects it, Agent 0
+  starts one INTERLOCUTOR session and continues it by message for the life of
+  the Agent 0 session; a replacement starts only if that session is lost or the
+  owner asks. The owner-facing agent holds Agent 0's
   responsibilities whatever role it entered through. Load the active role file; other roles and methods
   on demand. Use `coordinated-knowledge-work` for related contributions,
   `workflows/index.json` to select others, `create-workflow` before authoring a
@@ -175,7 +178,8 @@ and how work is found and carried. Typical parts:
    the selected Library. Do not infer a different selection from a matching name.
 4. **Carry it through.** Agent 0 and implementation-owner responsibilities,
    ordering constraints, reconciliation in the same PR, check selection and the
-   hosted merge check.
+   hosted merge check. An opted-in session sends consultations to its existing
+   INTERLOCUTOR session.
 5. **Project-specific cycle.** What is distinctive here: a release climb,
    platform lanes, a review rule, a publication route, how contributions from
    other projects enter.
