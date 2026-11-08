@@ -36,8 +36,11 @@ A short, reusable prompt the owner sends to start an Agent 0 session. It:
    (`agents/AGENT_HELP_HUMAN.md`);
 4. names the role and capacity (`HELP_HUMAN` as Agent 0 for this project);
 5. reads and follows `loop/LOOP_INIT.md`;
-6. ends: “Orient. Briefly report your understanding of the current basis,
-   consumers and boundaries. Await the owner's steering.”
+6. ends: “Orient. Briefly report your understanding of the current basis and
+   boundaries. Await the owner's steering.”
+
+A project may add its own report subject, such as the Library's consumers or
+SWBPIPE's release target.
 
 Keep the prompt free of current status; that belongs in the loop. An optional `init/README.md` tells the owner how to
 use it (send the prompt, then send steering separately).
@@ -49,8 +52,7 @@ sections as a suggested skeleton, adapting their order and headings to the
 project's accepted instructions and existing links:
 
 1. **Identity and entry.** "This repository owns *X*." Enter through
-   `loop/LOOP_INIT.md`. The conversation supplies the undertaking;
-   initialization starts none. *(Local: the one-line product identity.)*
+   `loop/LOOP_INIT.md`. *(Local: the one-line product identity.)*
 2. **Where things are** *(optional)*. A short map of local surfaces when the
    layout is not self-evident.
 3. **Shared roles and methods.** The Library selection, the role table, and how

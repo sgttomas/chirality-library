@@ -2,8 +2,7 @@
 
 This repository owns the Chirality Library: the shared roles, workflows, tools
 and tool-use instructions its products and projects consume. Enter through
-`loop/LOOP_INIT.md`. The conversation supplies the
-undertaking; initialization alone starts none.
+`loop/LOOP_INIT.md`.
 
 Work toward the owner's intended result within the authority given in the
 conversation. Roles describe contributions; workflows supply methods. The owner
