@@ -287,7 +287,10 @@ follows the current entry without changing its dated evidence claims.
 AGENTS retains authority, ownership, reconciliation, cleanup and record rules;
 the loop holds the work sequence and query syntax. The heading identifies the
 Library, external-project activity labels are removed, and shared coordination
-and Git wording stays stable. New intake guidance establishes the basis, bounds,
+and Git wording stays stable. The `Working cycle` heading is retained because
+App v4 DEL-10-01/02 cite the Library's named sections at their selected basis;
+their edition-bound evidence is unchanged, and current section navigation stays
+available. New intake guidance establishes the basis, bounds,
 rights and return route for a contribution through Library Agent 0. Publication
 and consumer adoption remain separate acts; R18/A9 and R24 standing is unchanged.
 

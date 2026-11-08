@@ -59,7 +59,7 @@ owner. Do not message a project the work does not affect. Root may also open a
 GitHub issue here for an owner-approved finding; this project decides how to
 act on it, as with a message.
 
-## Work ownership and reconciliation
+## Working cycle
 
 Follow [the operating entry](loop/LOOP_INIT.md) to locate and carry the selected
 work. Use one coordinator for a shared result, disjoint concurrent writes, and
