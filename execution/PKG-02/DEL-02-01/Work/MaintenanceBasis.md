@@ -1,5 +1,34 @@
 # Maintenance route and evidence limits
 
+## Remaining method clarification candidate
+
+The code-outside-`execution/` rule is in [AGENTS.md](../../../../AGENTS.md#deliverables-and-records)
+and the [project-entry template](../../../../workflows/project-setup/resources/project-entry.md#shared-text).
+The template also distinguishes declarative design instructions from canonical
+runtime assets. A remaining candidate is to clarify the `Work/` definition in
+[dependency-extract](../../../../workflows/dependency-extract/WORKFLOW.md).
+When scoping that candidate, inspect project-setup's workflow, current-project and method
+resources, scope-of-work, project-decomp and software-decomp dependency handoffs,
+bounded-reconciliation, the preparation skill/scaffold contract and the
+[query guide](../../../../tools/deliverables/README.md) for a conflicting placement
+rule. Read PRD R08 and the thesis architecture/glossary layout definitions as
+context. A mention of `Work/` alone does not warrant an edit. Preserve historical
+editions such as Consolidated v9 and source-bound records.
+
+Library Agent 0's next step is to bring the owner a bounded proposal for a later
+increment, or recommend retaining the current wording or deferring it. The owner
+selects the work and approves changed content and any release; this candidate
+commissions no method edits.
+
+## Frozen pdf2md campaign brief
+
+[PILOT_ORCHESTRATOR_BRIEF.md](../../../../tools/pdf2md/PILOT_ORCHESTRATOR_BRIEF.md)
+is frozen campaign evidence. Retain its bytes unchanged; its model literals are
+historical, not current session steering. No successor brief is authorized;
+changing that disposition requires owner authorization.
+Current conversion methods are selected through the
+[workflow guide](../../../../workflows/README.md).
+
 > **Naming (2026-11-05):** "Root" in this record means what is now the
 > Chirality Library (`sgttomas/chirality-library`). Chirality Root is now the
 > separate private `sgttomas/chirality`. See

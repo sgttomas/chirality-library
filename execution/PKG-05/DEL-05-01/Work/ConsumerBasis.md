@@ -16,6 +16,24 @@ For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extens
 
 ## Current undertaking and outputs
 
+### Unreleased content and shared-checkout hold
+
+[PR #31](https://github.com/sgttomas/chirality-library/pull/31), integrated at
+`06d437884cbb7d7af9898e5b764ccda9a9141e49`, corrects the packaged-instruction
+example and canonical runtime asset guidance. It remains unreleased after
+[library-v3.3.0](https://github.com/sgttomas/chirality-library/releases/tag/library-v3.3.0).
+The owner directed it to wait for the next real Library change; no release is
+pending. Library Agent 0 carries it into that change's publication proposal;
+only the owner can authorize release.
+
+The existing shared consumer checkout remains at `library-v3.1.0`
+(`88ab3f4f5f8ec7f7e030279164dbd1a4aa38b514`). Do not advance it without an
+explicit coordinator request or owner direction. This hold applies to that
+consumer checkout, not the Library development worktree or other consumers;
+integration and publication do not update its selection.
+
+### Maintained outputs
+
 The README route and workflow-package guidance help consumers select material,
 obtain its bytes, resources and notices, inspect changes and decide adoption.
 This locality retains the examined bases and their limits. PR #1783 accounts for
