@@ -50,3 +50,10 @@ def test_routing_completeness_runs_on_every_pr_and_zsh_only_when_needed():
     pdf = next(s for s in steps if s.get('name') == 'Install selected PDF dependencies')
     assert pdf['if'] == "steps.selection.outputs.pdf == 'true'"
     assert '.[pdf]' in pdf['run']
+
+
+def test_execution_boundary_runs_even_when_no_behavior_suite_is_selected():
+    steps = workflow('governance-harness.yml')['jobs']['repository-checks']['steps']
+    guard = next(s for s in steps if s.get('name') == 'Declarative execution boundary')
+    assert 'if' not in guard
+    assert guard['run'] == 'python3 tools/validation/check_execution_boundary.py'

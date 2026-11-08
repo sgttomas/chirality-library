@@ -78,6 +78,7 @@ needs:
   when: Historical use under the accepted R18 amendment — examining the original evaluation-tool publication or compatibility evidence
   evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md::Evaluation extension
 code_paths:
+- tools/workflow_runtime/fixtures/app_workflow_reader.rs
 - README.md
 - LICENSE.md
 - docs/alignment-manual/README.md

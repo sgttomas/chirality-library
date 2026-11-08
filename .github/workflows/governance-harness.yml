@@ -42,6 +42,8 @@ jobs:
           else
             python3 tools/run_affected_tests.py --base "$CHECKS_BASE" --dry-run
           fi
+      - name: Declarative execution boundary
+        run: python3 tools/validation/check_execution_boundary.py
       - name: Install harness dependencies
         # pyproject.toml declares the tool dependencies: pyyaml for the
         # validators and deliverables check; the ci extra adds pytest,
