@@ -24,6 +24,7 @@ implementation reveals something that changes it.
 
 Account for any dispatched work and inspect its actual return through the host's
 completion mechanism. A return does not require a separate record.
+Use [reporting guidance](REPORTING.md) for returns and carry it into briefs where needed.
 
 ## SPEC
 

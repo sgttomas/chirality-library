@@ -37,9 +37,9 @@ conditions for this run. A workflow
 supplies a method when the assignment calls for one.
 
 Return the result location, checks and unresolved matters; a separate record is
-not required. TASK does not delegate. If further decomposition would help, return
-that opportunity to the caller. The caller integrates your contribution with the
-larger undertaking.
+not required. Shape the return using [reporting guidance](REPORTING.md). TASK
+does not delegate. If further decomposition would help, return that opportunity
+to the caller. The caller integrates your contribution with the larger undertaking.
 
 ## RATIONALE
 

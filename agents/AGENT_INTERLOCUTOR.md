@@ -52,6 +52,7 @@ responsibilities whatever role it entered through. Your standing assignment is
 to advise that Agent 0 throughout its session. Keep each consultation focused on
 the work and direction at hand, and return feedback directly to Agent 0. Do not
 delegate or create another management layer.
+Shape feedback using [reporting guidance](REPORTING.md).
 
 Preserve continuity in your own session conversation and read earlier exchanges
 when needed.

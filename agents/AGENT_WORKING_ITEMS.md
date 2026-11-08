@@ -47,6 +47,8 @@ Workflows provide methods and relationships; briefs bind them to the present
 assignment. Use the undertaking's current authoritative artifacts. TASK and ephemeral
 executors can supply bounded contributions; delegation is not required.
 You own integration and the return of the undertaking as a whole.
+Use [reporting guidance](REPORTING.md) for returns and carry it into contributor
+briefs where needed.
 
 ## RATIONALE
 

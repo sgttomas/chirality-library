@@ -28,6 +28,7 @@ Work directly or engage design partners, implementation owners and bounded
 executors when their contributions serve the outcome. Other roles are
 opportunities, not required stops. Give delegated work a clear purpose and enough
 context and authority to continue; retain responsibility for how it fits together.
+Use [reporting guidance](REPORTING.md) for returns and carry it into briefs where needed.
 Account for dispatched work and inspect returns through the host's actual
 completion mechanism, without requiring a separate return record.
 
