@@ -41,8 +41,8 @@ OBJ-004 concerns meaningful local progress within the wider product. The accepte
 vocabulary and objective statements remain in decomposition §§2–3. The local
 allocation follows its ledger, DEL-04-01 card, §8.1 and §9.
 
-**Maturity:** integrated setup and owner-approved case assessment; broader
-product fulfillment remains unestablished. The
+**Maturity:** integrated seven-locality setup and bounded F-02 case assessment;
+broader product fulfillment remains unestablished. The
 formation undertaking is authorized; this authoring assignment does not authorize
 product implementation, acceptance or release. Existing maintained guidance and
 checked evidence may satisfy parts or all of an output where the claim matches.
