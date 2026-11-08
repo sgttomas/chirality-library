@@ -8,7 +8,7 @@
 For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
 Earlier case/basis statements below retain their recorded subjects and limits.
 
-Maturity: owner-approved entry revision; product-wide fulfillment remains unestablished. Use the
+Maturity: maintained entry route; product-wide fulfillment remains unestablished. Use the
 adjacent ScopeOfWork for commitments and evaluation; this note holds the source
 assessment, design choices and limits of the current bounded work.
 
@@ -265,39 +265,19 @@ implemented capability. Existing discovery guidance and acceptance criteria rema
 unchanged; public consumer-facing entry changes await an actual supported result.
 
 
-## Top-level operating entry (owner-approved 2026-11-07)
+## Top-level operating entry
 
-The owner directed the shared `init/` → `loop/LOOP_INIT.md` entry shape and
-said “Proceed as recommended.” The owner then approved the exact proposal at
-`e2ff46213b599a24f9cd4bcbbbf8dd78fa1141f6` in
-[PR #10](https://github.com/sgttomas/chirality-library/pull/10): “I approve. Merge.”
-This records acceptance under the preceding entry's content-review rule. Agent 0
-owns the connected change; no consumer repository or selected checkout is updated.
+The maintained `init/` → `loop/LOOP_INIT.md` route separates ongoing operation
+from execution records. The old entry path retains a dated compatibility
+pointer for earlier links. Git and accepted snapshots preserve earlier bases.
 
-The maintained loop separates ongoing operation from execution records. A dated
-pointer preserves the old path through the next edition; removal is a reviewed
-publication-preparation choice. Git and accepted snapshots preserve earlier
-bases without `loop/.archive/`. Pre-1.0 gate narration leaves the operating entry;
-its evidence remains at the existing sources. Current post-publication standing
-and the conversation-selected undertaking remain explicit.
+AGENTS holds authority, ownership, reconciliation, cleanup and record rules;
+the loop holds the work sequence and query syntax. The `Working cycle` heading
+is retained because App v4 DEL-10-01/02 cite the Library's named sections at
+their selected basis. OUT-001 and YAML code pointers identify the maintained
+entry; historical CLM-001 and source examinations retain their inspected paths.
 
-OUT-001's location and YAML code pointers follow the maintained entry. Criteria,
-need conditions and accepted decomposition are unchanged. Historical CLM-001 and
-source examinations retain their inspected paths. The thesis navigation link
-follows the current entry without changing its dated evidence claims.
-
-AGENTS retains authority, ownership, reconciliation, cleanup and record rules;
-the loop holds the work sequence and query syntax. The heading identifies the
-Library, external-project activity labels are removed, and shared coordination
-and Git wording stays stable. The `Working cycle` heading is retained because
-App v4 DEL-10-01/02 cite the Library's named sections at their selected basis;
-their edition-bound evidence is unchanged, and current section navigation stays
-available. New intake guidance establishes the basis, bounds,
-rights and return route for a contribution through Library Agent 0. Publication
-and consumer adoption remain separate acts; R18/A9 and R24 standing is unchanged.
-
-The shared init/loop and AGENTS skeleton may warrant a separate `project-setup`
-proposal; no method change is made here. The interlocutor requested preserving
-the reflection trigger and accepted decomposition; both corrections are applied.
-Instruction/link checks do not establish fresh-reader or host-runtime reliability,
-consumer adoption or product-wide fulfillment.
+The loop's intake guidance establishes the basis, bounds, rights and return
+route for contributions through Library Agent 0. Publication and consumer
+adoption remain separate acts. The shared entry convention is maintained in
+[project-setup's project-entry resource](../../../../workflows/project-setup/resources/project-entry.md).

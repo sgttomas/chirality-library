@@ -73,12 +73,8 @@ Source-reviewed walkthroughs of the candidate distinguish:
 These are constructed walkthroughs of instructions, not enacted host tests,
 successful transfer evidence or App runtime qualification. The App's packaged
 copy at `sgttomas/chirality-app@92649294f2481fa9a10277a2e2c5bd19049a39bd`
-matches the preceding workflow bytes; any adoption and receiving verification
-remain with that project's Agent 0. The owner approved the exact candidate
-`91ae028e0c566508a5e9d608562812a14f3b3f5b` and this standing update in
-[PR #9](https://github.com/sgttomas/chirality-library/pull/9): “Yes I approve #9”.
-This authorizes Library integration, not a release or automatic consumer update.
-Existing ScopeOfWork commitments and declared input conditions remain unchanged.
+matches the preceding workflow bytes; adoption and receiving verification
+remain with that project's Agent 0.
 
 ## Next use and boundaries
 

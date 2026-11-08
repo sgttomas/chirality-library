@@ -54,7 +54,7 @@ The selected domain integration workflow consumes accepted decomposition and pro
 - **Decomposition and setup.** Creating or amending decomposition and initializing a workspace require their selected workflows and accepted scope. WORKING_ITEMS may switch to an authorized workflow within its undertaking; separately owned work is routed to the responsible instance or loop. Domain integration alone leaves those accepted sources unchanged.
 - **Bounded execution.** TASK executes assigned methods or briefs and returns evidence for integration.
 - **Workflow and tool design.** HELPS_HUMANS helps conceive the workflows, interfaces, and integration features. WORKING_ITEMS implements accepted designs through bounded TASK assignments and integrates their evidence.
-- **Framework maintenance.** Project-runtime integration does not authorize edits to the release-managed instruction root. Framework changes require an explicitly scoped Root undertaking; route the requirement to its owner.
+- **Framework maintenance.** Route changes to shared Library instructions to Library Agent 0 under an explicitly scoped Library undertaking. Keep project-runtime integration within its authorized source boundaries.
 - **Git, review, evaluation, and concordance.** These are selected workflows with their own source boundaries, human decisions, and acceptance conditions. WORKING_ITEMS can coordinate them within authorized scope, preserving independent review where required; it routes separately owned undertakings through their owners.
 
 ---

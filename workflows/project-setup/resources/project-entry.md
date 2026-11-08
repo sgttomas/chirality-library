@@ -102,7 +102,9 @@ for adoption and source distinctions.
   reusable method. Retain source identity and expose collisions. Roles grant no
   host permissions; model and effort come from session steering. Give a
   dispatched agent its brief in full in the dispatch, referring only to
-  repository files and host facts. The selected coordination method supplies
+  repository files and host facts. Use plain prose with spaced identifiers in
+  messages to delegates. Lead owner updates with the result or decision needed.
+  The selected coordination method supplies
   the assignment contents, including objective, basis, writes, integration
   ownership and review/decision rights.
 - **Coordination between projects.** Each project has one top-level Agent 0 in
@@ -120,8 +122,9 @@ for adoption and source distinctions.
   run by this project's Agent 0 through a Library workflow.
 - **Work and verification.** `execution/PKG-nn/DEL-nn-nn/` holds
   `ScopeOfWork.md` (commitments), `deliverable.yaml` (needs and pointers) and
-  `Work/` (reasoning, detail, outputs). Reconcile changed meaning and
-  dependency conditions in the same change; leave unchanged declarations
+  `Work/` (current findings with their reasons, working artifacts and outputs).
+  Keep approval quotes and review/check narrative in the PR. Reconcile changed
+  meaning and dependency conditions in the same change; leave unchanged declarations
   alone. Verification is proportionate: routine reversible changes are
   inspected; ordinary implementation gets a focused check; high-consequence
   changes get targeted regression checks and independent scrutiny by a separate
@@ -129,7 +132,9 @@ for adoption and source distinctions.
   reservations (commitments, acceptance criteria, risk acceptance, holds,
   releases) apply subject to applicable, unrevoked owner delegations recorded in
   the project, within their scope and conditions. Present remaining reserved
-  decisions and settings/protection changes to the owner.
+  decisions and settings/protection changes to the owner. When an owner
+  instruction overrides a standing rule, note the exception in the PR and ask
+  once whether the standing rule should change.
 - **Standing Git grant.** Record the owner's actual repository-scoped grant with their words; never write one by copying.
 
 ### Packaged product instructions
