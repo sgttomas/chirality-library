@@ -35,12 +35,11 @@ and `ACCEPTED_MANIFEST.csv` binds the accepted payload and handoff. The payload'
 pre-decision submission status is historical. Its relative links resolve from
 `execution/_Decomposition/PROJECT_DECOMP.md`.
 
-The current undertaking develops and examines obtaining/use and change-inspection
+The initial undertaking developed and examined obtaining/use and change-inspection
 guidance under Agent 0, with a bounded Type 2 contribution exercising the selected
-App reader. Initial setup alone did not establish these results. The linked Work
-binds actual source/consumer revisions, the copied package and comparison evidence.
-The owner approved this content for integration in PR #1784; no product acceptance,
-publication, automatic adoption or permanent contributor appointment is inferred.
+App reader. The linked Work binds actual source/consumer revisions, the copied
+package and comparison evidence. For current obtaining, publication and adoption
+guidance, follow the [consumer route](../../../README.md#obtain-and-use-the-library).
 
 The initial source assessment and continuation conditions are in [Work/ConsumerBasis.md](Work/ConsumerBasis.md). Consumer-local needs are now declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
 
@@ -113,7 +112,7 @@ document review and final qualification have distinct conditions.
 | Historical pins/editions and documented recovery routes | Rely on particular historical content | Identify original pin/path and verify selected bytes before reliance; retain unrelated history without a global audit. CLM-004 supplies the documented starting route. |
 
 - **TBD-001** — Q-04 is bound for the selected capture/declaration/content-identity claim: App `366e7a6656d807142e7bdeda0ccf99c37d7227b1` reader and maintained contracts, with Root `1357d706ea77497903976bf159f3880bea4d1360` coordinated-knowledge-work package, as identified and exercised in Work/ConsumerBasis.md. Other consumer operations or source revisions remain outside that evidence. Independent examination found no blockers; the owner approved the presented content for integration. The test does not imply adoption or full product acceptance.
-- **TBD-002** — Q-05 retains the examined F-02/manual candidate and comparison in Work/ConsumerBasis.md. The broader owner-approved source-delivery subject is the complete library source candidate at `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5`, compared with `547e7d7f833f9bec351f7a034bddd7c1a37db15a`; owning Work records archive identity, notices and selected operation evidence. The owner approved the content and exact archive candidate in PR #1787; no library version tag, publication or release is selected.
+- **TBD-002** — Q-05 retains the examined F-02/manual candidate and comparison in Work/ConsumerBasis.md. The original source-delivery subject was the complete library source candidate at `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5`, compared with `547e7d7f833f9bec351f7a034bddd7c1a37db15a`; owning Work records archive identity, notices and selected operation evidence. Later published editions have their own identified sources on the [releases page](https://github.com/sgttomas/chirality-library/releases). Bind any new publication claim to its actual candidate and prior basis.
 - **TBD-003** — Q-01 retains additional archival disposition of other unselected removals with the owner; `plans/` and `_DomainEngines/` were removed on 2026-11-04 and are preserved in the private `sgttomas/chirality` repository. Q-02 retains bespoke tooling as contingent on a demonstrated gap and actual authorization; no adapter, companion or service is commissioned. These qualifications do not block unaffected guidance or source-preservation work.
 
 ## Production and Verification Method — Praxeology

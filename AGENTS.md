@@ -98,8 +98,8 @@ inspection follow the existing [consumer route](README.md#obtain-and-use-the-lib
 The convention going forward
 uses deliverable localities under `execution/PKG-nn/DEL-nn-nn/`:
 `ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
-holds needs, conditions and code/check pointers; `Work/` holds technical
-reasoning, execution detail, working artifacts and deliverable outputs kept
+holds needs, conditions and code/check pointers; `Work/` holds current findings
+and their reasons, working artifacts and deliverable outputs kept
 locally. Make maturity and issue status explicit. Use
 [document metadata](docs/document-metadata.md) for maintained Markdown headers. Code and other outputs may
 retain their actual product/source homes, referenced from the locality. For
@@ -126,8 +126,10 @@ ownership. Never hand-maintain derived progress or lifecycle state.
 Produce the work and the minimum information needed to review, use or recover
 it. A record needs a concrete consumer, acceptance requirement or recovery need.
 The PR states what changed, why, what was checked and what remains open; quote
-the owner's words for reserved decisions. Decisions edit the text they govern,
-not append registers. No routine receipts, notices, run records or handoff
+the owner's words for reserved decisions. Keep approval quotes and review/check
+narrative in the PR. Lead owner updates with the result or decision needed.
+Use plain prose with spaced identifiers in messages to delegates.
+Decisions edit the text they govern, not append registers. No routine receipts, notices, run records or handoff
 chains. Keep one replaceable recovery note only where continuity needs it.
 
 ## Verification and authority
@@ -147,6 +149,8 @@ explicit holds are reserved for the owner. Present an unresolved reserved choice
 with its consequence. Otherwise continue authorized work; uncertainty alone does
 not require another approval. Keep credentials and private data out of this
 public repository. Required credential checks still apply.
+When an owner instruction overrides a standing rule, note the exception in the
+PR and ask once whether the standing rule should change.
 Model and effort choices come from session steering, not repository doctrine.
 
 ### Standing Git grant
