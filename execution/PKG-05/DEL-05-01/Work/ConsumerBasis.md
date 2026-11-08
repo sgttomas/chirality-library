@@ -58,7 +58,7 @@ examines App's existing embedded package. Its admitted revision is
 The selected Root package's two source files differ from those embedded bytes,
 so that fixture's result cannot qualify the newer input by itself. App has no
 maintained standalone entrypoint accepting an arbitrary external package path.
-The [isolated fixture wrapper](fixtures/app_workflow_reader.rs) exercised the exact
+The [isolated fixture wrapper](../../../../tools/workflow_runtime/fixtures/app_workflow_reader.rs) exercised the exact
 App reader source successfully, as described below. No pinned App input or
 maintained consumer source was overwritten. This binds the selected reader claim;
 it is not qualification of every possible consumer operation or library holding.

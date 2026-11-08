@@ -162,6 +162,7 @@ def test_no_selected_suites_does_not_invoke_pytest(monkeypatch):
     'tools/new-tool/implementation.py', 'new-code/implementation.py',
     '.github/workflows/new-workflow.yml', 'new-prose/unknown.md',
     'docs/new-contract.json',
+    'execution/new-input.bin',
 ])
 def test_unknown_input_anywhere_selects_full_coverage(path):
     selection = _dry_run('--paths', path)
@@ -283,3 +284,45 @@ def test_pdf_dependencies_selected_only_when_pdf_tests_run():
     runner = load_runner()
     assert runner.workflow_outputs(_dry_run('--paths', 'tools/pdf2md/render_table_xlsx.py'))['pdf']
     assert not runner.workflow_outputs(_dry_run('--paths', 'docs/document-metadata.md'))['pdf']
+
+
+def test_pr24_specification_cleanup_selects_structure_without_behavior_suites():
+    # Exact changed paths of cleanup PR #24; actual evidence remains in its PR.
+    selection = _dry_run('--paths',
+        'execution/PKG-05/DEL-05-01/ScopeOfWork.md',
+        'execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md')
+    assert selection['checks'] == []
+    assert selection['repository_checks'] == ['deliverables']
+
+
+@pytest.mark.parametrize('path', [
+    'execution/PKG-05/DEL-05-01/deliverable.yaml',
+    'execution/_Coordination/PUBLICATION_ROADMAP.md',
+    'execution/_Decomposition/checkpoint_snapshots/GROUP1-20261031T231127Z/ACCEPTED_MANIFEST.csv',
+    'execution/_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/candidate-bindings.json',
+    'execution/_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/amendment.patch',
+])
+def test_declarative_and_historical_inputs_keep_structure_without_behavior_suites(path):
+    selection = _dry_run('--paths', path)
+    assert selection['checks'] == []
+    assert selection['repository_checks'] == ['deliverables']
+    assert selection['unmatched_paths'] == []
+
+
+def test_moved_external_reproduction_keeps_conservative_code_coverage():
+    path = 'tools/workflow_runtime/fixtures/app_workflow_reader.rs'
+    assert (REPO_ROOT / path).is_file()
+    selection = _dry_run('--paths', path)
+    assert set(selection['checks']) == set(load_profile()['checks'])
+    assert set(selection['repository_checks']) == {'instructions', 'deliverables'}
+
+
+def test_every_tracked_execution_input_is_classified_without_behavior_cohorts():
+    paths = subprocess.check_output(
+        ['git', 'ls-files', '-z', '--', 'execution/'], cwd=REPO_ROOT, text=True).split('\0')
+    runner = load_runner()
+    for path in filter(None, paths):
+        selection = runner.select_checks([path])
+        assert not selection['unmatched_paths'], path
+        assert selection['checks'] == [], path
+        assert selection['repository_checks'] == ['deliverables'], path

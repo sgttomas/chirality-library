@@ -419,22 +419,23 @@
         "tools/REGISTRY.md",
         "docs/alignment-manual/*.html",
         "docs/human-team-courses/*.html",
-        "docs/alignment-manual/assets/Figure_1_1.png",
-        "execution/_Coordination/PUBLICATION_ROADMAP.md"
+        "docs/alignment-manual/assets/Figure_1_1.png"
       ],
       "checks": []
     },
     {
-      "description": "Retained decomposition and amendment inputs use validation coverage, not product behavior cohorts.",
+      "description": "Retained decomposition and amendment inputs receive structural checks; no behavior test consumes their checked-in bodies.",
       "paths": [
         "execution/_Coordination/LOOP_INIT.md",
+        "execution/_Coordination/PUBLICATION_ROADMAP.md",
         "execution/_Decomposition/*.md",
         "execution/_Decomposition/checkpoint_snapshots/*",
         "execution/_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION.md",
         "execution/_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/*"
       ],
-      "checks": [
-        "validation"
+      "checks": [],
+      "repository_checks": [
+        "deliverables"
       ]
     },
     {
@@ -448,7 +449,7 @@
         "tools/domain_extract/assemble_equipment_master_csv.py",
         "tools/query/*.sh",
         "tools/review/*.py",
-        "execution/PKG-05/DEL-05-01/Work/fixtures/app_workflow_reader.rs"
+        "tools/workflow_runtime/fixtures/app_workflow_reader.rs"
       ],
       "checks": [
         "coordination",
