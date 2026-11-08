@@ -50,8 +50,6 @@ records the R18 holding transfer and current availability.
 
 ## Coordination between projects
 
-Cross-project arrangements (project routes, the merge rule and aligned CI standard, delegations in force and pending owner decisions) are indexed in Root's [execution/_Coordination/CROSS_PROJECT.md](https://github.com/sgttomas/chirality/blob/main/execution/_Coordination/CROSS_PROJECT.md) (`sgttomas/chirality`, private). If that repository isn't readable from this session, ask the cross-project coordinator session by T3 message.
-
 The Chirality Library (`sgttomas/chirality-library`), Chirality Root (private
 `sgttomas/chirality`), App v4 (`sgttomas/chirality-app`) and SWBPIPE
 (`sgttomas/SWBPIPE`) each have one top-level Agent 0, working in its own
@@ -103,9 +101,10 @@ inspection follow the existing [consumer route](README.md#obtain-and-use-the-lib
 The convention going forward
 uses deliverable localities under `execution/PKG-nn/DEL-nn-nn/`:
 `ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
-holds needs, conditions and code/check pointers; `Work/` holds current findings
-and their reasons, working artifacts and deliverable outputs kept
-locally.
+holds needs, conditions and code/check pointers.
+
+`Work/` holds the current account: findings with their reasons, working artifacts and outputs. Revise it in place rather than appending history; never rewrite fidelity copies, frozen snapshots or accepted evidence. How the work went (approval quotes, review rounds, retries, run IDs, check results) belongs in the PR description, which states what changed, why, what was checked and what remains open. Cite SHAs or hashes only where they pin something a result relies on. State a fact once and link to it.
+
 Code that runs (implementation, tests, generators, harnesses) lives outside `execution/`, in the project's code locations, and deliverables link to it; `Work/` may keep documentation-only examples that are never run.
 Make maturity and issue status explicit. Use
 [document metadata](docs/document-metadata.md) for maintained Markdown headers. Code and other outputs may
@@ -133,9 +132,7 @@ ownership. Never hand-maintain derived progress or lifecycle state.
 
 Produce the work and the minimum information needed to review, use or recover
 it. A record needs a concrete consumer, acceptance requirement or recovery need.
-The PR states what changed, why, what was checked and what remains open; quote
-the owner's words for reserved decisions. Keep approval quotes and review/check
-narrative in the PR. Lead owner updates with the result or decision needed.
+Quote the owner's words for reserved decisions. Lead owner updates with the result or decision needed.
 Use plain prose with spaced identifiers in messages to delegates.
 Decisions edit the text they govern, not append registers. No routine receipts, notices, run records or handoff
 chains. Keep one replaceable recovery note only where continuity needs it.

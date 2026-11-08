@@ -121,9 +121,11 @@ for adoption and source distinctions.
   for publication. Routine adherence checks of this project's deliverables are
   run by this project's Agent 0 through a Library workflow.
 - **Work and verification.** `execution/PKG-nn/DEL-nn-nn/` holds
-  `ScopeOfWork.md` (commitments), `deliverable.yaml` (needs and pointers) and
-  `Work/` (current findings with their reasons, working artifacts and outputs).
-  Keep approval quotes and review/check narrative in the PR. Reconcile changed
+  `ScopeOfWork.md` (commitments) and `deliverable.yaml` (needs and pointers).
+
+  `Work/` holds the current account: findings with their reasons, working artifacts and outputs. Revise it in place rather than appending history; never rewrite fidelity copies, frozen snapshots or accepted evidence. How the work went (approval quotes, review rounds, retries, run IDs, check results) belongs in the PR description, which states what changed, why, what was checked and what remains open. Cite SHAs or hashes only where they pin something a result relies on. State a fact once and link to it.
+
+  Reconcile changed
   meaning and dependency conditions in the same change; leave unchanged declarations
   alone. Verification is proportionate: routine reversible changes are
   inspected; ordinary implementation gets a focused check; high-consequence
