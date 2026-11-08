@@ -50,6 +50,8 @@ records the R18 holding transfer and current availability.
 
 ## Coordination between projects
 
+Cross-project arrangements (project routes, the merge rule and aligned CI standard, delegations in force and pending owner decisions) are indexed in Root's [execution/_Coordination/CROSS_PROJECT.md](https://github.com/sgttomas/chirality/blob/main/execution/_Coordination/CROSS_PROJECT.md) (`sgttomas/chirality`, private). If that repository isn't readable from this session, ask the cross-project coordinator session by T3 message.
+
 The Chirality Library (`sgttomas/chirality-library`), Chirality Root (private
 `sgttomas/chirality`), App v4 (`sgttomas/chirality-app`) and SWBPIPE
 (`sgttomas/SWBPIPE`) each have one top-level Agent 0, working in its own
