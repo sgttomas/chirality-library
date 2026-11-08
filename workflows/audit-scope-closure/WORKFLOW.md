@@ -1,6 +1,9 @@
 ---
 name: audit-scope-closure
 description: Follow an accepted amendment through implementation, reruns, and remaining closure obligations.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # audit-scope-closure

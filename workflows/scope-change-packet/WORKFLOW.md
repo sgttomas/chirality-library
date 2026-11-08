@@ -1,6 +1,9 @@
 ---
 name: scope-change-packet
 description: 'Produce a bounded PKG-00 Scope Change Consumable Packet for later human-initiated WORKING_ITEMS (workflow: scope-change) intake.'
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — scope-change-packet

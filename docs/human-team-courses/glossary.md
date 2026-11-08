@@ -1,3 +1,10 @@
+---
+name: human-team-courses-glossary
+description: Terms for Project Practice.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Terms for Project Practice
 
 Use these meanings within the courses. A governing law, contract, or standard can define a term differently; use that definition where it applies.

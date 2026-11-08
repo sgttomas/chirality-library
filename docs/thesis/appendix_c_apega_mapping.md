@@ -1,3 +1,10 @@
+---
+name: thesis-appendix-c-apega-mapping
+description: Appendix C — APEGA Regulatory Mapping.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Appendix C — APEGA Regulatory Mapping
 
 This appendix retains the professional-practice topics used by the thesis's

@@ -1,6 +1,9 @@
 ---
 name: audit-decomp
 description: Reconcile accepted decomposition with materialized scope and current derivative evidence.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # audit-decomp

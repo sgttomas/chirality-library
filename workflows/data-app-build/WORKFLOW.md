@@ -1,6 +1,9 @@
 ---
 name: data-app-build
 description: Build an interactive data application with an agent from an accepted specification closure only, decide conformance with a test suite generated from the specification before the build, examine the result independently, and present the built application for the owner's acceptance without deploying it.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Build a data application from its specification
 

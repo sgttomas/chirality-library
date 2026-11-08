@@ -1,3 +1,10 @@
+---
+name: chirality-library-operating-entry
+description: Locate and carry selected Library maintenance work.
+metadata:
+  kind: instruction
+  surface: operating-entry
+---
 # Chirality Library development entry
 
 The Chirality Library (`sgttomas/chirality-library`) maintains the shared roles,

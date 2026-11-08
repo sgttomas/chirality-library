@@ -1,6 +1,9 @@
 ---
 name: dependency-extract
 description: Author or refresh a deliverable's consumer-local needs in deliverable.yaml from its scope, work material, sources and intended use.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Declare local needs
 

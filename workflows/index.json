@@ -285,6 +285,10 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -328,6 +332,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -360,6 +368,10 @@
         "compatibleRoles": [
           "TASK"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -403,6 +415,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -446,6 +462,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -489,6 +509,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -533,6 +557,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -561,6 +589,10 @@
           "label": "Review & check",
           "order": 5
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -590,6 +622,10 @@
           "label": "Plan & organize",
           "order": 0
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -630,6 +666,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -659,6 +699,10 @@
           "label": "Plan & organize",
           "order": 0
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -682,6 +726,10 @@
         "category": "core",
         "tier": "primary",
         "order": 0
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -723,6 +771,10 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -780,6 +832,10 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -820,6 +876,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -860,6 +920,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -905,6 +969,10 @@
             "python3 tools/review/check_body_thinness.py:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -950,6 +1018,10 @@
             "python3 tools/review/check_body_thinness.py:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -993,6 +1065,10 @@
             "python3 tools/publication/validate_source_supersession.py:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1031,7 +1107,9 @@
       },
       "metadata": {
         "category": "Documents and drawings",
-        "applicability": "Develop and publish one Design Basis Memorandum from accepted domain state."
+        "applicability": "Develop and publish one Design Basis Memorandum from accepted domain state.",
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1072,6 +1150,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1111,6 +1193,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1140,6 +1226,10 @@
           "label": "Plan & organize",
           "order": 0
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1179,6 +1269,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1224,6 +1318,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1263,6 +1361,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1308,6 +1410,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1351,6 +1457,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1391,6 +1501,10 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1430,6 +1544,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1469,6 +1587,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1508,7 +1630,9 @@
       },
       "metadata": {
         "category": "Documents and drawings",
-        "applicability": "Extract target-specific structured evidence from engineering drawing sets."
+        "applicability": "Extract target-specific structured evidence from engineering drawing sets.",
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1549,6 +1673,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1589,6 +1717,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1624,6 +1756,10 @@
         "compatibleRoles": [
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1664,6 +1800,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1704,6 +1844,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1744,6 +1888,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1784,6 +1932,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1826,6 +1978,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1872,6 +2028,10 @@
             "bash tools/scaffolding/update_latest_pointer.sh:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1920,6 +2080,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1963,6 +2127,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -1992,6 +2160,10 @@
           "label": "Plan & organize",
           "order": 0
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2031,6 +2203,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2070,6 +2246,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2109,6 +2289,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2154,6 +2338,10 @@
             "python3 tools/reporting/clean_pdf2md_output.py:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2194,6 +2382,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2232,7 +2424,9 @@
       },
       "metadata": {
         "category": "Documents and drawings",
-        "applicability": "Convert a PDF into recoverable Markdown and referenced assets through page-bounded work."
+        "applicability": "Convert a PDF into recoverable Markdown and referenced assets through page-bounded work.",
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2269,6 +2463,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2305,6 +2503,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2345,6 +2547,10 @@
         "tools": {
           "commands": []
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2374,6 +2580,10 @@
         "compatibleRoles": [
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2418,6 +2628,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2463,7 +2677,9 @@
       },
       "metadata": {
         "category": "Review and validation",
-        "applicability": "Reconcile claims, evidence, lifecycle, and unfulfilled obligations (legacy Remaining only where pinned) across a deliverable corpus."
+        "applicability": "Reconcile claims, evidence, lifecycle, and unfulfilled obligations (legacy Remaining only where pinned) across a deliverable corpus.",
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2500,6 +2716,10 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2548,6 +2768,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2578,6 +2802,10 @@
           "label": "Research & understand",
           "order": 1
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2615,7 +2843,9 @@
       },
       "metadata": {
         "category": "Review and validation",
-        "applicability": "Review evidence and obtain human disposition for a deliverable lifecycle transition."
+        "applicability": "Review evidence and obtain human disposition for a deliverable lifecycle transition.",
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2657,6 +2887,10 @@
             "ack_agent_update"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2696,6 +2930,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2748,6 +2986,10 @@
             "python3 tools/scope_of_work/derive_review_checklist.py:{scope_path}/**"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2787,6 +3029,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2826,6 +3072,10 @@
           "WORKING_ITEMS",
           "HELPS_HUMANS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2855,6 +3105,10 @@
         "compatibleRoles": [
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2890,6 +3144,10 @@
           "HELPS_HUMANS",
           "WORKING_ITEMS"
         ]
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2935,6 +3193,10 @@
             "python3 tools/software_workflow/select_affected_checks.py:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     },
     {
@@ -2980,6 +3242,10 @@
             "python3 tools/software_workflow/select_affected_checks.py:*"
           ]
         }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
       }
     }
   ],

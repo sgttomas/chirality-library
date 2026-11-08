@@ -1,7 +1,9 @@
 ---
 name: estimate-snapshot
-description: Generate an immutable, provenance-first estimate snapshot for a bounded scope of deliverables and/or packages, writing quarantined
-  artifacts under the estimating tool root. Use for automated estimate runs driven by a validated BASIS_OF_ESTIMATE enum and local pricing sources.
+description: Generate an immutable, provenance-first estimate snapshot for a bounded scope of deliverables and/or packages, writing quarantined artifacts under the estimating tool root. Use for automated estimate runs driven by a validated BASIS_OF_ESTIMATE enum and local pricing sources.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — estimate-snapshot

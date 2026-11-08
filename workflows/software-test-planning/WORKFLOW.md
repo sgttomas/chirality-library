@@ -1,7 +1,9 @@
 ---
 name: software-test-planning
-description: Derive a risk-based verification plan and affected registered checks for a bounded software change. Use before implementation, at
-  fan-in, or after a defect when test selection, evidence sufficiency, negative cases, or acceptance gates must be made explicit.
+description: Derive a risk-based verification plan and affected registered checks for a bounded software change. Use before implementation, at fan-in, or after a defect when test selection, evidence sufficiency, negative cases, or acceptance gates must be made explicit.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # Software test planning

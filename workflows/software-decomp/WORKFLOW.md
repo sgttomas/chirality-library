@@ -1,6 +1,9 @@
 ---
 name: software-decomp
 description: Organize software intent into cohesive work domains and implementable bounded contexts.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # software-decomp

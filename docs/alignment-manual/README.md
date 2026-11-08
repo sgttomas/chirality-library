@@ -1,3 +1,10 @@
+---
+name: alignment-manual-readme
+description: Books on Chirality and project management.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Books on Chirality and project management
 
 These publications develop the reasoning and experience behind Chirality's

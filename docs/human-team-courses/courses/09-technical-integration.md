@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-09-technical-integration
+description: 'Course 09: Project Engineering and Technical Integration.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 09: Project Engineering and Technical Integration
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

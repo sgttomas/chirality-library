@@ -1,7 +1,9 @@
 ---
 name: lens-register
-description: Generate a matrix-organized, coverage-complete semantic lensing register (_SEMANTIC_LENSING.md) from _SEMANTIC.md + production documents.
-  Setup-pipeline companion to the interactive semantic-lensing workflow.
+description: Generate a matrix-organized, coverage-complete semantic lensing register (_SEMANTIC_LENSING.md) from _SEMANTIC.md + production documents. Setup-pipeline companion to the interactive semantic-lensing workflow.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — lens-register

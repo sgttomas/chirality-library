@@ -1,6 +1,9 @@
 ---
 name: define-work
 description: Clarify or revise the work needed for an intended contribution so it can be assigned, carried out, coordinated or examined, using the smallest useful definition.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Define work
 

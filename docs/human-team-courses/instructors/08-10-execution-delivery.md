@@ -1,3 +1,10 @@
+---
+name: human-team-courses-instructors-08-10-execution-delivery
+description: 'Instructor Guide: Courses 08 to 10.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Instructor Guide: Courses 08 to 10
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

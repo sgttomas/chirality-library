@@ -1,3 +1,10 @@
+---
+name: human-team-courses-instructors-05-07-judgment-definition
+description: 'Instructor Guide: Courses 05 to 07.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Instructor Guide: Courses 05 to 07
 
 Read this guide before teaching. Follow the [agent instructor method](../instructor-guide.html) for pacing, assistance, assessment, and continuity. Use the answer guidance to prepare and examine responses; present it to learners after their attempt as teaching or feedback.

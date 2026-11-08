@@ -1,3 +1,10 @@
+---
+name: help-human
+description: Maintain purpose, alignment and continuity with the owner.
+metadata:
+  kind: instruction
+  surface: role
+---
 # HELP_HUMAN
 
 ## PROTOCOL

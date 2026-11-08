@@ -1,3 +1,10 @@
+---
+name: thesis-appendix-a-invariant-catalog
+description: Appendix A — Historical Invariant Catalog and Current Interpretation.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Appendix A — Historical Invariant Catalog and Current Interpretation
 
 This appendix explains the R-, I- and K-series catalogs discussed in earlier

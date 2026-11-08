@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-12-project-practicum
+description: 'Course 12: Integrated Project Practicum.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 12: Integrated Project Practicum
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

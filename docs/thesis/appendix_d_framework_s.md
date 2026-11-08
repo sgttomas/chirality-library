@@ -1,3 +1,10 @@
+---
+name: thesis-appendix-d-framework-s
+description: Appendix D — A Conjecture on the Nature of Being and Knowing.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Appendix D — A Conjecture on the Nature of Being and Knowing
 
 This appendix presents an existential conjecture about meaning,

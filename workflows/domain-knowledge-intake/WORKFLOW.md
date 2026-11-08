@@ -1,6 +1,9 @@
 ---
 name: domain-knowledge-intake
 description: Turn domain sources and expert input into an identified, warranted domain knowledge pack (criteria, methods and their applicability, parameter tables, assumptions, definitions and caveats), reconciled, examined by a competent domain reviewer and accepted for a stated scope of use by data-application specifications.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Take in domain knowledge for data applications
 

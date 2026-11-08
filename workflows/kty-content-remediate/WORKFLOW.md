@@ -1,7 +1,9 @@
 ---
 name: kty-content-remediate
-description: Archive, tombstone, verify, and emit disposition evidence for DOMAIN KTY content after an approved scope change without rewriting
-  active Knowledge Artifact content.
+description: Archive, tombstone, verify, and emit disposition evidence for DOMAIN KTY content after an approved scope change without rewriting active Knowledge Artifact content.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW - kty-content-remediate

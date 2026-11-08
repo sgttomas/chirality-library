@@ -1,3 +1,10 @@
+---
+name: thesis-03-philosophical-framework
+description: Chapter 3 — Philosophical Framework.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 3 — Philosophical Framework
 
 ---

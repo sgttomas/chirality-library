@@ -1,6 +1,9 @@
 ---
 name: audit-epistemic
 description: Inspect what claims assert, what warrants them, and what uncertainty or conflict affects reliance.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # audit-epistemic

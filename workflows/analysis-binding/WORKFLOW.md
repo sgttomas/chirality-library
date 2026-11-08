@@ -1,6 +1,9 @@
 ---
 name: analysis-binding
 description: Bind each computation a data application needs to a domain method and a versioned implementation with a typed interface, grounded parameter values, preconditions, explicit result semantics and known-answer tests, or specify the missing component as new work, with independent examination of numerical meaning.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Bind analyses to methods and implementations
 

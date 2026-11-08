@@ -1,6 +1,9 @@
 ---
 name: audit-governance
 description: Compare governance rules, references, terminology, and authority claims with their evidence.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # audit-governance

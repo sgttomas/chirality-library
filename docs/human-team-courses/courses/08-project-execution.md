@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-08-project-execution
+description: 'Course 08: Planning and Managing Project Execution.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 08: Planning and Managing Project Execution
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

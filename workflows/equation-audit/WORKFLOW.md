@@ -1,6 +1,9 @@
 ---
 name: equation-audit
-description: "Review extracted display equations with the human, interpret correction notes, apply validated fixes, backcheck changes, and close an immutable audit snapshot."
+description: Review extracted display equations with the human, interpret correction notes, apply validated fixes, backcheck changes, and close an immutable audit snapshot.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # Review and correct display equations

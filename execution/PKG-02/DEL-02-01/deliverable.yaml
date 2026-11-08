@@ -49,6 +49,8 @@ needs:
   when: Connecting publication/update operations or repeating a named compatibility claim
   evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
 code_paths:
+- docs/document-metadata.md
+- docs/document-metadata.schema.json
 - AGENTS.md
 - agents/**
 - tools/workflow_runtime/resolve_workflow.py

@@ -1,6 +1,9 @@
 ---
 name: dbm-section-publish
-description: "Publish exactly one rewritten DBM section from approved mapped DOMAIN inputs and emit fixed QA artifacts."
+description: Publish exactly one rewritten DBM section from approved mapped DOMAIN inputs and emit fixed QA artifacts.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # dbm-section-publish

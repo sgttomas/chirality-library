@@ -1,3 +1,10 @@
+---
+name: thesis-00-front-matter
+description: Purpose, Participation, and Judgment.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Purpose, Participation, and Judgment
 
 **The Chirality thesis: shared methods and accountable work**

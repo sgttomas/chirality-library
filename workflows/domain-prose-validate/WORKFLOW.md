@@ -1,7 +1,9 @@
 ---
 name: domain-prose-validate
-description: Independently re-extract one rasterized PDF page's prose, equations, and asset placeholders for downstream extraction-reproducibility
-  comparison (Gate 1.5-P Stage 1).
+description: Independently re-extract one rasterized PDF page's prose, equations, and asset placeholders for downstream extraction-reproducibility comparison (Gate 1.5-P Stage 1).
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW - domain-prose-validate

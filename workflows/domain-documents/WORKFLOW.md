@@ -1,7 +1,9 @@
 ---
 name: domain-documents
-description: Draft knowledge-artifact document set for a DOMAIN Knowledge Type deliverable. Produces KA-* files per the variable artifact schema.
-  DOMAIN pipeline only.
+description: Draft knowledge-artifact document set for a DOMAIN Knowledge Type deliverable. Produces KA-* files per the variable artifact schema. DOMAIN pipeline only.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — domain-documents

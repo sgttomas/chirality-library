@@ -1,6 +1,9 @@
 ---
 name: dbm-concordance-verify
-description: "Review semantic consistency across an authored DBM's sections, using current text and available review evidence; supports publication packages and standalone drafts."
+description: Review semantic consistency across an authored DBM's sections, using current text and available review evidence; supports publication packages and standalone drafts.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # dbm-concordance-verify

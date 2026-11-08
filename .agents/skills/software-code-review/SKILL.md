@@ -1,6 +1,9 @@
 ---
 name: software-code-review
 description: Review a bounded software diff for correctness, regressions, scope compliance, contracts, security, maintainability, and verification evidence before implementation fan-in.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Software Code Review

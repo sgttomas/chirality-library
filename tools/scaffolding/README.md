@@ -1,3 +1,10 @@
+---
+name: tools-scaffolding-guide
+description: Scaffolding tools.
+metadata:
+  kind: instruction
+  surface: tool
+---
 # Scaffolding tools
 
 ## Guard reconciliation (write_status.sh vs transition.ts)

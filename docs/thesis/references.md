@@ -1,3 +1,10 @@
+---
+name: thesis-references
+description: References.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # References
 
 References are organized by category. The original bibliographic verification pass was applied on 2026-07-02. The October revision adds identified engineering reports and research, and corrects the NSPE revision date against its official page. The October 30 evidence review also corrects the author metadata of the Newcomb–Ochoa and Hohma et al. papers and the authors and venue of Perboli et al. in Chapter 2 against publisher records. This is not an exhaustive currency review of every source. Symbolic keys (`[Key]`) are citation targets for `[CITE:Key]` markers; every chapter, including Chapter 2 (whose former section-local numbered lists were merged here on 2026-11-04), cites this list. The four 2026 agent-engineering and preprint sources were rechecked against their publisher pages on 2026-11-04. A citation supports the associated bounded claim, not every inference drawn in this thesis.

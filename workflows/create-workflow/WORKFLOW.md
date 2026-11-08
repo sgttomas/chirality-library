@@ -1,6 +1,9 @@
 ---
 name: create-workflow
 description: Create or revise a reusable Chirality workflow through conversation, package it in the intended library, and verify discovery and readiness for reuse.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Create a workflow
 

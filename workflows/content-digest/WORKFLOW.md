@@ -1,6 +1,9 @@
 ---
 name: content-digest
-description: "Read one deliverable folder and produce a structured 7-section content digest summarizing identity, scope, document kit, dependencies, references, semantic framework, and quality observations."
+description: Read one deliverable folder and produce a structured 7-section content digest summarizing identity, scope, document kit, dependencies, references, semantic framework, and quality observations.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # content-digest

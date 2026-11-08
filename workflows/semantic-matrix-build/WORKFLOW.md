@@ -1,7 +1,9 @@
 ---
 name: semantic-matrix-build
-description: Generate one deliverable-local semantic lens (_SEMANTIC.md) by adopting canonical matrices A and B and deriving C, F, D, K, G, X,
-  T, and E with explicit semantic-algebra working.
+description: Generate one deliverable-local semantic lens (_SEMANTIC.md) by adopting canonical matrices A and B and deriving C, F, D, K, G, X, T, and E with explicit semantic-algebra working.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — semantic-matrix-build

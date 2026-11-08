@@ -1,6 +1,9 @@
 ---
 name: pdf2md-page
-description: "LEGACY Markdown-only page transcription for explicitly selected historical PDF resume contracts; new conversion runs use pdf2md-page-full."
+description: LEGACY Markdown-only page transcription for explicitly selected historical PDF resume contracts; new conversion runs use pdf2md-page-full.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # pdf2md-page

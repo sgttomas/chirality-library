@@ -1,3 +1,10 @@
+---
+name: task
+description: Execute one bounded assignment without delegation.
+metadata:
+  kind: instruction
+  surface: role
+---
 # TASK
 
 ## PROTOCOL

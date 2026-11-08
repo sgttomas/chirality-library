@@ -1,7 +1,9 @@
 ---
 name: decomposition-package-review
-description: Review one DOMAIN decomposition package as a closed system for derivative parity, active snapshot completeness, and handoff-state
-  readiness. Use when a root-level remediation or scope-change run needs package-level closure evidence before downstream work or phase advancement.
+description: Review one DOMAIN decomposition package as a closed system for derivative parity, active snapshot completeness, and handoff-state readiness. Use when a root-level remediation or scope-change run needs package-level closure evidence before downstream work or phase advancement.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — decomposition-package-review

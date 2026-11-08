@@ -1,7 +1,9 @@
 ---
 name: scope-of-work
-description: Initialize, convert, revise under an accepted scope-change amendment, validate, and independently verify one objective-anchored
-  PROJECT/SOFTWARE ScopeOfWork.md under the active SOW_V1 transition contract. Do not use for DOMAIN/KTY or independent schemas, lifecycle changes, or unauthorized corpus conversion.
+description: Initialize, convert, revise under an accepted scope-change amendment, validate, and independently verify one objective-anchored PROJECT/SOFTWARE ScopeOfWork.md under the active SOW_V1 transition contract. Do not use for DOMAIN/KTY or independent schemas, lifecycle changes, or unauthorized corpus conversion.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — scope-of-work

@@ -1,7 +1,9 @@
 ---
 name: software-repository-reconnaissance
-description: Map a software repository's manifests, architecture, test surfaces, commands, ownership boundaries, and risks before planning or
-  implementation. Use for unfamiliar repositories, novel stacks, package activation, or before sealing a software work brief.
+description: Map a software repository's manifests, architecture, test surfaces, commands, ownership boundaries, and risks before planning or implementation. Use for unfamiliar repositories, novel stacks, package activation, or before sealing a software work brief.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # Software repository reconnaissance

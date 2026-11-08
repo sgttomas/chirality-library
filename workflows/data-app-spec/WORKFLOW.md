@@ -1,6 +1,9 @@
 ---
 name: data-app-spec
 description: Develop a declarative specification for an interactive data application with the human, from new intent through a design record or from an existing app; bind its domain knowledge and analyses, validate and examine it, obtain acceptance of the identified specification closure, and hand it to an agent build or to software-decomp as its accepted basis.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Specify an interactive data application
 

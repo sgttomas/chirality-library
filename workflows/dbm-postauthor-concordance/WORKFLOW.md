@@ -1,6 +1,9 @@
 ---
 name: dbm-postauthor-concordance
-description: "Post-authoring evidence bundle and review for pipeline-produced DBM sections — build review substrate, prepare candidate findings for human readiness judgment."
+description: Post-authoring evidence bundle and review for pipeline-produced DBM sections — build review substrate, prepare candidate findings for human readiness judgment.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # dbm-postauthor-concordance

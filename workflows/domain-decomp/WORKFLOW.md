@@ -1,6 +1,9 @@
 ---
 name: domain-decomp
 description: Develop a coherent domain ontology while preserving source meaning, identity, and disagreement.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # domain-decomp

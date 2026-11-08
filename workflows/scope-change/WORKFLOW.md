@@ -1,6 +1,9 @@
 ---
 name: scope-change
 description: Amend accepted decomposition and propagate the consequences through their owning workflows.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # scope-change

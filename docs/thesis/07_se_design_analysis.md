@@ -1,3 +1,10 @@
+---
+name: thesis-07-se-design-analysis
+description: Chapter 7 — Systems Engineering Design Analysis.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 7 — Systems Engineering Design Analysis
 
 ## 7.1 Introduction and Method

@@ -1,3 +1,10 @@
+---
+name: human-team-courses-case-study
+description: Northbank Water Transfer Upgrade.
+metadata:
+  kind: example
+  surface: reference
+---
 # Northbank Water Transfer Upgrade
 
 Northbank is a fictional industrial site that transfers non-potable water between an existing tank and a distribution header.

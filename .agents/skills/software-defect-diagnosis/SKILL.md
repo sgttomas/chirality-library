@@ -1,6 +1,9 @@
 ---
 name: software-defect-diagnosis
 description: Reproduce, isolate, and explain a bounded software defect before repair. Use for failing tests, regressions, runtime errors, performance anomalies, or conflicting symptom reports.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Software Defect Diagnosis

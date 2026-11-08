@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-11-complex-projects
+description: 'Course 11: Leading Complex Projects.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 11: Leading Complex Projects
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

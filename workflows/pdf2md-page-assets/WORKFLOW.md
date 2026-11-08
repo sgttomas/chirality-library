@@ -1,6 +1,9 @@
 ---
 name: pdf2md-page-assets
-description: "LEGACY separate asset discovery from a PDF page image and Markdown sidecar, retained for historical resume contracts; new conversion runs use pdf2md-page-full."
+description: LEGACY separate asset discovery from a PDF page image and Markdown sidecar, retained for historical resume contracts; new conversion runs use pdf2md-page-full.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # pdf2md-page-assets

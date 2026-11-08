@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-07-project-definition
+description: 'Course 07: Defining an Engineering Project.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 07: Defining an Engineering Project
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

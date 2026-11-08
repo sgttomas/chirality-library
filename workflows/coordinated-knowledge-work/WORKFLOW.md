@@ -1,6 +1,9 @@
 ---
 name: coordinated-knowledge-work
 description: Use when related contributions must become one usable knowledge-work result and the team needs sustained ownership, independent assurance, shared changes, and completion.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Coordinated knowledge work
 

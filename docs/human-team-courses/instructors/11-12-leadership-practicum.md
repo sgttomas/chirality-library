@@ -1,3 +1,10 @@
+---
+name: human-team-courses-instructors-11-12-leadership-practicum
+description: 'Instructor Guide: Courses 11 and 12.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Instructor Guide: Courses 11 and 12
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

@@ -1,6 +1,9 @@
 ---
 name: construct-local-work-graph
 description: Derive the relevant dependency neighbourhood and plan a route from the user's intended result to usable work.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Construct a local work graph
 

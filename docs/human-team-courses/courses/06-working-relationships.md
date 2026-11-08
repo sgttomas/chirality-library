@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-06-working-relationships
+description: 'Course 06: Communication and Working Relationships.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 06: Communication and Working Relationships
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

@@ -1,3 +1,10 @@
+---
+name: thesis-06-professional-practice
+description: Chapter 6 — Professional Practice Integration.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 6 — Professional Practice Integration
 
 ---

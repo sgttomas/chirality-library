@@ -1,3 +1,10 @@
+---
+name: chirality-library-standing
+description: Carry Library work under its standing authority and boundaries.
+metadata:
+  kind: instruction
+  surface: standing
+---
 # Chirality Library repository instructions
 
 This repository owns the Chirality Library: the shared roles, workflows, tools
@@ -93,7 +100,8 @@ uses deliverable localities under `execution/PKG-nn/DEL-nn-nn/`:
 `ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
 holds needs, conditions and code/check pointers; `Work/` holds technical
 reasoning, execution detail, working artifacts and deliverable outputs kept
-locally. Make maturity and issue status explicit. Code and other outputs may
+locally. Make maturity and issue status explicit. Use
+[document metadata](docs/document-metadata.md) for maintained Markdown headers. Code and other outputs may
 retain their actual product/source homes, referenced from the locality. For
 agent instructions bundled with an application, maintain the source in the named
 deliverable's `Work/`, generate the shipped copy from it, and list both in

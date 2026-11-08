@@ -25,6 +25,10 @@ import argparse
 import json
 import re
 import sys
+
+import yaml
+
+from build_workflow_index import _frontmatter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -133,7 +137,14 @@ def validate_registry(repo_root: Path) -> list[Finding]:
         headings = re.findall(r'^## (.+)$', text, re.MULTILINE)
         if headings != ['PROTOCOL', 'SPEC', 'STRUCTURE', 'RATIONALE']:
             error('ROLE_SECTIONS', f'{name}: requires exactly four ordered sections')
-        if text.startswith('---') or 'AGENT_TYPE' in text or '[[BEGIN:' in text:
+        try:
+            metadata = _frontmatter(instruction)
+            expected_name = name.lower().replace('_', '-')
+            if metadata['name'] != expected_name or metadata.get('metadata', {}).get('kind') != 'instruction' or metadata.get('metadata', {}).get('surface') != 'role':
+                error('ROLE_METADATA', f'{name}: expected named instruction/role frontmatter')
+        except (ValueError, TypeError, AttributeError, yaml.YAMLError) as exc:
+            error('ROLE_METADATA', f'{name}: {exc}')
+        if 'AGENT_TYPE' in text or '[[BEGIN:' in text:
             error('ROLE_PROSE_METADATA', f'{name}: obsolete instruction envelope')
     actual = {p.name for p in (repo_root/'agents').glob('AGENT_*.md')}
     if actual != {f'AGENT_{name}.md' for name in expected}:

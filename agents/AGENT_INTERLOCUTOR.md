@@ -1,3 +1,10 @@
+---
+name: interlocutor
+description: Advise one Agent 0 through a continuing, opt-in interlocutor session.
+metadata:
+  kind: instruction
+  surface: role
+---
 # INTERLOCUTOR
 
 ## PROTOCOL

@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-03-information-evidence
+description: 'Course 03: Information Research and Evidence.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 03: Information Research and Evidence
 
 [Series](../index.html) · [Case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

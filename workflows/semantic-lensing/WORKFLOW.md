@@ -1,7 +1,9 @@
 ---
 name: semantic-lensing
-description: Apply semantic lensing analysis to deliverable documents using _SEMANTIC.md matrices. Treats lensing entries as a candidate worklist,
-  tags proposals with matrix coordinates, and optionally updates lens artifacts.
+description: Apply semantic lensing analysis to deliverable documents using _SEMANTIC.md matrices. Treats lensing entries as a candidate worklist, tags proposals with matrix coordinates, and optionally updates lens artifacts.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — semantic-lensing

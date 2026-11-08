@@ -1,3 +1,10 @@
+---
+name: thesis-conclusion
+description: Work that can improve its own means.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Work that can improve its own means
 
 **A conclusion to the Chirality thesis**

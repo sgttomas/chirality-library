@@ -1,6 +1,9 @@
 ---
 name: preparation
 description: Materialize accepted scope without overwriting work. Current PROJECT/SOFTWARE setup creates flat localities and native needs; retained domain/legacy layouts require their applicable contract. No production drafting or lifecycle advancement.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Preparation

@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-05-reasoning-judgment
+description: 'Course 05: Reasoning, Uncertainty, and Professional Judgment.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 05: Reasoning, Uncertainty, and Professional Judgment
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

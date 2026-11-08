@@ -1,6 +1,9 @@
 ---
 name: integrated-engineering-estimate-schedule
 description: Construct or revise one coupled engineering effort/cost and resource-loaded schedule case from accepted work inputs, with distinct reconciled projections and consumer outputs.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Integrated engineering estimate and schedule
 

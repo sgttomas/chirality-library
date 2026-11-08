@@ -1,8 +1,9 @@
 ---
 name: domain-source-atomize
-description: 'Per-dispatch-unit bounded atomization of one slice of one DOMAIN source markdown into IN/OUT/TBD atomic units with dual SourceRefs,
-  content hashes, and vocabulary seeds. Invoked by the WORKING_ITEMS (workflow: domain-decomp) orchestrator for per-skeleton-dispatch-unit fanout
-  in Phase 2.'
+description: 'Per-dispatch-unit bounded atomization of one slice of one DOMAIN source markdown into IN/OUT/TBD atomic units with dual SourceRefs, content hashes, and vocabulary seeds. Invoked by the WORKING_ITEMS (workflow: domain-decomp) orchestrator for per-skeleton-dispatch-unit fanout in Phase 2.'
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — domain-source-atomize

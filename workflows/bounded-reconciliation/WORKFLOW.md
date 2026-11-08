@@ -1,6 +1,9 @@
 ---
 name: bounded-reconciliation
 description: Compare affected deliverable commitments, design and dependency conditions with a concrete result and make warranted source edits.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Bounded reconciliation
 

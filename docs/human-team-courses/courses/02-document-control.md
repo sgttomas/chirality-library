@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-02-document-control
+description: 'Course 02: Document and Configuration Control.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 02: Document and Configuration Control
 
 [Series](../index.html) · [Case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

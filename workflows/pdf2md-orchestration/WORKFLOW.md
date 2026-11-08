@@ -1,9 +1,11 @@
 ---
 name: pdf2md-orchestration
-description: "Coordinate recoverable PDF conversion through page-bounded vision, deterministic cleanup and asset materialization, assembly, and explicit degraded-output review."
+description: Coordinate recoverable PDF conversion through page-bounded vision, deterministic cleanup and asset materialization, assembly, and explicit degraded-output review.
 metadata:
   category: Documents and drawings
   applicability: Convert a PDF into recoverable Markdown and referenced assets through page-bounded work.
+  kind: instruction
+  surface: workflow
 ---
 
 # Convert a PDF through bounded page work

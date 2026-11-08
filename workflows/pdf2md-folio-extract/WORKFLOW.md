@@ -1,6 +1,9 @@
 ---
 name: pdf2md-folio-extract
-description: "Read one rasterized PDF page and emit the visible printed folio label (page number as it appears on the page itself — \"47\", \"xiv\", \"B-3\", or null when no folio is printed)."
+description: Read one rasterized PDF page and emit the visible printed folio label (page number as it appears on the page itself — "47", "xiv", "B-3", or null when no folio is printed).
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # pdf2md-folio-extract

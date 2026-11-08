@@ -4,6 +4,8 @@ description: Reconcile claims, artifacts, implementation, evidence, lifecycle, a
 metadata:
   category: Review and validation
   applicability: Reconcile claims, evidence, lifecycle, and unfulfilled obligations (legacy Remaining only where pinned) across a deliverable corpus.
+  kind: instruction
+  surface: workflow
 ---
 
 # reconciliation

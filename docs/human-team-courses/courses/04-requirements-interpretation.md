@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-04-requirements-interpretation
+description: 'Course 04: Interpreting Requirements and Obligations.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 04: Interpreting Requirements and Obligations
 
 [Series](../index.html) · [Case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)
