@@ -1,8 +1,8 @@
-# Chirality repository instructions
+# Chirality Library repository instructions
 
 This repository owns the Chirality Library: the shared roles, workflows, tools
 and tool-use instructions its products and projects consume. Enter through
-`execution/_Coordination/LOOP_INIT.md`. The conversation supplies the
+`loop/LOOP_INIT.md`. The conversation supplies the
 undertaking; initialization alone starts none.
 
 Work toward the owner's intended result within the authority given in the
@@ -33,10 +33,10 @@ between the two remains open; this naming does not move them.
 
 | Scope | Entry | Standing |
 |---|---|---|
-| Library: shared instructions, workflows, skills, tools and CI | `execution/_Coordination/LOOP_INIT.md` | Work as steered |
+| Library: shared instructions, workflows, skills, tools and CI | `loop/LOOP_INIT.md` | Work as steered |
 | Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; changes nothing here, may open owner-approved issues |
-| App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Development resumed (owner, 2026-10-28); consult its local instructions |
-| SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Active; consult its local instructions |
+| App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Consult its local instructions |
+| SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Consult its local instructions |
 | App v3, Runtime | Archived in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`) | Frozen; no development or verification without explicit reactivation |
 
 ## Coordination between projects
@@ -59,33 +59,23 @@ owner. Do not message a project the work does not affect. Root may also open a
 GitHub issue here for an owner-approved finding; this project decides how to
 act on it, as with a message.
 
-## Working cycle
+## Work ownership and reconciliation
 
-1. Take the objective, limits and authorization from the conversation. Do not
-   reconstruct a standing backlog from archived plans or records.
-2. Locate the affected deliverable or shared Library component. Read its current
-   commitments and design; consult the PRD and companions for the requirements
-   and interfaces this work involves.
-3. Query the relevant inputs, consumers and changes. Read what this slice needs;
-   do not perform a global state census. Resolve whether an input meets its
-   condition from evidence and judgment, not file existence or merge status.
-4. Carry authorized work through implementation, proportionate verification and
-   integration. Use one coordinator for a shared result, disjoint concurrent
-   writes, and owners who stay with their work through repairs.
-5. Before integration, reconcile the actual result and verification evidence with
-   the affected ScopeOfWork, `Work/` material and dependency conditions in the
-   same PR. The implementation owner carries this into assignments and retains
-   responsibility through repairs; Agent 0 checks that the result and declarations
-   agree. Revise current descriptions where meaning changed; add new work material
-   where needed and connect it from the material the next contributor will read.
-   Apply already-authorized decisions without asking again. Leave unchanged
-   declarations alone, and say briefly when no edit was warranted. Git preserves
-   history; retain historical evidence and identify what remains unverified.
-6. Return the usable result, checks, material findings and reserved choices.
-   Once the work is integrated, delete the worktrees, branches, build output and
-   scratch it created, unless an open review, a named consumer or a recovery need
-   still uses them. Stop when the agreed result is established; do not invent
-   other closeout work.
+Follow [the operating entry](loop/LOOP_INIT.md) to locate and carry the selected
+work. Use one coordinator for a shared result, disjoint concurrent writes, and
+owners who stay with their work through repairs. Before integration, reconcile
+the actual result and verification evidence with affected ScopeOfWork, `Work/`
+and dependency conditions in the same PR. The implementation owner carries this
+into assignments; Agent 0 checks that the result and declarations agree.
+Revise changed meaning and connect necessary work material from what the next
+contributor will read. Apply already-authorized decisions without asking again.
+Leave unchanged declarations alone and say briefly when no edit was warranted.
+Retain historical evidence and identify what remains unverified.
+
+Return the usable result, checks, material findings and reserved choices. Once
+integrated, delete the worktrees, branches, build output and scratch this work
+created, unless an open review, named consumer or recovery need still uses them.
+Stop when the agreed result is established; do not invent other closeout work.
 
 ## Holding changes and recovery
 
@@ -118,12 +108,10 @@ basis for the current Library localities. Read the selected ScopeOfWork, Work an
 consumer-local needs for their commitments, maturity and unresolved conditions;
 setup does not establish product fulfillment or acceptance.
 
-From the repository root, use `python3 -m tools.deliverables --project <project>`,
-where `<project>` is the project path such as `.` for a project at repository root, with `neighborhood <DEL>`, `impact <DEL>`, `touches <rev|PR:n>` or
-`dag-diff <tag>`. `check` reports structural errors and unresolved references.
-See `tools/deliverables/README.md` for arguments and limits. Results are facts
-and unknowns, not completion or acceptance claims; code paths indicate relevance,
-not exclusive ownership. Never hand-maintain derived progress or lifecycle state.
+The operating entry gives query usage; the [query guide](tools/deliverables/README.md)
+defines arguments, prerequisites and limits. Results are facts and unknowns,
+not completion or acceptance claims; code paths indicate relevance, not exclusive
+ownership. Never hand-maintain derived progress or lifecycle state.
 
 Produce the work and the minimum information needed to review, use or recover
 it. A record needs a concrete consumer, acceptance requirement or recovery need.

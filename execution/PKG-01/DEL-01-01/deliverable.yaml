@@ -44,7 +44,7 @@ code_paths:
   - AGENTS.md
   - init/init-prompt.md
   - README.md
-  - execution/_Coordination/LOOP_INIT.md
+  - loop/LOOP_INIT.md
   - workflows/README.md
   - workflows/catalog.yaml
   - workflows/index.json

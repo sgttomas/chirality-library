@@ -82,7 +82,7 @@ On this chapter's identified source basis, active project deliverables maintain
 commitments and acceptance criteria in `ScopeOfWork.md`, useful technical
 reasoning in `Design/`, and consumer-owned
 needs and conditions in `deliverable.yaml`. The
-[Root entry](../../execution/_Coordination/LOOP_INIT.md) locates the shared
+[Library development entry](../../loop/LOOP_INIT.md) locates the shared
 component and affected consumers; an active project entry locates product
 commitments. The authorized work directs the inquiry. Current shared locality
 naming is governed by Root `AGENTS.md`: `Work/` is the convention going forward.
