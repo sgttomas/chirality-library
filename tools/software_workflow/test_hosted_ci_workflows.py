@@ -32,3 +32,18 @@ def test_single_required_result_fails_for_any_unsuccessful_child(tmp_path):
         results['repository-checks']['result'] = state
         process = subprocess.run(['bash', '-c', step['run']], env={**os.environ, 'RESULTS': json.dumps(results)}, capture_output=True)
         assert (process.returncode == 0) == (state == 'success')
+
+
+def test_routing_completeness_runs_on_every_pr_and_zsh_only_when_needed():
+    steps = workflow('governance-harness.yml')['jobs']['repository-checks']['steps']
+    guards = next(s for s in steps if s.get('name') == 'Routing completeness and workflow contracts')
+    assert 'if' not in guards
+    assert 'test_tools_test_routing.py' in guards['run']
+    assert 'test_hosted_ci_workflows.py' in guards['run']
+    provisioning = ['Configure canonical Ubuntu package sources', 'Resolve Ubuntu release',
+                    'Restore cached zsh packages', 'Install zsh (write_status.sh guard is a zsh script)']
+    for name in provisioning:
+        assert next(s for s in steps if s.get('name') == name)['if'] == "steps.selection.outputs.needs_zsh == 'true'"
+    renderer = next(s for s in steps if s.get('name') == 'Install selected manual renderer dependencies')
+    assert renderer['if'] == "steps.selection.outputs.manual == 'true'"
+    assert '-r docs/alignment-manual/requirements.txt' in renderer['run']

@@ -1,7 +1,7 @@
 {
   "schema": "chirality-software-workflow/v1",
   "project_root": "..",
-  "description": "Path-selected tool regression tests. Repository hygiene checks run separately. Unknown tool inputs and unavailable diffs select the full estate; unrelated prose selects none.",
+  "description": "Path-selected tool regressions and repository contracts. Unknown inputs and unavailable diffs select full coverage.",
   "always_checks": [],
   "checks": {
     "coordination": {
@@ -102,6 +102,9 @@
       ],
       "checks": [
         "coordination"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -110,6 +113,9 @@
       ],
       "checks": [
         "decomp"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -118,6 +124,9 @@
       ],
       "checks": [
         "pdf2md"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -126,6 +135,9 @@
       ],
       "checks": [
         "release"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -134,6 +146,9 @@
       ],
       "checks": [
         "reporting"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -142,6 +157,9 @@
       ],
       "checks": [
         "retrieval"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -150,6 +168,9 @@
       ],
       "checks": [
         "scope_of_work"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -158,6 +179,9 @@
       ],
       "checks": [
         "source_audit"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -166,6 +190,9 @@
       ],
       "checks": [
         "source_catalog"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -174,6 +201,9 @@
       ],
       "checks": [
         "workflow_runtime"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -204,6 +234,13 @@
         "drawing_extract",
         "equation_audit",
         "publication"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
+      ],
+      "repository_checks": [
+        "instructions",
+        "deliverables"
       ]
     },
     {
@@ -214,6 +251,9 @@
       "checks": [
         "workflow_runtime",
         "validation"
+      ],
+      "repository_checks": [
+        "instructions"
       ]
     },
     {
@@ -222,6 +262,9 @@
       ],
       "checks": [
         "evaluation"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -230,6 +273,9 @@
       ],
       "checks": [
         "scaffolding"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -237,6 +283,12 @@
         "tools/deliverables/*"
       ],
       "checks": [
+        "deliverables"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
+      ],
+      "repository_checks": [
         "deliverables"
       ]
     },
@@ -249,6 +301,12 @@
       ],
       "checks": [
         "validation"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
+      ],
+      "repository_checks": [
+        "instructions"
       ]
     },
     {
@@ -265,6 +323,9 @@
       ],
       "checks": [
         "scaffolding"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -273,6 +334,9 @@
       ],
       "checks": [
         "drawing_extract"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -281,6 +345,9 @@
       ],
       "checks": [
         "equation_audit"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
       ]
     },
     {
@@ -289,6 +356,123 @@
       ],
       "checks": [
         "publication"
+      ],
+      "exclude_paths": [
+        "tools/*/README.md"
+      ]
+    },
+    {
+      "description": "Maintained headers and bootstrap wrapper are read by test_document_metadata.",
+      "paths": [
+        "tools/*/README.md",
+        "docs/*.md",
+        "docs/document-metadata.schema.json",
+        "init/init-prompt.md",
+        "loop/LOOP_INIT.md",
+        "CLAUDE.md"
+      ],
+      "checks": [
+        "validation"
+      ]
+    },
+    {
+      "description": "Skill metadata, companions and resources are consumed by catalog validation and workflow resolution.",
+      "paths": [
+        ".agents/skills/*"
+      ],
+      "checks": [
+        "validation",
+        "workflow_runtime"
+      ],
+      "repository_checks": [
+        "instructions"
+      ]
+    },
+    {
+      "description": "Manual renderer contract tests import this renderer with its pinned dependencies.",
+      "paths": [
+        "docs/alignment-manual/render_manual.py",
+        "docs/alignment-manual/requirements.txt"
+      ],
+      "checks": [
+        "publication"
+      ]
+    },
+    {
+      "description": "Locality documents and evidence are inspected by the dependency structure check.",
+      "paths": [
+        "execution/PKG-*/DEL-*/deliverable.yaml",
+        "execution/PKG-*/DEL-*/ScopeOfWork.md",
+        "execution/PKG-*/DEL-*/Work/*.md"
+      ],
+      "checks": [],
+      "repository_checks": [
+        "deliverables"
+      ]
+    },
+    {
+      "description": "Published prose, rendered editions and retained illustration; no behavior test consumes their bodies.",
+      "paths": [
+        "README.md",
+        "LICENSE.md",
+        "tools/EXTERNAL_TOOLS.md",
+        "tools/REGISTRY.md",
+        "docs/alignment-manual/*.html",
+        "docs/human-team-courses/*.html",
+        "docs/alignment-manual/assets/Figure_1_1.png",
+        "execution/_Coordination/PUBLICATION_ROADMAP.md"
+      ],
+      "checks": []
+    },
+    {
+      "description": "Retained decomposition and amendment inputs use validation coverage, not product behavior cohorts.",
+      "paths": [
+        "execution/_Coordination/LOOP_INIT.md",
+        "execution/_Decomposition/*.md",
+        "execution/_Decomposition/checkpoint_snapshots/*",
+        "execution/_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION.md",
+        "execution/_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/*"
+      ],
+      "checks": [
+        "validation"
+      ]
+    },
+    {
+      "description": "Repository configuration, legacy tools and the external Rust reproduction have no narrower demonstrated coverage.",
+      "paths": [
+        ".editorconfig",
+        ".gitattributes",
+        ".gitignore",
+        "tools/aggregation/*",
+        "tools/diagnostics/ka_coverage_audit.py",
+        "tools/domain_extract/assemble_equipment_master_csv.py",
+        "tools/query/*.sh",
+        "tools/review/*.py",
+        "execution/PKG-05/DEL-05-01/Work/fixtures/app_workflow_reader.rs"
+      ],
+      "checks": [
+        "coordination",
+        "decomp",
+        "pdf2md",
+        "release",
+        "reporting",
+        "retrieval",
+        "scope_of_work",
+        "software_workflow",
+        "source_audit",
+        "source_catalog",
+        "validation",
+        "workflow_runtime",
+        "evaluation",
+        "scaffolding",
+        "deliverables",
+        "drawing_extract",
+        "equation_audit",
+        "publication"
+      ],
+      "repository_checks": [
+        "instructions",
+        "deliverables"
       ]
     }
   ]

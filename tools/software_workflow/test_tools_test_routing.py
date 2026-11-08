@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Drift guards for the tools/ test-routing profile.
 
-The routing profile is a PR/session economy layered over the full gate
-(pushes to main always run everything), but a stale profile could still
-let a PR skip a suite it should have run. These tests pin the profile to
+PRs run selected checks; manual dispatch runs the full estate. A stale
+profile could let a PR skip a suite it should have run. These tests pin it to
 reality: every test-bearing tools/ directory must be routed, every rule
 must reference real checks, and the selector + runner must agree with
 the profile.
@@ -15,6 +14,10 @@ import importlib.util
 import subprocess
 import sys
 from pathlib import Path
+
+import pytest
+
+from software_workflow_common import matches_rule
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PROFILE_PATH = REPO_ROOT / "tools" / "tools-test-routing.json"
@@ -118,10 +121,9 @@ def test_runner_isolated_change_selects_owner():
     }
 
 
-def test_runner_unrelated_change_selects_core_only():
+def test_document_headers_select_validation():
     selection = _dry_run("--paths", "docs/SOME_DOC.md")
-    profile = load_profile()
-    assert set(selection["checks"]) == set(profile["always_checks"])
+    assert selection["checks"] == ['validation']
 
 
 def test_runner_routing_infrastructure_change_selects_everything():
@@ -145,7 +147,7 @@ def test_runner_streams_path_sets_larger_than_linux_argmax():
     paths = [f"domains/demo/deep/path/file-{index:05d}.md" for index in range(40_000)]
     selection = runner.select_checks(paths)
     assert selection["paths"] == paths
-    assert set(selection["checks"]) == set(load_profile()["always_checks"])
+    assert set(selection["checks"]) == set(load_profile()["checks"])
 
 
 def test_no_selected_suites_does_not_invoke_pytest(monkeypatch):
@@ -156,9 +158,17 @@ def test_no_selected_suites_does_not_invoke_pytest(monkeypatch):
     assert runner.run_pytest([]) == 0
 
 
-def test_unknown_tool_source_selects_full_estate():
-    selection = _dry_run('--paths', 'tools/new-tool/implementation.py')
+@pytest.mark.parametrize('path', [
+    'tools/new-tool/implementation.py', 'new-code/implementation.py',
+    '.github/workflows/new-workflow.yml', 'new-prose/unknown.md',
+    'docs/new-contract.json',
+])
+def test_unknown_input_anywhere_selects_full_coverage(path):
+    selection = _dry_run('--paths', path)
     assert set(selection['checks']) == set(load_profile()['checks'])
+    assert set(selection['repository_checks']) == {'instructions', 'deliverables'}
+    assert selection['reasons']['unknown-inputs'] == [path]
+    assert all(load_runner().workflow_outputs(selection).values())
 
 
 def test_dependency_edits_select_structure_check_without_product_tests(tmp_path, monkeypatch):
@@ -166,10 +176,86 @@ def test_dependency_edits_select_structure_check_without_product_tests(tmp_path,
     monkeypatch.setenv('GITHUB_OUTPUT', str(output))
     for path, expected in [
         ('projects/chirality-app-v4/execution/PKG-01/DEL-01-01/deliverable.yaml', True),
-        ('plans/example.md', False),
+        ('README.md', False),
         ('tools/deliverables/cli.py', True),
     ]:
         output.write_text('')
         subprocess.run([sys.executable, str(RUNNER), '--dry-run', '--paths', path],
                        cwd=REPO_ROOT, check=True, capture_output=True)
         assert f"deliverables={str(expected).lower()}" in output.read_text()
+
+
+def test_every_tracked_path_has_a_deliberate_classification():
+    paths = subprocess.check_output(['git', 'ls-files', '-z'], cwd=REPO_ROOT, text=True).split('\0')
+    profile = load_profile()
+    missing = [p for p in paths if p and not any(matches_rule(p, r) for r in profile['path_rules'])]
+    assert not missing, f'Classify tracked inputs in tools/tools-test-routing.json: {missing}'
+
+
+def test_pr15_documentation_replay_keeps_consumers_without_code_suites():
+    # Exact changed paths of PR #15, head 60ae6f6900f7ff8298c78f9ddbe4f98f74442500.
+    selection = _dry_run('--paths',
+        'AGENTS.md', 'README.md', 'agents/AGENT_INTERLOCUTOR.md', 'loop/LOOP_INIT.md',
+        'tools/deliverables/README.md', 'tools/evaluation/README.md',
+        'workflows/create-workflow/WORKFLOW.md', 'workflows/evaluation-protocol/WORKFLOW.md',
+        'workflows/integrated-engineering-estimate-schedule/WORKFLOW.md',
+        'workflows/project-setup/resources/current-project.md',
+        'workflows/reflect-on-work/WORKFLOW.md', 'workflows/review/WORKFLOW.md')
+    assert set(selection['checks']) == {'validation', 'workflow_runtime'}
+    assert selection['repository_checks'] == ['instructions']
+    assert not load_runner().workflow_outputs(selection)['needs_zsh']
+
+
+@pytest.mark.parametrize('path,checks,contracts', [
+    ('tools/software_workflow/README.md', {'validation'}, set()),
+    ('docs/document-metadata.schema.json', {'validation'}, set()),
+    ('init/init-prompt.md', {'validation'}, set()),
+    ('loop/LOOP_INIT.md', {'validation'}, set()),
+    ('.agents/skills/researcher/SKILL.md', {'validation', 'workflow_runtime'}, {'instructions'}),
+    ('.agents/skills/researcher/execution.json', {'validation', 'workflow_runtime'}, {'instructions'}),
+    ('docs/alignment-manual/render_manual.py', {'publication'}, set()),
+    ('docs/alignment-manual/requirements.txt', {'publication'}, set()),
+    ('tools/evaluation/audit_dependencies.py', {'evaluation'}, set()),
+    ('README.md', set(), set()),
+])
+def test_isolated_consumed_inputs_select_their_checks(path, checks, contracts):
+    selection = _dry_run('--paths', path)
+    assert set(selection['checks']) == checks
+    assert set(selection['repository_checks']) == contracts
+    assert selection['unmatched_paths'] == []
+
+
+def test_guide_exception_does_not_swallow_code_in_a_mixed_change():
+    selection = _dry_run('--paths', 'tools/software_workflow/README.md',
+                         'tools/software_workflow/select_affected_checks.py')
+    assert set(selection['checks']) == set(load_profile()['checks'])
+    assert set(selection['repository_checks']) == {'instructions', 'deliverables'}
+
+
+def test_unavailable_diff_and_manual_dispatch_select_all_standalone_checks():
+    for args in [('--base', 'missing-ci-base-ref'), ('--all',)]:
+        selection = _dry_run(*args)
+        assert set(selection['checks']) == set(load_profile()['checks'])
+        assert all(load_runner().workflow_outputs(selection).values())
+
+
+@pytest.mark.parametrize('path,needs_zsh,manual', [
+    ('tools/scaffolding/write_status.sh', True, False),
+    ('tools/validation/validate_id_format.sh', False, False),
+    ('docs/alignment-manual/render_manual.py', False, True),
+    ('tools/deliverables/README.md', False, False),
+])
+def test_environment_requirements_follow_the_selected_tests(path, needs_zsh, manual):
+    outputs = load_runner().workflow_outputs(_dry_run('--paths', path))
+    assert outputs['needs_zsh'] is needs_zsh
+    assert outputs['manual'] is manual
+
+
+def test_emitted_workflow_outputs_include_unknown_path_safeguards(tmp_path, monkeypatch):
+    output = tmp_path / 'outputs'
+    monkeypatch.setenv('GITHUB_OUTPUT', str(output))
+    _dry_run('--paths', 'new-code/unknown.py')
+    assert dict(line.split('=') for line in output.read_text().splitlines()) == {
+        'has_tests': 'true', 'instructions': 'true', 'deliverables': 'true',
+        'needs_zsh': 'true', 'manual': 'true',
+    }
