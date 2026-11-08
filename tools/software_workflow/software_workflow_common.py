@@ -31,6 +31,10 @@ def matches(path: str, patterns: list[str]) -> bool:
     return any(fnmatchcase(path, pattern) for pattern in patterns)
 
 
+def matches_rule(path: str, rule: dict) -> bool:
+    return matches(path, rule.get("paths", [])) and not matches(path, rule.get("exclude_paths", []))
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:

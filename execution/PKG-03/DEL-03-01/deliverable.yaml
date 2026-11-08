@@ -58,6 +58,10 @@ needs:
   when: Historical use under the accepted R18 amendment — examining the original evaluation-tool caller and utility basis
   evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md::Evaluation extension
 code_paths:
+- .github/workflows/governance-harness.yml
+- tools/run_affected_tests.py
+- tools/tools-test-routing.json
+- tools/software_workflow/**
 - tools/validation/validate_agent_instructions.py
 - tools/validation/test_document_metadata.py
 - tools/scaffolding/**
@@ -70,5 +74,7 @@ code_paths:
 - workflows/scope-of-work/**
 - workflows/dependency-extract/resources/tools.md
 checks:
+- tools/software_workflow/test_tools_test_routing.py
+- tools/software_workflow/test_hosted_ci_workflows.py
 - tools/scaffolding/test_current_locality.py
 - tools/scope_of_work/test_scope_of_work_tools.py

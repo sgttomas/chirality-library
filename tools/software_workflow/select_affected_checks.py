@@ -6,15 +6,19 @@ import json
 import sys
 from pathlib import Path
 
-from software_workflow_common import load_profile, matches
+from software_workflow_common import load_profile, matches_rule
 
 
 def select_checks(profile: dict, paths: list[str]) -> dict:
     selected: set[str] = set(profile.get("always_checks", []))
     reasons: dict[str, list[str]] = {}
+    classified: set[str] = set()
+    repository_checks: set[str] = set()
     for rule in profile.get("path_rules", []):
-        matched = [path for path in paths if matches(path, rule.get("paths", []))]
+        matched = [path for path in paths if matches_rule(path, rule)]
         if matched:
+            classified.update(matched)
+            repository_checks.update(rule.get("repository_checks", []))
             for check_id in rule.get("checks", []):
                 selected.add(check_id)
                 reasons.setdefault(check_id, []).extend(matched)
@@ -25,6 +29,8 @@ def select_checks(profile: dict, paths: list[str]) -> dict:
         "schema": "chirality-affected-checks/v1",
         "paths": paths,
         "checks": sorted(selected),
+        "repository_checks": sorted(repository_checks),
+        "unmatched_paths": sorted(set(paths) - classified),
         "reasons": {key: sorted(set(value)) for key, value in sorted(reasons.items())},
     }
 

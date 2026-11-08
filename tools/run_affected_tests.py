@@ -4,7 +4,7 @@
 Selection is delegated to the ratified selector
 (tools/software_workflow/select_affected_checks.py) driven by the routing
 profile tools/tools-test-routing.json: suites run when their inputs change;
-unknown tool inputs conservatively run the full estate. The selection JSON (checks + per-check matched paths)
+unknown inputs anywhere conservatively run the full estate. The selection JSON (checks + per-check matched paths)
 is printed before the run so every invocation records why each suite ran.
 
 Change set = committed diff against --base (three-dot merge-base diff)
@@ -24,7 +24,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-from fnmatch import fnmatchcase
 import subprocess
 import sys
 from importlib.util import find_spec
@@ -68,6 +67,8 @@ def select_checks(paths: list[str]) -> dict:
             "schema": "chirality-affected-checks/v1",
             "paths": [],
             "checks": sorted(profile["always_checks"]),
+            "repository_checks": [],
+            "unmatched_paths": [],
             "reasons": {},
         }
     result = subprocess.run(
@@ -75,12 +76,28 @@ def select_checks(paths: list[str]) -> dict:
         input=json.dumps(paths), capture_output=True, text=True, check=True,
     )
     selected = json.loads(result.stdout)
-    unknown = [p for p in paths if p.startswith('tools/') and not any(
-        fnmatchcase(p, pattern) for rule in profile['path_rules'] for pattern in rule['paths'])]
+    unknown = selected['unmatched_paths']
     if unknown:
         selected['checks'] = sorted(profile['checks'])
-        selected['reasons']['unknown-tool-inputs'] = unknown
+        selected['repository_checks'] = ['deliverables', 'instructions']
+        selected['reasons']['unknown-inputs'] = unknown
     return selected
+
+
+def full_selection(reason: str, paths: list[str]) -> dict:
+    return {"checks": sorted(load_profile()["checks"]),
+            "repository_checks": ["deliverables", "instructions"],
+            "unmatched_paths": [], "reasons": {"*": [reason]}, "paths": paths}
+
+
+def workflow_outputs(selection: dict) -> dict[str, bool]:
+    checks = selection['checks']
+    return {"has_tests": bool(pytest_dirs(checks)),
+            "instructions": 'instructions' in selection['repository_checks'],
+            "deliverables": 'deliverables' in selection['repository_checks'],
+            "needs_zsh": 'scaffolding' in checks,
+            "manual": 'publication' in checks,
+            "pdf": 'pdf2md' in checks}
 
 
 def pytest_dirs(check_ids: list[str]) -> list[str]:
@@ -116,16 +133,13 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.all:
-        selection = {"checks": sorted(load_profile()["checks"]),
-                     "reasons": {"*": ["--all"]}, "paths": ["--all"]}
+        selection = full_selection('--all', ['--all'])
     else:
         paths = args.paths if args.paths is not None else changed_paths(args.base)
         if paths is None:
             print(f"[run-affected] base {args.base!r} not resolvable; "
                   "failing open to the full estate", flush=True)
-            selection = {"checks": sorted(load_profile()["checks"]),
-                         "reasons": {"*": ["base-unresolvable"]},
-                         "paths": []}
+            selection = full_selection('base-unresolvable', [])
         else:
             selection = select_checks(paths)
 
@@ -136,15 +150,8 @@ def main() -> int:
           f"skipping {len(skipped)}: {', '.join(skipped) or '(none)'}", flush=True)
     if os.getenv('GITHUB_OUTPUT'):
         with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-            output.write(f"has_tests={'true' if dirs else 'false'}\n")
-            instruction_inputs = any(p in ('--all','AGENTS.md','agents/registry.json') or p.startswith(('workflows/','agents/','tools/validation/')) for p in selection.get('paths', []))
-            if selection.get('reasons', {}).get('*') == ['base-unresolvable']:
-                instruction_inputs = True
-            dependency_inputs = any(p == '--all' or p.endswith('/deliverable.yaml') or p.startswith('tools/deliverables/') or p == '.github/workflows/governance-harness.yml' for p in selection.get('paths', []))
-            if selection.get('reasons', {}).get('*') == ['base-unresolvable']:
-                dependency_inputs = True
-            output.write(f"deliverables={'true' if dependency_inputs else 'false'}\n")
-            output.write(f"instructions={'true' if instruction_inputs else 'false'}\n")
+            for key, enabled in workflow_outputs(selection).items():
+                output.write(f"{key}={str(enabled).lower()}\n")
     if args.dry_run:
         return 0
     return run_pytest(dirs)
