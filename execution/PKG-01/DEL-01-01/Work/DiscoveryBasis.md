@@ -74,7 +74,7 @@ to be complete where the particular source is already fit for use.
 ## Bounded discovery examination
 
 At the entry-revision basis `11bdb448323877268c90296a5497fd71ede1baee`,
-the question was where to carry the requested revision and what would govern it. The session prompt leads through unchanged AGENTS and HELP_HUMAN
+the question was where to carry the owner's requested revision and what would govern it. The session prompt leads through unchanged AGENTS and HELP_HUMAN
 to the proposed loop. The loop identifies the accepted product/decomposition
 basis and gives a concrete route back to this ScopeOfWork and Work. Search is
 bounded to current Root scope files, not archives or an inferred global backlog:
