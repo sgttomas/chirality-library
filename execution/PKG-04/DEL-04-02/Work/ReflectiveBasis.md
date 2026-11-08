@@ -12,9 +12,8 @@ obligation historical under the governing PRD disposition.
 Existing reflective practice and the other outputs remain usable independently.
 
 Maturity: adopted reflective method with retained formation and actual
-application assessment. The owner approved this content and its output homes at
-`5b2289d93cd86561818b10e452ffbe4425afce11`; the earlier
-candidate's independent examination does not cover this new design.
+application assessment. The integrated seven-locality setup and bounded F-02
+case do not establish broader product fulfillment.
 
 ## Existing formation evidence
 
@@ -40,7 +39,7 @@ actual action and input-condition evidence on accepted/set-up work.
 
 ## Coordination method revision — 2026-11-07
 
-The current bounded revision concerns OUT-002's orchestration input,
+The 2026-11-07 revision concerns OUT-002's orchestration input,
 [coordinated-knowledge-work](../../../../workflows/coordinated-knowledge-work/WORKFLOW.md),
 under the preceding Library source
 `c35b7bbc463f81c1fed566c744ea49d168d29eee` and its `create-workflow` method.
@@ -54,12 +53,12 @@ with their original qualifications.
 The reason for the revision is the difference between maintaining these
 responsibilities and mandating one arrangement: a brief need not be a
 contributor's only context, and an independent scheduled backstop is neither
-needed nor available on every route. The candidate keeps explicit delivery of
+needed nor available on every route. The revision keeps explicit delivery of
 missing host, safety, data and silent-failure rules. It does not authorize a
 host operation, remove project-required scrutiny, or require a new investigation
 at every dispatch.
 
-Source-reviewed walkthroughs of the candidate distinguish:
+Source-reviewed walkthroughs of that revision distinguish:
 
 - A route that reliably supplies repository instructions and delivers a
   completion notice: the assignment still names its basis and integration
@@ -113,8 +112,8 @@ judgment, not merely another explanation or a new monitoring layer.
 
 This case supports bounded reflection and guidance-retention examination. It
 is not measured productivity evidence, proof of all future applications, owner
-product acceptance or a 60% gate decision. The owner approved this assessment for integration in PR #1785. Historical source records remain at their owning homes; no new
-transcript or reflection-report stream is needed.
+product acceptance or a 60% gate decision. Historical source records remain at
+their owning homes; no new transcript or reflection-report stream is needed.
 
 
 ## Method selection under the revised undertaking
@@ -169,11 +168,9 @@ rationale, not a second manual. A compact method can keep the human's question
 and reasoned retain/change outcome explicit while preserving separate ordinary
 reconciliation and implementation ownership.
 
-The owner approved this explicit OUT-002 source-home refinement in PR #1785.
-The accepted requirements/AC/VER and immutable formation sources are unchanged.
-Preceding create-workflow and Root authority govern its drafting/examination;
-new text cannot authorize its own registration/adoption. The index made the candidate inspectable before owner approval; Root integration
-does not install or adopt the method in another product.
+The OUT-002 source-home refinement leaves the accepted requirements, criteria
+and immutable formation sources unchanged. Integration does not install or
+adopt the method in another product.
 
 ## Bounded reading walkthrough and remaining examination
 
@@ -199,13 +196,14 @@ execution or an independent assessment. It uses the actual questions above:
    manufacture a retain verdict, a monitoring hierarchy or a new recovery report.
 
 The first two cases are real prior evidence, not executions of this new method.
-The third was the authorized design action subsequently approved and integrated
-in PR #1785. The walkthrough itself did not establish that adoption. Package/resolver checks establish selection and representation,
-not the quality of human judgment. Claude examined the connected design at e99e7e6 with no authority/containment
-blockers; the bounded repair adds the explicit role companion and declares the
-recovery output home. Agent 0 brought the repaired content to the owner together, and the owner
-approved it before integration. Independent review did not supply that approval.
-No automatic A3 acceptance, product completion or 60% advancement follows.
+The third was the design action integrated in PR #1785. The walkthrough itself
+did not establish adoption. Package/resolver checks establish selection and
+representation, not the quality of human judgment; the actual F-02 case remains
+distinct from this pre-adoption walkthrough. Examination of the connected design
+at `e99e7e6e61dbc3595d91cd95d8cd2c09eba36c3b` found no authority or containment
+blockers. The bounded repairs added the explicit role companion and declared
+the recovery output home. These design and repair observations do not establish
+product acceptance or completion.
 
 ## Readiness reflection and owner decision
 
@@ -228,47 +226,33 @@ use of newly adopted guidance remain production priorities. Named-reader evidenc
 stays limited to capture/declaration/identity; historical adoption holds apply to
 incompatible changes; procedural custody is not enforced exclusion.
 
-Agent 0 recommended passage to 60% on that basis, then substantive discovery/use
-work and a broader delivery candidate toward 90%. The owner decided: “I approve
-passing the 60% gate and proceeding as you recommend.” This is the actual gate
-decision and authority to continue that course. It does not accept every local
-criterion, release the library, or establish measured productivity. The current
-loop carries the authorized course; later findings can reopen their affected
-premise without discarding unrelated valid work.
+The owner decided to pass the 60% gate and proceed with substantive discovery
+and use work toward a broader delivery candidate. That decision did not accept
+every local criterion, release the library or establish measured productivity.
+Later findings can reopen an affected premise without discarding unrelated work.
 
 ## 90% position and completion boundary
 
-Agent 0 examined the assembled contributions against the 44 local criteria and
-PRD A1–A8. A bounded contributor found applicable claim-specific evidence for all
-criteria; Claude Opus 5.5 independently found no missing mandatory output or
-broken operative relationship. Its final finding corrected two publication
-conditions that still called the already-bound F-02/v9 comparison unresolved.
-PR #1788 integrated that owner-approved factual reconciliation at
-`ce3ae7a405999a730caed807857eecb394ce3be6`.
+The 90% assessment examined the assembled contributions against the 44 local
+criteria and PRD A1–A8. It found applicable claim-specific evidence for all
+criteria and no missing mandatory output or broken operative relationship.
+Two publication conditions still described the bound F-02/v9 comparison as
+unresolved; PR #1788 integrated their factual correction at
+`ce3ae7a405999a730caed807857eecb394ce3be6`, retaining the named-reader,
+labelled-custody and source-candidate limits. The owner passed the 90% gate;
+that decision did not itself establish final acceptance or release.
 
-Agent 0 recommended passing the 90% gate on that basis under manual v9 §7.5,
-explicitly retaining the named-reader, labelled-custody and source-candidate
-limits. The owner answered “Approved.” This is the separate 90% decision, not
-inferred from earlier content approvals or passing checks. Final acceptance,
-release/version choice and publication remain separate owner acts.
-
-The next question is whether any agreed result or required examination remains
-unsupported for the intended delivery. Use PRD §4 and manual §8; do not add a
-new general review solely because the stage changed. The exact approved source
-archive remains `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5`; later source records
-and gate annotations are outside it. Any proposed delivery of a later revision
-must identify that revision and establish which existing evidence still applies.
+The approved source archive is `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5`;
+later source records and gate annotations are outside it. A later delivery must
+identify its revision and establish which existing evidence still applies.
 
 ## Reflective book and practice across projects
 
 After library 1.0.0, the owner clarified that “Chirality is the wider undertaking
 expressed through all three projects, while the library repository is one
 particular place where that undertaking develops its shared understanding and
-means of working.” The owner approved preparation of a successor book and the
-connected proposal, then requested Claude Opus 5.5 at high effort as an
-independent second voice throughout drafting. The owner later approved the complete candidate and library 1.0.1 release,
-as recorded below. The current conversation establishes the authoring direction, not
-empirical support for the book's argument.
+means of working.” The book develops that authoring direction; it is not
+empirical support for its own argument.
 
 The additional OUT-004/REQ-009/AC-007/VER-007 makes the post-release
 scope change explicit; original outputs and criteria retain their text and
@@ -281,14 +265,12 @@ and incremental lifecycle setup are not selected for this one-locality amendment
 The owner-directed proposal and same-PR reconciliation supply an inspectable
 local amendment, with PR #1785's bounded source-home refinement as precedent.
 
-The book is a new work succeeding v9 in a different character, not v10 or a
-replacement instruction package. Its current sources remain unchanged. The
-first consultation identified the external agent-directed v9 use, the original
+The book was developed as a new work distinct from v9, not as a replacement
+instruction package. The first consultation identified the external agent-directed v9 use, the original
 scope exclusion, attribution risk and the primarily Root evidence base. The
 draft preserves the earlier route explicitly, uses an impersonal authorial
 voice without invented first-person experience, and separates actual Root
 records from constructed examples and the thesis's dated App/SWBPIPE account.
-The title/subtitle and interpreted positions were included in the final author approval.
 
 The manuscript develops v9's distinctions throughout as explanation. The actual
 case uses F-02, ownership/retirement, readiness and publication records already
@@ -298,7 +280,7 @@ also warrant changing the book. There is no routine reporting cycle or required
 consultation list. Existing project Agent 0 routes can carry consequential
 experience; no message, consumer change or adoption has been performed here.
 
-The method proposal adds one optional link to the exact book-source revision,
+The method adds one optional link to the exact book-source revision,
 using a qualified GitHub Markdown URL so the reference remains meaningful when
 the method package is copied without Root docs. It is explanatory material, not
 a newly required package resource. HELP_HUMAN and AGENTS remain unchanged. The
@@ -315,7 +297,6 @@ error in the book, but identified insufficient prose on capability/authority/
 enforcement, post-completion work and the effects of instructions through tools.
 Those arguments are now developed. The scope wording is narrowed to preserve
 DEL-01-01/DEL-05-01 ownership, and README restores an actionable external entry.
-The final scope, title and interpretation were included in the later owner approval.
 
 The owner additionally requested content on post-100% maintenance. A separate
 After completion chapter distinguishes the completed undertaking, the continuing
@@ -337,12 +318,10 @@ The unchanged pinned renderer reproduces its HTML exactly; metadata/hash,
 internal anchors and local linked targets were checked. These are source and
 render-structure observations, not a new visual-usability or product-use claim.
 The method reference names that exact source and survives a standalone copy as
-an optional external reference. The 23 catalog tests pass; metadata/index checks
-pass. Both affected scopes validate; native structure reports seven deliverables,
-64 needs, zero errors, the existing cycle and two existing unknown observations.
-Original OUT-001–003, REQ-001–008, AC-001–006 and VER-001–006 are byte-preserved;
-v9 Markdown/HTML equal the published 1.0.0 source. Candidate screening uses the
-available local patterns, separately from hosted secret-set coverage.
+an optional external reference. Original OUT-001–003, REQ-001–008, AC-001–006
+and VER-001–006 were preserved;
+v9 Markdown/HTML matched the published 1.0.0 source. Local credential-pattern
+screening of the candidate did not cover the hosted secret set.
 
 A bounded read-only check of locally fetched consumer refs found App's entry
 basis at `92b38ed440f5d7b4d0f1262aaf3a484ca532ec43` naming the stable manual index
@@ -353,25 +332,18 @@ claim. No downstream edit, repin or message was made. An integrated approved
 basis can be conveyed through the existing Agent 0 routes for any consumer-owned
 reconciliation; reading the new index does not adopt the successor.
 
-The final Claude Opus 5.5/high examination at
-`e104a6e501fc232125c0b09047eeb763c073da95` found the candidate ready for owner
-content review with no blockers. Its two substantive suggestions are incorporated:
-a post-completion validation gap can exist even when stated commitments are met,
-and anyone can raise a finding while changes to acceptance or release remain
-with the relevant authority. Minor precision edits clarify the F-02 example and
-known reliance at retirement. These bounded author repairs and their refreshed
-source/render/reference checks are later than that examination; no independent
-review of the revised head is claimed. The earlier examined source remains in
-Git. That examination preceded the later owner approval recorded below.
+An examination of `e104a6e501fc232125c0b09047eeb763c073da95` identified two
+substantive clarifications: a post-completion validation gap can exist even when
+stated commitments are met, and anyone can raise a finding while changes to
+acceptance or release remain with the relevant authority. The subsequent source
+incorporated these points; that examination did not cover the revised head.
 
 ## Grounding in thesis and recorded practice
 
 The owner requested further grounding and clarified that systematic learning
 across the projects has not yet been established: interventions have been
-occasional and owner-mediated. Independent Agent 0 and Claude Opus 5.5/high
-source investigations were compared and discussed before the owner approved
-the focused editorial revision with “Proceed as recommended.” This authorizes
-the revision, not final manuscript acceptance or publication.
+occasional and owner-mediated. Source investigations supported the focused
+editorial revision; they did not establish systematic learning.
 
 The current account distinguishes the author's commitments, interpretations of
 records and intended development. Its account of attention is grounded in the
@@ -424,18 +396,12 @@ post-completion chapter and constructed continuation were added here, not
 inherited from v9. Original links, named anchors, source hashes, PR references
 and quoted testimony remain intact. The book remains reflective, with no new
 operational obligation, scope change or consumer adoption from this wording pass.
-The later final author/content approval is recorded below.
 
 ## Author approval and library 1.0.1
 
-The owner approved candidate `43c4d414304e436a7f9cdceb21ed2b4e05c26543`, including
-the exact book/title, post-release scope addition and connected library changes:
-“Approved. This will increment the published library to v1.0.1”. The source-bound
-book and HTML keep their approved bytes. Current discovery and scope annotations
-apply that decision; they do not claim that an independent examiner approved a
-later head. Integration uses a merge commit so the optional method's exact source
-pin remains in main's history. The release and actual delivery checks are carried
-by the existing release mechanism and PR #1793, with consumer adoption independent.
+The library 1.0.1 book and HTML are bound to candidate
+`43c4d414304e436a7f9cdceb21ed2b4e05c26543`. Consumer adoption is independent of
+publication; later source changes do not alter the published edition.
 
 ## Standalone book framing
 
