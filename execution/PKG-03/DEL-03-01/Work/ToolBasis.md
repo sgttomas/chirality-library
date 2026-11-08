@@ -77,8 +77,15 @@ At `547e7d7f833f9bec351f7a034bddd7c1a37db15a`, examination covered preparation
 and current-locality helpers, ScopeOfWork validation and checklist callers, and
 the runtime guide's package selection and brief normalization. Selected setup
 and ScopeOfWork sources matched PR #1779's checked basis, so its applicable
-preservation and collision evidence remains relevant. The selected query use
-preserved distinct input conditions, unknown bindings and suitability limits.
+preservation and collision evidence remains relevant.
+
+At that basis, fresh checklist extraction derived DEL-03-01's seven ordered
+criteria without migration flags or site packages, and boundary-owner checking
+found no failure. Native `check` and `neighborhood` reported seven localities
+and 61 needs without structural errors. Distinct DEL-04-01 input conditions,
+unknown source bindings and suitability limits were preserved. These results
+cover the selected use, not all possible query claims.
+
 Source-qualified preparation, project-setup and scope-of-work selections resolved
 their requested resources; scope-of-work required its documented `scope_path`.
 Selection without an authorized brief supplied no write capability.
