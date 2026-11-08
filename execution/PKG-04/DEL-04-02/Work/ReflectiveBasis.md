@@ -199,7 +199,11 @@ The first two cases are real prior evidence, not executions of this new method.
 The third was the design action integrated in PR #1785. The walkthrough itself
 did not establish adoption. Package/resolver checks establish selection and
 representation, not the quality of human judgment; the actual F-02 case remains
-distinct from this pre-adoption walkthrough.
+distinct from this pre-adoption walkthrough. Examination of the connected design
+at `e99e7e6e61dbc3595d91cd95d8cd2c09eba36c3b` found no authority or containment
+blockers. The bounded repairs added the explicit role companion and declared
+the recovery output home. These design and repair observations do not establish
+product acceptance or completion.
 
 ## Readiness reflection and owner decision
 
@@ -229,9 +233,12 @@ Later findings can reopen an affected premise without discarding unrelated work.
 
 ## 90% position and completion boundary
 
-The 90% assessment examined the assembled contributions against local criteria
-and PRD A1–A8. It corrected two publication conditions that still described the
-bound F-02/v9 comparison as unresolved, retaining the named-reader,
+The 90% assessment examined the assembled contributions against the 44 local
+criteria and PRD A1–A8. It found applicable claim-specific evidence for all
+criteria and no missing mandatory output or broken operative relationship.
+Two publication conditions still described the bound F-02/v9 comparison as
+unresolved; PR #1788 integrated their factual correction at
+`ce3ae7a405999a730caed807857eecb394ce3be6`, retaining the named-reader,
 labelled-custody and source-candidate limits. The owner passed the 90% gate;
 that decision did not itself establish final acceptance or release.
 
