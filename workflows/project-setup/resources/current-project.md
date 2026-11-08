@@ -22,6 +22,15 @@ file is existing work. Preserve unrelated files, accepted evidence and explicit
 holds. A conflicting identity or source stops the affected operation; continue
 unaffected work where its inputs permit it.
 
+## Entry instructions when selected
+
+For authorized creation or revision of a project's entry, consult
+[project entry and standing instructions](project-entry.md). It separates the
+bootstrap, standing authority and operating route, with a suggested shared
+skeleton and review checks. Preserve the project's accepted layout and grants
+until its own authority changes them; locality setup alone does not authorize
+rewriting its entry or copying a Git grant.
+
 ## Structural preparation
 
 Apply the selected library's `preparation` instructions. Current helper calls are:

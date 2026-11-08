@@ -22,6 +22,11 @@ Inputs are the accepted decomposition/source identity, selected activation scope
 actual project instructions and any accepted changes affecting it. Inspect existing
 work and reuse recorded decisions; ask only for a missing reserved choice.
 
+When the authorized setup includes a project's entry instructions, use
+[project entry and standing instructions](resources/project-entry.md) to adapt
+the `init/`, `AGENTS.md` and `loop/` convention. This reference does not require
+migration, grant authority or enlarge the selected setup scope.
+
 For an explicitly retained DOMAIN or legacy phase/control-file project, use
 [the retained contract](resources/contract.md) and
 [retained method](resources/method.md). Those resources' lifecycle, register,

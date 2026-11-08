@@ -94,6 +94,8 @@ needs:
 code_paths:
 - workflows/bounded-reconciliation/**
 - AGENTS.md
+- workflows/project-setup/WORKFLOW.md
+- workflows/project-setup/resources/project-entry.md
 - workflows/project-setup/resources/current-project.md
 - workflows/project-setup/resources/package-activation.md
 - workflows/coordinated-knowledge-work/WORKFLOW.md

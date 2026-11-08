@@ -113,3 +113,40 @@ activity undertaken to obtain it. An assessment that was not selected as a
 production completion condition may continue separately; its presence does not
 create another merge gate. No new general reconciliation procedure or global
 report stream is needed. Existing reconciliation commitments remain unchanged.
+
+
+## Project entry convention candidate (2026-11-07)
+
+After the Library's own operating-entry move in PR #10, the owner directed a
+shared reference for project setup: “write the shared pattern instruction for
+uploading to the Library so we can capture this understanding and then iterate
+on it. Draft it and bring it to me for review when it's ready.” On placement:
+“yes, part of the `project-setup` workflow is a great idea. do that please. I
+agree with your other choices too.” The contributed draft is adapted as
+[project-entry.md](../../../../workflows/project-setup/resources/project-entry.md),
+linked only for authorized entry work from the current setup route and method.
+Actual content remains subject to owner review before integration.
+
+This is formation guidance, not another setup run: bootstrap identity and role
+loading, standing authority in AGENTS, and the operating route in loop. Its
+suggested skeleton is a convention, not a required migration. A recorded owner
+grant cannot be created by copying the example. Projects retain their accepted
+instructions and adoption authority; Library main changes no consumer selection.
+The maintained reference basis is PR #10's integrated source
+`24628ead2239498ba958a0a216b2eae15b76000f`.
+
+The current ScopeOfWork already covers connected setup/reconciliation guidance;
+no output commitment, criterion or need condition changes. Useful code pointers
+include the new resource and method entry. DEL-02-01's maintenance route is used
+without changing its contract or need conditions. Existing execution metadata
+still restricts project-setup to WORKING_ITEMS; no capability or role changes.
+The generated index gains the package resource. Resolver entrypoint fingerprints
+change with the edited method, and the explicitly requested resource has its own
+fingerprint; these are source identities, not proof of host enforcement.
+
+Constructed review cases: a new project without a Git grant can prepare entry
+instructions but must omit a grant until the owner gives it; an existing project
+with a different accepted layout reports the difference and preserves its files
+until an authorized change. A query unavailable in either case is reported, with
+source inspection as the limited fallback. These instruction walkthroughs do not
+prove actual consumer adoption, session delivery or successful project setup.
