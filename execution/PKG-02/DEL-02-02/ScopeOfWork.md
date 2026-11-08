@@ -42,7 +42,7 @@ The current PRD applies the owner's “There is no PEC” correction to §2.3 an
 identifies that clarification; this historical hash is not the corrected file's hash.
 Accepted snapshot bytes and the original acceptance/source identity are preserved.
 
-- **CLM-001** — Maturity: bounded F-02 production drafting and examination is authorized against AC-001 through AC-004. The owner approved the connected reference/manual content and selected-row findings at `4ac85ca97caa716a31bf68b726ffac931cb7ca08` for integration, after independent examination and Agent 0 verification of the bounded repair. Work/Applicability.md and the actual PR retain the evidence and decision. The locality and its needs do not establish input suitability, an accomplished repair, accepted product or release. Existing qualifications and checked holdings may satisfy part or all of an output; new files are not inherently required. Setup basis: Group 3 DECISION.md/HANDOFF_STATE.md and decomposition §8.1; current production authority: the bounded F-02 undertaking supplied through Agent 0.
+- **CLM-001** — Maturity: the bounded F-02 reference/manual comparison and repair provide evidence bearing on AC-001 through AC-004 in Work/Applicability.md. The locality and its needs do not by themselves establish input suitability, accepted product or release. Existing qualifications and checked holdings may satisfy part or all of an output; new files are not inherently required. Setup basis: Group 3 DECISION.md/HANDOFF_STATE.md and decomposition §8.1.
 
 The initial source assessment and continuation conditions are in [Work/Applicability.md](Work/Applicability.md). Consumer-local needs are now declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
 
