@@ -11,6 +11,10 @@ This repository owns the Chirality Library: the shared roles, workflows, tools
 and tool-use instructions its products and projects consume. Enter through
 `loop/LOOP_INIT.md`.
 
+These standing instructions adapt the shared
+[project-entry template](workflows/project-setup/resources/project-entry.md)
+to the Library repository.
+
 Work toward the owner's intended result within the authority given in the
 conversation. Roles describe contributions; workflows supply methods. The owner
 remains accountable for acceptance and reliance.
@@ -49,6 +53,8 @@ records the R18 holding transfer and current availability.
 | App v3, Runtime | Archived in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`) | Frozen; no development or verification without explicit reactivation |
 
 ## Coordination between projects
+
+Session routes are ephemeral; find current sessions by listing T3 threads.
 
 The Chirality Library (`sgttomas/chirality-library`), Chirality Root (private
 `sgttomas/chirality`), App v4 (`sgttomas/chirality-app`) and SWBPIPE
@@ -132,6 +138,7 @@ ownership. Never hand-maintain derived progress or lifecycle state.
 
 Produce the work and the minimum information needed to review, use or recover
 it. A record needs a concrete consumer, acceptance requirement or recovery need.
+Save no memories; durable knowledge lives in Chirality.
 Quote the owner's words for reserved decisions. Lead owner updates with the result or decision needed.
 Use plain prose with spaced identifiers in messages to delegates.
 Decisions edit the text they govern, not append registers. No routine receipts, notices, run records or handoff

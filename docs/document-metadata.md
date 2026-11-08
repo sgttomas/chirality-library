@@ -65,3 +65,45 @@ Exclude the YAML header from rendered prose and regenerate affected derivatives
 with the complete source fingerprint. Regenerate consumed workflow indexes when
 package metadata changes. Consumers select revisions and adopt changes through
 [their own route](../README.md#obtain-and-use-the-library).
+
+## Library derivation
+
+A project document adapted from a Library source may record that relationship
+with optional `metadata.upstream`:
+
+```yaml
+metadata:
+  kind: instruction
+  surface: standing
+  upstream:
+    source: workflows/project-setup/resources/project-entry.md
+    edition: library-v3.2.1
+```
+
+The example is illustrative. `source` is the repository-root-relative Library
+source-file path. `edition` is the published Library edition against which the
+adapted document was last reconciled. It is not the document's own version,
+the project's overall Library selection, or a claim of identical content.
+Deliberate local adaptations may remain after reconciliation.
+
+Adapted project `AGENTS.md`, `init/init-prompt.md` and `loop/LOOP_INIT.md` use
+`workflows/project-setup/resources/project-entry.md` as their source, with its
+relevant sections. An adapted workflow uses its actual Library source file.
+A matching filename does not establish derivation.
+
+Both members are required when `upstream` is present. Omit the object where
+there is no established Library derivation or justified reconciliation edition.
+Canonical Library source documents need no upstream field. The Library's own
+project entry documents are template adaptations like those of other projects.
+Do not infer a baseline from the current Library selection or latest release. This object records one
+source relationship, not a general reference or copy inventory.
+
+Schema validation checks structure and edition-tag spelling. Inspect the
+published edition to establish source identity and the correct mapping; the
+schema cannot prove that the edition exists or reconciliation occurred.
+Use [Compare Library derivations](../workflows/compare-library-derivations/WORKFLOW.md)
+when the undertaking selects comparison and discussion. Add or advance the
+field only after the whole adapted document has been reconciled against the
+applicable content of that published source edition under project authority.
+A partial comparison or a newer project-wide Library selection does not
+advance it automatically.

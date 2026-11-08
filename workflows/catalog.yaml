@@ -189,6 +189,9 @@
             "name": "bounded-reconciliation"
           },
           {
+            "name": "compare-library-derivations"
+          },
+          {
             "name": "audit-dep-closure"
           },
           {
