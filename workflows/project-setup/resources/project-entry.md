@@ -7,7 +7,8 @@ This resource describes those surfaces, what belongs in each, and which text
 is shared across projects and which is local.
 
 Use it when standing up a project, when revising a project's entry or standing
-instructions, and when reviewing whether a project has drifted. It describes a
+instructions, and when reviewing how a project differs from the convention.
+It describes a
 convention projects have adopted, not an obligation: a project keeps its
 accepted layout until its own authority changes it, and reading this resource
 moves nothing.
@@ -26,7 +27,7 @@ moves nothing.
 The first three are the instruction entry layer: how an agent enters and keeps operating.
 They do not configure or establish host enforcement. The
 next two are what it works on; the last row is what it works with. Keep the
-harness at the top level, separate from the execution record, so "how do I
+entry layer at the top level, separate from the execution record, so "how do I
 work here now" is in the same place in every project.
 
 ## `init/init-prompt.md`
@@ -37,9 +38,10 @@ A short, reusable prompt the owner sends to start an Agent 0 session. It:
 2. reads `AGENTS.md`;
 3. resolves the selected Library from `AGENTS.md` (or this repository's own
    source when maintaining the Library) and reads the entry role
-   (`agents/AGENT_HELP_HUMAN.md`), recording the revision actually used;
-4. names the role and capacity (`HELP_HUMAN` as Agent 0 for this project) and
-   any opt-in roles that initialization does not select;
+   (`agents/AGENT_HELP_HUMAN.md`); where the project pins a revision, identifies
+   the revision used in its orientation report;
+4. names the role and capacity (`HELP_HUMAN` as Agent 0 for this project);
+   optionally clarifies that initialization does not select opt-in roles;
 5. reads and follows `loop/LOOP_INIT.md`;
 6. orients, reports briefly, and awaits the owner's steering.
 
@@ -84,7 +86,9 @@ grant to a consumer. Preserve its source identity and any relied-on section
 anchors when adapting names, scope and arrangement. A change to shared wording
 here is a proposal for affected projects, not an automatic update: use the
 Library review route, then let each project Agent 0 decide adoption under its
-own authority. The substance each section carries:
+own authority. For shared rules, the selected reference wording governs where
+this summary differs; local authority remains with the project. The substance
+each section carries:
 
 - **Shared roles and methods.** The Library location on this workspace and,
   elsewhere, an owner-selected checkout or release archive of
@@ -98,10 +102,11 @@ own authority. The substance each section carries:
   on demand. Use `coordinated-knowledge-work` for related contributions,
   `workflows/index.json` to select others, `create-workflow` before authoring a
   reusable method. Retain source identity and expose collisions. Roles grant no
-  host permissions; model and effort come from session steering. A dispatched
-  contribution gets its objective, input basis, allowed reads and writes,
-  integration owner, review route and reserved choices. The Library's own
-  duties and Git grant do not transfer to the project.
+  host permissions; model and effort come from session steering. Give a
+  dispatched agent its brief in full in the dispatch, referring only to
+  repository files and host facts. The selected coordination method supplies
+  the assignment contents, including objective, basis, writes, integration
+  ownership and review/decision rights.
 - **Coordination between projects.** Each project has one top-level Agent 0 in
   its own T3 Code session. When work needs another project, this Agent 0
   messages that one directly, after reading its session to confirm it is
@@ -134,9 +139,11 @@ own authority. The substance each section carries:
   merge commits unless chosen otherwise; stage only the intended change and keep
   truthful authorship; the PR states what changed, why, what was checked and
   what remains open, quoting the owner for reserved decisions, with no separate
-  receipts; isolate in a worktree on request or when concurrent work overlaps
-  governance surfaces; after merge, remove the worktrees, branches, build output
-  and scratch the work created unless a named need still uses them.
+  receipts. Use the host-prepared checkout when supplied; otherwise isolate
+  only when requested or overlap/risk warrants it. Inspect the actual diff and
+  affected checks before publishing and verify the source head before integration.
+  After merge, remove the worktrees, branches, build output and scratch the work
+  created unless an open review, named consumer or recovery need still uses them.
 
 A project's grant comes from the owner for that repository. Agents do not
 write a grant for themselves by copying this text; they record one the owner
@@ -165,8 +172,9 @@ and how work is found and carried. Typical parts:
    `DEL-nn-nn`: its `ScopeOfWork.md`, `Work/`, `deliverable.yaml`, then the PRD
    clauses this slice needs. Give the query commands with a worked example. A
    failed query is not an empty result.
-3. **Select methods.** How to resolve Library workflows from this project, and
-   which local methods take precedence by explicit path.
+3. **Select methods.** How to resolve Library workflows from this project,
+   retaining qualified source identity and exposing collisions with local methods.
+   Do not infer a different selection from a matching name.
 4. **Carry it through.** Agent 0 and implementation-owner responsibilities,
    ordering constraints, reconciliation in the same PR, check selection and the
    hosted merge check.
@@ -186,7 +194,8 @@ When reviewing a project that has selected this convention, examine the
 following. A difference is an observation to assess against that project's
 accepted basis, not an automatic defect or authority to migrate it:
 
-- `init/init-prompt.md` follows the six steps and leads to `loop/LOOP_INIT.md`;
+- `init/init-prompt.md` covers the bootstrap shape above, including its
+  conditional steps, and leads to `loop/LOOP_INIT.md`;
 - `CLAUDE.md` contains only `@AGENTS.md`;
 - `AGENTS.md` covers the standing subjects above under the project's authority,
   retaining the selected shared meaning and identifying local adaptations;
