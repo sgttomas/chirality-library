@@ -158,12 +158,16 @@ for adoption and source distinctions.
 ### Packaged product instructions
 
 For an application that bundles agent instructions with its product, assign
-those instructions to a named deliverable. Maintain their source in that
-locality's `Work/`, generate the shipped copy from it, and list both source and
-shipped paths in `deliverable.yaml`. For example, SWBPIPE DEL-16-06 maintains
-`Work/agent-capability-catalog.json`, generates it through
-`tools/agent_catalog_resource.py`, and ships
+those instructions to a named deliverable. Keep declarative design instructions
+and rationale in its `Work/`; maintain canonical runtime assets in the product's
+source locations. List the actual maintained and shipped paths in
+`deliverable.yaml`. For generated copies, identify the maintained source and
+generator.
+
+For example, SWBPIPE DEL-16-06's canonical catalog is
 `apps/desktop/src-tauri/resources/agent-capability-catalog.json`.
+`tools/agent_catalog_resource.py` validates that resource against its witness
+pin; the locality's Work prose governs its requirements.
 Keep product build, test and CI independent of a sibling Library checkout.
 
 The Library publishes the documents themselves for consumers to read and

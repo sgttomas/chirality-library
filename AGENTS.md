@@ -115,9 +115,11 @@ Code that runs (implementation, tests, generators, harnesses) lives outside `exe
 Make maturity and issue status explicit. Use
 [document metadata](docs/document-metadata.md) for maintained Markdown headers. Code and other outputs may
 retain their actual product/source homes, referenced from the locality. For
-agent instructions bundled with an application, maintain the source in the named
-deliverable's `Work/`, generate the shipped copy from it, and list both in
-`deliverable.yaml`. The Library maintains its published instruction documents in
+agent instructions bundled with an application, keep declarative design
+instructions and rationale in the named deliverable's `Work/`; maintain canonical
+runtime assets in the product's source locations. List the actual maintained and
+shipped paths in `deliverable.yaml`, identifying the source and generator for
+generated copies. The Library maintains its published instruction documents in
 their Library source homes. The consumer states its needs; tools derive reverse links and graphs.
 
 App v4 and SWBPIPE use `Work/`; their older references to a deliverable's
