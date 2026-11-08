@@ -206,6 +206,8 @@ are explicitly at AGENTS; historical declarations retain their selected sources.
 
 The following cases retain their source identities and claim-specific limits. Reported earlier evidence is not a new execution. The examination at `7d0933d70ab983068a55c055f31ff2df4423055f` covered the earlier labelled-case limits; it did not cover the subsequent retirement/reflection design.
 
+The historical Git comparisons established equal trees for all five checked-head/merge pairs below and recoverability of selected preceding sources. Content identity does not establish semantic approval.
+
 - [PR #1779](https://github.com/sgttomas/chirality/pull/1779), checked head
   `a0bb0dc77a53b041262571f658f9fd9590d44269`, merge
   `a052783460f60c76e6fa229500f59a51f67c5265`: the actual diff introduces `--current`,
