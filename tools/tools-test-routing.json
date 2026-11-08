@@ -474,6 +474,68 @@
         "instructions",
         "deliverables"
       ]
+    },
+    {
+      "description": "Scope parsers and ID catalog are imported by validators, reporting, evaluation and the validator exercised by scaffolding.",
+      "paths": [
+        "tools/scope_of_work/common.py",
+        "tools/scope_of_work/id_catalog.json"
+      ],
+      "checks": [
+        "validation",
+        "reporting",
+        "evaluation",
+        "scaffolding"
+      ]
+    },
+    {
+      "description": "Current-locality tests execute the substantive scope validator.",
+      "paths": [
+        "tools/scope_of_work/validate_scope_of_work.py"
+      ],
+      "checks": [
+        "scaffolding"
+      ]
+    },
+    {
+      "description": "Scaffolding tests execute the shared fileset checker.",
+      "paths": [
+        "tools/validation/check_min_viable_fileset.sh"
+      ],
+      "checks": [
+        "scaffolding"
+      ]
+    },
+    {
+      "description": "Retrieval imports packet schemas and database helpers.",
+      "paths": [
+        "tools/source_catalog/research_packet.py",
+        "tools/source_catalog/source_database.py"
+      ],
+      "checks": [
+        "retrieval"
+      ]
+    },
+    {
+      "description": "Scaffolding imports declaration parsing; evaluation executes the dependency CLI.",
+      "paths": [
+        "tools/deliverables/*.py"
+      ],
+      "checks": [
+        "scaffolding",
+        "evaluation"
+      ]
+    },
+    {
+      "description": "Dispatch-brief rendering reads the required fields from these workflow contracts.",
+      "paths": [
+        "workflows/dbm-concordance-verify/CONTRACT.md",
+        "workflows/dbm-section-publish/CONTRACT.md",
+        "workflows/dbm-publish/CONTRACT.md"
+      ],
+      "checks": [
+        "publication"
+      ]
     }
   ]
 }

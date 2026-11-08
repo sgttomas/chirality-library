@@ -96,7 +96,8 @@ def workflow_outputs(selection: dict) -> dict[str, bool]:
             "instructions": 'instructions' in selection['repository_checks'],
             "deliverables": 'deliverables' in selection['repository_checks'],
             "needs_zsh": 'scaffolding' in checks,
-            "manual": 'publication' in checks}
+            "manual": 'publication' in checks,
+            "pdf": 'pdf2md' in checks}
 
 
 def pytest_dirs(check_ids: list[str]) -> list[str]:

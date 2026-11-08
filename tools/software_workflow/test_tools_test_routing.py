@@ -258,4 +258,28 @@ def test_emitted_workflow_outputs_include_unknown_path_safeguards(tmp_path, monk
     assert dict(line.split('=') for line in output.read_text().splitlines()) == {
         'has_tests': 'true', 'instructions': 'true', 'deliverables': 'true',
         'needs_zsh': 'true', 'manual': 'true',
+        'pdf': 'true',
     }
+
+
+@pytest.mark.parametrize('path,checks', [
+    ('tools/scope_of_work/common.py', {'scope_of_work', 'validation', 'reporting', 'evaluation', 'scaffolding'}),
+    ('tools/scope_of_work/id_catalog.json', {'scope_of_work', 'validation', 'reporting', 'evaluation', 'scaffolding'}),
+    ('tools/scope_of_work/validate_scope_of_work.py', {'scope_of_work', 'scaffolding'}),
+    ('tools/validation/check_min_viable_fileset.sh', {'validation', 'scaffolding'}),
+    ('tools/source_catalog/research_packet.py', {'source_catalog', 'retrieval'}),
+    ('tools/source_catalog/source_database.py', {'source_catalog', 'retrieval'}),
+    ('tools/deliverables/cli.py', {'deliverables', 'scaffolding', 'evaluation'}),
+    ('tools/deliverables/graph.py', {'deliverables', 'scaffolding', 'evaluation'}),
+    ('workflows/dbm-concordance-verify/CONTRACT.md', {'validation', 'workflow_runtime', 'publication'}),
+    ('workflows/dbm-section-publish/CONTRACT.md', {'validation', 'workflow_runtime', 'publication'}),
+    ('workflows/dbm-publish/CONTRACT.md', {'validation', 'workflow_runtime', 'publication'}),
+])
+def test_shared_inputs_include_their_actual_consumer_suites(path, checks):
+    assert set(_dry_run('--paths', path)['checks']) == checks
+
+
+def test_pdf_dependencies_selected_only_when_pdf_tests_run():
+    runner = load_runner()
+    assert runner.workflow_outputs(_dry_run('--paths', 'tools/pdf2md/render_table_xlsx.py'))['pdf']
+    assert not runner.workflow_outputs(_dry_run('--paths', 'docs/document-metadata.md'))['pdf']

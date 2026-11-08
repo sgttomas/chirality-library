@@ -47,3 +47,6 @@ def test_routing_completeness_runs_on_every_pr_and_zsh_only_when_needed():
     renderer = next(s for s in steps if s.get('name') == 'Install selected manual renderer dependencies')
     assert renderer['if'] == "steps.selection.outputs.manual == 'true'"
     assert '-r docs/alignment-manual/requirements.txt' in renderer['run']
+    pdf = next(s for s in steps if s.get('name') == 'Install selected PDF dependencies')
+    assert pdf['if'] == "steps.selection.outputs.pdf == 'true'"
+    assert '.[pdf]' in pdf['run']

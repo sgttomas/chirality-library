@@ -51,6 +51,9 @@ jobs:
       - name: Install selected manual renderer dependencies
         if: steps.selection.outputs.manual == 'true'
         run: python3 -m pip install --quiet -r docs/alignment-manual/requirements.txt
+      - name: Install selected PDF dependencies
+        if: steps.selection.outputs.pdf == 'true'
+        run: python3 -m pip install --quiet ".[pdf]"
       - name: Routing completeness and workflow contracts
         run: python3 -m pytest -q tools/software_workflow/test_tools_test_routing.py tools/software_workflow/test_hosted_ci_workflows.py
       - name: Python lint (pyflakes rules)
