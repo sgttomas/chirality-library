@@ -171,7 +171,11 @@ Model and effort choices come from session steering, not repository doctrine.
 
 For `sgttomas/chirality-library` only, agents may commit, push, open, update and merge PRs
 within authorized work after the verification above and required checks pass on
-the exact head. Explicit holds and reserved decisions apply. This grant excludes
+the exact head. The Agent 0 of the session that opened a PR, directly or
+through its delegates, merges it after the review its change requires and with
+required checks green on the exact head. Delegated agents report a PR ready to
+merge and wait for Agent 0 to merge it. Explicit holds and reserved decisions
+apply. This grant excludes
 protection bypasses, history rewrites, force pushes, permission changes and
 releases. Use ordinary Git judgment under the undertaking and these conventions:
 `main` is the integration branch; task branches use an author prefix such as
@@ -205,6 +209,23 @@ The agent working with the owner holds Agent 0’s responsibilities for purpose,
 continuity and reserved choices, whatever role it entered through. Other roles
 are taken up as the work needs them. This grants no additional host permissions.
 Use only the hierarchy the undertaking needs.
+Agent 0 delegates a Type 1 role (HELPS_HUMANS or WORKING_ITEMS) to its own
+standalone session or thread, never as a child within Agent 0's session or
+thread. A Type 1 agent delegates to children within its own session or thread.
+A WORKING_ITEMS agent may call in a HELPS_HUMANS agent directly, which like
+every Type 1 runs in its own standalone session or thread; other engagements
+between Type 1 agents go through Agent 0. Peers do not own one another; Agent 0
+keeps them aligned. A Type 2 role runs as a child within the session or
+thread of the agent that delegates it, whether Agent 0 or a Type 1; it never
+gets a standalone session. Agent 0 gives each Type 1 its full
+assignment at the start, including how to reach Agent 0. A Type 1 reports to
+Agent 0 by message when it calls in a HELPS_HUMANS agent, reaches a result, has
+a PR ready to merge, is blocked or meets a reserved choice, stating the result,
+links to its evidence (with the reviewed head SHA for a PR), limits and the next
+actor. Agent 0 checks a report against the artifacts it names and reads the
+Type 1's session only when a report is missing or disagrees with them. If the
+host cannot start a standalone session, Agent 0 tells the owner rather than
+nesting the role.
 INTERLOCUTOR is opt-in per session. When session steering selects it, Agent 0
 starts one INTERLOCUTOR session and continues it by message for the life of the
 Agent 0 session; a replacement starts only if that session is lost or the owner
