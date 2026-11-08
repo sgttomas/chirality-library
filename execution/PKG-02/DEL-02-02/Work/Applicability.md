@@ -1,14 +1,6 @@
 # Bounded reference-applicability comparison
 
-Maturity: coherent reference/manual candidate with all eight selected passage
-rows examined, bounded source-use examination and the affected HTML regenerated.
-Independent examination of `af78739f4a1d977e221d4fa2068e941d15824d6b` found a
-format-applicability blocker, repaired below. Agent 0 verified the bounded repair
-against the current validator and callers. After reviewing the eight-file proposal
-at `4ac85ca97caa716a31bf68b726ffac931cb7ca08`, the owner said “approved.” This
-approves the candidate content for integration. This is
-evidence toward AC-001–AC-004, not an accepted F-02 result, A4/A5 completion,
-a development gate or release.
+Maturity: the eight selected passage rows, bounded source-use examination and affected HTML are documented below. The format-applicability counterexample at `af78739f4a1d977e221d4fa2068e941d15824d6b` and its repair remain evidence toward AC-001–AC-004; they do not establish product acceptance, A4/A5 completion, a development gate or release.
 
 Removal note (2026-11-04): the three reference documents this contribution
 reviewed (runtime interface, product boundaries and compatibility formats) were
@@ -29,18 +21,7 @@ DEL-02-02 card, §8.1, §9 and qualifications remain unchanged.
 Read together, current AGENTS.md, PRD §2.3/R06/R11–R13 and the references' existing
 opening qualifications support a distinction between library definitions,
 current Root work and contracts selected by a consumer. They do not support
-abolishing a contract because its deployment is historical. The current bounded
-assignment authorizes the connected reference/publication drafting and examination
-under the existing criteria. The owner approved carrying the coherent result
-through before independent examination: “give that a try and we'll see how it goes.”
-That earlier decision expanded the work boundary; the subsequent content approval
-is recorded above.
-Agent 0 retains consumer coordination and final integration; the owner approves
-proposed content before integration. The selected methods are repository
-`workflows/coordinated-knowledge-work/WORKFLOW.md`,
-`workflows/bounded-reconciliation/WORKFLOW.md` and `sgttomas/chirality:workflows/change/WORKFLOW.md`,
-with `.agents/skills/chirality-change/SKILL.md` supplying Git conventions, at the
-preceding basis. Proposed wording is examined under that basis.
+abolishing a contract because its deployment is historical. The selected methods at the preceding basis were repository `workflows/coordinated-knowledge-work/WORKFLOW.md`, `workflows/bounded-reconciliation/WORKFLOW.md` and `sgttomas/chirality:workflows/change/WORKFLOW.md`, with `.agents/skills/chirality-change/SKILL.md` supplying Git conventions. The proposed wording was examined under that basis.
 
 ## Selected passage dispositions
 
@@ -241,10 +222,4 @@ remaining historical-adoption limits. The existing deliverable.yaml needs/check 
 actual input conditions, including Q-04/Q-05 and the renderer used here. No
 metadata edit is warranted simply to record that a source was read.
 
-The PR carries the exact candidate checks, review findings and owner content decision. Focused structural,
-source/link and public-screening checks support representation and public handling;
-they cannot establish source interpretation, host behavior or consumer compatibility.
-Agent 0 commissioned the independent examination and verified the bounded repair. There is no changed
-executable behavior and no frozen-product verification. The connected publication
-change is included in the owner-approved content. Integration remains subject
-to passing checks on the final revision; product acceptance and release remain separate.
+Focused structural, source/link and public-screening checks support representation and public handling; they cannot establish source interpretation, host behavior or consumer compatibility. Executable behavior was unchanged and frozen-product behavior was not verified. Product acceptance and release remain separate.

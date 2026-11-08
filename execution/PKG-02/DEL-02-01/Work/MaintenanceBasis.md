@@ -8,21 +8,11 @@
 For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extension).
 Earlier case/basis statements below retain their recorded subjects and limits.
 
-Maturity: owner-approved retirement/reflection content. The owner approved
-`5b2289d93cd86561818b10e452ffbe4425afce11` and all three output-home changes:
-“Yes I approve this. Proceed accordingly.” Integration is recorded in PR #1785. The preceding authorized method basis is
-`8d0c5d1a19eec865a8a92750cb3de590d04f9c02`; the earlier unadopted expansion and
-parent's factual assessments are retained at
-`a93f4a29b9ec17af799903a11bb1a09667a607fa`. Agent 1 carried implementation through repairs;
-Agent 0 presented the combined content and integrated it after owner approval.
+Maturity: retirement and reflection content was integrated in PR #1785. The preceding authorized method basis is `8d0c5d1a19eec865a8a92750cb3de590d04f9c02`; the earlier unadopted expansion is retained at `a93f4a29b9ec17af799903a11bb1a09667a607fa`.
 
 ## Current-project scope-amendment instructions
 
-The owner authorized a bounded repair of obsolete amendment instructions before
-preparing a separate proposed Library capability: “I approve, but first delegate
-the work to Fix the obsolete parts of the instructions.” The reviewed preceding
-source is `2fbdc1ec3563690c5820be6b01cfdd56c7bdf813`. This maintenance change
-implements no new benchmarking capability, PRD amendment or decomposition change.
+The current-project amendment instruction repair uses preceding source `2fbdc1ec3563690c5820be6b01cfdd56c7bdf813`. It implements no new benchmarking capability, PRD amendment or decomposition change.
 
 The discrepancy was concrete: current setup creates ScopeOfWork/Work/native-needs
 localities without lifecycle files, while scope-change, deferred ScopeOfWork
@@ -54,11 +44,7 @@ pointers are extended to these maintained amendment routes.
 
 ## Retirement and retained means
 
-The owner questioned the generic change workflow's use: “It's seldom used in
-the right manner when agents are the ones invoking it. The task is easy for
-agents to do.” After discussing the Root-only skill and reflective methods,
-the owner authorized further proposal work: “Okay take this away and work on
-the PR further.” This authorizes the candidate, not its content adoption.
+The generic change workflow and Root-only skill were retired because ordinary authorized briefs and repository conventions supply the work.
 
 Retire `sgttomas/chirality:workflows/change/` and `.agents/skills/chirality-change/` from the active
 library. Ordinary authorized briefs and repository conventions supply Git work.
@@ -70,15 +56,7 @@ checklist or create a replacement Git method. Existing README owns publication
 and update inspection; bounded-reconciliation owns actual-result comparison;
 create-workflow governs reusable method design under its preceding basis.
 
-Three output-home changes were explicitly proposed for owner review: DEL-02-01
-OUT-001's connected means use AGENTS, create-workflow and the on-demand resource;
-DEL-02-01 OUT-003's recovery/custody detail moves from the maintained change
-route/resources to `sgttomas/chirality:docs/MAINTENANCE_RECOVERY.md` linked from AGENTS; DEL-04-02
-OUT-002 uses reflect-on-work with retained role posture/orchestration inputs.
-Their purposes, scope, requirements and evaluation are preserved. The owning
-ScopeOfWork documents name all three source-home changes; the owner approved them. Git retains both integrated and unadopted prior package bytes. No accepted
-snapshot or historical source account is rewritten; no current workflow resolves
-from those retained historical bytes implicitly.
+The output-home changes preserve the purposes, scope, requirements and evaluation of DEL-02-01 OUT-001 and OUT-003 and DEL-04-02 OUT-002. Their owning ScopeOfWork documents identify the homes. Git retains the integrated and unadopted prior package bytes; accepted snapshots and historical source accounts remain unchanged.
 
 Current callers now hand Git work to the responsible implementation owner with
 actual project conventions. Scope-of-work conversion still requires its isolated
@@ -226,62 +204,44 @@ are explicitly at AGENTS; historical declarations retain their selected sources.
 
 ## Completed cases: reused evidence and fresh examination
 
-Fresh work here reads the actual PR descriptions, head/merge identities and hosted
-check results, selected diffs and owning sources. Earlier test runs, independent
-reviews, consumer inspections and owner decisions remain **reported prior
-evidence**, not tests or reviews performed by this author. Fresh Git comparisons establish equal trees for all five checked-head/merge
-pairs and recoverability of selected preceding sources; they cannot establish semantic approval.
+The following cases retain their source identities and claim-specific limits. Reported earlier evidence is not a new execution.
 
 - [PR #1779](https://github.com/sgttomas/chirality/pull/1779), checked head
   `a0bb0dc77a53b041262571f658f9fd9590d44269`, merge
   `a052783460f60c76e6fa229500f59a51f67c5265`: the actual diff introduces `--current`,
   keeps the unflagged route, separates preparation from contract authoring and
   supplies same-PR reconciliation. Its preceding source is `d5ca6594ce6010c94c7981fe35cc540a822e9aa8`.
-  Its description records the owner's request
-  to reconcile the setup means before decomposition resumed. It reports 1,382
-  passes/5 historical skips at executable head `64ebc86b5e961128ea00e8ac11491e9ea04c4eaa`,
-  then only brief wording repairs, with independent preservation/collision
-  scrutiny. This supports AC-002/003/004 and A2/A5 for that bounded repair; it
+  The reported executable evidence at `64ebc86b5e961128ea00e8ac11491e9ea04c4eaa` supports AC-002/003/004 and A2/A5 for that bounded repair; it
   does not prove live setup, every R04 operation or recovery. The accepted
   decomposition §6.1 retains the same evidence basis.
 - [PR #1781](https://github.com/sgttomas/chirality/pull/1781), head
   `6214644c280654ee7b2cc408f4622e8d54a6864d`, merge
   `4214db1c0ed04ce5466e65979c215fe018bd19d7`: the actual entry diff connects
-  undertaking, current localities, methods and owner review. Its PR records
-  independent entry review, the owner's “Approved.” and selected checks.
-  The preceding entry at `11bdb448323877268c90296a5497fd71ede1baee`
+  undertaking, current localities, methods and owner review. The preceding entry at `11bdb448323877268c90296a5497fd71ede1baee`
   and the resulting entry remain available. This
   is another actual A5 case; it supplies no authority for this draft's adoption.
 - [PR #1782](https://github.com/sgttomas/chirality/pull/1782), head
   `b494e48947f331264675fbca41116580fc4835d1`, merge
   `257ab4c18014bf872a1c72eeb7593a7ad3d135c0`: inspected two-file diff and the
-  owning ToolBasis show guide-only repair. The PR reports the missing-argument
-  error, successful explicit invocation and the owner's “you may.” This is
+  owning ToolBasis show guide-only repair: a missing-argument error was resolved
+  by explicit invocation. This is
   direct-usage correction evidence, not a newly built CLI or new test here.
 - [PR #1783](https://github.com/sgttomas/chirality/pull/1783), final head
   `fd5aa155a44db3729d87015ac19ba778071de6cb`, merge
   `1357d706ea77497903976bf159f3880bea4d1360`: the actual reference diffs preserve
   adopted containment and current format classification while qualifying legacy
   duties. [Applicability](../../DEL-02-02/Work/Applicability.md) owns the eight
-  dispositions, five source-use examinations and counterexample/repair. Reuse
-  its five focused resolver/checklist tests, representation evidence and owner
-  approval of repaired content at `4ac85ca97caa716a31bf68b726ffac931cb7ca08`.
-  The final head adds factual approval standing. Neither the rejected
+  dispositions, five source-use examinations, counterexample/repair, focused
+  resolver/checklist tests and representation evidence. Neither the rejected
   `af78739f4a1d977e221d4fa2068e941d15824d6b` interpretation nor a green renderer
   establishes correct semantics. No frozen-product test is inferred.
 - [PR #1784](https://github.com/sgttomas/chirality/pull/1784), head
   `fdbc70291436cc51f6d3d1a54cc34baf58306b20`, merge/source basis
   `8d0c5d1a19eec865a8a92750cb3de590d04f9c02`: inspected README/workflow-guide
   changes and ConsumerBasis. Reuse the exact isolated App-reader and source
-  archive/comparison evidence with their stated limits. The PR records independent
-  review and owner approval. No App suite, download, repin or consumer message
-  occurs in this undertaking.
+  archive/comparison evidence with their stated limits. No App suite, download,
+  repin or consumer message occurred in that undertaking.
 
-All five PRs' retrieved hosted `Repository checks` and `harness` results are
-SUCCESS. These corroborate their reported integration checks; the PR descriptions
-carry the independent-review and owner-decision accounts (the GitHub reviews
-arrays are empty). Independent examination of this candidate is distinguished
-from those prior PR reviews below.
 
 ## Labelled recovery and procedural-custody case
 
@@ -376,48 +336,9 @@ sibling ownership, owner decisions, adopted/protected bases and public screening
 limits. Q-01 additional archival removal and Q-02 bespoke tooling remain reserved;
 Q-04/Q-05 are usable only for the selected ConsumerBasis claims, not all interfaces.
 
-The earlier expansion had 378 selected test passes/four skips and 21 catalog
-passes. Those results are historical, not checks of the changed retirement/index
-behavior. Fresh selected validation/workflow-runtime checks pass: 382 tests,
-four existing skips. The focused catalog/resolver set passes 43 tests. Its
-negative cases reject a compatibility note without a historicalOnly entry,
-missing/empty documentation, and an unlisted target; an unrelated present
-Root-only skill cannot act as CHANGE's implicit successor. The earlier eight-skill
-count expectation was updated to seven because the actual skill is retired;
-public-export exclusion remains independently exercised with a fixture.
+At the retirement basis, catalog negative cases rejected a compatibility note without a historicalOnly entry, missing or empty documentation, and an unlisted target; an unrelated Root-only skill could not serve as CHANGE's implicit successor. Public-export exclusion was exercised with a fixture. CLI probes rejected legacy CHANGE, unqualified and source-qualified change, and the removed project skill. A WORKING_ITEMS brief without a workflow resolved no methods; HELP_HUMAN with reflect-on-work resolved that method. Role probes resolved HELP_HUMAN, HELPS_HUMANS and WORKING_ITEMS and rejected TASK as incompatible. Pre-retirement Git blobs remained readable. The historicalOnly mechanism was later removed as described above. These observations do not establish host permissions or consumer qualification.
 
-Actual CLI probes return exit 2 for legacy CHANGE (with ordinary-brief guidance),
-unqualified and source-qualified change, and the removed project skill. A
-WORKING_ITEMS brief with no workflow resolves no methods; HELP_HUMAN with
-reflect-on-work resolves exactly the proposed method. Those are observed
-selection results, not host-enforcement or consumer qualification. Selected
-pre-retirement Git blobs are readable; no preceding source was rewritten.
-The bounded repair adds an explicit reflect-on-work role companion. Fresh CLI
-probes resolve HELP_HUMAN, HELPS_HUMANS and WORKING_ITEMS and reject TASK with
-exit 2 (method incompatible with role); the targeted regression covers all four.
-The selected suites again pass 382 tests/four skips and the focused set 43 tests.
-This checks method applicability, not host permissions. The existing validator
-limit on re-adding a historicalOnly package is outside this demonstrated removal
-need; no new readdition semantics or tests are introduced. Source/candidate checks
-and their final revision are recorded in the actual PR.
-REQ/AC/VER and stable IDs remain unchanged; only the explicit output source-home
-proposal changes output text. Unchanged case bytes/evidence remain applicable.
-PR #1785 supplies the final revision, public-screening results, review findings
-and owner content decision. Claude's independent examination of
-`7d0933d70ab983068a55c055f31ff2df4423055f`, reported by Agent 0, found no blockers
-and independently inspected the recovered/partial/evidence-copy bytes and all five
-tree-equality pairs. Its four corrections were applied at
-`89c0644b6dcc4736e39c6c8a31c3478da600a38c`; their relevant authority/routing and
-claim-specific custody distinctions survive this retirement proposal. The review accepts the A8 evidence only
-as the labelled case with the limits above. Unchanged case evidence remains applicable; that review did not examine the
-new retirement/reflection design. Claude's subsequent examination of
-`e99e7e6e61dbc3595d91cd95d8cd2c09eba36c3b` found the design sound with no
-authority/containment blockers, and identified the undeclared OUT-003 source-home
-change plus bounded corrections. This repair declares that home, reduces the
-AGENTS addition, supplies the on-demand resource and restricts reflective-method
-ownership. The repaired head is identified in the PR; no new examiner is launched.
-The owner approved this content for integration. No product acceptance, 60% decision,
-release, consumer adoption or enforced custody is established here.
+PR #1785 records the candidate-specific checks and review. The labelled custody case supports only the procedural limits described above; transfer, timeout and live multi-worker exclusion remain unverified. No product acceptance, release or consumer adoption is established here.
 
 ## Evaluation extension
 
