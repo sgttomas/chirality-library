@@ -35,13 +35,11 @@ and `ACCEPTED_MANIFEST.csv` binds the accepted payload and handoff. The payload'
 pre-decision submission status is historical. Its relative links resolve from
 `execution/_Decomposition/PROJECT_DECOMP.md`.
 
-The initial undertaking developed and examined obtaining/use and change-inspection
-guidance under Agent 0, with a bounded Type 2 contribution exercising the selected
-App reader. The linked Work binds actual source/consumer revisions, the copied
-package and comparison evidence. For current obtaining, publication and adoption
-guidance, follow the [consumer route](../../../README.md#obtain-and-use-the-library).
-
-The initial source assessment and continuation conditions are in [Work/ConsumerBasis.md](Work/ConsumerBasis.md). Consumer-local needs are now declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
+The [consumer route](../../../README.md#obtain-and-use-the-library) provides
+current obtaining, publication and adoption guidance. [Work/ConsumerBasis.md](Work/ConsumerBasis.md)
+records the selected source and consumer revisions, copied package, comparison
+evidence and limits. Consumer-local needs are declared in `deliverable.yaml`;
+their presence establishes no satisfaction claim.
 
 ## Deliverable Definition — Ontology
 
