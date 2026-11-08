@@ -104,8 +104,8 @@ conditional tooling remain under their accepted authority limits.
 
 ## Fresh-reader maintenance route examination after the 60% decision
 
-A fresh-reader examination considered how a maintainer should preserve
-workflow-package identity when revising an explanatory companion, identify
+An examination without inherited conversation context considered how a
+fresh-reader maintainer should preserve workflow-package identity when revising an explanatory companion, identify
 affected uses and leave the work recoverable.
 The source basis was `047da79894bc5631dca564a30113f2cd26ec7ae1`; the loop also
 contained Agent 0's uncommitted record of the owner's 60% decision. This was
@@ -192,8 +192,9 @@ reconciliation, not retirement of a consumer's selected source.
 
 ## Course entry and teaching-route revision
 
-Source inspection found that the course README had changed while index.html
-still gave the earlier manual-as-agent-instruction direction. The same mismatch
+Source inspection found one stale reading edition among 21 pairs: the course
+README had changed while index.html still gave the earlier
+manual-as-agent-instruction direction. The same mismatch
 exists in the source commits for library 1.0.1 and 1.0.2. The course entry now identifies both audiences
 (agent instructor and human learner) and offers Markdown sources for agent use.
 The maintenance instructions require checking every pair and regenerating only
