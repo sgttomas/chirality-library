@@ -7,7 +7,7 @@ metadata:
 ---
 # Document metadata
 
-Begin maintained Markdown documents with YAML frontmatter:
+When typing a maintained Markdown document, begin with YAML frontmatter:
 
 ```yaml
 ---
