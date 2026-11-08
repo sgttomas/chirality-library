@@ -16,11 +16,10 @@ For the accepted R18/A9 increment, see [Evaluation extension](#evaluation-extens
 
 ## Current undertaking and outputs
 
-Give an independent consumer a usable way to select material, obtain its actual
-bytes/resources/notices, examine changes and decide adoption. The README
-route and workflow-package guidance are the maintained outputs. This locality
-holds their source basis, actual examination and limits. The F-02 change account
-in PR #1783 supplies the reason and meaning of that candidate's changes.
+The README route and workflow-package guidance help consumers select material,
+obtain its bytes, resources and notices, inspect changes and decide adoption.
+This locality retains the examined bases and their limits. PR #1783 accounts for
+the F-02 candidate's changes.
 
 ## Reusable sources
 
@@ -42,21 +41,21 @@ The F-02 source candidate is
 `1357d706ea77497903976bf159f3880bea4d1360`, compared with
 `257ab4c18014bf872a1c72eeb7593a7ad3d135c0`.
 
-For Q-04, App Agent 0 identified the actual package reader at App revision
+For Q-04, the selected package reader is at App revision
 `366e7a6656d807142e7bdeda0ccf99c37d7227b1`:
 `app/src-tauri/src/workflow_workspace.rs::Snapshot` and
 `workflow_declaration.rs`, governed by
 `execution/PKG-02/DEL-02-01/Work/WORKFLOW_DECLARATION.md` §§6.1 and 7 and
 `execution/PKG-02/DEL-02-02/Work/WORKSPACE_AND_REGISTRATION.md` §4.5.
 Capture is read-only; registration and execution are separate acts. The selected
-claim is limited to capturing the current Root coordinated-knowledge-work package,
+claim is limited to capturing the selected Root coordinated-knowledge-work package,
 preserving its two files/content identity and parsing its declaration standing.
 
 The maintained App fixture
 `workflow_catalog_tests::actual_embedded_package_preserves_full_tuple_and_both_files`
 examines App's existing embedded package. Its admitted revision is
 `1b1733864cd89fd6d8ca74bf3e2084ff1105c1fc7d76537eefb42e2ae9a41e83`.
-The current Root package's two source files differ from those embedded bytes,
+The selected Root package's two source files differ from those embedded bytes,
 so that fixture's result cannot qualify the newer input by itself. App has no
 maintained standalone entrypoint accepting an arbitrary external package path.
 The [isolated fixture wrapper](fixtures/app_workflow_reader.rs) exercised the exact
@@ -127,9 +126,9 @@ source blobs; the HTML retains renderer source commit
 Its source/render and desktop/narrow examination from PR #1783 remain applicable
 because those bytes are unchanged. The archive is identified as a source candidate,
 not a published edition or a replacement for the complete library.
-No library GitHub release was returned by the bounded release-list query during
-this undertaking. Discovery of no suitable publication requires an explicit
-development-source choice, not silently calling main or an archive tag a release.
+At that examination, the bounded release-list query returned no library GitHub
+release. If no suitable publication is found, select a development source explicitly;
+a main branch or archive tag is not thereby a release.
 
 ## Copy and change-inspection exercise
 
@@ -166,11 +165,10 @@ editions; do not extend that into a global history audit. Consumer adoption,
 private operational data and product releases stay with their owners. Initial
 native needs preserve these conditional uses and unresolved source bindings.
 
-Neighboring adopted-clause and exported-interface conditions remain unresolved
-where they require evidence beyond the bounded App package-reader case. The
-publication conditions in DEL-02-02 and DEL-04-01 now identify the already-bound
-F-02/v9 candidate and prior comparison; calling those particular Q-05 uses
-unresolved was stale. Other publication uses still require their own bindings.
+Neighboring adopted-clause and exported-interface conditions require evidence
+beyond the bounded App package-reader case. DEL-02-02 and DEL-04-01 identify
+the F-02/v9 candidate and prior comparison; other publication uses need their
+own bindings.
 
 ## Complete library source candidate after the 60% decision
 
@@ -232,10 +230,8 @@ manual-edition cases retain their own exact bases and limits.
 
 ## Post-90 publication preparation
 
-The [publication roadmap](../../../_Coordination/PUBLICATION_ROADMAP.md)
-connects the original bounded evidence to the 1.0.0 delivery subject. The
-[publication notes](PublicationNotes.md) hold that edition's change account,
-obtaining route, dependencies and limitations.
+The [publication notes](PublicationNotes.md) hold the 1.0.0 edition's change
+account, obtaining route, dependencies and limitations.
 
 The preparation basis is `35273905a90ee6c1032a7f49db2236ed19371029`; its complete
 source archive has SHA-256
@@ -255,16 +251,14 @@ publishes that exact source with approved notes, the 1,054-file tracked-source
 archive and SHA256SUMS. Its SHA-256 is
 `e75ce1396e8bb92d4e2f144ba13336ee93a7ad7579494b2a6d21117857733567`.
 The tag target, anonymous archive download, embedded tar commit identity and
-checksum download were verified on 2026-11-01. Every file matches its Git blob
+checksum download were verified. Every file matches its Git blob
 and executable mode; operational sources are unchanged from the earlier examined
 archive, so selected behavioral evidence is reused with its original limits.
 Public-material screening of this archive: the credential scan and three locally
 available private-term checks returned zero findings.
 
-Current standing and discovery-pointer annotations are later source changes, not
-changes to the published archive. Its pre-release records remain historical.
-The accepted undertaking is complete within its stated scope and qualifications;
-consumer adoption, broader compatibility and future publication remain distinct.
+Later standing and discovery annotations do not change the published archive.
+Consumer adoption, broader compatibility and future publication remain distinct.
 
 ## Consumer subscription and update guidance
 
@@ -279,8 +273,8 @@ adoption.
 
 ## Reflective successor and consumer standing
 
-The book changes the character of the publication, so the current
-README/index explicitly preserve v9's agent-directed use as a separate selection.
+The book changes the character of the publication, so the
+README/index preserve v9's agent-directed use as a separate selection.
 The successor is material for reflection; roles and workflows remain the route
 to operational methods under each project's own instructions. Named App-reader evidence
 and all archive/publication pins above retain their actual subjects. No external

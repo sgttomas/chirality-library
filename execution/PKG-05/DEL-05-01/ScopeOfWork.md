@@ -35,13 +35,11 @@ and `ACCEPTED_MANIFEST.csv` binds the accepted payload and handoff. The payload'
 pre-decision submission status is historical. Its relative links resolve from
 `execution/_Decomposition/PROJECT_DECOMP.md`.
 
-The initial undertaking developed and examined obtaining/use and change-inspection
-guidance under Agent 0, with a bounded Type 2 contribution exercising the selected
-App reader. The linked Work binds actual source/consumer revisions, the copied
-package and comparison evidence. For current obtaining, publication and adoption
-guidance, follow the [consumer route](../../../README.md#obtain-and-use-the-library).
-
-The initial source assessment and continuation conditions are in [Work/ConsumerBasis.md](Work/ConsumerBasis.md). Consumer-local needs are now declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
+The [consumer route](../../../README.md#obtain-and-use-the-library) provides
+current obtaining, publication and adoption guidance. [Work/ConsumerBasis.md](Work/ConsumerBasis.md)
+records the selected source and consumer revisions, copied package, comparison
+evidence and limits. Consumer-local needs are declared in `deliverable.yaml`;
+their presence establishes no satisfaction claim.
 
 ## Deliverable Definition — Ontology
 
@@ -67,7 +65,7 @@ reasoning and locally retained evidence belong in `execution/PKG-05/DEL-05-01/Wo
 - **OUT-004** — Usable update-inspection guidance in the existing consumer guides, a meaningful change account in actual PR descriptions/publication notes, and evidence of applying the guidance to OUT-003 against an identified prior basis. Trace: SOW-0023, SOW-0025; OBJ-003, OBJ-005.
 - **OUT-005** — Preserved commit/edition recovery routes in `docs/alignment-manual/README.md`, the selected holding's existing references and the private `sgttomas/chirality` repository (which holds the former frozen-project recovery note and the pre-migration history), with byte verification for historical content actually relied upon. Original consumer pins, including the App's historical SWBPIPE source identity, retain their meaning. Trace: SOW-0026; OBJ-003, OBJ-005.
 
-- **CLM-001** — Current inspected holdings provide reusable pieces, not an exercised end-to-end consumer route: `README.md` distinguishes the shared library and independent products; `LICENSE.md` supplies the repository MIT notice subject to component-specific licenses; `tools/workflow_runtime/README.md` explains selected resource resolution and host enforcement limits; `docs/alignment-manual/README.md` distinguishes discovery links, resolved editions, source revisions and rendering checks. Their existence establishes neither named compatibility nor A7 satisfaction.
+- **CLM-001** — The inspected holdings provide reusable pieces; Work records a bounded exercise of the selected consumer route: `README.md` distinguishes the shared library and independent products; `LICENSE.md` supplies the repository MIT notice subject to component-specific licenses; `tools/workflow_runtime/README.md` explains selected resource resolution and host enforcement limits; `docs/alignment-manual/README.md` distinguishes discovery links, resolved editions, source revisions and rendering checks. Their existence establishes neither named compatibility nor A7 satisfaction.
 - **CLM-002** — Accepted decomposition §9 allocates navigation meaning to `DEL-01-01`, general maintenance/review/recovery and custody procedures to `DEL-02-01`, scoped shared-reference/publication meaning clarification to `DEL-02-02`, actual tool behavior and separately justified adapter implementation to `DEL-03-01`, reconciliation practice and initial setup/needs formation coverage to `DEL-04-01`, and reflective examination/decomposition formation coverage to `DEL-04-02`. Each local implementation owner keeps its own commitments, Work and needs (§8.1); Agent 0 integrates related changes with one shared-file editor. This deliverable supplies obtaining/version/use conditions, not those neighboring contributions.
 - **CLM-003** — `AGENTS.md` and PRD §§2.3, 3.5 and 5 reserve Root product acceptance, protected baseline/commitment changes, risk acceptance, releases and additional archival disposition to the owner. Consumers retain their own authority, operational data, adaptations, adoption and product release. Root Agent 0 coordinates affected independent projects through their current Agent 0 under actual authorization; a message transfers no authority. Frozen App v3 and Runtime require explicit owner reactivation. Private evidence remains with its owning consumer/custodian; public clearance is required before use in public fixtures. PRD R16 requires actual operator configuration and authority for scheduling, external delivery or unattended operation.
 - **CLM-004** — The former frozen-project recovery note, removed from this repository on 2026-11-04 and preserved with the pre-migration history in the private `sgttomas/chirality` repository, documents the completed pre-library transition at `archive/pre-library-execution-2026-10-31`, commit `f80f1510fb50799764720303b86c36da64b75d19`, and the frozen-product recovery routes. The accepted decomposition carries the original consumer-pin preservation obligation; pin-specific content is still to be selected for actual reliance. This is a documented recovery basis, not a claim that this author inspected archived bytes or that external historical dependencies remain available. Accepted SOW-0026 requires preservation, not another removal or restored backlog.
