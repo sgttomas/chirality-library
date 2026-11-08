@@ -26,11 +26,10 @@ The owner directed it to wait for the next real Library change; no release is
 pending. Library Agent 0 carries it into that change's publication proposal;
 only the owner can authorize release.
 
-The existing shared consumer checkout remains at `library-v3.1.0`
-(`88ab3f4f5f8ec7f7e030279164dbd1a4aa38b514`). Do not advance it without an
-explicit coordinator request or owner direction. This hold applies to that
-consumer checkout, not the Library development worktree or other consumers;
-integration and publication do not update its selection.
+The shared Library checkout identified in App and SWBPIPE's standing
+instructions moves only on an explicit coordinator request or owner direction.
+This constraint applies to that checkout, not the Library development worktree
+or other consumers.
 
 ### Maintained outputs
 
