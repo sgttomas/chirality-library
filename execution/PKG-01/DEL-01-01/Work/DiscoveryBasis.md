@@ -12,52 +12,29 @@ Maturity: maintained entry route; product-wide fulfillment remains unestablished
 adjacent ScopeOfWork for commitments and evaluation; this note holds the source
 assessment, design choices and limits of the current bounded work.
 
-## Current undertaking
+## Current route
 
-After setup was integrated at `11bdb448323877268c90296a5497fd71ede1baee`, the
-owner selected the entry instructions as the first production undertaking.
-The distinction clarified in that conversation guides this proposal:
+The maintained entry route connects `init/init-prompt.md`, `AGENTS.md` and
+`loop/LOOP_INIT.md` to the selected maintenance basis and actual local work.
+The loop identifies the product aim and the route into the discovery locality;
+the PRD, decomposition, scopes and methods retain their own commitments.
+[Top-level operating entry](#top-level-operating-entry) describes the current
+arrangement. Product-wide fulfillment remains unestablished.
 
-- AGENTS.md supplies mature standing instructions, supplied to the agent each
-  turn. Change it only when necessary or of tremendous benefit.
-- init/init-prompt.md orients an agent at session start.
-- execution/_Coordination/LOOP_INIT.md sets the project's course.
-- coordinated-knowledge-work supplies the learned orchestration principles;
-  the undertaking selects further methods as needed.
-
-The entry prompt already locates Root, loads its standing instructions and
-HELP_HUMAN, and reads the loop. AGENTS already supplies the working cycle,
-authority, reconciliation and coordination route. The init prompt and coordination
-workflow are retained unchanged. The owner's subsequent correction removes the
-nonexistent PEC product from the live entry/recovery descriptions in AGENTS,
-README, projects/FROZEN and the proposed loop; no archive is altered.
-The loop is the principal affected holding:
-its setup account is replaced by the current product aim, a route into actual
-local work and the owner's content-review condition. The existing PRD,
-decomposition, scopes and methods remain the sources of their own commitments.
-
-Comparable public entry files were inspected at identified source revisions:
+Comparable public entry files inspected at their identified revisions were
 [App](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/loop/LOOP_INIT.md)
 and [SWBPIPE](https://github.com/sgttomas/SWBPIPE/blob/bc9f7961acee72441ec06c104ed97d4f1c77faa4/loop/LOOP_INIT.md).
-Their pattern connects current purpose and governing basis to the affected
-locality. Their product-specific permissions, release targets and execution
-arrangements do not become Root instructions.
-
-Agent 0 is the single editor/integrator for this connected entry change and its
-local reconciliation. A separate bounded contributor examines the proposal
-against the preceding instructions before owner presentation. No consumer
-adoption, publication change or new orchestration method is proposed.
+Their pattern connects purpose and governing basis to the affected locality;
+their product-specific permissions and arrangements do not govern the Library.
 
 ## Available sources
 
 The initial setup assessment used repository commit
-`fd847ac9ac68250b2f35d2e9c0087c16e86b510a`; its result was integrated at
-`11bdb448323877268c90296a5497fd71ede1baee`. The following holdings remain reusable:
+`fd847ac9ac68250b2f35d2e9c0087c16e86b510a`. The following holdings remain reusable:
 
-- Root `README.md`, `AGENTS.md` and `execution/_Coordination/LOOP_INIT.md`
-  provide the entry route. Setup connected the loop to the accepted decomposition.
-  The current proposal makes the loop course-setting and links the actual
-  discovery locality; neither change alone establishes all discovery criteria.
+- `README.md`, `AGENTS.md` and `loop/LOOP_INIT.md` provide the current entry
+  route and connect it to the accepted decomposition and discovery locality.
+  The earlier assessment used `execution/_Coordination/LOOP_INIT.md`.
 - `workflows/README.md` describes explicit selection, reading selected resources,
   source-qualified identity and collisions. `workflows/catalog.yaml` supplies
   library identity/central selection; `workflows/index.json` is generated from
@@ -96,8 +73,8 @@ to be complete where the particular source is already fit for use.
 
 ## Bounded discovery examination
 
-The question is where to carry the owner's requested entry revision and what
-would govern it. The session prompt leads through unchanged AGENTS and HELP_HUMAN
+At the entry-revision basis `11bdb448323877268c90296a5497fd71ede1baee`,
+the question was where to carry the requested revision and what would govern it. The session prompt leads through unchanged AGENTS and HELP_HUMAN
 to the proposed loop. The loop identifies the accepted product/decomposition
 basis and gives a concrete route back to this ScopeOfWork and Work. Search is
 bounded to current Root scope files, not archives or an inferred global backlog:
@@ -115,13 +92,8 @@ fields are not a refusal or a completion claim. Its references to shared-meaning
 and consumer-use work are conditional: this proposal changes neither adopted
 product contracts nor publication/compatibility claims.
 
-The owner approved the presented proposal, including the corrected product lists,
-with “Approved.” Independent review found no substantive blockers; its two
-wording suggestions were incorporated before approval. The final checked revision
-and integration are identified in the actual PR. This bounded examination does not establish
-all publication traversal, command failure behavior, consumer qualification or
-the complete A1/A5 result. The preceding entry supplied the review basis; this approved revision becomes
-the adopted entry through integration.
+This bounded examination does not establish all publication traversal, command
+failure behavior, consumer qualification or the complete A1/A5 result.
 
 Needs in `../deliverable.yaml` retain these cases and conditions. They
 do not assert satisfaction or assign work to another contributor. Unknown
@@ -129,16 +101,12 @@ consumer qualification/publication bases remain with DEL-05-01 and matter here
 only if the route repeats such claims. Additional archival disposition and
 conditional tooling remain under their accepted authority limits.
 
-The existing need conditions remain accurate for this undertaking and were left
-unchanged. Code pointers now include AGENTS.md and init/init-prompt.md because
-they are relevant entry holdings, including the unchanged session prompt.
-
 
 ## Fresh-reader maintenance route examination after the 60% decision
 
-A bounded Type 2 contributor without inherited conversation context examined
-how a maintainer should preserve workflow-package identity when revising an
-explanatory companion, identify affected uses and leave the work recoverable.
+A fresh-reader examination considered how a maintainer should preserve
+workflow-package identity when revising an explanatory companion, identify
+affected uses and leave the work recoverable.
 The source basis was `047da79894bc5631dca564a30113f2cd26ec7ae1`; the loop also
 contained Agent 0's uncommitted record of the owner's 60% decision. This was
 first-use evidence for this brief, not an independent review or universal
@@ -182,18 +150,17 @@ documented fallback. Their conditions and triggers were inspectable, but this
 manual reading did not reproduce transitive closure or prove complete coverage.
 The host environment and repository source bytes remained unchanged.
 
-Agent 0 retains the existing guidance on this evidence. The needed correction
-is stale present-tense approval/standing elsewhere in the owning work, not a
-new discovery method. Q-04/Q-05 are claim-specific: the named-reader and manual
-cases in ConsumerBasis do not resolve every neighboring adopted-interface need.
-Existing need conditions remain accurate and unchanged. This adds bounded
+Q-04/Q-05 are claim-specific: the named-reader and manual cases in ConsumerBasis
+do not resolve every neighboring adopted-interface need. This adds bounded
 publication traversal and fallback evidence toward AC-002/003/004; it does not
 claim all discovery, tool failure, compatibility or product criteria complete.
 
 ## Consumer entry after publication
 
-The owner authorized simplifying the README and merging the result by PR. The
-consumer route now precedes the background explanation, names the Project
+This and the next three sections record successive historical navigation changes;
+the maintained sources govern the current route.
+
+The consumer route precedes the background explanation, names the Project
 Management Manual explicitly and places it first in a purpose-based selection
 table. Courses, roles, workflow/tool guides and shared references retain their
 existing homes. Explicit anchors preserve the prior shared-library, obtaining
@@ -205,21 +172,18 @@ guidance; this is a documentation walkthrough, not agent or tool execution.
 
 ## Reflective successor discovery
 
-The owner's later clarification places the book within reflection on Chirality
-as practiced across projects. The approved README and publication index retain
-prominence but remove the blanket instruction to start execution by reading it.
+The book supports reflection on Chirality as practiced across projects. The
+README and publication index retain prominence but remove the blanket instruction to start execution by reading it.
 They distinguish the reflective successor from retained agent-directed
 v9 and point external users to selected roles/workflows under local authority.
 The old manual anchor still names v9; no edition or historical reliance is
-silently redirected. This is an approved change in purpose/standing, not merely
-a renamed link. The course entry has the same distinction; its lessons remain
+silently redirected. The course entry has the same distinction; its lessons remain
 at their existing source references. The current source characterization in
 CLM-002 is reconciled, with other commitments and criteria unchanged.
 
 ## Independent book entry
 
-The owner subsequently removed predecessor continuity from the book's framing.
-README now presents its own purpose without a parallel earlier-manual pitch.
+README presents the book's own purpose without a parallel earlier-manual pitch.
 The publication index moves retained manual references into a historical section
 while preserving their named anchors and source files. The book's thesis/case
 sources remain available. The index distinguishes the revised maintained text
@@ -228,11 +192,9 @@ reconciliation, not retirement of a consumer's selected source.
 
 ## Course entry and teaching-route revision
 
-The owner approved a bounded course revision after Agent 0 and Claude examined
-and discussed its scope. Source inspection found one stale reading edition among
-21 pairs: the course README had changed while index.html still gave the earlier
-manual-as-agent-instruction direction. The same mismatch exists in the source
-commits for library 1.0.1 and 1.0.2. The course entry now identifies both audiences
+Source inspection found that the course README had changed while index.html
+still gave the earlier manual-as-agent-instruction direction. The same mismatch
+exists in the source commits for library 1.0.1 and 1.0.2. The course entry now identifies both audiences
 (agent instructor and human learner) and offers Markdown sources for agent use.
 The maintenance instructions require checking every pair and regenerating only
 changed sources with their actual committed basis. The course lessons and

@@ -35,14 +35,13 @@ The accepted `docs/PRD.md` revision 2026-10-31 has SHA-256
 | SOW-0002 | Make the traversed holdings intelligible through purpose, applicability, standing, resources, outputs and limits at their own homes. | OBJ-001, OBJ-003, OBJ-005; PRD R02, A1 and the source/resource contribution to A6 |
 | SOW-0003 | Supply directed search, reference following and structured-query guidance with provenance, relationship distinctions and honest search limits. | OBJ-001, OBJ-003, OBJ-005; PRD R03, A1 |
 
-Maturity: the owner-approved entry revision is integrated. The current authorized
-undertaking examines a fresh reader’s route through maintenance, publication and
-tool instructions, with findings in the linked Work. Product-wide fulfillment,
-acceptance and release remain unestablished.
+Maturity: the entry route is maintained. The linked Work records bounded discovery
+and fresh-reader examinations; product-wide fulfillment, acceptance and release
+remain unestablished. Consumer-local needs are declared in `deliverable.yaml`;
+their presence establishes no satisfaction claim.
 
-The source assessment, approved entry revision and continuation questions are in
-[Work/DiscoveryBasis.md](Work/DiscoveryBasis.md). Consumer-local needs are now
-declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
+The source assessment and discovery findings are in
+[Work/DiscoveryBasis.md](Work/DiscoveryBasis.md).
 
 ## Deliverable Definition — Ontology
 
@@ -97,8 +96,8 @@ satisfy them or constitute human acceptance.
 ### Inputs and use conditions for subsequent native need authoring
 
 These are consumer conditions, not supplier commitments or a complete graph.
-Parent-managed dependency authoring follows scopes; this contract does not edit
-`deliverable.yaml` or assert that its initial empty needs list is adequate.
+The declared needs are in `deliverable.yaml`; their presence does not establish
+that the conditions are satisfied.
 
 | Input / source | Intended use and trigger | Required condition / unresolved binding |
 | --- | --- | --- |
