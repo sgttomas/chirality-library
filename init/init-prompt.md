@@ -9,6 +9,5 @@ Read and follow `{REPO_ROOT}/loop/LOOP_INIT.md`.
 Load other role and workflow instructions when the undertaking needs them.
 
 Orient. Briefly report your understanding of the current basis, consumers and
-boundaries. Await the owner's separate steering. Initialization alone selects no
-undertaking and grants no lifecycle or acceptance authority.
+boundaries. Await the owner's steering.
 </init-prompt>

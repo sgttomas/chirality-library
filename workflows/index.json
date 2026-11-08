@@ -2394,6 +2394,7 @@
         "resources/current-project.md",
         "resources/method.md",
         "resources/package-activation.md",
+        "resources/project-entry.md",
         "resources/software-activation.md"
       ],
       "navigation": {

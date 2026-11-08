@@ -8,10 +8,9 @@ locates the allocated work. Read [AGENTS.md](../AGENTS.md) for standing
 instructions, authority and the distinction between Library and private Root.
 
 The Library has published editions and continues maintenance under new steering.
-Publication does not establish every product claim or qualify every consumer.
-The conversation selects the undertaking; initialization starts none. Continue
-from actual Work, Git and PR state rather than treating earlier gate decisions,
-accepted allocation or prepared paths as a current backlog or fulfilled result.
+Continue from actual Work, Git and PR state rather than treating earlier gate
+decisions, accepted allocation or prepared paths as a current backlog or
+fulfilled result.
 
 ## Locate the selected work
 
