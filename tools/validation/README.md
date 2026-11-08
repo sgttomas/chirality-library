@@ -1,3 +1,10 @@
+---
+name: tools-validation-guide
+description: Validation tools.
+metadata:
+  kind: instruction
+  surface: tool
+---
 # Validation tools
 
 ## Path portability
@@ -58,3 +65,14 @@ The agent validator requires that registry; read historical instruction
 snapshots at their recorded revision. Explicit historical skill directories
 retain their old reader contract. Library G2/G3/G4 checks recognize `workflows/` as an
 instruction surface alongside historical `skills/` inputs.
+
+
+## Document metadata
+
+Use [document metadata](../../docs/document-metadata.md) and its JSON Schema for
+maintained Markdown headers. The role validator accepts the YAML header before
+the four prose sections and checks the named instruction/role classification.
+The document contract tests validate maintained entry, role, documentation,
+tool-guide, workflow and skill headers, including rejection of status, date and
+revision fields. Preserve `CLAUDE.md`, execution declarations and retained
+historical editions in their established forms.

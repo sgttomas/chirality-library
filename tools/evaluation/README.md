@@ -1,3 +1,10 @@
+---
+name: tools-evaluation-guide
+description: Deterministic evaluation tools.
+metadata:
+  kind: instruction
+  surface: tool
+---
 # Deterministic evaluation tools
 
 Run commands using the declared tool root. Input workspaces are read-only; only

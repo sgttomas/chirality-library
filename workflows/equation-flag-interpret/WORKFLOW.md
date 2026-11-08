@@ -1,6 +1,9 @@
 ---
 name: equation-flag-interpret
-description: "Convert one human-written natural-language correction note about one display equation into a corrected LaTeX expression. Per-flag bounded dispatch invoked by equation-audit during Phase 3a, one TASK per flagged entry whose `description` is prose rather than LaTeX."
+description: Convert one human-written natural-language correction note about one display equation into a corrected LaTeX expression. Per-flag bounded dispatch invoked by equation-audit during Phase 3a, one TASK per flagged entry whose `description` is prose rather than LaTeX.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # equation-flag-interpret

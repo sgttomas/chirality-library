@@ -1,3 +1,10 @@
+---
+name: prd
+description: Chirality Library — Product Requirements Document.
+metadata:
+  kind: instruction
+  surface: requirements
+---
 # Chirality Library — Product Requirements Document
 
 **Status:** The owner accepted SCA-20261101-UNDERTAKING-EVALUATION on 2026-11-01, against candidate e157d14910e84cf149f2ead524d585467b18e0f7. The predecessor acceptance below remains historical.

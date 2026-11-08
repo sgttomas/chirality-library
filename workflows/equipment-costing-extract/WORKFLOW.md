@@ -1,6 +1,9 @@
 ---
 name: equipment-costing-extract
-description: "Extract costing-relevant design basis parameters for equipment matching a target module type list from KA files in a single KTY folder. Use when building equipment costing registers for cost estimation."
+description: Extract costing-relevant design basis parameters for equipment matching a target module type list from KA files in a single KTY folder. Use when building equipment costing registers for cost estimation.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # equipment-costing-extract

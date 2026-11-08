@@ -1,3 +1,10 @@
+---
+name: thesis-08-implementation
+description: Chapter 8 — Evidence and Evaluation.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 8 — Evidence and Evaluation
 
 ## 8.1 Subject and Evidence Basis

@@ -1,6 +1,9 @@
 ---
 name: evaluation-report
 description: Evaluate one dimension against an accepted rubric and return a supported score.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # evaluation-report

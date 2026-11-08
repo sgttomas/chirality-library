@@ -1,6 +1,9 @@
 ---
 name: audit-dep-closure
 description: Inspect consumer-local deliverable.yaml needs and derive bounded dependency findings without changing declarations or evaluating readiness.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Inspect local dependency declarations
 

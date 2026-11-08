@@ -1,3 +1,10 @@
+---
+name: alignment-manual-chirality-in-practice-edition-1
+description: Chirality in Practice.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chirality in Practice
 
 **Extending Human Capability with Agents**

@@ -297,7 +297,7 @@ def test_interlocutor_resolves_standalone_with_its_own_context():
     result = resolve(REPO, 'INTERLOCUTOR')
     assert result['methods'] == [] and result['workflow'] is None
     assert [item['path'] for item in result['context']] == ['agents/AGENT_INTERLOCUTOR.md']
-    assert result['context'][0]['content'].startswith('# INTERLOCUTOR\n')
+    assert result['context'][0]['content'] == (REPO / 'agents/AGENT_INTERLOCUTOR.md').read_text()
     config = result['role_configuration']
     assert (config['type'], config['direct_entry'], config['default_for_new_chat']) == (2, False, False)
     assert config['delegates_to'] == [] and config['allow_generalist_agent2'] is False

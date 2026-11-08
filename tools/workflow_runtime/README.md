@@ -1,3 +1,10 @@
+---
+name: tools-workflow-runtime-guide
+description: Library workflow runtime utilities.
+metadata:
+  kind: instruction
+  surface: tool
+---
 # Library workflow runtime utilities
 
 `agents/registry.json` declares the roles: HELP_HUMAN, HELPS_HUMANS,

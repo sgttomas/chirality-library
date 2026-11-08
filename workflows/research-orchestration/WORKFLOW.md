@@ -1,6 +1,9 @@
 ---
 name: research-orchestration
 description: Coordinate bounded research streams, independent verification, recoverable evidence, and synthesis.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # research-orchestration

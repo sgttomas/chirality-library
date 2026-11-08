@@ -313,6 +313,12 @@ def render(
             raise ValueError(f"{package} {actual} is installed; requirements.txt pins {required}.")
     source_bytes = source.read_bytes()
     markdown = source_bytes.decode("utf-8")
+    if markdown.startswith("---\n"):
+        lines = markdown.splitlines(keepends=True)
+        delimiter = next((i for i, line in enumerate(lines[1:], 1) if line.rstrip("\r\n") == "---"), None)
+        if delimiter is None:
+            raise ValueError("Unclosed document frontmatter")
+        markdown = "".join(lines[delimiter + 1:])
     source_sha = hashlib.sha256(source_bytes).hexdigest()
     md = MarkdownIt("commonmark", {"html": True}).enable(["table", "strikethrough"])
     tokens = md.parse(markdown)

@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-01-professional-practice
+description: 'Course 01: Professional Practice and Responsibility.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 01: Professional Practice and Responsibility
 
 [Series](../index.html) · [Case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

@@ -42,3 +42,15 @@ def test_repository_without_registry_is_an_input_failure(tmp_path: Path) -> None
     result = run("--repo-root", str(tmp_path))
     assert result.returncode == 2
     assert "agent registry not found" in result.stderr
+
+
+def test_role_frontmatter_does_not_weaken_role_or_delegation_checks(tmp_path):
+    import shutil
+    shutil.copytree(ROOT / 'agents', tmp_path / 'agents')
+    path = tmp_path / 'agents/AGENT_INTERLOCUTOR.md'
+    path.write_text(path.read_text().replace('surface: role', 'surface: workflow'))
+    findings = validator.validate_registry(tmp_path)
+    assert 'ROLE_METADATA' in {finding.code for finding in findings}
+    path.write_text(path.read_text().replace('surface: workflow', 'surface: role'))
+    path.write_text(path.read_text().replace('## SPEC', '## WRONG'))
+    assert 'ROLE_SECTIONS' in {finding.code for finding in validator.validate_registry(tmp_path)}

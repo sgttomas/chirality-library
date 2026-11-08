@@ -1,6 +1,9 @@
 ---
 name: domain-hypergraph
 description: Discover source-backed domain entities and build a traceable graph projection.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # domain-hypergraph

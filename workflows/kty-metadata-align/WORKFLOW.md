@@ -1,7 +1,9 @@
 ---
 name: kty-metadata-align
-description: Review and optionally align one DOMAIN Knowledge Type folder's metadata surfaces to approved decomposition truth without rewriting
-  Scoping.md or KA content. Use after regeneration or scope change when `_CONTEXT.md`, `_STATUS.md`, or `_REFERENCES.md` may have drifted.
+description: Review and optionally align one DOMAIN Knowledge Type folder's metadata surfaces to approved decomposition truth without rewriting Scoping.md or KA content. Use after regeneration or scope change when `_CONTEXT.md`, `_STATUS.md`, or `_REFERENCES.md` may have drifted.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — kty-metadata-align

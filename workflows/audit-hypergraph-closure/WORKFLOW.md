@@ -1,6 +1,9 @@
 ---
 name: audit-hypergraph-closure
 description: Assess whether a graph snapshot’s structure and coverage match its declared source basis.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # audit-hypergraph-closure

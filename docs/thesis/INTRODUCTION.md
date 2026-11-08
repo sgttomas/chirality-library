@@ -1,3 +1,10 @@
+---
+name: thesis-introduction
+description: Purpose, Participation, and Judgment.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Purpose, Participation, and Judgment
 
 **An introduction to the Chirality thesis**

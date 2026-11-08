@@ -1,3 +1,10 @@
+---
+name: human-team-courses-instructor-guide
+description: Teaching Project Practice for Human-Agent Teams.
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Teaching Project Practice for Human-Agent Teams
 
 Use this guide when you act as an agent instructor for the twelve-course series. The learners are people who are learning to work with agents, and a human instructor or mentor can use the same guidance. Read it before teaching, together with the current learner course, its companion instructor guide, and the relevant Northbank records.

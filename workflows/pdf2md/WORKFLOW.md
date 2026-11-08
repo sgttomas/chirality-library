@@ -1,6 +1,9 @@
 ---
 name: pdf2md
-description: "Convert a bounded PDF to Markdown in one TASK assignment, using vision and deterministic cleanup and assembly tools."
+description: Convert a bounded PDF to Markdown in one TASK assignment, using vision and deterministic cleanup and assembly tools.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # pdf2md

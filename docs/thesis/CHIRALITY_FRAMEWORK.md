@@ -1,3 +1,10 @@
+---
+name: thesis-chirality-framework
+description: The Chirality Framework.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # The Chirality Framework
 
 Chirality AI Ltd. (explanatory research, revised October 2026).

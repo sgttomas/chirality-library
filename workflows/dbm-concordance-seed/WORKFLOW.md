@@ -1,6 +1,9 @@
 ---
 name: dbm-concordance-seed
-description: "Transform raw concordance evidence atoms and risk inventory rows into typed publication concordance candidates for register freeze review."
+description: Transform raw concordance evidence atoms and risk inventory rows into typed publication concordance candidates for register freeze review.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # dbm-concordance-seed

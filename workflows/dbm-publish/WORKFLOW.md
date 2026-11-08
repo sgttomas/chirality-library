@@ -1,6 +1,9 @@
 ---
 name: dbm-publish
-description: "Assemble the full rewritten DBM package from approved section outputs and produce package QA artifacts."
+description: Assemble the full rewritten DBM package from approved section outputs and produce package QA artifacts.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # dbm-publish

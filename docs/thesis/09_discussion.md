@@ -1,3 +1,10 @@
+---
+name: thesis-09-discussion
+description: Chapter 9 — Discussion.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 9 — Discussion
 
 ---

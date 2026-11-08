@@ -1,6 +1,9 @@
 ---
 name: reverse-engineer-software
 description: Examine an existing software project, recover useful exemplars and lessons from its implementation and records, and develop a successor PRD and supporting documents with the human. Also supports a bounded reference account when that is the requested outcome.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Reverse engineer software
 

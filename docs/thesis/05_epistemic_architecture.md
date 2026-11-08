@@ -1,3 +1,10 @@
+---
+name: thesis-05-epistemic-architecture
+description: Chapter 5 — Epistemic Architecture.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 5 — Epistemic Architecture
 
 ---

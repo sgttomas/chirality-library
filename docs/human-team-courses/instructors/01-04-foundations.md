@@ -1,3 +1,10 @@
+---
+name: human-team-courses-instructors-01-04-foundations
+description: 'Instructor Guide: Courses 01 to 04.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Instructor Guide: Courses 01 to 04
 
 [Series](../index.html) · [Case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

@@ -1,6 +1,9 @@
 ---
 name: drawing-titleblock-page
-description: "Per-page titleblock extraction from drawing sheets using four corner crops and a full-page thumbnail; emits a governed sheet-inventory stub."
+description: Per-page titleblock extraction from drawing sheets using four corner crops and a full-page thumbnail; emits a governed sheet-inventory stub.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # drawing-titleblock-page

@@ -1,6 +1,9 @@
 ---
 name: project-setup
 description: Materialize accepted project scope as current deliverable localities, author local contracts and needs, and reconcile affected work before integration. Retained domain and legacy routes require explicit selection.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # project-setup

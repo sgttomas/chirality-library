@@ -1,3 +1,10 @@
+---
+name: human-team-courses-courses-10-assurance-handover
+description: 'Course 10: Assurance, Delivery, and Handover.'
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Course 10: Assurance, Delivery, and Handover
 
 [Series](../index.html) · [Northbank case](../case-study.html) · [Glossary](../glossary.html) · [References](../references.html)

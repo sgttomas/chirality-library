@@ -1,3 +1,10 @@
+---
+name: working-items
+description: Own implementation, assignments and integration.
+metadata:
+  kind: instruction
+  surface: role
+---
 # WORKING_ITEMS
 
 ## PROTOCOL

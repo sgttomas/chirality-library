@@ -1,6 +1,9 @@
 ---
 name: equipment-extract
-description: "Extract discrete physical equipment items from Knowledge Artifact files within a single DOMAIN Knowledge Type folder. Use when building per-KTY equipment registers from KA production documents."
+description: Extract discrete physical equipment items from Knowledge Artifact files within a single DOMAIN Knowledge Type folder. Use when building per-KTY equipment registers from KA production documents.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # equipment-extract

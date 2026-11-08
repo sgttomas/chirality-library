@@ -1,6 +1,9 @@
 ---
 name: drawing-extract-page
-description: "Per-page bounded extraction of structured data from a single engineering drawing page image, using crop-first multiblock VLM reasoning. Drawing-type-aware (PFD implemented; P_AND_ID, ISOMETRIC, GA stubbed). Invoked by the drawing-extract orchestrator for per-page fanout."
+description: Per-page bounded extraction of structured data from a single engineering drawing page image, using crop-first multiblock VLM reasoning. Drawing-type-aware (PFD implemented; P_AND_ID, ISOMETRIC, GA stubbed). Invoked by the drawing-extract orchestrator for per-page fanout.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # drawing-extract-page

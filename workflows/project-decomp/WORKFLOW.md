@@ -1,6 +1,9 @@
 ---
 name: project-decomp
 description: Turn a project scope into cohesive Packages and bounded Deliverables with explicit objectives and boundaries.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # project-decomp

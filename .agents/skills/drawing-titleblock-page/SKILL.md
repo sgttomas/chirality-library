@@ -1,6 +1,9 @@
 ---
 name: drawing-titleblock-page
 description: Extract titleblock metadata from one drawing page using four corner crops and a full-page thumbnail, then write one governed sheet-inventory stub.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Drawing Titleblock Page

@@ -1,3 +1,10 @@
+---
+name: tools-retrieval-guide
+description: tools/retrieval.
+metadata:
+  kind: instruction
+  surface: tool
+---
 # tools/retrieval
 
 V2 source retrieval for `piping-design` and future DOMAIN packages.

@@ -1,6 +1,9 @@
 ---
 name: reflect-on-work
 description: Examine with the human whether a concrete finding calls purpose, commitments, explanatory framing or chosen practice into question, and carry a warranted retain or change decision into the owning work.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Reflect on work
 

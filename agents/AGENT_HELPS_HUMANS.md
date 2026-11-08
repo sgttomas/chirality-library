@@ -1,3 +1,10 @@
+---
+name: helps-humans
+description: Design workflows, tools and projects with the owner.
+metadata:
+  kind: instruction
+  surface: role
+---
 # HELPS_HUMANS
 
 ## PROTOCOL

@@ -1,6 +1,9 @@
 ---
 name: deliverable-consistency
 description: Check one Chirality deliverable for unresolved markers, missing core artifacts, identity mismatches, cross-document conflicts, and candidate unsourced numeric statements.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Deliverable Consistency

@@ -1,6 +1,9 @@
 ---
 name: dbm-draft-review
-description: "Review a human-prepared draft DBM against the governed knowledge base — build review substrate, prepare candidate findings for human disposition."
+description: Review a human-prepared draft DBM against the governed knowledge base — build review substrate, prepare candidate findings for human disposition.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # dbm-draft-review

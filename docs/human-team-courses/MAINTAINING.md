@@ -1,3 +1,10 @@
+---
+name: human-team-courses-maintaining
+description: Maintaining the course series.
+metadata:
+  kind: instruction
+  surface: reference
+---
 # Maintaining the course series
 
 This file is for maintainers. It is not part of the learner series; do not render or publish it as a course page.

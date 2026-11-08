@@ -1,6 +1,9 @@
 ---
 name: pdf2md-page-full
-description: "Single-page merged VLM pass that produces BOTH the raw Markdown transcription and the bbox-normalized asset JSON from one vision read of the page image. Replaces the prior two-workflow split (pdf2md-page + pdf2md-page-assets) for new dispatches."
+description: Single-page merged VLM pass that produces BOTH the raw Markdown transcription and the bbox-normalized asset JSON from one vision read of the page image. Replaces the prior two-workflow split (pdf2md-page + pdf2md-page-assets) for new dispatches.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # pdf2md-page-full

@@ -1,6 +1,9 @@
 ---
 name: proposal-format
 description: Express actionable Chirality findings as evidence-grounded PROPOSAL blocks with precise changes, risks, status, and a human-decision interface.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Proposal Format

@@ -1,6 +1,9 @@
 ---
 name: evaluation-protocol
 description: Coordinate evidence-grounded evaluation, bounded audits, optional scoring, and remediation handoffs.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — evaluation-protocol

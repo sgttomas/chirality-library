@@ -1,3 +1,10 @@
+---
+name: thesis-worked-example
+description: A support arrangement under reconsideration.
+metadata:
+  kind: example
+  surface: reference
+---
 # A support arrangement under reconsideration
 
 **An illustrative case followed within this thesis**

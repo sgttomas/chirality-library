@@ -1,6 +1,9 @@
 ---
 name: researcher
 description: Investigate one bounded Chirality research question against an accepted snapshot and retrieval index, producing independently verified evidence and a recoverable research packet.
+metadata:
+  kind: instruction
+  surface: skill
 ---
 
 # Researcher

@@ -1,3 +1,10 @@
+---
+name: thesis-04-architecture
+description: Chapter 4 — Architecture.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 4 — Architecture
 
 ## 4.1 Overview

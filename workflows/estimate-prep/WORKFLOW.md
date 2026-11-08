@@ -1,7 +1,9 @@
 ---
 name: estimate-prep
-description: Generates estimation input package (pricing library, LOE, project parameters, BOE) via two-phase run with PHASE=SCAFFOLD|BOE modes
-  and a human gate between invocations.
+description: Generates estimation input package (pricing library, LOE, project parameters, BOE) via two-phase run with PHASE=SCAFFOLD|BOE modes and a human gate between invocations.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # WORKFLOW — estimate-prep

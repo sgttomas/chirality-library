@@ -1,3 +1,10 @@
+---
+name: thesis-glossary
+description: Glossary.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Glossary
 
 These definitions explain the thesis. They create no new repository procedures

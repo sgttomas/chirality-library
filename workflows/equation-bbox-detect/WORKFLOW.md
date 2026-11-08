@@ -1,6 +1,9 @@
 ---
 name: equation-bbox-detect
-description: "Detect display-equation bounding boxes on one rasterized page PNG using multimodal vision and emit normalized coordinates for downstream cropping. Per-page bounded dispatch invoked by equation-audit during Phase 1 when per-equation crops are enabled."
+description: Detect display-equation bounding boxes on one rasterized page PNG using multimodal vision and emit normalized coordinates for downstream cropping. Per-page bounded dispatch invoked by equation-audit during Phase 1 when per-equation crops are enabled.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # equation-bbox-detect

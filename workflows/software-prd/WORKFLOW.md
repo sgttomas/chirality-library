@@ -1,6 +1,9 @@
 ---
 name: software-prd
 description: Develop a product requirements document for a new software product or a defined development undertaking with the human, examine the complete candidate independently, and hand the human-accepted PRD to software-decomp as its accepted basis. For a successor PRD formed by examining an existing project, use reverse-engineer-software. Not for maintenance, bug repair, issue-ticket execution, or stand-alone data repair or analysis.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 # Develop a software product requirements document
 

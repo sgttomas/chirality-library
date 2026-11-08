@@ -1,3 +1,10 @@
+---
+name: human-team-courses-readme
+description: Project Practice for Human-Agent Teams.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Project Practice for Human-Agent Teams
 
 This series has twelve courses in project management and project engineering for teams in which people work with AI agents. They run from your own professional practice to leading complex projects. They are written for physical engineering projects, where suppliers, fabrication, site work, and testing still set much of the pace.

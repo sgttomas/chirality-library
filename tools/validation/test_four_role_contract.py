@@ -10,7 +10,7 @@ def fixture(tmp_path):
     (tmp_path/'agents').mkdir()
     registry=json.loads((root/'agents/registry.json').read_text())
     for role,cfg in registry['roles'].items():
-        (tmp_path/cfg['instruction']).write_text('# '+role+'\n\n'+'\n\n'.join('## '+heading+'\n\nRole behavior.' for heading in ['PROTOCOL','SPEC','STRUCTURE','RATIONALE']))
+        (tmp_path/cfg['instruction']).write_text('---\nname: '+role.lower().replace('_', '-')+'\ndescription: Test role.\nmetadata:\n  kind: instruction\n  surface: role\n---\n# '+role+'\n\n'+'\n\n'.join('## '+heading+'\n\nRole behavior.' for heading in ['PROTOCOL','SPEC','STRUCTURE','RATIONALE']))
     (tmp_path/'agents/registry.json').write_text(json.dumps(registry))
     return registry
 

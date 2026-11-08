@@ -4,6 +4,8 @@ description: Guide evidence review and human disposition for a deliverable lifec
 metadata:
   category: Review and validation
   applicability: Review evidence and obtain human disposition for a deliverable lifecycle transition.
+  kind: instruction
+  surface: workflow
 ---
 
 # review

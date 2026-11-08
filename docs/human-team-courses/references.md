@@ -1,3 +1,10 @@
+---
+name: human-team-courses-references
+description: References for Project Practice.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # References for Project Practice
 
 Use a reference for the question it can answer. Identify its jurisdiction, purpose, edition, and limits before you rely on it.

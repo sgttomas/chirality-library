@@ -1,3 +1,10 @@
+---
+name: thesis-02-literature-review
+description: Chapter 2 — Literature Review.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Chapter 2 — Literature Review
 
 ---

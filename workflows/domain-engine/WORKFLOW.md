@@ -1,6 +1,9 @@
 ---
 name: domain-engine
 description: Integrate a deterministic domain engine with explicit computational coverage and human judgment.
+metadata:
+  kind: instruction
+  surface: workflow
 ---
 
 # domain-engine

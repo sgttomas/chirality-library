@@ -1,3 +1,10 @@
+---
+name: thesis-appendix-e-development-history
+description: Appendix E — Development History and Its Evidential Limits.
+metadata:
+  kind: explanation
+  surface: reference
+---
 # Appendix E — Development History and Its Evidential Limits
 
 ## E.1 Scope and Source Basis
