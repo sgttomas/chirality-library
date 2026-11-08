@@ -25,11 +25,9 @@ unaffected work where its inputs permit it.
 ## Entry instructions when selected
 
 For authorized creation or revision of a project's entry, consult
-[project entry and standing instructions](project-entry.md). It separates the
-bootstrap, standing authority and operating route, with a suggested shared
-skeleton and review checks. Preserve the project's accepted layout and grants
-until its own authority changes them; locality setup alone does not authorize
-rewriting its entry or copying a Git grant.
+[project entry and standing instructions](project-entry.md). Preserve the
+project's accepted layout until its own authority changes it, and record only
+actual owner grants.
 
 ## Structural preparation
 

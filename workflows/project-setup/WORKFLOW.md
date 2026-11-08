@@ -24,8 +24,8 @@ work and reuse recorded decisions; ask only for a missing reserved choice.
 
 When the authorized setup includes a project's entry instructions, use
 [project entry and standing instructions](resources/project-entry.md) to adapt
-the `init/`, `AGENTS.md` and `loop/` convention. This reference does not require
-migration, grant authority or enlarge the selected setup scope.
+the `init/`, `AGENTS.md` and `loop/` convention within the selected setup scope.
+Preserve the project's accepted layout until its own authority changes it.
 
 For an explicitly retained DOMAIN or legacy phase/control-file project, use
 [the retained contract](resources/contract.md) and

@@ -3,15 +3,11 @@
 A Chirality project repository gives its agents one predictable route in. The
 same few surfaces answer the same questions in every project, so an agent, the
 owner or another project's Agent 0 can orient without learning a new layout.
-This resource describes those surfaces, what belongs in each, and which text
-is shared across projects and which is local.
 
-Use it when standing up a project, when revising a project's entry or standing
-instructions, and when reviewing how a project differs from the convention.
-It describes a
-convention projects have adopted, not an obligation: a project keeps its
-accepted layout until its own authority changes it, and reading this resource
-moves nothing.
+Use this convention when standing up a project, revising its entry or standing
+instructions, or reviewing its entry arrangement. Preserve a project's accepted
+layout until its own authority changes it. Adapt the suggested arrangement to
+that project's purpose and accepted basis.
 
 ## The surfaces
 
@@ -25,8 +21,7 @@ moves nothing.
 | `tools/`, `workflows/` | What mechanical checks and local methods exist? | With the tool or method |
 
 The first three are the instruction entry layer: how an agent enters and keeps operating.
-They do not configure or establish host enforcement. The
-next two are what it works on; the last row is what it works with. Keep the
+The next two are what it works on; the last row is what it works with. Keep the
 entry layer at the top level, separate from the execution record, so "how do I
 work here now" is in the same place in every project.
 
@@ -38,16 +33,13 @@ A short, reusable prompt the owner sends to start an Agent 0 session. It:
 2. reads `AGENTS.md`;
 3. resolves the selected Library from `AGENTS.md` (or this repository's own
    source when maintaining the Library) and reads the entry role
-   (`agents/AGENT_HELP_HUMAN.md`); where the project pins a revision, identifies
-   the revision used in its orientation report;
+   (`agents/AGENT_HELP_HUMAN.md`);
 4. names the role and capacity (`HELP_HUMAN` as Agent 0 for this project);
-   optionally clarifies that initialization does not select opt-in roles;
 5. reads and follows `loop/LOOP_INIT.md`;
-6. orients, reports briefly, and awaits the owner's steering.
+6. ends: “Orient. Briefly report your understanding of the current basis,
+   consumers and boundaries. Await the owner's steering.”
 
-It ends by stating that initialization selects no undertaking and grants no
-commitment, acceptance or release authority. Keep it free of current status;
-that belongs in the loop. An optional `init/README.md` tells the owner how to
+Keep the prompt free of current status; that belongs in the loop. An optional `init/README.md` tells the owner how to
 use it (send the prompt, then send steering separately).
 
 ## `AGENTS.md`: standing authority and boundaries
@@ -80,25 +72,26 @@ lives in one of them, and the other links to it where a reader needs it.
 
 ### Shared text
 
-Sections 3–7 carry shared substance. The selected Library's
-[`AGENTS.md`](../../../AGENTS.md) is the reference wording, not an authority
-grant to a consumer. Preserve its source identity and any relied-on section
-anchors when adapting names, scope and arrangement. A change to shared wording
-here is a proposal for affected projects, not an automatic update: use the
-Library review route, then let each project Agent 0 decide adoption under its
-own authority. For shared rules, the selected reference wording governs where
-this summary differs; local authority remains with the project. The substance
-each section carries:
+Resolve adopted shared wording against the selected Library's
+[`AGENTS.md`](../../../AGENTS.md). Preserve its source identity and relied-on
+section anchors when adapting names, scope and arrangement. Apply grants,
+delegations and reservations from the project's own instructions. Submit changes
+to shared Library wording through Library review and coordinate adoption with
+each affected project's Agent 0. Follow the
+[consumer route](../../../README.md#obtain-and-use-the-library) and
+[Discovery and reliance](../../../docs/alignment-manual/README.md#discovery-and-reliance)
+for adoption and source distinctions.
 
 - **Shared roles and methods.** The Library location on this workspace and,
   elsewhere, an owner-selected checkout or release archive of
-  `sgttomas/chirality-library`. A path does not identify an edition: a project
-  that relies on particular Library content pins an edition or revision and
-  records the revision actually used with dependent results; changing the
-  selection is a deliberate edit. The role table (HELP_HUMAN 0, HELPS_HUMANS 1,
-  WORKING_ITEMS 1, TASK 2, and INTERLOCUTOR 2 where adopted, opt-in per
-  session). The owner-facing agent holds Agent 0's responsibilities whatever
-  role it entered through. Load the active role file; other roles and methods
+  `sgttomas/chirality-library`. Identify the Library edition or tracked line the
+  project relies on and record the resolved revision with dependent results.
+  Choose pinning or tracking under the project's authority; a checkout path alone
+  identifies neither. Use the role table (HELP_HUMAN 0, HELPS_HUMANS 1,
+  WORKING_ITEMS 1, TASK 2, INTERLOCUTOR 2) and the selected source's exact
+  [`agents/AGENT_INTERLOCUTOR.md`](../../../agents/AGENT_INTERLOCUTOR.md)
+  for INTERLOCUTOR instructions. The owner-facing agent holds Agent 0's
+  responsibilities whatever role it entered through. Load the active role file; other roles and methods
   on demand. Use `coordinated-knowledge-work` for related contributions,
   `workflows/index.json` to select others, `create-workflow` before authoring a
   reusable method. Retain source identity and expose collisions. Roles grant no
@@ -129,25 +122,25 @@ each section carries:
   changes get targeted regression checks and independent scrutiny by a separate
   agent. Never change an expected result merely to silence a failure. Owner
   reservations (commitments, acceptance criteria, risk acceptance, holds,
-  releases) and settings/protection changes are presented to the owner.
-- **Standing Git grant.** Quote the owner's words granting it. "For
-  `owner/repo` only, agents may commit, push, open, update and merge PRs within
-  authorized work after the verification above and required checks pass on the
-  exact head. Explicit holds and reserved decisions apply. This grant excludes
-  protection bypasses, history rewrites, force pushes, permission changes and
-  releases." Conventions: `main` integrates; author-prefixed task branches;
-  merge commits unless chosen otherwise; stage only the intended change and keep
-  truthful authorship; the PR states what changed, why, what was checked and
-  what remains open, quoting the owner for reserved decisions, with no separate
-  receipts. Use the host-prepared checkout when supplied; otherwise isolate
-  only when requested or overlap/risk warrants it. Inspect the actual diff and
-  affected checks before publishing and verify the source head before integration.
-  After merge, remove the worktrees, branches, build output and scratch the work
-  created unless an open review, named consumer or recovery need still uses them.
+  releases) apply subject to applicable, unrevoked owner delegations recorded in
+  the project, within their scope and conditions. Present remaining reserved
+  decisions and settings/protection changes to the owner.
+- **Standing Git grant.** Record the owner's actual repository-scoped grant with their words; never write one by copying.
 
-A project's grant comes from the owner for that repository. Agents do not
-write a grant for themselves by copying this text; they record one the owner
-has given.
+### Packaged product instructions
+
+For an application that bundles agent instructions with its product, assign
+those instructions to a named deliverable. Maintain their source in that
+locality's `Work/`, generate the shipped copy from it, and list both source and
+shipped paths in `deliverable.yaml`. For example, SWBPIPE DEL-16-06 maintains
+`Work/agent-capability-catalog.json`, generates it through
+`tools/agent_catalog_resource.py`, and ships
+`apps/desktop/src-tauri/resources/agent-capability-catalog.json`.
+Keep product build, test and CI independent of a sibling Library checkout.
+
+The Library publishes the documents themselves for consumers to read and
+identifies its edition; maintain its published documents in their Library source
+homes.
 
 ### Local content
 
@@ -157,7 +150,9 @@ meaning, measure definitions, persistence, permissions, destructive
 operations); its query invocation; its governance overlap paths; and its local
 boundaries. Owner delegations that extend authority (for example a standing
 delegation to decide wording or scope within limits) are standing authority and
-belong in `AGENTS.md`, quoted with their dates.
+belong in `AGENTS.md`, with the owner's wording. When relocating an existing
+delegation, preserve its scope, conditions, reservations and owner wording, and
+link to it from the loop.
 
 ## `loop/LOOP_INIT.md`: current course and operating route
 
@@ -174,7 +169,8 @@ and how work is found and carried. Typical parts:
    failed query is not an empty result.
 3. **Select methods.** How to resolve Library workflows from this project,
    retaining qualified source identity and exposing collisions with local methods.
-   Do not infer a different selection from a matching name.
+   Keep a top-level `workflows/` for local methods; obtain shared methods from
+   the selected Library. Do not infer a different selection from a matching name.
 4. **Carry it through.** Agent 0 and implementation-owner responsibilities,
    ordering constraints, reconciliation in the same PR, check selection and the
    hosted merge check.
@@ -192,15 +188,16 @@ folder needs a named consumer.
 
 When reviewing a project that has selected this convention, examine the
 following. A difference is an observation to assess against that project's
-accepted basis, not an automatic defect or authority to migrate it:
+accepted basis. Preserve that basis until the project authorizes a change:
 
-- `init/init-prompt.md` covers the bootstrap shape above, including its
-  conditional steps, and leads to `loop/LOOP_INIT.md`;
+- `init/init-prompt.md` covers the bootstrap steps above and leads to
+  `loop/LOOP_INIT.md`;
 - `CLAUDE.md` contains only `@AGENTS.md`;
 - `AGENTS.md` covers the standing subjects above under the project's authority,
   retaining the selected shared meaning and identifying local adaptations;
 - standing authority, including any Git grant and owner delegations, is in
-  `AGENTS.md` with the owner's words, and nothing in the loop grants authority;
+  `AGENTS.md` with the owner's words; relocated delegations retain their scope,
+  conditions and reservations, and the loop links to them;
 - neither `AGENTS.md` nor the loop narrates session or gate history;
 - the loop's commands work from the stated working directory with their stated
   prerequisites, and links resolve from the containing document. Distinguish

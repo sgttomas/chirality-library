@@ -95,8 +95,11 @@ uses deliverable localities under `execution/PKG-nn/DEL-nn-nn/`:
 holds needs, conditions and code/check pointers; `Work/` holds technical
 reasoning, execution detail, working artifacts and deliverable outputs kept
 locally. Make maturity and issue status explicit. Code and other outputs may
-retain their actual product/source homes, referenced from the locality. The
-consumer states its needs; tools derive reverse links and graphs.
+retain their actual product/source homes, referenced from the locality. For
+agent instructions bundled with an application, maintain the source in the named
+deliverable's `Work/`, generate the shipped copy from it, and list both in
+`deliverable.yaml`. The Library maintains its published instruction documents in
+their Library source homes. The consumer states its needs; tools derive reverse links and graphs.
 
 App v4 and SWBPIPE use `Work/`; their older references to a deliverable's
 `Design/` mean its `Work/`. Pre-library execution is recoverable from the
