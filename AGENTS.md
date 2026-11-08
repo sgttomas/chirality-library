@@ -55,14 +55,13 @@ The Chirality Library (`sgttomas/chirality-library`), Chirality Root (private
 (`sgttomas/SWBPIPE`) each have one top-level Agent 0, working in its own
 T3 Code session. When work here needs Root, App v4 or SWBPIPE, such as a shared interface, a
 library change a consumer will adopt, a defect found in the other project, or a
-shared release gate, this project's Agent 0 messages the cross-project coordinator
-session in T3 Code, using the route in current session steering. Read the
-recipient's session first to confirm that it is the current coordinator;
-a retired session is not a route.
+shared release gate, this project's Agent 0 messages that project's Agent 0
+directly in T3 Code. Read the recipient's session first to confirm that it is
+that project's current Agent 0; a retired session is not a route.
 
 A message states what is needed, the revision and files it concerns, and
-whether it blocks the sender. Each affected project decides and acts within its
-own repository and authority. A message carries no owner authority and changes
+whether it blocks the sender. The recipient decides and acts within its own
+repository and authority. A message carries no owner authority and changes
 nothing in another repository. Record an agreed decision by editing the
 governing text in the repository that owns it, and take reserved choices to the
 owner. Do not message a project the work does not affect. Root may also open a

@@ -109,10 +109,9 @@ for adoption and source distinctions.
   ownership and review/decision rights.
 - **Coordination between projects.** Each project has one top-level Agent 0 in
   its own T3 Code session. When work needs another project, this Agent 0
-  messages the cross-project coordinator session using current session steering,
-  after reading its session to confirm it is current. A message states the need,
-  the revision and files, and whether it blocks. Each affected project decides
-  within its own authority; a message carries no
+  messages that one directly, after reading its session to confirm it is
+  current. A message states the need, the revision and files, and whether it
+  blocks. The recipient decides within its own authority; a message carries no
   owner authority and changes nothing elsewhere. Agreed decisions are recorded
   by editing the governing text where it lives; reserved choices go to the
   owner. Do not message a project the work does not affect.
