@@ -287,11 +287,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
    - `PROJECT/SOFTWARE`: incremental setup (`project-setup-retained`, `INCREMENTAL` mode) for added, retired and modified deliverables, including bounded local need assessment for them and affected consumers (derived on demand); estimate snapshot, scheduling, any scoped audits
    - `DOMAIN`: downstream knowledge-generation workflows, terminology QA / grep, and any coverage audit or regeneration workflow that consumes the decomposition
    - For `DOMAIN` amendments that affect KTY-local content, produce `KTY_Remediation_Manifest.csv` rows in the SCA snapshot plan. These rows are per-SCA action/evidence ledger rows, not a cumulative content-disposition surface.
-   - Manifest actions drive post-acceptance dispatch. The DOMAIN KTY workflows
-     named here (`kty-content-remediate`, `domain-documents`,
-     `kty-metadata-align`) were removed on 2026-11-04 and are preserved in the
-     private `sgttomas/chirality` repository; this library does not provide
-     these DOMAIN lanes.
+   - Manifest actions drive post-acceptance dispatch.
      - `ARCHIVE_AND_STUB` -> `TASK + kty-content-remediate` with `MODE: RETIRE_KTY`
      - `REGENERATE_CONTENT` -> `TASK + domain-documents` with `AUTHORITY_MODE: SCA_DRIVEN`
      - `VERIFY_ONLY` -> `TASK + kty-content-remediate` with `MODE: VERIFY_KTY`
