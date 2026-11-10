@@ -184,7 +184,7 @@ A decomposition is complete when:
 | Coverage & Telemetry present | Summary metrics and open issue taxonomy exist |
 | Vocabulary Map present | Canonical terms ↔ synonyms table exists |
 | Context Budget QA present | Every deliverable has `ContextEnvelope`; `XL` items are split or explicitly accepted as open issues |
-| Examination stated | The Examination and Integrated Path section exists; every deliverable has an expected examination or `TBD`; every objective has a check and a carrier; the thin end-to-end path is named or stated absent; a deliverable with no inexpensive examination, or `TBD`, is listed as an open issue |
+| Examination stated | For a decomposition begun under this text: the Examination and Integrated Path section exists; every deliverable has an expected examination or `TBD`; every objective has a check and a carrier, or `TBD`; the thin end-to-end path is named or stated absent; every `TBD`, and every deliverable with no inexpensive examination, is listed as an open issue |
 
 ### Consistency requirements
 
@@ -332,13 +332,16 @@ Record non-trivial boundary or sizing decisions.
 
 #### 9) Examination and Integrated Path
 A section of the main document. It adds no register column and no companion
-file. Minimum content:
+file. It is required of a decomposition begun under this text. An earlier
+accepted decomposition remains valid without it, including when it is later
+amended. Minimum content:
 
 - per Deliverable: `DeliverableID`, the expected examination and what it would
   observe (`TBD` allowed), and whether that examination is inexpensive enough
   to run repeatedly while the work is under way;
 - per Objective: `ObjectiveID`, its check, and the Deliverable or integration
-  owner that carries it (a check may be shared, and may be the thin path);
+  owner that carries it (a check may be shared, and may be the thin path;
+  `TBD` allowed);
 - the thin end-to-end path and its carrier, or one line stating that the
   undertaking has no integrated path;
 - any coupled core: member `DeliverableID`s, the integration owner, the shared
@@ -347,7 +350,8 @@ file. Minimum content:
 These entries describe intended examination. Setup draws on them when it
 authors each Deliverable's verification entries (`scope-of-work` defines the
 kinds). They are not acceptance criteria and establish no result. Do not
-invent an examination; an unknown one is `TBD` and an open issue.
+invent an examination or an Objective's check; an unknown one is `TBD` and an
+open issue.
 
 ---
 

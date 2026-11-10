@@ -95,13 +95,15 @@ failure, not permission to switch profiles.
 
 ## Verification entries
 
-A verification entry that an `INIT` or `REVISE` run writes or changes, or that
-an ordinary reconciliation edit changes, opens its one-line definition by
-stating its kind and what the verification rests on:
+A verification entry that an `INIT` or `REVISE` run writes or changes opens its
+one-line definition by stating its kind and what the verification rests on. So
+does an entry whose examination an ordinary reconciliation edit changes, in
+what it examines or how. A corrected path or name alone does not bring a
+stated kind with it. The kinds are:
 
 - **Executable check:** what it observes, which is the behaviour or output the
-  criterion names and not a proxy for it. A check that does not exist yet is
-  stated as to be written first.
+  criterion names. Where it can observe only a proxy, it says so. A check that
+  does not exist yet is stated as to be written first.
 - **Comparison with a named reference:** the reference, and how its expected
   values were produced.
 - **Judgment by a named role:** who judges, and what they examine. A
@@ -109,11 +111,13 @@ stating its kind and what the verification rests on:
   a role that is not a person, such as an independent reviewer agent, is a
   `VER-*` entry.
 
-Choose the kind by what settles pass or fail: a result computed from the
-criterion, agreement with something external, or someone's assessment.
-Automation is incidental. An automated test against stored expected values is
-a comparison, and where those values came from is what matters. An entry that
-combines kinds states each part. For example:
+Choose the kind by what settles pass or fail: a result the check computes and
+tests against the criterion, agreement with something external, or someone's
+assessment. Automation is incidental. Expected values the criterion itself
+determines leave a check executable. An automated test against values
+produced elsewhere, such as another solver's output, a prior run or a
+published table, is a comparison, and where those values came from is what
+matters. An entry that combines kinds states each part. For example:
 `Executable check (to be written first; observes the exported file's rows against the displayed table): …`
 
 Keep the definition on one line, because checklist derivation reads one-line
@@ -159,6 +163,8 @@ where explicitly adopted, retained `INCREMENTAL` mode.
    changes. Keep every other byte apart from the amendment reference
    (step 4). Keep existing `OUT-*`, `AC-*`, `VER-*` and
    other local IDs; never renumber them or reuse an ID the amendment removes.
+   A verification entry this step writes or changes states its kind (see
+   [Verification entries](#verification-entries)).
    Mark a change the amendment does not clearly determine `CONFLICT`.
 4. Record the amendment reference (amendment ID and exact accepted source/review
    binding; snapshot path where that route uses one)

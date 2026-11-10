@@ -111,7 +111,8 @@ section:
   examined, or make the means of examination a Deliverable. Nothing here
   requires a split.
 - **Each Objective:** its check, and the Deliverable or integration owner that
-  carries it. Objectives may share a check.
+  carries it. Objectives may share a check. `TBD` is allowed and is listed as
+  an open issue; do not invent a check.
 - **The thin end-to-end path**, where the undertaking has an integrated path:
   the narrowest route through the proposed Deliverables that exercises the
   combined result, and who carries it. It may serve as an Objective's check.
