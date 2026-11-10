@@ -129,7 +129,9 @@ substantive reason in the return or the existing change review; do not add row
 IDs, timestamps, satisfaction states or an append-only history to YAML. An
 amended or retired production obligation may still supply an artifact usable
 for a particular condition; assess the actual input/use rather than retargeting
-or deleting all affected needs automatically.
+or deleting all affected needs automatically. Do not remove a need for being
+met, because it still states what the Deliverable relies on. Add `when` where
+the source states when the need applies.
 
 ## Save, check and return
 

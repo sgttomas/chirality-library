@@ -39,8 +39,11 @@ A short, reusable prompt the owner sends to start an Agent 0 session. It:
 6. ends: “Orient. Briefly report your understanding of the current basis and
    boundaries. Await the owner's steering.”
 
-A project may add its own report subject, such as the Library's consumers or
-SWBPIPE's release target.
+A project may add its own report subject, such as the Library's consumers. A
+project working toward a release target also asks the first report for the path
+from the current state to that target, any independent lanes it would open, and
+what it needs from the owner to keep the work moving: decisions, credentials and
+host conditions.
 
 Keep the prompt free of current status; that belongs in the loop. An optional `init/README.md` tells the owner how to
 use it (send the prompt, then send steering separately).
@@ -130,7 +133,8 @@ for adoption and source distinctions.
   `Work/` holds the current account: findings with their reasons, working artifacts and outputs. Revise it in place rather than appending history; never rewrite fidelity copies, frozen snapshots or accepted evidence. How the work went (approval quotes, review rounds, retries, run IDs, check results) belongs in the PR description, which states what changed, why, what was checked and what remains open. Cite SHAs or hashes only where they pin something a result relies on. State a fact once and link to it.
 
   Reconcile changed
-  meaning and dependency conditions in the same change; leave unchanged declarations
+  meaning and dependency conditions, including a need the work showed to be wrong
+  or missing, or to no longer apply, in the same change; leave unchanged declarations
   alone. Verification is proportionate: routine reversible changes are
   inspected; ordinary implementation gets a focused check; high-consequence
   changes get targeted regression checks and independent scrutiny by a separate
@@ -194,7 +198,9 @@ and how work is found and carried. Typical parts:
 1. **Course and basis.** One paragraph: the product, the accepted PRD and
    decomposition, and the current standing in a sentence (for example a release
    target, or "edition N is published; work comes from new steering"). Link
-   to the record that holds the detail instead of narrating gate history.
+   to the record that holds the detail instead of narrating gate history. Where
+   the project works toward a release target, name it and link to where it is
+   defined; the first report starts from it.
 2. **Locate the selected work.** From the steering to the owning
    `DEL-nn-nn`: its `ScopeOfWork.md`, `Work/`, `deliverable.yaml`, then the PRD
    clauses this slice needs. Give the query commands with a worked example. A
