@@ -31,9 +31,8 @@ Inputs:
 - Supporting requirements, tickets, notes, architecture, constraints, and prior
   decompositions named in the brief.
 
-Outputs are written under `DECOMP_ROOT = {EXECUTION_ROOT}/_Decomposition/`.
-`EXECUTION_ROOT` is the project's execution root, often `execution/`;
-`DECOMP_ROOT` is its `_Decomposition/` folder.
+Outputs are written under `DECOMP_ROOT`, the `_Decomposition/` folder of the
+project's `EXECUTION_ROOT` (often `execution/`):
 
 | Output | Package role |
 |---|---|
