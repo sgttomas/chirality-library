@@ -110,7 +110,7 @@ Action-specific tracing rules:
 **`ADD`**
 - Identify required new rows/sections and any parent-binding obligations.
 - If the addition creates a new parent partition / parent entity, identify the expected child-closure set and any companion rows that must be added in the same amendment.
-- `PROJECT/SOFTWARE`: inspect sibling deliverables for likely dependency patterns; note that incremental setup (`project-setup`, `INCREMENTAL` mode) will scaffold the addition with the effective source-qualified `preparation` skill and refresh its dependencies after acceptance.
+- `PROJECT/SOFTWARE`: inspect sibling deliverables for likely dependency patterns; note that incremental setup (`project-setup-retained`, `INCREMENTAL` mode) will scaffold the addition with the effective source-qualified `preparation` skill and refresh its dependencies after acceptance.
 - `DOMAIN`: identify whether the addition creates new Category / Knowledge Type / Knowledge Subject / Handbook Unit / Vocabulary obligations, including ledger mappings, subject-cardinality obligations, and telemetry deltas. New or modified Categories and Knowledge Types incur a retrieval-driven scope-ratification obligation during poststate validation.
 
 **`REMOVE`**
@@ -238,7 +238,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
 
 1) **For `ADD` actions**
    - `PROJECT/SOFTWARE`:
-     - Plan the hand-back to `project-setup` in `INCREMENTAL` mode (its
+     - Plan the hand-back to `project-setup-retained` in `INCREMENTAL` mode (its
        Function 5), which runs after checkpoint group 3 against the accepted
        snapshot. For each added package or deliverable, name its accepted
        decomposition row, parent package and any human-declared
@@ -251,7 +251,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
      - Any propagation step or dispatched workflow that reads `_STATUS.md` must also read sibling `_MEMORY.md` / `MEMORY.md` when present as non-authoritative operational context.
    - `DOMAIN`:
      - Add new rows to the relevant decomposition annex CSVs (Domain Ledger, Knowledge Type Register, Knowledge Subject Register, Vocabulary Map, etc.)
-     - Plan the hand-back of new `Category` / `Knowledge Type` folders and their initial KTY-local content to `project-setup` in `INCREMENTAL` mode; new `Knowledge Subject` rows in an existing KTY follow the KTY remediation lanes below
+     - Plan the hand-back of new `Category` / `Knowledge Type` folders and their initial KTY-local content to `project-setup-retained` in `INCREMENTAL` mode; new `Knowledge Subject` rows in an existing KTY follow the KTY remediation lanes below
 
 2) **For `REMOVE` actions**
    - `PROJECT/SOFTWARE`:
@@ -266,7 +266,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
      - List any downstream generated knowledge artifacts that should be marked review-needed / retired by their owning workflow
 
 3) **For `MODIFY` actions**
-   - `PROJECT/SOFTWARE`: list specific `_CONTEXT.md` edits per affected deliverable, and record each deliverable's lifecycle state. For an `ISSUED` deliverable, state in the plan that this amendment, once accepted at checkpoint group 3, is the record that authorizes its reopening (`ISSUED → IN_PROGRESS`, `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3): the human records the transition after acceptance, citing the accepted snapshot (with `write_status.sh --amendment`, which checks the committed record at the approval SHA), and `project-setup` in `INCREMENTAL` mode then routes the contract revision. For a `CHECKING` deliverable, state that the revision waits for a human reversal to `IN_PROGRESS`
+   - `PROJECT/SOFTWARE`: list specific `_CONTEXT.md` edits per affected deliverable, and record each deliverable's lifecycle state. For an `ISSUED` deliverable, state in the plan that this amendment, once accepted at checkpoint group 3, is the record that authorizes its reopening (`ISSUED → IN_PROGRESS`, `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3): the human records the transition after acceptance, citing the accepted snapshot (with `write_status.sh --amendment`, which checks the committed record at the approval SHA), and `project-setup-retained` in `INCREMENTAL` mode then routes the contract revision. For a `CHECKING` deliverable, state that the revision waits for a human reversal to `IN_PROGRESS`
    - `DOMAIN`: list exact edits to the decomposition document and affected annex CSVs, and list any downstream KTY-local artifacts or terminology indexes that should be refreshed by their owning workflow
 
 4) **For `RECLASSIFY` actions**
@@ -284,7 +284,7 @@ Based on the approved amendment, produce a propagation plan **limited to the app
    - Explicitly list reference-assessment and rerun obligations; dependency retargeting requires the affected consumer's actual condition/use and the accepted change
 
 6) **Downstream rerun advisory and KTY remediation dispatch plan**
-   - `PROJECT/SOFTWARE`: incremental setup (`project-setup`, `INCREMENTAL` mode) for added, retired and modified deliverables, including bounded local need assessment for them and affected consumers (derived on demand); estimate snapshot, scheduling, any scoped audits
+   - `PROJECT/SOFTWARE`: incremental setup (`project-setup-retained`, `INCREMENTAL` mode) for added, retired and modified deliverables, including bounded local need assessment for them and affected consumers (derived on demand); estimate snapshot, scheduling, any scoped audits
    - `DOMAIN`: downstream knowledge-generation workflows, terminology QA / grep, and any coverage audit or regeneration workflow that consumes the decomposition
    - For `DOMAIN` amendments that affect KTY-local content, produce `KTY_Remediation_Manifest.csv` rows in the SCA snapshot plan. These rows are per-SCA action/evidence ledger rows, not a cumulative content-disposition surface.
    - Manifest actions drive post-acceptance dispatch. The DOMAIN KTY workflows
@@ -373,13 +373,13 @@ under its owning checkpoint rules before proceeding.
      - `REMOVE`: apply the `[RETIRED — {AMENDMENT_ID}]` decomposition-row annotation and append the planned `_STATUS.md` history line; leave the lifecycle state unchanged and do not use `write_status.sh`
      - `MODIFY/RECLASSIFY`: update `_CONTEXT.md`; the production contract
        (`ScopeOfWork.md`) changes here only when the accepted write boundary
-       names it, and otherwise its update is handed to `project-setup` in
+       names it, and otherwise its update is handed to `project-setup-retained` in
        `INCREMENTAL` mode (`scope-of-work` `MODE=REVISE`). Do not change the
        lifecycle state of an `ISSUED` or `CHECKING` deliverable in the
        candidate; an `ISSUED` deliverable is reopened only after acceptance,
        by the human, as the reopening rule in the contract states
      - `ADD`: do not scaffold in the candidate. Record the hand-back to
-       `project-setup` in `INCREMENTAL` mode in `Handoff_State.md`; it
+       `project-setup-retained` in `INCREMENTAL` mode in `Handoff_State.md`; it
        scaffolds the addition after checkpoint group 3 acceptance, against the
        accepted snapshot. An audit finding that an accepted addition has no
        folder yet is an `EXPECTED_CONSEQUENCE` of that hand-back; a
@@ -502,7 +502,7 @@ under its owning checkpoint rules before proceeding.
    - Remaining blockers / human decisions, including each `ISSUED`
      deliverable this amendment authorizes the human to reopen once accepted
      and each `CHECKING` deliverable held for a human reversal
-   - Next owning workflow(s); name `project-setup` in `INCREMENTAL` mode
+   - Next owning workflow(s); name `project-setup-retained` in `INCREMENTAL` mode
      wherever added, retired or modified entities need setup, and the
      post-acceptance closure examination of that setup and of any other
      implementation and downstream reruns

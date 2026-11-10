@@ -1,7 +1,8 @@
-# project-setup — contract
+# project-setup-retained — contract
 
 **Applicability:** Retained DOMAIN and explicitly adopted legacy phase/control-file
-setup only. Current PROJECT/SOFTWARE setup uses [current-project.md](current-project.md).
+setup only. Current PROJECT/SOFTWARE setup uses the current-project route of
+`project-setup`.
 The lifecycle records, append logs and gate prompts below are not defaults for
 that route. Preserve them where an owning project has actually adopted them.
 
@@ -38,7 +39,7 @@ The session prompt names the role and `{EXECUTION_ROOT}`. WORKING_ITEMS discover
 
 Read only what's needed to answer those axes. Do not ceremonially read every coordination file when the workspace state already tells you the answer.
 
-**Step 2 — Infer the active phase.** Match the observed state against the phase definitions in `resources/method.md`. Common patterns:
+**Step 2 — Infer the active phase.** Match the observed state against the phase definitions in [the method](method.md). Common patterns:
 
 - Decomposition absent → Function 1 (Initialize).
 - Decomposition accepted + no scaffolded folders → Phase 2.1 (scaffolding with the effective source-qualified `preparation` skill by an eligible actor).
@@ -47,7 +48,7 @@ Read only what's needed to answer those axes. Do not ceremonially read every coo
 - All initialization phases complete → Function 3 (Scan & report) or Function 4 (Estimating) per human request.
 - Amendment in progress under `_ScopeChange/` → WORKING_ITEMS (workflow: scope-change) takes precedence; setup of the amended scope waits for its checkpoint group 3 acceptance.
 - Accepted amendment with setup handed back and not yet recorded complete → Function 5 (Incremental setup) against that accepted snapshot.
-- No `SETUP_LOG.md` baseline yet while accepted amendments exist (a project set up before incremental setup existed) → propose the Function 5 adoption step (Phase 5.0) first. Its baseline never covers an amendment whose `Handoff_State.md` hands setup to `project-setup` `INCREMENTAL`, so the amendment that prompted adoption is set up next.
+- No `SETUP_LOG.md` baseline yet while accepted amendments exist (a project set up before incremental setup existed) → propose the Function 5 adoption step (Phase 5.0) first. Its baseline never covers an amendment whose `Handoff_State.md` hands setup to `project-setup-retained` `INCREMENTAL`, so the amendment that prompted adoption is set up next.
 
 If the observed state doesn't match a phase cleanly (e.g., partial scaffolding from an interrupted run, mismatched accepted-doc references, errata pending in registers), surface the discrepancy to the human before acting.
 
@@ -296,7 +297,7 @@ existed, and appends lines; it never edits or deletes an earlier line. A correct
 ```markdown
 # Setup Log
 
-Agent-owned and append-only. Written by WORKING_ITEMS (workflow: project-setup).
+Agent-owned and append-only. Written by WORKING_ITEMS (workflow: project-setup-retained).
 
 - [YYYY-MM-DD] — BASELINE: incremental setup adopted; amendments accepted up to [YYYY-MM-DD] (latest [AMENDMENT_ID or "none"]) are already set up and are not reprocessed; confirmed by [human]
 - [YYYY-MM-DD] — INCREMENTAL [AMENDMENT_ID] setup [COMPLETE | PARTIAL | BLOCKED]; run record [path]
@@ -307,10 +308,10 @@ confirmation. `INITIAL` setup writes it with `latest none` (or the latest
 accepted amendment already included in the decomposition it set up). At
 adoption in an existing project, the proposed baseline names the latest
 accepted amendment whose `Handoff_State.md` does not hand setup to
-`project-setup` `INCREMENTAL`, or `none`, and its acceptance date. It covers
+`project-setup-retained` `INCREMENTAL`, or `none`, and its acceptance date. It covers
 the amendment it names and those accepted before it; those are never
 reprocessed in `INCREMENTAL` mode. An amendment whose `Handoff_State.md` hands
-setup to `project-setup` `INCREMENTAL` is never covered by the baseline. An `INCREMENTAL` line marked `COMPLETE` is the record that
+setup to `project-setup-retained` `INCREMENTAL` is never covered by the baseline. An `INCREMENTAL` line marked `COMPLETE` is the record that
 an accepted amendment's setup hand-back has been carried out.
 
 ---

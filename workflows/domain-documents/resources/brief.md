@@ -5,7 +5,7 @@ Use this workflow with a generic TASK shell (no profile) like this:
 ```md
 PURPOSE: Draft Knowledge Artifacts for KTY-01 (Pressure Vessel Design)
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 
 ScopePath: /abs/path/to/KTY-01_Pressure-Vessel-Design
 Workflow: domain-documents
@@ -46,9 +46,9 @@ RuntimeOverrides:
 | `RuntimeOverrides.UNIT_SCOPE` | `EXAMPLES_ONLY` | `EXAMPLES_ONLY`, `ALL_MAPPED` | Which handbook units form the evidence set |
 | `RuntimeOverrides.ARTIFACT_NAMING` | `PREFIXED_TYPED_SLUG` | `PREFIXED_TYPED_SLUG`, `TYPED_SLUG`, `PREFIXED_SLUG` | Artifact file naming policy |
 | `RuntimeOverrides.MAX_ARTIFACTS` | `25` | Positive integer | Hard cap on artifact file count |
-| `RuntimeOverrides.SOURCES_ROOT` | Provided by WORKING_ITEMS (workflow: project-setup) | Absolute path | Shared source/reference file root |
+| `RuntimeOverrides.SOURCES_ROOT` | Provided by WORKING_ITEMS (workflow: project-setup-retained) | Absolute path | Shared source/reference file root |
 | `RuntimeOverrides.COMBINED_SOURCE_AUTHORITY_PATH` | omitted | Absolute path | Additional admitted source authority root for combined/cross-root source packages; source material remains subordinate to structured SCA supersession in `SCA_DRIVEN` mode |
-| `RuntimeOverrides.REPORT_TO` | `WORKING_ITEMS (workflow: project-setup)` | Free-form | Where to report run outcome |
+| `RuntimeOverrides.REPORT_TO` | `WORKING_ITEMS (workflow: project-setup-retained)` | Free-form | Where to report run outcome |
 
 ## TaskProfile
 
@@ -65,7 +65,7 @@ material bounded by `SourceSpan` is factual authority, while decomposition data
 scopes and routes the work.
 
 `SCA_DRIVEN` is used only when WORKING_ITEMS (workflow: scope-change) dispatches regeneration after an
-accepted amendment, or when WORKING_ITEMS (workflow: project-setup) dispatches it on a post-amendment root
+accepted amendment, or when WORKING_ITEMS (workflow: project-setup-retained) dispatches it on a post-amendment root
 (`INCREMENTAL` mode for new Knowledge Types, or a Phase 2.2a rerun) as that amendment's hand-off. In this mode, admitted decomposition state, structured SCA
 artifacts, and `SUPERSESSION_MAP_PATH` are current factual authority. Source
 material is provenance verification only and must not override accepted
@@ -168,6 +168,6 @@ This workflow handles the `OPEN → INITIALIZED` transition (during Pass 1/2 run
 
 ## Notes
 
-- One invocation processes one Knowledge Type folder. WORKING_ITEMS (workflow: project-setup) dispatches one task per in-scope KTY.
+- One invocation processes one Knowledge Type folder. WORKING_ITEMS (workflow: project-setup-retained) dispatches one task per in-scope KTY.
 - The brief does not include `AllowedTools` because this is a reasoning-first drafting workflow. Safe-update of `_STATUS.md` uses `tools/scaffolding/write_status.sh` if available.
 - Authoritative source access is mandatory — runs that cannot read the source file halt with `FAILED_INPUTS`.

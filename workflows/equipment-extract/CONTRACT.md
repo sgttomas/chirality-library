@@ -7,7 +7,7 @@ Use this workflow with a generic TASK shell (no profile) like this:
 ```md
 PURPOSE: Extract equipment items from KTY-04-01 KA files
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 ScopePath: {EXECUTION_ROOT}
 Workflow: equipment-extract
 
@@ -54,7 +54,7 @@ The workflow writes only:
 ### Notes
 
 - `KTY_ID` is derived at runtime from `_CONTEXT.md` or from the folder name when `_CONTEXT.md` is unavailable.
-- One invocation processes one KTY folder. project-setup spawns one task per in-scope KTY for parallelism.
+- One invocation processes one KTY folder. project-setup-retained spawns one task per in-scope KTY for parallelism.
 - The brief does not include `AllowedTools` because this is a reasoning-only extraction workflow with no deterministic tool dependencies.
 
 ## Acceptance

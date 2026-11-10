@@ -7,8 +7,8 @@ and the [project-entry template](../../../../workflows/project-setup/resources/p
 The template also distinguishes declarative design instructions from canonical
 runtime assets. A remaining candidate is to clarify the `Work/` definition in
 [dependency-extract](../../../../workflows/dependency-extract/WORKFLOW.md).
-When scoping that candidate, inspect project-setup's workflow, current-project and method
-resources, scope-of-work, project-decomp and software-decomp dependency handoffs,
+When scoping that candidate, inspect project-setup's workflow and current-project
+resource, project-setup-retained's method, scope-of-work, project-decomp and software-decomp dependency handoffs,
 bounded-reconciliation, the preparation skill/scaffold contract and the
 [query guide](../../../../tools/deliverables/README.md) for a conflicting placement
 rule. Read PRD R08 and the thesis architecture/glossary layout definitions as

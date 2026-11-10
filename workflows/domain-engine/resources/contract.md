@@ -656,7 +656,7 @@ Each closure/handoff state should include:
 | `BoundaryNoticesApplied` | Professional/IP notices used |
 | `RerunRequirements` | Required scans, summaries, validations, comparisons |
 | `RemainingBlockers` | Open issues and next owner |
-| `NextOwningWorkflow` | `HUMAN | WORKING_ITEMS | TASK | HELPS_HUMANS | WORKING_ITEMS (workflow: change) | WORKING_ITEMS (workflow: project-setup) | DOMAIN_ENGINE_APP | EXTERNAL_PROVER` |
+| `NextOwningWorkflow` | `HUMAN | WORKING_ITEMS | TASK | HELPS_HUMANS | WORKING_ITEMS (workflow: change) | WORKING_ITEMS (workflow: project-setup) | WORKING_ITEMS (workflow: project-setup-retained) | DOMAIN_ENGINE_APP | EXTERNAL_PROVER` |
 
 `WORKING_ITEMS (workflow: change)` remains readable in historical handoffs; it
 is not a current workflow invocation. For new Git handoffs use `WORKING_ITEMS`

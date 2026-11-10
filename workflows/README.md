@@ -60,6 +60,11 @@ retired agent names) have been removed: `TaskSkill` is no longer accepted, and a
 retired or removed name fails as unknown rather than being redirected. Historical
 methods are never inferred from files or prose.
 
+The retained DOMAIN and legacy phase/control-file setup method is the separate
+`project-setup-retained` package. `project-setup` keeps `resources/method.md`
+and `resources/contract.md` as short pointers to it, so an existing reference
+to those paths resolves and says where the method went.
+
 Method libraries may exist at project, user, and bundled scope. Resolution uses
 that precedence order. Identity is the complete tuple `source`, `sourceRootId`,
 `kind`, and `name`; `sourceRootId` identifies the actual library root. Catalogs

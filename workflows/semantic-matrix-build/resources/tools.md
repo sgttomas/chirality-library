@@ -31,7 +31,7 @@ No additional command restriction is declared in execution.json. If the brief su
 | Tool | Use | Required? |
 |---|---|---|
 | `python3 tools/validation/validate_semantic_matrix.py` | Validate `_SEMANTIC.md` structure and matrix invariants. | Required in normal repo runs when available and permitted. |
-| `python3 tools/validation/validate_semantic_pipeline_scope.py` | Confirm Phase 2.3 touched only allowed semantic-scope files. | Required when project WORKING_ITEMS (workflow: project-setup) policy calls for it and the tool is available. |
+| `python3 tools/validation/validate_semantic_pipeline_scope.py` | Confirm Phase 2.3 touched only allowed semantic-scope files. | Required when project WORKING_ITEMS (workflow: project-setup-retained) policy calls for it and the tool is available. |
 
 If a validator is unavailable, do not claim validator PASS. Report `validator not available`.
 
@@ -73,7 +73,7 @@ Conditional write target:
   1. the brief/runtime override requires a status action; and
   2. TASK/brief write authorization allows `_STATUS.md` edits.
 
-Normal WORKING_ITEMS (workflow: project-setup) Phase 2.3 uses `STATUS_POLICY=PRESERVE_CURRENT`; it may write only `_SEMANTIC.md` unless the brief explicitly authorizes a history note.
+Normal WORKING_ITEMS (workflow: project-setup-retained) Phase 2.3 uses `STATUS_POLICY=PRESERVE_CURRENT`; it may write only `_SEMANTIC.md` unless the brief explicitly authorizes a history note.
 
 ## Fallback rules
 

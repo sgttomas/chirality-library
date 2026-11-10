@@ -137,7 +137,7 @@ Before judging a rerun missing, apply the current disposition from the handoff r
 - Check `_Estimates/` for a snapshot whose input manifest binds the affected scope at its post-change hashes.
 - If no such post-change estimate snapshot and no recorded deferral: finding (MINOR — estimates may be stale).
 
-**WORKING_ITEMS (workflow: project-setup) scheduling workflow reruns:**
+**WORKING_ITEMS (workflow: project-setup-retained) scheduling workflow reruns:**
 - Check `_Schedule/` for a snapshot whose input manifest binds the post-change basis.
 - If no such post-change schedule snapshot and no recorded deferral: finding (MINOR — schedule may be stale).
 

@@ -75,6 +75,10 @@
           },
           {
             "name": "semantic-lensing"
+          },
+          {
+            "name": "project-setup-retained",
+            "tier": "supporting"
           }
         ]
       },

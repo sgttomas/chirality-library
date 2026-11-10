@@ -5,7 +5,7 @@ Use this workflow with a generic TASK shell (no profile) like this:
 ```md
 PURPOSE: Align one KTY's metadata after DOMAIN regeneration.
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 
 ScopePath: /abs/path/to/CAT-003_Operations/1_Working/KTY-03-02_Onboarding-Checklist
 Workflow: kty-metadata-align

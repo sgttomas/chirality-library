@@ -91,7 +91,7 @@ AllowedWriteTargets:
 ```markdown
 PURPOSE: Generate parametric pricing baseline + BOE scaffold for example facility proposal
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 ScopePath: {EXECUTION_ROOT}
 Workflow: estimate-prep
 

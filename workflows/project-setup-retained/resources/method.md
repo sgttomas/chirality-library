@@ -1,7 +1,7 @@
-# project-setup — method
+# project-setup-retained — method
 
 **Applicability:** Retained DOMAIN and explicitly adopted legacy phase/control-file
-setup only. Use [current-project.md](current-project.md) for the current
+setup only. Use the current-project route of `project-setup` for the current
 PROJECT/SOFTWARE locality and pre-integration reconciliation. The historical
 control-file and run-log steps below do not apply to that route.
 
@@ -374,7 +374,7 @@ WORKING_ITEMS does not produce estimates or interpret pricing data. It reads the
 - Extract from the BOE:
   - **Section 3** (Estimation Strategy): common run parameters — CURRENCY, FALLBACK_POLICY, ALLOW_MIXED_METHODS, ROUNDING, and any project-wide defaults.
   - **Section 4** (Per-Deliverable Estimation Plan): per-deliverable `BASIS_OF_ESTIMATE` substance classification, method, exclusions, and parameter overrides.
-  - **Section 5** (Dependency-Informed Run Sequence): tier definitions and tier order. Tier sequencing comes from the BOE, not WORKING_ITEMS (workflow: project-setup).
+  - **Section 5** (Dependency-Informed Run Sequence): tier definitions and tier order. Tier sequencing comes from the BOE, not WORKING_ITEMS (workflow: project-setup-retained).
   - **Section 6** (Missing PRICE_SOURCES Register): gaps that may block or degrade specific runs.
 - Extract from `_PriceSources/INDEX.md`:
   - Per-package `PRICE_SOURCES` file mapping (which files exist and where they are).
@@ -440,12 +440,12 @@ Setup evidence goes to the agent-owned, append-only `{COORDINATION_ROOT}/SETUP_L
 
 #### Phase 5.0: Adopt incremental setup (once per project)
 
-Run this phase when `SETUP_LOG.md` has no `BASELINE` line: a project set up before incremental setup existed. A project whose `INITIAL` setup completed Phase 2.7 already has its baseline.
+Run this phase when `SETUP_LOG.md` has no `BASELINE` line: a project set up before incremental setup existed. A `Handoff_State.md` written before this method moved to its own package names `project-setup` in `INCREMENTAL` mode; read it as naming `project-setup-retained`. A project whose `INITIAL` setup completed Phase 2.7 already has its baseline.
 
 **Action:**
-- List the accepted amendments under `{EXECUTION_ROOT}/_ScopeChange/` in amendment order with their acceptance dates, and for each whether its `Handoff_State.md` hands setup to `project-setup` in `INCREMENTAL` mode.
-- Propose one baseline. By default it names the latest accepted amendment whose `Handoff_State.md` does not hand setup to `project-setup` `INCREMENTAL` (one accepted before incremental setup existed), with its acceptance date, or `none` when there is no such amendment. The human confirms it or names another.
-- The baseline covers the amendment it names and the accepted amendments before it. An amendment whose `Handoff_State.md` hands setup to `project-setup` `INCREMENTAL` is never covered, whatever its date or position: it enters the Phase 5.1 queue. This keeps the amendment that prompted adoption from being treated as already set up.
+- List the accepted amendments under `{EXECUTION_ROOT}/_ScopeChange/` in amendment order with their acceptance dates, and for each whether its `Handoff_State.md` hands setup to `project-setup-retained` in `INCREMENTAL` mode.
+- Propose one baseline. By default it names the latest accepted amendment whose `Handoff_State.md` does not hand setup to `project-setup-retained` `INCREMENTAL` (one accepted before incremental setup existed), with its acceptance date, or `none` when there is no such amendment. The human confirms it or names another.
+- The baseline covers the amendment it names and the accepted amendments before it. An amendment whose `Handoff_State.md` hands setup to `project-setup-retained` `INCREMENTAL` is never covered, whatever its date or position: it enters the Phase 5.1 queue. This keeps the amendment that prompted adoption from being treated as already set up.
 - Covered amendments are never reprocessed by this mode, whatever their handoff records say; setup work a human still wants for one of them is a separate authorized undertaking.
 
 **Gate question:** "Adopt incremental setup with baseline [ID or none] (accepted [date]): [n] earlier accepted amendments treated as already set up and not reprocessed; [k] amendments that hand setup to `INCREMENTAL` ([IDs]) stay in the queue. Confirm?"

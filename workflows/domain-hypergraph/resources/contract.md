@@ -34,7 +34,7 @@ Required:
 - `RUN_LABEL`: short label for this run (default `TASK`)
 
 Optional:
-- `REQUESTED_BY`: invoking agent name (default `WORKING_ITEMS (workflow: project-setup)`)
+- `REQUESTED_BY`: invoking agent name (default `WORKING_ITEMS (workflow: project-setup-retained)`)
 - `ALLOW_MIXED_VARIANTS`: `false` (default) | `true`
 - `INCLUDE_LEDGER`: `AUTO` (default) | `TRUE` | `FALSE`
 - `LEDGER_PATH`: explicit path to a Domain Ledger CSV/TSV (optional)
