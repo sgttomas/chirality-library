@@ -41,9 +41,9 @@ A short, reusable prompt the owner sends to start an Agent 0 session. It:
 
 A project may add its own report subject, such as the Library's consumers. A
 project working toward a release target also asks the first report for the path
-from the current state to that target, the independent lanes it would open, and
-what it needs from the owner to keep those lanes moving: decisions, credentials
-and host conditions.
+from the current state to that target, any independent lanes it would open, and
+what it needs from the owner to keep the work moving: decisions, credentials and
+host conditions.
 
 Keep the prompt free of current status; that belongs in the loop. An optional `init/README.md` tells the owner how to
 use it (send the prompt, then send steering separately).
