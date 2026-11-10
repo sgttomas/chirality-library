@@ -2623,7 +2623,7 @@
       "name": "project-setup",
       "source": "bundled",
       "sourceRootId": "chirality-root",
-      "description": "Materialize accepted project scope as current deliverable localities, author local contracts and needs, and reconcile affected work before integration. Retained domain and legacy routes require explicit selection.",
+      "description": "Materialize accepted project scope as current deliverable localities, author local contracts and needs, and reconcile affected work before integration. Retained domain and legacy setup is the separate project-setup-retained workflow.",
       "central": true,
       "compatibility": "canonical",
       "executionRoleIds": [
@@ -2643,6 +2643,55 @@
         "category": "core",
         "tier": "primary",
         "order": 1
+      },
+      "execution": {
+        "schemaVersion": 1,
+        "compatibleRoles": [
+          "WORKING_ITEMS"
+        ],
+        "tools": {
+          "capabilities": [
+            "read",
+            "write",
+            "bash",
+            "delegate_agent",
+            "report_coordination_notice",
+            "send_agent_update",
+            "ack_agent_update"
+          ]
+        }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
+      }
+    },
+    {
+      "kind": "workflow",
+      "name": "project-setup-retained",
+      "source": "bundled",
+      "sourceRootId": "chirality-root",
+      "description": "Set up or incrementally update a project that explicitly retains the DOMAIN route or the legacy phase and control-file route. Current PROJECT/SOFTWARE setup uses project-setup.",
+      "central": false,
+      "compatibility": "canonical",
+      "executionRoleIds": [
+        "WORKING_ITEMS"
+      ],
+      "resources": [
+        "WORKFLOW.md",
+        "execution.json",
+        "resources/contract.md",
+        "resources/method.md"
+      ],
+      "navigation": {
+        "category": "specialist",
+        "tier": "supporting",
+        "order": 11,
+        "group": {
+          "key": "plan-organize",
+          "label": "Plan & organize",
+          "order": 0
+        }
       },
       "execution": {
         "schemaVersion": 1,

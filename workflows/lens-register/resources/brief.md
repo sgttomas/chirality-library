@@ -2,9 +2,9 @@
 
 ## Dispatch role
 
-`lens-register` is the normal WORKING_ITEMS (workflow: project-setup) Phase 2.4 setup-pipeline workflow for PROJECT / SOFTWARE semantic lensing. It is dispatched through TASK as a bounded method pack. It reads one deliverable folder, parses `_SEMANTIC.md`, scans production documents, and writes `_SEMANTIC_LENSING.md`.
+`lens-register` is the normal WORKING_ITEMS (workflow: project-setup-retained) Phase 2.4 setup-pipeline workflow for PROJECT / SOFTWARE semantic lensing. It is dispatched through TASK as a bounded method pack. It reads one deliverable folder, parses `_SEMANTIC.md`, scans production documents, and writes `_SEMANTIC_LENSING.md`.
 
-Use TASK generic shell for normal WORKING_ITEMS (workflow: project-setup) dispatch. This workflow supplies its own method contract and write-boundary requirements, and the brief must authorize `_SEMANTIC_LENSING.md` writes.
+Use TASK generic shell for normal WORKING_ITEMS (workflow: project-setup-retained) dispatch. This workflow supplies its own method contract and write-boundary requirements, and the brief must authorize `_SEMANTIC_LENSING.md` writes.
 
 ## Required
 
@@ -37,12 +37,12 @@ Use TASK generic shell for normal WORKING_ITEMS (workflow: project-setup) dispat
 - Cross-deliverable scanning is not accepted.
 - Following external references from `_REFERENCES.md` is not accepted unless a separate explicitly authorized task provides those sources as in-scope inputs.
 
-## Canonical WORKING_ITEMS (workflow: project-setup) Phase 2.4 brief
+## Canonical WORKING_ITEMS (workflow: project-setup-retained) Phase 2.4 brief
 
 ```markdown
 PURPOSE: Generate the deliverable-local semantic lensing register for one production unit.
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 
 ScopePath: {DELIVERABLE_PATH}
 Workflow: lens-register

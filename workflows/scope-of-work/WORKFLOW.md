@@ -140,8 +140,8 @@ the contract, verify that result rather than applying the revision twice.
 `MODE=REVISE` applies when an accepted `scope-change` amendment (checkpoint
 group 3 accepted) names this deliverable with action `MODIFY` or `RECLASSIFY`
 and did not itself change `ScopeOfWork.md` within its write boundary. The
-usual dispatcher is `project-setup`: its current-project incremental route or,
-where explicitly adopted, retained `INCREMENTAL` mode.
+usual dispatcher is `project-setup`'s current-project incremental route or,
+where explicitly adopted, `project-setup-retained` in `INCREMENTAL` mode.
 
 1. Bind the inputs: the accepted amendment and its ID, the accepted
    actions naming this deliverable bound to their reviewed revision/content

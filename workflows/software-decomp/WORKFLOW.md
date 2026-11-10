@@ -17,8 +17,10 @@ This package implements the grouped-checkpoint Chirality v3 edition of
 amendment, see the standard's status note), as amended by D-GOV-47
 (2026-09-26: optional combined review for a small, reversible undertaking) and
 D-GOV-48 (2026-09-26: every scope item, whether IN, OUT or TBD, has one Package
-home, superseding D-GOV-47's IN-only rule). An in-flight project keeps the
-edition it adopted; nothing is retrofitted.
+home, superseding D-GOV-47's IN-only rule). That citation is provenance:
+conformance is determined from this package's own contract and method, which
+state the rules that apply. An in-flight project keeps the edition it adopted;
+nothing is retrofitted.
 
 ## Method
 

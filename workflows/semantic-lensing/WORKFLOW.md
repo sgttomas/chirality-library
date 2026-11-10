@@ -14,7 +14,7 @@ Apply semantic lensing analysis to deliverable-local production documents using 
 
 This workflow provides the structured method for interactive semantic lensing analysis. When loaded, it supplies the matrix interpretation, tagging conventions, and proposal workflow.
 
-This workflow is the **optional interactive proposal/review tool**, not the regular WORKING_ITEMS (workflow: project-setup) enrichment step. In the regular PROJECT/SOFTWARE setup workflow:
+This workflow is the **optional interactive proposal/review tool**, not the regular WORKING_ITEMS (workflow: project-setup-retained) enrichment step. In the regular PROJECT/SOFTWARE setup workflow:
 
 - `workflows/lens-register/` is the pipeline producer of `_SEMANTIC_LENSING.md`.
 - The resolver-selected production workflow applies `_SEMANTIC_LENSING.md` as an enrichment worklist.

@@ -20,17 +20,17 @@ Place these in `RuntimeOverrides` unless the local TASK convention passes them t
 | `deliverable_folder` | Absolute path to the same folder as `ScopePath`. |
 | `decomposition_path` | Absolute path to the decomposition document, used for traceability only. |
 | `DECOMP_VARIANT` | `PROJECT`, `SOFTWARE`, or `DOMAIN`. |
-| `STATUS_POLICY` | `PRESERVE_CURRENT`, `ADVANCE_ON_PASS`, or `NO_STATUS_TOUCH`. Default for WORKING_ITEMS (workflow: project-setup) Phase 2.3 is `PRESERVE_CURRENT`. |
+| `STATUS_POLICY` | `PRESERVE_CURRENT`, `ADVANCE_ON_PASS`, or `NO_STATUS_TOUCH`. Default for WORKING_ITEMS (workflow: project-setup-retained) Phase 2.3 is `PRESERVE_CURRENT`. |
 | `PRODUCTION_FORMAT` | Resolver-selected `LEGACY_FOUR_DOC`, `SOW_V1`, or authorized `MIGRATION_DUAL`. Dual mode requires exact accepted authority and `STATUS_POLICY=NO_STATUS_TOUCH`. |
 
-## Normal WORKING_ITEMS (workflow: project-setup) Phase 2.3 brief
+## Normal WORKING_ITEMS (workflow: project-setup-retained) Phase 2.3 brief
 
 Use `ScopePath` as the TASK run/context anchor and provide `RuntimeOverrides.deliverable_folder` as the workflow-local deliverable anchor. This workflow must create or overwrite `_SEMANTIC.md`, so the brief must set `ApplyEdits: true` and authorize `_SEMANTIC.md` as a writable target.
 
 ```yaml
 PURPOSE: Generate deliverable-local semantic lens
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 ScopePath: /absolute/path/to/PKG-XX/.../DEL-XX-YY_Name
 Workflow: semantic-matrix-build
 Tasks:
@@ -48,7 +48,7 @@ RuntimeOverrides:
   DECOMP_VARIANT: SOFTWARE
   STATUS_POLICY: PRESERVE_CURRENT
 CustomInstructions:
-  - Run as sealed WORKING_ITEMS (workflow: project-setup) Phase 2.3 semantic matrix generation.
+  - Run as sealed WORKING_ITEMS (workflow: project-setup-retained) Phase 2.3 semantic matrix generation.
   - Do not author or repair production documents.
   - Do not change _STATUS.md state; preserve the current lifecycle state by runtime policy.
   - Use compact derivation tables for C, F, D, X, and E.
@@ -87,7 +87,7 @@ CustomInstructions:
 | `PROJECT` | `Datasheet.md`, `Specification.md`, `Guidance.md`, `Procedure.md` | Standard four-document set. |
 | `SOFTWARE` | `Datasheet.md`, `Specification.md`, `Guidance.md`, `Procedure.md` | Same document set and terminology as PROJECT. |
 | `PROJECT` / `SOFTWARE` with `SOW_V1` or authorized `MIGRATION_DUAL` | `ScopeOfWork.md` | Read its registered sections and IDs; dual mode remains lifecycle-neutral. |
-| `DOMAIN` | All non-metadata `.md` files not prefixed with `_`, typically `Scoping.md` and `KA-*.md` | Invoke only when explicitly requested; standard WORKING_ITEMS (workflow: project-setup) DOMAIN setup may skip semantic lensing. |
+| `DOMAIN` | All non-metadata `.md` files not prefixed with `_`, typically `Scoping.md` and `KA-*.md` | Invoke only when explicitly requested; standard WORKING_ITEMS (workflow: project-setup-retained) DOMAIN setup may skip semantic lensing. |
 
 ## Recommended CustomInstructions
 
@@ -105,8 +105,8 @@ Use these for format-sensitive runs:
 
 - Multi-deliverable scope.
 - Cross-deliverable scanning or comparison.
-- WORKING_ITEMS (workflow: project-setup) authoring `_SEMANTIC.md` inline instead of dispatching TASK.
+- WORKING_ITEMS (workflow: project-setup-retained) authoring `_SEMANTIC.md` inline instead of dispatching TASK.
 - Missing `decomposition_path`.
-- Missing `STATUS_POLICY` in an WORKING_ITEMS (workflow: project-setup) Phase 2.3 brief.
+- Missing `STATUS_POLICY` in an WORKING_ITEMS (workflow: project-setup-retained) Phase 2.3 brief.
 - A brief that asks the workflow to edit production documents.
 - A brief that asks for both `STATUS_POLICY=ADVANCE_ON_PASS` and omits `_STATUS.md` write authorization.

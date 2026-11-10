@@ -1,6 +1,6 @@
 ---
 name: project-setup
-description: Materialize accepted project scope as current deliverable localities, author local contracts and needs, and reconcile affected work before integration. Retained domain and legacy routes require explicit selection.
+description: Materialize accepted project scope as current deliverable localities, author local contracts and needs, and reconcile affected work before integration. Retained domain and legacy setup is the separate project-setup-retained workflow.
 metadata:
   kind: instruction
   surface: workflow
@@ -30,11 +30,11 @@ When the authorized setup includes a project's entry instructions, use
 the `init/`, `AGENTS.md` and `loop/` convention within the selected setup scope.
 Preserve the project's accepted layout until its own authority changes it.
 
-For an explicitly retained DOMAIN or legacy phase/control-file project, use
-[the retained contract](resources/contract.md) and
-[retained method](resources/method.md). Those resources' lifecycle, register,
-snapshot and setup-log obligations apply only where that project has adopted
-them. Existing files alone do not select that route or authorize migration.
+An explicitly retained DOMAIN or legacy phase/control-file project uses the
+separate `project-setup-retained` workflow, which now holds the retained
+contract and method. It is selected explicitly; existing files alone do not
+select it or authorize migration. `resources/contract.md` and
+`resources/method.md` in this package are pointers to it and are not methods.
 
 ## Method
 

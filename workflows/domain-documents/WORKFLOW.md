@@ -38,7 +38,7 @@ This refines the "Maximally comprehensive" invariant above: comprehensive in *na
 
 - `TASK` (generic shell mode, no profile)
 
-Typical dispatcher: WORKING_ITEMS (workflow: project-setup) Phase 2.2 (DOMAIN variant) dispatches TASK with `Workflow: domain-documents`.
+Typical dispatcher: WORKING_ITEMS (workflow: project-setup-retained) Phase 2.2 (DOMAIN variant) dispatches TASK with `Workflow: domain-documents`.
 
 ## Inputs
 
@@ -134,7 +134,7 @@ When source material and decomposition data disagree, source material is authori
 
 Use this mode only when WORKING_ITEMS (workflow: scope-change) dispatches this workflow to regenerate active
 KTY content after an accepted amendment.
-WORKING_ITEMS (workflow: project-setup) may also dispatch it on a post-amendment root, for new Knowledge Types in
+WORKING_ITEMS (workflow: project-setup-retained) may also dispatch it on a post-amendment root, for new Knowledge Types in
 `INCREMENTAL` mode (Phase 5.3) or an enrichment rerun (Phase 2.2a); that dispatch carries out the accepted amendment's hand-off.
 
 In SCA-driven mode, current factual authority is:
@@ -470,7 +470,7 @@ See `resources/checks.md` for the full invariant set. Summary:
 
 ## See also
 
-- `workflows/project-setup/WORKFLOW.md` — dispatches this workflow via TASK during Phase 2.2 (DOMAIN variant)
+- `workflows/project-setup-retained/WORKFLOW.md` — dispatches this workflow via TASK during Phase 2.2 (DOMAIN variant)
 - `workflows/domain-decomp/WORKFLOW.md` — DOMAIN decomposition (upstream; produces KnowledgeSubjects)
 - `.agents/skills/preparation/SKILL.md` — creates Knowledge Type folders this workflow populates
 - `workflows/four-documents/` — PROJECT/SOFTWARE counterpart (fixed 4-doc kit)

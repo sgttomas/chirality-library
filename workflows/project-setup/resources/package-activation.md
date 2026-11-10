@@ -16,6 +16,4 @@ release. Formal scope changes and explicitly adopted lifecycle decisions retain
 their real authority. This method does not require routine receipts or a handoff
 chain, and it does not itself require Git.
 
-When runtime telemetry is required, use tools/workflow_runtime/runtime_telemetry.py with stable session/event IDs. Record attempts, checks, retries, remediations, detection layers, failure classes, reason codes, member IDs, and dispositions. Exposed token/context occupancy may be recorded; missing measurements remain explicit. Bind RUNTIME_SUMMARY.json in the package manifest and disclose interrupted sessions and required reruns.
-
 For representation conversion, load workflows/scope-of-work/resources/representation-migration.md. Each child brief names affected OUT-*, REQ-*, AC-*, VER-* IDs or the frozen mapping basis and exact migration authority.

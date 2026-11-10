@@ -16,13 +16,13 @@ Produce a **matrix-organized lensing register** (`_SEMANTIC_LENSING.md`) that:
 2. Applies each lens to the deliverable-local production documents, and
 3. Records only warranted enrichment inputs with provenance, without rewriting the documents.
 
-This is the **setup-pipeline, coverage-complete** contract in the semantic-lensing family. It is the normal WORKING_ITEMS (workflow: project-setup) Phase 2.4 workflow. Its interactive counterpart is `semantic-lensing`, which produces human-facing proposals or reviews existing register entries. `lens-register` creates the register; `four-documents` Pass 3 consumes the register.
+This is the **setup-pipeline, coverage-complete** contract in the semantic-lensing family. It is the normal WORKING_ITEMS (workflow: project-setup-retained) Phase 2.4 workflow. Its interactive counterpart is `semantic-lensing`, which produces human-facing proposals or reviews existing register entries. `lens-register` creates the register; `four-documents` Pass 3 consumes the register.
 
 ## Suitable agent shells
 
 - `TASK` generic shell, no profile.
 
-Typical dispatcher: WORKING_ITEMS (workflow: project-setup) Phase 2.4 dispatches TASK with `Workflow: lens-register`, `ScopePath={DELIVERABLE_PATH}`, `RuntimeOverrides.deliverable_folder={DELIVERABLE_PATH}`, and write authorization for `_SEMANTIC_LENSING.md`.
+Typical dispatcher: WORKING_ITEMS (workflow: project-setup-retained) Phase 2.4 dispatches TASK with `Workflow: lens-register`, `ScopePath={DELIVERABLE_PATH}`, `RuntimeOverrides.deliverable_folder={DELIVERABLE_PATH}`, and write authorization for `_SEMANTIC_LENSING.md`.
 
 ## Inputs
 
@@ -204,7 +204,7 @@ Write or overwrite `{deliverable_folder}/_SEMANTIC_LENSING.md` using the STRUCTU
 2. Confirm coverage completeness and schema compliance.
 3. Run `validate_lens_register.py` if available and permitted.
 4. Report validator status as `PASS`, `FAILED`, or `NOT_RUN`.
-5. Return run report to TASK/WORKING_ITEMS (workflow: project-setup).
+5. Return run report to TASK/WORKING_ITEMS (workflow: project-setup-retained).
 
 ---
 
@@ -386,4 +386,4 @@ See `resources/checks.md`.
 - `workflows/semantic-matrix-build/WORKFLOW.md` — produces `_SEMANTIC.md`
 - `workflows/semantic-lensing/WORKFLOW.md` — interactive proposal workflow consuming this register
 - `workflows/four-documents/WORKFLOW.md` — Pass 3 consumer of `_SEMANTIC_LENSING.md`
-- `workflows/project-setup/WORKFLOW.md` — dispatches this workflow via TASK in Phase 2.4
+- `workflows/project-setup-retained/WORKFLOW.md` — dispatches this workflow via TASK in Phase 2.4

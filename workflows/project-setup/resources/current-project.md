@@ -3,8 +3,8 @@
 Use this route for the adopted `execution/PKG-nn/DEL-nn-nn/` locality. The project
 owns its commitments, paths and authority. Preserve any existing accepted layout
 until a move is explicitly authorized; do not infer conversion from reading this
-method. The phase/control-file and DOMAIN routes remain explicitly selected
-compatibility methods in `contract.md` and `method.md`.
+method. The phase/control-file and DOMAIN routes are the separate, explicitly
+selected `project-setup-retained` workflow.
 
 ## Basis and selection
 
@@ -130,8 +130,8 @@ to continue work, publish or release.
 ## Accepted scope amendments
 
 When `scope-change` hands an accepted current-project amendment back, this is
-the incremental setup route; the retained `INCREMENTAL` control-file profile
-is not selected implicitly. Bind the exact group-3 accepted amendment and its
+the incremental setup route; the `INCREMENTAL` control-file profile of
+`project-setup-retained` is not selected implicitly. Bind the exact group-3 accepted amendment and its
 propagation decisions before setup. Prepare only accepted ADD localities, then
 use `scope-of-work INIT` for their missing contracts. For deferred MODIFY or
 scope-changing RECLASSIFY contract edits, use current-project `REVISE` with the
@@ -142,8 +142,7 @@ For retirement or remapping, preserve the accepted historical source and IDs,
 check affected consumers, and implement only the accepted disposition. Do not
 create status/control files or infer a reopening from an issued library edition.
 Use `dependency-extract` for affected native needs and `audit-dep-closure` for a
-bounded query over the resulting declarations. Implementation/propagation
-closure has no bundled audit since `audit-scope-closure` was removed; examine it
-directly.
+bounded query over the resulting declarations. For implementation and
+propagation closure, use the current-project route of `audit-scope-closure`.
 Report remaining obligations explicitly. Obtain the required product acceptance
 and release decisions separately, and keep changes within the authorized scope.

@@ -42,7 +42,7 @@ Use this workflow with a generic TASK shell (no profile).
 ```markdown
 PURPOSE: Generate estimate snapshot for Package 02 deliverables (parametric model)
 RequestedBy: WORKING_ITEMS
-ParentWorkflow: project-setup
+ParentWorkflow: project-setup-retained
 ScopePath: {EXECUTION_ROOT}
 Workflow: estimate-snapshot
 

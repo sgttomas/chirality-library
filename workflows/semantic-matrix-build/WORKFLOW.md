@@ -68,7 +68,7 @@ If absent, default to `PROJECT`, but report the default in the run report.
 
 | Value | Meaning |
 |---|---|
-| `PRESERVE_CURRENT` | Default for WORKING_ITEMS (workflow: project-setup) Phase 2.3. Do not change lifecycle state. Record the ruling in `_SEMANTIC.md` and the run report. |
+| `PRESERVE_CURRENT` | Default for WORKING_ITEMS (workflow: project-setup-retained) Phase 2.3. Do not change lifecycle state. Record the ruling in `_SEMANTIC.md` and the run report. |
 | `ADVANCE_ON_PASS` | On audit PASS, set or verify `Current State: SEMANTIC_READY`, but only if TASK write authorization allows `_STATUS.md` edits. |
 | `NO_STATUS_TOUCH` | Do not edit `_STATUS.md` at all. Record status untouched in `_SEMANTIC.md` and the run report. |
 
@@ -467,4 +467,4 @@ If the validator is unavailable, do not claim validator PASS. Report `validator 
 
 ## DOMAIN variant note
 
-The workflow can run on `DOMAIN` folders only when explicitly dispatched. Standard WORKING_ITEMS (workflow: project-setup) DOMAIN setup may skip semantic lensing entirely. If invoked for DOMAIN, read the Knowledge Type's non-metadata markdown documents and use DOMAIN terminology in the header and perspective. The matrix algebra remains unchanged.
+The workflow can run on `DOMAIN` folders only when explicitly dispatched. Standard WORKING_ITEMS (workflow: project-setup-retained) DOMAIN setup may skip semantic lensing entirely. If invoked for DOMAIN, read the Knowledge Type's non-metadata markdown documents and use DOMAIN terminology in the header and perspective. The matrix algebra remains unchanged.

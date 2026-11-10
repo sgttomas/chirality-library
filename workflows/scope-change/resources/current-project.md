@@ -132,8 +132,8 @@ Use accepted IDs and changed scope only. Missing ScopeOfWork contracts use
 actual affected consumer needs after their scope exists. Retain useful Work
 material and revise it where the amendment changes its meaning.
 
-Check the accepted actions and deferred propagation against actual results
-directly; the former `audit-scope-closure` workflow was removed. Return amendment acceptance,
+Check the accepted actions and deferred propagation against actual results,
+using the current-project route of `audit-scope-closure`. Return amendment acceptance,
 implementation/propagation completion and open conditions separately. Neither a
 passing structure check nor amendment acceptance establishes product acceptance,
 release or consumer adoption. The project retains its actual owners and holds.
