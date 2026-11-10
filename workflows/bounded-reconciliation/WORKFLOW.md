@@ -27,7 +27,8 @@ requirements when the implementation falls short. A passing rerun alone does
 not explain how a known defect was repaired.
 
 Correct ordinary factual descriptions and dependency conditions within the
-assignment. Decisions edit the current text they govern. Preserve commitments,
+assignment, including a need this work showed to be wrong or missing, or to no
+longer apply. Decisions edit the current text they govern. Preserve commitments,
 acceptance criteria, explicit holds and product boundaries; bring any reserved
 change to the owner as a concrete choice and consequence. Do not turn incidental
 implementation detail into another continuing documentation obligation.
