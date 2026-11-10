@@ -132,7 +132,7 @@ remain with their actual authorities.
 - **Artifact**: a tangible output produced by a deliverable (code, tests, config, docs, scripts, schemas).
 - **Objective**: a success condition derived from SSOW and satisfied through deliverables (best-effort mapping).
 - **Context Envelope**: a size classification used to ensure a deliverable is agent-executable (see the ContextEnvelope rubric under [Artifacts and schemas](#artifacts-and-schemas)).
-- **Thin end-to-end path**: the narrowest route through the proposed deliverables that exercises the combined result. It crosses packages and is not a package or a phase.
+- **Thin end-to-end path**: the narrowest route through the proposed deliverables that exercises the combined result. It may cross packages and is not a package or a phase.
 - **Coupled core**: deliverables whose shared interfaces are still being decided together, so that none can be examined with the others held still. They keep separate IDs and contracts and share one integration owner and one check.
 
 ---

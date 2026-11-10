@@ -116,7 +116,7 @@ section:
 - **The thin end-to-end path**, where the undertaking has an integrated path:
   the narrowest route through the proposed Deliverables that exercises the
   combined result, and who carries it. It may serve as an Objective's check.
-  It crosses Packages and creates none, and it is named here, not built. An
+  It may cross Packages and creates none, and it is named here, not built. An
   undertaking with no integrated path says so in one line.
 - **Any coupled core:** Deliverables whose shared interfaces are still being
   decided together, so that none can be examined with the others held still.
