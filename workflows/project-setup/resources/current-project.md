@@ -10,7 +10,9 @@ compatibility methods in `contract.md` and `method.md`.
 
 Read the accepted decomposition and selected activation scope. Preserve identifiers,
 names, objective/scope references, anticipated outputs, constraints and unresolved
-conditions. Apply already-authorized decisions without asking again. A changed
+conditions. Where the decomposition states them, also preserve each deliverable's
+expected examination, objective checks with their carriers, the thin end-to-end
+path and any coupled core. Apply already-authorized decisions without asking again. A changed
 commitment needs its actual owner decision before dependent setup; a formal
 scope-change project uses its accepted amendment as that source. Do not manufacture
 an amendment or lifecycle gate for ordinary factual reconciliation.
@@ -59,6 +61,17 @@ scope/objective references, allowed writes and `STATUS_POLICY: NO_STATUS_TOUCH`.
 Author the real `ScopeOfWork.md` directly, then validate its format and content
 with the method's tools. An absent lifecycle file remains absent. Existing
 contracts are read and reconciled; never rerun initialization over them.
+
+Each verification entry that setup authors states its kind as `scope-of-work`
+defines it, drawing on the decomposition's expected examination where one is
+stated. Setup does not relabel entries in contracts it did not author.
+
+Where the project's standing instructions call for independent scrutiny of a
+class of change, for example numerical meaning, persistence, permissions or
+destructive operations, someone who did not write the entry asks whether it
+could pass while the criterion is unmet, before dependent implementation
+relies on it. This is proportionate examination under the project's own
+rules. It is not a setup gate and names no standing reviewer.
 
 After authoring, check the current locality without `--prepared`; this checks
 presence and identity, separately from substantive ScopeOfWork validation:

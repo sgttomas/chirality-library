@@ -20,7 +20,10 @@ mode-applicable subset read-only.
 6. Every marker binds the current source hash and a defined target ID.
 7. `MERGED` and `SPLIT` mappings preserve all contributing references.
 8. Every `OUT-*` maps to declared scope/objective references.
-9. Every `AC-*` maps to `VER-*` or an explicit human-review method.
+9. Every `AC-*` maps to `VER-*` or an explicit human-review method. Under
+   `INIT` and `REVISE`, each verification entry the run wrote or changed states
+   its kind as the workflow's Verification entries section describes. An
+   unchanged entry that states no kind is not a failure in any mode.
 10. Finalization is deterministic; its external report binds the evidence
     candidate, clean production hash, source metadata, authority, and any
     `ISSUED` preparation metadata.

@@ -11,13 +11,15 @@ metadata:
 ## Method
 
 1. Map the objective and changed surfaces to observable behavior and failure modes.
-2. Use the accepted profile to select affected registered checks.
-3. Add targeted tests for behavior not covered by registered checks.
-4. Define unit, integration, contract, migration, UI, performance, or manual evidence only where risk warrants it.
-5. State sequencing, prerequisites, pass criteria, and evidence outputs.
+2. Where the assignment supplies acceptance criteria, give each criterion, and each distinct claim within it, a check of stated kind, and say how an implementation that misses the claim would fail it. The kinds are an executable check, a comparison with a named reference, and a judgment by a named role; `scope-of-work` defines them.
+3. Use the accepted profile to select affected registered checks.
+4. Add targeted tests for behavior not covered by registered checks.
+5. Define unit, integration, contract, migration, UI, performance, or manual evidence only where risk warrants it.
+6. State sequencing, prerequisites, pass criteria, and evidence outputs.
 
 ## Outputs
 
+- for supplied acceptance criteria, a check of stated kind for each claim, with what it observes and what would make it fail;
 - risk-to-test matrix;
 - affected registered check IDs with selection reasons;
 - new or modified test cases;

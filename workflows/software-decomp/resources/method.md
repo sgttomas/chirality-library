@@ -94,8 +94,36 @@ evidenced split or presenting the boundary as a human decision.
 Within each Package, propose agent-executable Deliverables with stable coupled
 `DEL-XX-YY` IDs, descriptions, responsible parties, types, anticipated
 artifacts, objective links, Scope Item links, and a `ContextEnvelope`. Keep each
-Deliverable within one Package and one cohesive verification context. Split `XL`
+Deliverable within one Package and one cohesive verification context. A member
+of a coupled core (below) stays within its Package and is examined through the
+core's shared check. Split `XL`
 items where possible; otherwise identify the precise exception and risk.
+
+State how the proposed work will be known to be done, in the main document's
+[Examination and Integrated Path](contract.md#9-examination-and-integrated-path)
+section:
+
+- **Each Deliverable:** the examination expected to show it is done, and what
+  that examination would observe. `TBD` is allowed; do not invent a check.
+  Where no examination is cheap enough to run repeatedly while the work is
+  under way, or the examination is `TBD`, list the Deliverable as an open issue
+  for group 2. The human may accept the cost, split out the part that can be
+  examined, or make the means of examination a Deliverable. Nothing here
+  requires a split.
+- **Each Objective:** its check, and the Deliverable or integration owner that
+  carries it. Objectives may share a check. `TBD` is allowed and is listed as
+  an open issue; do not invent a check.
+- **The thin end-to-end path**, where the undertaking has an integrated path:
+  the narrowest route through the proposed Deliverables that exercises the
+  combined result, and who carries it. It may serve as an Objective's check.
+  It may cross Packages and creates none, and it is named here, not built. An
+  undertaking with no integrated path says so in one line.
+- **Any coupled core:** Deliverables whose shared interfaces are still being
+  decided together, so that none can be examined with the others held still.
+  Record the members, one integration owner, the shared check, and why
+  separate checks would not serve. Members keep their own IDs, Packages and
+  contracts. A stable interface between Deliverables is an ordinary need and
+  does not make a coupled core.
 
 Run coverage, ID-coupling, Context Budget, interface, artifact, responsibility,
 and objective-mapping checks, including the register validator in the
@@ -104,8 +132,10 @@ identifier-format invariants. Prepare Coverage & Telemetry and the specific
 exception/open-issue list before asking for a decision.
 
 **Checkpoint group 2:** Present the proposed Packages and Deliverables together
-with coverage findings and exceptions. The human confirms or revises the
-structure and the recorded treatment of exceptions.
+with coverage findings, the Examination and Integrated Path section, and
+exceptions. A coupled core is a treatment the human may choose beside a split
+or an accepted exception. The human confirms or revises the structure and the
+recorded treatment of exceptions.
 
 After acceptance, finalize the group-2 snapshot and pointer before preparing
 the final audit.
@@ -117,8 +147,8 @@ auditing the final package.
 
 Incorporate the first two decisions into the canonical working package. Ensure
 it contains the SSOW, Scope Ledger, Coverage & Telemetry, Vocabulary Map,
-Packages, Deliverables, Artifacts, Objectives, Context Budget QA, companion
-inventory, and decision/change log. Dispatch a separate review instance that
+Packages, Deliverables, Artifacts, Objectives, Context Budget QA, Examination
+and Integrated Path, companion inventory, and decision/change log. Dispatch a separate review instance that
 did not author the candidate to audit it against the accepted basis and group-2 decisions.
 Resolve mechanical defects and present remaining substantive findings without
 silently ruling them.
@@ -135,6 +165,14 @@ case/trigger and source location; retain unknown sources and technical holds.
 Setup authors the corresponding local needs after scope exists. Do not create
 producer commitments or a second authoritative dependency network during this
 handoff.
+
+Carry the Examination and Integrated Path entries with their carriers. Setup
+draws on each Deliverable's expected examination when it authors verification
+entries, and preserves Objective checks, the thin end-to-end path and coupled
+cores for the work that uses them. Within a coupled core each member still
+declares its actual needs, reciprocal ones included, in its own
+`deliverable.yaml` at setup. Do not reword, drop or sequence a need to remove
+a cycle; the integration owner settles order inside the core.
 
 If accepted source material changes, identify which prior decisions depended on
 it, reopen only those decisions, and refresh their dependent checks before the
