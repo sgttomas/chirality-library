@@ -9,9 +9,8 @@ This package follows this precedence order:
 2. **SPEC** — [Validity](#validity) governs pass/fail requirements.
 3. **STRUCTURE** — [Artifacts and schemas](#artifacts-and-schemas) defines the
    allowed entities, relationships, and required sections.
-4. **RATIONALE** — the stated purpose of this package and the reasons recorded
-   in the decomposition's decision log govern interpretation when ambiguity
-   remains.
+4. **RATIONALE** — the stated purpose of this package governs interpretation
+   when ambiguity remains.
 
 If any instruction appears to conflict, do not silently reconcile. Surface the
 conflict as a contradiction and request the human's resolution.
@@ -113,7 +112,7 @@ remain with their actual authorities.
   - Deliverables: `DEL-XX-YY` (two digits for package, two digits within package)
   - Scope Items: `SOW-NNN`
   - Objectives: `OBJ-NNN`
-  - Identifiers use hyphen separators (`DEL-01-01`, not `DEL-01.01`). `tools/validation/validate_id_format.sh` accepts `SOW-` with three or four digits and an optional lowercase letter, and `OBJ-` with exactly three digits; this contract does not narrow what that checker accepts.
+  - Identifiers use hyphen separators (`DEL-01-01`, not `DEL-01.01`). `tools/validation/validate_id_format.sh` also accepts `SOW-` with four digits and an optional lowercase letter; that acceptance does not establish conformance, so check against the patterns above.
   - If other instruction sets or legacy materials require a different width (e.g., `PKG-XXX`), the agent MUST surface the mismatch as a contradiction and request a human ruling before proceeding.
   - Check ID format and coupling against these patterns (the register validator above reads deliverable folders as `DEL-\d{2}-\d{2}`). `tools/validation/validate_id_format.sh` accepts these forms (and 3-digit widths, so it does not flag `PKG-001` or enforce the 2-digit width; check the width against the patterns above); a rejection of a conforming ID by any checker is a tool defect to report, not a decomposition finding.
 - **Deterministic DeliverableID ↔ PackageID coupling.**

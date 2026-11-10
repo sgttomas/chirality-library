@@ -131,10 +131,13 @@ An accepted scope-change amendment does not re-run Functions 1 and 2; its amende
 
 #### Phase 2.1b: Retrieval-driven preflight (the DOMAIN variant only; when a retrieval index is present)
 
-**Not provided.** This phase dispatched `domain-documents` for KTY scope
-ratification. The package in this library has no ratification subroutine: it
-defines no ratification input and returns no ratification verdict (see
-Applicability). Phase 2.2 does not wait on this phase.
+**This phase's recheck is not provided.** This phase dispatched
+`domain-documents` for KTY scope ratification. The package in this library has
+no ratification subroutine: it defines no ratification input and returns no
+ratification verdict (see Applicability). Phase 2.2 reads the accepted
+`KTY_Scope_Ratification.csv` from `domain-decomp` instead. What is lost is the
+recheck: a retrieval index that changed after ratification is not re-examined
+here.
 
 ---
 
@@ -159,7 +162,7 @@ Applicability). Phase 2.2 does not wait on this phase.
   - `DECOMP_VARIANT: DOMAIN`
   - `RETRIEVAL_INDEX_PATH: {resolved index path}` when a V2 source database snapshot is present and current with respect to source, audit and decomposition state. Omit it when the index is absent or stale, and note that Pass 4 audit-on-write is skipped.
   - `RETRIEVAL_COSINE_THRESHOLD: 0.75` (default; tune per domain after the first authoring batch)
-  - Scope ratification is not a precondition, because Phase 2.1b is not provided.
+  - Precondition: dispatch only for a Knowledge Type that carries a `CLUSTER_COHERENT` verdict in the accepted `KTY_Scope_Ratification.csv` from `domain-decomp`. Where a Knowledge Type has no such verdict, or the register is absent, do not dispatch for it; halt and surface it to the human.
   - The workflow executes Pass 1 (draft `Scoping.md` + variable `KA-*.md` Knowledge Artifacts derived one-per-Subject), Pass 2 (cross-artifact consistency), Pass 3 (source-fidelity verification against the authoritative source document), and Pass 4 (audit-on-write retrieval check, when `RETRIEVAL_INDEX_PATH` is set).
   - The `domain-documents` workflow does not use the semantic lensing pipeline; Phases 2.3, 2.4, and 2.5 are skipped for DOMAIN variants.
   - **Halt cadence:** halt-per-KTY by default (review the KTY's full KA set before the next dispatch). Relax to per-batch only after the first 2–3 KTYs prove the protocol clean end-to-end.
@@ -475,7 +478,7 @@ Run this phase when `SETUP_LOG.md` has no `BASELINE` line: a project set up befo
 - For each `ADD` (and each new `MERGE`/`SPLIT` successor), apply Phase 2.1 with the source-qualified `preparation` skill: `scaffold_package.sh` for a new package or category, `scaffold_deliverable.sh` for a new deliverable or knowledge type. Inventory first and populate only files created by this invocation. A path that already exists for an added ID is existing work: report it and do not overwrite it.
 - A new DEL receives `deliverable.yaml` with the accepted numeric ID and `needs: []`; author actual conditions after its scope exists. An empty list is no completeness or readiness claim. Preserve existing files; no dependency format migration is implied.
 - Initialize `OPEN` only in a newly created `_STATUS.md`, and run `tools/validation/check_min_viable_fileset.sh` on each new folder.
-- **DOMAIN:** Phase 2.1b scope ratification is not provided and is not a precondition for drafting a new Knowledge Type. Where the amendment records a ratification verdict, report it; do not rerun or infer one.
+- **DOMAIN:** before drafting a new Knowledge Type, reuse the amendment's recorded `CLUSTER_COHERENT` verdict. Without one, do not dispatch for that Knowledge Type; surface it to the human. If the retrieval index has changed since that verdict, surface that to the human before dispatching, because the Phase 2.1b recheck is not provided. Do not infer a verdict.
 
 ---
 
