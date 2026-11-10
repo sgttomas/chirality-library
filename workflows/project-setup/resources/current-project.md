@@ -142,8 +142,7 @@ For retirement or remapping, preserve the accepted historical source and IDs,
 check affected consumers, and implement only the accepted disposition. Do not
 create status/control files or infer a reopening from an issued library edition.
 Use `dependency-extract` for affected native needs and `audit-dep-closure` for a
-bounded query over the resulting declarations. Implementation/propagation
-closure has no bundled audit since `audit-scope-closure` was removed; examine it
-directly.
+bounded query over the resulting declarations. For implementation and
+propagation closure, use the current-project route of `audit-scope-closure`.
 Report remaining obligations explicitly. Obtain the required product acceptance
 and release decisions separately, and keep changes within the authorized scope.

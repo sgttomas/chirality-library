@@ -7,11 +7,13 @@ control-file and run-log steps below do not apply to that route.
 
 The DOMAIN workflows (`domain-decomp`, `domain-documents`, `domain-hypergraph`),
 the semantic lensing workflows (`semantic-matrix-build`, `lens-register`,
-`semantic-lensing`), and `four-documents`, `aggregation` and
-`audit-scope-closure` were removed from this library on 2026-11-04. They are
-preserved in the private `sgttomas/chirality` repository. Phases that dispatched
-them are marked **not provided** below: report such a phase as not provided
-rather than reconstructing its method.
+`semantic-lensing`) and `audit-scope-closure` are in this library, and the
+phases that dispatch them are described below. Three things are not:
+`four-documents` and `aggregation`, which were removed on 2026-11-04 and are
+preserved in the private `sgttomas/chirality` repository, and a scope
+ratification subroutine in `domain-documents`. Phases that depended on those
+are marked **not provided** below: report such a phase as not provided rather
+than reconstructing its method.
 
 ## Method
 
@@ -129,8 +131,10 @@ An accepted scope-change amendment does not re-run Functions 1 and 2; its amende
 
 #### Phase 2.1b: Retrieval-driven preflight (the DOMAIN variant only; when a retrieval index is present)
 
-**Not provided.** This phase dispatched the removed `domain-documents` workflow
-for KTY scope ratification (see Applicability).
+**Not provided.** This phase dispatched `domain-documents` for KTY scope
+ratification. The package in this library has no ratification subroutine: it
+defines no ratification input and returns no ratification verdict (see
+Applicability). Phase 2.2 does not wait on this phase.
 
 ---
 
@@ -148,19 +152,43 @@ for KTY scope ratification (see Applicability).
     or create a new legacy kit.
   - Conversion is a separate `MODE=CONVERT` isolated workflow with exact
     authority, lossless mapping, status preservation, and atomic integration.
-- **the DOMAIN variant:** not provided; this step dispatched the removed
-  `domain-documents` workflow (see Applicability).
+- **the DOMAIN variant:** After human confirmation, dispatch TASK for each Knowledge Type with:
+  - `Workflow: domain-documents`
+  - `ScopePath: {KTY_PATH}`
+  - `RUN_PASSES: FULL`
+  - `DECOMP_VARIANT: DOMAIN`
+  - `RETRIEVAL_INDEX_PATH: {resolved index path}` when a V2 source database snapshot is present and current with respect to source, audit and decomposition state. Omit it when the index is absent or stale, and note that Pass 4 audit-on-write is skipped.
+  - `RETRIEVAL_COSINE_THRESHOLD: 0.75` (default; tune per domain after the first authoring batch)
+  - Scope ratification is not a precondition, because Phase 2.1b is not provided.
+  - The workflow executes Pass 1 (draft `Scoping.md` + variable `KA-*.md` Knowledge Artifacts derived one-per-Subject), Pass 2 (cross-artifact consistency), Pass 3 (source-fidelity verification against the authoritative source document), and Pass 4 (audit-on-write retrieval check, when `RETRIEVAL_INDEX_PATH` is set).
+  - The `domain-documents` workflow does not use the semantic lensing pipeline; Phases 2.3, 2.4, and 2.5 are skipped for DOMAIN variants.
+  - **Halt cadence:** halt-per-KTY by default (review the KTY's full KA set before the next dispatch). Relax to per-batch only after the first 2–3 KTYs prove the protocol clean end-to-end.
 
-See `workflows/scope-of-work/WORKFLOW.md`.
+See `workflows/scope-of-work/WORKFLOW.md` and `workflows/domain-documents/WORKFLOW.md`.
 
-**Gate question:** “Pass 1+2 complete. Ready for local need authoring (Phase 2.2b, PROJECT/SOFTWARE only)?”
+**Gate question:** “Pass 1+2 complete. Ready for local need authoring (Phase 2.2b, PROJECT/SOFTWARE only) or semantic lenses (if using semantic lensing)?”
 
 ---
 
 #### Phase 2.2a: Optional DOMAIN source-fidelity enrichment rerun
 
-**Not provided.** This phase dispatched the removed `domain-documents` workflow
-(see Applicability).
+Run this phase only when the human requests a DOMAIN KTY enrichment or verification rerun after Phase 2.2 has already produced `Scoping.md` and `KA-*.md`.
+
+**Action:**
+- Dispatch `TASK + domain-documents` for selected KTY folders with:
+  - `Workflow: domain-documents`
+  - `ScopePath: {KTY_PATH}`
+  - `RUN_PASSES: P3_ONLY`
+  - `DECOMP_VARIANT: DOMAIN`
+- Before dispatch, check `{EXECUTION_ROOT}/_ScopeChange/_LATEST.md`.
+- If active SCA state exists, resolve the active SCA snapshot from `_LATEST.md` and include these runtime overrides in every enrichment brief:
+  - `AUTHORITY_MODE: SCA_DRIVEN`
+  - `SCA_SNAPSHOT_PATH: {ACTIVE_SCA_SNAPSHOT_PATH}`
+  - `SUPERSESSION_MAP_PATH: {ACTIVE_SCA_SNAPSHOT_PATH}/Supersession_Map.csv`
+- Enrichment without supersession awareness on a post-SCA root is a design defect because it can restore superseded source-authority values into current KTY content.
+- If active SCA state exists but the cumulative `Supersession_Map.csv` is missing, halt and report the missing governance input. Do not run `SOURCE_FIDELITY` enrichment on a post-SCA root unless the human explicitly confirms there is no accepted supersession state to preserve.
+- If no active SCA state exists, use `AUTHORITY_MODE: SOURCE_FIDELITY`.
+- If this rerun occurs after a DOMAIN hypergraph snapshot exists, report that snapshot as stale and rerun Phase 2.6 before downstream publication or audit consumes it.
 
 ---
 
@@ -200,26 +228,58 @@ CSV/central-network dependency route.
 
 #### Phase 2.3: Dispatch semantic matrix generation
 
-**Not provided.** This phase dispatched the removed `semantic-matrix-build`
-workflow (see Applicability). An existing `_SEMANTIC.md` is a lens scaffold, not
-an engineering authority; `tools/validation/validate_semantic_matrix.py` still
-checks its structure.
+**Action:**
+- **the DOMAIN variant:** Skip this phase. DOMAIN variants do not use the semantic lensing pipeline; source-fidelity verification is handled by the `domain-documents` workflow's Pass 3 (run in Phase 2.2 with `RUN_PASSES: FULL`). Do not dispatch `semantic-matrix-build` for DOMAIN unless the human explicitly overrides the DOMAIN pipeline routing.
+- **WORKING_ITEMS (workflow: project-decomp) / WORKING_ITEMS (workflow: software-decomp):** If the project uses semantic lensing, dispatch **TASK + `semantic-matrix-build`** for each deliverable. Do not create or use a dedicated semantic-matrix persona agent for normal execution.
+- Run this phase as a sealed TASK step: one deliverable, one workflow, one brief-defined write authorization. WORKING_ITEMS or the parent must not author `_SEMANTIC.md` inline and must not repair or rewrite matrix cells after TASK returns. If a semantic product needs review, dispatch a separate bounded review task after the semantic run has completed.
+- WORKING_ITEMS must write or resolve a complete TASK brief. Use the Phase 2.3 brief in `workflows/semantic-matrix-build/resources/brief.md`: `ScopePath`, and in `RuntimeOverrides` the fields `deliverable_folder`, `decomposition_path`, `DECOMP_VARIANT`, `STATUS_POLICY` and the resolver-selected `PRODUCTION_FORMAT`, so that the deliverable and its decomposition are unambiguous. That package states the write targets the brief may authorize.
+- Treat `_SEMANTIC.md` as a semantic lens scaffold, not an engineering authority. Production documents stay read-only in this phase.
+
+**Status policy:**
+- Default PROJECT/SOFTWARE setup pipeline policy: Phase 2.3 uses `STATUS_POLICY: PRESERVE_CURRENT`. `_SEMANTIC.md` validation alone does not set `SEMANTIC_READY`; recording semantic readiness is a separately authorized status act (see Phase 2.5).
+- If a project explicitly chooses semantic-matrix validation as the readiness gate, the TASK brief must say so directly by setting `STATUS_POLICY: ADVANCE_ON_PASS`, authorizing the exact `_STATUS.md` change, and listing `_STATUS.md` as an allowed write target. Use `NO_STATUS_TOUCH` when the brief must not edit `_STATUS.md` at all (required for authorized `MIGRATION_DUAL`). Do not silently rely on the workflow default when project policy is ambiguous.
+
+**Required post-run review:**
+- Confirm TASK returned a run report naming `Workflow: semantic-matrix-build`, its outputs and any missing inputs.
+- Confirm `_SEMANTIC.md` exists and records the Phase 2.3 status ruling.
+- Before Phase 2.4, validate each deliverable with:
+  - `python3 tools/validation/validate_semantic_matrix.py "{DELIVERABLE_PATH}"`
+  - `python3 tools/validation/validate_semantic_pipeline_scope.py "{DELIVERABLE_PATH}" --step semantic` when the worktree contains only that semantic TASK's changes, or the equivalent parent review of touched files when multiple workers have fanned in.
+
+See `workflows/semantic-matrix-build/WORKFLOW.md` for the method contract.
+
+**Gate question:** “Semantic matrices generated and Phase 2.3 status policy verified. Ready to run semantic lensing registers?”
 
 ---
 
 #### Phase 2.4: Dispatch semantic lensing register generation
 
-**Not provided.** This phase dispatched the removed `lens-register` workflow
-(see Applicability). `tools/validation/validate_lens_register.py` still checks an
-existing `_SEMANTIC_LENSING.md`.
+**Action:**
+- **the DOMAIN variant:** Skip this phase. DOMAIN variants do not use the semantic lensing pipeline, and `lens-register` refuses `DECOMP_VARIANT=DOMAIN`.
+- Dispatch TASK for each deliverable with:
+  - `Workflow: lens-register`
+  - `ScopePath: {DELIVERABLE_PATH}`
+  - `DECOMP_VARIANT: {PROJECT|SOFTWARE}`
+  - the other fields of the Phase 2.4 brief in `workflows/lens-register/resources/brief.md`
+  - The workflow generates `_SEMANTIC_LENSING.md` for the deliverable.
+- The `lens-register` workflow does not edit production documents; it produces a read-only enrichment register.
+- Run this phase as a sealed TASK step after `_SEMANTIC.md` validates. WORKING_ITEMS or the parent must not author `_SEMANTIC_LENSING.md` inline.
+- Validate each deliverable with:
+  - `python3 tools/validation/validate_lens_register.py "{DELIVERABLE_PATH}"`
+  - `python3 tools/validation/validate_semantic_pipeline_scope.py "{DELIVERABLE_PATH}" --step lens` when the worktree contains only that lens TASK's changes, or the equivalent parent review of touched files when multiple workers have fanned in.
+
+See `workflows/lens-register/WORKFLOW.md` for the method contract.
+
+**Report to human:** “Semantic lensing registers generated and validated for [N] deliverables. Applying a register to production documents (Phase 2.5) is not provided.”
 
 ---
 
 #### Phase 2.5: Dispatch document enrichment (Pass 3 only — apply semantic lensing)
 
-**Not provided.** Legacy `LEGACY_FOUR_DOC` enrichment dispatched the removed
-`four-documents` workflow, and `semantic-lensing` produced the proposals it
-applied (see Applicability). For `SOW_V1`, applying `_SEMANTIC_LENSING.md` to
+**Not provided.** `semantic-lensing` produces reviewable `PROPOSAL:` blocks and
+does not edit a contract. Legacy `LEGACY_FOUR_DOC` enrichment was applied by
+the `four-documents` workflow, which is not in this library (see
+Applicability). For `SOW_V1`, applying `_SEMANTIC_LENSING.md` to
 `ScopeOfWork.md` was never provided by a bundled workflow: `scope-of-work`
 accepts only `MODE=INIT|CONVERT|REVISE|VERIFY`, has no Pass 3, never touches
 `_STATUS.md`, and its `REVISE` mode serves accepted scope-change amendments
@@ -231,8 +291,19 @@ authorized status act.
 
 #### Phase 2.6: DOMAIN hypergraph (DOMAIN variant only)
 
-**Not provided.** This phase dispatched the removed `domain-hypergraph` workflow
-(see Applicability).
+**Precondition:** Phase 2.2 is complete (the `domain-documents` workflow executed Passes 1, 2, and 3 via `RUN_PASSES: FULL`, completing source-fidelity verification).
+
+**Action (the DOMAIN variant only):**
+- Spawn **TASK (workflow: domain-hypergraph)** to build the normalized hypergraph from the workspace folders. Pass `EXECUTION_ROOT` and `SCOPE=ALL`, and name the accepted upstream snapshot, its ledger and objective paths and their fingerprints as that package's contract requires.
+- TASK (workflow: domain-hypergraph) reads the final state of Category/Knowledge Type folders, after the actual eligible actor using the selected `preparation` skill scaffolded them and the `domain-documents` workflow drafted, cross-validated, and source-verified them (Passes 1, 2, and 3 via `RUN_PASSES: FULL`).
+- Output: immutable snapshot under `{EXECUTION_ROOT}/_Aggregation/Hypergraph/` containing `nodes.csv`, `hyperedges.csv`, `incidence.csv`, `hypergraph.json`, and QA evidence.
+- TASK (workflow: domain-hypergraph) is read-only on all Category/Knowledge Type folders.
+
+**Gate:** Human confirms hypergraph snapshot is acceptable (or skips if hypergraph is not needed for this project).
+
+**Report to human:** “DOMAIN hypergraph built. Initialization pipelines complete. Production units are ready for WORKING_ITEMS sessions.”
+
+**Note:** For WORKING_ITEMS (workflow: project-decomp) and WORKING_ITEMS (workflow: software-decomp) variants, Phase 2.6 is skipped — these variants do not use the DOMAIN hypergraph.
 
 ---
 
@@ -351,8 +422,9 @@ Repeat Phase 4.1 for each subsequent tier until all tiers are complete.
 
 #### Phase 4.3 (Optional): Aggregation
 
-**Not provided.** This phase dispatched the removed `aggregation` workflow (see
-Applicability).
+**Not provided.** This phase dispatched the `aggregation` workflow, which is not
+in this library (see Applicability). `tools/aggregation/` holds the hypergraph
+builder that Phase 2.6 uses; it does not aggregate estimates.
 
 ---
 
@@ -403,7 +475,7 @@ Run this phase when `SETUP_LOG.md` has no `BASELINE` line: a project set up befo
 - For each `ADD` (and each new `MERGE`/`SPLIT` successor), apply Phase 2.1 with the source-qualified `preparation` skill: `scaffold_package.sh` for a new package or category, `scaffold_deliverable.sh` for a new deliverable or knowledge type. Inventory first and populate only files created by this invocation. A path that already exists for an added ID is existing work: report it and do not overwrite it.
 - A new DEL receives `deliverable.yaml` with the accepted numeric ID and `needs: []`; author actual conditions after its scope exists. An empty list is no completeness or readiness claim. Preserve existing files; no dependency format migration is implied.
 - Initialize `OPEN` only in a newly created `_STATUS.md`, and run `tools/validation/check_min_viable_fileset.sh` on each new folder.
-- **DOMAIN:** drafting a new Knowledge Type is not provided (Phases 2.1b and 2.2).
+- **DOMAIN:** Phase 2.1b scope ratification is not provided and is not a precondition for drafting a new Knowledge Type. Where the amendment records a ratification verdict, report it; do not rerun or infer one.
 
 ---
 
@@ -411,7 +483,8 @@ Run this phase when `SETUP_LOG.md` has no `BASELINE` line: a project set up befo
 
 **Action:**
 - **PROJECT/SOFTWARE:** dispatch Phase 2.2's `scope-of-work` brief (`MODE: INIT`, `STATUS_POLICY: NO_STATUS_TOUCH`) for each new deliverable, naming the amended decomposition and the accepted snapshot as its basis. Recording `INITIALIZED` remains a separate authorized status act.
-- **DOMAIN:** not provided (Phase 2.2). Phases 2.3–2.5 are not provided either.
+- **DOMAIN:** dispatch Phase 2.2's `domain-documents` brief for each new Knowledge Type in its `SCA_DRIVEN` mode, with the supersession inputs of Phase 2.2a: `AUTHORITY_MODE: SCA_DRIVEN`, `SCA_SNAPSHOT_PATH` set to the accepted snapshot, and `SUPERSESSION_MAP_PATH` set to its cumulative `Supersession_Map.csv`. This dispatch carries out the accepted amendment's hand-off. A missing cumulative map halts the dispatch as in Phase 2.2a.
+- Run Phases 2.3–2.4 for added deliverables only where the project already uses semantic lensing. Phase 2.5 is not provided.
 
 ---
 
@@ -437,7 +510,7 @@ Run this phase when `SETUP_LOG.md` has no `BASELINE` line: a project set up befo
 | `CHECKING` | Frozen and held for the human. Report it; the update waits for a human reversal to `IN_PROGRESS` (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3), after which the `SOW_V1` route above applies. |
 | `ISSUED` | Held for the human; do not edit. This amendment's accepted action register names the deliverable with `MODIFY` (or `RECLASSIFY` with `ScopeChanging` `YES`), so it is the record that authorizes reopening under `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3. Present the reopening as a human decision: the human records `ISSUED → IN_PROGRESS` in `_STATUS.md`, citing the accepted amendment snapshot, with `tools/scaffolding/write_status.sh <DEL_PATH> IN_PROGRESS human --amendment {AMENDMENT_ID} --approval-sha <commit that holds the committed amendment records and is an ancestor of HEAD>`. The tool first runs `tools/validation/check_amendment_reopen.py` on the amendment records as committed at that SHA; uncommitted records do not count. Where it refuses a lawful reopening (a `RECLASSIFY` in a legacy register without `ScopeChanging`, a run without hash-bound decision snapshots, or a further reopening under an amendment already recorded in `_STATUS.md`), report the refusal; the human records the transition directly. After that, the `SOW_V1` route above applies. No agent writes it. |
 
-- Report existing `_SEMANTIC.md` or `_SEMANTIC_LENSING.md` of a modified deliverable as stale; the workflows that produced them were removed.
+- Report existing `_SEMANTIC.md` or `_SEMANTIC_LENSING.md` of a modified deliverable as stale; rerun Phases 2.3–2.4 for them only where the project uses semantic lensing.
 - **DOMAIN:** modified KTY content goes through the amendment's KTY remediation lanes (`REGENERATE_CONTENT`, `VERIFY_ONLY`). Report rows that are not `COMPLETE`.
 
 ---
@@ -475,11 +548,10 @@ DELs and their derived neighbours:
 - Write the run record under `{COORDINATION_ROOT}/AgentRuns/<RunID>/`: the confirmed plan, snapshot path and register hash, briefs, returns, created and skipped paths, update routes, dependency evidence and the report.
 - Append one line to `SETUP_LOG.md`: `COMPLETE` when every planned item is done, otherwise `PARTIAL` or `BLOCKED` with the remaining items named in the run record.
 - The accepted amendment snapshot stays immutable. The run record and setup-log line are this function's setup evidence, for the human and for resuming an interrupted run.
-- **Closure check:** not provided. The removed `audit-scope-closure` workflow
-  audited the workspace against the amended basis (see Applicability). Report
-  closure as not independently checked and identify the evidence this run holds.
+- **Closure check:** propose `audit-scope-closure` against the accepted amendment (normally after a `COMPLETE` line). It is the check that the added scope was scaffolded after acceptance. It audits the workspace itself against the amended basis: its ADD checks confirm each added folder and its minimum viable fileset, its REMOVE checks the retirement records, and its dependency checks inspect the accepted change and actual resulting local declarations and sources. A dependency refresh is evidenced by its meaningful result, not a mandatory extraction receipt. It takes dispositions from the amendment's `scope-change` handoff records; it does not read `SETUP_LOG.md` or this run record. Its findings route repair work back into this function.
+- **DOMAIN:** report an existing hypergraph snapshot as stale and propose Phase 2.6.
 
-**Report to human:** "Incremental setup for [ID]: [a] scaffolded ([paths]), [r] retirements recorded, [m] modified routed ([routes and outcomes]); [h] held for the human (`CHECKING`, `ISSUED` awaiting a recorded reopening); local need review/query [scope, changes and remaining conditions]; stale derivatives [list with owners]; decisions pending [list]; closure check not provided."
+**Report to human:** "Incremental setup for [ID]: [a] scaffolded ([paths]), [r] retirements recorded, [m] modified routed ([routes and outcomes]); [h] held for the human (`CHECKING`, `ISSUED` awaiting a recorded reopening); local need review/query [scope, changes and remaining conditions]; stale derivatives [list with owners]; decisions pending [list]; closure check `audit-scope-closure` [proposed | dispatched]."
 
 An interrupted run resumes from Phase 5.1 by inspecting what exists: preparation and need authoring are per-item and idempotent, and completed items are skipped. A `PARTIAL` or `BLOCKED` line in `SETUP_LOG.md` keeps the amendment in the Function 5 queue.
 

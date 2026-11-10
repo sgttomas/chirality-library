@@ -42,8 +42,8 @@ Read only what's needed to answer those axes. Do not ceremonially read every coo
 
 - Decomposition absent → Function 1 (Initialize).
 - Decomposition accepted + no scaffolded folders → Phase 2.1 (scaffolding with the effective source-qualified `preparation` skill by an eligible actor).
-- Scaffolded folders + retrieval index present + no KAs → Phase 2.1b (retrieval preflight) → Phase 2.2 (authoring).
-- KAs present + no hypergraph snapshot → Phase 2.6 (not provided).
+- Scaffolded folders + no KAs → Phase 2.2 (authoring). Phase 2.1b (retrieval preflight) is not provided.
+- KAs present + no hypergraph snapshot → Phase 2.6 (TASK (workflow: domain-hypergraph)).
 - All initialization phases complete → Function 3 (Scan & report) or Function 4 (Estimating) per human request.
 - Amendment in progress under `_ScopeChange/` → WORKING_ITEMS (workflow: scope-change) takes precedence; setup of the amended scope waits for its checkpoint group 3 acceptance.
 - Accepted amendment with setup handed back and not yet recorded complete → Function 5 (Incremental setup) against that accepted snapshot.
@@ -64,7 +64,7 @@ If the observed state doesn't match a phase cleanly (e.g., partial scaffolding f
 - **Coordination representation is human-owned.** WORKING_ITEMS records how the human chooses to coordinate work; the dependency declaration has one current form, consumer-local `deliverable.yaml`.
 - **No forced false precision.** Local needs record actual input conditions, not a complete accepted network or a lifecycle-derived availability verdict. Judge conditions for the selected undertaking from evidence and responsible judgment.
 - **Bounded sub-agents only.** Spawn sub-agents only for clearly bounded work with explicit scope. When a deterministic tool exists for a structural or query operation, route that operation through the tool and reserve language-model work for reading, summarizing, or populating source-grounded text.
-- **Bounded workflow stages use TASK.** Reusable method work such as `dependency-extract` and `estimate-snapshot` is dispatched as `TASK + Workflow`, not by minting a new persona agent. WORKING_ITEMS writes or resolves the bounded brief; TASK normalizes scope, loads the selected workflow resources, follows its effective write boundary, supplies run evidence, and returns the auditable report.
+- **Bounded workflow stages use TASK.** Reusable method work such as `semantic-matrix-build`, `lens-register`, `dependency-extract`, `estimate-snapshot`, and `content-digest` is dispatched as `TASK + Workflow`, not by minting a new persona agent. WORKING_ITEMS writes or resolves the bounded brief; TASK normalizes scope, loads the selected workflow resources, follows its effective write boundary, supplies run evidence, and returns the auditable report.
 - **Accepted work selection.** The human establishes the undertaking’s scope. WORKING_ITEMS assigns bounded contributions within that accepted scope and reports proposed scope changes for human decision.
 - **Human-owned schedule basis.** Dependency evidence is not automatically a schedule constraint. Before schedule work, the human selects `PRECEDENCE | CONSTRAINT | HYBRID`, scope, hard-versus-soft edge rules, duration posture, calendars, and milestones.
 - **No invented schedule facts.** Structure traces to accepted decomposition IDs; constraints trace to the actual declared input/use conditions selected for that undertaking or explicit human rulings. Durations remain blank unless proposals are explicitly enabled and labeled.
@@ -83,10 +83,13 @@ Recommended lifecycle ownership (may vary by project):
 - **`LEGACY_FOUR_DOC`** kits have no bundled maintenance workflow; the
   compatibility-only `four-documents` workflow was removed on 2026-11-04 and is
   preserved in the private `sgttomas/chirality` repository.
-- **Semantic lensing** (Phases 2.3–2.5) is not provided: its workflows were
-  removed with `four-documents`. Existing `_SEMANTIC.md` and
-  `_SEMANTIC_LENSING.md` files are lens scaffolds, not engineering authority.
-  For `SOW_V1`, `scope-of-work` never edits `_STATUS.md`; `SEMANTIC_READY`
+- **Semantic matrix generation** (`TASK + semantic-matrix-build`, Phase 2.3) produces the `_SEMANTIC.md` lens scaffold under `STATUS_POLICY=PRESERVE_CURRENT`. It must not advance the lifecycle state to `SEMANTIC_READY` unless the human-confirmed project policy explicitly makes semantic-matrix validation the readiness gate (`STATUS_POLICY=ADVANCE_ON_PASS` with `_STATUS.md` write authorization).
+- **Semantic lensing registers** (`TASK + lens-register`, Phase 2.4) produce
+  `_SEMANTIC_LENSING.md`. Both files are lens scaffolds, not engineering
+  authority.
+- **Semantic enrichment** (Phase 2.5) is not provided: no bundled workflow
+  applies `_SEMANTIC_LENSING.md` to a `LEGACY_FOUR_DOC` kit or to
+  `ScopeOfWork.md`. `scope-of-work` never edits `_STATUS.md`; `SEMANTIC_READY`
   requires a separately authorized status act under the recorded project policy.
 - Humans decide whether/when to set `IN_PROGRESS`, `CHECKING`, `ISSUED` (or delegate via a dedicated state manager).
 
@@ -258,8 +261,8 @@ Every deliverable folder should be seeded with:
 | `_STATUS.md` | Lifecycle state | Authoritative lifecycle indicator |
 | `_REFERENCES.md` | Sources index | Pointers to package references and other materials |
 | `deliverable.yaml` | Consumer-local input conditions (DEL only) | Schema-valid accepted numeric identity and initial `needs: []`; `dependency-extract` authors actual needs after scope exists |
-| `_SEMANTIC.md` | Semantic lens scaffold | Required placeholder at scaffold time; lens content optional (its generating workflow was removed) |
-| `_SEMANTIC_LENSING.md` | Enrichment register | Optional; existing files only (its generating workflow was removed) |
+| `_SEMANTIC.md` | Semantic lens scaffold | Required placeholder at scaffold time; lens content optional and created/overwritten by TASK+semantic-matrix-build |
+| `_SEMANTIC_LENSING.md` | Enrichment register | Optional; created by TASK+lens-register |
 
 ---
 
