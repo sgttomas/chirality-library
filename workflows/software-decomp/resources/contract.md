@@ -2,16 +2,16 @@
 
 ## Precedence (conflict resolution)
 
-This package follows the precedence order required by
-`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract` (private archive):
+This package follows this precedence order:
 
 1. **PROTOCOL** — [method](method.md#method) governs sequencing and interaction
    rules.
 2. **SPEC** — [Validity](#validity) governs pass/fail requirements.
 3. **STRUCTURE** — [Artifacts and schemas](#artifacts-and-schemas) defines the
    allowed entities, relationships, and required sections.
-4. **RATIONALE** — the standard's RATIONALE governs interpretation when
-   ambiguity remains.
+4. **RATIONALE** — the stated purpose of this package and the reasons recorded
+   in the decomposition's decision log govern interpretation when ambiguity
+   remains.
 
 If any instruction appears to conflict, do not silently reconcile. Surface the
 conflict as a contradiction and request the human's resolution.
@@ -31,8 +31,9 @@ Inputs:
 - Supporting requirements, tickets, notes, architecture, constraints, and prior
   decompositions named in the brief.
 
-Outputs are written under `DECOMP_ROOT = {EXECUTION_ROOT}/_Decomposition/`
-(`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#legacy-path-tokens` path tokens):
+Outputs are written under `DECOMP_ROOT = {EXECUTION_ROOT}/_Decomposition/`.
+`EXECUTION_ROOT` is the project's execution root, often `execution/`;
+`DECOMP_ROOT` is its `_Decomposition/` folder.
 
 | Output | Package role |
 |---|---|
@@ -108,9 +109,12 @@ remain with their actual authorities.
 - **No overlap / no gaps at the package level.** Every SSOW scope item, whether `IN`, `OUT` or `TBD`, must be assigned to exactly one Package as its accountable home (forced decision if ambiguous; human resolves at checkpoint group 2). Only IN items map to Deliverables; an OUT or TBD item keeps its Package home and `SourceRef` for traceability and needs no production mapping.
 - **Deliverables are the smallest unit.** There is no task sub-level inside a deliverable. Therefore deliverables MUST be sized to be executable by a Type 2 specialist with bounded context.
 - **Stable identifiers.** Once assigned, IDs must remain stable across revisions unless the human explicitly requests renumbering.
-- **Identifier format must conform to `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-vocabulary` §2 (Stable Identifiers) and the conforming-workflows table in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`.**
+- **Identifier format.**
   - Packages: `PKG-XX` (two digits, zero-padded)
   - Deliverables: `DEL-XX-YY` (two digits for package, two digits within package)
+  - Scope Items: `SOW-NNN`
+  - Objectives: `OBJ-NNN`
+  - Identifiers use hyphen separators (`DEL-01-01`, not `DEL-01.01`). `tools/validation/validate_id_format.sh` accepts `SOW-` with three or four digits and an optional lowercase letter, and `OBJ-` with exactly three digits; this contract does not narrow what that checker accepts.
   - If other instruction sets or legacy materials require a different width (e.g., `PKG-XXX`), the agent MUST surface the mismatch as a contradiction and request a human ruling before proceeding.
   - Check ID format and coupling against these patterns (the register validator above reads deliverable folders as `DEL-\d{2}-\d{2}`). `tools/validation/validate_id_format.sh` accepts these forms (and 3-digit widths, so it does not flag `PKG-001` or enforce the 2-digit width; check the width against the patterns above); a rejection of a conforming ID by any checker is a tool defect to report, not a decomposition finding.
 - **Deterministic DeliverableID ↔ PackageID coupling.**
@@ -139,7 +143,7 @@ remain with their actual authorities.
 
 ## Package Architecture (SOFTWARE variant)
 
-The `software-decomp` workflow conforms to the package architecture defined in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-decomposition-contract`. The SOFTWARE canonical working package consists of:
+The output of `software-decomp` is a canonical working package, not a single monolithic document. The SOFTWARE canonical working package consists of:
 
 - one concise main decomposition document (the working surface)
 - authoritative companion registers when heavy machine-truth warrants separate files (e.g., Scope Ledger CSV, Context Budget QA, coverage telemetry)
@@ -153,11 +157,17 @@ Any single-file review bundle, reporting dashboard, or publication render assemb
 
 ### Package-role labeling
 
-All major decomposition outputs must declare their package role:
+All major decomposition outputs must declare their package role, using one of
+four labels:
 
 - the main decomposition document is the **working surface**
 - any companion CSV/JSON files are **authoritative companion registers**
+- an accepted checkpoint or amendment snapshot, or a handoff-state record, is a
+  **snapshot / handoff artifact**
 - any assembled review/publication bundles are **derived publication artifacts**
+
+A companion register is authoritative for its machine-truth unless the package
+explicitly documents otherwise.
 
 ---
 
@@ -199,6 +209,17 @@ A decomposition is consistent when:
 | Decisions explicit | Non-trivial choices are recorded and referencable |
 | Agent-executable deliverables | Deliverables are sized to be completed by a Type 2 specialist within bounded context; items that cannot be are flagged and gated |
 
+### Package-role requirements
+
+A decomposition declares its package roles when:
+
+| Requirement | Validation |
+|---|---|
+| Package-role labeling | Every major output is labeled as working surface, authoritative companion register, snapshot / handoff artifact, or derived publication artifact |
+| Companion inventory | The main decomposition document has a companion inventory section listing every companion register and its role |
+| Authoritative surface declaration | The output states which surfaces are authoritative and which are derived |
+| No unlabeled monolithic output | Any single-file render is labeled as a derived publication artifact |
+
 ### Anti-patterns (invalid outputs)
 
 | Anti-pattern | Why it fails |
@@ -210,6 +231,9 @@ A decomposition is consistent when:
 | Nested packages | Breaks flat partition invariants |
 | Silent ambiguity resolution | Hides defects; blocks later reconciliation |
 | Missing scope ledger / telemetry | Prevents machine-checkable coverage and iteration quality |
+| No stable IDs | Prevents tracking and comparison across revisions |
+| Undeclared package roles | Downstream agents cannot tell authoritative surfaces from derived ones |
+| Monolithic main document embedding heavy companion truth | Inflates the working surface, makes narrow diffs harder and invites disagreement with the companion registers |
 
 ## Artifacts and schemas
 
@@ -243,7 +267,7 @@ This section defines the entities and required tables in the decomposition outpu
 - `Exclusions` (optional)
 
 #### Deliverable (Agent-executable unit)
-Minimum fields (in addition to the deliverable attributes in `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-vocabulary` §1.2):
+Minimum fields:
 - `DeliverableID` (stable; `DEL-XX-YY`)
 - `Name`
 - `ParentPackageID`
@@ -352,6 +376,12 @@ authors each Deliverable's verification entries (`scope-of-work` defines the
 kinds). They are not acceptance criteria and establish no result. Do not
 invent an examination or an Objective's check; an unknown one is `TBD` and an
 open issue.
+
+#### 10) Companion Inventory
+List every companion register and other major output with its filename,
+package role and a one-line description, so that a later agent can tell which
+surfaces are authoritative and which are derived. `Companion_Inventory.csv`
+may back this section. A package with no companion files says so in one line.
 
 ---
 
