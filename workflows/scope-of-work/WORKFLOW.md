@@ -69,7 +69,8 @@ failure, not permission to switch profiles.
    implement verification but never create scope or acceptance criteria.
 4. Refine the working contract. Define stable IDs, complete the
    output/evaluation matrix, preserve epistemic labels, and mark substantive
-   ambiguity `CONFLICT`. For `CONVERT`, the working contract is the evidence
+   ambiguity `CONFLICT`. Under `INIT`, state each verification entry's kind
+   (see [Verification entries](#verification-entries)). For `CONVERT`, the working contract is the evidence
    candidate and its conversion source markers are never dropped. For `INIT`,
    the working contract is the production `ScopeOfWork.md` itself; there is no
    evidence candidate and no source marker.
@@ -91,6 +92,38 @@ failure, not permission to switch profiles.
    finalization report, claim map, and parity report. For `REVISE`,
    additionally return the prior contract hash, the amendment reference, the
    revised parts, and the `MODE=VERIFY` result.
+
+## Verification entries
+
+A verification entry that an `INIT` or `REVISE` run writes or changes, or that
+an ordinary reconciliation edit changes, opens its one-line definition by
+stating its kind and what the verification rests on:
+
+- **Executable check:** what it observes, which is the behaviour or output the
+  criterion names and not a proxy for it. A check that does not exist yet is
+  stated as to be written first.
+- **Comparison with a named reference:** the reference, and how its expected
+  values were produced.
+- **Judgment by a named role:** who judges, and what they examine. A
+  `HUMAN_REVIEW:` matrix entry is this kind and names the role. A judgment by
+  a role that is not a person, such as an independent reviewer agent, is a
+  `VER-*` entry.
+
+Choose the kind by what settles pass or fail: a result computed from the
+criterion, agreement with something external, or someone's assessment.
+Automation is incidental. An automated test against stored expected values is
+a comparison, and where those values came from is what matters. An entry that
+combines kinds states each part. For example:
+`Executable check (to be written first; observes the exported file's rows against the displayed table): …`
+
+Keep the definition on one line, because checklist derivation reads one-line
+definitions. A stated kind describes the intended examination. It does not
+establish that the check exists, runs or passes.
+
+Entries a run does not change keep their wording. `VERIFY` does not fail an
+entry for lacking a stated kind, `REVISE` already leaves everything outside
+`REVISION_SCOPE` untouched, and `CONVERT` preserves source meaning and does
+not classify.
 
 ## Revision under an accepted amendment
 
