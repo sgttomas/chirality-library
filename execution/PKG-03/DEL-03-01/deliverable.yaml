@@ -2,8 +2,9 @@ id: DEL-03-01
 name: Support current localities with actual reusable tools
 needs:
 - from: DEL-04-01
-  condition: Each of the Library's deliverable localities holds a ScopeOfWork.md and a deliverable.yaml under
-    the same numeric identity, the declaration carrying its id, its needs and its code and check pointers.
+  condition: Each of the seven localities DEL-04-01 forms holds a ScopeOfWork.md that passes the scope
+    validator and the authored-locality check and a deliverable.yaml carrying its id, name, needs and
+    code and check pointers.
   when: Examining the structural checks, contract validation and the queries against the Library's own
     localities
 - from: DEL-02-01
@@ -40,6 +41,7 @@ code_paths:
 - tools/scaffolding/test_scaffold.py
 - tools/scope_of_work/**
 - tools/deliverables/**
+# In tools/workflow_runtime/ the reader fixture fixtures/app_workflow_reader.rs is DEL-05-01's.
 - tools/workflow_runtime/README.md
 - tools/workflow_runtime/resolve_workflow.py
 - tools/workflow_runtime/normalize_brief.py
@@ -47,8 +49,12 @@ code_paths:
 - tools/workflow_runtime/test_normalize_brief.py
 - tools/workflow_runtime/fixtures/method_normalization_cases.json
 - tools/validation/check_min_viable_fileset.sh
+# Shared with DEL-04-01. Here: the statements of the preparation, checking and query commands and of
+# what they create and require. The reconciliation steps are DEL-04-01's.
 - workflows/project-setup/resources/current-project.md
 - .agents/skills/preparation/**
+# Shared with DEL-02-01. Here: the tool policy and the statements of what each tool does. The method
+# of authoring a scope is DEL-02-01's.
 - workflows/scope-of-work/**
 - workflows/dependency-extract/resources/tools.md
 checks:

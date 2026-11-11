@@ -34,8 +34,8 @@ needs:
     when a revision cannot be read, and runs in CI on every pull request.
   when: Screening public guidance, a publication candidate or published evidence
 - from: DEL-03-01
-  condition: A supported path or coordinated adapter exists for the affected interface, with its usage
-    instructions.
+  condition: No interface a named consumer reads (the declaration format, the query JSON, the resolver
+    result) is changed incompatibly until a supported path or coordinated adapter exists for that consumer.
   when: An incompatible change to an interface that a named consumer uses is selected
 - from: DEL-03-02
   condition: The former repository-change evaluator and its paired workflow are identified at the public
@@ -66,13 +66,20 @@ needs:
     consumer pins name, and the releases of the editions published before `library-v2.0.0`.
   when: Following or verifying a recovery route into pre-migration history
 code_paths:
+# Shared with DEL-01-01. Here: within "Use the library", choosing a version, obtaining and copying,
+# staying informed and deciding whether to update, and the licence statement. The rest is navigation,
+# DEL-01-01's.
 - README.md
 - LICENSE.md
+# Shared with DEL-01-01. Here: copying a complete package and reading private-archive citations.
 - workflows/README.md
+# Shared with DEL-01-01. Here: "Read and render" and where retired and earlier editions are recovered.
+# Each book's presentation, standing and discovery versus reliance are DEL-01-01's.
 - docs/alignment-manual/README.md
 - docs/alignment-manual/render_manual.py
 - docs/alignment-manual/requirements.txt
 - workflows/compare-library-derivations/**
+# The rest of tools/workflow_runtime/ is DEL-03-01's.
 - tools/workflow_runtime/fixtures/app_workflow_reader.rs
 checks:
 - tools/validation/validate_run_record_leaks.py

@@ -41,13 +41,18 @@ needs:
     metaphor in chapter 3, its discussion in chapter 9, and the dated source basis for App and SWBPIPE
     experience in its README.
   when: The book cites the thesis as its conceptual grounding
-- from: unknown
+- from: DEL-05-01
   condition: The renderer `docs/alignment-manual/render_manual.py` produces a self-contained HTML edition from
     an identified committed Markdown source and, with `--check`, fails when the existing HTML differs.
   when: Generating or checking the book's HTML
 code_paths:
 - docs/alignment-manual/Chirality_in_Practice_Edition_1.*
+# Also under DEL-02-01's agents/**, which covers how a role is changed. Here: the passages on intended
+# outcome, changed questions, commitments and continuity. The rest of what the role says is allocated
+# to no deliverable.
 - agents/AGENT_HELP_HUMAN.md
+# Shared with DEL-04-01. Here: the passages on testing a premise, diagnosing waiting and when to
+# finish. The step before integration at which the combined result is checked is DEL-04-01's.
 - workflows/coordinated-knowledge-work/WORKFLOW.md
 - workflows/reflect-on-work/**
 - execution/_Decomposition/**

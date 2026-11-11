@@ -175,8 +175,7 @@ unknowns visible while unaffected work continues.
 A deliverable is a composable part of the product with an identity and a
 scope. Its locality under `execution/PKG-nn/DEL-nn-nn/` is two files:
 `ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
-holds needs and accurate code/check pointers. There is no `Work/` folder; the
-Library's own remain only until their separate removal.
+holds needs and accurate code/check pointers. There is no `Work/` folder.
 
 Code, tests, schemas, fixtures and validation references live outside
 `execution/`, in the project's code locations. Never rewrite frozen snapshots

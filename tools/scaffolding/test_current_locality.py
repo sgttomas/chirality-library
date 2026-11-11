@@ -44,7 +44,7 @@ def test_current_preparation_authoring_boundary_and_preservation(tmp_path):
     assert run(CHECK, folder).returncode == 1  # Production contract still absent.
     scope(folder)
     assert run(CHECK, folder, 'DEL-01-02').returncode == 0
-    # A Work folder left from the earlier convention is tolerated and untouched.
+    # Existing content in a subfolder, such as a consumer's Work/, is tolerated and untouched.
     (folder/'Work').mkdir()
     (folder/'Work/current.md').write_text('existing reasoning\n')
     data['needs'] = [{'from': 'unknown', 'condition': 'usable input for this case'}]
@@ -98,7 +98,7 @@ def test_current_rejects_conflicting_or_empty_existing_declaration(tmp_path, con
     result = run(HERE/'scaffold_deliverable.sh', package, 'DEL-01-02', 'Name')
     assert result.returncode != 0
     assert (folder/'deliverable.yaml').read_text() == contents
-    assert not (folder/'Work').exists()
+    assert {p.name for p in folder.iterdir()} == {'deliverable.yaml'}
 
 
 @pytest.mark.parametrize('fields', [{'deliverable_id': 'DEL-01-03'},

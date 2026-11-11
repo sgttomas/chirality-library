@@ -286,13 +286,13 @@ def test_pdf_dependencies_selected_only_when_pdf_tests_run():
     assert not runner.workflow_outputs(_dry_run('--paths', 'docs/document-metadata.md'))['pdf']
 
 
-def test_pr24_specification_cleanup_selects_structure_without_behavior_suites():
-    # Exact changed paths of cleanup PR #24; actual evidence remains in its PR.
+def test_specification_cleanup_selects_structure_without_behavior_suites():
     selection = _dry_run('--paths',
         'execution/PKG-05/DEL-05-01/ScopeOfWork.md',
-        'execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md')
+        'execution/PKG-05/DEL-05-01/deliverable.yaml')
     assert selection['checks'] == []
     assert selection['repository_checks'] == ['deliverables']
+    assert selection['unmatched_paths'] == []
 
 
 @pytest.mark.parametrize('path', [

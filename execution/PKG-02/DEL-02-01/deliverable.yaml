@@ -30,10 +30,17 @@ needs:
     its change account against the prior edition.
   when: The maintenance guidance sends a maintainer to prepare a publication or inspect updates
 code_paths:
+# Shared with DEL-01-01 and DEL-04-01. Here: "Maintain holdings and receive contributions", "Holding
+# changes and recovery", "Verification and authority" with the Git grant, and the create-workflow pointer.
 - AGENTS.md
+# Here: how a role is changed. What the role instructions say is allocated to no deliverable, apart
+# from the passages of agents/AGENT_HELP_HUMAN.md on intended outcome, changed questions, commitments
+# and continuity, which are DEL-04-02's.
 - agents/**
 - workflows/create-workflow/**
 - workflows/scope-change/**
+# Shared with DEL-03-01. Here: the method of authoring a scope. The tool policy and the statements of
+# what each tool does are DEL-03-01's.
 - workflows/scope-of-work/**
 - docs/document-metadata.md
 - docs/document-metadata.schema.json

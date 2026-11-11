@@ -27,8 +27,10 @@ needs:
     reviewed under the text that preceded it while that text stays recoverable.
   when: Revising the reconciliation method or one of its invocation points
 - from: DEL-02-02
-  condition: The scoped shared-reference repair exists as an integrated change whose candidate, checks and
-    reconciled scope and needs can be inspected.
+  condition: The shared-reference comparison is carried with the bounded-reconciliation method in the pull
+    request that makes the change, and in that pull request and its sources at least one consequential
+    distinction can be followed from its source warrant to the reading that changed or was kept, with the
+    neighbouring claims it touches.
   when: Examining the reconciliation method in an actual application under AC-002 and AC-005
 - from: doc:workflows/dependency-extract/WORKFLOW.md
   condition: The need-authoring method has the consumer author each need after its scope exists, state the
@@ -37,11 +39,17 @@ needs:
   when: Authoring or examining the needs of a locality
 code_paths:
 - workflows/bounded-reconciliation/**
+# Shared with DEL-01-01 and DEL-02-01. Here: the working cycle's reconciliation rule and the pointer
+# to the reconciliation method.
 - AGENTS.md
 - workflows/project-setup/WORKFLOW.md
 - workflows/project-setup/resources/project-entry.md
+# Shared with DEL-03-01. Here: the reconciliation steps. The statements of the preparation, checking
+# and query commands are DEL-03-01's.
 - workflows/project-setup/resources/current-project.md
 - workflows/project-setup/resources/package-activation.md
+# Shared with DEL-04-02. Here: the step before integration at which the combined result is checked.
+# The passages on testing a premise, diagnosing waiting and when to finish are DEL-04-02's.
 - workflows/coordinated-knowledge-work/WORKFLOW.md
 checks:
 - tools/validation/check_min_viable_fileset.sh

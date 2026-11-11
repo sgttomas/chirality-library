@@ -19,30 +19,30 @@ def test_declarative_inputs_and_documented_examples_are_allowed(path, data):
 
 
 @pytest.mark.parametrize('path,mode,data', [
-    ('execution/Work/fixture.rs', '100644', b'#[test] fn example() {}'),
-    ('execution/Work/module.py', '100644', b'pass'),
-    ('execution/Work/package.json', '100644', b'{}'),
-    ('execution/Work/Cargo.toml', '100644', b'[package]'),
-    ('execution/Work/runner', '100755', b'command'),
-    ('execution/Work/runner', '100644', b'#!/bin/sh\ntrue'),
-    ('execution/Work/library', '100644', b'\x7fELFcontent'),
+    ('execution/PKG-01/DEL-01-01/fixture.rs', '100644', b'#[test] fn example() {}'),
+    ('execution/PKG-01/DEL-01-01/module.py', '100644', b'pass'),
+    ('execution/PKG-01/DEL-01-01/package.json', '100644', b'{}'),
+    ('execution/PKG-01/DEL-01-01/Cargo.toml', '100644', b'[package]'),
+    ('execution/PKG-01/DEL-01-01/runner', '100755', b'command'),
+    ('execution/PKG-01/DEL-01-01/runner', '100644', b'#!/bin/sh\ntrue'),
+    ('execution/PKG-01/DEL-01-01/library', '100644', b'\x7fELFcontent'),
 ])
 def test_operational_source_or_entrypoints_are_rejected(path, mode, data):
     assert check_file(path, mode, data)
 
 
 def test_documentation_exception_is_exact_and_still_non_executable():
-    path = 'execution/Work/example.py'
+    path = 'execution/PKG-01/DEL-01-01/example.py'
     examples = frozenset({path})
     assert check_file(path, '100644', b'print(1)', examples=examples) == []
     assert check_file(path, '100755', b'print(1)', examples=examples)
-    assert check_file('execution/Work/other.py', '100644', b'pass', examples=examples)
-    assert check_file('execution/Work/example.py', '100644', b'pass', executable=True, examples=examples)
+    assert check_file('execution/PKG-01/DEL-01-01/other.py', '100644', b'pass', examples=examples)
+    assert check_file('execution/PKG-01/DEL-01-01/example.py', '100644', b'pass', executable=True, examples=examples)
 
 
 def test_tracked_inventory_rejects_code_and_missing_exceptions(tmp_path):
     subprocess.run(['git', 'init', '-q', str(tmp_path)], check=True)
-    folder = tmp_path / 'execution/Work'
+    folder = tmp_path / 'execution/PKG-01/DEL-01-01'
     folder.mkdir(parents=True)
     (folder / 'spec.md').write_text('# Spec')
     (folder / 'fixture.rs').write_text('fn example() {}')
@@ -50,7 +50,7 @@ def test_tracked_inventory_rejects_code_and_missing_exceptions(tmp_path):
     count, errors = check_repository(tmp_path)
     assert count == 2
     assert len(errors) == 1 and 'fixture.rs' in errors[0]
-    _, errors = check_repository(tmp_path, examples=frozenset({'execution/Work/fixture.rs'}))
+    _, errors = check_repository(tmp_path, examples=frozenset({'execution/PKG-01/DEL-01-01/fixture.rs'}))
     assert not errors
     _, errors = check_repository(tmp_path, examples=frozenset({'execution/missing.py'}))
     assert any('not a tracked execution input' in error for error in errors)

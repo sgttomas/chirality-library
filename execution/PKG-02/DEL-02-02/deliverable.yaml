@@ -22,10 +22,11 @@ needs:
     evidence, and has the warranted edits made in the pull request that carries the change.
   when: Carrying a reference or publication change to integration
 - from: DEL-03-01
-  condition: Contract validation reports whether a ScopeOfWork.md meets the current contract format and
-    requires no lifecycle file or legacy document kit in a current locality; the format resolver treats
-    missing, partial or invalid input as invalid and unauthorised dual content as ambiguous; and each
-    usage contract states what its command does and what it does not enforce.
+  condition: Contract validation reports whether a ScopeOfWork.md meets the SOW_V1 contract format, names
+    the format a deliverable folder resolves to and fails closed (a valid sole contract is SOW_V1; a
+    missing, partial or invalid contract is invalid; a contract beside a legacy kit is ambiguous unless
+    the conversion's migration authority is supplied), and creates or requires no `_STATUS.md` or legacy
+    document kit in a current locality; and each usage contract states what its command does and its limits.
   when: A passage states how a tool behaves or what it enforces
 - from: DEL-05-01
   condition: Compatibility with a named consumer is qualified against that consumer's own reader, contract
