@@ -87,13 +87,25 @@ disclaimers or quoted legacy document kits, and no hashes or revision pins of
 the project's own mutable files. An exact edition is named only for an external
 source such as a published standard.
 
-**Where an expected result comes from.** Each acceptance criterion says this in
-plain words in its matrix row's evidence-expectation cell: an outside source (a
-standard, closed form, published case, or a reference that imports no product
-code); an owner ruling; or the product's own earlier output, which only guards
-against change. A criterion that claims correctness on the product's own output
-alone is kept, marked "no independent grounds", and brought to the owner when
-the criterion is written or changed.
+**Requirements and their grounds.** State what the deliverable must achieve and
+explain the reasons needed to understand its boundaries and trade-offs. Write
+these as current statements, without dates, approval quotations or appeals to
+past decisions. Refer to current governing requirements where that clarifies
+the relationship; explain a shared reason once.
+
+Each criterion's matrix row identifies the evidence that would establish it and
+the comparison or judgment required. Name independent references precisely
+enough to examine them. A chosen target is a requirement to assess, not evidence
+of its own adequacy. Agreement with the product's earlier output establishes
+consistency, not correctness. State any consequential gap in what the evidence
+can establish; do not disguise it with a rationale or authority label.
+
+**Changing a statement.** A statement's attribution does not determine who may
+change it. Reconcile meaning within the applicable delegation; take changes
+outside it to the responsible decision holder. Removing attribution or history
+must preserve current obligations, boundaries and action restrictions. If a
+requirement appears wrong, explain the problem and proposed correction rather
+than changing the objective merely to fit the implementation.
 
 **Independent review keeps the text honest; tests do not.** A reviewer who did
 not write the text, and does not see the writer's reasoning, reads the scope
