@@ -120,9 +120,12 @@ for adoption and source distinctions.
   by editing the governing text where it lives; reserved choices go to the
   owner. Do not message a project the work does not affect.
 - **Root relationship.** Root reads session telemetry read-only, segregated by
-  repository; the owner reviews every finding; Root changes no files, branches
-  or PRs here and may only open an issue for an owner-approved finding cleared
-  for publication. Routine adherence checks of this project's deliverables are
+  repository; the owner reviews every finding; Root's collectors, measures and
+  evaluators change nothing here. Root's Agent 0 and its delegates may change
+  this project's files within work the owner has authorised, through a PR here
+  under these instructions, this project's checks and its Git grant, and tell
+  this project's Agent 0. Root may also open an issue for an owner-approved
+  finding cleared for publication. Routine adherence checks of this project's deliverables are
   run by this project's Agent 0 through a Library workflow.
 - **Work and verification.** There is the work, which is the code, and what
   expresses its goal, which is the scopes of work. A deliverable is a
