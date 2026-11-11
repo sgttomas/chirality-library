@@ -14,9 +14,9 @@ assessment, design choices and limits of the current bounded work.
 
 ## Current route
 
-The maintained entry route connects `init/init-prompt.md`, `AGENTS.md` and
-`loop/LOOP_INIT.md` to the selected maintenance basis and actual local work.
-The loop identifies the product aim and the route into the discovery locality;
+The maintained entry route connects `init-prompt.md` and `AGENTS.md`, which
+holds the development entry, to the selected maintenance basis and actual local work.
+The development entry identifies the product aim and the route into the discovery locality;
 the PRD, decomposition, scopes and methods retain their own commitments.
 [Top-level operating entry](#top-level-operating-entry) describes the current
 arrangement. Product-wide fulfillment remains unestablished.
@@ -32,9 +32,10 @@ their product-specific permissions and arrangements do not govern the Library.
 The initial setup assessment used repository commit
 `fd847ac9ac68250b2f35d2e9c0087c16e86b510a`. The following holdings remain reusable:
 
-- `README.md`, `AGENTS.md` and `loop/LOOP_INIT.md` provide the current entry
+- `README.md` and `AGENTS.md` provide the current entry
   route and connect it to the accepted decomposition and discovery locality.
-  The earlier assessment used `execution/_Coordination/LOOP_INIT.md`.
+  The earlier assessment used `execution/_Coordination/LOOP_INIT.md`; the entry
+  was later held in `loop/LOOP_INIT.md`.
 - `workflows/README.md` describes explicit selection, reading selected resources,
   source-qualified identity and collisions. `workflows/catalog.yaml` supplies
   library identity/central selection; `workflows/index.json` is generated from
@@ -230,17 +231,18 @@ unchanged; public consumer-facing entry changes await an actual supported result
 
 ## Top-level operating entry
 
-The maintained `init/` → `loop/LOOP_INIT.md` route separates ongoing operation
-from execution records. The old entry path retains a dated compatibility
-pointer for earlier links. Git and accepted snapshots preserve earlier bases.
+The maintained route is the root `init-prompt.md` → `AGENTS.md`, whose
+development-entry sections hold what `loop/LOOP_INIT.md` held. The earlier
+`init/`, `loop/` and `execution/_Coordination/` entry paths are removed.
+Git and accepted snapshots preserve earlier bases.
 
 AGENTS holds authority, ownership, reconciliation, cleanup and record rules;
-the loop holds the work sequence and query syntax. The `Working cycle` heading
+its development-entry sections hold the work sequence and query syntax. The `Working cycle` heading
 is retained because App v4 DEL-10-01/02 cite the Library's named sections at
 their selected basis. OUT-001 and YAML code pointers identify the maintained
 entry; historical CLM-001 and source examinations retain their inspected paths.
 
-The loop's intake guidance establishes the basis, bounds, rights and return
+The development entry's intake guidance establishes the basis, bounds, rights and return
 route for contributions through Library Agent 0. Publication and consumer
 adoption remain separate acts. The shared entry convention is maintained in
 [project-setup's project-entry resource](../../../../workflows/project-setup/resources/project-entry.md).

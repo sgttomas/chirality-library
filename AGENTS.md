@@ -8,45 +8,23 @@ metadata:
 # Chirality Library repository instructions
 
 This repository owns the Chirality Library: the shared roles, workflows, tools
-and tool-use instructions its products and projects consume. Enter through
-`loop/LOOP_INIT.md`.
-
-These standing instructions adapt the shared
-[project-entry template](workflows/project-setup/resources/project-entry.md)
-to the Library repository.
-
-Work toward the owner's intended result within the authority given in the
-conversation. Roles describe contributions; workflows supply methods. The owner
-remains accountable for acceptance and reliance.
+and tool-use instructions its products and projects consume. Enter through the
+[development entry](#chirality-library-development-entry) below.
 
 <a id="library-and-root"></a>
 **Library and Root.** This repository is the Chirality **Library**
 (`sgttomas/chirality-library`): reference material for the whole Chirality
 Project, namely the roles, workflows, tools and publications used by Root, App,
 SWBPIPE and other applications built for the App's agent harness. Chirality
-**Root** is the separate private repository `sgttomas/chirality`. It measures
-how agents deliver work across the Chirality projects and improves it, and hosts
-what is best delivered as a shared service. Its agents read session telemetry
-read-only, segregated by repository, and the owner reviews every finding. Root
-never changes another project's files, branches or PRs; its only action in
-another repository is opening a GitHub issue for an owner-approved finding,
-with content cleared for publication. Routine adherence checks of this
-project's deliverables are run by this project's own Agent 0 through a Library
-workflow. Root's `main` was rebuilt on 2026-11-04; earlier monorepo content,
-including what this repository calls archived or preserved there, is
-recoverable only from Root's Git history at or before commit `05d96f3e11`.
+**Root** is the separate private repository `sgttomas/chirality`.
 Accepted commitments, decomposition, Work and other records written before
 2026-11-05 use "Root" for what is now the Library; read them that way.
-[DEL-04-02's scope](execution/PKG-04/DEL-04-02/ScopeOfWork.md) retains its
-OUT-001–004 and non-R18 obligations in the Library. The
-[evaluation basis](execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability)
-records the R18 holding transfer and current availability.
 
 ## Where work happens
 
 | Scope | Entry | Standing |
 |---|---|---|
-| Library: shared instructions, workflows, skills, tools and CI | `loop/LOOP_INIT.md` | Work as steered |
+| Library: shared instructions, workflows, skills, tools and CI | [Development entry](#chirality-library-development-entry) | Work as steered |
 | Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; changes nothing here, may open owner-approved issues |
 | App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Consult its local instructions |
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Consult its local instructions |
@@ -76,8 +54,7 @@ act on it, as with a message.
 
 ## Working cycle
 
-Follow [the operating entry](loop/LOOP_INIT.md) to locate and carry the selected
-work. Use one coordinator for a shared result, disjoint concurrent writes, and
+Use one coordinator for a shared result, disjoint concurrent writes, and
 owners who stay with their work through repairs. Before integration, reconcile
 the actual result and verification evidence with affected ScopeOfWork, `Work/`
 and dependency conditions in the same PR. The implementation owner carries this
@@ -87,10 +64,9 @@ contributor will read. Apply already-authorized decisions without asking again.
 Leave unchanged declarations alone and say briefly when no edit was warranted.
 Retain historical evidence and identify what remains unverified.
 
-Return the usable result, checks, material findings and reserved choices. Once
-integrated, delete the worktrees, branches, build output and scratch this work
-created, unless an open review, named consumer or recovery need still uses them.
-Stop when the agreed result is established; do not invent other closeout work.
+Once integrated, delete the worktrees, branches, build output and scratch this
+work created, unless an open review, named consumer or recovery need still uses
+them.
 
 ## Holding changes and recovery
 
@@ -99,8 +75,91 @@ replacement or historical standing, recoverable source and removal authority.
 Resume from actual work/operation state and current authority, not history alone.
 Silence or elapsed time grants no right to discard work. Procedural coordination
 is not enforced exclusion. For interrupted work or exceptional custody, establish
-the usable result, open conditions, holder and authorized release/recovery. Publication and update
-inspection follow the existing [consumer route](README.md#obtain-and-use-the-library).
+the usable result, open conditions, holder and authorized release/recovery.
+
+## Roles and workflows
+
+| Role | Type | Contribution |
+|---|---|---|
+| HELP_HUMAN | 0 | Purpose, alignment and continuity with the owner |
+| HELPS_HUMANS | 1 | Design workflows, tools and projects with the owner |
+| WORKING_ITEMS | 1 | Own implementation, assignments and integration |
+| TASK | 2 | Execute one bounded assignment; does not delegate |
+| INTERLOCUTOR | 2 | Opt-in second opinion to Agent 0; advises, does not delegate |
+
+The agent working with the owner holds Agent 0’s responsibilities for purpose,
+continuity and reserved choices, whatever role it entered through. This grants
+no additional host permissions.
+Use only the hierarchy the undertaking needs.
+Agent 0 delegates a Type 1 role (HELPS_HUMANS or WORKING_ITEMS) to its own
+standalone session or thread, never as a child within Agent 0's session or
+thread. A Type 1 agent delegates to children within its own session or thread.
+A WORKING_ITEMS agent may call in a HELPS_HUMANS agent directly, which like
+every Type 1 runs in its own standalone session or thread; other engagements
+between Type 1 agents go through Agent 0. Peers do not own one another; Agent 0
+keeps them aligned. A Type 2 role runs as a child within the session or
+thread of the agent that delegates it, whether Agent 0 or a Type 1; it never
+gets a standalone session. Agent 0 gives each Type 1 its full
+assignment at the start, including how to reach Agent 0. A Type 1 reports to
+Agent 0 by message when it calls in a HELPS_HUMANS agent, reaches a result, has
+a PR ready to merge, is blocked or meets a reserved choice, stating the result,
+links to its evidence (with the reviewed head SHA for a PR), limits and the next
+actor. Agent 0 checks a report against the artifacts it names and reads the
+Type 1's session only when a report is missing or disagrees with them. If the
+host cannot start a standalone session, Agent 0 tells the owner rather than
+nesting the role.
+INTERLOCUTOR is opt-in per session. When session steering selects it, Agent 0
+starts one INTERLOCUTOR as a child within its own session and continues that
+same child by message for the life of the Agent 0 session; a replacement starts
+only if it is lost or the owner asks. Agent 0 sends periodic activity summaries
+and consults it at least before every PR merge, as
+`agents/AGENT_INTERLOCUTOR.md` describes. Its advice changes no owner-reserved
+choice, hold or required check.
+Load the active role's `agents/AGENT_<ROLE>.md`; other role, workflow and skill
+bodies are on demand. Roles, methods and limits come from these
+repository files, never from host-side agent definitions, harness configuration
+or instruction files kept outside the repository. A dispatched agent's brief is
+given in full in the dispatch and refers only to repository files and host facts. Scratch space
+holds evidence, outputs and logs, never instructions.
+
+Use `workflows/coordinated-knowledge-work/WORKFLOW.md` when coordinating related
+contributions into a usable result. Other methods are indexed in
+`workflows/index.json`; load only a selected method and the resources needed for
+the stage in hand. Select with `Workflow: <name>` or a source-qualified identity;
+retain the selected origin and expose collisions rather than silently switching.
+Before creating or revising a reusable workflow, follow `create-workflow`.
+
+# Chirality Library development entry
+
+The [accepted PRD](docs/PRD.md) defines the Library's commitments; the
+[accepted decomposition](execution/_Decomposition/_LATEST_ACCEPTED.md)
+locates the allocated work.
+
+The Library has published editions and continues maintenance under new steering.
+Continue from actual Work, Git and PR state rather than treating earlier gate
+decisions, accepted allocation or prepared paths as a current backlog or
+fulfilled result.
+
+## Locate the selected work
+
+From the brief's purpose or affected holding, find the relevant ScopeOfWork under
+`execution/PKG-nn/DEL-nn-nn/`. Read its `Work/` and `deliverable.yaml`, then the
+PRD clauses and sources needed for this slice, without a global state census. Code pointers indicate relevance,
+not exclusive ownership. For changes to this entry, begin with the
+[discovery scope](execution/PKG-01/DEL-01-01/ScopeOfWork.md) and
+[its Work](execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md).
+
+From the repository root, for example:
+
+```sh
+python3 -m tools.deliverables --project . neighborhood DEL-01-01
+```
+
+Use the actual selected DEL. The [query guide](tools/deliverables/README.md)
+gives the other queries (`impact`, `touches`, `check`, `dag-diff`), their
+prerequisites and limits. Examine actual input conditions and evidence; usable
+inputs need not await an entire neighboring Deliverable's completion. Keep
+unknowns visible while unaffected work continues.
 
 ## Deliverables and records
 
@@ -113,30 +172,9 @@ holds needs, conditions and code/check pointers.
 
 Code that runs (implementation, tests, generators, harnesses) lives outside `execution/`, in the project's code locations, and deliverables link to it; `Work/` may keep documentation-only examples that are never run.
 Make maturity and issue status explicit. Use
-[document metadata](docs/document-metadata.md) for maintained Markdown headers. Code and other outputs may
-retain their actual product/source homes, referenced from the locality. For
-agent instructions bundled with an application, keep declarative design
-instructions and rationale in the named deliverable's `Work/`; maintain canonical
-runtime assets in the product's source locations. List the actual maintained and
-shipped paths in `deliverable.yaml`, identifying the source and generator for
-generated copies. The Library maintains its published instruction documents in
-their Library source homes. The consumer states its needs; tools derive reverse links and graphs.
-
-App v4 and SWBPIPE use `Work/`; their older references to a deliverable's
-`Design/` mean its `Work/`. Pre-library execution is recoverable from the
-private Root repository's Git history (`sgttomas/chirality`, at or before
-`05d96f3e11`).
-The accepted [Library PRD](docs/PRD.md) and
-[final decomposition](execution/_Decomposition/_LATEST_ACCEPTED.md) supply the
-basis for the current Library localities. Read the selected ScopeOfWork, Work and
-consumer-local needs for their commitments, maturity and unresolved conditions.
-Assess product fulfillment against actual results and obtain the owner's
-acceptance separately from setup.
-
-The operating entry gives query usage; the [query guide](tools/deliverables/README.md)
-defines arguments, prerequisites and limits. Results are facts and unknowns,
-not completion or acceptance claims; code paths indicate relevance, not exclusive
-ownership. Never hand-maintain derived progress or lifecycle state.
+[document metadata](docs/document-metadata.md) for maintained Markdown headers.
+The Library maintains its published instruction documents in their Library
+source homes. Never hand-maintain derived progress or lifecycle state.
 
 Produce the work and the minimum information needed to review, use or recover
 it. A record needs a concrete consumer, acceptance requirement or recovery need.
@@ -184,67 +222,39 @@ selects another strategy within its authority. Preserve unrelated work, stage
 only the intended change and retain truthful authorship. Use the host-prepared
 checkout when supplied; otherwise isolate only when requested or overlap/risk
 warrants it. Inspect the actual diff and affected checks before publishing and
-verify the source head before integration. The PR carries the reason, checked
-revision, findings and open matters; a separate Git workflow or receipt is not
-required. Cleanup follows the working cycle above. Host permissions still bound
-every operation; repository authority cannot expand them.
+verify the source head before integration. Host permissions still bound every
+operation; repository authority cannot expand them.
 
-## Current contracts
+## Maintain holdings and receive contributions
 
-The Library's product commitments are in the accepted [Library PRD](docs/PRD.md).
-Product commitments live in the project's PRD, named companions and ScopeOfWork.
-Its adopted work locality holds the related technical and execution material.
+A consumer request or contributed candidate enters through Library Agent 0.
+Establish its purpose, exact source basis, owning locality, affected uses,
+bounded writes, decision and review rights, checks and supported return route.
+Obtain the required Library content approval before integration. The
+contributing project owns its adoption and product work.
 
-## Roles and workflows
+Before changing a holding, inspect the uses and required resources the change
+affects. Regenerate and check consumed indexes when their owning sources
+change; do not hand-edit derived catalogs or invent an index change when
+generated bytes stay the same.
 
-| Role | Type | Contribution |
-|---|---|---|
-| HELP_HUMAN | 0 | Purpose, alignment and continuity with the owner |
-| HELPS_HUMANS | 1 | Design workflows, tools and projects with the owner |
-| WORKING_ITEMS | 1 | Own implementation, assignments and integration |
-| TASK | 2 | Execute one bounded assignment; does not delegate |
-| INTERLOCUTOR | 2 | Opt-in second opinion to Agent 0; advises, does not delegate |
+The [reconciliation method](workflows/bounded-reconciliation/WORKFLOW.md)
+compares results under commitments; [reflect-on-work](workflows/reflect-on-work/WORKFLOW.md)
+examines whether that basis or practice still serves the purpose. When a finding
+calls purpose, commitments, explanatory framing or the chosen practice into
+question, use reflection with the human and Agent 0.
 
-The agent working with the owner holds Agent 0’s responsibilities for purpose,
-continuity and reserved choices, whatever role it entered through. Other roles
-are taken up as the work needs them. This grants no additional host permissions.
-Use only the hierarchy the undertaking needs.
-Agent 0 delegates a Type 1 role (HELPS_HUMANS or WORKING_ITEMS) to its own
-standalone session or thread, never as a child within Agent 0's session or
-thread. A Type 1 agent delegates to children within its own session or thread.
-A WORKING_ITEMS agent may call in a HELPS_HUMANS agent directly, which like
-every Type 1 runs in its own standalone session or thread; other engagements
-between Type 1 agents go through Agent 0. Peers do not own one another; Agent 0
-keeps them aligned. A Type 2 role runs as a child within the session or
-thread of the agent that delegates it, whether Agent 0 or a Type 1; it never
-gets a standalone session. Agent 0 gives each Type 1 its full
-assignment at the start, including how to reach Agent 0. A Type 1 reports to
-Agent 0 by message when it calls in a HELPS_HUMANS agent, reaches a result, has
-a PR ready to merge, is blocked or meets a reserved choice, stating the result,
-links to its evidence (with the reviewed head SHA for a PR), limits and the next
-actor. Agent 0 checks a report against the artifacts it names and reads the
-Type 1's session only when a report is missing or disagrees with them. If the
-host cannot start a standalone session, Agent 0 tells the owner rather than
-nesting the role.
-INTERLOCUTOR is opt-in per session. When session steering selects it, Agent 0
-starts one INTERLOCUTOR session and continues it by message for the life of the
-Agent 0 session; a replacement starts only if that session is lost or the owner
-asks. Agent 0 sends periodic activity summaries and consults it at least before
-every PR merge, as `agents/AGENT_INTERLOCUTOR.md` describes. Its advice requires
-no sign-off and carries no veto; Agent 0 keeps its decisions and the owner keeps reserved
-choices. Sessions that do not select it have no consultation step.
-Load the active role's `agents/AGENT_<ROLE>.md`; other role, workflow and skill
-bodies are on demand. Keep ownership of integration and route returns through
-the host's actual mechanisms. Roles, methods and limits come from these
-repository files, never from host-side agent definitions, harness configuration
-or instruction files kept outside the repository. A dispatched agent's brief is
-given in full in the dispatch and refers only to repository files and host facts. Scratch space
-holds evidence, outputs, logs and at most one recovery note, never instructions.
+## Examine, publish and coordinate adoption
 
-Use `workflows/coordinated-knowledge-work/WORKFLOW.md` when coordinating related
-contributions into a usable result. Other methods are indexed in
-`workflows/index.json`; load only a selected method and the resources needed for
-the stage in hand. Select with `Workflow: <name>` or a source-qualified identity;
-retain the selected origin and expose collisions rather than silently switching.
-Before creating or revising a reusable workflow, follow `create-workflow`.
-Product discovery and registration mechanics live in the interface reference.
+`tools/run_affected_tests.py` selects tool checks; CI supplies the required
+hosted result. The [workflow guide](workflows/README.md) covers metadata and
+index checks.
+
+Integration on `main`, publication of an edition and a consumer's adoption are
+separate decisions. The [consumer route](README.md#obtain-and-use-the-library)
+explains obtaining, source selection, update inspection and release notifications;
+[DEL-05-01](execution/PKG-05/DEL-05-01/ScopeOfWork.md) and its Work own
+publication preparation and evidence. A consumer records its selected revision;
+merging a change here does not update that selection.
+Acceptance and release remain owner acts; no publication follows automatically
+from the working cycle.

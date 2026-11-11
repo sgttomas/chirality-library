@@ -13,7 +13,7 @@ HISTORICAL_MANUAL = ROOT / 'docs/alignment-manual/Project_Management_for_Human_A
 
 
 def documents():
-    return [ROOT / 'AGENTS.md', ROOT / 'init/init-prompt.md', ROOT / 'loop/LOOP_INIT.md',
+    return [ROOT / 'AGENTS.md', ROOT / 'init-prompt.md',
             *sorted((ROOT / 'agents').glob('AGENT_*.md')),
             *sorted((ROOT / 'tools').rglob('README.md')),
             *sorted(p for p in (ROOT / 'docs').rglob('*.md') if p != HISTORICAL_MANUAL),
@@ -64,7 +64,7 @@ def test_invalid_metadata_is_rejected(change):
 
 
 def test_bootstrap_wrapper_and_claude_entry_are_preserved():
-    text = (ROOT / 'init/init-prompt.md').read_text()
+    text = (ROOT / 'init-prompt.md').read_text()
     assert text.index('\n---\n') < text.index('<init-prompt>')
     assert text.count('<init-prompt>') == text.count('</init-prompt>') == 1
     assert (ROOT / 'CLAUDE.md').read_text() == '@AGENTS.md\n'

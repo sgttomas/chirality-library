@@ -80,7 +80,7 @@ def test_ignores_archives_run_records_plans_and_decisions(tmp_path: Path) -> Non
 
 
 def test_cli_returns_nonzero_for_findings(tmp_path: Path) -> None:
-    write(tmp_path / "init/init-prompt.md", "Read `/home/example/repo/agents/AGENT_TASK.md`.\n")
+    write(tmp_path / "init-prompt.md", "Read `/home/example/repo/agents/AGENT_TASK.md`.\n")
 
     result = subprocess.run(
         [sys.executable, str(SCRIPT), str(tmp_path), "--text"],
@@ -91,7 +91,7 @@ def test_cli_returns_nonzero_for_findings(tmp_path: Path) -> None:
 
     assert result.returncode == 1
     assert "FAIL:" in result.stdout
-    assert "init/init-prompt.md:1" in result.stdout
+    assert "init-prompt.md:1" in result.stdout
 
 
 def test_shared_roles_allow_evidence_and_fail_unknown_agentruns(tmp_path: Path) -> None:
