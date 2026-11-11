@@ -71,10 +71,6 @@ merge.
 - **OUT-004** — The needs declared in those localities, authored after their scopes. Serves SOW-0013.
 - **OUT-005** — An actual authorised action on accepted and set-up scope that shows local progress as PRD A3 describes it: chosen from the local goal, the evidence and a real input or use condition; a finding that changed the route or the understanding; the neighbouring uses examined. This is the action side of A3. Serves SOW-0014.
 
-A locality holds no `Work/` (PRD R08), and this scope follows that. SOW-0012
-and decomposition §8.1 still name `Work/` in each locality; amending the
-decomposition to agree is the owner's to do.
-
 The decomposition also allocates DEL-03-02, whose locality
 `execution/PKG-03/DEL-03-02/` exists. Whether it belongs to OUT-003 and
 OUT-004 is undecided.
