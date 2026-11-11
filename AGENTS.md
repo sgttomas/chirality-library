@@ -25,7 +25,7 @@ Accepted commitments, decomposition and other records written before
 | Scope | Entry | Standing |
 |---|---|---|
 | Library: shared instructions, workflows, skills, tools and CI | [Development entry](#chirality-library-development-entry) | Work as steered |
-| Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; changes nothing here, may open owner-approved issues |
+| Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; its Agent 0 and delegates may change files here within owner-authorised work, through a PR under these instructions; may open owner-approved issues |
 | App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Consult its local instructions |
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Consult its local instructions |
 | App v3, Runtime | Archived in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`) | Frozen; no development or verification without explicit reactivation |
