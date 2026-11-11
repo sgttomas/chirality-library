@@ -39,9 +39,9 @@ Choose `metadata.surface` for its place in the project:
 
 | Surface | Document home or contribution |
 | --- | --- |
-| `bootstrap` | `init/init-prompt.md` |
+| `bootstrap` | `init/init-prompt.md`; the Library's own is `init-prompt.md` |
 | `standing` | `AGENTS.md` |
-| `operating-entry` | `loop/LOOP_INIT.md` |
+| `operating-entry` | `loop/LOOP_INIT.md`; the Library folds its entry into `AGENTS.md` |
 | `role` | `agents/AGENT_*.md` |
 | `workflow` | `WORKFLOW.md` |
 | `skill` | `SKILL.md` |

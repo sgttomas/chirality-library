@@ -194,9 +194,10 @@ def test_every_tracked_path_has_a_deliberate_classification():
 
 
 def test_pr15_documentation_replay_keeps_consumers_without_code_suites():
-    # Exact changed paths of PR #15, head 60ae6f6900f7ff8298c78f9ddbe4f98f74442500.
+    # Changed paths of PR #15, head 60ae6f6900f7ff8298c78f9ddbe4f98f74442500, less its
+    # loop/LOOP_INIT.md, whose content AGENTS.md now holds.
     selection = _dry_run('--paths',
-        'AGENTS.md', 'README.md', 'agents/AGENT_INTERLOCUTOR.md', 'loop/LOOP_INIT.md',
+        'AGENTS.md', 'README.md', 'agents/AGENT_INTERLOCUTOR.md',
         'tools/deliverables/README.md', 'tools/evaluation/README.md',
         'workflows/create-workflow/WORKFLOW.md', 'workflows/evaluation-protocol/WORKFLOW.md',
         'workflows/integrated-engineering-estimate-schedule/WORKFLOW.md',
@@ -210,8 +211,7 @@ def test_pr15_documentation_replay_keeps_consumers_without_code_suites():
 @pytest.mark.parametrize('path,checks,contracts', [
     ('tools/software_workflow/README.md', {'validation'}, set()),
     ('docs/document-metadata.schema.json', {'validation'}, set()),
-    ('init/init-prompt.md', {'validation'}, set()),
-    ('loop/LOOP_INIT.md', {'validation'}, set()),
+    ('init-prompt.md', {'validation'}, set()),
     ('.agents/skills/researcher/SKILL.md', {'validation', 'workflow_runtime'}, {'instructions'}),
     ('.agents/skills/researcher/execution.json', {'validation', 'workflow_runtime'}, {'instructions'}),
     ('docs/alignment-manual/render_manual.py', {'publication'}, set()),

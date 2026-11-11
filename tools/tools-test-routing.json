@@ -367,8 +367,7 @@
         "tools/*/README.md",
         "docs/*.md",
         "docs/document-metadata.schema.json",
-        "init/init-prompt.md",
-        "loop/LOOP_INIT.md",
+        "init-prompt.md",
         "CLAUDE.md"
       ],
       "checks": [
@@ -426,7 +425,6 @@
     {
       "description": "Retained decomposition and amendment inputs receive structural checks; no behavior test consumes their checked-in bodies.",
       "paths": [
-        "execution/_Coordination/LOOP_INIT.md",
         "execution/_Coordination/PUBLICATION_ROADMAP.md",
         "execution/_Decomposition/*.md",
         "execution/_Decomposition/checkpoint_snapshots/*",

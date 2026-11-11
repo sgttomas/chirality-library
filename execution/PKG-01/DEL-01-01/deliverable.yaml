@@ -42,9 +42,8 @@ needs:
     evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::Evaluation extension
 code_paths:
   - AGENTS.md
-  - init/init-prompt.md
+  - init-prompt.md
   - README.md
-  - loop/LOOP_INIT.md
   - workflows/README.md
   - workflows/catalog.yaml
   - workflows/index.json

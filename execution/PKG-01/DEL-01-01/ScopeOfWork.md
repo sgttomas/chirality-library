@@ -54,7 +54,7 @@ relationship is a labelled interpretation. Unknown bindings and unsearched areas
 remain visible. A locality holds a goal, work and input conditions; its directory
 is not evidence that work is ready or complete.
 
-- **OUT-001** — Connected entry and local navigation set, primarily in `README.md`, `loop/LOOP_INIT.md` and selected owning indexes. It connects the bounded brief to the selected basis, applicable `AGENTS.md` and role, relevant holdings, method and actual execution. Maps to SOW-0001 and SOW-0002; OBJ-001, OBJ-002, OBJ-003, OBJ-005.
+- **OUT-001** — Connected entry and local navigation set, primarily in `README.md`, `AGENTS.md` and selected owning indexes. It connects the bounded brief to the selected basis, applicable `AGENTS.md` and role, relevant holdings, method and actual execution. Maps to SOW-0001 and SOW-0002; OBJ-001, OBJ-002, OBJ-003, OBJ-005.
 - **OUT-002** — Source-standing and local-use explanations for the holdings actually traversed, embedded in their existing entry/index or owning guide. They identify purpose, applicability, standing, required resources/notices, outputs and limits, including publication edition distinctions. Maps to SOW-0002; OBJ-001, OBJ-003, OBJ-005.
 - **OUT-003** — Concise directed-discovery instructions and a bounded worked example attached to the entry/navigation route, with candidate-bound walkthrough and separate command evidence retained in `execution/PKG-01/DEL-01-01/Work/` or its actual review record as needed for reliance. Maps to SOW-0003 and SOW-0001; OBJ-001, OBJ-002, OBJ-003, OBJ-005.
 
