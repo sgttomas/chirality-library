@@ -398,11 +398,10 @@
       ]
     },
     {
-      "description": "Locality documents and evidence are inspected by the dependency structure check.",
+      "description": "Locality documents are inspected by the dependency structure check.",
       "paths": [
         "execution/PKG-*/DEL-*/deliverable.yaml",
-        "execution/PKG-*/DEL-*/ScopeOfWork.md",
-        "execution/PKG-*/DEL-*/Work/*.md"
+        "execution/PKG-*/DEL-*/ScopeOfWork.md"
       ],
       "checks": [],
       "repository_checks": [

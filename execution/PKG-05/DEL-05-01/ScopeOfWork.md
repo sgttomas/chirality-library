@@ -2,7 +2,7 @@
 schema: chirality-deliverable-sow/v1
 deliverable_id: DEL-05-01
 package_id: PKG-05
-decomposition_basis: execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md@fd847ac9ac68250b2f35d2e9c0087c16e86b510a
+decomposition_basis: execution/_Decomposition/PROJECT_DECOMP.md
 project_scope_refs: [SOW-0019, SOW-0020, SOW-0022, SOW-0023, SOW-0025, SOW-0026]
 package_objective_refs: [OBJ-002, OBJ-003, OBJ-005]
 ---
@@ -11,161 +11,177 @@ package_objective_refs: [OBJ-002, OBJ-003, OBJ-005]
 
 ## Purpose and Objective Traceability
 
-DEL-05-01 supplies a usable route for independent consumers to obtain and use
-identified library material, qualify a named interface, inspect consequential
-changes and choose adoption. Maintainers use that route to prepare publication
-and preserve recovery through ordinary repository facilities. The accepted
-identity is DEL-05-01_consumer-use-guide in PKG-05, Independent reuse and
-publication. There is no separate DEL-05-02 or edition/history product.
+Someone outside the Library can take an identified edition of it, or a single
+role, workflow or tool from it, use it in their own project with everything it
+needs, know exactly which source they hold, see what a later edition changes,
+and decide for themselves whether to adopt it. The owner can publish an edition
+whose source, contents and limits are known, and whatever a consumer pinned
+earlier stays recoverable.
 
-| Accepted scope | Intended contribution | Objective trace |
-|---|---|---|
-| SOW-0019 | Obtain, consult, invoke or copy identified material with its resources, notices and adaptation distinctions | OBJ-005 / PRD O5 |
-| SOW-0020 | Qualify an affected named interface at a maintained consumer basis; preserve a supported route before incompatible change | OBJ-003, OBJ-005 / PRD O3, O5 |
-| SOW-0022 | Prepare an identifiable candidate from verified sources, preserving publication and adoption authority | OBJ-003, OBJ-005 / PRD O3, O5 |
-| SOW-0023 | Explain meaningful changes and exercise inspection against a prior basis | OBJ-003, OBJ-005 / PRD O3, O5 |
-| SOW-0025 | Keep ordinary use independent of private inputs and hidden environments; screen public artifacts | OBJ-002, OBJ-005 / PRD O2, O5 |
-| SOW-0026 | Preserve documented historical routes and original consumer pins without restarting old work | OBJ-003, OBJ-005 / PRD O3, O5 |
+This deliverable contributes five things to that result: the guidance a
+consumer follows to choose, obtain, copy and update Library material; the
+qualification of one named consumer interface against that consumer's own
+contract; a publication candidate prepared for the owner's release decision;
+the account of what an edition changes, with the inspection procedure exercised
+against the prior basis; and the routes by which commit-pinned history and
+earlier editions are recovered.
 
-The governing source is `docs/PRD.md`, especially R13, R15–R17 and A6–A7,
-read with the accepted decomposition's vocabulary, ledger, DEL-05-01 card,
-§8.1 formation obligations, §9 interfaces and §10 qualifications. The snapshot
-path is in frontmatter; its `DECISION.md` supplies acceptance and setup authority,
-and `ACCEPTED_MANIFEST.csv` binds the accepted payload and handoff. The payload's
-pre-decision submission status is historical. Its relative links resolve from
-`execution/_Decomposition/PROJECT_DECOMP.md`.
+Its allocation is the DEL-05-01 card of the
+[accepted decomposition](../../_Decomposition/PROJECT_DECOMP.md), with the
+interfaces in that document's §9. It serves [PRD](../../../docs/PRD.md)
+objective O5, with O2 and O3, and carries the PRD's acceptance criteria A6 and
+A7.
 
-The [consumer route](../../../README.md#obtain-and-use-the-library) provides
-current obtaining, publication and adoption guidance. [Work/ConsumerBasis.md](Work/ConsumerBasis.md)
-records the selected source and consumer revisions, copied package, comparison
-evidence and limits. Consumer-local needs are declared in `deliverable.yaml`;
-their presence establishes no satisfaction claim.
+| Scope item | What this deliverable contributes | Objectives | PRD |
+|---|---|---|---|
+| SOW-0019 | Independent routes to consult, invoke or copy identified material through ordinary files, Git, archives and documented interfaces, keeping its resources, licence notices and source basis, with local adaptations distinguishable | OBJ-005 (O5) | R13, R17, A6 |
+| SOW-0020 | A named consumer interface checked against that consumer's maintained contract or fixtures at an explicit revision; a supported path or coordinated adapter in place before an incompatible change | OBJ-003, OBJ-005 (O3, O5) | R13, A6 |
+| SOW-0022 | A named publication candidate prepared from a verified revision, with source identity, notices, dependencies, limitations and recoverable commit and edition routes; publication stays with the owner and adoption with the consumer | OBJ-003, OBJ-005 (O3, O5) | R15, R04 "Prepare publication and inspect updates", A7 |
+| SOW-0023 | The old and new basis, the reason, the change in meaning or use and the migration effects explained in review descriptions and publication notes; change inspection through existing release and diff facilities, exercised | OBJ-003, OBJ-005 (O3, O5) | R16, R04 "Prepare publication and inspect updates", A7 |
+| SOW-0025 | Ordinary use that needs no undisclosed sibling checkout, dated run directory, private input or credential; public fixtures and summaries cleared; public changes credential-checked | OBJ-002, OBJ-005 (O2, O5) | R17, A6, A7 |
+| SOW-0026 | The pre-library execution transition and original consumer-pinned history traceable and recoverable, without reinstating earlier structure, commitments or lifecycle state | OBJ-003, OBJ-005 (O3, O5) | R12, R15, §6.3 step 2 |
 
 ## Deliverable Definition — Ontology
 
-The selected basis is the identified source actually governing use. A newer
-publication examined is distinct from that basis and from an adopted revision.
-A publication candidate is concrete identified material prepared from verified
-maintained sources in its intended delivery form; it is not a version proposal
-or a Git log alone. Proposed, integrated, published, examined and adopted describe
-different acts and must not be conflated. A local adaptation is distinguishable
-from its shared or packaged source. A named compatibility claim is limited to
-its consumer, interface, use case, maintained contract/fixtures and revisions.
+An **edition** is a named publication of the Library: `Chirality library
+<version>`, tagged `library-v<version>`, published by the owner from one exact
+integrated source revision through the repository's release facility. Its
+release carries the complete tracked-source archive of that revision, the
+archive's SHA-256 checksum, the change account and the known limitations. It
+is a source edition: its files are read and its tools run in place. It is not
+an installed product, a Python package or an application runtime, and the
+edition name of a book or manual is not a Library version.
 
-Expected outputs are functional results; existing holdings and applicable checked
-evidence may supply part or all of them. No file is required merely to populate
-the locality. Source publications remain at their maintained homes. Review
-accounts stay in actual PR descriptions and ordinary release notes; technical
-reasoning and locally retained evidence belong in `execution/PKG-05/DEL-05-01/Work/`.
-`deliverable.yaml` carries initial needs and useful source/check pointers.
+A **publication candidate** is the concrete material proposed as an edition:
+an identified source revision in its delivery form, with a proposed name. A
+version proposal, a merge or a Git log is not a candidate.
 
-- **OUT-001** — Obtaining, copying, version-selection and use guidance in `README.md` and the selected existing tool/workflow/reference guides, linking applicable resources, notices, dependencies, limitations and source/adaptation distinctions. Trace: SOW-0019, SOW-0025; OBJ-002, OBJ-005.
-- **OUT-002** — Bounded named-consumer qualification evidence, retained in this locality's `Work/` or referenced actual review/maintained fixture homes, identifying supported use and any unresolved incompatibility. Public evidence uses cleared material; private source evidence remains with its custodian. Trace: SOW-0020, SOW-0025; OBJ-003, OBJ-005.
-- **OUT-003** — A real identifiable publication candidate prepared from verified maintained sources through ordinary review/publication facilities, with a proposed version/edition label, source revision, delivery-form checks, notices, dependencies, limitations and recovery route. It retains the selected holding's source/output home; no parallel history product is established. Trace: SOW-0022, SOW-0025; OBJ-003, OBJ-005.
-- **OUT-004** — Usable update-inspection guidance in the existing consumer guides, a meaningful change account in actual PR descriptions/publication notes, and evidence of applying the guidance to OUT-003 against an identified prior basis. Trace: SOW-0023, SOW-0025; OBJ-003, OBJ-005.
-- **OUT-005** — Preserved commit/edition recovery routes in `docs/alignment-manual/README.md`, the selected holding's existing references and the private `sgttomas/chirality` repository (which holds the former frozen-project recovery note and the pre-migration history), with byte verification for historical content actually relied upon. Original consumer pins, including the App's historical SWBPIPE source identity, retain their meaning. Trace: SOW-0026; OBJ-003, OBJ-005.
+Five words describe different acts, and none implies the next. A change or
+candidate is **proposed**. A change is **integrated** when it is merged to
+`main`. An edition is **published** when the owner releases it. Material is
+**examined** when someone compares it with a basis. It is **adopted** when a
+consumer changes its selected basis to it.
 
-- **CLM-001** — The inspected holdings provide reusable pieces; Work records a bounded exercise of the selected consumer route: `README.md` distinguishes the shared library and independent products; `LICENSE.md` supplies the repository MIT notice subject to component-specific licenses; `tools/workflow_runtime/README.md` explains selected resource resolution and host enforcement limits; `docs/alignment-manual/README.md` distinguishes discovery links, resolved editions, source revisions and rendering checks. Their existence establishes neither named compatibility nor A7 satisfaction.
-- **CLM-002** — Accepted decomposition §9 allocates navigation meaning to `DEL-01-01`, general maintenance/review/recovery and custody procedures to `DEL-02-01`, scoped shared-reference/publication meaning clarification to `DEL-02-02`, actual tool behavior and separately justified adapter implementation to `DEL-03-01`, reconciliation practice and initial setup/needs formation coverage to `DEL-04-01`, and reflective examination/decomposition formation coverage to `DEL-04-02`. Each local implementation owner keeps its own commitments, Work and needs (§8.1); Agent 0 integrates related changes with one shared-file editor. This deliverable supplies obtaining/version/use conditions, not those neighboring contributions.
-- **CLM-003** — `AGENTS.md` and PRD §§2.3, 3.5 and 5 reserve Root product acceptance, protected baseline/commitment changes, risk acceptance, releases and additional archival disposition to the owner. Consumers retain their own authority, operational data, adaptations, adoption and product release. Root Agent 0 coordinates affected independent projects through their current Agent 0 under actual authorization; a message transfers no authority. Frozen App v3 and Runtime require explicit owner reactivation. Private evidence remains with its owning consumer/custodian; public clearance is required before use in public fixtures. PRD R16 requires actual operator configuration and authority for scheduling, external delivery or unattended operation.
-- **CLM-004** — The former frozen-project recovery note, removed from this repository on 2026-11-04 and preserved with the pre-migration history in the private `sgttomas/chirality` repository, documents the completed pre-library transition at `archive/pre-library-execution-2026-10-31`, commit `f80f1510fb50799764720303b86c36da64b75d19`, and the frozen-product recovery routes. The accepted decomposition carries the original consumer-pin preservation obligation; pin-specific content is still to be selected for actual reliance. This is a documented recovery basis, not a claim that this author inspected archived bytes or that external historical dependencies remain available. Accepted SOW-0026 requires preservation, not another removal or restored backlog.
+A consumer's **selected basis** is the edition or full source revision that
+actually governs its use. Published editions are the consumer default;
+following `main` is an explicit choice to use development.
+
+A **local adaptation** is a consumer's changed copy of Library material,
+marked so that it stays distinguishable from its source. A **derivation** is a
+project document adapted from a Library source file. It may record that source
+and the published edition it was last reconciled against in the optional
+`metadata.upstream` field that `docs/document-metadata.md` defines.
+
+A **named compatibility claim** says that a stated interface of a named
+consumer works with stated Library material. It holds only for that consumer,
+interface and use, the consumer's maintained contract or fixtures, and the two
+revisions examined.
+
+A **change account** explains, for an edition or an integrated change, the
+holdings affected, the old and new basis, the reason, the difference in
+meaning or use, and the known migration consequences. An edition's account is
+in its release notes; an integrated change's account is its pull request
+description.
+
+A **recovery route** is a documented way to reach commit-pinned history, an
+earlier edition or a removed holding. It names the repository, the tag or
+revision, and whether that repository is public.
+
+**Public material** is whatever this repository or a release carries.
+Evidence drawn from a consumer's private operation is **cleared** when its
+custodian has released it for publication.
+
+- **OUT-001** — The consumer guidance: choosing a version, choosing and obtaining material, copying it with its resources and notices, marking adaptations, hearing of a new edition, and what a copy does not carry with it. Its homes are those in CLM-001. Serves SOW-0019 and SOW-0025.
+- **OUT-002** — The qualification of the named compatibility claim selected in CLM-005: the probe `tools/workflow_runtime/fixtures/app_workflow_reader.rs` and its observed result for a stated consumer revision and stated Library package bytes. Serves SOW-0020 and SOW-0025.
+- **OUT-003** — For each edition proposed to the owner, a publication candidate: the proposed name and tag, the exact source revision, the complete tracked-source archive and its checksum, the notices, dependencies and known limitations, and, where the candidate changes a rendered reading edition, that edition regenerated from its committed source by `docs/alignment-manual/render_manual.py`. Serves SOW-0022 and SOW-0025.
+- **OUT-004** — The change account of each candidate against the prior edition; the update-inspection procedure in `README.md`; the comparison method for derivations, `workflows/compare-library-derivations/WORKFLOW.md`; and the inspection procedure exercised on the candidate against its prior basis. Serves SOW-0023 and SOW-0025.
+- **OUT-005** — The recovery routes of CLM-004, each documented in the guide that refers to what it recovers or, for the pre-library transition, in the private repository's recovery note. Serves SOW-0026.
+
+Homes and boundary:
+
+- **CLM-001** — The guidance lives in existing guides, and in a shared file this deliverable's part is the passage named here. In `README.md`: within "Use the library", choosing a version, obtaining and copying, staying informed and deciding whether to update, with the optional command-line details, and the licence statement; which holding to start from, and the rest of the file, are navigation. `LICENSE.md` is the repository notice. In `workflows/README.md`: the passage on copying a complete package and the passage on reading private-archive citations. In `docs/alignment-manual/README.md`: "Read and render" and the statements of where retired and earlier editions are recovered; how each book is presented, what standing it has, and the difference between a discovery link and the edition a claim relies on are navigation. `workflows/compare-library-derivations/WORKFLOW.md`, the renderer `docs/alignment-manual/render_manual.py` with its pinned requirements, and the probe in OUT-002 are wholly this deliverable's; the rest of `tools/workflow_runtime/` is not.
+- **CLM-002** — Navigation and the standing of each holding belong to `DEL-01-01`. The maintenance route, including review, integration, custody, the retirement of a holding and the definition of document metadata, belongs to `DEL-02-01`. The shared-reference repair belongs to `DEL-02-02`. Tool behaviour, tool usage guides and the implementation of any adapter belong to `DEL-03-01`. The retained historical source of the former repository-change evaluator belongs to `DEL-03-02`. The reconciliation method, the deliverable localities and the project-entry template belong to `DEL-04-01`. Reflective guidance, the decomposition and the content of *Chirality in Practice* belong to `DEL-04-02`. This deliverable supplies the conditions for obtaining, versioning, qualifying, publishing and inspecting; it does not supply those contributions.
+- **CLM-003** — Publishing an edition is the owner's act. A consumer's data, adaptations, adoption and product release are that consumer's. Private evidence stays with its custodian until cleared. Scheduling, external delivery and unattended operation belong to the operator who configures them. The shared Library checkout that App v4's and SWBPIPE's standing instructions name is moved only on an explicit coordinator request or the owner's direction; a Library development checkout and other consumers are not so restricted.
+- **CLM-004** — The recovery routes are these. The pre-library execution transition is the tag `archive/pre-library-execution-2026-10-31` at commit `f80f1510fb50799764720303b86c36da64b75d19` in the private `sgttomas/chirality` repository, whose `projects/FROZEN.md` describes that transition and the recovery of the frozen products. Holdings removed from this repository in its migration are in that repository's Git history at or before `05d96f3e11`. Original consumer pins, including the App's historical SWBPIPE source identity and the manual editions the App's original project definition named, resolve in that history, and the manual index says where each retired or earlier edition is. Editions from `library-v2.0.0` are tags and releases of this repository; earlier editions were released from the private repository.
+- **CLM-005** — The named compatibility claim selected is that chirality-app's workflow-package reader, its `Snapshot` capture and declaration reading governed by that project's workflow-declaration and workspace-and-registration contracts, captures the Library's `coordinated-knowledge-work` package with each file's bytes and the package's content identity preserved and reads its declaration standing. Capture is read-only; registering or executing a package in that product is a separate act outside the claim. The consumer basis selected is chirality-app revision `366e7a6656d807142e7bdeda0ccf99c37d7227b1`; a claim against another consumer revision, interface or consumer is a new claim with its own contract and examination. No other consumer interface is selected.
+
+Outside the product: a packaging system, a notice register, a subscriber
+registry, a separate edition or history record, a companion or service, any
+consumer's adoption work, and the release act itself.
 
 ## Completion and Reliance Basis — Epistemology
 
-- **REQ-001** — OUT-001 shall provide independent documented routes appropriate to consulting, invoking or copying selected material through ordinary files, Git, archives or documented interfaces. Reading alone shall require no Git installation; selected executable tools shall disclose their real dependencies. Identify source revision/edition, required resources, applicable notices and licenses, limitations and local adaptations; ordinary use shall not depend on undisclosed sibling checkouts, dated run directories, private inputs or credentials. Basis: CLM-001; PRD R13, R17.
-- **REQ-002** — OUT-002 shall test the actual selected interface/use claim against a named consumer's maintained contract or fixtures at an exact revision, with the candidate basis explicit. Generic demonstrations and Root component tests do not establish named compatibility. Before an incompatible interface change, establish a supported path or coordinated adapter under the relevant authority; an unresolved path remains a hold on that change, not on unrelated guide work. Basis: accepted SOW-0020; PRD A6.
-- **REQ-003** — OUT-003 shall identify the real candidate, proposed version/edition label, verified source revision and actual delivery form, retain resources/notices/dependencies/known limitations, and make commit-pinned history and editions recoverable. Named owner publications are the downstream default; following main is an explicit development selection. Integration does not confer publication standing. Basis: PRD R15, A7; CLM-003.
-- **REQ-004** — OUT-004 shall explain affected holdings, old/new bases, reason, difference in meaning or use and known migration consequences in actual review/publication material. Exercise the documented procedure with existing release/diff facilities against the actual prior basis; distinguish selected basis, publications examined and adoption. Failed or partial inspection shall expose its limits and shall not report no change. Interests remain consumer-local. Basis: PRD R16, A7.
-- **REQ-005** — OUT-005 shall retain historical identities and routes, verifying selected historical bytes before reliance and reusing applicable preservation evidence with its limits. Recovery shall not reinstate old commitments, lifecycle state or frozen development. Basis: CLM-004; PRD R12, R15; SOW-0026.
-- **REQ-006** — Public guidance, candidate material and retained public evidence shall pass the maintained credential check at the actual candidate basis. Public fixtures/summaries require clearance; private operational data stays local. Basis: SOW-0025; PRD R17; CLM-003.
-- **REQ-007** — This deliverable shall perform no act owned by another deliverable: navigation design owned by `DEL-01-01`, general maintenance/review/custody procedure production owned by `DEL-02-01`, shared-meaning reconciliation owned by `DEL-02-02`, tool or adapter implementation owned by `DEL-03-01`, reconciliation/setup/needs practice owned by `DEL-04-01`, or reflective/decomposition practice owned by `DEL-04-02`, as allocated in CLM-002. Coordinated application and affected-use review do not transfer ownership. This deliverable retains its own local contract, Work and needs responsibility through future production and repairs.
-- **REQ-008** — Excluded acts and their decision owners are those in CLM-003: Root release, product acceptance, risk acceptance and protected baseline/commitment changes belong to the Root owner; consumer operational changes, adoption and product release belong to that consumer's owners; external project coordination belongs to the relevant Agent 0 under actual authority; frozen reactivation and additional archival removal need the Root owner's explicit decision; private-source disclosure requires its custodian's clearance; scheduling/external delivery/unattended operation requires the responsible operator's actual configuration and authority. This contract authoring executes none of them. No blanket prohibition assigns these acts to a sibling deliverable or makes them acceptance prerequisites.
+- **REQ-001** — The guidance gives independent routes to consult, invoke or copy selected material through ordinary files, Git, archives and documented interfaces. Reading needs no Git installation, and each tool's real dependencies are stated in that tool's guide. For the material selected, the guidance identifies the edition or full source revision, the resources the material needs, the applicable licence notices and the known limitations, and tells the consumer to keep original relative paths, record the selected basis and mark local adaptations. The guidance directs a consumer to a published edition by default and presents following `main` as an explicit choice to use development. Ordinary use depends on no undisclosed sibling checkout, dated run directory, private input or credential. The guidance says that a copy carries no authority: the Library's `AGENTS.md`, grants and execution rules govern work on the Library only. Source: PRD R13, R15, R17, §2.3; SOW-0019, SOW-0022, SOW-0025.
+- **REQ-002** — A named compatibility claim is tested by exercising the consumer's own maintained reader or fixtures at an exact stated consumer revision against stated Library bytes. A generic demonstration or a Library component test does not establish it. The claim stands only for the bytes examined, and is examined again when a change affects the material that interface consumes. The probe runs in a disposable complete export of the consumer, changes nothing in the consumer's reader, resources, pins or repository, and is not part of ordinary Library use or the Library's CI. Before an incompatible change to an interface a named consumer uses, a supported path or coordinated adapter exists under the relevant authority; while it does not, that change is held and other work continues. Source: PRD R13, A6; SOW-0020.
+- **REQ-003** — A candidate identifies its proposed edition name and tag, its exact source revision and its delivery form. The archive is built from the integrated Git objects of that revision, not from working files; every archived file's bytes and mode match that revision, and the checksum offered is the archive's. The candidate keeps the resources its material needs, the licence notices, the stated dependencies and the known limitations. A rendered reading edition it carries is the render route's output for an identified committed Markdown source and shows the source revision it was rendered from. Earlier editions and commit-pinned history stay reachable by their recovery routes. A merge is not a publication, and preparing a candidate publishes nothing. Source: PRD R15, A7; SOW-0022; decomposition card.
+- **REQ-004** — The change account names the affected holdings, the old and new basis, the reason, the difference in meaning or use and the known migration consequences; a list of commits is not an account. The inspection procedure uses existing release and diff facilities, leaves the consumer's interests and last examined basis with the consumer, and distinguishes the basis in use from the editions examined. A failed or partial inspection states its limit: a failed query is not absence, a failed comparison is not "no change", and a path-limited comparison says nothing about other material. Inspecting adopts nothing. Hearing of a new edition uses the hosting service's own watch and feed facilities. Source: PRD R16, A7; SOW-0023.
+- **REQ-005** — Each recovery route names its repository, its tag or revision and whether that repository is public. Historical bytes are verified at their identified source before they are relied on, and what was not examined or cannot be reached is said. Original consumer pins keep their meaning; no route rewrites history. Recovery reinstates no earlier commitment, lifecycle state, structure or frozen development. Source: PRD R12, R15, §6.3 step 2; SOW-0026.
+- **REQ-006** — Guidance, candidate material, release notes and any evidence published with them pass the maintained credential check at the basis examined. A fixture or summary drawn from a consumer's private operation is public only when cleared; private operational data stays with its custodian. Source: PRD R17; SOW-0025.
+- **REQ-007** — The outputs shall perform no act owned by another deliverable, as allocated in CLM-002: navigation and holding standing (`DEL-01-01`); the maintenance route and document metadata (`DEL-02-01`); the shared-reference repair (`DEL-02-02`); tool behaviour, tool guides and adapter implementation (`DEL-03-01`); the former evaluator's retained source (`DEL-03-02`); the reconciliation method, localities and project-entry template (`DEL-04-01`); reflective guidance, the decomposition and the book's content (`DEL-04-02`). Linking to a sibling's product, or applying it, takes nothing over.
+- **REQ-008** — No output declares or implies an owner release, a consumer's adoption or product acceptance. None configures scheduling, external delivery or unattended operation. None creates a notice register, subscriber registry or separate edition history. Source: CLM-003; PRD R15, R16, §2.3.
+- **REQ-009** — The comparison method for derivations is used when a consumer adopts an edition or explicitly selects a comparison, by that project's Agent 0 or a coordinator under that project's authority; the project's Agent 0 makes and integrates the edits. It compares the prior Library source, the project's adaptation and the target Library source together; without a prior baseline it compares adaptation with target and says that the history of each difference is unavailable. Deliberate local adaptations may remain. `metadata.upstream` is added or advanced only for a document wholly reconciled against the published edition recorded; a partial comparison leaves it unchanged. An improvement worth sharing goes to the Library's Agent 0 as a proposal. The method gives no authority to write in another project and requires no report, new checker or comparison at session start. Source: PRD R13, R16.
 
-The criteria below express the accepted production commitments. Passing schema or
-setup checks cannot satisfy them. Completion requires the applicable concrete
-evidence, with unresolved criteria reported as unverified; risk or changed
-commitment decisions cannot be substituted by an author weakening a criterion.
-
-- **AC-001** — An obtaining/use case follows OUT-001 at an identified source basis, obtains and uses selected material through its documented path, retains notices/resources and demonstrates the stated source/adaptation distinctions and real dependencies without hidden private or sibling inputs. Reading guidance supports ordinary file use without Git. Verified by VER-001; contributes to PRD A6, not its named-compatibility portion.
-- **AC-002** — OUT-002 binds the named consumer, maintained contract/fixtures, exact consumer and candidate revisions and selected use; observed results substantiate the claimed compatibility, with supported path or coordinated adapter evidenced before any incompatible change and unresolved results explicitly held. Verified by VER-002; required for the named-compatibility portion of PRD A6.
-- **AC-003** — OUT-003 is a concrete identifiable candidate from verified maintained sources with proposed version/edition label, actual delivery-form checks, source identity, notices, dependencies, limitations and recoverable revision/edition route. Proposed, integrated and published standing is accurate, and owner release is not claimed. Verified by VER-003; contributes to PRD A7.
-- **AC-004** — OUT-004's actual review/publication account identifies affected holdings, old/new bases, reason, changed meaning/use and migration consequences sufficiently to inform the selected consumer use. Verified by VER-004; contributes to PRD A7.
-- **AC-005** — The documented inspection procedure is exercised for OUT-003 against the identified prior basis using existing release/diff facilities; evidence distinguishes the basis in use from material examined and adoption, and any failed/partial result exposes its limits rather than claiming no change. Verified by VER-005; required for PRD A7.
-- **AC-006** — OUT-005 preserves the selected recovery and original-pin routes; historical bytes actually relied upon are checked at their identified source, with unavailable dependencies or unexamined history explicit and no reinstated old work. Verified by VER-006.
-- **AC-007** — Public artifacts for OUT-001 through OUT-005 satisfy REQ-006 at the examined basis, with cleared evidence and accurate screening limits. Verified by VER-007.
-- **AC-008** — Outputs preserve the act/owner distinctions in REQ-007 and REQ-008, contain no parallel edition/history or notice-register obligation, and make no consumer adoption, owner release or product-completion claim from setup alone. Verified by VER-008.
-
-Input and use conditions for later consumer-local need authoring follow. These
-are not supplier appointments or whole-deliverable sequencing gates; preliminary
-document review and final qualification have distinct conditions.
-
-| Input / source | Use and trigger | Suitability condition / unresolved binding |
-|---|---|---|
-| Selected holdings, guides, licenses and resource manifests at their maintained homes | Draft obtaining/use guidance; final exercise when making a use claim | Identify actual exported surface and revision; inspect required resources and applicable component notices. CLM-001 is a starting set, not a mandatory bundle of every Root holding. |
-| Named consumer contract/fixtures | Claim compatibility or select an incompatible interface change | Exact maintained source and revision plus authorized access/cleared evidence required; the selected App reader case is bound in TBD-001 and Work. No consumer adoption follows from it. |
-| Verified candidate sources and ordinary review/publication facilities | Prepare candidate and make A7 claims | Bind actual version label, source revision, delivery form, verification and prior comparison basis; the selected source/edition case is bound in TBD-002 and Work. A merged revision alone is insufficient. |
-| Existing maintenance and reconciliation methods | Authorized preparation, review, source reconciliation and integration | Read applicable current methods and evidence from DEL-02-01 and DEL-04-01; do not await whole-deliverable completion or infer new supplier obligations. |
-| Navigation and shared-meaning material | Guide wording or applicability change affects shared README/reference/publication sources | Coordinate navigation use with DEL-01-01 and scoped meaning with DEL-02-02 through Agent 0 and one shared-file editor; preserve adopted contracts and earlier editions. |
-| Actual tool/interface behavior and supported compatibility route | Guidance invokes a tool or proposed change is incompatible | Use documented commands, dependencies and checks from selected sources; any demonstrated implementation gap returns to DEL-03-01 under Q-02, not an assumed adapter. |
-| Historical pins/editions and documented recovery routes | Rely on particular historical content | Identify original pin/path and verify selected bytes before reliance; retain unrelated history without a global audit. CLM-004 supplies the documented starting route. |
-
-- **TBD-001** — Q-04 is bound for the selected capture/declaration/content-identity claim: App `366e7a6656d807142e7bdeda0ccf99c37d7227b1` reader and maintained contracts, with Root `1357d706ea77497903976bf159f3880bea4d1360` coordinated-knowledge-work package, as identified and exercised in Work/ConsumerBasis.md. Other consumer operations or source revisions remain outside that evidence. The test does not imply adoption or full product acceptance.
-- **TBD-002** — Q-05 retains the examined F-02/manual candidate and comparison in Work/ConsumerBasis.md. The original source-delivery subject was the complete library source candidate at `7c334bf5cb529a814e0f96f68bc8d9500b15cdd5`, compared with `547e7d7f833f9bec351f7a034bddd7c1a37db15a`; owning Work records archive identity, notices and selected operation evidence. Later published editions have their own identified sources on the [releases page](https://github.com/sgttomas/chirality-library/releases). Bind any new publication claim to its actual candidate and prior basis.
-- **TBD-003** — Q-01 retains additional archival disposition of other unselected removals with the owner; `plans/` and `_DomainEngines/` were removed on 2026-11-04 and are preserved in the private `sgttomas/chirality` repository. Q-02 retains bespoke tooling as contingent on a demonstrated gap and actual authorization; no adapter, companion or service is commissioned. These qualifications do not block unaffected guidance or source-preservation work.
+- **AC-001** — Following only the guidance, from an identified edition, a reader who did not write it obtains the edition and one selected holding without Git, finds the holding's required resources and its licence notice, and can state the source basis of what they hold. The obtained bytes equal the stated revision's, and a copied workflow package keeps its relative paths and resources. Each tool the guidance points to states its dependencies in its own guide. The guidance sends the reader to a published edition by default and names following `main` as an explicit development choice. No step needs a sibling checkout, dated run directory, private input or credential. Verified by VER-001. This is the obtaining part of PRD A6.
+- **AC-002** — For the claim in CLM-005, the consumer's own reader at the stated consumer revision captures the stated Library package: every captured file's bytes equal the package's; the content identity the consumer's contract defines is unchanged when the package is relocated and changes when one resource's bytes change; the declaration standing is read as that contract defines it for a package carrying no declaration, with no declaration or hygiene finding; and the original package and the consumer's reader source are unchanged afterwards. The result names both revisions. No change that is incompatible with that reader's use of the material the claim covers is integrated until a supported path or coordinated adapter exists for that consumer; while none exists the change is held, and a probe result that shows the incompatibility is reported as a failure. Verified by VER-002. This is the named-compatibility part of PRD A6.
+- **AC-003** — For the candidate: it has a proposed edition name and tag; its archive identifies the stated revision, and the archive's paths, bytes and modes equal that revision's tracked tree with nothing added; the checksum offered equals the archive's SHA-256; the licence notice and the required resources of the holdings the guidance offers are in the archive; dependencies and known limitations are stated; each rendered reading edition the candidate changes equals the render route's output for its stated source; and no text calls the candidate published before the owner publishes it. Verified by VER-003. Contributes to PRD A7.
+- **AC-004** — The candidate's change account, read against the actual difference between the prior edition and the candidate, names each affected holding a consumer may have selected, its old and new basis, the reason, what changes in meaning or use and what a consumer must do or will lose, and separates known consequences from unknown ones. Verified by VER-004. Contributes to PRD A7.
+- **AC-005** — The update-inspection procedure, followed on the candidate against the identified prior basis with the release and diff facilities it names, yields the comparison. The exercise distinguishes the basis in use from the material examined and leaves the selected basis unchanged. A comparison against an unavailable revision is reported as failed, not as no change. Verified by VER-005. Required for PRD A7.
+- **AC-006** — Each route in CLM-004 is documented where OUT-005 places it, names its repository, tag or revision and whether it is public, and resolves when followed by someone with access. Historical bytes relied on equal the object at that source. What cannot be reached or was not examined is said, and no route restores earlier work. Verified by VER-006.
+- **AC-007** — The public material of OUT-001 to OUT-005 at the examined basis passes the credential check, any published fixture or summary drawn from a consumer's operation is cleared, and the stated coverage of the screening is accurate. Verified by VER-007.
+- **AC-008** — The outputs contain nothing CLM-002 allocates to a sibling as this deliverable's own, leave each act in CLM-003 with its owner, declare or imply no release, adoption or product acceptance, and add no notice register, subscriber registry or separate edition history. Verified by VER-008.
+- **AC-009** — From the comparison method's text, a project's Agent 0 holding an adapted document, its Library source and a target edition can map the document to its source, compare the three or, lacking a prior baseline, the two while saying what is then unknown, settle each consequential difference as kept, changed locally, proposed upstream or unresolved, and tell whether `metadata.upstream` may be added or advanced. Nothing in the method writes in another project or requires a report, a new checker or a comparison at session start. Verified by VER-009.
 
 ## Production and Verification Method — Praxeology
 
-For a later authorized production undertaking, select a bounded material/use case
-and classify its existing guidance as usable, needing connection/repair or absent.
-Reuse applicable content and evidence with their exact source limits. Connect the
-obtaining/version/inspection route in existing guides, coordinate shared-file
-changes, and retain necessary reasoning and candidate-bound evidence in Work or
-actual review material. If changing a reusable workflow, use `create-workflow` at
-that time. Do not invent a new workflow merely to express these outputs.
+Choices that define the product:
 
-Resolve claim-specific inputs before asserting compatibility or A7 fulfillment.
-Prepare the selected candidate, meaningful account and inspection application
-through ordinary Git/PR/release facilities under the existing maintenance basis.
-Inspect the actual delivered form and preserve publication source homes. Reconcile
-changed meaning and evidence with this contract, Work and needs in the same PR;
-leave unchanged declarations alone. Human acceptance/release remain separate.
+- Ordinary facilities carry everything: files, Git, archives, the repository's
+  releases and its comparison view. Nothing bespoke is added for a need they
+  meet.
+- Guidance lives in the existing guides named in CLM-001. There is no separate
+  consumer manual.
+- An edition's change account is its release notes, assembled from the pull
+  requests integrated since the prior edition. The result of an examination is
+  reported in the pull request that carries it and, where a consumer relies on
+  it, in the release notes. The repository keeps no second record of either.
+- A candidate's archive is taken from the integrated revision's Git objects
+  after integration; a later revision needs its own archive.
+- A rendered reading edition is regenerated from its Markdown; the HTML is
+  never edited by hand.
+- Named compatibility is examined by running the consumer's own reader, not a
+  Library reimplementation of it.
+- Derivations are compared at adoption or on explicit selection, never
+  routinely.
 
-- **VER-001** — Exercise the selected documented acquisition/use path and inspect the obtained material, required resources/notices, source identity and adaptations. Check file-reading instructions without requiring Git and exercise invoked tools with their declared dependencies. Record the actual environment assumptions, basis, steps, result and limits; a walkthrough proves only the claims it exercises.
-- **VER-002** — At the explicit consumer and candidate revisions, run the selected maintained contract/fixture checks or direct interface exercise appropriate to the claim. Inspect results and any supported path/adapter evidence, report failures and unsupported cases, and keep private details at their authorized home. A generic example cannot replace these inputs; do not execute this method while Q-04 is unresolved.
-- **VER-003** — Inspect the real candidate against its verified source revision and proposed label, applicable checks and actual delivery form. Check resources/notices, dependencies, limitations, recovery identity and declared standing. For a rendered publication, check source/output correspondence and its actual intended reading/delivery form; do not assume a particular format or renderer before selection.
-- **VER-004** — Compare the actual PR/publication account with the identified old/new holdings and their uses. Review reason, meaning/use differences and migration consequences against the changes, distinguishing known consequences from unknowns; a commit list alone is insufficient.
-- **VER-005** — Follow the documented release/diff inspection procedure for the identified candidate and prior basis. Inspect the resulting comparison and local interpretation, including selected versus examined basis and any failed/partial result. Retain only evidence needed to show the procedure was exercised and its limits; perform no adoption, scheduled job or external delivery as a side effect.
-- **VER-006** — Inspect documented recovery references and verify the selected historical bytes/pin actually used against its identified Git/edition basis. Reuse relevant prior preservation evidence where still applicable, identify unavailable dependencies and unexamined history, and check that guidance does not reactivate or migrate an archived backlog.
-- **VER-007** — Screen actual public changed artifacts and retained evidence through the maintained credential check. Record candidate identity, coverage and findings without exposing secrets. Review fixture clearance and ordinary-use instructions for hidden private prerequisites.
-- **VER-008** — Review each excluded act against CLM-002 and CLM-003 and its actual owner; inspect output language for authority transfers, implied adoption/release, parallel registers/products or setup-as-fulfillment claims. Check affected interfaces with Agent 0 under authorized coordination, not by assuming a library change binds consumers.
+- **VER-001** — Judgment by a reader who did not write the guidance (follows it on an identified edition, outside any Git checkout), with comparison with a named reference (the stated revision's Git objects and the release checksum): download the edition's archive from its release, verify the checksum, extract and read a selected role or workflow and its resources without Git, copy one workflow package and compare its files with the revision's blobs, find the licence notice, confirm each tool guide the route points to states its dependencies, confirm the guidance leads to a published edition by default and presents following `main` as an explicit development choice, and report any step that needed something the guidance did not name.
+- **VER-002** — Executable check (the probe, which observes the consumer's own reader capturing the stated package) and comparison with a named reference (the consumer's contract at the stated revision, and SHA-256 digests of the package files taken from the Library revision's Git blobs): in a disposable complete export of the consumer at the stated revision, attach the probe as a test module, run it offline against an unmodified export of the package, and read its result for byte equality, identity under relocation and under a changed resource, declaration reading and findings; confirm the export's reader source is unchanged and state both revisions with the result. Judgment by the integration owner (reads any change to the package or its form against the probe result): confirm that an incompatible change has a supported path or coordinated adapter in place, or is held.
+- **VER-003** — Comparison with a named reference (the Git objects of the stated revision), an executable check (the renderer's `--check`, which observes only that the committed HTML equals a fresh render of the stated source) and judgment by the integration owner (reads the notes and the rendered form): identify the archive's revision with `git get-tar-commit-id`, compare every archived path, byte and mode with that revision's tracked tree, recompute the SHA-256, confirm `LICENSE.md` and the offered holdings' resources are present, run the render check for each rendered edition the candidate changes and inspect it at desktop and narrow widths, and read the notes for name, dependencies, limitations and standing.
+- **VER-004** — Judgment by a reviewer who did not write the account (reads it against `git diff <prior edition> <candidate>` and the pull requests integrated between them): for each changed holding a consumer may have selected, confirm the account gives its old and new basis, the reason, the change in meaning or use and the migration consequence, and that unknown consequences are marked unknown.
+- **VER-005** — Executable check (the procedure's own commands, which observe the release listing and the difference between two real bases) and judgment by the integration owner (reads what the exercise reports): from a clone whose selected basis is the prior edition, follow "Decide whether to update" with its command-line details, compare selected paths with the candidate, repeat the comparison against a revision that does not exist, and confirm the failure is reported as a failure and the selected basis is unchanged.
+- **VER-006** — Comparison with a named reference (the Git objects at each route's stated repository and revision): follow each recovery route from where it is documented, resolve its tag or revision, and compare the bytes relied on with that object; for a repository the examiner cannot read, say so and report nothing there as verified; read the guidance for anything that would restart archived work.
+- **VER-007** — Executable check (the credential scan, which observes only the patterns it holds, in text files added or modified between two revisions) and judgment by the custodian of any consumer-derived fixture (that it is cleared): run `python3 tools/validation/validate_run_record_leaks.py --base <base> --head <head>` over the change and, for a candidate, over its whole tracked tree with the empty tree as base, and state what the scan does not cover.
+- **VER-008** — Judgment by a reader who did not write the outputs (reads the guidance, the candidate's notes and the qualification result): take each allocation in CLM-002 and each act in CLM-003 in turn and look for text that takes it over, for any statement of release, adoption or acceptance, and for a register, registry or separate history.
+- **VER-009** — Judgment by a reader who did not write the method (works one real adapted project document against its Library source at a prior and a target edition): follow the method step by step, record whether each act in AC-009 can be taken from the text alone, and read it for any write in another project or any required report, checker or routine comparison.
 
 ## Governing Values and Decisions — Axiology
 
-- **AX-001** — Preserve human accountability and consumer choice. A test implements verification; it creates no acceptance condition or authority. Root grants, execution records and host/runtime policy do not transfer by copying library material. PRD §§1, 2.3 and R13–R16 govern.
-- **AX-002** — Preserve source identity, truthful maturity and inspectable warrant. Distinguish evidence of content, executable behavior and named compatibility; retain failed/partial results and unresolved conditions without claiming no change. Historical sources remain evidence, not current instructions or a backlog.
-- **AX-003** — Use ordinary facilities and the minimum maintained artifacts required for use and review. Removing the separate DEL-05-02 does not waive R15/R16/A7. Avoid a second notice/history register, compulsory companion, global census or automated management obligation. Existing applicable holdings may fully supply an output.
-- **AX-004** — The Group 3 owner decision states: “I accept this decomposition as the basis for project setup.” Its setup authority permits this source-grounded INIT contract, with no lifecycle source or status touch. Product implementation, expanded commitments, human acceptance and release are separate acts. Q-01/Q-02 and claim-specific Q-04/Q-05 remain qualified, and Q-03 assignments remain future decisions. Substantive ambiguity is returned as CONFLICT with its consequence; it is not resolved by weakening a criterion.
+- **AX-001** — The consumer chooses. Better is fewer things a consumer must take on trust to know what they hold and what changed: fewer statements in the guidance or the notes that cannot be checked against the release, the archive or Git. That may never be gained by acting for the consumer; no route updates, adopts or implies adoption on a consumer's behalf, and publication stays with the owner.
+- **AX-002** — Source identity and truthful standing. Better is fewer claims in the guidance, the notes or a qualification that reach further than the examination behind them. That count may never be improved by leaving out a failed or partial result, or by reporting one as no change.
+- **AX-003** — Ordinary means and the least maintained material. Better is less maintained text and fewer bespoke artefacts per edition for the same consumer result. That economy may never drop a notice, a required resource, a stated dependency, a known limitation or a recovery route.
 
 ## Output and Evaluation Matrix
 
-Each row's verification set applies to its single acceptance criterion. Repeated
-output references express different evidence claims, not additional artifacts.
+AC-007 and AC-008 apply to every output. Each is listed once, against the
+output that carries most of what it examines.
 
 | Output | Objective refs | Requirement/claim refs | Acceptance refs | Verification refs | Evidence expectation |
 |---|---|---|---|---|---|
-| OUT-001 | OBJ-002, OBJ-005 | REQ-001, CLM-001 | AC-001 | VER-001 | Identified obtaining/use case, resources/notices, real dependency and adaptation observations |
-| OUT-002 | OBJ-003, OBJ-005 | REQ-002 | AC-002 | VER-002 | Named maintained consumer contract/fixture basis and actual compatibility/path results; Q-04 unresolved at setup |
-| OUT-003 | OBJ-003, OBJ-005 | REQ-003 | AC-003 | VER-003 | Real candidate identity, source and actual delivery-form evidence; Q-05 unresolved at setup |
-| OUT-004 | OBJ-003, OBJ-005 | REQ-004 | AC-004 | VER-004 | Actual old/new account, meaning/use and migration appraisal |
-| OUT-004 | OBJ-003, OBJ-005 | REQ-004 | AC-005 | VER-005 | Exercised inspection against prior basis, selected/examined distinction and honest partial/failure limits |
-| OUT-005 | OBJ-003, OBJ-005 | REQ-005, CLM-004 | AC-006 | VER-006 | Selected historical-byte verification and preserved recovery/pin routes with reliance limits |
-| OUT-001 | OBJ-002, OBJ-003, OBJ-005 | REQ-006, CLM-003 | AC-007 | VER-007 | Public-boundary screening and cleared evidence with actual coverage limits |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-005 | REQ-006, CLM-003 | AC-007 | VER-007 | Public-boundary screening and cleared evidence with actual coverage limits |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-005 | REQ-006, CLM-003 | AC-007 | VER-007 | Public-boundary screening and cleared evidence with actual coverage limits |
-| OUT-004 | OBJ-002, OBJ-003, OBJ-005 | REQ-006, CLM-003 | AC-007 | VER-007 | Public-boundary screening and cleared evidence with actual coverage limits |
-| OUT-005 | OBJ-002, OBJ-003, OBJ-005 | REQ-006, CLM-003 | AC-007 | VER-007 | Public-boundary screening and cleared evidence with actual coverage limits |
-| OUT-001 | OBJ-002, OBJ-003, OBJ-005 | REQ-007, REQ-008, CLM-002, CLM-003 | AC-008 | VER-008 | One-for-one excluded-act/owner review and truthful authority/standing statements |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-005 | REQ-007, REQ-008, CLM-002, CLM-003 | AC-008 | VER-008 | One-for-one excluded-act/owner review and truthful authority/standing statements |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-005 | REQ-007, REQ-008, CLM-002, CLM-003 | AC-008 | VER-008 | One-for-one excluded-act/owner review and truthful authority/standing statements |
-| OUT-004 | OBJ-002, OBJ-003, OBJ-005 | REQ-007, REQ-008, CLM-002, CLM-003 | AC-008 | VER-008 | One-for-one excluded-act/owner review and truthful authority/standing statements |
-| OUT-005 | OBJ-002, OBJ-003, OBJ-005 | REQ-007, REQ-008, CLM-002, CLM-003 | AC-008 | VER-008 | One-for-one excluded-act/owner review and truthful authority/standing statements |
+| OUT-001 | OBJ-002, OBJ-005 | REQ-001, CLM-001 | AC-001 | VER-001 | What the route must allow, and that a published edition is the default, comes from PRD R13, R15, R17 and A6. The obtained bytes are compared with the stated revision's Git objects and the release checksum, which the guidance did not write. Whether the text is enough is judged by a reader who did not write it. |
+| OUT-002 | OBJ-003, OBJ-005 | REQ-002, CLM-005 | AC-002 | VER-002 | The expected behaviour comes from the consumer's own contract and reader at the stated revision, an outside reference that imports no Library code. The expected file digests come from the Library revision's Git blobs. The probe only drives that reader. That a supported path or adapter precedes an incompatible change comes from PRD R13; whether one is in place is judged by the integration owner from the change and the probe result. |
+| OUT-003 | OBJ-003, OBJ-005 | REQ-003 | AC-003 | VER-003 | What a candidate must carry comes from PRD R15 and A7 and the definition of an edition in the Ontology. Archive identity is compared with the Git objects of the stated revision. The render check compares committed HTML with the renderer's own fresh output, so it only guards against divergence; the rendered form is judged by reading it. |
+| OUT-004 | OBJ-003, OBJ-005 | REQ-004 | AC-004 | VER-004 | What an account must explain comes from PRD R16. It is compared with the actual Git difference between the two bases by a reviewer who did not write it. |
+| OUT-004 | OBJ-003, OBJ-005 | REQ-004 | AC-005 | VER-005 | What the procedure must do, including that a failed comparison is not "no change", comes from PRD R16 and A7. The comparison is produced by Git and the hosting service's release listing on two real bases. |
+| OUT-004 | OBJ-003, OBJ-005 | REQ-009 | AC-009 | VER-009 | What the method must do is stated in REQ-009, under PRD R13 and R16. Whether the text delivers it is judged on a real adapted document by a reader who did not write the method. |
+| OUT-005 | OBJ-003, OBJ-005 | REQ-005, CLM-004 | AC-006 | VER-006 | What must stay recoverable comes from SOW-0026 and PRD R15. Bytes are compared with the Git objects at each route's stated source. |
+| OUT-003 | OBJ-002, OBJ-005 | REQ-006, CLM-003 | AC-007 | VER-007 | What may be public comes from PRD R17. The credential scan is the Library's own tool: a pass shows none of the patterns it holds in the text files it read. Clearance is the custodian's judgment. |
+| OUT-001 | OBJ-003, OBJ-005 | REQ-007, REQ-008, CLM-002, CLM-003 | AC-008 | VER-008 | The sibling allocation comes from decomposition §9 and the reserved acts from PRD §2.3, R15 and R16. Judged by a reader who did not write the outputs. |

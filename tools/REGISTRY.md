@@ -172,9 +172,10 @@ Canonical versions at `tools/evaluation/`. Project-specific variants may also ex
 
 These adherence tools remain in the Library. The former
 `tools/undertaking_evaluation/` holding moves to private Chirality Root as
-starting material, separately from this toolkit. Its recoverable Library source
-and accepted commitment standing are identified in
-[DEL-03-02's evaluation basis](../execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
+starting material, separately from this toolkit. Its Library source is
+recoverable at commit `a000e2f40f724dcda9f1158cf3c4c3ed4378884c` of this
+repository, and its accepted commitment standing is in
+[DEL-03-02's scope](../execution/PKG-03/DEL-03-02/ScopeOfWork.md).
 
 | Name | Language | Purpose | Inputs | Outputs |
 |------|----------|---------|--------|---------|

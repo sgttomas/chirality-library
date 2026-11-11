@@ -2,227 +2,136 @@
 schema: chirality-deliverable-sow/v1
 deliverable_id: DEL-04-02
 package_id: PKG-04
-decomposition_basis: execution/_Decomposition/PROJECT_DECOMP.md@e157d14910e84cf149f2ead524d585467b18e0f7
+decomposition_basis: execution/_Decomposition/PROJECT_DECOMP.md
 project_scope_refs: [SOW-0011, SOW-0014, SOW-0034]
 package_objective_refs: [OBJ-001, OBJ-002, OBJ-003, OBJ-004]
 ---
 
 # Reflective review of the practice
 
-## R18 extension after the accepted amendment
-
-The [accepted Library PRD R18/A9 amendment](../../../docs/PRD.md) removes the
-continuing Library obligation to supply the moved repository-change evaluation workflow and
-a combined actual application through the moved DEL-03-02 software. OUT-005,
-CLM-005, REQ-010–011, AC-008, VER-008 and the OUT-005 matrix row below remain
-the original accepted extension and evidence basis, rather than current
-successor production or acceptance obligations under that amendment.
-The R18-specific ownership and tool-route statements in CLM-003, REQ-006–007
-and TBD-003 describe that historical allocation. They do not impose a
-private Root dependency or transfer Root implementation into this locality.
-
-OUT-001–004 and their non-R18 requirements, criteria and verification remain
-unchanged, including ordinary reflective practice, formation evidence and the
-book. The accepted PRD amendment governs decision authority, historical standing
-and the public boundary. Source recovery and verified transfer evidence are
-connected from
-[Work/ReflectiveBasis.md](Work/ReflectiveBasis.md).
-
 ## Purpose and Objective Traceability
 
-Human–Agent 0 reflection examines whether reconciliation, chosen local goals and
-the framing of work still help the intended result. It supports a warranted
-revision or an explicit reason to retain the practice. This deliverable supplies
-reflective-practice guidance and criteria, carries the actual decomposition
-formation outputs, and evaluates their use through bounded real work.
+A person and Agent 0 can ask whether the Library's reconciliation, its chosen
+local goals and the framing of the work still serve the intended result, and
+come out with a reasoned decision to keep or change them that reaches the text
+it governs. This deliverable contributes four things to that result: the
+accepted decomposition that gives the Library its local goals; the reflective
+method and the role and coordination passages that support it; a real
+examination carried through to its consequence; and the book *Chirality in
+Practice*, which sets out the reasons and experience behind the practice.
 
-**Approved post-release extension, 2026-11-01.** The owner approved the
-complete candidate at `43c4d414304e436a7f9cdceb21ed2b4e05c26543` and its
-publication as library 1.0.1: “Approved. This will increment the published library to v1.0.1”.
-Chirality is the wider undertaking expressed through Root, App and SWBPIPE;
-the library is one place where their experience can develop shared understanding
-and means of working. This locality carries that reflective contribution through
-the additional OUT-004 below. Earlier outputs and their 1.0.0 acceptance retain
-their own subjects and evidence.
+Its allocation is the DEL-04-02 card of the
+[accepted decomposition](../../_Decomposition/PROJECT_DECOMP.md), with the
+formation allocation in that document's §8.1. It serves
+[PRD](../../../docs/PRD.md) objectives O1 to O4.
 
-This extends the original decomposition's bounded SOW-0014 contribution and its
-§6 finding that a whole manual rewrite was not then evidenced. The approved
-exception is this reflective successor, not a general commission to rewrite
-thesis, courses or project instructions. It preserves the card's concern against
-duplicating roles/workflows as another execution manual. Trace is to this later
-owner direction, OBJ-002/OBJ-003, PRD R11 and §2.3's maintained publications;
-no retrospective SOW identifier or amended historical snapshot is invented.
-Independent projects retain their commitments, authority and adoption decisions.
+| Scope item | What this deliverable contributes | Objectives | PRD |
+|---|---|---|---|
+| SOW-0011 | The accepted decomposition of bounded contributions, with its decisions and independent audit | OBJ-001, OBJ-002, OBJ-004 (O1, O2, O4) | R07, §6.2–6.3, A3 |
+| SOW-0014 | The examination of goals and framing when a finding calls them into question. DEL-04-01 holds the action and source-reconciliation side | OBJ-002, OBJ-003, OBJ-004 (O2, O3, O4) | R10, R11, A3, A5 |
+| SOW-0034 | No output. PRD §3.6 ends the Library's obligation to supply a repository-change evaluation workflow or an application of one | — | R18 as amended |
 
-The accepted basis is the Group 3 snapshot identified above, especially its
-vocabulary, objective table, scope ledger, §8.1, DEL-04-02 card, §9 and §10.
-`execution/_Decomposition/_LATEST_ACCEPTED.md` resolves that snapshot;
-its `DECISION.md` supplies acceptance and setup authority. The payload's
-pre-decision status text is historical. Relative links inside the snapshot
-resolve from the original `execution/_Decomposition/PROJECT_DECOMP.md`.
-The product warrant is `docs/PRD.md`, particularly R06–R12 and A3/A5.
+The decomposition ledger still allocates SOW-0034 here; it has not been
+amended to match PRD §3.6, and this scope follows the PRD.
 
-| Accepted scope | Local contribution | Objective contribution |
-|---|---|---|
-| SOW-0011 | Actual accepted objective-grounded decomposition, decision bindings and independent audit retained as formation outputs | OBJ-001: discoverable goals and basis; OBJ-002: formation through maintained methods; OBJ-004: bounded contributions and evaluative evidence |
-| SOW-0014 | Guidance and bounded human–Agent 0 examination of goals/framing, evidence-directed action and affected uses | OBJ-002: usable practice; OBJ-003: warranted coherence or explicit unresolved consequence; OBJ-004: revise understanding/routes while continuing unaffected work |
-
-The adopted reflective method accompanies the retained formation
-and real F-02/owner-feedback assessment. Implementation is authorized by the
-current undertaking; owner content approval is recorded in PR #1785; product acceptance remains separate.
-Requirements and evaluation retain their accepted meaning.
-
-The method design, source assessment and continuation conditions are in [Work/ReflectiveBasis.md](Work/ReflectiveBasis.md). Consumer-local needs are now declared in `deliverable.yaml`; their presence establishes no satisfaction claim.
-
-The successor R18/A9 contribution examines repository state change, whether its
-consequences justify the effort under the selected conditions, and how those
-conditions become local goals for testing improvements in the means. Existing
-reflection, book and formation results retain their own evidence and standing.
-The source-bound amendment SCA-20261101-UNDERTAKING-EVALUATION supplies this
-extension; its implementation and actual-use examination remain to be established.
+The book serves OBJ-002 and OBJ-003 as one of the maintained publications of
+PRD §2.3 and R11. It has no scope item in the ledger.
 
 ## Deliverable Definition — Ontology
 
-A reflective question concerns the usefulness of a goal, premise, method or
-monitoring arrangement for the person's intended result. Reconciliation compares
-actual work and evidence with affected commitments and declarations. Reflection
-examines whether that comparison and its framing remain useful. An undertaking is
-an authorized episode; neither dialogue nor each undertaking becomes a new
-permanent deliverable. Selected basis means the material actually governing a
-use or review; a proposed replacement cannot select itself.
+A **reflective question** asks whether a goal, premise, method or monitoring
+arrangement still serves the person's intended result. It starts from a
+concrete finding, not from a schedule or a search for things to change.
 
-All paths below are project-relative source identities. Reusable holdings stay
-at their maintained homes; locally retained reasoning/evidence belongs in
-`execution/PKG-04/DEL-04-02/Work/` or the affected contribution's own `Work/`.
-Existing checked material may supply part or all of an output. No new file is
-required merely to give an output a separate container.
+A finding can show one of four things: a repair needed under existing
+commitments; an inadequate explanation; an unsuitable practice; or a purpose
+or commitment that needs the human's reconsideration. The examination ends in
+one of three results: the route is **retained** with its reason; a method is
+**changed** within existing authority; or a **reserved choice** is returned to
+the owner with its consequence.
 
-- **OUT-001** — Actual objective-grounded decomposition formation set: normalized scope/vocabulary/objectives, bounded package/deliverable design, applicable Group 2 decision binding, separate Group 3 audit and final owner acceptance with their accepted snapshots and manifests at `execution/_Decomposition/`. This is SOW-0011's concrete formation result under accepted §8.1, supporting OBJ-001, OBJ-002 and OBJ-004; it is not a commission to repeat decomposition or establish an enduring decomposition product.
-- **OUT-002** — Usable reflective guidance and criteria in `workflows/reflect-on-work/WORKFLOW.md`, with `agents/AGENT_HELP_HUMAN.md` supplying posture and `workflows/coordinated-knowledge-work/WORKFLOW.md` supplying orchestration where needed, with explanatory rationale there or in affected owning Work where needed. Cover noticing a changed question, comparing local completion with intended use, examining the cost and warrant of monitoring, and deciding to retain a route, revise a method or return a reserved choice. SOW-0014; OBJ-002, OBJ-003, OBJ-004.
-- **OUT-003** — Bounded real application evidence: the question and selected basis, actual goal/action/input condition, consequential finding, human–Agent 0 judgment, affected-use examination and authorized consequence or warranted retention. Retain only consequential reasoning in existing owning Work and the actual review record, and apply warranted changes in their governing sources. This supplies the reflective portion of SOW-0014 and A3, supporting OBJ-002, OBJ-003, OBJ-004; it does not require a transcript, separate reflection report or recurring receipt.
+**Reconciliation** compares a result with the commitments as they stand and is
+DEL-04-01's. **Reflection** asks whether those commitments, their framing or
+the practice still serve. Neither replaces the other.
 
-- **OUT-004** — Reflective book, *Chirality in Practice*, in `docs/alignment-manual/Chirality_in_Practice_Edition_1.md` and its generated HTML, with a source-basis note inside the book and a minimal optional connection from reflect-on-work. Develop the thesis's relationship to practice across projects, including what experience can warrant retaining or changing in the shared library. Preserve v9 and its selected uses. This is a post-release addition under the owner direction above, supporting OBJ-002/OBJ-003; it adds no recurring project reports, mandatory reading or consumer rollout.
+The **formation set** is the accepted decomposition and what establishes its
+acceptance.
 
-Navigation in the README, publication index and course entry remains DEL-01-01's
-contribution; consumer obtaining/adoption standing remains DEL-05-01's. The same
-coordinated proposal reconciles those sources through their owning material
-under the owner's direction, with Agent 0 as the shared-file editor and
-integration owner. OUT-004 does not acquire those responsibilities or amend
-REQ-006/REQ-007's limits on unilateral action.
+- **OUT-001** — The formation set under `execution/_Decomposition/`: the normalised scope, vocabulary and objectives; the package and deliverable design; the owner's decisions; the independent audit; and the accepted snapshots with their manifests. Serves SOW-0011.
+- **OUT-002** — Reflective guidance: the method `workflows/reflect-on-work/WORKFLOW.md`; the passages of `agents/AGENT_HELP_HUMAN.md` on intended outcome, changed questions, commitments and continuity; and the coordinated-knowledge-work workflow's passages on testing a premise, diagnosing waiting and when to finish. Together they let a reader notice a changed question, compare local completion with intended use, weigh the cost and warrant of monitoring, and decide to retain a route, revise a method or return a reserved choice. Serves SOW-0014.
+- **OUT-003** — A real application: a bounded question examined with the human and Agent 0, the judgment reached with its reason, and its consequence carried into the governing text or an explicit reason for retention. It needs no transcript and no reflection report. Serves SOW-0014 and the reflective side of PRD A3.
+- **OUT-004** — The book *Chirality in Practice: Extending Human Capability with Agents*, first edition, at `docs/alignment-manual/Chirality_in_Practice_Edition_1.md` with its generated HTML, and one optional link to it from reflect-on-work. It develops the thesis's relation to practice across the Chirality projects and what experience can warrant keeping or changing in the shared Library. It stands on its own account, with no lineage to an earlier manual, and adds no instructions, required reading or reports.
 
-**Approved source-home refinement (PR #1785):** OUT-002 previously located
-reflective guidance in HELP_HUMAN and coordinated-knowledge-work. The owner
-clarified that orchestration is not the reflective method. The adopted distinct
-reflect-on-work method supplies bounded human–Agent 0 examination, while retaining
-those holdings for their actual contributions. The purpose, scope, requirements,
-criteria and verification methods are unchanged; owner approval preceded integration.
+Definitions and boundary:
 
-- **CLM-001** — Formation standing is established by the Group 1 decision/snapshot at `execution/_Decomposition/checkpoint_snapshots/GROUP1-20261031T231127Z/`, Group 2 at `execution/_Decomposition/checkpoint_snapshots/GROUP2-20261101T005422Z/` and Group 3 at `execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/`. During this authoring all manifest entries in these snapshots verified. Group 3 payload SHA-256 is `313bdb78d1a000d8a903aa12197603ac45bcb7a601df1ee12447eaaf29031261`; `docs/PRD.md` verified as `95c3c25ee36d4d4ddadf54d266a47a2ee58c6b37fbbdef75ad20a97986a718ca`. The audit supports decomposition meaning/representation, not live setup, A3 fulfillment or product acceptance. Group 2's decision binds Agent 0's translation without claiming the owner inspected its exact rendered bytes.
-- **CLM-002** — HELP_HUMAN already addresses intended outcome, changed questions, commitments/evidence and continuity. Coordinated knowledge work already examines premises, combined results, waiting and when to finish. They remain reusable posture/orchestration inputs, but do not substitute for the adopted reflect-on-work method. Work retains the actual formation, F-02 and owner-feedback assessment and the new design rationale; their presence does not establish acceptance or universal application evidence.
-- **CLM-003** — Accepted §8.1 and §9 allocate reconciliation practice and setup/need formation coverage to `DEL-04-01`, broader maintenance procedures to `DEL-02-01`, specific shared-reference/publication clarification to `DEL-02-02`, the existing executable tools and direct usage contracts to `DEL-03-01` (the R18 addition is separately allocated by CLM-005), and obtaining/version/publication-inspection guidance to `DEL-05-01`. Each actual implementation owner retains its source edits, ScopeOfWork, Work and needs through repairs; Agent 0 retains combined-result integration. These are responsibility boundaries, not new supplier appointments.
-- **CLM-004** — `AGENTS.md`, PRD R06/R10/R15 and accepted §8.1/§10 retain changed commitments/acceptance criteria, product acceptance, risk acceptance, explicit holds and release with the owner. Human–Agent 0 dialogue supplies reflective judgment; Agent 0 coordinates within the grant. Existing protected or adopted baselines retain their applicable decision/adoption authority. Each independent consuming project's owner controls its adoption, policy, production and release. Frozen work requires explicit owner reactivation; additional archival disposition remains the owner's Q-01 decision.
+- **CLM-001** — Each checkpoint snapshot under `execution/_Decomposition/checkpoint_snapshots/` holds a payload, a `DECISION.md` and an `ACCEPTED_MANIFEST.csv`. The decision, not status wording inside the payload, states the acceptance. The Group 2 decision binds Agent 0's rendering of the structure the owner approved; it does not say the owner inspected those bytes. `_LATEST_ACCEPTED.md` names the accepted decomposition and how to recover its exact reviewed content. `PROJECT_DECOMP.md` is the working decomposition. Accepted snapshots are never rewritten.
+- **CLM-002** — Reflection is a method of its own. HELP_HUMAN supplies the posture and coordinated knowledge work organises contributors; neither substitutes for reflect-on-work. HELP_HUMAN, HELPS_HUMANS and WORKING_ITEMS may own the method. TASK contributes bounded evidence through its caller.
+- **CLM-003** — The reconciliation method and the localities with their needs belong to DEL-04-01. The wider maintenance route, including how a role or workflow is revised, belongs to DEL-02-01. The shared-reference repair belongs to DEL-02-02. Tools and their usage contracts belong to DEL-03-01. Navigation to the book in the README and the manual index belongs to DEL-01-01, and obtaining, compatibility and publication, with the index's edition recovery and render instructions, to DEL-05-01. In `agents/AGENT_HELP_HUMAN.md` and `workflows/coordinated-knowledge-work/WORKFLOW.md` this deliverable's part is the passages named in OUT-002. Which deliverable answers for the rest of the role is undecided, and the step before integration in coordinated-knowledge-work at which the combined result is checked is DEL-04-01's. Who owns that workflow's sections on briefing, shared generated artifacts and shared limits, and the `REVIEW-NOTES.md` beside it, is undecided.
+- **CLM-004** — Changes to commitments or acceptance criteria, risk acceptance, explicit holds, protected baselines, acceptance and release belong to the owner. Each consuming project decides its own adoption, policy and release. Publishing an edition of the book is an owner act.
 
-- **OUT-005** — A reusable tool-supported evaluation workflow and bounded actual-use evidence, using the DEL-03-02 software contribution. Its selected question connects repository before/after states, useful conditions, relevant effort, local goals/hypotheses, outcome examination and a warranted retain/change/reframe or missing-ground return. Workflow sources remain in the Library; case data stays in its authorized consumer location. Public evidence is cleared. No transcript or periodic report is required for unrelated work. Scope: SOW-0034; PRD R18/A9; objectives OBJ-002, OBJ-003, OBJ-004.
-- **CLM-005** — Under SCA-20261101-UNDERTAKING-EVALUATION and PRD R18/A9, DEL-03-02 owns executable import, repository-state measurement/comparison, local report and case/trial support with direct usage contracts. DEL-04-02 owns the question, interpretive method and usefulness of their combined application; DEL-04-01 retains actual source reconciliation. DEL-03-01 retains the existing toolkit. Human commitments, product acceptance, release and consumer adoption retain their actual owners under CLM-004.
+Outside the product: a repository-change evaluation workflow or tool-supported
+evaluation; a standing monitoring service; a recursive review hierarchy; an
+automatic model loop; scheduled reflection; and any rollout of the practice to
+another project.
 
 ## Completion and Reliance Basis — Epistemology
 
-- **REQ-001** — Account for the actual formation set in OUT-001 using the accepted decisions, manifests and separate audit, preserving original identities and historical qualifications. Generic reflective guidance cannot substitute for SOW-0011's §8.1 outputs. Use CLM-001 as existing evidence, without inferring setup or product completion.
-- **REQ-002** — OUT-002 shall help a specialist and Agent 0 identify a bounded framing/practice question, connect it to purpose and accepted goals, distinguish evidence from uncertainty, compare monitoring effort with its benefit and warrant, and choose retention, authorized method repair or an owner decision. Preserve human judgment, local source ownership and the ability to continue unaffected work. Do not prescribe meetings, exhaustive audits or successive monitoring levels.
-- **REQ-003** — OUT-003 shall examine a real question with the human and Agent 0 against intended use, evidence, uncertainty and consequences. A retain/change conclusion must have an explicit reason; authorized consequences reach the governing text or local work. Unresolved warrants remain visible, and a reserved choice is returned with its consequence rather than silently decided.
-- **REQ-004** — An A3 claim shall bind accepted and set-up local scope to product objectives, an actual authorized action selected from evidence and a meaningful input/use condition, a finding changing the route or understanding, and examination of affected neighboring uses. This deliverable examines changed understanding/framing; CLM-003 identifies the reconciliation and local implementation contributions. A synthetic fixture, discussion, structural pass or formation snapshot alone cannot establish A3.
-- **REQ-005** — Any reflective instruction revision shall be reviewed under its preceding applicable basis, with the old basis recoverable, the actual candidate and means of maintenance checked proportionately, and actual adoption authority preserved. An unchanged existing passage may satisfy guidance where supported by review and use evidence. Tests implement verification; they do not define or reduce acceptance.
-- **REQ-006** — This deliverable shall perform no act owned by another deliverable as enumerated in CLM-003: administering setup/needs formation or owning the reconciliation procedure (`DEL-04-01`); owning the broader maintenance-operation procedure set (`DEL-02-01`); making the separately scoped reference/publication clarification (`DEL-02-02`); implementing existing utilities and their direct usage contracts (`DEL-03-01`), or the R18 evaluation software and its direct usage contracts (`DEL-03-02`, CLM-005); or owning consumer obtaining/version/publication-inspection guidance (`DEL-05-01`). Findings concerning these acts return to their named contribution and actual implementation owner. Reflection may warrant a change without authorizing or duplicating that work.
-- **REQ-007** — Under CLM-003 and CLM-004, exclude unilateral edits to another contributor's commitments/Work/needs (that implementation owner, within its grant); combined-result integration by this scope author (Agent 0); changes to commitments or acceptance criteria, risk acceptance, lifting explicit holds and product acceptance/release (the owner); changing protected/adopted baselines without their governing authority (the actual baseline decision/adoption owner); consumer rollout, policy change or production release (the consuming project's owner); frozen development or verification and additional archival removal (the owner through explicit reactivation/disposition). R18 supplies an optional bounded evaluation practice with DEL-03-02 tools (CLM-005). A standing monitoring service, recursive hierarchy or automatic model loop still has no allocation; other new commitments return to the owner rather than appointing suppliers.
-- **REQ-008** — Public guidance and retained evidence shall exclude credentials and private operational data, preserve source identity and distinguish actual observation, reused evidence, walkthrough and unknown. Q-04 named consumer sources and Q-05 publication candidate/prior basis must be bound before making their respective compatibility/publication claims; neither is supplied by reflection or generic examples.
+- **REQ-001** — The formation set shows which decomposition is accepted, by whose decision, and on what independent audit, with each snapshot's files matching its manifest. Reflective guidance does not stand in for it. Source: SOW-0011; PRD R07; decomposition §8.1.
+- **REQ-002** — The guidance helps a person and Agent 0 frame a bounded question about framing or practice, connect it to the purpose and accepted goals, tell evidence from uncertainty, weigh monitoring effort against its benefit, and choose retention, an authorised method repair or an owner decision. It keeps human judgment, local ownership and the continuation of unaffected work. It prescribes no meetings, exhaustive audits or successive levels of monitoring. Source: SOW-0014; PRD R10, R11; decomposition card.
+- **REQ-003** — An application examines a real question with the human and Agent 0 against intended use, evidence, uncertainty and consequences. A conclusion to retain or change gives its reason; an authorised consequence reaches the governing text; an unresolved warrant stays visible; a reserved choice is returned with its consequence, not decided silently. Source: decomposition card.
+- **REQ-004** — For PRD A3 this deliverable supplies the examination of what a finding meant for the goal or framing. The case itself, an actual authorised action on accepted and set-up scope, is defined by DEL-04-01/AC-005. A discussion, a structural pass or the formation set alone does not establish A3. Source: PRD A3; decomposition §8.1, §9.
+- **REQ-005** — A revision of reflective guidance is made through the Library's maintenance route and reviewed under the text that preceded it, which stays recoverable until the replacement is verified and adopted. Both the revised passage and the means used to revise it are checked, and proposed text does not authorise itself. A passage that already meets REQ-002 is kept unchanged. A test implements a verification; it does not define or reduce a criterion. Source: PRD R06, A5.
+- **REQ-006** — The outputs contain nothing CLM-003 allocates to another deliverable. A finding about another deliverable's product goes to that deliverable's implementation owner; reflection may warrant a change there without making it.
+- **REQ-007** — The guidance directs no edit of another contributor's scope or needs, no change to a commitment, criterion, hold, protected baseline or risk disposition, and no acceptance, release or consumer rollout. Those go to the owners in CLM-004.
+- **REQ-008** — Published guidance, the book and the formation set hold no credentials or private operational data, keep the identity of their sources, and tell apart actual observation, reused evidence, constructed example and unknown. Source: PRD R17.
+- **REQ-009** — The book is a coherent reflective account grounded in identified practice and explanatory sources. It distinguishes the author's commitments, interpretations of documented experience, constructed cases and proposals; states the limits of generalising across projects; and presents learning across the projects as a direction, not an established practice. It uses an impersonal voice and invents no first-person experience. It explains how experience, shared understanding, changed Library means and independent adoption bear on one another, including work after an undertaking is complete, without prescribing another execution system. It replaces no other publication.
 
-- **REQ-009** — OUT-004 shall be a coherent reflective account grounded in identified practice and explanatory sources. Preserve the distinction between actual observations, reused documentary evidence, constructed cases and authorial interpretation; characterize the limits of generalization across projects. Explain the reciprocal relationship among experience, shared understanding, changed library means and independent adoption without prescribing another execution system. Preserve historical sources and readable external-user routes; any changed instruction or discovery claim must be reconciled at its actual source under preceding authority.
-
-- **AC-001** — OUT-001 provides the actual accepted normalized basis and bounded design, Group 2 decision binding, separate Group 3 audit and final acceptance; manifests and source identities resolve, and historical submission labels and exact-byte approval limits are interpreted correctly. Verified by VER-001.
-- **AC-002** — OUT-002 supports identifying a changed question, comparing local completion with intended use and monitoring cost/warrant, and distinguishing retain, authorized method revision and reserved-choice routes. Existing or revised passages are usable together without mandatory ceremonies or recursive oversight. Verified by VER-002.
-- **AC-003** — OUT-003 demonstrates a bounded real human–Agent 0 examination yielding a warranted retain/change decision or an explicit unresolved reserved choice with consequence, and shows that any authorized consequence reached its owning material. Verified by VER-003.
-- **AC-004** — The A3 application in OUT-003 traces an accepted/set-up local goal to product objectives, demonstrates action from actual evidence and a specific input/use condition, and shows a finding changing route/understanding with affected neighboring uses examined. Verified by VER-004.
-- **AC-005** — OUT-002's retained guidance has a reasoned adequacy assessment; where revised, its actual candidate and maintenance means are checked under the preceding applicable basis, with that basis recoverable and adoption authority explicit. Verified by VER-005.
-- **AC-006** — Across OUT-001, OUT-002 and OUT-003, evidence preserves the stated owners, public boundary, historical qualifications and unresolved inputs; no formation, structural or dialogue-only evidence is represented as a stronger fulfillment, compatibility, release or adoption claim. Verified by VER-006.
-
-Formation evidence for AC-001 is available as CLM-001. The guidance and application
-criteria are not declared satisfied by this setup contract. In particular, A3's
-actual accepted/set-up case remains unestablished here. Product acceptance is a
-separate owner judgment, not a validator result.
-
-- **AC-007** — OUT-004 expresses that reflective character consistently across the manuscript, index, README and method connection; its case claims resolve to their actual sources and limits, its complete rendered form corresponds to identified Markdown, and v9/published 1.0.0 remain unchanged. The human can examine the title, interpretation and exact scope/instruction changes together. No new project obligations, automatic adoption or author approval are inferred merely from the text. Verified by VER-007.
-
-- **REQ-010** — OUT-005 shall frame a selected repository state-change question and the conditions under which that change would justify effort. Bind source/candidate identities, actual outcome, applicable evidence, affected uses and coverage. Distinguish prescribed methods from enacted practice, observations from interpretations, and quality of a repository change from efficiency of its means. Do not infer causation from temporal association or silently regrade old work under changed criteria. Judge the evaluation's own categories, grounds and cost as part of its adequacy.
-- **REQ-011** — OUT-005 shall support deriving specific local goals from useful state conditions and examining hypotheses about method, context, tool or coordination improvements using an appropriate case/comparison when warranted. Select only the host data, tools, writes and resources the undertaking needs. Coordinate through the existing roles; do not mandate permanent observation, repeated approval of ordinary acts, a benchmark at every merge or a universal score. Carry authorized consequences to their owning source; retention and reframing remain valid conclusions.
-- **AC-008** — In one named actual application using the supported DEL-03-02 route, the recipient can follow a state-change condition into a local goal or hypothesis, inspect the actual resulting repository state and effort, and understand the warranted conclusion and its limits. Examine the comparison/criteria themselves, distinguish missing evidence and negative results, and account for assessment burden. Reuse grounded evidence; fixtures alone do not establish actual-use fitness. Verify by VER-008.
+- **AC-001** — `_LATEST_ACCEPTED.md` names the accepted decomposition and how to recover its exact reviewed content, and that recovery succeeds. Every file listed in each snapshot's manifest matches its recorded hash. The working decomposition gives every scope item one package, every in-scope item at least one deliverable, and every deliverable a goal, scope items, objectives, anticipated outputs, evaluation and boundary. The independent audit is present with its findings and limits. Verified by VER-001.
+- **AC-002** — From the guidance in OUT-002 a reader with a concrete finding can identify the changed question, compare local completion with intended use, weigh the cost and warrant of monitoring, and tell the retain, authorised-revision and reserved-choice routes apart. The passages work together and require no ceremony, schedule, report or further layer of oversight. Verified by VER-002.
+- **AC-003** — One real examination with the human and Agent 0 shows its question, the judgment reached and its reason, what stayed uncertain, and either the governing text that changed as a result or the explicit reason the route was retained. A reserved choice that was returned is distinguishable from one that was decided. Verified by VER-003.
+- **AC-004** — For the A3 case that DEL-04-01 identifies, the examination with the human of what its finding meant for the goal or framing is shown: the judgment, its reason and its consequence in the governing text. Verified by VER-004.
+- **AC-005** — Each revision of the guidance in OUT-002 was reviewed under the preceding text, with checks of both the revised passage and the means used to make it. That text is recoverable from Git, and the adoption names the authority that adopted it. An unrevised passage meets REQ-002 when read by someone who did not write it, and a review that weighed changing it and kept it says why in its pull request or return. Verified by VER-005.
+- **AC-006** — Across the outputs, reserved choices go to their owners, nothing allocated to a sibling deliverable appears, no formation, structural or discussion-only evidence is presented as fulfilment, compatibility, release or adoption, and the public text passes the credential scan. Verified by VER-006.
+- **AC-007** — The book reads as a reflective account throughout, and the manual index, the README and the link from reflect-on-work present it that way. Each case claim resolves to its source and states its limit, and the link from reflect-on-work resolves to an exact book source. The HTML is the renderer's output for the committed Markdown. No other publication is changed by it, and nothing in it creates an obligation, adoption or approval. Verified by VER-007.
 
 ## Production and Verification Method — Praxeology
 
-Start with the person's current purpose, accepted objectives and the affected
-local goal. Select a bounded question when experience reveals a changed purpose,
-burden or repeated mismatch. Read the actual guidance basis and the relevant
-reconciliation/work evidence; no calendar, global census or standing backlog is
-needed. Reuse adequate holdings and checked evidence. If a gap warrants a reusable
-workflow edit, use `workflows/create-workflow/WORKFLOW.md` before revising it.
+Choices that define the product:
 
-Compare the question's definitions/relationships, warranted claims, described
-actions and governing values together. Human–Agent 0 dialogue decides how to
-frame the issue within actual authority. Carry authorized changes through the
-owning contribution and same-PR reconciliation; use one shared-file editor for
-related changes. Retain consequential rationale where the next contributor reads
-it, leaving unchanged declarations alone. Stop at the supported agreed result.
+- Reflection starts from a concrete finding and the person's intended result.
+  It frames the smallest question that could change a useful decision.
+- Its result is carried into the governing text by that text's owner. Ordinary
+  disagreement between a result and a scope goes to bounded reconciliation; a
+  method change goes through `workflows/create-workflow/WORKFLOW.md`.
+- The method needs no tool, resource file, matrix, score or report.
+- The book's Markdown is its source. The HTML is generated from a committed
+  source revision by `docs/alignment-manual/render_manual.py` and is never
+  edited by hand.
+- A change to the decomposition's allocation goes through the scope-change
+  route and a new accepted basis. A snapshot is never edited.
 
-| Input and source | Trigger and use condition |
-|---|---|
-| Current human purpose/steering and accepted PRD/objectives | Every bounded reflection: establish intended use and authority; changed commitments still need the owner |
-| Verified formation decisions, accepted snapshots and audit in CLM-001 | Establishing scope or reassessing its framing: preserve decision standing and earlier source identities; no repeat formation undertaking inferred |
-| Affected local ScopeOfWork, Work and deliverable.yaml | When a real goal/input condition informs reflection: inspect actual evidence and maturity; empty needs or mere presence establishes no suitability |
-| Concrete reconciliation/action evidence and candidate revision | For the selected practice question and A3 application: bind the case, authorized action, condition and actual observations; do not wait for whole-deliverable completion |
-| HELP_HUMAN, adopted reflect-on-work and relevant orchestration at their actual selected revision | Before evaluating or changing guidance: retain the preceding basis and check proposed changes under it |
-| Relevant neighboring/consumer sources | When a consequence affects that use: bind its actual contract/revision or keep the unknown/hold explicit; Q-04/Q-05 apply only to claims requiring those sources |
-
-These are inputs for later consumer-local need authoring, not a complete graph or
-supplier commitment. Parent-managed dependency authoring follows scope authoring;
-this contract does not write `deliverable.yaml` or centralize neighboring records.
-
-- **VER-001** — Inspect the actual formation payload, decisions and independent audit; verify each accepted manifest and the PRD identity; compare SOW-0011 and §8.1 with the bounded design and objective/output/evaluation mappings. Preserve the audit's findings and limits. Existing checked formation sources may be the complete evidence for AC-001.
-- **VER-002** — Review the selected guidance as a reader with a bounded question: locate purpose, evidence/uncertainty, monitoring cost/warrant and the retain/change/reserved routes. Evaluate their usability together against the accepted card and human-directed limits. Record material gaps in owning work; source inspection alone establishes no real application.
-- **VER-003** — Examine the actual bounded question and consequential human–Agent 0 judgment with the human/Agent 0, tracing its reasons, uncertainty and consequence to the actual governing edit, affected Work or reason for retention. Use existing work/review evidence; require neither transcript nor separate report. Distinguish a reserved choice returned from one actually decided.
-- **VER-004** — Inspect the selected real A3 case end to end: accepted/set-up scope, objective trace, actual condition and authorized action, observed finding, changed route/understanding and affected-use examination. Reuse local owners' evidence and the reconciliation contribution; mark missing action/condition evidence unverified and distinguish it from formation or synthetic checks.
-- **VER-005** — Compare retained or revised guidance with its preceding selected basis and authorized change scope. For retention, assess why existing passages suffice; for a revision, inspect the actual diff, applicable method checks, recovery of the old basis and the authorized adoption decision. Verify the maintenance means as well as the output, with focused tests and independent scrutiny where the actual change requires them.
-- **VER-006** — Review the actual output/evidence claims against REQ-006, REQ-007, REQ-008 and their cited ownership sources, checking each excluded act and decision owner. Screen changed public content and retained evidence through maintained credential checks; state screening limits. Inspect historical/unknown/consumer qualifications and ensure structural evidence is not promoted to acceptance.
-
-- **VER-007** — Compare the complete book with the named thesis/case sources, examining reasons and qualifications rather than only introductory wording. Use independent scrutiny of the full manuscript and examine its substantive objections. Check source-qualified links, edition standing, preceding-source preservation, scope trace and the selected renderer's actual source/hash correspondence. Distinguish content review and rendering checks from fresh product execution or measured productivity. Present the complete candidate and precise post-release scope addition for owner content review; publication remains a separate act.
-
-- **VER-008** — Inspect the actual source-bound question, repository states, work observations, selected case conditions and outcome examination with the human/Agent 0. Check the tool report against its evidence and the named use, scrutinize the comparison's assumptions and alternatives, and trace the conclusion to retention, reframing, an authorized source change or an explicit remaining decision. Use independent grounds appropriate to the claim, not evaluator agreement alone. Record actual subjects, uncertainty and evaluation cost; product acceptance remains a separate owner act.
+- **VER-001** — Open `_LATEST_ACCEPTED.md` and follow its recovery route. For each snapshot, compute the SHA-256 of every file its `ACCEPTED_MANIFEST.csv` lists and compare. Read the working decomposition's ledger and cards for the coverage AC-001 names, and read the audit's findings and limits.
+- **VER-002** — A reader who did not write the guidance takes a bounded finding through reflect-on-work and the named passages, and records where each step in AC-002 is found and any ceremony, schedule or report the text requires. Reading the text establishes usability, not that a real application took place.
+- **VER-003** — With the human and Agent 0, trace the selected examination from its question to the governing edit or the reason for retention, using the pull request and the changed text. Require no transcript.
+- **VER-004** — Read the case DEL-04-01 identifies and locate the reflective judgment about its finding and that judgment's consequence. Mark missing evidence as unverified; a labelled or synthetic case is rejected.
+- **VER-005** — Comparison with a named reference (the preceding text in Git) and judgment by a reader who did not write the passage: For each revision, compare the diff with the preceding text, confirm the maintenance route was followed and the checks of the means used are identifiable, confirm the old text is recoverable, and identify who adopted it. For a retained passage, read the passage itself against REQ-002.
+- **VER-006** — Read the outputs against REQ-006, REQ-007 and REQ-008, naming each reserved choice and where the text sends it. Run `python3 tools/validation/validate_run_record_leaks.py --base <base> --head <head>` on the change and state what the scan does not cover.
+- **VER-007** — Read the whole book, not only its introduction, against REQ-009, with scrutiny by someone other than its drafter. Follow each case claim and the reflect-on-work link to its source as a reader of the public Library would, without private access. Run `python3 docs/alignment-manual/render_manual.py --source <book.md> --output <book.html> --basis-date <date> --basis-revision <commit> --edition-label 'Chirality in Practice · First edition' --metadata-at-end --check`. Read the index and README entries. The author reviews title, interpretation and content; publication is a separate act.
 
 ## Governing Values and Decisions — Axiology
 
-- **AX-001** — Judge local completion by the human's intended result. Reflection is useful when it improves a warranted decision or explains retention; adding reports, agents or monitoring layers is not itself progress. Human judgment bounds the inquiry.
-- **AX-002** — Preserve commitments and historical evidence. An adverse result may show missing behavior, stale description, missing evidence or unsuitable framing; none licenses weakening acceptance to obtain a pass. Expose a substantive ambiguity as CONFLICT with its consequence, while continuing unaffected authorized work.
-- **AX-003** — The Group 3 decision authorizes setup: “I accept this decomposition as the basis for project setup.” Its direct-management and Type 2 authoring direction supplies this authoring authority, not implementation, permanent staffing, product acceptance or release. The owner and Agent 0 retain their actual responsibilities under CLM-004.
-- **TBD-001** — The selected reflective case is the actual owner feedback on F-02’s too-small first-return boundary and the subsequent coherent undertaking, examined in Work with its human–Agent 0 judgment, reasons and consequences. F-02’s validator counterexample supplies related source/action evidence; the later Git-layer and reflective-method discussion refined the guidance adopted in PR #1785. Broader fulfillment remains unestablished.
-- **TBD-002** — Q-03 future production assignments remain open; the present author assignment establishes no permanent guidance maintainer or supplier appointment. Agent 0 assigns authorized bounded work and coordinates shared reflective-method edits with affected contributions.
-- **TBD-003** — Q-01 retains unselected archival paths pending specific owner disposition; `plans/` and `_DomainEngines/` were removed on 2026-11-04 and are preserved in the private `sgttomas/chirality` repository. SCA-20261101-UNDERTAKING-EVALUATION selects the bounded R18/A9 contribution, with tool ownership in DEL-03-02 under CLM-005. Q-02 remains conditional for all other bespoke tooling/companions; no standing monitoring mandate or already-implemented capability is implied. Neither condition authorizes work through this contract.
-- **TBD-004** — Q-04's named maintained consumer contract/fixtures and exact revision, and Q-05's verified publication candidate/version label and prior comparison basis, remain unresolved at this contract's basis. They condition any relevant compatibility, incompatible-change or publication-inspection claim coordinated through DEL-05-01; they do not block independent reflection or establish adoption/release. Private evidence remains local and only cleared public material may support public claims.
-
-No substantive source conflict was identified during initial authoring. Later
-contradictory requirements or authority claims must remain explicit rather than
-being resolved by formatting or validation. Work maturity and issue findings
-belong in actual owning Work/review material; no lifecycle file or routine receipt
-is introduced.
+- **AX-001** — Local completion is judged by the human's intended result. Better is more reflective questions that end in a decision reaching its governing text, or a stated reason to retain, for less interruption of the work. That may never be gained by adding reports, agents or monitoring layers, or by taking a decision on purpose or commitments away from the human.
+- **AX-002** — Commitments and historical evidence are preserved. An adverse finding may show missing behaviour, a stale description, missing evidence or an unsuitable framing; better is naming which. No finding licenses weakening a criterion to obtain a pass, and a substantive ambiguity is stated with its consequence while unaffected work continues.
+- **AX-004** — The book's claims are no stronger than their grounds. Better is more of its claims traced to an identified source with the limit stated. That may never be gained by turning the book into instructions or by reporting as established what is a proposal or a constructed case.
 
 ## Output and Evaluation Matrix
 
 | Output | Objective refs | Requirement/claim refs | Acceptance refs | Verification refs | Evidence expectation |
 |---|---|---|---|---|---|
-| OUT-001 | OBJ-001, OBJ-002, OBJ-004 | REQ-001, CLM-001 | AC-001 | VER-001 | Actual accepted snapshots, decisions, manifest-bound design and independent audit with original qualifications; existing formation evidence |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-002, CLM-002 | AC-002 | VER-002 | Identified usable existing/revised guidance and bounded content review with remaining gaps explicit |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-003, CLM-003, CLM-004 | AC-003 | VER-003 | Real question, consequential judgment/reason, uncertainty and trace to governing consequence or retention |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-004, CLM-001, CLM-002 | AC-004 | VER-004 | Accepted/set-up case, actual action/input condition, changed understanding/route and examined neighboring uses |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-005, CLM-004 | AC-005 | VER-005 | Retention rationale or checked candidate plus preceding basis, maintenance-method evidence and actual adoption authority |
-| OUT-001 | OBJ-001, OBJ-002, OBJ-004 | REQ-006, REQ-007, REQ-008, CLM-003, CLM-004 | AC-006 | VER-006 | One-for-one boundary review, bounded public-data screening and honest claim/unknown/source qualifications |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-006, REQ-007, REQ-008, CLM-003, CLM-004 | AC-006 | VER-006 | One-for-one boundary review, bounded public-data screening and honest claim/unknown/source qualifications |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-006, REQ-007, REQ-008, CLM-003, CLM-004 | AC-006 | VER-006 | One-for-one boundary review, bounded public-data screening and honest claim/unknown/source qualifications |
-| OUT-004 | Later owner direction, OBJ-002, OBJ-003 | REQ-009; REQ-005–008 boundaries remain applicable | AC-007 | VER-007 | Full reflective manuscript, source-grounded cases, independent consultation, rendered correspondence and explicit scope/content review |
-| OUT-005 | OBJ-002, OBJ-003, OBJ-004 | REQ-010, REQ-011, CLM-005; REQ-005–008 boundaries | AC-008 | VER-008 | Identified actual-use case, independent grounds appropriate to the claim, inspectable state/effort relationship and warranted return |
+| OUT-001 | OBJ-001, OBJ-002, OBJ-004 | REQ-001, CLM-001 | AC-001 | VER-001 | Acceptance is read from each snapshot's `DECISION.md`, and the audit is by a reviewer who did not author the decomposition. The manifests are the formation set's own earlier output and only guard against change. Coverage is read against PRD R07 and §6.2. |
+| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-002, CLM-002 | AC-002 | VER-002 | What the guidance must support comes from the decomposition card and PRD R10 and R11. Whether the text delivers it is judged by a reader who did not write it. |
+| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-003, CLM-004 | AC-003 | VER-003 | What an application must show comes from the decomposition card. The case is a real examination; the human who took part confirms the judgment and its consequence. |
+| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-004 | AC-004 | VER-004 | What the case must show comes from PRD A3, and the case from DEL-04-01. The human confirms the reflective judgment. |
+| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-005, CLM-004 | AC-005 | VER-005 | The rule comes from PRD R06 and A5. The preceding text comes from Git history. |
+| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-006, REQ-007, REQ-008, CLM-003, CLM-004 | AC-006 | VER-006 | Reserved choices come from PRD §5 and R10 and the sibling allocation from decomposition §9. The credential scan is the Library's own tool and covers only the patterns it holds. |
+| OUT-004 | OBJ-002, OBJ-003 | REQ-009, REQ-008 | AC-007 | VER-007 | Whether the book has the character REQ-009 states is judged by a reader other than its drafter. Case claims are checked against their cited sources, which lie outside the book. The render check compares the HTML with the renderer's own output and only guards against change. |

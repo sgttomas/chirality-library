@@ -1,89 +1,86 @@
 id: DEL-05-01
 name: Obtain, qualify and inspect identified library material
 needs:
-- from: doc:README.md
-  condition: Select the actual exported holding/use surface and its maintained guides, resources and applicable
-    LICENSE/component notices at an identified revision. Ordinary file reading needs no Git; executable
-    use retains its real dependencies and source/adaptation distinctions.
-  when: Drafting or exercising the obtaining/use route
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: external:chirality-app
-  condition: For the selected package capture/declaration/content-identity claim, use App 366e7a6656d807142e7bdeda0ccf99c37d7227b1
-    Snapshot reader, WORKFLOW_DECLARATION sections 6.1/7 and WORKSPACE_AND_REGISTRATION section 4.5, with
-    exact Root 1357d706ea77497903976bf159f3880bea4d1360 package bytes and the bounded fixture evidence
-    in owning Work. Different operations, revisions or incompatible changes require their own named basis
-    and evidence. No adoption, registration or execution is inferred.
-  when: Establishing named compatibility or selecting an incompatible interface change
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: doc:README.md
-  condition: For the broader complete-library source candidate, bind Root 7c334bf5cb529a814e0f96f68bc8d9500b15cdd5,
-    the complete tracked archive and retained notices, the comparison with 547e7d7f833f9bec351f7a034bddd7c1a37db15a,
-    and selected standalone-use checks recorded in Work/ConsumerBasis.md. Earlier F-02/manual source and
-    rendering evidence retain their distinct recorded bases. An identified candidate is not an owner release;
-    any new source revision requires checking what evidence remains applicable. Post-90 publication preparation
-    uses Work/PublicationNotes.md and its candidate PR to bind the proposed edition, actual source/archive,
-    comparison and applicable checks; earlier archives retain their own identities. For the owner-selected
-    1.1.0 increment, use Work/PublicationNotes-1.1.0.md and the preparation
-    PR for the exact source/archive, comparison against library-v1.0.2 and applicable checks.
-    Final acceptance and release remain owner acts.
-  when: Preparing a publication candidate and exercising comparison with its prior basis
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: DEL-02-01
-  condition: Use the applicable maintenance/review/publication preparation and recovery route under actual
-    authority, preserving preceding instructions and ordinary repository facilities. Reuse existing usable
-    methods without waiting for the whole procedure set.
-  when: Carrying authorized consumer-guide or candidate preparation work
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: DEL-04-01
-  condition: Use the current same-PR reconciliation procedure for the candidate result, evidence and this
-    locality, with local ownership and unchanged declarations preserved.
-  when: Reconciling the actual guide/candidate change before integration
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
 - from: DEL-01-01
-  condition: Shared entry/navigation text uses an inspected route and keeps its navigation meaning distinct
-    from obtaining/version/compatibility guidance. Coordinate a single editor and examine the combined
-    change without creating exclusive file ownership.
-  when: Changing README or another shared entry surface
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+  condition: Each holding that the README's "Choose what you need" table and the entry route lead to states,
+    at its own home, its purpose, applicability, standing, required resources and notices, outputs and limits.
+  when: A consumer selects the material to obtain or copy
+- from: DEL-02-01
+  condition: A change carried through the maintenance route is integrated at an identified checked revision,
+    with its findings and checks in its pull request.
+  when: Taking an integrated revision as the verified source of a publication candidate
+- from: DEL-02-01
+  condition: The maintenance route establishes, before a holding is relocated or retired, its replacement or
+    historical standing and a recoverable source.
+  when: Documenting the recovery route of a removed holding or an earlier edition
+- from: doc:docs/document-metadata.md
+  condition: '`docs/document-metadata.md` defines the optional `metadata.upstream` object, with `source` and
+    `edition` both required when it is present, and the document-metadata schema accepts it.'
+  when: The comparison method records the published edition a derivation was reconciled against
 - from: DEL-02-02
-  condition: Resolve or explicitly qualify the particular disputed reference/publication meaning before
-    a consumer-use statement relies on it; preserve adopted and historical bases. The bounded F-02 case
-    is not a global rewrite requirement.
-  when: The selected guide or change account relies on disputed shared meaning
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+  condition: For the shared-reference case it repairs, each affected reference row and publication passage
+    says what is reusable Library meaning, what is the Library's own practice and what a consumer adopted
+    or history retains, or names the earlier basis of the edition it keeps.
+  when: The consumer guidance or a change account says what does and does not transfer with copied material
 - from: DEL-03-01
-  condition: The selected invoked tool or separately justified supported path/adapter has accurate direct
-    instructions and relevant behavior evidence for the actual use. No adapter is commissioned by this
-    dependency or by an unresolved consumer binding.
-  when: Making executable-use or supported-interface claims
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: external:sgttomas/chirality
-  condition: The former frozen-project recovery note, `sgttomas/chirality:projects/FROZEN.md`, was removed from this
-    repository on 2026-11-04 and is preserved with the pre-migration history in the private archive. Preserve its documented archive/frozen recovery routes and identify the original pin/path
-    and source before relying on historical bytes. Reuse applicable preservation evidence and disclose
-    unexamined history; do not reactivate old work.
-  when: Using commit-pinned historical material or explaining its recovery
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
-- from: doc:docs/alignment-manual/README.md
-  condition: Resolve the actual manual edition and its maintained source/render route, distinguishing
-    stable discovery from exact-content reliance and preserving earlier editions. Examine a selected delivery
-    form under that source basis.
-  when: Using an explanatory edition or preparing its actual delivery form
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md
+  condition: '`tools/deliverables/README.md` and `tools/workflow_runtime/README.md` state each command''s
+    invocation, dependencies, outputs, write effects, failure behaviour and limits, including the queries''
+    Git, HEAD and PyYAML requirements and that the resolver launches no agent and enforces no sandbox; the
+    tools they describe need no companion and no undisclosed private or sibling input.'
+  when: The consumer guidance points a reader to a tool
+- from: unknown
+  condition: The credential scan `tools/validation/validate_run_record_leaks.py` screens the text added or
+    modified between two revisions for credential patterns, and fails when it finds one or cannot read
+    a revision. Which deliverable provides this tool is not established.
+  when: Screening public guidance, a publication candidate or published evidence
+- from: DEL-03-01
+  condition: No interface a named consumer reads (the declaration format, the query JSON, the resolver
+    result) is changed incompatibly until a supported path or coordinated adapter exists for that consumer.
+  when: An incompatible change to an interface that a named consumer uses is selected
 - from: DEL-03-02
-  condition: For an actual evaluation-capability publication or named-consumer compatibility
-    claim, obtain the exact supported host/interface basis, complete resources/dependencies,
-    cleared fixtures and scoped evidence/limits. Preserve private operational data and independent
-    consumer adoption; generic prior toolkit evidence does not qualify this new route.
-  when: Historical use under the accepted R18 amendment — examining the original evaluation-tool publication or compatibility evidence
-  evidence: execution/PKG-05/DEL-05-01/Work/ConsumerBasis.md::Evaluation extension
+  condition: The former repository-change evaluator and its paired workflow are identified at the public
+    revision from which they can be recovered.
+  when: Documenting the recovery route of a holding that an earlier edition shipped and the current source
+    does not
+- from: DEL-04-01
+  condition: A change carried under the reconciliation method leaves its pull request as the change record,
+    identifying its candidate and checks, with the guidance and publications that describe a changed
+    holding agreeing with it or naming their earlier basis.
+  when: Assembling an edition's change account from the changes integrated since the prior edition
+- from: doc:workflows/project-setup/resources/project-entry.md
+  condition: '`workflows/project-setup/resources/project-entry.md` is the single Library source from which
+    a project''s entry documents are adapted.'
+  when: The comparison method maps an adapted entry document to its Library source
+- from: external:chirality-app
+  condition: At revision 366e7a6656d807142e7bdeda0ccf99c37d7227b1 the workflow-package reader
+    (`workflow_workspace.rs::Snapshot` and `workflow_declaration.rs`) captures a package directory read-only,
+    keeps each file's bytes, yields a content identity under `chirality.app.workflow-package.sha256/v1`
+    that depends on content and not location, and reads declaration standing, as that project's
+    workflow-declaration and workspace-and-registration contracts define; a complete source export at
+    that revision builds its library test target with the dependencies it locks.
+  when: Examining or repeating the named compatibility claim
+- from: external:sgttomas/chirality
+  condition: The private repository keeps the tag `archive/pre-library-execution-2026-10-31` at commit
+    f80f1510fb50799764720303b86c36da64b75d19, its recovery note `projects/FROZEN.md`, the holdings removed
+    in this repository's migration in its history at or before 05d96f3e11, the objects that original
+    consumer pins name, and the releases of the editions published before `library-v2.0.0`.
+  when: Following or verifying a recovery route into pre-migration history
 code_paths:
-- workflows/compare-library-derivations/**
-- tools/workflow_runtime/fixtures/app_workflow_reader.rs
+# Shared with DEL-01-01. Here: within "Use the library", choosing a version, obtaining and copying,
+# staying informed and deciding whether to update, and the licence statement. The rest is navigation,
+# DEL-01-01's.
 - README.md
 - LICENSE.md
-- docs/alignment-manual/README.md
-- tools/workflow_runtime/README.md
+# Shared with DEL-01-01. Here: copying a complete package and reading private-archive citations.
 - workflows/README.md
+# Shared with DEL-01-01. Here: "Read and render" and where retired and earlier editions are recovered.
+# Each book's presentation, standing and discovery versus reliance are DEL-01-01's.
+- docs/alignment-manual/README.md
+- docs/alignment-manual/render_manual.py
+- docs/alignment-manual/requirements.txt
+- workflows/compare-library-derivations/**
+# The rest of tools/workflow_runtime/ is DEL-03-01's.
+- tools/workflow_runtime/fixtures/app_workflow_reader.rs
 checks:
 - tools/validation/validate_run_record_leaks.py
+- tools/publication/test_render_manual_metadata.py

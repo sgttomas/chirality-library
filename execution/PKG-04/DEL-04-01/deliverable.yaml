@@ -1,103 +1,85 @@
 id: DEL-04-01
 name: Library reconciliation
 needs:
-- from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
-  condition: Use the accepted final identities, section 8.1 formation obligations and adjacent Group 3
-    decision authorizing Agent 0 to manage setup. Verify the source basis and preserve historical submission
-    labels as history.
-  when: Establishing or checking the selected formation scope
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
-- from: DEL-03-01
-  condition: 'The selected current scaffolding, contract checks and native queries are usable with their
-    declared dependencies and limits; reuse the repaired PR #1779 sources and applicable evidence. No
-    missing-build gate exists for F-01.'
-  when: Preparing, checking or querying actual formed localities
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
-- from: doc:workflows/bounded-reconciliation/WORKFLOW.md
-  condition: Use the existing procedure and current invocation points under the preceding applicable basis
-    to compare actual results, evidence and owning declarations. Revise it only for a demonstrated authorized
-    gap.
-  when: Applying or examining the reconciliation practice
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
-- from: DEL-02-02
-  condition: 'Use the actual F-02 case in owning Work and PR #1783, integrated at 1357d706ea77497903976bf159f3880bea4d1360:
-    accepted goal, current-format caller condition, rejected af78739 interpretation, repaired 4ac85ca
-    candidate and examined affected uses. For reflection retain the actual owner feedback and changed
-    undertaking boundary described in this locality. This binds the selected case only; synthetic recovery
-    evidence and blanket fulfillment are not inferred.'
-  when: Establishing the bounded application and A3 action claims
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
 - from: DEL-04-02
-  condition: Use DEL-04-02's adopted reflect-on-work method with human-purpose and local-experience evidence when a changed question, burden
-    or goal mismatch requires reflective judgment. Any changed commitment returns to its actual owner;
-    no recurring review gate is created.
-  when: A reconciliation finding calls the goal or framing into question
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
-- from: DEL-05-01
-  condition: Bind claim-specific named consumer sources/revisions or the publication candidate/prior basis
-    before the corresponding compatibility or publication consequence is asserted. Q-05 is bound for the
-    F-02/Consolidated v9 candidate at 1357d706ea77497903976bf159f3880bea4d1360 against 257ab4c18014bf872a1c72eeb7593a7ad3d135c0
-    in DEL-05-01 Work/ConsumerBasis.md; other publication claims need their own binding. Q-04 remains
-    claim-specific because the App package-reader evidence does not establish adopted-clause compatibility.
-    Ordinary source reconciliation can continue.
-  when: The selected application affects named compatibility or publication-inspection claims
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
-- from: DEL-01-01
-  condition: The actual DEL-01-01 locality supplies its source-grounded contract, substantive initial
-    Work, consumer needs and useful source/check pointers for the combined formation examination. Local
-    ownership remains with its contributor; only the setup material is needed, not fulfillment of its
-    product criteria.
-  when: Checking the seven-locality formation result before integration
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
+  condition: The accepted decomposition gives each allocated deliverable its goal, scope items, objectives,
+    anticipated outputs, evaluation and boundary, and `execution/_Decomposition/_LATEST_ACCEPTED.md` identifies
+    which decomposition is accepted.
+  when: Forming a locality, or reading a scope against the card it must satisfy
+- from: DEL-04-02
+  condition: The reflect-on-work method takes a finding that questions a purpose, a commitment or the chosen
+    practice and yields a reasoned choice to retain or change it, or a reserved choice returned to the owner
+    with its consequence.
+  when: A reconciliation finding questions the goal or framing rather than a description
+- from: DEL-03-01
+  condition: Current preparation creates the numeric `execution/PKG-nn/DEL-nn-nn/` locality with its
+    `deliverable.yaml` identity, preserves existing content, and writes no blank contract; the setup and
+    scope-of-work usage instructions agree with those tools on inputs, outputs and limits.
+  when: Forming a locality for a newly allocated deliverable
+- from: DEL-03-01
+  condition: The scope validator reports whether a ScopeOfWork.md meets the SOW_V1 contract, the authored-locality
+    check requires matching identity, and the deliverables `check`, `neighborhood`, `impact` and `touches`
+    queries derive from live `deliverable.yaml` declarations and report their basis, unknowns and partial
+    coverage.
+  when: Checking localities and needs together, or tracing the uses a change affects
 - from: DEL-02-01
-  condition: The actual DEL-02-01 locality supplies its source-grounded contract, substantive initial
-    Work, consumer needs and useful source/check pointers for the combined formation examination. Local
-    ownership remains with its contributor; only the setup material is needed, not fulfillment of its
-    product criteria.
-  when: Checking the seven-locality formation result before integration
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
+  condition: The create-workflow method governs creating or revising a reusable workflow, and a replacement is
+    reviewed under the text that preceded it while that text stays recoverable.
+  when: Revising the reconciliation method or one of its invocation points
 - from: DEL-02-02
-  condition: The actual DEL-02-02 locality supplies its source-grounded contract, substantive initial
-    Work, consumer needs and useful source/check pointers for the combined formation examination. Local
-    ownership remains with its contributor; only the setup material is needed, not fulfillment of its
-    product criteria.
-  when: Checking the seven-locality formation result before integration
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
+  condition: The shared-reference comparison is carried with the bounded-reconciliation method in the pull
+    request that makes the change, and in that pull request and its sources at least one consequential
+    distinction can be followed from its source warrant to the reading that changed or was kept, with the
+    neighbouring claims it touches.
+  when: Examining the reconciliation method in an actual application under AC-002 and AC-005
+- from: doc:workflows/dependency-extract/WORKFLOW.md
+  condition: The need-authoring method has the consumer author each need after its scope exists, state the
+    input, use condition, trigger and source or unresolved binding in the provider's terms, and test the
+    condition against the provider's scope.
+  when: Authoring or examining the needs of a locality
+- from: DEL-01-01
+  condition: The DEL-01-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-02-01
+  condition: The DEL-02-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-02-02
+  condition: The DEL-02-02 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
 - from: DEL-03-01
-  condition: The actual DEL-03-01 locality supplies its source-grounded contract, substantive initial
-    Work, consumer needs and useful source/check pointers for the combined formation examination. Local
-    ownership remains with its contributor; only the setup material is needed, not fulfillment of its
-    product criteria.
-  when: Checking the seven-locality formation result before integration
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
+  condition: The DEL-03-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
 - from: DEL-04-02
-  condition: The actual DEL-04-02 locality supplies its source-grounded contract, substantive initial
-    Work, consumer needs and useful source/check pointers for the combined formation examination. Local
-    ownership remains with its contributor; only the setup material is needed, not fulfillment of its
-    product criteria.
-  when: Checking the seven-locality formation result before integration
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
+  condition: The DEL-04-02 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
 - from: DEL-05-01
-  condition: The actual DEL-05-01 locality supplies its source-grounded contract, substantive initial
-    Work, consumer needs and useful source/check pointers for the combined formation examination. Local
-    ownership remains with its contributor; only the setup material is needed, not fulfillment of its
-    product criteria.
-  when: Checking the seven-locality formation result before integration
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md
-- from: DEL-04-02
-  condition: When evaluation is activated at reconciliation, obtain its selected question, state
-    conditions, observation boundaries and whether evaluation is part of this production undertaking’s
-    completion conditions. Supply the identified candidate/checks without imposing an automatic
-    new merge gate.
-  when: An explicitly selected evaluation uses the reconciliation result as its evidence basis
-  evidence: execution/PKG-04/DEL-04-01/Work/FormationAndReconciliation.md::Evaluation extension
+  condition: The DEL-05-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
 code_paths:
 - workflows/bounded-reconciliation/**
+# Shared with DEL-01-01 and DEL-02-01. Here: the working cycle's reconciliation rule and the pointer
+# to the reconciliation method.
 - AGENTS.md
 - workflows/project-setup/WORKFLOW.md
 - workflows/project-setup/resources/project-entry.md
+# Shared with DEL-03-01. Here: the reconciliation steps. The statements of the preparation, checking
+# and query commands are DEL-03-01's.
 - workflows/project-setup/resources/current-project.md
 - workflows/project-setup/resources/package-activation.md
+# Shared with DEL-04-02. Here: the step before integration at which the combined result is checked.
+# The passages on testing a premise, diagnosing waiting and when to finish are DEL-04-02's.
 - workflows/coordinated-knowledge-work/WORKFLOW.md
 checks:
 - tools/validation/check_min_viable_fileset.sh

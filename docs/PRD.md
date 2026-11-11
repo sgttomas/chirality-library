@@ -174,14 +174,14 @@ contributions without creating conflicting ownership of the same change.
 `execution/PKG-nn/DEL-nn-nn/` with:
 
 - `ScopeOfWork.md`: the local goal, accepted scope/objective references, output
-  definitions, boundaries, acceptance criteria and verification methods.
+  definitions, boundaries, acceptance criteria, verification methods and
+  undecided conditions.
 - `deliverable.yaml`: actual consumer-local needs and conditions, plus useful
   source, code and check references.
-- `Work/`: current reasoning, evidence, alternatives, consequential attempts,
-  unresolved conditions and locally retained outputs, with maturity explicit.
 
-Code, publications and reusable instructions retain their maintained homes,
-referenced from the locality. Leave unchanged declarations alone.
+Code, tests, schemas, fixtures, validation references, publications and
+reusable instructions keep their maintained homes, referenced by `code_paths`.
+Leave unchanged declarations alone.
 
 **R09 — Meaningful dependencies.** A need must identify the input, its intended
 use/condition, the relevant case or trigger, and its source or unresolved binding.
@@ -405,7 +405,7 @@ and corresponding DEL-03-02/DEL-04-02 scope dispositions end the Library's ongoi
 obligation to supply the moved executable route and paired workflow. Original
 contracts, editions, actual evidence and unverified claims remain historical.
 Root's integrated destination and matching source bytes/modes are verified in
-[DEL-03-02's evaluation basis](../execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability).
+DEL-03-02's evaluation basis.
 No Library release or consumer adoption is authorized here.
 
 ## 6. Inputs, dependency considerations and downstream use
@@ -468,8 +468,8 @@ work material. Reverse links and inquiry-specific graphs are derived on demand.
    applicable decisions and independent audit before decomposition acceptance.
 4. Set up the accepted decomposition and authorized scope with Chirality's own
    preparation and authoring tools. Verify their current locality assumptions
-   before use. Create `execution/PKG-nn/DEL-nn-nn/` with `ScopeOfWork.md`,
-   `deliverable.yaml` and `Work/`; author actual needs after local scope exists.
+   before use. Create `execution/PKG-nn/DEL-nn-nn/` with `ScopeOfWork.md`
+   and `deliverable.yaml`; author actual needs after local scope exists.
    Run `python3 -m tools.deliverables --project . check` and inspect relevant
    neighborhoods. Structural checks do not decide input suitability.
 5. Execute and integrate the resulting authorized work using the library's roles,

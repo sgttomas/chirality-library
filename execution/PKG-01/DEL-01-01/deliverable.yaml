@@ -1,51 +1,50 @@
 id: DEL-01-01
 name: A usable route into the selected library
 needs:
-  - from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
-    condition: Use the accepted numeric identities and allocation together with the adjacent Group 3 decision before connecting current execution; submitted pre-decision labels do not override that acceptance. The source basis is the accepted snapshot at fd847ac9ac68250b2f35d2e9c0087c16e86b510a.
-    when: Connecting the entry to the accepted maintenance execution
-    evidence: execution/PKG-01/DEL-01-01/ScopeOfWork.md::Inputs and use conditions for subsequent native need authoring
+  - from: DEL-04-02
+    condition: "`execution/_Decomposition/_LATEST_ACCEPTED.md` names the accepted decomposition, and that decomposition gives each allocated deliverable its numeric identity, goal and boundary."
+    when: The entry links to the accepted decomposition or names a deliverable by its identity
   - from: DEL-04-01
-    condition: The particular formation locality to be linked has an inspected contract, actual work and declared input conditions at the selected basis, with maturity and unresolved matters visible. Prepared paths alone do not support a usable-current-work claim; the required locality and its suitability depend on the bounded brief, not completion of all reconciliation work.
-    when: Adding or relying on a current-work link in the discovery route
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::How the parts fit
-  - from: doc:workflows/README.md
-    condition: Read the selected package's canonical metadata and needed resources using the documented catalog/index and source-qualified selection route; preserve its actual revision, collision and standing distinctions. The discovery index alone cannot establish method applicability.
-    when: Selecting a method for the bounded discovery case
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::Available sources
-  - from: doc:docs/alignment-manual/README.md
-    condition: Resolve the manual discovery pointer to its actual edition and maintained source, and bind the edition and revision when the inquiry relies on exact content. Preserve earlier bases and distinguish explanation from governing instructions.
-    when: Traversing a manual or relying on its content
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::Available sources
-  - from: doc:docs/thesis/README.md
-    condition: Read the selected thesis passage under its stated explanatory and evidence standing, identifying the source revision for a content-dependent claim. Its presence or current edition does not establish development authority or product qualification.
-    when: Traversing thesis material or relying on its explanation
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::Available sources
+    condition: The locality the route links to holds a ScopeOfWork.md stating its local goal, accepted scope and objective references, outputs, boundaries, acceptance criteria and verification, and a deliverable.yaml carrying its id, name, needs and code and check pointers. Which locality a use needs depends on the brief; the others need not be formed for it.
+    when: The route sends a maintainer to a deliverable's scope and needs
   - from: DEL-03-01
-    condition: The selected query or resolver has accurate maintained usage instructions and applicable evidence for the particular command behavior claimed by the discovery route. Preserve actual prerequisites, errors and limits; tools/deliverables/README.md supplies the current Git/HEAD/PyYAML contract and direct-inspection fallback. Whole-toolkit completion is not required for an already supported operation.
-    when: Invoking a structured query or asserting executable behavior in the guide
-    evidence: execution/PKG-01/DEL-01-01/ScopeOfWork.md::Inputs and use conditions for subsequent native need authoring
-  - from: DEL-02-02
-    condition: Resolve or explicitly qualify the particular disputed reference meaning and its applicability using the owning source and relevant adopted basis before relying on that claim. An unresolved dispute does not hold unrelated navigation work.
-    when: The selected discovery route encounters disputed shared meaning
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::How the parts fit
+    condition: "`tools/deliverables/README.md` and `tools/workflow_runtime/README.md` state each command's invocation, prerequisites, outputs, effects and limits, and the commands behave as those guides say. The query guide names Python 3, PyYAML, Git and a resolvable HEAD as prerequisites and direct reading of declarations as the fallback."
+    when: The route shows a structured query or the workflow resolver, or says what one returns
+  - from: unknown
+    condition: "`python3 tools/validation/build_workflow_index.py` generates `workflows/index.json` from each workflow package's canonical metadata and with `--check` fails when the committed index is stale. Which deliverable provides this tool is not established."
+    when: A workflow package's metadata changes, or the workflow index is checked against its owning source
+  - from: DEL-02-01
+    condition: The maintenance guidance states that a change to the entry is reviewed under the text that preceded it, that both the changed holding and the means used to change it are verified, that the preceding text stays usable and recoverable until the replacement is verified and adopted by someone with authority to adopt it, and that proposed text does not authorise itself or redefine the basis of its own review.
+    when: The entry is revised
   - from: DEL-05-01
-    condition: Use the relevant obtaining, version, update or compatibility guidance at its identified basis when connecting shared entry text. Named compatibility and publication assertions require their actual Q-04/Q-05 evidence; coordinate one shared-file editor without transferring ownership of those claims to the discovery guide.
-    when: Sharing entry content or repeating a consumer-use or publication claim
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::How the parts fit
-  - from: DEL-03-02
-    condition: Before advertising an available evaluation command or supported route, inspect
-      its actual maintained usage contract, required resources, source identity and applicable
-      behavior evidence. Accepted allocation or prepared files alone permit no implemented-capability
-      claim.
-    when: Historical use under the accepted R18 amendment — examining discovery of the original evaluation route
-    evidence: execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md::Evaluation extension
+    condition: README.md and the consumer guides state how a reader selects a published edition or a development revision and how material is obtained and copied with its resources and licence notices, at a place the entry can link to.
+    when: The entry tells a reader which basis they are viewing, or sends a consumer to obtaining and update guidance
+  - from: DEL-05-01
+    condition: "`docs/alignment-manual/README.md` gives, for each edition a reader may have selected, its source file or the documented route to recover it."
+    when: The route leads to a publication edition, or a claim relies on a publication's exact content
+  - from: DEL-02-02
+    condition: The affected thesis and manual passages state the meaning that applies to their audience and use, or name the earlier basis of the edition they retain, so that the route can point to the passage instead of settling the meaning.
+    when: The route leads to a passage whose shared meaning is disputed
 code_paths:
-  - AGENTS.md
   - init-prompt.md
+  # Shared with DEL-02-01 and DEL-04-01. Here: the opening identity, the table of where work happens,
+  # the development entry's opening and "Locate the selected work", the pointers to the role file and
+  # method index, and the index-regeneration rule.
+  - AGENTS.md
+  - CLAUDE.md
+  # Shared with DEL-05-01. Here: the opening identity, the table that offers holdings by purpose and
+  # the contributor section. Version choice, obtaining, copying, updates and the licence statement
+  # are DEL-05-01's.
   - README.md
+  # Shared with DEL-05-01. Here: how a method is selected, loaded and identified, and how the catalog
+  # and index relate to package metadata. Package copying and private-archive citations are DEL-05-01's.
   - workflows/README.md
   - workflows/catalog.yaml
   - workflows/index.json
+  # Shared with DEL-05-01. Here: what each publication is for, its standing, and discovery link versus
+  # relied-on edition. "Read and render" and edition recovery are DEL-05-01's.
+  - docs/alignment-manual/README.md
+  - docs/thesis/README.md
+  - docs/human-team-courses/README.md
 checks:
   - tools/validation/build_workflow_index.py

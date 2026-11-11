@@ -2,66 +2,40 @@ id: DEL-02-02
 name: Make library and adopted-product meanings explicit
 needs:
 - from: external:sgttomas/chirality
-  condition: The former runtime-interface reference, `sgttomas/chirality:docs/AGENT_WORKFLOW_RUNTIME.md`, was removed from
-    this repository on 2026-11-04 and is preserved in the private archive. Read the selected production-ownership, Root-governance, selection and retained-runtime passages
-    with their introduction, historical/adoption qualifications and actual source revision before deciding
-    applicability.
-  when: Examining the bounded F-02 reference case
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: external:sgttomas/chirality
-  condition: The former product-boundary reference, `sgttomas/chirality:docs/PRODUCT_BOUNDARIES.md`, was removed from
-    this repository on 2026-11-04 and is preserved in the private archive. Preserve the selected adopted-commitment, professional-accountability, invariant, domain
-    and frozen-runtime meanings while examining the reference case; the opening qualifications are part
-    of the evidence.
-  when: Comparing authority and domain/product applicability
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: external:sgttomas/chirality
-  condition: The former compatibility-format reference, `sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md`, was removed
-    from this repository on 2026-11-04 and is preserved in the private archive. Compare the selected current-locality, retained deployment/M2/G4 and legacy-format clauses
-    at the actual basis. Preserve adopted containment and historical identities; do not infer a lifecycle
-    migration from clarification.
-  when: Distinguishing current Root setup from retained compatibility contracts
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: doc:docs/thesis/04_architecture.md
-  condition: Read the selected sections 4.2.1 through 4.2.3 at an identified source revision and compare
-    locality, relationships and their warrant with the reference dispositions. Preserve explanatory standing
-    and historical basis.
-  when: Examining the connected thesis explanation
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: doc:docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.md
-  condition: Use the named edition and selected passages in the ScopeOfWork, including the README discovery/reliance
-    and render rules. Bind actual candidate/source identity; inspect an affected maintained derivative
-    or justify no derivative change.
-  when: Examining the connected manual explanation or changing an affected passage
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
+  condition: The runtime-interface, product-boundary and compatibility-format references, which are no
+    longer Library holdings, remain readable with their opening qualifications in the Git history of the
+    private repository, at a revision that can be named.
+  when: Reading or citing a reference passage of the applicability case
+- from: DEL-01-01
+  condition: docs/alignment-manual/README.md presents Consolidated v9 as a retained historical manual with
+    its source paths, and separates following a discovery link from citing an exact edition and revision.
+  when: Comparing or changing a manual passage
+- from: DEL-05-01
+  condition: The "Read and render" passage of docs/alignment-manual/README.md gives the command that
+    regenerates an edition's HTML from its Markdown, and docs/alignment-manual/render_manual.py renders
+    an identified committed Markdown source and, with --check, fails when the committed HTML differs
+    from a fresh render.
+  when: Regenerating or checking the manual's HTML after a passage changes
 - from: DEL-04-01
-  condition: Use the existing same-PR reconciliation practice to compare source meaning and evidence and
-    retain warranted changes or unresolved conditions in this locality. No whole-practice completion gate
-    is implied.
-  when: Carrying the bounded reference-content comparison through integration
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
+  condition: The bounded-reconciliation method compares a concrete result and its verification with the
+    holdings, scopes and needs it affects, separates missing behaviour, stale description and missing
+    evidence, and has the warranted edits made in the pull request that carries the change.
+  when: Carrying a reference or publication change to integration
 - from: DEL-03-01
-  condition: A claimed executable behavior or enforcement boundary is supported by the selected operation,
-    candidate and observed or applicable maintained check evidence. Documentation alone cannot establish
-    behavior.
-  when: The clarification relies on a tool or runtime behavior claim
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
+  condition: Contract validation reports whether a ScopeOfWork.md meets the SOW_V1 contract format, names
+    the format a deliverable folder resolves to and fails closed (a valid sole contract is SOW_V1; a
+    missing, partial or invalid contract is invalid; a contract beside a legacy kit is ambiguous unless
+    the conversion's migration authority is supplied), and creates or requires no `_STATUS.md` or legacy
+    document kit in a current locality; and each usage contract states what its command does and its limits.
+  when: A passage states how a tool behaves or what it enforces
 - from: DEL-05-01
-  condition: Obtain the named maintained adopter contract/fixtures and exact revision, with authorized
-    access and public-evidence limits, before an incompatible adopted-clause change or named compatibility
-    claim. Q-04 is unresolved; preserve the scoped contract while that condition is unmet.
-  when: Changing a disputed clause that an independent consumer adopted
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
-- from: DEL-05-01
-  condition: Bind the verified publication candidate/version, actual delivery form and prior comparison
-    basis before making the distinct A7 preparation/inspection claim. Q-05 is bound for the F-02/Consolidated
-    v9 source candidate at 1357d706ea77497903976bf159f3880bea4d1360 against 257ab4c18014bf872a1c72eeb7593a7ad3d135c0,
-    as recorded in DEL-05-01 Work/ConsumerBasis.md. Other publication claims require their own binding;
-    source-passage comparison can proceed independently.
-  when: Relying on a publication-change account or asserting preparation/update-inspection evidence
-  evidence: execution/PKG-02/DEL-02-02/Work/Applicability.md
+  condition: For the adopted clause to be changed, the named consumer's maintained contract or fixtures are
+    bound at an exact revision and the supported path or coordinated adapter is in place. No compatibility
+    claim covering an adopted containment, governance or instruction-root clause is selected; until one is,
+    this binding is unresolved.
+  when: Changing a clause a consumer adopted in a way incompatible with its use
 code_paths:
 - docs/thesis/04_architecture.md
-- docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.md
+- docs/alignment-manual/Project_Management_for_Human_Agent_Teams_Consolidated_v9.*
 checks:
 - docs/alignment-manual/render_manual.py
