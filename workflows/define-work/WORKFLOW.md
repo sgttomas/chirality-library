@@ -104,6 +104,5 @@ Update planning assumptions only when their modeled premise changes.
 
 If interrupted, preserve usable partial work and distinguish prepared from
 executed changes and pending checks. Resume by inspecting the actual saved state,
-not by blindly replaying writes. Use one replaceable recovery note only if
-continuity needs it. Report unsupported portions precisely while continuing
+not by blindly replaying writes. Report unsupported portions precisely while continuing
 unaffected authorized work.

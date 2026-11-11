@@ -9,7 +9,7 @@ Inspect the saved `deliverable.yaml`, not just the proposed text.
 2. YAML is parseable without duplicate keys. `id` is the accepted native
    `DEL-nn-nn` identity and `needs` is a list. Every entry has a supported `from`
    string and a nonempty `condition`. Optional `when` is text, `gating` is a
-   Boolean and `direction` is `upstream` or `downstream`. Evidence and document
+   Boolean and `direction` is `upstream` or `downstream`. Document
    paths are project-relative and contained.
 3. Each condition states an actual input/use with its case, maturity and trigger
    where material. Its scope/design/source basis is inspectable or its missing

@@ -39,7 +39,6 @@ needs:
   - from: DEL-02-01
     condition: Interface dimensions checked for the selected operating case.
     when: Before issuing the affected drawing.
-    evidence: execution/PKG-01/DEL-01-01/Work/interface.md#basis
   - from: unknown
     condition: Identify the source of the equipment rating before its use.
   - from: external:recipient
@@ -48,23 +47,24 @@ needs:
     condition: Provide the agreed interface drawing for recipient review.
 ```
 
-Every need has `from` and nonempty `condition`. Optional fields are `when`,
-`gating` (boolean), and `evidence` (a project-relative path with an optional
-section reference). Suppliers are local `DEL-nn-nn` IDs, `external:name`,
+Every need has `from` and nonempty `condition`. Optional fields are `when`
+and `gating` (boolean). Suppliers are local `DEL-nn-nn` IDs, `external:name`,
 `doc:path`, `package:id`, or `unknown`. Preserve case, use, maturity and technical
 holds in the condition and trigger. Distinct needs between the same endpoints
 remain distinct declarations. `needs: []` means none declared yet; it is no
 claim that the deliverable has no needs or that the set is complete.
 
-Generic paths use the shared `Work/` convention. Follow the selected project's
-adopted locality spelling.
-Queries do not select, detect or migrate between locality folder names.
+A deliverable locality is `ScopeOfWork.md` and `deliverable.yaml`; keep
+`code_paths` accurate. A need is a condition on what a neighbour observably
+provides, stated in the provider's product terms;
+[dependency-extract](../../workflows/dependency-extract/WORKFLOW.md#state-each-actual-need)
+gives the test for one need.
 
 The consumer states native upstream needs; reverse links are generated. A
 producer-local `direction: downstream` is available for an actual obligation to
 a nonlocal recipient, not a second native consumer list. It is listed as an
-output, not a required input. A consumer declaration does not create supplier
-scope or approval authority. Authoring and refresh use `dependency-extract`;
+output, not a required input. A need never creates an obligation on the
+provider by itself. Authoring and refresh use `dependency-extract`;
 existing declarations are changed for their meaning, never retired merely
 because a source scan did not rediscover them.
 

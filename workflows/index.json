@@ -1269,7 +1269,7 @@
       "name": "dependency-extract",
       "source": "bundled",
       "sourceRootId": "chirality-root",
-      "description": "Author or refresh a deliverable's consumer-local needs in deliverable.yaml from its scope, work material, sources and intended use.",
+      "description": "Author or refresh a deliverable's consumer-local needs in deliverable.yaml from its scope, sources and intended use.",
       "central": false,
       "compatibility": "canonical",
       "executionRoleIds": [

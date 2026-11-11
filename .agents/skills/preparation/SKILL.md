@@ -16,7 +16,7 @@ ScopeOfWork authoring and evaluation follow through their selected methods.
 
 Require the target root, selected operation, accepted identifiers/names and the
 source decomposition. Read [the scaffold contract](references/scaffold-contract.md).
-Current PROJECT/SOFTWARE localities are `PKG-nn/DEL-nn-nn/` with `Work/`,
+Current PROJECT/SOFTWARE localities are `PKG-nn/DEL-nn-nn/` with
 `deliverable.yaml` and an authored `ScopeOfWork.md`. The current helpers create
 the directory/needs structure only; they do not invent production content.
 
@@ -34,7 +34,7 @@ operation; report it and continue unaffected authorized work.
    existing work. Do not overwrite, relocate or reinitialize it.
 3. Invoke the current helpers with `--current` for the current route. Inspect
    their `CREATED_PATH` results and preserved existing content. They create a
-   package directory or a DEL directory with `Work/` and native `deliverable.yaml`.
+   package directory or a DEL directory with native `deliverable.yaml`.
 4. Check preparation with `check_min_viable_fileset.sh --current --prepared`.
    An empty needs list means none declared yet, not completeness or readiness.
 5. Return the actual created/preserved paths and unresolved conditions to the
@@ -45,9 +45,8 @@ operation; report it and continue unaffected authorized work.
 
 Do not create status, context, reference, semantic, memory, receipt or handoff files
 for the current route merely because the historical route used them. Current
-meaning, evidence and unfinished work belong in the owning ScopeOfWork, Work and
-needs, reconciled in the same change before integration. Add new working material
-for a concrete need and connect it from the existing entry into that work.
+meaning belongs in the owning ScopeOfWork and needs, reconciled in the same
+change before integration.
 
 Only an explicit legacy/domain selection uses the retained metadata or lifecycle
 instructions. No preparation result establishes acceptance, supplier readiness or

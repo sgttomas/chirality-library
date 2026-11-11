@@ -226,8 +226,6 @@ def validate_document(doc: SowDocument, catalog: Catalog | None = None) -> list[
         issues.append("deliverable_id must match DEL-<2-or-3 digits>-<2-or-3 digits>")
     if not re.fullmatch(r"PKG-\d{2,3}", package_id):
         issues.append("package_id must match PKG-<2-or-3 digits>")
-    if "@" not in str(doc.frontmatter.get("decomposition_basis", "")):
-        issues.append("decomposition_basis must bind a path and revision with @")
 
     headings = [name for name, _ in heading_positions(doc.body)]
     found = [heading for heading in headings if heading in REQUIRED_HEADINGS]

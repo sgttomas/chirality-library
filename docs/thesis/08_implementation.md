@@ -92,10 +92,10 @@ needs and conditions in `deliverable.yaml`. The
 [Library development entry](../../loop/LOOP_INIT.md) locates the shared
 component and affected consumers; an active project entry locates product
 commitments. The authorized work directs the inquiry. Current shared locality
-naming is governed by Root `AGENTS.md`: `Work/` is the convention going forward.
-App and SWBPIPE adopted `Work/` by the October 30 extension basis. Historical
-`Design/` paths below locate the original evidence; the rename does not change
-what those observations established.
+naming is governed by `AGENTS.md`. App and SWBPIPE adopted `Work/` by the
+October 30 extension basis; that folder is no longer part of the method.
+Historical `Design/` and `Work/` paths below locate the original evidence; the
+change does not alter what those observations established.
 
 The [deliverable CLI](../../tools/deliverables/README.md) exposes
 `neighborhood`, `impact`, `touches`, `dag-diff` and `check`. It reports source

@@ -20,14 +20,14 @@ instance with actual host permissions and a run-specific brief.
 ## Inputs and route
 
 Use [current project setup](resources/current-project.md) for the adopted
-`PKG-nn/DEL-nn-nn/` locality with `ScopeOfWork.md`, `deliverable.yaml` and `Work/`.
+`PKG-nn/DEL-nn-nn/` locality: `ScopeOfWork.md` and `deliverable.yaml`.
 Inputs are the accepted decomposition/source identity, selected activation scope,
 actual project instructions and any accepted changes affecting it. Inspect existing
 work and reuse recorded decisions; ask only for a missing reserved choice.
 
 When the authorized setup includes a project's entry instructions, use
 [project entry and standing instructions](resources/project-entry.md) to adapt
-the `init/`, `AGENTS.md` and `loop/` convention within the selected setup scope.
+the `init-prompt.md` and `AGENTS.md` convention within the selected setup scope.
 Preserve the project's accepted layout until its own authority changes it.
 
 An explicitly retained DOMAIN or legacy phase/control-file project uses the
@@ -44,10 +44,10 @@ select it or authorize migration. `resources/contract.md` and
    structural creation. Author missing production contracts with `scope-of-work`
    `MODE=INIT`; do not create a blank contract merely to fill a folder.
 3. Author actual consumer needs after local scope exists, using `dependency-extract`
-   and the relevant work/sources. Derive views on demand; assess suitability from
+   and the relevant sources. Derive views on demand; assess suitability from
    evidence rather than file presence, lifecycle or a successful query.
-4. Reconcile the implementation, ScopeOfWork, current Work material and relevant
-   YAML conditions/pointers in the same change before integration. Validate the
+4. Reconcile the ScopeOfWork and relevant YAML conditions/pointers with the
+   implementation in the same change before integration. Validate the
    selected result and preserve actual holds and owner decisions. Routine factual
    reconciliation is not a new scope amendment or another setup run.
 

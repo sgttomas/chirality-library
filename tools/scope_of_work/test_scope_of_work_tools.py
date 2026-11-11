@@ -279,6 +279,17 @@ def test_legacy_and_sow_only_formats_are_valid_but_partial_legacy_is_not(tmp_pat
     ]
 
 
+def test_decomposition_basis_needs_no_revision_pin(tmp_path: Path) -> None:
+    deliverable = fixture(tmp_path)
+    assert convert(deliverable, "--isolated-migration", "--migration-authority", MIGRATION_AUTHORITY).returncode == 0
+    for name in ("Datasheet.md", "Specification.md", "Procedure.md", "Guidance.md"):
+        (deliverable / name).unlink()
+    sow = deliverable / "ScopeOfWork.md"
+    sow.write_text(sow.read_text(encoding="utf-8").replace("SOFTWARE_DECOMP.md@abc123", "SOFTWARE_DECOMP.md"), encoding="utf-8")
+    result = run(VALIDATE, deliverable, "--json")
+    assert result.returncode == 0, result.stdout
+
+
 def test_invalid_scope_of_work_does_not_resolve_as_sow_v1(tmp_path: Path) -> None:
     deliverable = tmp_path / "DEL-07-05_Invalid"
     deliverable.mkdir()

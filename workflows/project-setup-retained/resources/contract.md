@@ -179,7 +179,7 @@ A workspace is valid when:
 
 - Each PROJECT/SOFTWARE DEL has one schema-valid `deliverable.yaml` whose
   numeric identity agrees with its accepted decomposition binding and folder.
-- Needs come from actual scope, relevant material in the project's adopted work locality (`Work/` by the shared default), sources and intended use;
+- Needs come from actual scope, sources and intended use;
   missing bindings remain explicit. An initial `needs: []` means none declared
   yet, not that inputs are complete or the deliverable is ready.
 - Reverse links and graphs are derived on demand. A query reports its selected

@@ -24,12 +24,12 @@ Read [resources/brief.md](resources/brief.md) before accepting a run. Read
 
 ## Current-project use and reconciliation
 
-Current PROJECT/SOFTWARE localities use ScopeOfWork.md, deliverable.yaml and Work/.
+A current PROJECT/SOFTWARE locality is ScopeOfWork.md and deliverable.yaml.
 `INIT`, `VERIFY` and current-project `REVISE` do not require `_STATUS.md` or a legacy source kit. Preserve
 such files if present; their absence is not a reason to create them or invent a
 lifecycle state. This workflow never advances status.
 
-Ordinary factual reconciliation of an existing contract and its Work/needs occurs
+Ordinary factual reconciliation of an existing contract and its needs occurs
 through `bounded-reconciliation` in the implementation PR before integration,
 within the project's existing authority. Use these validators to check the
 changed contract. Preserve commitments, acceptance criteria and explicit holds;
@@ -46,6 +46,61 @@ alone select no lifecycle. An actual project hold or acceptance condition still
 applies. The retained lifecycle preconditions below apply only where that
 lifecycle is explicitly adopted; missing required lifecycle evidence is then a
 failure, not permission to switch profiles.
+
+## What a scope says
+
+A scope gives its deliverable an identity and the criteria to achieve. It is
+the local objective the code is measured against, not a description of the
+code. The six parts are kept, and every part states what contribution is
+intended, under what conditions, and what would establish that it is adequate.
+
+- **Purpose and traceability:** the result this deliverable contributes, in
+  words, linked to its decomposition and PRD objective and, where the project
+  has one, the release-target result it serves, stated in words.
+- **Ontology:** outputs, the terms that define the product, the boundary.
+- **Epistemology:** requirements and acceptance criteria as observable
+  properties of the product.
+- **Praxeology:** method choices that define the product, and how each
+  criterion is examined.
+- **Axiology:** the values that govern trade-offs, including one or two
+  sentences on which way is better, each naming the measure that improves and
+  what it may never trade away. A new capability is not a direction; it enters
+  by scope change.
+- **Matrix:** output → objective → requirement → acceptance → verification →
+  evidence expectation.
+
+**The scope leads.** Objectives and criteria come from the PRD, the
+decomposition, the release target and the owner's decisions, never from the
+code. A commitment the code has not met stays as written; the shortfall is the
+work to do. A description is corrected only where intended behaviour and
+boundary are unchanged. Something the code does enters a scope only if an
+acceptable replacement implementation would also have to do it and a PRD
+clause, the decomposition or an owner decision already authorises it. Changed commitments, unresolved intent and code outside
+the deliverable's identity go to the owner.
+
+**Current statements only.** A decision appears only as the current statement
+it settles, with no date, quotation, amendment record or history; Git keeps
+earlier text. Something undecided is a plain statement in the part it affects,
+deleted when resolved. A scope carries no status, progress or "current
+implementation" notes, no resolved open items, quoted approvals, repeated
+disclaimers or quoted legacy document kits, and no hashes or revision pins of
+the project's own mutable files. An exact edition is named only for an external
+source such as a published standard.
+
+**Where an expected result comes from.** Each acceptance criterion says this in
+plain words in its matrix row's evidence-expectation cell: an outside source (a
+standard, closed form, published case, or a reference that imports no product
+code); an owner ruling; or the product's own earlier output, which only guards
+against change. A criterion that claims correctness on the product's own output
+alone is kept, marked "no independent grounds", and brought to the owner when
+the criterion is written or changed.
+
+**Independent review keeps the text honest; tests do not.** A reviewer who did
+not write the text, and does not see the writer's reasoning, reads the scope
+against the PRD and decomposition, the code it represents and neighbouring
+scopes, and asks: is the text honest; and could an agent holding this scope and
+the code identify a justified next step and the evidence needed to stop?
+Numerical and runtime checks remain the way product correctness is examined.
 
 ## Suitable agent shell
 
@@ -102,10 +157,10 @@ what it examines or how. A corrected path or name alone does not bring a
 stated kind with it. The kinds are:
 
 - **Executable check:** what it observes, which is the behaviour or output the
-  criterion names. Where it can observe only a proxy, it says so. A check that
-  does not exist yet is stated as to be written first.
-- **Comparison with a named reference:** the reference, and how its expected
-  values were produced.
+  criterion names. Where it can observe only a proxy, it says so. The entry
+  states the examination whether or not the check exists yet; whether it
+  exists is read from the code.
+- **Comparison with a named reference:** the reference.
 - **Judgment by a named role:** who judges, and what they examine. A
   `HUMAN_REVIEW:` matrix entry is this kind and names the role. A judgment by
   a role that is not a person, such as an independent reviewer agent, is a
@@ -116,9 +171,8 @@ tests against the criterion, agreement with something external, or someone's
 assessment. Automation is incidental. Expected values the criterion itself
 determines leave a check executable. An automated test against values
 produced elsewhere, such as another solver's output, a prior run or a
-published table, is a comparison, and where those values came from is what
-matters. An entry that combines kinds states each part. For example:
-`Executable check (to be written first; observes the exported file's rows against the displayed table): …`
+published table, is a comparison. An entry that combines kinds states each part. For example:
+`Executable check (observes the exported file's rows against the displayed table): …`
 
 Keep the definition on one line, because checklist derivation reads one-line
 definitions. A stated kind describes the intended examination. It does not
@@ -160,17 +214,12 @@ where explicitly adopted, `project-setup-retained` in `INCREMENTAL` mode.
 3. Revise only the parts the amendment names: the affected definitions,
    matrix rows and references, and the `decomposition_basis`,
    `project_scope_refs` or `package_objective_refs` values the amendment
-   changes. Keep every other byte apart from the amendment reference
-   (step 4). Keep existing `OUT-*`, `AC-*`, `VER-*` and
+   changes. Keep every other byte. Keep existing `OUT-*`, `AC-*`, `VER-*` and
    other local IDs; never renumber them or reuse an ID the amendment removes.
    A verification entry this step writes or changes states its kind (see
    [Verification entries](#verification-entries)).
    Mark a change the amendment does not clearly determine `CONFLICT`.
-4. Record the amendment reference (amendment ID and exact accepted source/review
-   binding; snapshot path where that route uses one)
-   in `Governing Values and Decisions — Axiology`, naming the revised and
-   removed IDs.
-5. Validate and derive the checklist (Method step 6), then end with a
+4. Validate and derive the checklist (Method step 6), then end with a
    `MODE=VERIFY` run on the revised contract. The return includes a diff of
    the prior and revised contracts for the independent check that nothing
    outside `REVISION_SCOPE` changed.

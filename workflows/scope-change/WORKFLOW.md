@@ -14,7 +14,7 @@ WORKING_ITEMS coordinates this undertaking and assigns bounded contributions to 
 
 ## Select the project route
 
-For current PROJECT/SOFTWARE localities using `ScopeOfWork.md`, `Work/` and
+For current PROJECT/SOFTWARE localities using `ScopeOfWork.md` and
 `deliverable.yaml`, use [the current-project amendment profile](resources/current-project.md).
 It preserves three grouped human decisions, stable IDs, exact amendment/write
 boundaries, independent poststate scrutiny and propagation ownership without

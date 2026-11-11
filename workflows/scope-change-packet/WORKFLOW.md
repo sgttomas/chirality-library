@@ -59,7 +59,6 @@ Write only:
 - `{PACKET_PATH}/Affected_Surfaces.csv`
 - `{PACKET_PATH}/Evidence_Index.csv`
 - `{PACKET_PATH}/Packet_QA.md`
-- `{ScopePath}/_run_records/TASK_RUN_*.md`
 
 Never write:
 
@@ -123,7 +122,7 @@ EvidenceID,SourcePath,SourceRef,EvidenceType,Supports,Notes
    - use `MODIFY` for decomposition text, package/deliverable metadata, or scope-ledger clarification;
    - use `RECLASSIFY`, `MERGE`, `SPLIT`, `ADD`, or `REMOVE` only when the evidence clearly requires structural amendment framing;
    - use `TBD` where the action requires human or WORKING_ITEMS (workflow: scope-change) ruling.
-8. Write a TASK run record with outputs, evidence read, and validation notes.
+8. Return the outputs, evidence read and validation notes to the caller.
 
 ## Non-Negotiable Constraints
 

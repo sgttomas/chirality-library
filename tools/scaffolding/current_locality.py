@@ -47,17 +47,6 @@ def read_regular(parent, name, *, required=False):
         return stream.read()
 
 
-def inspect_work(parent, *, required=False):
-    try:
-        mode = os.stat("Work", dir_fd=parent, follow_symlinks=False).st_mode
-    except FileNotFoundError:
-        if required:
-            raise Invalid("missing Work/")
-        return
-    if not stat.S_ISDIR(mode):
-        raise Invalid("Work must be a directory, not a link or file")
-
-
 def inspect_identity(parent, identity, package, *, required=False, authored=False):
     declaration = read_regular(parent, "deliverable.yaml", required=required)
     if declaration is not None:
@@ -129,12 +118,8 @@ def prepare_deliverable(args):
     with directory(root) as parent:
         make_directory(parent, identity, target)
         with directory(parent=parent, name=identity) as folder:
-            # Inspect existing work before adding anything inside an existing DEL.
-            inspect_work(folder)
+            # Inspect existing declarations before adding anything inside an existing DEL.
             inspect_identity(folder, identity, package)
-            make_directory(folder, "Work", target / "Work")
-            with directory(parent=folder, name="Work"):
-                pass
             write_declaration(folder, identity, args.label, target)
             inspect_identity(folder, identity, package, required=True)
     print(f"Prepared: {target}; ScopeOfWork authoring remains separate")
@@ -149,7 +134,6 @@ def check(args):
     if args.accepted and native_identity(args.accepted)[0] != identity:
         raise Invalid("accepted deliverable identity disagrees with the locality")
     with directory(target) as folder:
-        inspect_work(folder, required=True)
         inspect_identity(folder, identity, package, required=True, authored=not args.prepared)
     stage = "prepared" if args.prepared else "authored"
     print(f"PASS: {identity} — {stage} locality structure/identity; no acceptance claim")

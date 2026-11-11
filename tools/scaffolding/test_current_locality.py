@@ -37,13 +37,15 @@ def scope(folder, **overrides):
 def test_current_preparation_authoring_boundary_and_preservation(tmp_path):
     folder = prepare(tmp_path)
     assert {p.name for p in tmp_path.iterdir()} == {'PKG-01'}
-    assert {p.name for p in folder.iterdir()} == {'Work', 'deliverable.yaml'}
+    assert {p.name for p in folder.iterdir()} == {'deliverable.yaml'}
     data = yaml.safe_load((folder/'deliverable.yaml').read_text())
     assert data == {'id': 'DEL-01-02', 'name': 'A name: with / source punctuation', 'needs': []}
     assert run(CHECK, '--prepared', folder, 'DEL-01-02_accepted-name').returncode == 0
     assert run(CHECK, folder).returncode == 1  # Production contract still absent.
     scope(folder)
     assert run(CHECK, folder, 'DEL-01-02').returncode == 0
+    # A Work folder left from the earlier convention is tolerated and untouched.
+    (folder/'Work').mkdir()
     (folder/'Work/current.md').write_text('existing reasoning\n')
     data['needs'] = [{'from': 'unknown', 'condition': 'usable input for this case'}]
     (folder/'deliverable.yaml').write_text(yaml.safe_dump(data))
@@ -57,17 +59,13 @@ def test_current_preparation_authoring_boundary_and_preservation(tmp_path):
     assert not (folder/'_STATUS.md').exists()
 
 
-@pytest.mark.parametrize('name', ['Work', 'deliverable.yaml', 'ScopeOfWork.md'])
+@pytest.mark.parametrize('name', ['deliverable.yaml', 'ScopeOfWork.md'])
 def test_current_refuses_symlink_resources_without_writing_through_them(tmp_path, name):
     folder = prepare(tmp_path)
     external = tmp_path/'outside'
-    if name == 'Work':
-        external.mkdir()
-        (folder/name).rmdir()
-    else:
-        external.write_text('id: DEL-01-02\nneeds: []\n')
-        (folder/name).unlink(missing_ok=True)
-    (folder/name).symlink_to(external, target_is_directory=name == 'Work')
+    external.write_text('id: DEL-01-02\nneeds: []\n')
+    (folder/name).unlink(missing_ok=True)
+    (folder/name).symlink_to(external)
     before = external.stat().st_mtime_ns
     result = run(HERE/'scaffold_deliverable.sh', folder.parent, 'DEL-01-02', 'Name')
     assert result.returncode != 0
@@ -131,7 +129,7 @@ def test_current_concurrent_preparation_is_idempotent(tmp_path):
     folder=package/'DEL-01-02'
     assert run(CHECK, '--prepared', folder, 'DEL-01-02').returncode == 0
     assert run(CHECK, '--prepared', folder, 'DEL-01-03').returncode == 1
-    assert {p.name for p in folder.iterdir()} == {'Work', 'deliverable.yaml'}
+    assert {p.name for p in folder.iterdir()} == {'deliverable.yaml'}
 
 
 def test_current_authored_contract_uses_real_validator_without_status(tmp_path):
@@ -140,7 +138,7 @@ def test_current_authored_contract_uses_real_validator_without_status(tmp_path):
 schema: chirality-deliverable-sow/v1
 deliverable_id: DEL-01-02
 package_id: PKG-01
-decomposition_basis: execution/_Decomposition/fixture.md@abc123
+decomposition_basis: execution/_Decomposition/fixture.md
 project_scope_refs: [SOW-001]
 package_objective_refs: [OBJ-001]
 ---
@@ -173,4 +171,4 @@ This synthetic case asserts no human acceptance or production readiness.
                             capture_output=True, text=True)
     assert result.returncode == 0, result.stdout + result.stderr
     assert not (folder/'_STATUS.md').exists()
-    assert {p.name for p in folder.iterdir()} == {'ScopeOfWork.md','Work','deliverable.yaml'}
+    assert {p.name for p in folder.iterdir()} == {'ScopeOfWork.md','deliverable.yaml'}

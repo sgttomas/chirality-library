@@ -7,9 +7,9 @@
 | `PURPOSE` | One PROJECT/SOFTWARE `INIT`, `CONVERT`, `REVISE`, or `VERIFY` operation |
 | `ScopePath` | Exact deliverable folder under accepted run authority |
 | `Workflow` | `scope-of-work` |
-| `AllowedWriteTargets` | Exact contract/run-record targets; never legacy or underscore files |
+| `AllowedWriteTargets` | Exact contract targets; never legacy or underscore files |
 | `RuntimeOverrides.DELIVERABLE_PATH` | Same resolved deliverable folder as `ScopePath` |
-| `RuntimeOverrides.DECOMPOSITION_BASIS` | Accepted decomposition path and commit |
+| `RuntimeOverrides.DECOMPOSITION_BASIS` | Accepted decomposition path |
 | `RuntimeOverrides.PROJECT_SCOPE_REFS` | Non-empty accepted project-scope references |
 | `RuntimeOverrides.PACKAGE_OBJECTIVE_REFS` | Non-empty accepted package-objective references |
 | `RuntimeOverrides.MODE` | `INIT`, `CONVERT`, `REVISE`, or `VERIFY` |
@@ -36,7 +36,7 @@ method but may not create scope or acceptance criteria.
 | `CustomInstructions` | Deliverable-specific emphasis within the frozen scope | none |
 | `RuntimeOverrides.STATUS_POLICY` | `PRESERVE_CURRENT` or `NO_STATUS_TOUCH`: existing status bytes remain unchanged and absent status remains absent. `REVISE` uses `NO_STATUS_TOUCH`. Any separately authorized status act belongs to its actual actor outside this workflow | `NO_STATUS_TOUCH` |
 | `RuntimeOverrides.DECOMP_VARIANT` | `PROJECT` or `SOFTWARE`, matching the accepted decomposition basis; canonical enum `DECOMP_VARIANT` in `tools/validation/validate_enum.py`. `DOMAIN` is out of this workflow's scope | inferred from `DECOMPOSITION_BASIS` |
-| `RuntimeOverrides.PHASE` | Project-loop phase label carried for run-record attribution only; it grants no authority and changes no tool behavior | empty |
+| `RuntimeOverrides.PHASE` | Project-loop phase label carried for attribution only; it grants no authority and changes no tool behavior | empty |
 
 ## Write boundary
 
@@ -44,7 +44,7 @@ Permitted targets are limited to:
 
 - for `INIT`, the production `ScopeOfWork.md` at `{ScopePath}/ScopeOfWork.md`;
 - for `REVISE`, the existing production `{ScopePath}/ScopeOfWork.md`, changed
-  only within `REVISION_SCOPE` and the amendment reference;
+  only within `REVISION_SCOPE`;
 - for `CONVERT`, an evidence-candidate `ScopeOfWork.md` in the isolated
   conversion workspace, plus a separate clean production-candidate
   `ScopeOfWork.md` and external finalization report;

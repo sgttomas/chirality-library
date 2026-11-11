@@ -1,6 +1,6 @@
 # Current PROJECT/SOFTWARE scope amendment
 
-Use this profile where the project has adopted `ScopeOfWork.md`, `Work/` and
+Use this profile where the project has adopted `ScopeOfWork.md` and
 consumer-local `deliverable.yaml`. It replaces the retained contract/method's
 phase/control-file obligations for this use. DOMAIN and explicitly adopted
 legacy lifecycle projects keep those resources. Existing old files alone do
@@ -129,8 +129,7 @@ The accepted amendment is the hand-back to `project-setup`'s
 Use accepted IDs and changed scope only. Missing ScopeOfWork contracts use
 `INIT`; existing valid contracts whose authorized changes were deferred use
 `REVISE` under the current-project profile. `dependency-extract` authors/refreshes
-actual affected consumer needs after their scope exists. Retain useful Work
-material and revise it where the amendment changes its meaning.
+actual affected consumer needs after their scope exists.
 
 Check the accepted actions and deferred propagation against actual results,
 using the current-project route of `audit-scope-closure`. Return amendment acceptance,

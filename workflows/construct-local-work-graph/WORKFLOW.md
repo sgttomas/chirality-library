@@ -12,8 +12,7 @@ is an optional, generated view, not an authored progress record or a prerequisit
 to ordinary work. The human's steering supplies the objective; deliverable files
 supply current commitments, design and dependency conditions.
 
-Read the affected scope and work material in the project's adopted locality
-(`Work/` by the shared default), then query the relevant upstream and
+Read the affected scopes, then query the relevant upstream and
 downstream needs with the project's deliverable tool when available. Until that
 tool is available, inspect the relevant dependency sources directly. Follow only
 connections needed to understand this undertaking. Preserve non-gating links and
@@ -32,14 +31,13 @@ assignment. Use one integration owner and disjoint concurrent writes. Apply
 `coordinated-knowledge-work` where contributions need coordination. Verification
 and independent scrutiny follow the consequences under the Library's `AGENTS.md`.
 
-Update scope, work material or dependency conditions in their source files when the
+Update scope or dependency conditions in their source files when the
 work changes them, obtaining owner decisions for reserved commitments or
 criteria. Regenerate a graph when needed; do not commit the generated view or
 maintain a second status table. Code-path matches identify relevance, not
 exclusive ownership or completion. PRs hold the change and verification account.
 
 Finish when the authorized result and its required checks are established.
-Return the result location, checks, findings and open decisions. If interruption
-creates a real recovery need, keep one short current-state note and replace it
-in place. No compulsory closeout PR, receipt, MEMORY update or handoff chain is
-part of this method.
+Return the result location, checks, findings and open decisions. No compulsory
+closeout PR, receipt, MEMORY update, recovery note or handoff chain is part of
+this method.
