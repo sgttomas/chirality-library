@@ -217,7 +217,7 @@ where explicitly adopted, `project-setup-retained` in `INCREMENTAL` mode.
    and return `UNSUPPORTED_STATE` so the deliverable is held for the human.
    `CHECKING` changes only after a human reversal to `IN_PROGRESS`; `ISSUED`
    only after the human records `ISSUED → IN_PROGRESS` under the accepted
-   amendment (`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-specification` §3.3). Also refuse `LEGACY_FOUR_DOC`,
+   amendment. Also refuse `LEGACY_FOUR_DOC`,
    `MIGRATION_DUAL`, and a contract that does not validate before revision.
    For the current profile, inspect actual holds and authority without inventing
    lifecycle state. Both profiles reject invalid or ambiguous input formats.
