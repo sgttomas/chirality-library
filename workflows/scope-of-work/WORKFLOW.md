@@ -157,8 +157,9 @@ what it examines or how. A corrected path or name alone does not bring a
 stated kind with it. The kinds are:
 
 - **Executable check:** what it observes, which is the behaviour or output the
-  criterion names. Where it can observe only a proxy, it says so. A check that
-  does not exist yet is stated as to be written first.
+  criterion names. Where it can observe only a proxy, it says so. The entry
+  states the examination whether or not the check exists yet; whether it
+  exists is read from the code.
 - **Comparison with a named reference:** the reference.
 - **Judgment by a named role:** who judges, and what they examine. A
   `HUMAN_REVIEW:` matrix entry is this kind and names the role. A judgment by
@@ -171,7 +172,7 @@ assessment. Automation is incidental. Expected values the criterion itself
 determines leave a check executable. An automated test against values
 produced elsewhere, such as another solver's output, a prior run or a
 published table, is a comparison. An entry that combines kinds states each part. For example:
-`Executable check (to be written first; observes the exported file's rows against the displayed table): …`
+`Executable check (observes the exported file's rows against the displayed table): …`
 
 Keep the definition on one line, because checklist derivation reads one-line
 definitions. A stated kind describes the intended examination. It does not
