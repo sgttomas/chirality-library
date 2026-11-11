@@ -29,8 +29,10 @@ needs:
     document kit in a current locality; and each usage contract states what its command does and its limits.
   when: A passage states how a tool behaves or what it enforces
 - from: DEL-05-01
-  condition: Compatibility with a named consumer is qualified against that consumer's own reader, contract
-    or fixtures at a stated consumer revision and stated Library bytes.
+  condition: For the adopted clause to be changed, the named consumer's maintained contract or fixtures are
+    bound at an exact revision and the supported path or coordinated adapter is in place. No compatibility
+    claim covering an adopted containment, governance or instruction-root clause is selected; until one is,
+    this binding is unresolved.
   when: Changing a clause a consumer adopted in a way incompatible with its use
 code_paths:
 - docs/thesis/04_architecture.md

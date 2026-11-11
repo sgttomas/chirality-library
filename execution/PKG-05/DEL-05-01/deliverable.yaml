@@ -13,7 +13,7 @@ needs:
   condition: The maintenance route establishes, before a holding is relocated or retired, its replacement or
     historical standing and a recoverable source.
   when: Documenting the recovery route of a removed holding or an earlier edition
-- from: DEL-02-01
+- from: doc:docs/document-metadata.md
   condition: '`docs/document-metadata.md` defines the optional `metadata.upstream` object, with `source` and
     `edition` both required when it is present, and the document-metadata schema accepts it.'
   when: The comparison method records the published edition a derivation was reconciled against
@@ -47,7 +47,7 @@ needs:
     identifying its candidate and checks, with the guidance and publications that describe a changed
     holding agreeing with it or naming their earlier basis.
   when: Assembling an edition's change account from the changes integrated since the prior edition
-- from: DEL-04-01
+- from: doc:workflows/project-setup/resources/project-entry.md
   condition: '`workflows/project-setup/resources/project-entry.md` is the single Library source from which
     a project''s entry documents are adapted.'
   when: The comparison method maps an adapted entry document to its Library source

@@ -24,9 +24,17 @@ needs:
     reviewed under the text that preceded it while that text stays recoverable.
   when: Revising a usage contract that lives in a workflow package or in the preparation skill
 - from: DEL-05-01
-  condition: Compatibility of a Library interface with a named consumer is tested against that consumer's
-    maintained contract or fixtures at a stated revision.
+  condition: For the interface to be changed, the named consumer's maintained contract or fixtures are bound
+    at an exact revision and a supported path or coordinated adapter exists. The one compatibility claim
+    selected covers the App's workflow-package reader; a binding for another interface is unresolved.
   when: Changing incompatibly the declaration format, the query JSON or the resolver result
+- from: external:root-adherence-result-format
+  condition: Root proposes its machine-readable adherence-result format and the projects agree the output
+    contract, evidence and revision binding. A Library change that lets the method write a result file
+    authorises that one write explicitly and leaves the checked material read-only. No schema, file name or
+    destination is established, and which deliverable answers for evaluation-protocol, evaluation-report
+    and tools/evaluation is not established.
+  when: Adding an agreed adherence-result format to evaluation-protocol's output contract
 code_paths:
 - .github/workflows/governance-harness.yml
 - tools/run_affected_tests.py
