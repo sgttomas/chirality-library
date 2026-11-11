@@ -1,62 +1,31 @@
 id: DEL-03-01
 name: Support current localities with actual reusable tools
 needs:
-- from: external:root-adherence-result-format
-  condition: Root DEL-04-02 proposes its R-24 machine-readable result and the projects agree
-    the output contract, evidence and revision binding. The Library amendment must explicitly
-    authorize the narrow result-file write in the checked deliverable's Work/ while leaving
-    checked subject material read-only. No schema, filename or fulfilled integration is
-    established at setup; retain evaluation-protocol, evaluation-report and tools/evaluation.
-  when: Adding the agreed adherence-result format to evaluation-protocol's output contract
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md::Pending Root adherence-result interface
-- from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
-  condition: Use the accepted identities, current locality convention and actual setup authority with
-    inspected target contents before live creation. Sections 8.1 and 6.1 distinguish formation scope from
-    already repaired tooling.
-  when: Selecting or exercising a live formation operation
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
-- from: doc:workflows/project-setup/resources/current-project.md
-  condition: 'Use the explicit current route and corresponding helper/preparation/ScopeOfWork instructions
-    at the selected revision; compare actual source/caller behavior with PR #1779 evidence for the particular
-    unchanged claim.'
-  when: Reusing or examining setup support
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
 - from: DEL-04-01
-  condition: The selected live consumer declarations and owning ScopeOfWork/Work exist with actual intended-use
-    conditions, known project root and Git/HEAD basis. Empty declarations or path presence do not establish
-    meaningful query inputs or suitability. Read only the authorized query scope.
-  when: Exercising native queries on the formed Root localities
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
-- from: unknown
-  condition: Identify the actual affected caller contract, intended use, source revision and maintained
-    fixtures before changing a selected utility or exported interface. The caller set is case-specific;
-    unknown callers are not assumed absent and do not justify a census.
-  when: A concrete utility or exported-interface change is proposed
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
-- from: DEL-05-01
-  condition: Bind the named maintained consumer contract/fixtures and exact revision for a compatibility
-    claim or incompatible exported change. Q-04 remains unresolved; establish a supported route or coordinated
-    adapter before such a change without commissioning one by this need.
-  when: Claiming named compatibility or changing a consumed interface incompatibly
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
+  condition: Each of the Library's deliverable localities holds a ScopeOfWork.md and a deliverable.yaml under
+    the same numeric identity, the declaration carrying its id, its needs and its code and check pointers.
+  when: Examining the structural checks, contract validation and the queries against the Library's own
+    localities
 - from: DEL-02-01
-  condition: Use the applicable preceding maintenance/review method and actual change authority for a
-    utility or usage-instruction repair, with proportionate verification and recovery of its previous
-    basis.
-  when: Carrying a toolkit change through review and integration
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
-- from: DEL-04-01
-  condition: Apply the existing same-PR reconciliation practice to the actual utility result, direct usage
-    instructions, affected callers and local conditions; unchanged declarations remain unchanged. This
-    is a different use from supplying live query inputs.
-  when: Reconciling an actual toolkit change before integration
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md
-- from: DEL-03-02
-  condition: Before changing an existing utility for a selected R18 caller, bind that caller’s
-    actual input/output contract, source revision and relevant evidence. New deliverable allocation
-    alone does not select a utility modification or establish its suitability.
-  when: Historical use under the accepted R18 amendment — examining the original evaluation-tool caller and utility basis
-  evidence: execution/PKG-03/DEL-03-01/Work/ToolBasis.md::Evaluation extension
+  condition: The scope-of-work method states the parts a contract has and their order, and the columns of
+    its output and evaluation matrix.
+  when: Changing what contract validation accepts or rejects
+- from: DEL-01-01
+  condition: workflows/catalog.yaml declares the workflow catalog's schema and the Library's identity in it,
+    a source and a source root id.
+  when: The resolver resolves a workflow or a source-qualified method
+- from: doc:agents/registry.json
+  condition: agents/registry.json declares each role the Library offers with its instruction file and tools,
+    and a workflow package's execution.json names the roles that may select it.
+  when: The resolver decides whether a role may select a method
+- from: DEL-02-01
+  condition: The create-workflow method governs creating or revising a reusable workflow, and a replacement is
+    reviewed under the text that preceded it while that text stays recoverable.
+  when: Revising a usage contract that lives in a workflow package or in the preparation skill
+- from: DEL-05-01
+  condition: Compatibility of a Library interface with a named consumer is tested against that consumer's
+    maintained contract or fixtures at a stated revision.
+  when: Changing incompatibly the declaration format, the query JSON or the resolver result
 code_paths:
 - .github/workflows/governance-harness.yml
 - tools/run_affected_tests.py
@@ -64,10 +33,19 @@ code_paths:
 - tools/software_workflow/**
 - tools/validation/validate_agent_instructions.py
 - tools/validation/test_document_metadata.py
-- tools/scaffolding/**
+- tools/scaffolding/current_locality.py
+- tools/scaffolding/scaffold_package.sh
+- tools/scaffolding/scaffold_deliverable.sh
+- tools/scaffolding/test_current_locality.py
+- tools/scaffolding/test_scaffold.py
 - tools/scope_of_work/**
 - tools/deliverables/**
-- tools/workflow_runtime/**
+- tools/workflow_runtime/README.md
+- tools/workflow_runtime/resolve_workflow.py
+- tools/workflow_runtime/normalize_brief.py
+- tools/workflow_runtime/test_resolve_workflow.py
+- tools/workflow_runtime/test_normalize_brief.py
+- tools/workflow_runtime/fixtures/method_normalization_cases.json
 - tools/validation/check_min_viable_fileset.sh
 - workflows/project-setup/resources/current-project.md
 - .agents/skills/preparation/**

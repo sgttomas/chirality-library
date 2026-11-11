@@ -1,63 +1,42 @@
 id: DEL-02-01
 name: Carry and recover an authorized holding change
 needs:
-- from: doc:AGENTS.md
-  condition: The repository holding/recovery and Git conventions plus selected methods cover the actual authorized
-    operation, source basis and review/integration authority. Inspect the relevant resources, not just
-    the entry.
-  when: Carrying a holding change through review and integration
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
-- from: doc:workflows/create-workflow/WORKFLOW.md
-  condition: Use the preceding applicable authoring and human-review basis when the holding being changed
-    is a reusable method; a proposed replacement cannot authorize its own adoption.
-  when: Creating or revising reusable maintenance instructions
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
 - from: DEL-04-01
-  condition: Use the actual maintained bounded-reconciliation procedure to compare the candidate, evidence
-    and affected local declarations in the implementation PR. The existing method is usable without waiting
-    for all reconciliation or formation outputs.
-  when: Diagnosing, assessing connected change or reconciling before integration
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+  condition: The bounded-reconciliation method, reached from the working cycle in AGENTS.md, compares a
+    concrete result and its verification with the holdings, scopes, needs and pointers it affects, separates
+    missing behaviour, stale description and missing evidence, and has the warranted edits made in the
+    pull request that carries the change.
+  when: The maintenance guidance sends a maintainer to diagnose, assess connected change or reconcile
+    before integration
 - from: DEL-03-01
-  condition: The selected command has an accurate maintained invocation/dependency/effect/failure contract
-    and applicable behavior evidence. Disclose an unavailable capability and its permitted fallback; do
-    not assume a file-only query or enforced lock.
-  when: Directing executable operations in a maintenance procedure
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
-- from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
-  condition: 'Use section 6.1 and its exact PR #1779 source/check basis to determine which A2/A5 claims
-    the reported evidence supports. Preserve its limits; select further cases only for uncovered claims.'
-  when: Reusing the prior instruction/tool repair as maintenance evidence
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+  condition: tools/deliverables/README.md and the tool policy and command statements in workflows/scope-of-work/
+    state, for every command they show, the invocation, inputs, dependencies, outputs, write effects,
+    failure behaviour and limits, and each command does what is stated.
+  when: The maintenance guidance directs a deliverables query or a scope tool
+- from: unknown
+  condition: tools/validation/build_workflow_index.py regenerates workflows/index.json from workflow package
+    metadata and, with --check, fails on a stale index or on a missing or escaping package file;
+    tools/validation/validate_workflow_metadata.py checks a package's folder name, description, optional
+    execution.json and index freshness. Which deliverable provides these two tools is not established.
+  when: create-workflow directs registering or checking a bundled workflow package
 - from: DEL-02-02
-  condition: The particular disputed definition or applicability reading is resolved or explicitly qualified
-    against its adopted/historical source before that meaning is relied on. Unrelated maintenance may
-    continue.
-  when: The maintenance case encounters inconsistent shared-reference meaning
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
-- from: doc:AGENTS.md
-  condition: Use the assignment/disjoint-write coordination in the AGENTS.md Holding changes and recovery section for the labelled retained-source
-    recovery case in MaintenanceBasis.md, with its holder, scratch item, reserved completion, current
-    authority and release/recovery conditions. Its observed lack of filesystem exclusion does not meet
-    a need for enforced locking; bind and exercise a stronger mechanism before making that claim.
-  when: Establishing recovery or custody-release claims
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+  condition: For the compatibility-format reference that the scope-of-work and scope-change methods cite,
+    the text lets a reader tell which clauses are reusable definitions, which bind only a project that
+    adopted them and which are history.
+  when: A method in the maintenance guidance cites a shared reference as governing
 - from: DEL-05-01
-  condition: Use the maintained obtaining/publication/update route for the actual claim. Named compatibility
-    requires Q-04 contract/fixtures and revision; publication inspection requires Q-05 candidate and prior
-    basis. This does not hold unrelated maintenance or authorize release.
-  when: Connecting publication/update operations or repeating a named compatibility claim
-  evidence: execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md
+  condition: README.md gives the consumer guidance for choosing a version and obtaining material and the
+    update-inspection procedure, and each edition proposed to the owner has a publication candidate with
+    its change account against the prior edition.
+  when: The maintenance guidance sends a maintainer to prepare a publication or inspect updates
 code_paths:
-- docs/document-metadata.md
-- docs/document-metadata.schema.json
 - AGENTS.md
 - agents/**
-- tools/workflow_runtime/resolve_workflow.py
-- tools/validation/build_workflow_index.py
 - workflows/create-workflow/**
 - workflows/scope-change/**
 - workflows/scope-of-work/**
-- workflows/project-setup/resources/current-project.md
+- docs/document-metadata.md
+- docs/document-metadata.schema.json
 checks:
 - tools/validation/validate_workflow_metadata.py
+- tools/validation/build_workflow_index.py

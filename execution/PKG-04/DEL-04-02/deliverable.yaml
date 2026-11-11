@@ -1,76 +1,54 @@
 id: DEL-04-02
 name: Reflective review of the practice
 needs:
-- from: doc:execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md
-  condition: Use the actual accepted formation payload, its decisions/manifests and independent audit,
-    following the preceding Group 1/2 bases where required. Preserve original qualifications; SOW-0011
-    formation exists and is not to be recommissioned.
-  when: Examining formation coverage or the accepted framing
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
-- from: doc:agents/AGENT_HELP_HUMAN.md
-  condition: Read the actual selected guidance on intended outcome, changed questions, commitments/evidence
-    and continuity before judging adequacy or proposing a revision. Keep its preceding basis available.
-  when: Using or revising reflective-practice guidance
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
-- from: doc:workflows/reflect-on-work/WORKFLOW.md
-  condition: Use the adopted bounded human-Agent 0 method for questioning purpose, commitments,
-    explanatory framing or chosen practice. Retain its preceding design/review basis; a future proposed revision
-    is not adopted or evidenced as executed merely by its presence. Reasoned retention and scoped change remain distinct choices.
-  when: A concrete finding calls the basis or practice into question
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
-- from: doc:workflows/coordinated-knowledge-work/WORKFLOW.md
-  condition: Read the selected method on premises, combined results, waiting and completion with the actual
-    bounded question; assess the cost and warrant of its use without inferring another monitoring layer.
-  when: Examining the coordination practice or a proposed guidance change
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
 - from: DEL-04-01
-  condition: Inspect the particular accepted/set-up localities and relevant reconciliation evidence for
-    the chosen question, keeping actual local owners and condition/maturity limits visible. Full reconciliation-deliverable
-    completion is not a prerequisite for using suitable case evidence.
-  when: A real reflection or A3 case relies on formed work and reconciliation
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+  condition: The bounded-reconciliation method takes an ordinary disagreement between a result and a scope or
+    need under the commitments as they stand, corrects it in the pull request carrying the change, and brings
+    a changed commitment to its owner.
+  when: A reflection finds that the matter is a disagreement under current commitments, not a question about them
+- from: DEL-04-01
+  condition: Each of the seven localities DEL-04-01 forms has a ScopeOfWork.md stating its local goal, outputs,
+    boundaries and acceptance criteria and a deliverable.yaml declaring its needs.
+  when: Reading the local goal and input conditions a reflective question concerns
+- from: DEL-04-01
+  condition: One actual authorised change on accepted and set-up scope is identified with its goal, input or
+    use condition, finding, changed route or understanding and examined neighbouring uses.
+  when: Supplying the reflective side of PRD A3
+- from: DEL-02-01
+  condition: The create-workflow method governs creating or revising a reusable workflow, and a replacement of
+    a role or method is reviewed under the text that preceded it while that text stays recoverable.
+  when: Revising reflect-on-work or a reflective passage, or sending a method change that a reflection warrants
+- from: DEL-01-01
+  condition: README.md links to the manual index, and the manual index presents Chirality in Practice as
+    material for reflection, with its edition and source paths, separate from execution instructions and
+    the historical manuals.
+  when: A reader reaches the book from the Library entry
 - from: DEL-02-02
-  condition: 'Use the actual F-02 case in owning Work and PR #1783, integrated at 1357d706ea77497903976bf159f3880bea4d1360:
-    accepted goal, current-format caller condition, rejected af78739 interpretation, repaired 4ac85ca
-    candidate and examined affected uses. For reflection retain the actual owner feedback and changed
-    undertaking boundary described in this locality. This binds the selected case only; synthetic recovery
-    evidence and blanket fulfillment are not inferred.'
-  when: Establishing reflective application or A3 evidence
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+  condition: The account of the shared-reference repair, with its draft interpretation, the counterexample found
+    in independent review and the repair, is available at the source the book cites for that case.
+  when: The book presents the shared-reference repair as a case
+- from: DEL-02-01
+  condition: The account of the maintenance change that gave reflection its own method, with its review under
+    the preceding text, is available at the source the book cites for that case.
+  when: The book presents the revision of the reflective guidance as a case
 - from: DEL-05-01
-  condition: Require Q-04 named contract/fixtures and revision, or Q-05 candidate/prior basis, only where
-    the reflective conclusion relies on those compatibility/publication claims. Preserve unknowns and
-    actual owner authority.
-  when: The selected reflective question has a named consumer or publication consequence
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
+  condition: The account of obtaining the Library, its readers, the archive and change inspection is available
+    at the source the book cites for that case.
+  when: The book presents the Library's publication and consumer use as a case
 - from: doc:docs/thesis/CHIRALITY_FRAMEWORK.md
-  condition: Use the framework's account of knowing, judgment, accountability and the limits of representations
-    as explanatory grounding alongside the thesis introduction, chapter 3's mutually corrective perspectives
-    and account of attention, chapter 9's limitations, and the README's dated evidence basis. Keep
-    commitments, design hypotheses and empirical claims distinct. The book adds no fresh App
-    or SWBPIPE product qualification or established cross-project learning practice by restating them.
-  when: Developing the book's relation to the thesis and cross-project experience
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
-- from: DEL-02-02
-  condition: Retain F-02's established distinctions about current Work navigation and historical Design
-    references, scoped adopted contracts, capability/authority and source-edition reliance in the new
-    book. This is a distinct successor-use condition, not a new F-02 implementation assignment.
-  when: The book explains meanings examined in F-02
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md
-- from: DEL-03-02
-  condition: Under the accepted R18 amendment, this is an original OUT-005 production need retained
-    for historical recovery and examination only. For that original question, identify the
-    source-bound repository state/change and
-    relevant effort observations, actual outcome evidence and a comparison whose conditions
-    and coverage are explicit. Tool limits may change the question; neither a result score nor
-    producer completion establishes useful change. Use preliminary supported observations where
-    sufficient; do not wait for whole-deliverable completion.
-  when: Historical use under the accepted R18 amendment — examining the original OUT-005 application and source-bound observations
-  evidence: execution/PKG-04/DEL-04-02/Work/ReflectiveBasis.md::Evaluation extension
+  condition: The thesis keeps, at the files and anchors the book links, its account of knowing, judgment and
+    the limits of representations, the mutually corrective perspectives and the contribution of the chirality
+    metaphor in chapter 3, its discussion in chapter 9, and the dated source basis for App and SWBPIPE
+    experience in its README.
+  when: The book cites the thesis as its conceptual grounding
+- from: unknown
+  condition: The renderer `docs/alignment-manual/render_manual.py` produces a self-contained HTML edition from
+    an identified committed Markdown source and, with `--check`, fails when the existing HTML differs.
+  when: Generating or checking the book's HTML
 code_paths:
 - docs/alignment-manual/Chirality_in_Practice_Edition_1.*
 - agents/AGENT_HELP_HUMAN.md
-- workflows/coordinated-knowledge-work/**
+- workflows/coordinated-knowledge-work/WORKFLOW.md
 - workflows/reflect-on-work/**
 - execution/_Decomposition/**
 checks:

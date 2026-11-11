@@ -2,7 +2,7 @@
 schema: chirality-deliverable-sow/v1
 deliverable_id: DEL-01-01
 package_id: PKG-01
-decomposition_basis: execution/_Decomposition/checkpoint_snapshots/GROUP3-20261101T011431Z/PROJECT_DECOMP.md@fd847ac9ac68250b2f35d2e9c0087c16e86b510a
+decomposition_basis: execution/_Decomposition/PROJECT_DECOMP.md
 project_scope_refs: [SOW-0001, SOW-0002, SOW-0003]
 package_objective_refs: [OBJ-001, OBJ-002, OBJ-003, OBJ-005]
 ---
@@ -11,163 +11,134 @@ package_objective_refs: [OBJ-001, OBJ-002, OBJ-003, OBJ-005]
 
 ## Purpose and Objective Traceability
 
-Given a bounded maintenance brief, a maintainer can find the applicable holding,
-method, source standing, execution locality and unresolved conditions without
-treating an index or inferred relationship as authority. This is the production
-contract for accepted DEL-01-01_library-discovery-guide in PKG-01, Library access.
-It defines navigation within a selected library basis.
+Given a bounded maintenance brief, a maintainer finds the holding, the method,
+the standing of each source, the deliverable locality and the unresolved
+conditions that apply, without treating an index or an inferred relationship
+as authority. This deliverable contributes the route that makes that possible:
+the entry a session or a reader starts from; the statement, at each holding's
+own entry, of what the holding is for and how far it governs; and the
+instructions for searching, following references and querying when the entry
+does not already lead to the answer.
 
-All source paths below are project-relative. The governing basis is the accepted
-Group 3 decomposition named in frontmatter, especially its vocabulary, §3
-objectives, §4 ledger, DEL-01-01 card, §8.1 formation obligations, §9 interfaces
-and §10 qualifications. Its payload SHA-256 is
-`313bdb78d1a000d8a903aa12197603ac45bcb7a601df1ee12447eaaf29031261`.
-`execution/_Decomposition/_LATEST_ACCEPTED.md` resolves that snapshot;
-`DECISION.md` in the same snapshot directory supplies owner acceptance and setup
-authority. The payload's submitted status wording is historical. Snapshot
-relative links resolve from original `execution/_Decomposition/PROJECT_DECOMP.md`.
-The accepted `docs/PRD.md` revision 2026-10-31 has SHA-256
-`95c3c25ee36d4d4ddadf54d266a47a2ee58c6b37fbbdef75ad20a97986a718ca`.
+Its allocation is the DEL-01-01 card of the
+[accepted decomposition](../../_Decomposition/PROJECT_DECOMP.md), in package
+PKG-01, Library access, with the interface "Entry and consumer guidance" in
+that document's §9. It serves [PRD](../../../docs/PRD.md) objective O1 and
+contributes to O2, O3 and O5.
 
-| Accepted scope | Intended contribution | Objectives and product warrant |
-| --- | --- | --- |
-| SOW-0001 | Connect a bounded undertaking to entry, selected basis, applicable instructions, holdings and execution; maintain the entry through that route. | OBJ-001, OBJ-002; PRD R01, A1 and the entry contribution to A5 |
-| SOW-0002 | Make the traversed holdings intelligible through purpose, applicability, standing, resources, outputs and limits at their own homes. | OBJ-001, OBJ-003, OBJ-005; PRD R02, A1 and the source/resource contribution to A6 |
-| SOW-0003 | Supply directed search, reference following and structured-query guidance with provenance, relationship distinctions and honest search limits. | OBJ-001, OBJ-003, OBJ-005; PRD R03, A1 |
-
-Maturity: the entry route is maintained. The linked Work records bounded discovery
-and fresh-reader examinations; product-wide fulfillment, acceptance and release
-remain unestablished. Consumer-local needs are declared in `deliverable.yaml`;
-their presence establishes no satisfaction claim.
-
-The source assessment and discovery findings are in
-[Work/DiscoveryBasis.md](Work/DiscoveryBasis.md).
+| Scope item | What this deliverable contributes | Objectives | PRD |
+|---|---|---|---|
+| SOW-0001 | A starting route that can itself be located, from a bounded undertaking to the selected basis, the repository and role instructions that apply, the relevant holdings and the deliverable localities; and the way to the entry's own maintenance, each revision of the entry made under the entry that precedes it | OBJ-001, OBJ-002 (O1, O2) | R01, R06; A1 and the entry's part of A5 |
+| SOW-0002 | Holdings intelligible where they live: purpose, applicability, standing, resources, outputs and limits, with explanation, instruction, example, proposal and historical source told apart, and the resources and notices a copy must carry named and kept | OBJ-001, OBJ-003, OBJ-005 (O1, O3, O5) | R02; A1 and the source and resource part of A6 |
+| SOW-0003 | Instructions for purposeful search, following references and structured queries, with source identity, declared, inferred and unknown relationships and search limits visible; consumed indexes kept and regenerated from their owning sources | OBJ-001, OBJ-003, OBJ-005 (O1, O3, O5) | R03; A1 |
 
 ## Deliverable Definition — Ontology
 
-A selected basis is the identified source revision or edition actually governing
-the use. A discovery pointer locates material; it does not adopt a newer edition.
-A holding is library content, including instructions, explanations, publications,
-tools and execution. Its standing states whether and how it governs the present
-use. A declared relationship is supported by the owning source; an inferred
-relationship is a labelled interpretation. Unknown bindings and unsearched areas
-remain visible. A locality holds a goal, work and input conditions; its directory
-is not evidence that work is ready or complete.
+A **bounded brief** is the undertaking a maintainer brings, stated in the
+conversation. The entry starts none.
 
-- **OUT-001** — Connected entry and local navigation set, primarily in `README.md`, `AGENTS.md` and selected owning indexes. It connects the bounded brief to the selected basis, applicable `AGENTS.md` and role, relevant holdings, method and actual execution. Maps to SOW-0001 and SOW-0002; OBJ-001, OBJ-002, OBJ-003, OBJ-005.
-- **OUT-002** — Source-standing and local-use explanations for the holdings actually traversed, embedded in their existing entry/index or owning guide. They identify purpose, applicability, standing, required resources/notices, outputs and limits, including publication edition distinctions. Maps to SOW-0002; OBJ-001, OBJ-003, OBJ-005.
-- **OUT-003** — Concise directed-discovery instructions and a bounded worked example attached to the entry/navigation route, with candidate-bound walkthrough and separate command evidence retained in `execution/PKG-01/DEL-01-01/Work/` or its actual review record as needed for reliance. Maps to SOW-0003 and SOW-0001; OBJ-001, OBJ-002, OBJ-003, OBJ-005.
+The **selected basis** is the identified source revision or edition that
+actually governs a use. A proposed replacement, or a newer publication that
+was only examined, does not replace it.
 
-These are related guide components, not a requirement for three new files.
-Existing reusable holdings and applicable checked evidence may supply part or all
-of an output. Reconcile only affected material. Source publications retain their
-maintained homes; `Work/` holds local reasoning, evidence and unresolved conditions,
-not replacement copies of the library. A new guide file is justified only by an
-actual reader need and must be connected from the existing entry.
+A **holding** is library content: a role, a workflow, a tool and its guide, a
+publication, a reference or a deliverable locality. Its **standing** says
+whether and how it governs the present use: instruction, explanation, example,
+proposal or historical source.
 
-- **CLM-001** — Inspected sources already provide usable entry components: `README.md` links roles, workflows, references and publications; `AGENTS.md` leads to `execution/_Coordination/LOOP_INIT.md`; `workflows/README.md` describes source-qualified selection, canonical package metadata and generated indexes. This establishes available material, not an end-to-end A1 result.
-- **CLM-002** — `docs/alignment-manual/README.md` distinguishes the standalone reflective book, the historical Consolidated v9 source and earlier editions, with separate discovery links and explicit standing. `docs/thesis/README.md` identifies explanatory, nonbinding research, its maintained source and historical evidence bases. These supply local standing distinctions without requiring a whole-publication rewrite.
-- **CLM-003** — The accepted decomposition's DEL-01-01, DEL-02-02 and DEL-03-01 cards allocate disputed shared-meaning/reference clarification to `DEL-02-02` and actual query/tool behavior with direct usage contracts to `DEL-03-01`. Navigation uses those sources and reports their limits; it does not settle their disputed meaning or implement their behavior.
-- **CLM-004** — The accepted DEL-05-01 card and §9 entry/consumer interface allocate obtaining/copying, version selection, update inspection, named compatibility evidence and publication preparation to `DEL-05-01`. Shared README/index changes need one editor and joint checking; navigation meaning remains with DEL-01-01. Source-file relevance grants no exclusive file ownership.
-- **CLM-005** — Decomposition §8.1 allocates actual setup and needs formation to `DEL-04-01`, and decomposition/framing formation to `DEL-04-02`, with Agent 0 coordinating and each local contributor retaining its own contract, Work and needs. Neither formation allocation appoints a supplier or centralizes all local work. DEL-01-01 consumes actual usable formation results before presenting current-work links as such.
-- **CLM-006** — `AGENTS.md`, PRD §§2.3, 4–5 and the Group 3 decision retain human acceptance/reliance, changed commitments, risk disposition, protected-baseline decisions and library release with their actual owner. Independent consumer projects retain adoption, product work and release. Further archival disposition and frozen-scope reactivation require explicit owner authority; discovery or recovery supplies none. The accepted PKG-01/SOW-0028 boundary excludes a global census/registry, and PKG-03/SOW-0033 keeps additional tooling conditional on a demonstrated gap and actual authority.
+A **discovery pointer** is a stable link, anchor or index entry that locates a
+holding. It selects no edition, decides no applicability and confers no
+authority.
+
+A **declared relationship** is one its owning source states. An **inferred
+relationship** is a labelled interpretation and binds nothing. An **unknown**
+is a binding not established or an area not searched, and it stays visible.
+
+A **locality** is `execution/PKG-nn/DEL-nn-nn/`, holding a deliverable's scope
+and its needs. A **current-work link** is a link from the route to a locality
+as the place where work on a subject is carried. The directory's presence is
+not evidence that the work is usable or complete.
+
+A **consumed index** is a listing or named location that tools, products or
+other holdings read to find a holding: `workflows/index.json`,
+`workflows/catalog.yaml`, and the anchors and section headings that consumers
+and other holdings cite.
+
+- **OUT-001** — The entry route. For a session it is `init-prompt.md`, then `AGENTS.md` (which `CLAUDE.md` includes), whose development entry leads to the PRD, the accepted decomposition, the deliverable scopes with their needs, the active role file and the method index. For a reader it is `README.md`, which offers the holdings by purpose and sends a contributor to `AGENTS.md`. Serves SOW-0001 and SOW-0002.
+- **OUT-002** — The standing and local-use statements for the holdings the route leads to, each at the holding's own entry or index: the README's selection table, `workflows/README.md`, the publication index `docs/alignment-manual/README.md`, the thesis index `docs/thesis/README.md` and the course index `docs/human-team-courses/README.md`. Serves SOW-0002.
+- **OUT-003** — Directed-discovery instructions attached to the entry route, one bounded worked example, and the consumed indexes. The worked example is the entry's own case: from the brief to revise the entry, a purpose search of the scopes locates this scope, and `python3 -m tools.deliverables --project . neighborhood DEL-01-01` shows its declared inputs and its consumers. Serves SOW-0003 and SOW-0001.
+
+These are parts of one route, not three files. An existing entry, index or
+guide carries a statement before any new file does. A separate guide file
+exists only where a reader's need requires one, and it is linked from the
+entry.
+
+- **CLM-002** — The publication standings the route presents. *Chirality in Practice* is a maintained reflective book: material for reflection, not an execution instruction and not required reading before work. Consolidated v9 is a retained historical manual, and earlier manual editions are historical sources recoverable from the private `sgttomas/chirality` repository. The thesis is explanatory, nonbinding research. Each keeps its own discovery link and anchor. A reader who wants a working method is sent to the roles and the workflow guide, to be used under their own project's instructions.
+
+Boundary:
+
+- **CLM-003** — What a disputed shared definition or reference means, and where it applies, is settled by `DEL-02-02`. What a query, resolver or validator does, and its usage contract, belong to `DEL-03-01`. How `workflows/index.json` is generated from package metadata is the generator `tools/validation/build_workflow_index.py`'s; this deliverable answers for the index being present, connected to its source and current. Which deliverable answers for that generator is undecided. The route locates those sources and reports their limits.
+- **CLM-004** — Obtaining and copying, version selection, update inspection, named compatibility evidence and publication preparation belong to `DEL-05-01`. In `README.md` this deliverable's part is the opening identity, the table that offers holdings by purpose and the section that sends a contributor to `AGENTS.md` and the PRD. In `workflows/README.md` it is how a method is selected, loaded and identified and how the catalog and index relate to package metadata. In `docs/alignment-manual/README.md` it is what each publication is for, its standing, and the difference between a discovery link and the edition a claim relies on. In those files `DEL-05-01`'s part is choosing a version, copying material or a package, staying informed, deciding whether to update, edition recovery, and reading and rendering. A shared file has one editor per change, and the combined result is checked together.
+- **CLM-005** — The deliverable localities, their formation and their needs belong to `DEL-04-01`, and the accepted decomposition to `DEL-04-02`. In `AGENTS.md` this deliverable's part is the opening identity and the table of where work happens; the development entry's opening and its section on locating the selected work; the sentences that send a reader to the active role file, the method index and the selection rule; and the rule that consumed indexes are regenerated from their owning sources. In that file the working cycle's reconciliation rule and method pointer are `DEL-04-01`'s, and the standing rules on holding changes, recovery, review and integration are maintenance guidance of `DEL-02-01`. In the course index this deliverable's part is the opening passage that says who the series is for and where the book, the roles and the methods are, not the lessons or their assessment.
+- **CLM-006** — PKG-01 holds the boundary of SOW-0028: a standing global audit, a central relationship graph, a subscriber or notice registry, automated project management and a complete census or dependency graph are outside the Library. Consumed indexes and bounded views derived on demand stay in scope. Further tooling or a companion enters only on a demonstrated gap, under SOW-0033 in PKG-03.
 
 ## Completion and Reliance Basis — Epistemology
 
-- **REQ-001** — The entry shall connect a bounded undertaking to its selected library basis, applicable repository/role instructions, relevant holdings, method, current execution and unresolved conditions. Initialization starts no undertaking. The entry itself shall remain discoverable and maintainable under the existing selected maintenance basis. Warrant: SOW-0001; PRD R01 and R06.
-- **REQ-002** — For holdings traversed by the selected case, the local route shall make purpose, applicability, standing, required inputs/resources, outputs and limits intelligible. It shall distinguish explanation, instruction, example, proposal and historical source where encountered, preserving required resources/notices when material is copied or packaged. It shall resolve publication pointers to their maintained sources and identify exact edition/revision where a claim relies on content. Warrant: SOW-0002; PRD R02; CLM-002.
-- **REQ-003** — Discovery instructions shall support purposeful file/content search, following relevant references and structured queries where applicable. The case shall state the question, selected source basis, search bounds and limits, distinguish declarations from inferences and unknowns, and read the selected material. Existing consumed indexes shall be retained or deliberately migrated with affected uses checked; owning-source changes shall trigger appropriate checking/regeneration. No index substitutes for source reading. Warrant: SOW-0003; PRD R03.
-- **REQ-004** — Current-work links shall use accepted numeric identities and inspected actual localities from formation, with their maturity and unresolved input conditions stated. A proposed path, present directory, empty needs list, merge or structural pass shall not be represented as active usable work, suitability or completion. Existing-entry work may proceed independently while current-work inputs remain incomplete. Warrant: accepted card, §8.1; PRD R08–R10; CLM-005.
-- **REQ-005** — Command claims in the route shall state actual prerequisites and limits and have separate evidence from the content walkthrough. In particular, `tools/deliverables/README.md` declares Python 3, PyYAML, Git and HEAD for its current queries; ordinary reading does not require Git. If the query is unavailable, inspect relevant declarations directly and disclose that limit; do not imply a file-only interface exists. Warrant: accepted card and §9; PRD R03, R05, R17; CLM-003.
-- **REQ-006** — The guide shall perform no act owned by another deliverable: it shall not adjudicate disputed shared definitions/reference applicability (`DEL-02-02`, CLM-003), implement query algorithms or tool behavior (`DEL-03-01`, CLM-003), author obtaining/version/update/compatibility or publication-preparation obligations (`DEL-05-01`, CLM-004), or take over formation/reconciliation of other localities (`DEL-04-01`) or accepted decomposition/framing (`DEL-04-02`, both CLM-005). It may locate and explain these sources within its navigation remit, retaining unresolved matters and returning needed changes to the accountable contribution.
-- **REQ-007** — Discovery shall not create a global inventory, central relationship graph or new registry, require a companion, commission bespoke tools without a demonstrated gap, remove retained archival holdings, reactivate frozen work, alter protected baselines or commitments, accept risk/results, publish a release, impose consumer adoption or perform consumer product work. CLM-006 binds the PKG-01 scope boundary, PKG-03 tooling condition, actual owner's reserved decisions and each independent consumer's decisions; no agent role acquires those rights from this guide. Private sources, host details and credentials shall remain outside public outputs; use cleared public evidence. Warrant: PRD §§2.3, 5, R17; decomposition SOW-0027–0033 and Q-01/Q-02.
+- **REQ-001** — The entry connects a bounded brief to the selected basis, the repository and role instructions that apply, the relevant holdings, the method, the deliverable locality and the conditions still unresolved. It says which repository this is and that records written before 2026-11-05 call it "Root". Opening a session starts no undertaking. The entry is found from the repository root and leads to where the entry itself is changed. A revision of the entry is reviewed under the entry that precedes it, which stays usable and recoverable until the replacement is verified and adopted; proposed entry text does not authorise itself and does not change the basis of its own review. The rule for revising any holding is `DEL-02-01`'s; this deliverable answers for it being kept for the entry. Source: SOW-0001; PRD R01, R06, A5.
+- **REQ-002** — For each holding the route traverses for a brief, the holding's own entry says what it is for, when it applies, its standing, the inputs, resources and notices it requires, what it yields and its limits. Explanation, instruction, example, proposal and historical source are told apart; a historical or frozen holding is presented as such, with where it is recoverable. A publication pointer resolves to the maintained source and names its edition; where a claim relies on exact content, the route says to identify the edition and source revision. A discovery link or anchor is not repointed to a different edition without saying so. Required resources and notices are preserved when material is copied or packaged: a holding's entry names them so that a copy can carry them, and a traversed holding that is itself a copy or a package of other material carries those its source requires. The routes by which a consumer obtains and copies material, and what those routes keep, are `DEL-05-01`'s (CLM-004). The standings in CLM-002 are presented as stated there. Source: SOW-0002; PRD R02.
+- **REQ-003** — The route gives instructions for purposeful file and content search, for following references and for structured queries. They have the inquirer state the question, the source basis, the bounds and what was not searched, tell declarations from inferences and unknowns, and read the selected material; no index substitutes for that reading. A consumed index is kept, or migrated deliberately with its readers checked. A generated index is regenerated from its owning source when that source changes and is never edited by hand. An anchor or heading that a consumer or another holding cites keeps resolving to the same subject; `Working cycle` in `AGENTS.md`, which App v4 cites, is one. Source: SOW-0003; PRD R03.
+- **REQ-004** — A current-work link uses the accepted numeric identity and resolves to a locality that exists with its scope and declared needs. What the route says of a locality, including how far its work has come, rests on its scope, its needs and the code its pointers name, with unresolved input conditions shown. A proposed path, a present directory, an empty needs list, a merge or a structural pass is never presented as usable work, suitability or completion. Source: decomposition card and §8.1; PRD R08, R09, R10; CLM-005.
+- **REQ-005** — Each command the route shows states where it is run, its prerequisites and its limits, and behaves as the route says. The deliverable queries require Python 3, PyYAML, Git and a resolvable `HEAD`; ordinary reading requires none of them, and the route does not imply that the queries run without Git. Where a query cannot run, the route gives direct reading of the declarations as the fallback and says what that reading does not reproduce, such as the transitive view a query computes. A command, workflow or capability is advertised only where it exists at the revision viewed; an accepted scope or allocation is not an available capability. Source: decomposition card and §9; PRD R03, R05, R17; CLM-003.
+- **REQ-006** — The route contains no act that belongs to another deliverable. It does not settle what a disputed shared definition or reference means (`DEL-02-02`, CLM-003); define the behaviour of a query, resolver or validator (`DEL-03-01`, CLM-003) or of the index generator (CLM-003); state obtaining, version, update, compatibility or publication obligations, linking to the owning guidance where it would repeat such a claim (`DEL-05-01`, CLM-004); form or reconcile another locality (`DEL-04-01`, CLM-005); or restate the decomposition (`DEL-04-02`, CLM-005). It locates and explains those sources, and a change one of them needs goes to its owner.
+- **REQ-007** — The route is not, and does not require, a global inventory, a central relationship graph or a registry, and it makes no claim to list every holding or relationship. It requires no companion installation and calls for no tool the Library does not already hold; a gap found in discovery is reported under SOW-0033, not filled here. It claims or implies no consumer's adoption of Library material and imposes none; App v4 and SWBPIPE decide their own adoption. It contains no credentials, private source content or machine-specific private detail. Source: CLM-006; decomposition card, Boundary; PRD §2.3, R17.
 
-The following criteria evaluate the guide at its actual candidate basis. They
-are initial local expressions of accepted scope; passing setup checks does not
-satisfy them or constitute human acceptance.
-
-- **AC-001** — From an actual selected bounded brief, a maintainer can follow OUT-001 to the selected basis, applicable role/repository instructions, relevant holding and method, actual execution locality and unresolved conditions, and locate the route for maintaining the entry itself. Verify by VER-001; PRD A1 and the local contribution to A5.
-- **AC-002** — Each traversed holding exposes the purpose, applicability, standing, resources/notices, outputs and limits needed for the selected use; encountered source categories and publication editions retain their distinctions, with exact-content reliance bound to the resolved source. Verify by VER-002; PRD R02/A1, contributing source/resource evidence to A6 without claiming named compatibility.
-- **AC-003** — The bounded discovery example records the inquiry and search limits, follows relevant references and reads selected sources, distinguishes declared/inferred/unknown relationships and preserves source identity. Any consumed index is connected to its owning source and checked or regenerated when affected; the result makes no complete-inventory or complete-graph claim. Verify by VER-003; PRD R03/A1.
-- **AC-004** — Every command behavior claimed in the selected route is supported separately by applicable evidence identifying the command, inputs, prerequisites, observed result and limits at the candidate basis; unavailable capabilities and direct-source fallbacks are explicit. A content walkthrough is not cited as executable proof. Verify by VER-004; accepted card's command-evidence condition.
-- **AC-005** — Every current-work link relied on in the walkthrough resolves to an inspected accepted locality and its actual contract/work/input declarations; incomplete preparation and unresolved use conditions remain explicit. Where a current-work input is not usable, that part of A1 remains unverified while unaffected entry work is retained. Verify by VER-005; accepted card and §8.1.
-- **AC-006** — The guide respects the specific acts and owners in REQ-006 and REQ-007, keeps discovery distinct from obtaining/version/compatibility guidance, and preserves Q-01/Q-02 and applicable Q-04/Q-05 limitations. Public candidate content and retained evidence pass maintained credential screening within the available screening basis. Verify by VER-006; PRD boundaries and R17.
-
-### Inputs and use conditions for subsequent native need authoring
-
-These are consumer conditions, not supplier commitments or a complete graph.
-The declared needs are in `deliverable.yaml`; their presence does not establish
-that the conditions are satisfied.
-
-| Input / source | Intended use and trigger | Required condition / unresolved binding |
-| --- | --- | --- |
-| Accepted decomposition snapshot and Group 3 decision | Establish identity, scope and authority before connecting execution | Use the accepted snapshot/decision, interpreting original-relative references correctly; submitted status labels carry no current hold. |
-| Actual formation localities, contracts, Work and needs; §8.1 and CLM-005 | Before wiring or relying on a current-work link | Inspect the particular linked locality at its recorded basis, including maturity and unresolved conditions. Prepared directories alone are insufficient. Exact linked localities and their suitability depend on the selected brief; no whole-deliverable finish-to-start edge is inferred. |
-| `workflows/README.md`, `workflows/catalog.yaml`, `workflows/index.json`, selected package `WORKFLOW.md`, metadata and resources | Locate the method for the selected brief | Retain source-qualified identity, inspect selected resource contents at the actual revision and expose collisions or historical status. Index is discovery evidence, not authority. |
-| `docs/alignment-manual/README.md`, `docs/thesis/README.md` and the resolved source | When a publication is traversed or its content supports a claim | Use the stable link for discovery; bind edition/revision for reliance. Earlier evidence retains its own basis; latest publication does not override instructions. |
-| `tools/deliverables/README.md` and selected query/tool usage sources | When the discovery route invokes a structured query | Use actual declared prerequisites and limits; preserve source declarations and unknowns. Tool defect/behavior repair belongs to DEL-03-01; method selection does not commission it. |
-| Shared-meaning or consumer guidance, accepted sibling cards | When navigation encounters disputed meaning or shares README/index content | Clarification belongs to DEL-02-02; obtaining/version/use conditions to DEL-05-01. Agent 0 coordinates one shared-file editor. Exact future input/source revisions remain conditional on the affected claim, not on concurrently drafted contracts. |
-
-- **TBD-001** — The bounded entry-instruction case from integrated basis `11bdb448323877268c90296a5497fd71ede1baee` and the fresh-reader examination at `047da79894bc5631dca564a30113f2cd26ec7ae1` are described in Work/DiscoveryBasis.md. The latter supplies publication/source and controlled-fallback evidence; it performed no companion amendment. Broader maintenance-use cases and product-wide fulfillment remain unestablished.
-- **TBD-002** — Q-03 future production assignment remains open. Agent 0 assigns bounded work; this setup author appointment does not establish permanent responsibility or an external supplier.
-- **TBD-003** — Q-01 further archival disposition remains reserved for unselected paths; `plans/` and `_DomainEngines/` were removed from this repository on 2026-11-04 and are preserved in the private `sgttomas/chirality` repository. Q-02 additional bespoke tooling remains conditional: demonstrate a gap before proposing separately authorized implementation. Neither blocks unaffected discovery work or permits a new registry.
-- **TBD-004** — Q-04 named consumer contract/fixture and exact revision, and Q-05 verified publication candidate/version and prior comparison basis, remain unresolved with DEL-05-01. They matter if navigation repeats a compatibility or publication claim; link and qualify such claims rather than imply those inputs or their evidence exist. They do not hold ordinary navigation work.
-
-No substantive conflict with the accepted card is identified at initialization.
-A later contradictory scope/authority source must be exposed as CONFLICT with
-its consequence; continue unaffected work and refer the reserved choice to the
-actual owner rather than change a criterion to make a check pass.
+- **AC-001** — A maintainer with an actual bounded brief, starting from `init-prompt.md` or from `README.md` and following only what the route says, reaches the selected basis; `AGENTS.md` and the role file that applies; the PRD and the accepted decomposition; the scope and needs of the deliverable the brief concerns; the relevant holding and method; and the conditions on them that are unresolved. With the brief to revise the entry, the same route leads to this scope and to the files that hold the entry. Nothing on the route starts work the brief did not ask for. Verify with VER-001. PRD A1 and the entry's part of A5.
+- **AC-002** — Each holding traversed for the brief in AC-001 states at its own entry its purpose, applicability, standing, required resources and notices, outputs and limits. Each publication link resolves to the named edition's source file. The publication index presents *Chirality in Practice* as material for reflection, with its edition and source paths, separate from execution instructions and from the historical manuals; the thesis index presents the thesis as explanatory and nonbinding; and `README.md` links to both. Historical and frozen holdings read as historical. A traversed holding that is a copy or a package of other material carries the resources and notices its source requires. The route separates following a discovery link from citing an exact edition and revision. Verify with VER-002. PRD R02 and A1, and the source and resource part of A6 without any claim of named compatibility.
+- **AC-003** — The discovery instructions cover file and content search, reference following and structured queries, and have the inquirer state the question, the basis, the bounds and what was not searched. The worked example, replayed against the sources it names, returns what the route says, with each relationship labelled declared, inferred or unknown and each source named by its identity. `workflows/index.json` equals what the generator produces from the workflow packages' metadata, and every workflow `workflows/catalog.yaml` names is a package that exists. Every anchor and heading the Library's own holdings cite in the route's files resolves, and the headings REQ-003 names are present. Nothing in the route claims a complete inventory or graph. Verify with VER-003. PRD R03 and A1.
+- **AC-004** — Every command the route shows, run from the stated location with the stated prerequisites, returns what the route says. With a prerequisite absent, the failure and the fallback are the ones the route states, with the fallback's limit. No command, workflow or capability is shown that does not exist at the revision examined. A reading of the text is not evidence of a command's behaviour. Verify with VER-004.
+- **AC-005** — Every current-work link in the route resolves to a locality whose numeric identity the accepted decomposition allocates and whose scope and needs exist. Nothing the route says about a locality presents a path, an empty needs list, a merge or a structural pass as usable work or completion. Where a locality the brief needs is not usable, the route still leads to everything else in AC-001. Verify with VER-005.
+- **AC-006** — The route contains none of the acts REQ-006 and REQ-007 exclude: no settled disputed meaning, no tool behaviour defined in navigation text, no obtaining, version, update, compatibility or publication obligation, no formation of another locality, no inventory, graph or registry, no required companion, and no claim of a consumer's adoption. Navigation text in a shared file stays within the parts CLM-004 and CLM-005 give this deliverable. The route's files pass the credential scan. Verify with VER-006.
+- **AC-007** — For a revision of the entry, the review was made under the entry that preceded it; both the revised entry and the route used to maintain it were checked; the preceding entry is recoverable from Git and stayed usable until the replacement was adopted; and the adoption names who adopted it. Verify with VER-007. PRD R06 and the entry's part of A5.
 
 ## Production and Verification Method — Praxeology
 
-For authorized production, start from the bounded brief and existing selected
-instructions. Inspect only the holdings and references necessary for that case;
-classify them as already usable, needing connection/repair or absent in the
-owning work. Reuse sufficient content/evidence before adding artifacts. Connect
-the entry, local source standing and example at the maintained homes. Retain
-selected method/source identities and the preceding usable basis while a change
-is reviewed. Coordinate shared README/index edits through Agent 0 and one editor.
+Choices that define the product:
 
-Run the content and applicable command checks below against the actual candidate.
-Repair within authorized scope; expose unresolved inputs and consequential
-conflicts. Reconcile results with this contract, local Work and consumer-owned
-needs in the same implementation PR, preserving unchanged declarations and
-historical evidence. Agent 0 integrates and checks agreement. Review and owner
-acceptance remain distinct from successful validation.
+- The route lives in the existing entry files and in each holding's own index
+  or guide. Publications, tools and instructions keep their homes, and the
+  route points to them without copying them.
+- The undertaking comes from the conversation. The entry orients and waits.
+- An index locates a source, and reading the source decides what applies.
+  Generated indexes come from package metadata through the generator.
+- A stable link is for discovery, and a named edition and source revision are
+  for reliance.
+- Structured queries are used where they run. Elsewhere the declarations are
+  read directly and the limit of that reading is stated.
+- Discovery is bounded by the brief. A view may be partial, cyclic and revised
+  as the inquiry changes, provided it is labelled.
 
-- **VER-001** — Perform and review a directed walkthrough from the actual selected brief and entry, recording candidate/source basis, traversed paths, role/method selection, execution and unresolved conditions, including how the entry's own maintenance route is located. Evidence is the inspected path and use account, not a global file list. Evaluates AC-001.
-- **VER-002** — Review each traversed holding's local entry/source against the selected use for purpose, applicability, standing, inputs/resources/notices, outputs and limits. Resolve publication links and exact-content citations; inspect any selected copied/package material for retained resources/notices. Record specific gaps or supported distinctions. Evaluates AC-002.
-- **VER-003** — Replay the example's bounded search/reference-following steps against its identified sources. Inspect the relationship labels, question and limits, and check affected consumed-index provenance/currency using its owning mechanism where applicable. Distinguish inference and unsearched material from declarations; do not extrapolate to all holdings. Evaluates AC-003.
-- **VER-004** — Exercise each command behavior claimed by the route at the selected inputs and prerequisites, or reuse demonstrably applicable candidate-bound behavior evidence. Compare expected and observed behavior, errors and limits, documenting unavailable capability and the actual fallback used. This verifies commands separately from the discovery narrative and commissions no broad tool suite or frozen-product run. Evaluates AC-004.
-- **VER-005** — Follow each current-work link and inspect the accepted identity, contract, actual Work and declared input/use conditions at the selected basis. Distinguish structure from substantive suitability; use the current authored-locality check and relevant bounded queries where applicable, without treating either as acceptance. Record unresolved conditions affecting the case. Evaluates AC-005.
-- **VER-006** — Review the candidate and affected shared navigation with the accepted boundary claims, enumerating each excluded act and its actual owner/authority, source standing, privacy and retained Q qualifications. Screen public content and retained review artifacts through maintained credential check; report screening coverage without disclosing terms or claiming unperformed hosted checks. Evaluates AC-006.
-
-For contract setup/reconciliation, validate the saved SOW_V1 contract with
-`tools/scope_of_work/validate_scope_of_work.py`; derive the review checklist twice
-with `derive_review_checklist.py` and compare exact bytes; run
-`check_boundary_owner_resolution.py` and resolve manual-QA outcomes. Run the
-current authored-locality check without `--prepared`. These checks establish
-schema, checklist linkage and locality structure, not the product criteria above.
-Use derived checklists without rewording their acceptance records. No conversion,
-parity, finalization, HTML or lifecycle transition is part of this INIT contract.
+- **VER-001** — Judgment by a reader who did not write the route (reads only what the route says, against the repository files it leads to): starting from `init-prompt.md` and again from `README.md` with an actual bounded brief, follow the route and record, for each item AC-001 names, whether the text led there, which paths were read and where the reader relied on something the route did not say. Repeat with the brief to revise the entry.
+- **VER-002** — Judgment by a reader who did not write the statements, with comparison against each holding's owning source: for each holding traversed for the brief, read its entry for the six facets and its standing. Follow each publication link to the edition and source file it names and compare what the index says of the publication with the publication's own header and contents. Inspect any traversed copy or package for the resources and notices its source requires. Compare each discovery anchor with the edition it resolved to before the change under examination.
+- **VER-003** — Comparison with a named reference (the sources the worked example names) and executable checks (`python3 tools/validation/build_workflow_index.py --check`, which observes whether the committed index equals what the package metadata generate, and a link check, which observes whether cited paths and anchors resolve): replay the example's search and query steps and compare what they return with what the route says. Read each relationship's label against the declaration it cites, and read the route for any claim of a complete inventory or graph. The result covers only the holdings the example reached.
+- **VER-004** — Executable check (observes each command's exit status and output against what the route states and what the tool's own guide states): run every command the route shows from the location and with the prerequisites it gives. Run one query with a prerequisite removed in an isolated process and compare the failure and the fallback with the route's statement. Search the route for commands, workflows and capabilities and confirm each exists at the revision examined.
+- **VER-005** — Executable checks (`python3 -m tools.deliverables --project . check` and `zsh tools/validation/check_min_viable_fileset.sh --current <locality> <DEL-ID>`, which observe structure only) and judgment by a reader who did not write the route: resolve every locality link in the route against the identities the accepted decomposition allocates and the files present, and read what the route says of each locality for any claim of usability, suitability or completion that rests on a path, an empty needs list, a merge or a structural pass. The structural result and the reading are separate findings.
+- **VER-006** — Judgment by a reader who did not write the route, with an executable check (the credential scan `python3 tools/validation/validate_run_record_leaks.py --base <base> --head <head>`, which observes only the patterns it holds): read the route's files for each act REQ-006 and REQ-007 exclude and, in each shared file, for navigation text outside the parts CLM-004 and CLM-005 give this deliverable. State what the scan did not cover.
+- **VER-007** — Comparison with a named reference (the preceding entry, recovered from Git history) and judgment by a reader who did not make the revision: for a revision of the entry, recover the entry files as they stood before it. Confirm from the review record that the revision was judged under them, that the revised entry was checked as in VER-001 and the route used to maintain it was checked as well, that the preceding entry stayed usable until adoption, and who adopted the replacement.
 
 ## Governing Values and Decisions — Axiology
 
-- **AX-001** — Purposeful discovery serves the bounded undertaking. Navigation must expose reasons and limits rather than manufacture certainty, completeness, authority or a standing audit from file presence and indexes. Partial, cyclic and revisable views are legitimate when labelled.
-- **AX-002** — Source standing and human accountability govern reliance. Preserve historical identities, adopted baselines and local consumer authority. The owner retains changed commitments/acceptance criteria, risk, acceptance and release; proposed guidance never authorizes its own adoption. CLM-006 supplies the authority basis.
-- **AX-003** — Reuse and locality limit maintenance burden: retain publication/tool/instruction source homes, existing consumed indexes and required resources/notices. A bounded discovery case warrants only its claims, not a new registry, blanket rewrite or consumer rollout. Q-01/Q-02 and TBD-004 retain their qualifications.
-- **AX-004** — The Group 3 owner decision states: “I accept this decomposition as the basis for project setup.” The same decision authorizes Agent 0's direct management and Type 2 scope authoring. That is this contract's initialization authority; implementation, protected-baseline changes, product acceptance and release are not implied. No lifecycle source is used or created.
+- **AX-001** — Discovery serves the brief. Better is fewer steps and less reading between a bounded brief and the scope, holding and method that govern it. That may never be gained by presenting an index, an inferred relationship or a present path as authority, or by hiding an unknown or an area not searched.
+- **AX-002** — Standing governs reliance. Better is fewer holdings whose entry leaves a reader unsure what the holding is for or whether it governs their use. That may never be gained by moving a reader off the edition or basis they selected without saying so, or by letting an explanation read as an instruction.
+- **AX-003** — Reuse and locality. Better is less navigation text to keep true: a statement lives once, at the holding it describes, and the route links to it. That may never be gained by leaving a cited anchor or a consumed index broken, by editing a generated index by hand, or by adding an inventory or registry.
 
 ## Output and Evaluation Matrix
 
-Each row carries one criterion and exactly its verification method. Evidence
-may reuse applicable checked holdings; absent evidence remains unverified.
-
 | Output | Objective refs | Requirement/claim refs | Acceptance refs | Verification refs | Evidence expectation |
-| --- | --- | --- | --- | --- | --- |
-| OUT-001 | SOW-0001, OBJ-001, OBJ-002 | REQ-001, CLM-001 | AC-001 | VER-001 | Actual bounded brief, candidate/source basis and traversed entry/method/execution/maintenance route with unresolved conditions |
-| OUT-002 | SOW-0002, OBJ-001, OBJ-003, OBJ-005 | REQ-002, CLM-002 | AC-002 | VER-002 | Traversed local-source review, resolved publication basis and applicable resource/notice checks |
-| OUT-003 | SOW-0003, OBJ-001, OBJ-003, OBJ-005 | REQ-003 | AC-003 | VER-003 | Bounded search/reference replay, declared/inferred/unknown distinctions and applicable index check |
-| OUT-003 | SOW-0003, OBJ-001, OBJ-002 | REQ-005, CLM-003 | AC-004 | VER-004 | Separate claimed-command behavior evidence, actual prerequisites, failures/limits and disclosed fallback |
-| OUT-001 | SOW-0001, OBJ-001, OBJ-002 | REQ-004, CLM-005 | AC-005 | VER-005 | Inspection of linked actual locality and conditions; structural results labelled as structural |
-| OUT-001 | SOW-0001, SOW-0002, SOW-0003, OBJ-001, OBJ-003, OBJ-005 | REQ-006, REQ-007, CLM-003, CLM-004, CLM-005, CLM-006 | AC-006 | VER-006 | Boundary review across the connected guide components, shared-edit agreement where affected, retained qualifications and public screening coverage |
+|---|---|---|---|---|---|
+| OUT-001 | SOW-0001, OBJ-001, OBJ-002 | REQ-001 | AC-001 | VER-001 | What the route must reach comes from PRD R01 and A1, an owner ruling. Whether it reaches it is judged by a reader who did not write the route, against the repository files the route leads to. |
+| OUT-002 | SOW-0002, OBJ-001, OBJ-003, OBJ-005 | REQ-002, CLM-002 | AC-002 | VER-002 | The facets come from PRD R02 and the publication standings from the owner's decisions on the book and the manuals, owner rulings. What each entry must agree with is the holding's own source, which the route did not write. |
+| OUT-003 | SOW-0003, OBJ-001, OBJ-003, OBJ-005 | REQ-003 | AC-003 | VER-003 | What discovery must show comes from PRD R03, an owner ruling. The example's expected result is what its named sources return on replay. The index's expected content is what the workflow packages' metadata generate; the generator is the Library's own tool and shows agreement between index and metadata, not that the metadata are right. |
+| OUT-003 | SOW-0003, OBJ-001, OBJ-002 | REQ-005, CLM-003 | AC-004 | VER-004 | The expected behaviour of a command comes from the tool's own guide, which DEL-03-01 owns, and from running the command. The route's text is the thing compared, not the source of the expected result. |
+| OUT-001 | SOW-0001, OBJ-001, OBJ-002 | REQ-004, CLM-005 | AC-005 | VER-005 | The identities come from the accepted decomposition, an owner ruling, and the localities are read as they stand. The deliverables check and the locality check are the Library's own tools and show structure only. |
+| OUT-001 | SOW-0001, SOW-0002, SOW-0003, OBJ-001, OBJ-003, OBJ-005 | REQ-006, REQ-007, CLM-003, CLM-004, CLM-005, CLM-006 | AC-006 | VER-006 | The excluded acts and their owners come from decomposition §9, the Boundary of the DEL-01-01 card, the PKG-01 boundary of SOW-0028 and PRD §2.3 and R17, owner rulings. The reading is by someone who did not write the route. The credential scan is the Library's own tool and covers only the patterns it holds. |
+| OUT-001 | SOW-0001, OBJ-001, OBJ-002 | REQ-001 | AC-007 | VER-007 | The rule comes from PRD R06 and A5, an owner ruling. The preceding entry is read from Git history, which the revision did not write, and the judgment is by a reader who did not make the revision. |
