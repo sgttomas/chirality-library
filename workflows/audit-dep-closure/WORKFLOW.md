@@ -17,9 +17,7 @@ are closed or that a project DAG must be accepted.
 TASK returns a bounded contribution to its caller. The assignment supplies the
 project root, question, selected Deliverables or change, authorized read scope
 and any accepted inventory needed for the requested coverage claim. Read
-relevant ScopeOfWork, work material or source evidence only as the question
-requires. Follow the project's adopted work locality (`Work/` by the shared
-default), including an existing project's recorded convention.
+relevant ScopeOfWork or source evidence only as the question requires.
 This method changes no files and requires no snapshot folder, pointer, run
 record, central graph, lifecycle transition or acceptance checkpoint. Return
 findings in the conversation or the caller's existing review.

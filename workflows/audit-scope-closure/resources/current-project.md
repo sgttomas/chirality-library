@@ -1,7 +1,7 @@
 # Current PROJECT/SOFTWARE amendment closure
 
 Use this read-only profile when the accepted amendment selects current
-`ScopeOfWork.md`, `Work/` and `deliverable.yaml` localities. DOMAIN and explicitly
+`ScopeOfWork.md` and `deliverable.yaml` localities. DOMAIN and explicitly
 adopted legacy lifecycle projects retain the other contract/method. Old files'
 presence does not select them. TASK returns findings to the implementation owner;
 it does not repair source, amend decisions or declare acceptance/release.
@@ -27,13 +27,13 @@ source/candidate identity for each finding.
 ## Examine actions and propagation
 
 - **ADD:** after incremental current setup, confirm the accepted entity/parent,
-  substantive `ScopeOfWork.md`, `Work/` and valid `deliverable.yaml`. At amendment
+  substantive `ScopeOfWork.md` and valid `deliverable.yaml`. At amendment
   acceptance before that setup, report the addition as an outstanding setup
   obligation; its accepted deferral explains the missing locality but does not
   establish implementation closure.
 - **MODIFY:** compare the actual PRD/decomposition/ScopeOfWork changes with the
   accepted exact revisions, stable IDs and prior contract basis. Inspect affected
-  Work and needs/pointers where their meaning changed. Unchanged declarations
+  needs/pointers where their meaning changed. Unchanged declarations
   need no cosmetic edit.
 - **REMOVE/RECLASSIFY/MERGE/SPLIT:** check accepted disposition, source retention,
   reserved IDs, all affected children/mappings and actual consumer conditions.

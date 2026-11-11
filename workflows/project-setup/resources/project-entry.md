@@ -13,19 +13,17 @@ that project's purpose and accepted basis.
 
 | Surface | Question it answers | Changes |
 | --- | --- | --- |
-| `init/init-prompt.md` | Who am I here, and where do I go next? | Rarely |
-| `AGENTS.md` (with `CLAUDE.md` = `@AGENTS.md`) | What authority, boundaries and standing rules apply? | When authority or a standing rule changes |
-| `loop/LOOP_INIT.md` | What is the current course, and how do I find and carry work? | When the course or the operating route changes |
+| `init-prompt.md` | Who am I here, and where do I go next? | Rarely |
+| `AGENTS.md` (with `CLAUDE.md` = `@AGENTS.md`) | What authority, boundaries and standing rules apply, what is the current course, and how do I find and carry work? | When authority, a standing rule or the course changes |
 | `docs/` | What is the product meant to be? (PRD and companions) | Through the project's commitment process |
-| `execution/` | What work is allocated, and in what state? (`PKG-nn/DEL-nn-nn/`, `_Decomposition/`, `_Coordination/`, `_ScopeChange/`) | With the work |
+| `execution/` | What is each part of the product, and what must it achieve? (`PKG-nn/DEL-nn-nn/`, `_Decomposition/`) | When the product's definition changes |
 | `tools/`, `workflows/` | What mechanical checks and local methods exist? | With the tool or method |
 
-The first three are the instruction entry layer: how an agent enters and keeps operating.
-The next two are what it works on; the last row is what it works with. Keep the
-entry layer at the top level, separate from the execution record, so "how do I
-work here now" is in the same place in every project.
+The first two are the instruction entry layer: how an agent enters and keeps
+operating. There is no `init/` folder and no `loop/LOOP_INIT.md`. The next two
+say what the product is; the last row is what an agent works with.
 
-## `init/init-prompt.md`
+## `init-prompt.md`
 
 A short, reusable prompt the owner sends to start an Agent 0 session. It:
 
@@ -35,8 +33,7 @@ A short, reusable prompt the owner sends to start an Agent 0 session. It:
    source when maintaining the Library) and reads the entry role
    (`agents/AGENT_HELP_HUMAN.md`);
 4. names the role and capacity (`HELP_HUMAN` as Agent 0 for this project);
-5. reads and follows `loop/LOOP_INIT.md`;
-6. ends: “Orient. Briefly report your understanding of the current basis and
+5. ends: “Orient. Briefly report your understanding of the current basis and
    boundaries. Await the owner's steering.”
 
 A project may add its own report subject, such as the Library's consumers. A
@@ -45,17 +42,18 @@ from the current state to that target, any independent lanes it would open, and
 what it needs from the owner to keep the work moving: decisions, credentials and
 host conditions.
 
-Keep the prompt free of current status; that belongs in the loop. An optional `init/README.md` tells the owner how to
-use it (send the prompt, then send steering separately).
+Keep the prompt free of current status. The owner sends the prompt, then sends
+steering separately.
 
 ## `AGENTS.md`: standing authority and boundaries
 
-`AGENTS.md` holds what stays true whatever the current course is. Use these
+`AGENTS.md` holds standing authority and the route into the work. Use these
 sections as a suggested skeleton, adapting their order and headings to the
 project's accepted instructions and existing links:
 
-1. **Identity and entry.** "This repository owns *X*." Enter through
-   `loop/LOOP_INIT.md`. *(Local: the one-line product identity.)*
+1. **Identity and course.** "This repository owns *X*", the accepted PRD and
+   decomposition, and the current standing in a sentence, such as a release
+   target linked to where it is defined. *(Local.)*
 2. **Where things are** *(optional)*. A short map of local surfaces when the
    layout is not self-evident.
 3. **Shared roles and methods.** The Library selection, the role table, and how
@@ -64,22 +62,21 @@ project's accepted instructions and existing links:
    T3 Code, and what a message does and does not carry. *(Shared text.)*
 5. **Root relationship.** What Root may and may not do in this repository.
    *(Shared text; Root states the reverse side in its own file.)*
-6. **Work and verification.** Deliverable localities, same-change
-   reconciliation, deliverable queries, and the three verification tiers.
-   *(Shared text, plus the local high-consequence list and query invocation.)*
+6. **Work and verification.** Deliverable localities, the working cycle, how
+   to find the scopes a piece of work concerns (the query commands with a
+   worked example; a failed query is not an empty result), and the three
+   verification tiers. *(Shared text, plus the local high-consequence list,
+   query invocation and anything distinctive in how work is carried here, such
+   as platform lanes or a publication route.)*
 7. **Standing Git grant and Git conventions.** *(Shared text, scoped to this
    repository, with the owner's grant quoted.)*
 8. **Local boundaries.** Holds, private data, IP, hardware, release
    reservations and other limits that apply only here. *(Local.)*
 
-Within a project, `AGENTS.md` and the loop do not repeat each other. A rule
-lives in one of them, and the other links to it where a reader needs it.
-
 ### Shared text
 
-This resource is the single source of shared wording for project `AGENTS.md`,
-`init/init-prompt.md` and `loop/LOOP_INIT.md`, including the Library's own entry
-documents. Record an optional reconciliation basis using
+This resource is the single source of shared wording for project `AGENTS.md`
+and `init-prompt.md`, including the Library's own entry documents. Record an optional reconciliation basis using
 [document metadata](../../../docs/document-metadata.md#library-derivation)
 after the corresponding comparison has been completed.
 
@@ -100,9 +97,9 @@ for adoption and source distinctions.
   WORKING_ITEMS 1, TASK 2, INTERLOCUTOR 2) and the selected source's exact
   [`agents/AGENT_INTERLOCUTOR.md`](../../../agents/AGENT_INTERLOCUTOR.md)
   for INTERLOCUTOR instructions. When session steering selects it, Agent 0
-  starts one INTERLOCUTOR session and continues it by message for the life of
-  the Agent 0 session; a replacement starts only if that session is lost or the
-  owner asks. The owner-facing agent holds Agent 0's
+  starts one INTERLOCUTOR as a child within its own session and continues that
+  same child by message for the life of the Agent 0 session; a replacement
+  starts only if it is lost or the owner asks. The owner-facing agent holds Agent 0's
   responsibilities whatever role it entered through. Load the active role file; other roles and methods
   on demand. Use `coordinated-knowledge-work` for related contributions,
   `workflows/index.json` to select others, `create-workflow` before authoring a
@@ -127,15 +124,28 @@ for adoption and source distinctions.
   or PRs here and may only open an issue for an owner-approved finding cleared
   for publication. Routine adherence checks of this project's deliverables are
   run by this project's Agent 0 through a Library workflow.
-- **Work and verification.** `execution/PKG-nn/DEL-nn-nn/` holds
-  `ScopeOfWork.md` (commitments) and `deliverable.yaml` (needs and pointers).
+- **Work and verification.** There is the work, which is the code, and what
+  expresses its goal, which is the scopes of work. A deliverable is a
+  composable part of the product with an identity and a scope. Its locality
+  `execution/PKG-nn/DEL-nn-nn/` is `ScopeOfWork.md` (what is intended, under
+  what conditions, and what would establish that it is adequate) and
+  `deliverable.yaml` (needs and accurate `code_paths`). Code, tests, schemas,
+  fixtures and validation references live in the project's code locations.
 
-  `Work/` holds the current account: findings with their reasons, working artifacts and outputs. Revise it in place rather than appending history; never rewrite fidelity copies, frozen snapshots or accepted evidence. How the work went (approval quotes, review rounds, retries, run IDs, check results) belongs in the PR description, which states what changed, why, what was checked and what remains open. Cite SHAs or hashes only where they pin something a result relies on. State a fact once and link to it.
+  Start with what you are trying to accomplish. Read the scopes you think
+  relevant and what you find along the way. Plan. Implement and learn.
+  Reconcile a scope only if the thing being made, or its description within the
+  six parts, materially changed; correct a need the work showed to be wrong,
+  missing or no longer applicable in the same change. Describe the change at a
+  high level in the PR. The session ends there and discovery starts anew next
+  session.
 
-  Reconcile changed
-  meaning and dependency conditions, including a need the work showed to be wrong
-  or missing, or to no longer apply, in the same change; leave unchanged declarations
-  alone. Verification is proportionate: routine reversible changes are
+  If you conclude that a criterion is wrong, cannot be met or no longer serves
+  its purpose, do not change it, weaken its check or build around it. Say what
+  you found and what you would change. Decide it only within an explicit
+  delegation; otherwise it goes to the owner. The other criteria stay in force.
+
+  Verification is proportionate: routine reversible changes are
   inspected; ordinary implementation gets a focused check; high-consequence
   changes get targeted regression checks and independent scrutiny by a separate
   agent. Never change an expected result merely to silence a failure. Owner
@@ -148,9 +158,9 @@ for adoption and source distinctions.
 - **What the repository keeps.** Produce the work and the minimum information
   needed to review, use or recover it. A record needs a concrete consumer,
   acceptance requirement or recovery need. Decisions edit the text they govern,
-  not append registers. No routine receipts, notices, run records or handoff
-  chains; never hand-maintain derived progress or lifecycle state. Keep one
-  replaceable recovery note only where continuity needs it. Roles and methods
+  not append registers. No receipts, notices, run records, accounts of the
+  work, recovery notes or handoff chains; never hand-maintain derived progress
+  or lifecycle state. Roles and methods
   come from repository files, never host-side agent definitions or harness
   configuration. Session routes are ephemeral: find current sessions by listing
   T3 threads. Agents save no memories; durable knowledge lives in Chirality.
@@ -162,16 +172,15 @@ for adoption and source distinctions.
 ### Packaged product instructions
 
 For an application that bundles agent instructions with its product, assign
-those instructions to a named deliverable. Keep declarative design instructions
-and rationale in its `Work/`; maintain canonical runtime assets in the product's
-source locations. List the actual maintained and shipped paths in
+those instructions to a named deliverable. Maintain canonical runtime assets in
+the product's source locations. List the actual maintained and shipped paths in
 `deliverable.yaml`. For generated copies, identify the maintained source and
 generator.
 
 For example, SWBPIPE DEL-16-06's canonical catalog is
 `apps/desktop/src-tauri/resources/agent-capability-catalog.json`.
 `tools/agent_catalog_resource.py` validates that resource against its witness
-pin; the locality's Work prose governs its requirements.
+pin; the deliverable's scope governs its requirements.
 Keep product build, test and CI independent of a sibling Library checkout.
 
 The Library publishes the documents themselves for consumers to read and
@@ -187,41 +196,7 @@ operations); its query invocation; its governance overlap paths; and its local
 boundaries. Owner delegations that extend authority (for example a standing
 delegation to decide wording or scope within limits) are standing authority and
 belong in `AGENTS.md`, with the owner's wording. When relocating an existing
-delegation, preserve its scope, conditions, reservations and owner wording, and
-link to it from the loop.
-
-## `loop/LOOP_INIT.md`: current course and operating route
-
-The loop is where an initialized Agent 0 learns what the project is doing now
-and how work is found and carried. Typical parts:
-
-1. **Course and basis.** One paragraph: the product, the accepted PRD and
-   decomposition, and the current standing in a sentence (for example a release
-   target, or "edition N is published; work comes from new steering"). Link
-   to the record that holds the detail instead of narrating gate history. Where
-   the project works toward a release target, name it and link to where it is
-   defined; the first report starts from it.
-2. **Locate the selected work.** From the steering to the owning
-   `DEL-nn-nn`: its `ScopeOfWork.md`, `Work/`, `deliverable.yaml`, then the PRD
-   clauses this slice needs. Give the query commands with a worked example. A
-   failed query is not an empty result.
-3. **Select methods.** How to resolve Library workflows from this project,
-   retaining qualified source identity and exposing collisions with local methods.
-   Keep a top-level `workflows/` for local methods; obtain shared methods from
-   the selected Library. Do not infer a different selection from a matching name.
-4. **Carry it through.** Agent 0 and implementation-owner responsibilities,
-   ordering constraints, reconciliation in the same PR, check selection and the
-   hosted merge check. An opted-in session sends consultations to its existing
-   INTERLOCUTOR session.
-5. **Project-specific cycle.** What is distinctive here: a release climb,
-   platform lanes, a review rule, a publication route, how contributions from
-   other projects enter.
-
-Keep it as short as its content allows. Status that changes weekly belongs in a
-coordination record the loop links to (for example
-`execution/_Coordination/CURRENT_EXECUTION_BASIS.md`), not in the loop or in
-`AGENTS.md`. Git and accepted snapshots preserve earlier loops; an archive
-folder needs a named consumer.
+delegation, preserve its scope, conditions, reservations and owner wording.
 
 ## Checking a project
 
@@ -229,16 +204,16 @@ When reviewing a project that has selected this convention, examine the
 following. A difference is an observation to assess against that project's
 accepted basis. Preserve that basis until the project authorizes a change:
 
-- `init/init-prompt.md` covers the bootstrap steps above and leads to
-  `loop/LOOP_INIT.md`;
+- a root `init-prompt.md` covers the bootstrap steps above; there is no `init/`
+  folder or `loop/LOOP_INIT.md`;
 - `CLAUDE.md` contains only `@AGENTS.md`;
 - `AGENTS.md` covers the standing subjects above under the project's authority,
   retaining the selected shared meaning and identifying local adaptations;
 - standing authority, including any Git grant and owner delegations, is in
   `AGENTS.md` with the owner's words; relocated delegations retain their scope,
-  conditions and reservations, and the loop links to them;
-- neither `AGENTS.md` nor the loop narrates session or gate history;
-- the loop's commands work from the stated working directory with their stated
+  conditions and reservations;
+- `AGENTS.md` narrates no session or gate history and carries no status;
+- its commands work from the stated working directory with their stated
   prerequisites, and links resolve from the containing document. Distinguish
   inspection or a constructed walkthrough from an observed execution result.
 

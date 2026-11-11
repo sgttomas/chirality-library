@@ -45,7 +45,7 @@ Use actual values rather than the illustrative placeholders. Python 3/PyYAML
 are required; `PYTHON` selects an interpreter with those dependencies.
 
 The package helper creates only the numeric package folder. The deliverable helper
-creates its numeric folder, `Work/` and an initial `deliverable.yaml` with the
+creates its numeric folder and an initial `deliverable.yaml` with the
 accepted identity/name and `needs: []`. It preserves existing content and reports
 only paths it created. A suffix-bearing accepted description remains in the
 decomposition; it does not create another directory level or duplicate suffix.
@@ -96,23 +96,17 @@ state the limit. A successful query cannot decide suitability or acceptance.
 
 The implementation owner names affected deliverables in each assignment; TASK
 returns identify changes in meaning, evidence and remaining conditions. Compare
-the actual result with its ScopeOfWork, Work and needs before integrating it.
+the actual result with its ScopeOfWork and needs before integrating it.
 Use `bounded-reconciliation` for this comparison, including ordinary factual
 ScopeOfWork updates within already-given authority. Preserve commitments and
 acceptance criteria unless their actual decision owner has authorized a change.
 
-Revise existing design/working material so it explains the current result and
-its limitations. Add a new artifact only for a real new subject, and link it from
-the current material the next contributor will encounter. Keep historical evidence
-intact. If no edit is warranted, say so briefly in the return or PR; do not touch
-every file merely to record that a run happened. Agent 0/the integration owner
-checks that the implementation and declarations agree before merge.
+If no edit is warranted, say so briefly in the return or PR. Agent 0/the
+integration owner checks that the implementation and declarations agree before
+merge.
 
-Put the change, checks and open matters in the actual review/PR. No routine
-`SETUP_LOG.md`, AgentRuns directory, receipt or handoff document is required by
-this route. Use one replaceable recovery note only when current work artifacts
-and the review record are insufficient. Existing explicitly adopted acceptance
-snapshots and genuine retained evidence keep their standing.
+Describe the change at a high level in the PR. Existing explicitly adopted
+acceptance snapshots keep their standing.
 
 ## Changes and resumption
 
@@ -122,7 +116,7 @@ affected neighbors from actual conditions. Retiring or moving a source requires
 its own authority and inspection of consumer uses; do not automatically delete
 or redirect a need because a producer changes status.
 
-After interruption, inspect actual source files, current work and PRs to resume
+After interruption, inspect actual source files and PRs to resume
 the unfinished operation. A missing run log is not a blocker. Do not treat an
 accepted checkpoint, file existence or an old activity record as new authority
 to continue work, publish or release.

@@ -20,7 +20,7 @@ candidate revision, and any prior reconciled edition. Check
 against the actual sources and adoption evidence, or establish the mapping
 where the field is absent.
 
-Adapted `AGENTS.md`, `init/init-prompt.md` and `loop/LOOP_INIT.md` map to relevant
+Adapted `AGENTS.md` and `init-prompt.md` map to relevant
 sections of [project-entry](../project-setup/resources/project-entry.md).
 An adapted workflow maps to its actual Library source and needed resources.
 Roles and methods consumed directly from the Library are resolved at their

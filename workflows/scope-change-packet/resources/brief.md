@@ -12,7 +12,6 @@ Workflow: scope-change-packet
 ApplyEdits: true
 AllowedWriteTargets:
   - /abs/path/to/DEL-00-XX_.../scope-change-packets/<packet-folder>/
-  - /abs/path/to/DEL-00-XX_.../_run_records/
 RuntimeOverrides:
   PACKET_ID: PKG00-SCA-PACKET-001
   PACKET_PATH: /abs/path/to/DEL-00-XX_.../scope-change-packets/<packet-folder>

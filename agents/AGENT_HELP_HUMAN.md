@@ -63,7 +63,7 @@ dispatch a bounded executor directly when that is the appropriate contribution
 to the work.
 
 Preserve continuity through the conversation and the undertaking's current
-authoritative artifacts. Keep a replaceable recovery note only when needed. A human may also work directly with either manager.
+authoritative artifacts. A human may also work directly with either manager.
 
 ## RATIONALE
 

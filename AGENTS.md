@@ -17,7 +17,7 @@ and tool-use instructions its products and projects consume. Enter through the
 Project, namely the roles, workflows, tools and publications used by Root, App,
 SWBPIPE and other applications built for the App's agent harness. Chirality
 **Root** is the separate private repository `sgttomas/chirality`.
-Accepted commitments, decomposition, Work and other records written before
+Accepted commitments, decomposition and other records written before
 2026-11-05 use "Root" for what is now the Library; read them that way.
 
 ## Where work happens
@@ -54,15 +54,25 @@ act on it, as with a message.
 
 ## Working cycle
 
+There is the work, which is the code, and what expresses its goal, which is
+the scopes of work; [the scope leads](workflows/scope-of-work/WORKFLOW.md#what-a-scope-says).
+
+Start with what you are trying to accomplish. Read the scopes you think
+relevant and what you find along the way. Plan. Implement and learn. Reconcile
+a scope only if the thing being made, or its description within the six parts,
+materially changed; correct an affected need in the same PR. Describe the
+change at a high level in the PR. The session ends there and discovery starts
+anew next session.
+
+If you conclude that a criterion is wrong, cannot be met or no longer serves
+its purpose, do not change it, weaken its check or build around it. Say what
+you found and what you would change. Decide it only within an explicit
+delegation; otherwise it goes to the owner. The other criteria stay in force.
+
 Use one coordinator for a shared result, disjoint concurrent writes, and
-owners who stay with their work through repairs. Before integration, reconcile
-the actual result and verification evidence with affected ScopeOfWork, `Work/`
-and dependency conditions in the same PR. The implementation owner carries this
-into assignments; Agent 0 checks that the result and declarations agree.
-Revise changed meaning and connect necessary work material from what the next
-contributor will read. Apply already-authorized decisions without asking again.
-Leave unchanged declarations alone and say briefly when no edit was warranted.
-Retain historical evidence and identify what remains unverified.
+owners who stay with their work through repairs. The implementation owner
+carries the cycle into assignments; Agent 0 checks that the result and
+declarations agree. Apply already-authorized decisions without asking again.
 
 Once integrated, delete the worktrees, branches, build output and scratch this
 work created, unless an open review, named consumer or recovery need still uses
@@ -136,18 +146,17 @@ The [accepted PRD](docs/PRD.md) defines the Library's commitments; the
 locates the allocated work.
 
 The Library has published editions and continues maintenance under new steering.
-Continue from actual Work, Git and PR state rather than treating earlier gate
+Continue from actual code, Git and PR state rather than treating earlier gate
 decisions, accepted allocation or prepared paths as a current backlog or
 fulfilled result.
 
 ## Locate the selected work
 
 From the brief's purpose or affected holding, find the relevant ScopeOfWork under
-`execution/PKG-nn/DEL-nn-nn/`. Read its `Work/` and `deliverable.yaml`, then the
+`execution/PKG-nn/DEL-nn-nn/`. Read its `deliverable.yaml`, then the
 PRD clauses and sources needed for this slice, without a global state census. Code pointers indicate relevance,
 not exclusive ownership. For changes to this entry, begin with the
-[discovery scope](execution/PKG-01/DEL-01-01/ScopeOfWork.md) and
-[its Work](execution/PKG-01/DEL-01-01/Work/DiscoveryBasis.md).
+[discovery scope](execution/PKG-01/DEL-01-01/ScopeOfWork.md).
 
 From the repository root, for example:
 
@@ -163,15 +172,15 @@ unknowns visible while unaffected work continues.
 
 ## Deliverables and records
 
-The convention going forward
-uses deliverable localities under `execution/PKG-nn/DEL-nn-nn/`:
+A deliverable is a composable part of the product with an identity and a
+scope. Its locality under `execution/PKG-nn/DEL-nn-nn/` is two files:
 `ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
-holds needs, conditions and code/check pointers.
+holds needs and accurate code/check pointers. There is no `Work/` folder; the
+Library's own remain only until their separate removal.
 
-`Work/` holds the current account: findings with their reasons, working artifacts and outputs. Revise it in place rather than appending history; never rewrite fidelity copies, frozen snapshots or accepted evidence. How the work went (approval quotes, review rounds, retries, run IDs, check results) belongs in the PR description, which states what changed, why, what was checked and what remains open. Cite SHAs or hashes only where they pin something a result relies on. State a fact once and link to it.
-
-Code that runs (implementation, tests, generators, harnesses) lives outside `execution/`, in the project's code locations, and deliverables link to it; `Work/` may keep documentation-only examples that are never run.
-Make maturity and issue status explicit. Use
+Code, tests, schemas, fixtures and validation references live outside
+`execution/`, in the project's code locations. Never rewrite frozen snapshots
+or accepted evidence. State a fact once and link to it. Use
 [document metadata](docs/document-metadata.md) for maintained Markdown headers.
 The Library maintains its published instruction documents in their Library
 source homes. Never hand-maintain derived progress or lifecycle state.
@@ -181,8 +190,8 @@ it. A record needs a concrete consumer, acceptance requirement or recovery need.
 Save no memories; durable knowledge lives in Chirality.
 Quote the owner's words for reserved decisions. Lead owner updates with the result or decision needed.
 Use plain prose with spaced identifiers in messages to delegates.
-Decisions edit the text they govern, not append registers. No routine receipts, notices, run records or handoff
-chains. Keep one replaceable recovery note only where continuity needs it.
+Decisions edit the text they govern, not append registers. No receipts, notices, run records, accounts of
+the work, recovery notes or handoff chains.
 
 ## Verification and authority
 
@@ -192,7 +201,7 @@ chains. Keep one replaceable recovery note only where continuity needs it.
   targeted regression checks and independent scrutiny by a separate agent.
 - Releases: check the actual product; release remains an owner act.
 
-Changing an expected result to silence a failure needs a substantive reason.
+Never change an expected result merely to silence a failure.
 Reuse applicable passing evidence; repeat checks when a change or unresolved
 concern warrants it, not because work moved between agents or into a PR.
 
@@ -253,8 +262,8 @@ index checks.
 Integration on `main`, publication of an edition and a consumer's adoption are
 separate decisions. The [consumer route](README.md#obtain-and-use-the-library)
 explains obtaining, source selection, update inspection and release notifications;
-[DEL-05-01](execution/PKG-05/DEL-05-01/ScopeOfWork.md) and its Work own
-publication preparation and evidence. A consumer records its selected revision;
+[DEL-05-01](execution/PKG-05/DEL-05-01/ScopeOfWork.md) owns
+publication preparation. A consumer records its selected revision;
 merging a change here does not update that selection.
 Acceptance and release remain owner acts; no publication follows automatically
 from the working cycle.

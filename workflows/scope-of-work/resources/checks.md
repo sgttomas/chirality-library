@@ -5,7 +5,8 @@ Items 2, 5–7, 10–12, 14, and 17 apply to `CONVERT` only; under `INIT` and
 or failed. Items 1, 3, 4, 8, 9, 13, 16, and 18 apply to every mode. Item 15
 applies whenever an HTML derivative was requested, in any mode. Items 19, 20,
 and 21 apply to every mode. Item 22 applies to `REVISE` only. `VERIFY` runs the
-mode-applicable subset read-only.
+mode-applicable subset read-only. These items check format, mapping and write
+boundaries; whether the text is honest is the workflow's independent review.
 
 1. The assignment and accepted source basis cover the deliverable and the proposed
    acts. `CONVERT` additionally has the exact isolated migration authority; current
@@ -65,9 +66,9 @@ mode-applicable subset read-only.
     selected legacy lifecycle state, when adopted, was `INITIALIZED`,
     `SEMANTIC_READY` or `IN_PROGRESS` and is
     unchanged; the diff from the prior contract hash stays within
-    `REVISION_SCOPE` and the amendment reference; existing IDs keep their
-    meaning outside that scope and no ID is renumbered or reused; the
-    amendment reference is recorded; and the closing `MODE=VERIFY` passes.
+    `REVISION_SCOPE`; existing IDs keep their
+    meaning outside that scope and no ID is renumbered or reused; and the
+    closing `MODE=VERIFY` passes.
 
 Any failure produces a failed return and rerun requirements; it does not
 silently weaken the acceptance gate.

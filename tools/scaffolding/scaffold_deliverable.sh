@@ -1,5 +1,5 @@
 #!/bin/zsh
-# --current selects PKG-nn/DEL-nn-nn/{Work/,deliverable.yaml}; ScopeOfWork is
+# --current selects PKG-nn/DEL-nn-nn/deliverable.yaml; ScopeOfWork is
 # authored separately. Unflagged calls retain the legacy interface below.
 if [[ "${1:-}" == "--current" ]]; then
   shift

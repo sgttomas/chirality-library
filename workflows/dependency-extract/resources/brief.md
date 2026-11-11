@@ -6,7 +6,7 @@ Supply the following in ordinary prose or structured fields:
 - The purpose of the declaration or refresh and the relevant accepted change,
   intended use or setup scope.
 - The exact `deliverable.yaml` write target and authorized read scope, including
-  any relevant ScopeOfWork, adopted work locality, source references and identity basis.
+  any relevant ScopeOfWork, source references and identity basis.
 - Known technical holds, scope/acceptance limits and unresolved source bindings
   that must survive the refresh.
 
@@ -21,14 +21,13 @@ DELIVERABLE: DEL-01-02
 PURPOSE: Refresh the inputs needed for the affected interface review.
 READ_SCOPE:
   - execution/PKG-01/DEL-01-02/
-  - execution/PKG-01/DEL-01-01/Work/Interface.md
+  - execution/PKG-01/DEL-01-01/ScopeOfWork.md
   - execution/_Decomposition/accepted-basis.md
 WRITE_TARGET: execution/PKG-01/DEL-01-02/deliverable.yaml
 PRESERVE: Existing issue conditions and the unresolved equipment-rating source.
 ```
 
-Resolve illustrative paths against the actual project and its adopted locality
-convention; the generic example uses `Work/`. If a needed reference is
+Resolve illustrative paths against the actual project. If a needed reference is
 outside the authorized read scope, report that limit and continue unaffected
 work. Do not use a package or `ALL` selector as permission to change every
 locality without establishing the actual targets.

@@ -66,9 +66,7 @@ An accepted scope-change amendment does not re-run Functions 1 and 2; its amende
 
 **Action:**
 - Identify the accepted deliverables and the responsible consumers who can
-  state what each actual input must support. Use accepted scope, relevant
-  material in the project's adopted work locality (`Work/` by the shared
-  default), sources and intended use, rather than textual extraction
+  state what each actual input must support. Use accepted scope, sources and intended use, rather than textual extraction
   alone. A need may be reasoned from that evidence; do not invent a producer
   commitment or claim every need is captured.
 - Keep source uncertainty, maturity/case/use conditions and actual triggers in
@@ -200,7 +198,7 @@ Run this phase only when the human requests a DOMAIN KTY enrichment or verificat
 **Action:**
 1. Once Phase 2.2 has supplied the actual production scope, use
    **TASK + `dependency-extract`** for each selected DEL, one consumer per brief.
-   Resolve its accepted identity, `ScopeOfWork.md`, the adopted work locality, source
+   Resolve its accepted identity, `ScopeOfWork.md`, source
    conditions, existing `deliverable.yaml` and the workflow's bounded write
    contract. Author the actual input/use conditions, preserving unchanged
    declarations, case multiplicity, uncertainty and technical holds. A later
@@ -527,7 +525,7 @@ DELs and their derived neighbours:
   impact assessment. A changed relation may reach a reciprocal path through
   unchanged deliverables; expand the read scope when that actual path matters.
 - Use `dependency-extract` to review each affected consumer's actual scope,
-  work material, sources and intended input/use conditions. Preserve unchanged needs,
+  sources and intended input/use conditions. Preserve unchanged needs,
   distinct case/trigger records and unknown sources. Do not create a producer
   commitment or retire a declaration solely because extraction missed wording.
 - Use `audit-dep-closure` for a bounded query over the resulting declarations.

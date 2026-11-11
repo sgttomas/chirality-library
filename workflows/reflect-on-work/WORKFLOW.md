@@ -19,8 +19,8 @@ this human-dialogue method.
 [Chirality in Practice (first edition, source 360a2d5050)](https://github.com/sgttomas/chirality/blob/360a2d5050302e27c143e6c76bd367f2d94b0072/docs/alignment-manual/Chirality_in_Practice_Edition_1.md) offers a reflective account of reasons and experience that can inform this inquiry; reading it adds no execution obligations.
 
 Read the current purpose, commitments, selected source basis and the actual
-finding with its evidence and limits. Use the work's owning material and review
-record; a locality or a particular file format is not required. Distinguish the
+finding with its evidence and limits. Use the scopes, the code and the review
+record; a particular file format is not required. Distinguish the
 human's commitment from the agent's interpretation, an observation from an
 explanation, and unavailable evidence from evidence of absence. If the premise
 is disputed, inspect the consequential source or affected use before building
@@ -59,9 +59,9 @@ but is not a substitute for the human's reflective judgment.
 Check that the reason still follows from the evidence, the affected uses were
 considered, and the authorized consequence reached its owning material (or that
 retention has an explicit reason). Return the conclusion, its basis and limits,
-and any unresolved decision with its consequence. Keep consequential reasoning
-in existing owning work and the actual review record; do not create a recurring
-reflection report. On interruption, recover that question, basis, decision
+and any unresolved decision with its consequence. A decision edits the text it
+governs, and the PR says at a high level what changed. Do not
+create a reflection report. On interruption, recover that question, basis, decision
 standing, usable work and next action before continuing. A discussion or a
 labelled example does not establish observed execution, product acceptance or
 phase advancement. Stop when the bounded question supports a warranted next act.

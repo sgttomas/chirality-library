@@ -39,9 +39,9 @@ Choose `metadata.surface` for its place in the project:
 
 | Surface | Document home or contribution |
 | --- | --- |
-| `bootstrap` | `init/init-prompt.md`; the Library's own is `init-prompt.md` |
+| `bootstrap` | `init-prompt.md` |
 | `standing` | `AGENTS.md` |
-| `operating-entry` | `loop/LOOP_INIT.md`; the Library folds its entry into `AGENTS.md` |
+| `operating-entry` | A retained `loop/LOOP_INIT.md`; the entry now lives in `AGENTS.md` |
 | `role` | `agents/AGENT_*.md` |
 | `workflow` | `WORKFLOW.md` |
 | `skill` | `SKILL.md` |
@@ -86,7 +86,7 @@ adapted document was last reconciled. It is not the document's own version,
 the project's overall Library selection, or a claim of identical content.
 Deliberate local adaptations may remain after reconciliation.
 
-Adapted project `AGENTS.md`, `init/init-prompt.md` and `loop/LOOP_INIT.md` use
+Adapted project `AGENTS.md` and `init-prompt.md` use
 `workflows/project-setup/resources/project-entry.md` as their source, with its
 relevant sections. An adapted workflow uses its actual Library source file.
 A matching filename does not establish derivation.

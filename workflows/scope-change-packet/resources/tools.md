@@ -16,7 +16,7 @@ Do not claim validator PASS unless it actually ran and passed.
 
 ## Disallowed Tool Effects
 
-- No writes outside `PACKET_PATH` and `_run_records/`.
+- No writes outside `PACKET_PATH`.
 - No mutation of product deliverables.
 - No mutation of `deliverable.yaml` local needs.
 - No mutation of `_ScopeChange/`, `_Reconciliation/`, or decomposition authority.

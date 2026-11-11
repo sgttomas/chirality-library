@@ -14,8 +14,8 @@ required by the current route; `PYTHON` may select the interpreter.
 | Operation | Command | Result |
 |---|---|---|
 | Package | `zsh tools/scaffolding/scaffold_package.sh --current <execution-root> <PKG-ID> <accepted-name>` | Numeric package directory; no lifecycle subfolders |
-| Deliverable | `zsh tools/scaffolding/scaffold_deliverable.sh --current <package-path> <accepted-DEL-ID> <accepted-name>` | Numeric DEL directory, `Work/`, and `deliverable.yaml` with accepted numeric identity/name and `needs: []` |
-| Prepared structure | `zsh tools/validation/check_min_viable_fileset.sh --current --prepared <DEL-path> <accepted-DEL-ID>` | Checks current folder/identity, Work and valid native YAML; ScopeOfWork is not yet required, but an existing one must have consistent identity |
+| Deliverable | `zsh tools/scaffolding/scaffold_deliverable.sh --current <package-path> <accepted-DEL-ID> <accepted-name>` | Numeric DEL directory and `deliverable.yaml` with accepted numeric identity/name and `needs: []` |
+| Prepared structure | `zsh tools/validation/check_min_viable_fileset.sh --current --prepared <DEL-path> <accepted-DEL-ID>` | Checks current folder/identity and valid native YAML; ScopeOfWork is not yet required, but an existing one must have consistent identity |
 | Authored structure | Same check without `--prepared` | Additionally requires ScopeOfWork with matching schema/package/DEL frontmatter; content/acceptance verification is separate |
 
 Creation reports each new path as `CREATED_PATH`. Existing files are preserved,

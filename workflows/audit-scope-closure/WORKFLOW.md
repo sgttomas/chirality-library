@@ -15,7 +15,7 @@ TASK executes this bounded contribution and returns evidence to its caller.
 ## Select the project route
 
 Use [current-project closure](resources/current-project.md) for an amendment
-selected under the current ScopeOfWork/Work/native-needs convention. It checks
+selected under the current ScopeOfWork/native-needs convention. It checks
 actual obligations without legacy lifecycle/control-file requirements. Use the
 retained resources below only for DOMAIN or an explicitly adopted legacy route;
 file presence alone does not select that route.

@@ -45,11 +45,11 @@ hide the fact that one consumer's need is met while another's is not.
 
 The convention going forward organizes work around
 deliverable localities. `ScopeOfWork.md` holds commitments and acceptance
-criteria; `Work/` holds technical reasoning, execution detail and locally kept
-working artifacts/outputs, with maturity and issue status explicit; and
-`deliverable.yaml` identifies the deliverable and states its needs, with optional
-code paths and check references. App and SWBPIPE have adopted `Work/`;
-historical `Design/` references retain their source-revision meaning. A consumer
+criteria, and `deliverable.yaml` identifies the deliverable and states its
+needs, with code paths and optional check references. The work itself is the
+code in the project's code locations; an earlier `Work/` folder is no longer
+part of the method. Historical `Design/` and `Work/` references retain their
+source-revision meaning. A consumer
 declares what it needs from a supplier, and tools derive the reverse links and
 graph views.
 
@@ -129,7 +129,6 @@ The shared convention is:
 └── PKG-nn/
     └── DEL-nn-nn/
         ├── ScopeOfWork.md
-        ├── Work/               # locally kept work and outputs; status explicit
         └── deliverable.yaml
 ```
 
@@ -156,13 +155,12 @@ has no consumers, nor a reason to start a repository-wide metadata exercise.
 
 ### 4.3.3 Deliverable Content and Its Home
 
-The three current artifact types divide responsibility without claiming that
+The two current artifact types divide responsibility without claiming that
 all useful content fits a closed schema:
 
 | Artifact | Purpose | What it does not establish |
 |---|---|---|
 | `ScopeOfWork.md` | Intended result, commitments and acceptance criteria | That the result exists or is accepted |
-| `Work/` | Technical reasoning, execution detail and locally kept working artifacts/outputs; maturity and issue status explicit | That content is suitable, issued or accepted merely because it is here |
 | `deliverable.yaml` | Needs, conditions and useful code/check pointers | Completion, suitability or an execution schedule |
 
 A decision changes the text it governs. The PR describes the change, its reason,

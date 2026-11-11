@@ -15,31 +15,27 @@ the requirement into bounded assignments and owns it through repairs; the
 integration owner checks the combined result before merge.
 
 Identify the affected deliverables, actual candidate, relevant consumers and
-permitted scope from the assignment and diff. Read their ScopeOfWork, work
-material in the project's adopted locality (`Work/` by the shared default),
-and dependency conditions. Follow only the sources needed to establish the
+permitted scope from the assignment and diff. Read their ScopeOfWork, the code
+it represents and dependency conditions. Follow only the sources needed to establish the
 meaning of the affected commitment or interface. During migration, existing
 CSV dependencies remain source inputs until their replacement is available.
 
-Compare the documents with implementation and meaningful verification. Separate
-missing behaviour from stale description and missing evidence. Keep future
-requirements when the implementation falls short. A passing rerun alone does
-not explain how a known defect was repaired.
+Compare the documents with implementation and meaningful verification, under
+[the scope leads](../scope-of-work/WORKFLOW.md#what-a-scope-says). Separate
+missing behaviour from stale description and missing evidence. A passing rerun
+alone does not explain how a known defect was repaired.
 
 Correct ordinary factual descriptions and dependency conditions within the
 assignment, including a need this work showed to be wrong or missing, or to no
 longer apply. Decisions edit the current text they govern. Preserve commitments,
-acceptance criteria, explicit holds and product boundaries; bring any reserved
-change to the owner as a concrete choice and consequence. Do not turn incidental
+acceptance criteria, explicit holds and product boundaries; bring a changed
+commitment, unresolved intent or code outside the deliverable's identity to the
+owner as a concrete choice and consequence. Do not turn incidental
 implementation detail into another continuing documentation obligation.
 
-Revise the relevant existing Work material so it describes the current result.
-When a new subject needs its own artifact, add it in the owning locality and link
-it from the current material a subsequent contributor will encounter. Keep useful
-evidence, current limitations and unresolved conditions where that work is
-understood. Historical observations keep their original meaning; a new result
-does not rewrite old evidence. Update code/check pointers when their useful
-bindings change, even when the need conditions remain unchanged.
+Reconcile a scope only if the thing being made, or its description within the
+six parts, materially changed. Keep `code_paths` and check pointers accurate
+when their bindings change, even when the need conditions remain unchanged.
 
 Check the changed documents together with affected consumers. Where a comparison
 finds no warranted edit, report that result without creating a record. Where it
@@ -47,6 +43,4 @@ finds unfinished required work, repair it within authority or report the specifi
 obstruction; moving it to another list does not complete it.
 
 Return the changed locations, checks, findings and open decisions. The PR is the
-change record. Do not add receipt files, MEMORY entries, claim ledgers or routine
-handoff documents. Keep a replaceable current-state note only when recovery
-requires it. This comparison does not itself declare acceptance or release.
+change record. This comparison does not itself declare acceptance or release.

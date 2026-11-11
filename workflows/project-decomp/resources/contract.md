@@ -28,8 +28,7 @@ complete execution network. Do not expand a general interface into every
 producer/consumer pair or merge distinct uses because endpoints match.
 
 After scope exists, `project-setup` uses `dependency-extract` to author actual
-needs in each consumer's `deliverable.yaml` from scope, relevant material in the project's adopted work locality
-(`Work/` by the shared default), and sources. Reverse links and undertaking-specific graphs are derived on demand.
+needs in each consumer's `deliverable.yaml` from scope and sources. Reverse links and undertaking-specific graphs are derived on demand.
 Do not create an authoritative dependency graph or dependency CSV/Markdown
 companions in decomposition. Existing scope, objective, coverage and context
 registers retain their decomposition roles; technical holds and acceptance
