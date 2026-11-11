@@ -120,8 +120,7 @@ for adoption and source distinctions.
   by editing the governing text where it lives; reserved choices go to the
   owner. Do not message a project the work does not affect.
 - **Root relationship.** Root reads session telemetry read-only, segregated by
-  repository; the owner reviews every finding; Root's collectors, measures and
-  evaluators change nothing here. Root's Agent 0 and its delegates may change
+  repository; the owner reviews every finding. Root's Agent 0 and its delegates may change
   this project's files within work the owner has authorised, through a PR here
   under these instructions, this project's checks and its Git grant, and tell
   this project's Agent 0. Root may also open an issue for an owner-approved
