@@ -34,9 +34,8 @@ formation allocation in that document's §8.1. It serves
 The decomposition ledger still allocates SOW-0034 here; it has not been
 amended to match PRD §3.6, and this scope follows the PRD.
 
-The book is an owner-directed addition under OBJ-002 and OBJ-003 and the
-maintained publications of PRD §2.3 and R11. It has no scope item in the
-ledger.
+The book serves OBJ-002 and OBJ-003 as one of the maintained publications of
+PRD §2.3 and R11. It has no scope item in the ledger.
 
 ## Deliverable Definition — Ontology
 
@@ -129,10 +128,10 @@ Choices that define the product:
 
 | Output | Objective refs | Requirement/claim refs | Acceptance refs | Verification refs | Evidence expectation |
 |---|---|---|---|---|---|
-| OUT-001 | OBJ-001, OBJ-002, OBJ-004 | REQ-001, CLM-001 | AC-001 | VER-001 | Acceptance comes from the owner's recorded decisions and the audit from a reviewer who did not author the decomposition. The manifests are the formation set's own earlier output and only guard against change. Coverage is read against PRD R07 and §6.2, an owner ruling. |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-002, CLM-002 | AC-002 | VER-002 | What the guidance must support comes from the decomposition card and PRD R10 and R11, owner rulings. Whether the text delivers it is judged by a reader who did not write it. |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-003, CLM-004 | AC-003 | VER-003 | What an application must show comes from the decomposition card, an owner ruling. The case is a real examination; the human who took part confirms the judgment and its consequence. |
-| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-004 | AC-004 | VER-004 | What the case must show comes from PRD A3, an owner ruling, and the case from DEL-04-01. The human confirms the reflective judgment. |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-005, CLM-004 | AC-005 | VER-005 | The rule comes from PRD R06 and A5, an owner ruling. The preceding text comes from Git history. |
-| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-006, REQ-007, REQ-008, CLM-003, CLM-004 | AC-006 | VER-006 | Reserved choices come from PRD §5 and R10 and the sibling allocation from decomposition §9, owner rulings. The credential scan is the Library's own tool and covers only the patterns it holds. |
-| OUT-004 | OBJ-002, OBJ-003 | REQ-009, REQ-008 | AC-007 | VER-007 | The book's character and content are the author's ruling. Case claims are checked against their cited sources, which lie outside the book. The render check compares the HTML with the renderer's own output and only guards against change. |
+| OUT-001 | OBJ-001, OBJ-002, OBJ-004 | REQ-001, CLM-001 | AC-001 | VER-001 | Acceptance is read from each snapshot's `DECISION.md`, and the audit is by a reviewer who did not author the decomposition. The manifests are the formation set's own earlier output and only guard against change. Coverage is read against PRD R07 and §6.2. |
+| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-002, CLM-002 | AC-002 | VER-002 | What the guidance must support comes from the decomposition card and PRD R10 and R11. Whether the text delivers it is judged by a reader who did not write it. |
+| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-003, CLM-004 | AC-003 | VER-003 | What an application must show comes from the decomposition card. The case is a real examination; the human who took part confirms the judgment and its consequence. |
+| OUT-003 | OBJ-002, OBJ-003, OBJ-004 | REQ-004 | AC-004 | VER-004 | What the case must show comes from PRD A3, and the case from DEL-04-01. The human confirms the reflective judgment. |
+| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-005, CLM-004 | AC-005 | VER-005 | The rule comes from PRD R06 and A5. The preceding text comes from Git history. |
+| OUT-002 | OBJ-002, OBJ-003, OBJ-004 | REQ-006, REQ-007, REQ-008, CLM-003, CLM-004 | AC-006 | VER-006 | Reserved choices come from PRD §5 and R10 and the sibling allocation from decomposition §9. The credential scan is the Library's own tool and covers only the patterns it holds. |
+| OUT-004 | OBJ-002, OBJ-003 | REQ-009, REQ-008 | AC-007 | VER-007 | Whether the book has the character REQ-009 states is judged by a reader other than its drafter. Case claims are checked against their cited sources, which lie outside the book. The render check compares the HTML with the renderer's own output and only guards against change. |

@@ -15,9 +15,9 @@ needs:
   when: The maintenance guidance directs a deliverables query or a scope tool
 - from: unknown
   condition: tools/validation/build_workflow_index.py regenerates workflows/index.json from workflow package
-    metadata and, with --check, fails on a stale index or on a missing or escaping package file;
-    tools/validation/validate_workflow_metadata.py checks a package's folder name, description, optional
-    execution.json and index freshness. Which deliverable provides these two tools is not established.
+    metadata and, with --check, fails on a stale index; tools/validation/validate_workflow_metadata.py
+    checks a workflow package's metadata as create-workflow requires. Which deliverable provides these
+    two tools is not established.
   when: create-workflow directs registering or checking a bundled workflow package
 - from: DEL-02-02
   condition: For the compatibility-format reference that the scope-of-work and scope-change methods cite,

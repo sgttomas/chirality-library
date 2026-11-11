@@ -37,6 +37,36 @@ needs:
     input, use condition, trigger and source or unresolved binding in the provider's terms, and test the
     condition against the provider's scope.
   when: Authoring or examining the needs of a locality
+- from: DEL-01-01
+  condition: The DEL-01-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-02-01
+  condition: The DEL-02-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-02-02
+  condition: The DEL-02-02 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-03-01
+  condition: The DEL-03-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-04-02
+  condition: The DEL-04-02 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
+- from: DEL-05-01
+  condition: The DEL-05-01 locality holds the ScopeOfWork.md its contributor authored from its decomposition
+    card and a deliverable.yaml with that contributor's needs and code and check pointers. The contributor
+    keeps the content; only this setup material is needed, not fulfilment of the deliverable's criteria.
+  when: Checking the formed localities and their needs together
 code_paths:
 - workflows/bounded-reconciliation/**
 # Shared with DEL-01-01 and DEL-02-01. Here: the working cycle's reconciliation rule and the pointer

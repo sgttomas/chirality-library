@@ -7,8 +7,9 @@ needs:
     a changed commitment to its owner.
   when: A reflection finds that the matter is a disagreement under current commitments, not a question about them
 - from: DEL-04-01
-  condition: Each of the seven localities DEL-04-01 forms has a ScopeOfWork.md stating its local goal, outputs,
-    boundaries and acceptance criteria and a deliverable.yaml declaring its needs.
+  condition: The locality a reflective question concerns has a ScopeOfWork.md stating its local goal, outputs,
+    boundaries and acceptance criteria and a deliverable.yaml declaring its needs. The other localities
+    need not be formed for that question.
   when: Reading the local goal and input conditions a reflective question concerns
 - from: DEL-04-01
   condition: One actual authorised change on accepted and set-up scope is identified with its goal, input or

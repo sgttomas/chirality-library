@@ -28,10 +28,10 @@ needs:
     Git, HEAD and PyYAML requirements and that the resolver launches no agent and enforces no sandbox; the
     tools they describe need no companion and no undisclosed private or sibling input.'
   when: The consumer guidance points a reader to a tool
-- from: DEL-03-01
-  condition: The credential scan `tools/validation/validate_run_record_leaks.py` reads the files added or
-    modified between a base and a head from Git, exits 1 on a credential pattern or escaping link and 2
-    when a revision cannot be read, and runs in CI on every pull request.
+- from: unknown
+  condition: The credential scan `tools/validation/validate_run_record_leaks.py` screens the text added or
+    modified between two revisions for credential patterns, and fails when it finds one or cannot read
+    a revision. Which deliverable provides this tool is not established.
   when: Screening public guidance, a publication candidate or published evidence
 - from: DEL-03-01
   condition: No interface a named consumer reads (the declaration format, the query JSON, the resolver

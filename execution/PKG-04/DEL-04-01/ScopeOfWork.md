@@ -72,8 +72,9 @@ merge.
 - **OUT-005** — An actual authorised action on accepted and set-up scope that shows local progress as PRD A3 describes it: chosen from the local goal, the evidence and a real input or use condition; a finding that changed the route or the understanding; the neighbouring uses examined. This is the action side of A3. Serves SOW-0014.
 
 The decomposition also allocates DEL-03-02, whose locality
-`execution/PKG-03/DEL-03-02/` exists. Whether it belongs to OUT-003 and
-OUT-004 is undecided.
+`execution/PKG-03/DEL-03-02/` exists. That locality's setup is an obligation
+separate from the formation of these seven, so it is outside OUT-003 and
+OUT-004.
 
 Boundary:
 
@@ -137,9 +138,9 @@ Choices that define the product:
 
 | Output | Objective refs | Requirement/claim refs | Acceptance refs | Verification refs | Evidence expectation |
 |---|---|---|---|---|---|
-| OUT-001 | OBJ-002, OBJ-003 | REQ-001, REQ-002, REQ-006 | AC-001 | VER-001 | What the route must cover comes from PRD R04's "Diagnose and reconcile" and "Assess connected change" rows and R11, an owner ruling. Whether the text delivers it is judged by a reader who did not write it. |
-| OUT-002 | OBJ-002, OBJ-003 | REQ-001, REQ-002, REQ-008, REQ-009, CLM-002, CLM-004 | AC-002 | VER-002 | What must not change comes from the commitments as accepted, and what must stay unaltered from PRD R11 and A4, owner rulings. What the descriptions must match comes from the change's own candidate and checks. Agreement is judged by the integration owner, who did not make the edits. The credential scan is the Library's own tool and covers only the patterns it holds. |
-| OUT-003 | OBJ-001, OBJ-002, OBJ-004 | REQ-003, CLM-002 | AC-003 | VER-003 | What a locality must contain comes from PRD R08 and each deliverable's decomposition card, owner rulings. Whether a `code_paths` entry names a deliverable's own code is read against the code and the neighbouring scopes. The validator and locality check are the Library's own tools: a pass shows conformance to the format they encode and guards against change. |
-| OUT-004 | OBJ-004 | REQ-004, CLM-002 | AC-004 | VER-004 | The form of a need comes from PRD R09, an owner ruling. Whether a condition holds is read from the provider's scope. The deliverables check is the Library's own tool and shows only that declarations are well formed. |
-| OUT-005 | OBJ-002, OBJ-003, OBJ-004 | REQ-005 | AC-005 | VER-005 | What the case must show comes from PRD A3, an owner ruling. The case is an actual pull request, read by someone other than its implementation owner. |
-| OUT-001 | OBJ-002, OBJ-003 | REQ-007, REQ-008, REQ-009, CLM-003, CLM-004 | AC-006 | VER-006 | Reserved choices come from PRD §5 and R10 and the sibling allocation from decomposition §9, owner rulings. The credential scan is the Library's own tool and covers only the patterns it holds. |
+| OUT-001 | OBJ-002, OBJ-003 | REQ-001, REQ-002, REQ-006 | AC-001 | VER-001 | What the route must cover comes from PRD R04's "Diagnose and reconcile" and "Assess connected change" rows and R11. Whether the text delivers it is judged by a reader who did not write it. |
+| OUT-002 | OBJ-002, OBJ-003 | REQ-001, REQ-002, REQ-008, REQ-009, CLM-002, CLM-004 | AC-002 | VER-002 | What must not change comes from the commitments as accepted, and what must stay unaltered from PRD R11 and A4. What the descriptions must match comes from the change's own candidate and checks. Agreement is judged by the integration owner, who did not make the edits. The credential scan is the Library's own tool and covers only the patterns it holds. |
+| OUT-003 | OBJ-001, OBJ-002, OBJ-004 | REQ-003, CLM-002 | AC-003 | VER-003 | What a locality must contain comes from PRD R08 and each deliverable's decomposition card. Whether a `code_paths` entry names a deliverable's own code is read against the code and the neighbouring scopes. The validator and locality check are the Library's own tools: a pass shows conformance to the format they encode and guards against change. |
+| OUT-004 | OBJ-004 | REQ-004, CLM-002 | AC-004 | VER-004 | The form of a need comes from PRD R09. Whether a condition holds is read from the provider's scope. The deliverables check is the Library's own tool and shows only that declarations are well formed. |
+| OUT-005 | OBJ-002, OBJ-003, OBJ-004 | REQ-005 | AC-005 | VER-005 | What the case must show comes from PRD A3. The case is an actual pull request, read by someone other than its implementation owner. |
+| OUT-001 | OBJ-002, OBJ-003 | REQ-007, REQ-008, REQ-009, CLM-003, CLM-004 | AC-006 | VER-006 | Reserved choices come from PRD §5 and R10 and the sibling allocation from decomposition §9. The credential scan is the Library's own tool and covers only the patterns it holds. |
