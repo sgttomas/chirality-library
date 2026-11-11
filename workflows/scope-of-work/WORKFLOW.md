@@ -8,45 +8,6 @@ metadata:
 
 # WORKFLOW — scope-of-work
 
-## Purpose
-
-Produce or verify one `SOW_V1` production contract. `MODE=INIT` creates a new
-source-grounded PROJECT/SOFTWARE contract; `MODE=CONVERT` preserves every
-legacy source range in an isolated `MIGRATION_DUAL` workspace; `MODE=REVISE`
-revises an existing `SOW_V1` contract only where an accepted `scope-change`
-amendment changes its scope; `MODE=VERIFY` is read-only on production content.
-The ratified
-`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-scope-conversion-contract` (private archive) governs all modes.
-
-Read [resources/brief.md](resources/brief.md) before accepting a run. Read
-[resources/tools.md](resources/tools.md) before invoking tools and use
-[resources/checks.md](resources/checks.md) for acceptance.
-
-## Current-project use and reconciliation
-
-A current PROJECT/SOFTWARE locality is ScopeOfWork.md and deliverable.yaml.
-`INIT`, `VERIFY` and current-project `REVISE` do not require `_STATUS.md` or a legacy source kit. Preserve
-such files if present; their absence is not a reason to create them or invent a
-lifecycle state. This workflow never advances status.
-
-Ordinary factual reconciliation of an existing contract and its needs occurs
-through `bounded-reconciliation` in the implementation PR before integration,
-within the project's existing authority. Use these validators to check the
-changed contract. Preserve commitments, acceptance criteria and explicit holds;
-substantive changes require their actual owner decision. Do not force routine
-description corrections into the formal amendment route below. `MODE=REVISE`
-remains the route when an accepted scope-change amendment selects it; `CONVERT`
-retains its isolated historical source-preservation requirements.
-
-For `REVISE`, select the project profile from its governing instructions and
-accepted amendment. In the current profile, use the accepted named amendment,
-prior valid contract/hash and exact revision scope; `SOURCE_STATE: not used` is
-valid when no lifecycle is adopted. Existing legacy files remain untouched and
-alone select no lifecycle. An actual project hold or acceptance condition still
-applies. The retained lifecycle preconditions below apply only where that
-lifecycle is explicitly adopted; missing required lifecycle evidence is then a
-failure, not permission to switch profiles.
-
 ## What a scope says
 
 A scope gives its deliverable an identity and the criteria to achieve. It is
@@ -113,6 +74,45 @@ against the PRD and decomposition, the code it represents and neighbouring
 scopes, and asks: is the text honest; and could an agent holding this scope and
 the code identify a justified next step and the evidence needed to stop?
 Numerical and runtime checks remain the way product correctness is examined.
+
+## Purpose
+
+Produce or verify one `SOW_V1` production contract. `MODE=INIT` creates a new
+source-grounded PROJECT/SOFTWARE contract; `MODE=CONVERT` preserves every
+legacy source range in an isolated `MIGRATION_DUAL` workspace; `MODE=REVISE`
+revises an existing `SOW_V1` contract only where an accepted `scope-change`
+amendment changes its scope; `MODE=VERIFY` is read-only on production content.
+The ratified
+`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-scope-conversion-contract` (private archive) governs all modes.
+
+Read [resources/brief.md](resources/brief.md) before accepting a run. Read
+[resources/tools.md](resources/tools.md) before invoking tools and use
+[resources/checks.md](resources/checks.md) for acceptance.
+
+## Current-project use and reconciliation
+
+A current PROJECT/SOFTWARE locality is ScopeOfWork.md and deliverable.yaml.
+`INIT`, `VERIFY` and current-project `REVISE` do not require `_STATUS.md` or a legacy source kit. Preserve
+such files if present; their absence is not a reason to create them or invent a
+lifecycle state. This workflow never advances status.
+
+Ordinary factual reconciliation of an existing contract and its needs occurs
+through `bounded-reconciliation` in the implementation PR before integration,
+within the project's existing authority. Use these validators to check the
+changed contract. Preserve commitments, acceptance criteria and explicit holds;
+substantive changes require their actual owner decision. Do not force routine
+description corrections into the formal amendment route below. `MODE=REVISE`
+remains the route when an accepted scope-change amendment selects it; `CONVERT`
+retains its isolated historical source-preservation requirements.
+
+For `REVISE`, select the project profile from its governing instructions and
+accepted amendment. In the current profile, use the accepted named amendment,
+prior valid contract/hash and exact revision scope; `SOURCE_STATE: not used` is
+valid when no lifecycle is adopted. Existing legacy files remain untouched and
+alone select no lifecycle. An actual project hold or acceptance condition still
+applies. The retained lifecycle preconditions below apply only where that
+lifecycle is explicitly adopted; missing required lifecycle evidence is then a
+failure, not permission to switch profiles.
 
 ## Suitable agent shell
 
