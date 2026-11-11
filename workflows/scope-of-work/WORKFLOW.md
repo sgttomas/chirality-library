@@ -82,8 +82,6 @@ source-grounded PROJECT/SOFTWARE contract; `MODE=CONVERT` preserves every
 legacy source range in an isolated `MIGRATION_DUAL` workspace; `MODE=REVISE`
 revises an existing `SOW_V1` contract only where an accepted `scope-change`
 amendment changes its scope; `MODE=VERIFY` is read-only on production content.
-The ratified
-`sgttomas/chirality:docs/COMPATIBILITY_FORMATS.md#historical-scope-conversion-contract` (private archive) governs all modes.
 
 Read [resources/brief.md](resources/brief.md) before accepting a run. Read
 [resources/tools.md](resources/tools.md) before invoking tools and use
