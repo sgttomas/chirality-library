@@ -1,7 +1,7 @@
 # data-app-spec: briefs for dispatched stages
 
-A dispatched agent knows only its brief (AGENTS.md: "A dispatched agent's brief is given
-in full in the dispatch"). Carry the host, safety and data rules in it.
+A dispatched agent knows only its brief (AGENTS.md: "An assignment travels
+whole"). Carry the host, safety and data rules in it.
 
 ## Fields every stage brief states
 

@@ -30,6 +30,161 @@ Accepted commitments, decomposition and other records written before
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Consult its local instructions |
 | App v3, Runtime | Archived in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`) | Frozen; no development or verification without explicit reactivation |
 
+## How the work is organised
+
+- A **package** (`execution/PKG-nn/`) groups related deliverables; the
+  decomposition names each package and what it covers.
+- A **deliverable** (`execution/PKG-nn/DEL-nn-nn/`) is one identifiable,
+  composable part of the product.
+- Its **scope of work** (`ScopeOfWork.md`) states what the part must achieve,
+  under what conditions, and what would show that it is adequate. The scope
+  leads. Code is measured against it, and where the two disagree, the
+  difference is either the work to do or a finding to report.
+- Its **needs** (`deliverable.yaml`) state what it relies on: the source
+  (another deliverable, a document, an outside party, or one not yet known),
+  what the input must provide for this use, and when that applies. A need
+  describes what this part consumes; it commits no one to supply it.
+- Its **code paths** (the same file) point to the code, tests and other
+  artifacts that bear on it. They show relevance, not exclusive ownership, and
+  an empty list means none are declared.
+
+Code, tests, schemas and fixtures live in the project's code locations, not
+under `execution/`.
+
+There are two ways in, and neither proves you have found everything:
+
+- From a purpose: find the part in the deliverable cards of the
+  [decomposition](execution/_Decomposition/PROJECT_DECOMP.md#8-deliverables-and-formation-obligations),
+  whose numeric prefixes name the localities, open its scope, then ask what
+  surrounds it.
+- From changes already committed: ask which deliverables they bear on.
+
+```sh
+<query> neighborhood DEL-nn-nn    # its declared inputs, and the deliverables that consume it
+<query> touches HEAD              # deliverables whose locality or code paths match that one commit
+<query> touches main...HEAD       # the same for a whole branch
+```
+
+Read the scope and its needs, then the code. An input can be used when its
+need's condition is met; it does not wait for the whole neighbour to be
+finished. The queries show what is declared, not whether an input is fit for
+your use: read the condition. A query that fails is not an empty answer: read
+the files and say the check was unavailable.
+
+Correct a scope's description when the thing being made has materially
+changed or the description is materially wrong, and correct a need the work
+showed to be wrong in the same pull request. A changed commitment or criterion
+is the owner's, unless a delegation covers it. If a criterion looks wrong or cannot be met,
+do not change it, weaken its check or build around it: say what you found and
+what you would change, and carry on with what it does not affect. Treat an
+assumption you were given that turns out false the same way, taking it and its
+consequence to whoever integrates your work.
+
+`<query>` is `python3 -m tools.deliverables --project .`, run from the
+repository root of this checkout with Python 3, PyYAML, Git and a resolvable
+`HEAD`. The [query guide](tools/deliverables/README.md) gives the other
+queries (`impact`, `check`, `dag-diff`), their prerequisites and limits.
+
+## How agents are organised
+
+- **Agent 0** has the perspective of the whole project: its purpose, the
+  choices the owner has reserved, and how the undertakings in progress fit
+  together. Where the owner works with one agent and no other holds that
+  perspective, that agent does, whatever role it entered through.
+- A **Type 1** agent has the perspective of the locality of its assignment:
+  the deliverables it concerns, what they need and who relies on them. It
+  works in a new thread of its own, at the same level as Agent 0's thread and
+  any other Type 1 thread, so that the owner can start one or work with it
+  directly, as with Agent 0; that does not change its type. Type 1 agents are
+  peers: none owns another's work, and Agent 0 keeps them aligned.
+- A **Type 2** agent has one bounded assignment and deliberately limited
+  means. It is a child of the agent that delegated it, reports back to that
+  agent and starts no other agent.
+
+Two words are kept apart here and in every assignment: a Type 1 is **started
+in a new thread**, and a Type 2 is **delegated** as a child. What either is
+given is its **assignment**.
+
+How much of the work to give to other agents, and to how many, is the judgment
+of the agent holding it. Agent 0 may start a Type 1 in a new thread or
+delegate to Type 2 agents. A Type 1 may delegate to Type 2 agents or start
+another Type 1 in a new thread. Any agent may message any other; assignments
+and returns usually follow the line of assignment, which is what lets an
+assigner examine a result and Agent 0 keep the undertakings aligned. A script
+suits mechanical work; it does not replace an agent that holds an assignment
+and answers for a result. If the host cannot start a new thread, Agent 0 tells
+the owner; it does not run a Type 1 as a child.
+
+**An assignment travels whole.** It gives the role to load, what is wanted and
+why, what it rests on, what may be read and written, who integrates the
+result, how it will be reviewed, which choices are not the assignee's, and how
+to reach the assigner.
+
+**A return leads with the result.** It links the evidence (for a pull request,
+the reviewed head), states its limits and names who acts next. The assigner
+checks it against the artifacts, and reads the assignee's session only when a
+return is missing or disagrees with them. A Type 1 also tells its assigner as
+it goes: when it starts another Type 1, is blocked, meets a reserved choice
+or has a pull request ready. When the owner's steering changes an
+undertaking's scope or how it fits with other work, it tells Agent 0 and
+whoever integrates the affected work. Whoever owns a result owns its repair.
+
+**An independent review** is made by an agent that did not write the work and
+examines the artifacts and what governs them directly, not the author's
+account. It says what it read and what it did not. Each review is a fresh
+reviewer: a view of the work as it stands at that moment. One reading is
+enough when it answers the question. When a matter takes more rounds, give
+the next reviewer the earlier findings and what was done about them. Aim to
+resolve within two rounds, continue past three only while still converging,
+and stop at six. Unresolved findings return to whoever integrates the work,
+to decide within its authority; ending the rounds waives no required check or
+reserved choice.
+
+**The INTERLOCUTOR** advises Agent 0 on direction in a session the owner opts
+in; it is never an entry or default role. Agent 0 keeps one as its child
+through the session, continued by message. It is worth most early: bring it a
+consequential proposal while its advice can still change it, and carry on with
+unaffected work while it answers. It also carries the continuity that a fresh
+reviewer does not. In each review round it examines the findings and the
+proposed response against the undertaking's purpose and the earlier rounds,
+before the response is settled. That includes rounds a Type 1 runs: the
+reviewer's return and the Type 1's proposed response reach it through Agent 0,
+or directly where the assignment says so. Tell it how the work develops, and
+consult it before a merge. Agent 0 keeps the decision; the advice needs no
+sign-off and changes no reserved choice, hold or required check. It does not
+replace independent review.
+
+Each agent loads its own role text once, at the start of its session, from the
+selected Library: `agents/AGENT_<ROLE>.md`.
+
+| Relationship | Role text |
+| --- | --- |
+| Agent 0 | `HELP_HUMAN` |
+| Type 1 | `WORKING_ITEMS`, `HELPS_HUMANS` |
+| Type 2 | `TASK`, `INTERLOCUTOR` |
+
+Which models and effort serve in each relationship comes from the owner's
+steering for the session, never from a file.
+
+## Roles and workflows
+
+The Library is its own source and selects no edition: here the selected
+Library is this repository at the revision checked out, and each role text is
+read from its `agents/`. Roles, methods and limits come from these repository
+files, never from host-side agent definitions, harness configuration or
+instruction files kept outside the repository. Holding Agent 0's
+responsibilities, or any role, grants no additional host permissions. Other
+role, workflow and skill bodies are on demand. An assignment refers only to
+repository files and host facts. Scratch space holds evidence, outputs and
+logs, never instructions.
+
+Use `workflows/coordinated-knowledge-work/WORKFLOW.md` when coordinating related
+contributions into a usable result. Other methods are indexed in
+`workflows/index.json`; load only a selected method and the resources needed for
+the stage in hand. Select with `Workflow: <name>` or a source-qualified identity;
+retain the selected origin and expose collisions rather than silently switching.
+Before creating or revising a reusable workflow, follow `create-workflow`.
+
 ## Coordination between projects
 
 Session routes are ephemeral; find current sessions by listing T3 threads.
@@ -54,25 +209,16 @@ act on it, as with a message.
 
 ## Working cycle
 
-There is the work, which is the code, and what expresses its goal, which is
-the scopes of work; [the scope leads](workflows/scope-of-work/WORKFLOW.md#what-a-scope-says).
+[How the work is organised](#how-the-work-is-organised) gives the way from a
+purpose to a scope, and when a scope, a need or a criterion is corrected or
+taken to the owner; the [scope method](workflows/scope-of-work/WORKFLOW.md#what-a-scope-says)
+says what a scope's six parts hold. Describe the change at a high level in the
+PR. The session ends there and discovery starts anew next session.
 
-Start with what you are trying to accomplish. Read the scopes you think
-relevant and what you find along the way. Plan. Implement and learn. Reconcile
-a scope only if the thing being made, or its description within the six parts,
-materially changed; correct an affected need in the same PR. Describe the
-change at a high level in the PR. The session ends there and discovery starts
-anew next session.
-
-If you conclude that a criterion is wrong, cannot be met or no longer serves
-its purpose, do not change it, weaken its check or build around it. Say what
-you found and what you would change. Decide it only within an explicit
-delegation; otherwise it goes to the owner. The other criteria stay in force.
-
-Use one coordinator for a shared result, disjoint concurrent writes, and
-owners who stay with their work through repairs. The implementation owner
-carries the cycle into assignments; Agent 0 checks that the result and
-declarations agree. Apply already-authorized decisions without asking again.
+Use one coordinator for a shared result and disjoint concurrent writes. The
+implementation owner carries the cycle into assignments; Agent 0 checks that
+the result and declarations agree. Apply already-authorized decisions without
+asking again.
 
 Once integrated, delete the worktrees, branches, build output and scratch this
 work created, unless an open review, named consumer or recovery need still uses
@@ -87,58 +233,6 @@ Silence or elapsed time grants no right to discard work. Procedural coordination
 is not enforced exclusion. For interrupted work or exceptional custody, establish
 the usable result, open conditions, holder and authorized release/recovery.
 
-## Roles and workflows
-
-| Role | Type | Contribution |
-|---|---|---|
-| HELP_HUMAN | 0 | Purpose, alignment and continuity with the owner |
-| HELPS_HUMANS | 1 | Design workflows, tools and projects with the owner |
-| WORKING_ITEMS | 1 | Own implementation, assignments and integration |
-| TASK | 2 | Execute one bounded assignment; does not delegate |
-| INTERLOCUTOR | 2 | Opt-in second opinion to Agent 0; advises, does not delegate |
-
-The agent working with the owner holds Agent 0’s responsibilities for purpose,
-continuity and reserved choices, whatever role it entered through. This grants
-no additional host permissions.
-Use only the hierarchy the undertaking needs.
-Agent 0 delegates a Type 1 role (HELPS_HUMANS or WORKING_ITEMS) to its own
-standalone session or thread, never as a child within Agent 0's session or
-thread. A Type 1 agent delegates to children within its own session or thread.
-A WORKING_ITEMS agent may call in a HELPS_HUMANS agent directly, which like
-every Type 1 runs in its own standalone session or thread; other engagements
-between Type 1 agents go through Agent 0. Peers do not own one another; Agent 0
-keeps them aligned. A Type 2 role runs as a child within the session or
-thread of the agent that delegates it, whether Agent 0 or a Type 1; it never
-gets a standalone session. Agent 0 gives each Type 1 its full
-assignment at the start, including how to reach Agent 0. A Type 1 reports to
-Agent 0 by message when it calls in a HELPS_HUMANS agent, reaches a result, has
-a PR ready to merge, is blocked or meets a reserved choice, stating the result,
-links to its evidence (with the reviewed head SHA for a PR), limits and the next
-actor. Agent 0 checks a report against the artifacts it names and reads the
-Type 1's session only when a report is missing or disagrees with them. If the
-host cannot start a standalone session, Agent 0 tells the owner rather than
-nesting the role.
-INTERLOCUTOR is opt-in per session. When session steering selects it, Agent 0
-starts one INTERLOCUTOR as a child within its own session and continues that
-same child by message for the life of the Agent 0 session; a replacement starts
-only if it is lost or the owner asks. Agent 0 sends periodic activity summaries
-and consults it at least before every PR merge, as
-`agents/AGENT_INTERLOCUTOR.md` describes. Its advice changes no owner-reserved
-choice, hold or required check.
-Load the active role's `agents/AGENT_<ROLE>.md`; other role, workflow and skill
-bodies are on demand. Roles, methods and limits come from these
-repository files, never from host-side agent definitions, harness configuration
-or instruction files kept outside the repository. A dispatched agent's brief is
-given in full in the dispatch and refers only to repository files and host facts. Scratch space
-holds evidence, outputs and logs, never instructions.
-
-Use `workflows/coordinated-knowledge-work/WORKFLOW.md` when coordinating related
-contributions into a usable result. Other methods are indexed in
-`workflows/index.json`; load only a selected method and the resources needed for
-the stage in hand. Select with `Workflow: <name>` or a source-qualified identity;
-retain the selected origin and expose collisions rather than silently switching.
-Before creating or revising a reusable workflow, follow `create-workflow`.
-
 # Chirality Library development entry
 
 The [accepted PRD](docs/PRD.md) defines the Library's commitments; the
@@ -152,33 +246,25 @@ fulfilled result.
 
 ## Locate the selected work
 
-From the brief's purpose or affected holding, find the relevant ScopeOfWork under
-`execution/PKG-nn/DEL-nn-nn/`. Read its `deliverable.yaml`, then the
-PRD clauses and sources needed for this slice, without a global state census. Code pointers indicate relevance,
-not exclusive ownership. For changes to this entry, begin with the
-[discovery scope](execution/PKG-01/DEL-01-01/ScopeOfWork.md).
-
-From the repository root, for example:
+[How the work is organised](#how-the-work-is-organised) gives the two ways in
+and the queries. With the scope and its needs, read the PRD clauses and
+sources needed for this slice, without a global state census. Keep unknowns
+visible while unaffected work continues. For changes to this entry, begin with
+the [discovery scope](execution/PKG-01/DEL-01-01/ScopeOfWork.md); from the
+repository root,
 
 ```sh
 python3 -m tools.deliverables --project . neighborhood DEL-01-01
 ```
 
-Use the actual selected DEL. The [query guide](tools/deliverables/README.md)
-gives the other queries (`impact`, `touches`, `check`, `dag-diff`), their
-prerequisites and limits. Examine actual input conditions and evidence; usable
-inputs need not await an entire neighboring Deliverable's completion. Keep
-unknowns visible while unaffected work continues.
+shows its declared inputs and the deliverables that consume it.
 
 ## Deliverables and records
 
-A deliverable is a composable part of the product with an identity and a
-scope. Its locality under `execution/PKG-nn/DEL-nn-nn/` is two files:
-`ScopeOfWork.md` holds commitments and acceptance criteria; `deliverable.yaml`
-holds needs and accurate code/check pointers. There is no `Work/` folder.
+A locality holds `ScopeOfWork.md` and `deliverable.yaml` and nothing else;
+there is no `Work/` folder. Keep code and check pointers accurate.
 
-Code, tests, schemas, fixtures and validation references live outside
-`execution/`, in the project's code locations. Never rewrite frozen snapshots
+Never rewrite frozen snapshots
 or accepted evidence. State a fact once and link to it. Use
 [document metadata](docs/document-metadata.md) for maintained Markdown headers.
 The Library maintains its published instruction documents in their Library
@@ -187,8 +273,8 @@ source homes. Never hand-maintain derived progress or lifecycle state.
 Produce the work and the minimum information needed to review, use or recover
 it. A record needs a concrete consumer, acceptance requirement or recovery need.
 Save no memories; durable knowledge lives in Chirality.
-Quote the owner's words for reserved decisions. Lead owner updates with the result or decision needed.
-Use plain prose with spaced identifiers in messages to delegates.
+Quote the owner's words for reserved decisions in the PR. Lead owner updates with the result or decision needed.
+Use plain prose with spaced identifiers in assignments and messages to other agents.
 Decisions edit the text they govern, not append registers. No receipts, notices, run records, accounts of
 the work, recovery notes or handoff chains.
 
@@ -211,7 +297,6 @@ not require another approval. Keep credentials and private data out of this
 public repository. Required credential checks still apply.
 When an owner instruction overrides a standing rule, note the exception in the
 PR and ask once whether the standing rule should change.
-Model and effort choices come from session steering, not repository doctrine.
 
 ### Standing Git grant
 
