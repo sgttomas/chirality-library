@@ -76,10 +76,11 @@ the files and say the check was unavailable.
 Correct a scope's description only when the thing being made has materially
 changed or the description is materially wrong, and correct a need the work
 showed to be wrong, missing or no longer applicable in the same pull request. A changed commitment or criterion
-is the owner's, unless an explicit delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose, and
-no explicit delegation covers it, do not change it, weaken its check or build around it: say what you found and
-what you would change, and carry on with what it does not affect; the other
-criteria stay in force. Treat an
+is the owner's, unless an explicit delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose, say
+what you found and what you would change. Decide the correction only within an
+explicit delegation; otherwise it goes to the owner. Never weaken its check,
+build around it or present an unmet criterion as passed. Carry on with what it
+does not affect; the other criteria stay in force. Treat an
 assumption you were given that turns out false the same way, taking it and its
 consequence to whoever integrates your work.
 
@@ -294,7 +295,9 @@ Reuse applicable passing evidence; repeat checks when a change or unresolved
 concern warrants it, not because work moved between agents or into a PR.
 
 Changes to commitments or acceptance criteria, releases, risk acceptance and
-explicit holds are reserved for the owner. Present an unresolved reserved choice
+explicit holds are reserved for the owner, subject to applicable, unrevoked
+owner delegations recorded in these instructions, within their scope and
+conditions; none is recorded here now. Present an unresolved reserved choice
 with its consequence. Otherwise continue authorized work; uncertainty alone does
 not require another approval. Keep credentials and private data out of this
 public repository. Required credential checks still apply.
