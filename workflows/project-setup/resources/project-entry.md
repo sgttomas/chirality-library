@@ -121,8 +121,9 @@ for adoption and source distinctions.
   owner. Do not message a project the work does not affect.
 - **Root relationship.** Root reads session telemetry read-only, segregated by
   repository: session metadata in any repository, to attribute sessions, and
-  message and tool content only for the repositories a query selects. The owner
-  reviews every finding before it reaches this project. Root's Agent 0 and its delegates may change
+  message and tool content only for the repositories a query selects, leaving
+  out a session that spans several repositories unless the owner selects it by
+  name. The owner reviews every finding before it reaches this project. Root's Agent 0 and its delegates may change
   this project's files within work the owner has authorised, through a PR here
   under these instructions, this project's checks and its Git grant, and tell
   this project's Agent 0. What Root writes in a public repository is cleared
