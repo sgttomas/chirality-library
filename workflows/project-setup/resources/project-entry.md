@@ -149,10 +149,11 @@ the files and say the check was unavailable.
 
 Correct a scope's description when the thing being made has materially
 changed or the description is materially wrong, and correct a need the work
-showed to be wrong in the same pull request. A changed commitment or criterion
+showed to be wrong, missing or no longer applicable in the same pull request. A changed commitment or criterion
 is the owner's, unless a delegation covers it. If a criterion looks wrong or cannot be met,
 do not change it, weaken its check or build around it: say what you found and
-what you would change, and carry on with what it does not affect. Treat an
+what you would change, and carry on with what it does not affect; the other
+criteria stay in force. Treat an
 assumption you were given that turns out false the same way, taking it and its
 consequence to whoever integrates your work.
 
@@ -244,12 +245,14 @@ steering for the session, never from a file.
 
 What changes as a project moves between phases is posture and authority, not
 how the work or the agents are organised. A project selects one posture, or
-none, and replaces the section whole when its phase changes. The finishing
-posture carries a delegation of the owner's decisions, so it is placed only on
-the owner's selection for that project; an agent does not select it by
-copying.
+none, and replaces the section whole when its phase changes.
 
 #### Finishing toward a target
+
+The posture is reusable; the grant is not. A project selects this posture
+only where its owner has delegated decisions for that project, and it inserts
+that grant itself, in the owner's words, with the project it covers. An agent does
+not select it by copying another project's grant.
 
 ```markdown
 ## Posture for this phase: finishing toward [LOCAL: the target]
@@ -257,29 +260,32 @@ copying.
 [LOCAL: one sentence on where the product stands, linked to where the target
 is defined.]
 
-The owner: "I want you to be bold and take the initiative now. I delegate my
-decision making to you fully but will rely upon you to be curious about what
-my intentions are if you haven't gleaned it through how the project is
-constructed and how meaning is conveyed throughout."
+[LOCAL: the owner's grant for this project, in the owner's words, and the
+project it covers.]
 
 What that means here:
 
 - Decisions follow perspective. Agent 0 decides what the target needs,
   including changes to scopes, criteria and holds, and records each decision
   by changing the text it governs. A Type 1 decides within the locality of its
-  assignment and takes what reaches beyond it to Agent 0. A Type 2 does not
-  decide.
+  assignment and takes what reaches beyond it to Agent 0. A Type 2 uses its
+  judgment within its bounded assignment and does not change objectives,
+  commitments or holds.
 - Before deciding, look for the owner's intention in the PRD, the scopes and
   the product itself. Where it is not there, ask the owner about the
   intention, not for the decision.
 - Each pull request says what was decided and why, so that the owner can
   reverse a decision without having been asked first.
-- The delegation moves who decides, not what must be checked: verification,
-  required checks and independent review are unchanged.
+- The delegation transfers project decisions. It does not supply the evidence
+  a hold waits on, perform an act that belongs to another person, or reach
+  resources outside the undertaking. Verification, required checks and
+  independent review are unchanged, and an expected value is changed only on
+  independent grounds, never to fit the implementation.
 - These stay the owner's: publishing a release; licence, legal and
   professional sign-off; spending money; credentials; repository protections
-  and settings. So does the verdict on the product: [LOCAL: the owner's test,
-  such as the use cases and the owner's yes or no].
+  and settings. So does the verdict on the product: [LOCAL: the owner's test
+  and what follows from it, such as the use cases and the owner's yes or no,
+  or replacing an earlier version].
 ```
 
 #### Pruning and honing
