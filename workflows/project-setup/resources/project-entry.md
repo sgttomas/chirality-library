@@ -152,8 +152,8 @@ the files and say the check was unavailable.
 Correct a scope's description only when the thing being made has materially
 changed or the description is materially wrong, and correct a need the work
 showed to be wrong, missing or no longer applicable in the same pull request. A changed commitment or criterion
-is the owner's, unless an explicit delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose,
-do not change it, weaken its check or build around it: say what you found and
+is the owner's, unless an explicit delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose, and
+no explicit delegation covers it, do not change it, weaken its check or build around it: say what you found and
 what you would change, and carry on with what it does not affect; the other
 criteria stay in force. Treat an
 assumption you were given that turns out false the same way, taking it and its
@@ -253,7 +253,7 @@ none, and replaces the section whole when its phase changes.
 #### Finishing toward a target
 
 The posture is reusable; the grant is not. A project selects this posture
-only where its owner has delegated decisions for that project, and it inserts
+only where its owner has delegated the decisions it describes for that project, and it inserts
 that grant itself, in the owner's words, with the project it covers. An agent does
 not select it by copying another project's grant.
 
@@ -266,7 +266,8 @@ is defined.]
 [LOCAL: the owner's grant for this project, in the owner's words, and the
 project it covers.]
 
-What that means here:
+What that means here, within the extent, conditions and reservations of that
+grant:
 
 - Decisions follow perspective. Agent 0 decides what the target needs,
   including changes to scopes, criteria and holds, and records each decision

@@ -76,8 +76,8 @@ the files and say the check was unavailable.
 Correct a scope's description only when the thing being made has materially
 changed or the description is materially wrong, and correct a need the work
 showed to be wrong, missing or no longer applicable in the same pull request. A changed commitment or criterion
-is the owner's, unless an explicit delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose,
-do not change it, weaken its check or build around it: say what you found and
+is the owner's, unless an explicit delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose, and
+no explicit delegation covers it, do not change it, weaken its check or build around it: say what you found and
 what you would change, and carry on with what it does not affect; the other
 criteria stay in force. Treat an
 assumption you were given that turns out false the same way, taking it and its
@@ -308,7 +308,10 @@ within authorized work after the verification above and required checks pass on
 the exact head. The Agent 0 of the session that opened a PR, directly or
 through agents working under its assignment, merges it after the review its change requires and with
 required checks green on the exact head. Agents working under that Agent 0's assignment report a PR ready to
-merge and wait for that Agent 0 to merge it. Explicit holds and reserved decisions
+merge and wait for that Agent 0 to merge it. A Type 1 the owner started
+directly reports its PR ready to this project's Agent 0; where the owner works
+with it alone and no Agent 0 holds the project, it holds that perspective and
+merges under this grant. Explicit holds and reserved decisions
 apply. This grant excludes
 protection bypasses, history rewrites, force pushes, permission changes and
 releases. Use ordinary Git judgment under the undertaking and these conventions:
