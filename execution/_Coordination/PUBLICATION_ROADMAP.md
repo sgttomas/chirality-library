@@ -128,7 +128,8 @@ Git retains its history.
 ## Continuing conditions, not extra punch-list work
 
 - App and SWBPIPE own local adoption, repins and factual pointer reconciliation.
-  The retirement basis was supplied to both owners after #1785, as MaintenanceBasis
+  The retirement basis was supplied to both owners after #1785, as
+  [MaintenanceBasis](https://github.com/sgttomas/chirality-library/blob/1d536c58b787db14d544783667e0fbe4d8c44cbd/execution/PKG-02/DEL-02-01/Work/MaintenanceBasis.md)
   records. Their adoption is not a Root acceptance or release prerequisite.
 - Q-01 archival disposition and Q-02 bespoke tooling remain outside this work
   unless a concrete authorized need arises. Do not turn them into closure tasks.
