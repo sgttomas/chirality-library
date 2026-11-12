@@ -13,7 +13,11 @@ git show e157d14910e84cf149f2ead524d585467b18e0f7:execution/_Decomposition/PROJE
 ```
 
 The [working decomposition](PROJECT_DECOMP.md) differs from that reviewed content
-only by the expressly accepted standing annotations. The [Group 2 plan](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP2_PLAN.md)
+by the expressly accepted standing annotations and by later corrections that
+this repository's history of the file shows: the two-file locality
+(`b122604`, 2026-11-11) and the two references to the removed entry
+`execution/_Coordination/LOOP_INIT.md`. Neither changes the acceptance, the
+reviewed revision or the recovery route above. The [Group 2 plan](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP2_PLAN.md)
 and [Group 3 corrections](../_ScopeChange/SCA-20261101-UNDERTAKING-EVALUATION/GROUP3_CORRECTIONS.md)
 identify the propagation and conditional writes. No remote publication is implied
 or needed for this recovery route; the named Git objects are retained there.

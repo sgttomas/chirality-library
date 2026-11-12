@@ -405,7 +405,9 @@ and corresponding DEL-03-02/DEL-04-02 scope dispositions end the Library's ongoi
 obligation to supply the moved executable route and paired workflow. Original
 contracts, editions, actual evidence and unverified claims remain historical.
 Root's integrated destination and matching source bytes/modes are verified in
-DEL-03-02's evaluation basis.
+DEL-03-02's [evaluation basis](https://github.com/sgttomas/chirality-library/blob/1d536c58b787db14d544783667e0fbe4d8c44cbd/execution/PKG-03/DEL-03-02/Work/EvaluationBasis.md#holding-transfer-and-current-availability),
+under "Holding transfer and current availability", at revision
+`1d536c58b787db14d544783667e0fbe4d8c44cbd`; the file is no longer in the tree.
 No Library release or consumer adoption is authorized here.
 
 ## 6. Inputs, dependency considerations and downstream use

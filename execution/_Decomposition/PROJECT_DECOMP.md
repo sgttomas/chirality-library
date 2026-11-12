@@ -35,7 +35,7 @@ verified all three manifest entries before using the
 | Current inspection basis | `6865c6eaeed2bbf6b87f96ec45da18d837c6eb7b`, branch `codex/library-decomposition-20261031`, incorporating the merged repair. Affected §6 observations are refreshed against this basis; unchanged observations reuse the earlier inspection at `cd81b47b6ba1a29a606caec3d1be691f4691c4e7`. No global census. |
 | Reused repair basis | [PR #1779](https://github.com/sgttomas/chirality/pull/1779), merge `a052783460f60c76e6fa229500f59a51f67c5265`; final checked head `a0bb0dc77a53b041262571f658f9fd9590d44269`. Source inspection and reused verification are distinguished in §6.1. |
 | Selected method | [Workflow](../../workflows/project-decomp/WORKFLOW.md), [contract](../../workflows/project-decomp/resources/contract.md), [decomposition method](../../workflows/project-decomp/resources/method.md). Same bytes as the original Group 1 method basis. |
-| Authority and entry | [AGENTS.md](../../AGENTS.md), [TASK](../../agents/AGENT_TASK.md), [Root entry](../_Coordination/LOOP_INIT.md), and this assignment. Owner steering retains Agent 0 coordination/review and this directly managed Type 2 author; no Type 1 layer is introduced. |
+| Authority and entry | [AGENTS.md](../../AGENTS.md), [TASK](../../agents/AGENT_TASK.md), the Root entry `execution/_Coordination/LOOP_INIT.md` as it stood at this basis, and this assignment. That path is no longer in the tree: this repository last holds it at [`c685c604`](https://github.com/sgttomas/chirality-library/blob/c685c6041c77d3e92af8513c5c64f6a6f41d71f8/execution/_Coordination/LOOP_INIT.md), and its successor is the [development entry](../../AGENTS.md#chirality-library-development-entry) in AGENTS.md, which did not govern this formation. Owner steering retains Agent 0 coordination/review and this directly managed Type 2 author; no Type 1 layer is introduced. |
 | Historical transition | PR #1778; [recovery route](../../projects/FROZEN.md#pre-library-root-execution); tag `archive/pre-library-execution-2026-10-31` at `f80f1510fb50799764720303b86c36da64b75d19`. Reset already executed; retention only, no repeated removal job. |
 
 The accepted snapshot's relative links resolve from its original source path,
@@ -383,7 +383,8 @@ nor a synthetic fixture establishes that evidence.
 - **CoversScopeItems:** SOW-0001, SOW-0002, SOW-0003.
   **SupportsObjectives:** OBJ-001, OBJ-002, OBJ-003, OBJ-005.
 - **Anticipated artifacts:** A connected/revised entry and local navigation set
-  in README.md, execution/_Coordination/LOOP_INIT.md and selected owning indexes;
+  in README.md, the development entry (then execution/_Coordination/LOOP_INIT.md,
+  now in AGENTS.md) and selected owning indexes;
   concise directed-search instructions and a bounded discovery example attached
   to that route. Include purpose/applicability/standing/resources/outputs/limits
   for the holdings actually traversed. Existing workflow and publication indexes

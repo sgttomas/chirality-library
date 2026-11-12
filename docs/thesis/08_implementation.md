@@ -89,7 +89,7 @@ On this chapter's identified source basis, active project deliverables maintain
 commitments and acceptance criteria in `ScopeOfWork.md`, useful technical
 reasoning in `Design/`, and consumer-owned
 needs and conditions in `deliverable.yaml`. The
-[Library development entry](../../loop/LOOP_INIT.md) locates the shared
+[Library development entry](../../AGENTS.md#chirality-library-development-entry) locates the shared
 component and affected consumers; an active project entry locates product
 commitments. The authorized work directs the inquiry. Current shared locality
 naming is governed by `AGENTS.md`. App and SWBPIPE adopted `Work/` by the

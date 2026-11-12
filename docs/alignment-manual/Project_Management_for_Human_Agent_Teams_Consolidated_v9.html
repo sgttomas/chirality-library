@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="render_manual.py; markdown-it-py 4.2.0">
-<meta name="source-sha256" content="e7efc7c22515f62964af344fe6058bab96240af3f9a96fe32323d10b8128b6f7">
-<meta name="source-basis-date" content="2026-10-31">
-<meta name="source-basis-revision" content="6472b49b2a6c7ebf4db1356d7bf83fa3af412305">
+<meta name="source-sha256" content="17d867b0cf34182c3f570679938e0cffc8a1640e210a2e51c0fd03046012a656">
+<meta name="source-basis-date" content="2026-11-12">
+<meta name="source-basis-revision" content="2e5971ec2f8447e64eafc8a2e77b826aec9cafe3">
 <title>Project Management for Human Agent Teams · Chirality</title>
 <style>
 :root {
@@ -439,7 +439,7 @@ h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-co
 <p>Avoid duplicated responsibility. If two deliverables both claim the same interface, identify which defines it and which consumes it. Shared code does not itself resolve that ownership question.</p>
 <h2 id="32-the-deliverable-production-contract">3.2 The deliverable production contract</h2>
 <p>A production contract connects intended contribution, required outputs, governing requirements, interfaces, examination and evidence. It lets the producer and receiver understand what will count as a useful result.</p>
-<p>A scope-of-work document can hold this contract. Design material explains the selected realization. Dependency declarations state required inputs and their conditions. Code, drawings, calculations or other outputs supply the result itself. Chirality's convention going forward uses <code>ScopeOfWork.md</code> for commitments and criteria, <code>deliverable.yaml</code> for needs and conditions, and <code>Work/</code> for technical reasoning, execution detail and locally kept working artifacts/outputs, with maturity and issue status explicit. Code or other outputs may retain their actual product/source homes, referenced from the locality. Root, App v4 and SWBPIPE use <code>Work/</code> under their current project instructions. Historical <code>Design/</code> references retain the meaning and paths of their identified source revision. Use the project's current instructions and actual locality to find current work; consult the recorded source revision when relying on historical material. A later convention does not relocate that evidence or amend an adopted contract. Other undertakings can use forms suited to their consumers.</p>
+<p>A scope-of-work document can hold this contract. Design material explains the selected realization. Dependency declarations state required inputs and their conditions. Code, drawings, calculations or other outputs supply the result itself. Chirality's convention going forward uses <code>ScopeOfWork.md</code> for commitments and criteria and <code>deliverable.yaml</code> for needs and conditions. A deliverable's locality is those two files; it has no <code>Work/</code> folder. Code, tests and other outputs live in their actual product/source homes, referenced from the locality. Historical <code>Design/</code> and <code>Work/</code> references retain the meaning and paths of their identified source revision. Use the project's current instructions and actual locality to find current work; consult the recorded source revision when relying on historical material. A later convention does not relocate that evidence or amend an adopted contract. Other undertakings can use forms suited to their consumers.</p>
 <p>The contract must remain useful through implementation changes. It should preserve the required behavior without copying every incidental mechanism. A specifically accepted algorithm or interface is not incidental merely because it is detailed.</p>
 <p>Define production and examination together. If a claim cannot be examined by the proposed method, either the method is incomplete or the claim is too broad. A deliverable that produces a valid schema may still fail to preserve the meaning of the source it represents.</p>
 <p>A useful connection is:</p>
@@ -874,9 +874,9 @@ h2:target, h3:target, h4:target { text-decoration: underline; text-decoration-co
   </div>
   <footer class="document-footer">
   <dl class="document-meta">
-    <div><dt>Source basis dated</dt><dd>31 October 2026</dd></div>
-    <div><dt>Repository basis</dt><dd><code>6472b49b2a6c7ebf4db1356d7bf83fa3af412305</code></dd></div>
-    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="Project_Management_for_Human_Agent_Teams_Consolidated_v9.md">Project_Management_for_Human_Agent_Teams_Consolidated_v9.md</a><br><code>e7efc7c22515f62964af344fe6058bab96240af3f9a96fe32323d10b8128b6f7</code></dd></div>
+    <div><dt>Source basis dated</dt><dd>12 November 2026</dd></div>
+    <div><dt>Repository basis</dt><dd><code>2e5971ec2f8447e64eafc8a2e77b826aec9cafe3</code></dd></div>
+    <div class="fingerprint"><dt>Markdown source · SHA-256</dt><dd><a href="Project_Management_for_Human_Agent_Teams_Consolidated_v9.md">Project_Management_for_Human_Agent_Teams_Consolidated_v9.md</a><br><code>17d867b0cf34182c3f570679938e0cffc8a1640e210a2e51c0fd03046012a656</code></dd></div>
   </dl>
     <p>Complete rendering of the linked Markdown source. Document content and source links are preserved. This file needs no network connection to read.</p>
     <p>Generated with markdown-it-py 4.2.0. The source basis above identifies this edition; consult current project records before acting.</p>
