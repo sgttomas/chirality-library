@@ -48,7 +48,8 @@ Accepted commitments, decomposition and other records written before
   artifacts that bear on it. They show relevance, not exclusive ownership, and
   an empty list means none are declared. Keep them accurate.
 
-A locality holds `ScopeOfWork.md` and `deliverable.yaml` and nothing else. Code, tests, schemas,
+A locality is its `ScopeOfWork.md` and `deliverable.yaml`; it has no `Work/`
+folder. Code, tests, schemas,
 fixtures and validation references live in the project's code locations, not
 under `execution/`.
 
@@ -264,8 +265,7 @@ shows its declared inputs and the deliverables that consume it.
 
 ## Deliverables and records
 
-There is no `Work/` folder in a locality. Keep check pointers accurate, as
-code paths are.
+Keep check pointers accurate, as code paths are.
 
 Never rewrite frozen snapshots
 or accepted evidence. State a fact once and link to it. Use
@@ -306,9 +306,9 @@ PR and ask once whether the standing rule should change.
 For `sgttomas/chirality-library` only, agents may commit, push, open, update and merge PRs
 within authorized work after the verification above and required checks pass on
 the exact head. The Agent 0 of the session that opened a PR, directly or
-through its delegates, merges it after the review its change requires and with
-required checks green on the exact head. Delegated agents report a PR ready to
-merge and wait for Agent 0 to merge it. Explicit holds and reserved decisions
+through agents working under its assignment, merges it after the review its change requires and with
+required checks green on the exact head. Agents working under that Agent 0's assignment report a PR ready to
+merge and wait for that Agent 0 to merge it. Explicit holds and reserved decisions
 apply. This grant excludes
 protection bypasses, history rewrites, force pushes, permission changes and
 releases. Use ordinary Git judgment under the undertaking and these conventions:

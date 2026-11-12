@@ -14,7 +14,7 @@ This repository is the Chirality **Library**: the shared roles, workflows, tools
 and publications the Chirality projects draw on. Chirality **Root**, a separate
 private repository, measures how agents deliver work across the Chirality
 projects and improves it. Within work the owner has authorised, its Agent 0
-and delegates may change another project's files through a PR there, or open a
+and agents working under its assignment may change another project's files through a PR there, or open a
 GitHub issue for a finding the owner has approved. Records written before 2026-11-05 call this repository "Root".
 
 <a id="the-shared-library"></a>

@@ -126,7 +126,8 @@ follows it.
   artifacts that bear on it. They show relevance, not exclusive ownership, and
   an empty list means none are declared. Keep them accurate.
 
-A locality holds `ScopeOfWork.md` and `deliverable.yaml` and nothing else. Code, tests, schemas,
+A locality is its `ScopeOfWork.md` and `deliverable.yaml`; it has no `Work/`
+folder. Code, tests, schemas,
 fixtures and validation references live in the project's code locations, not
 under `execution/`.
 
