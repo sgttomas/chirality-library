@@ -5,7 +5,7 @@
 checks the seven existing deliverables and organizes the remaining delivery work.
 It changes no output, requirement, acceptance criterion or consumer commitment.
 Agent 0 owns the assembled result and the actions below unless an assignment is
-explicitly made. The local ScopeOfWork and Work remain the evidence authorities;
+explicitly made. The local ScopeOfWork, and the Work accounts at the fixed revision linked below, remain the evidence authorities;
 this is not a second lifecycle or progress register.
 
 ## Publication subject and basis
