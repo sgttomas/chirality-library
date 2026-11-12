@@ -120,10 +120,13 @@ for adoption and source distinctions.
   by editing the governing text where it lives; reserved choices go to the
   owner. Do not message a project the work does not affect.
 - **Root relationship.** Root reads session telemetry read-only, segregated by
-  repository; the owner reviews every finding. Root's Agent 0 and its delegates may change
+  repository: session metadata in any repository, to attribute sessions, and
+  message and tool content only for the repositories a query selects. The owner
+  reviews every finding before it reaches this project. Root's Agent 0 and its delegates may change
   this project's files within work the owner has authorised, through a PR here
   under these instructions, this project's checks and its Git grant, and tell
-  this project's Agent 0. Root may also open an issue for an owner-approved
+  this project's Agent 0. What Root writes in a public repository is cleared
+  for publication first. Root may also open an issue for an owner-approved
   finding cleared for publication. Routine adherence checks of this project's deliverables are
   run by this project's Agent 0 through a Library workflow.
 - **Work and verification.** There is the work, which is the code, and what
