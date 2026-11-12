@@ -25,7 +25,7 @@ Accepted commitments, decomposition and other records written before
 | Scope | Entry | Standing |
 |---|---|---|
 | Library: shared instructions, workflows, skills, tools and CI | [Development entry](#chirality-library-development-entry) | Work as steered |
-| Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; its Agent 0 and delegates may change files here within owner-authorised work, through a PR under these instructions; may open owner-approved issues |
+| Root: measures and improves agent delivery across projects; hosts shared services | Private `sgttomas/chirality` | Its own instructions; its Agent 0 and agents working under its assignment may change files here within owner-authorised work, through a PR under these instructions; may open owner-approved issues |
 | App v4: independent project | [chirality-app](https://github.com/sgttomas/chirality-app) | Consult its local instructions |
 | SWBPIPE: independent project | [SWBPIPE](https://github.com/sgttomas/SWBPIPE) | Consult its local instructions |
 | App v3, Runtime | Archived in the private `sgttomas/chirality` Git history (at or before `05d96f3e11`) | Frozen; no development or verification without explicit reactivation |
@@ -46,9 +46,10 @@ Accepted commitments, decomposition and other records written before
   describes what this part consumes; it commits no one to supply it.
 - Its **code paths** (the same file) point to the code, tests and other
   artifacts that bear on it. They show relevance, not exclusive ownership, and
-  an empty list means none are declared.
+  an empty list means none are declared. Keep them accurate.
 
-Code, tests, schemas and fixtures live in the project's code locations, not
+A locality holds `ScopeOfWork.md` and `deliverable.yaml` and nothing else. Code, tests, schemas,
+fixtures and validation references live in the project's code locations, not
 under `execution/`.
 
 There are two ways in, and neither proves you have found everything:
@@ -74,7 +75,7 @@ the files and say the check was unavailable.
 Correct a scope's description when the thing being made has materially
 changed or the description is materially wrong, and correct a need the work
 showed to be wrong, missing or no longer applicable in the same pull request. A changed commitment or criterion
-is the owner's, unless a delegation covers it. If a criterion looks wrong or cannot be met,
+is the owner's, unless a delegation covers it. If a criterion looks wrong, cannot be met or no longer serves its purpose,
 do not change it, weaken its check or build around it: say what you found and
 what you would change, and carry on with what it does not affect; the other
 criteria stay in force. Treat an
@@ -142,8 +143,9 @@ to decide within its authority; ending the rounds waives no required check or
 reserved choice.
 
 **The INTERLOCUTOR** advises Agent 0 on direction in a session the owner opts
-in; it is never an entry or default role. Agent 0 keeps one as its child
-through the session, continued by message. It is worth most early: bring it a
+in; it is never an entry or default role. Agent 0 keeps the same one as
+its child through the session, continued by message; a replacement starts only
+if it is lost or the owner asks. It is worth most early: bring it a
 consequential proposal while its advice can still change it, and carry on with
 unaffected work while it answers. It also carries the continuity that a fresh
 reviewer does not. In each review round it examines the findings and the
@@ -262,8 +264,8 @@ shows its declared inputs and the deliverables that consume it.
 
 ## Deliverables and records
 
-A locality holds `ScopeOfWork.md` and `deliverable.yaml` and nothing else;
-there is no `Work/` folder. Keep code and check pointers accurate.
+There is no `Work/` folder in a locality. Keep check pointers accurate, as
+code paths are.
 
 Never rewrite frozen snapshots
 or accepted evidence. State a fact once and link to it. Use
