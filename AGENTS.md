@@ -227,7 +227,9 @@ asking again.
 
 Once integrated, delete the worktrees, branches, build output and scratch this
 work created, unless an open review, named consumer or recovery need still uses
-them.
+them. The agent that delegated a child or reviewer is responsible for removing
+that agent's worktree and scratch under this rule, once it has confirmed they
+are no longer in use: a returned agent has no one else to do it.
 
 ## Holding changes and recovery
 

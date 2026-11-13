@@ -400,7 +400,10 @@ The text below covers the rest and repeats none of it.
   T3 threads. Agents save no memories; durable knowledge lives in Chirality.
   Scratch holds evidence, outputs and logs, never instructions. Once work is
   integrated, delete its scratch, worktrees, branches and build output unless an
-  open review, named consumer or recovery need still uses them.
+  open review, named consumer or recovery need still uses them. The agent that
+  delegated a child or reviewer is responsible for removing that agent's
+  worktree and scratch under this rule, once it has confirmed they are no
+  longer in use: a returned agent has no one else to do it.
 - **Standing Git grant.** Record the owner's actual repository-scoped grant with their words; never write one by copying.
 
 ### Packaged product instructions
