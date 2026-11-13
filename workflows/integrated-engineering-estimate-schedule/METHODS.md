@@ -4,6 +4,8 @@ Apply these engineering mechanisms to the coupled case's claims, adapting detail
 
 ## Effort, price and uncertainty
 
+Use [allowance appraisal](resources/allowance-appraisal.md) for contribution reconciliation, conditional medians versus means, sampling units and the ordinary/additional-work boundary. The [worked example](resources/allowance-example.md) supplies a synthetic numerical walkthrough.
+
 Construct a work allowance from identifiable populations and role contributions. A useful form is quantity × reference role-hours × justified complexity/iteration factors, with explicitly separated ordinary friction and additional event mechanisms. Explain what a factor already includes before adding another. Shared production is priced once; recipient-specific checking/incorporation is priced separately only for actual distinct work. Preserve author/check independence where required. Project management/coordination has real service quantities and products rather than an automatic percentage added to all work.
 
 Appraise the basis: measured/project-specific observation, analogous norm, published source, expert judgment or unsupported placeholder. Record applicability, boundaries and uncertainty in the owning assumptions. A requested magnitude is a challenge to examine the model, not calibration evidence. Method-dependent reductions require suitable controlled sources/workflows; either price enabling implementation, retain the original allowance for unsupported subsets, or disclose the condition.

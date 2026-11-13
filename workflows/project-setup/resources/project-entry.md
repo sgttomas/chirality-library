@@ -23,6 +23,13 @@ The first two are the instruction entry layer: how an agent enters and keeps
 operating. There is no `init/` folder and no `loop/LOOP_INIT.md`. The next two
 say what the product is; the last row is what an agent works with.
 
+Choose working and delivery formats for the intended editing, review and
+consuming tools. Markdown and structured text can remain the maintained editable
+sources; use a native office format where its required behavior or the recipient’s
+needs warrant it. Identify the owning source and generated views so edits have a
+clear home. The project-entry convention does not prescribe a deliverable file
+format.
+
 ## `init-prompt.md`
 
 A short, reusable prompt the owner sends to start an Agent 0 session. It:

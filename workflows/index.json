@@ -648,7 +648,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 2,
+        "order": 3,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -725,7 +725,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 4,
+        "order": 5,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -1252,7 +1252,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 0,
+        "order": 1,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -1327,7 +1327,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 5,
+        "order": 6,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -1419,7 +1419,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 6,
+        "order": 7,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -1468,7 +1468,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 7,
+        "order": 8,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -2181,12 +2181,14 @@
       ],
       "resources": [
         "METHODS.md",
-        "WORKFLOW.md"
+        "WORKFLOW.md",
+        "resources/allowance-appraisal.md",
+        "resources/allowance-example.md"
       ],
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 1,
+        "order": 2,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -2307,7 +2309,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 9,
+        "order": 10,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -2587,6 +2589,38 @@
     },
     {
       "kind": "workflow",
+      "name": "prepare-sources-and-dbm",
+      "source": "bundled",
+      "sourceRootId": "chirality-root",
+      "description": "Prepare a first working Design Basis Memorandum from available project sources or reconcile an existing DBM with changed engineering evidence and decisions.",
+      "central": false,
+      "compatibility": "canonical",
+      "executionRoleIds": [
+        "HELP_HUMAN",
+        "HELPS_HUMANS",
+        "WORKING_ITEMS",
+        "TASK"
+      ],
+      "resources": [
+        "WORKFLOW.md"
+      ],
+      "navigation": {
+        "category": "specialist",
+        "tier": "primary",
+        "order": 0,
+        "group": {
+          "key": "plan-organize",
+          "label": "Plan & organize",
+          "order": 0
+        }
+      },
+      "metadata": {
+        "kind": "instruction",
+        "surface": "workflow"
+      }
+    },
+    {
+      "kind": "workflow",
       "name": "project-decomp",
       "source": "bundled",
       "sourceRootId": "chirality-root",
@@ -2686,7 +2720,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 11,
+        "order": 12,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -3041,7 +3075,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 3,
+        "order": 4,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -3096,7 +3130,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "primary",
-        "order": 10,
+        "order": 11,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",
@@ -3139,7 +3173,7 @@
       "navigation": {
         "category": "specialist",
         "tier": "supporting",
-        "order": 8,
+        "order": 9,
         "group": {
           "key": "plan-organize",
           "label": "Plan & organize",

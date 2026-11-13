@@ -42,6 +42,9 @@
         "label": "Plan & organize",
         "workflows": [
           {
+            "name": "prepare-sources-and-dbm"
+          },
+          {
             "name": "define-work"
           },
           {
