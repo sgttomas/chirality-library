@@ -61,6 +61,14 @@ of its own adequacy. Agreement with the product's earlier output establishes
 consistency, not correctness. State any consequential gap in what the evidence
 can establish; do not disguise it with a rationale or authority label.
 
+When a criterion covers a population, examine completeness from the governing
+scope and sources to the outputs as well as correctness of the outputs present.
+Individually correct calculations can omit an in-scope case; every listed
+circuit can pass its checks while an in-scope circuit is absent from the list.
+Establish the applicable population from evidence independent of the produced
+subset, and account for its inclusion, authorized exclusion or unresolved
+coverage. A check over existing rows alone cannot establish completeness.
+
 **Changing a statement.** A statement's attribution does not determine who may
 change it. Reconcile meaning within the applicable delegation; take changes
 outside it to the responsible decision holder. Removing attribution or history

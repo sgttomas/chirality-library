@@ -39,6 +39,8 @@ Produce inspectable coverage of every in-scope family and conditional/excluded/u
 
 ## 3. Develop distinct coupled projections
 
+For material new or revised allowances, use [allowance appraisal](resources/allowance-appraisal.md) to reconcile work contributions and state their median, mean and uncertainty meanings. Its [synthetic example](resources/allowance-example.md) shows a contribution bridge and analytical checks. Use an independent construction where it illuminates uncertainty; a phase projection of the selected unit build is not a second independent appraisal.
+
 Use the actual selected effort recipe and operative parameter/profile library. Preserve original methods separately from authorized quantity/unit/event or rule adaptations. Owning model inputs retain values and their known reasons, units, evidence/judgment status, applicability, limits and affected uses. Group related choices where appropriate; retain unknown historical reasons as unknown. New cases retain prior/new values and source lineage. Generated consumer views are not an independent tuning master.
 
 Develop effort/pricing and the technical network as distinct projections of the same work, with feedback rather than deriving schedule logic from cost rows. Reuse unchanged counterpart inputs/results only where their identities and applicable validation permit it. Report supported effects on the coupled model, not an isolated favorable delta that conceals other impacts.
