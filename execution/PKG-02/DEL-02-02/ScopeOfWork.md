@@ -118,12 +118,13 @@ consistently.
 - **REQ-006** — This deliverable shall perform no act owned by another deliverable: stating the reconciliation method (`DEL-04-01`), stating wider maintenance procedures (`DEL-02-01`), implementing a tool or stating its usage instructions (`DEL-03-01`), stating navigation or the standing of a publication (`DEL-01-01`), qualifying a named consumer, changing the render route or preparing or inspecting a publication (`DEL-05-01`), and stating reflective guidance (`DEL-04-02`), as CLM-002 allocates. Applying another deliverable's method or tool to this case keeps the boundary.
 - **REQ-007** — The clarification keeps the meaning of the safeguards and the names of the identities CLM-003 and CLM-004 name, changes an adopted safeguard incompatibly only as REQ-004 allows, sends each choice CLM-004 reserves to the owner, and implies no acceptance, release, adoption or reactivation. Its public text holds no private operational data or credentials. Source: PRD §2.3, §5, R17.
 
-A locality holds only its scope and its needs. Where the reasoning REQ-005
-requires is kept is the owner's to decide. The reasoning recorded before the
-`Work/` folders were removed is in the
+A locality holds only its scope and its needs. The reasoning REQ-005 requires
+is kept in the description of the pull request that makes the change; a reader
+reaches it from the changed text through the merge commit that brought the
+change to `main`, which names that pull request. The reasoning recorded before
+the `Work/` folders were removed is in the
 [applicability comparison](https://github.com/sgttomas/chirality-library/blob/1d536c58b787db14d544783667e0fbe4d8c44cbd/execution/PKG-02/DEL-02-02/Work/Applicability.md)
-at revision `1d536c58b787db14d544783667e0fbe4d8c44cbd`; that link locates it and
-decides nothing about where later reasoning is kept.
+at revision `1d536c58b787db14d544783667e0fbe4d8c44cbd`.
 
 - **AC-001** — For each reference row of the case table, a reader of the passage can say which standing each consequential statement has (reusable definition, current Library practice, adopted contract, historical policy, or not established) and which adopter or condition makes a retained rule apply. Retained identifiers keep their names and adopted safeguards keep their meaning. A passage left unedited has a stated reason. A revised passage that is a maintenance instruction, or that a Library method cites as governing, was examined under its preceding text, and that text is recoverable. Verify with VER-001.
 - **AC-002** — Each thesis and manual row either agrees with the reference meaning for its stated audience and use or states the earlier basis it keeps. Each has a reasoned change or a stated reason for none. The edition and source revision compared are identified, and an HTML edition whose source changed equals the renderer's output for that source. Verify with VER-002.
