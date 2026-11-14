@@ -2183,7 +2183,8 @@
         "METHODS.md",
         "WORKFLOW.md",
         "resources/allowance-appraisal.md",
-        "resources/allowance-example.md"
+        "resources/allowance-example.md",
+        "resources/estimate-comparison.md"
       ],
       "navigation": {
         "category": "specialist",
