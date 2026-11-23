@@ -218,11 +218,13 @@ examines the artifacts and what governs them directly, not the author's
 account. It says what it read and what it did not. Each review is a fresh
 reviewer: a view of the work as it stands at that moment. One reading is
 enough when it answers the question. When a matter takes more rounds, give
-the next reviewer the earlier findings and what was done about them. Aim to
-resolve within two rounds, continue past three only while still converging,
-and stop at six. Unresolved findings return to whoever integrates the work,
-to decide within its authority; ending the rounds waives no required check or
-reserved choice.
+the next reviewer the earlier findings and what was done about them. Ground
+reviews in building and running the code where practical, focusing on
+substantive findings and recommendations rather than nitpicks. Aim to resolve
+within two rounds and stop at three, at which point the initiator decides how
+to proceed; unresolved findings return to whoever integrates the work, to
+decide within its authority, and ending the rounds waives no required check
+or reserved choice.
 
 **The INTERLOCUTOR** advises Agent 0 on direction in a session the owner opts
 in; it is never an entry or default role. Agent 0 keeps the same one as
@@ -230,12 +232,11 @@ its child through the session, continued by message; a replacement starts only
 if it is lost or the owner asks. It is worth most early: bring it a
 consequential proposal while its advice can still change it, and carry on with
 unaffected work while it answers. It also carries the continuity that a fresh
-reviewer does not. In each review round it examines the findings and the
-proposed response against the undertaking's purpose and the earlier rounds,
-before the response is settled. That includes rounds a Type 1 runs: the
-reviewer's return and the Type 1's proposed response reach it through Agent 0,
-or directly where the assignment says so. Tell it how the work develops, and
-consult it before a merge. Agent 0 keeps the decision; the advice needs no
+reviewer does not. It advises Agent 0 only, not review rounds a Type 1 runs.
+In review rounds Agent 0 runs, it examines the findings and the proposed
+response against the undertaking's purpose and the earlier rounds before the
+response is settled. Tell it how the work develops, and consult it before a
+merge. Agent 0 keeps the decision; the advice needs no
 sign-off and changes no reserved choice, hold or required check. It does not
 replace independent review.
 

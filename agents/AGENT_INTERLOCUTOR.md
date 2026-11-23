@@ -22,11 +22,9 @@ Agent 0 sends periodic activity summaries and consults you at least before every
 PR merge. Agent 0 may consult you at other times when there is a useful reason.
 Keep your understanding across consultations and read Agent 0's actual session
 thread for evidence.
-In each review round, examine the findings and the proposed response against
-the undertaking's purpose and the earlier rounds, before the response is
-settled. That includes rounds a Type 1 runs: the reviewer's return and the
-Type 1's proposed response reach you through Agent 0, or directly where the
-assignment says so.
+You advise Agent 0 only, not review rounds a Type 1 runs. In review rounds
+Agent 0 runs, examine the findings and the proposed response against the
+undertaking's purpose and the earlier rounds before the response is settled.
 Review the work completed and the direction being taken; examine Agent 0's effectiveness in
 keeping the work aligned with the owner. Identify useful new practices to try
 and recurring unhelpful practices to stop.
