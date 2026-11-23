@@ -28,7 +28,7 @@ examines the relationship among the thesis, experience across projects and the s
 library's means of working. It is also material that reflection can question
 and revise. Reading it is neither an execution prerequisite nor adoption of
 new project obligations. The reading files above include the later editorial
-revision that removes predecessor framing. [Library 1.0.1](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.1),
+revision that removes predecessor framing. Library 1.0.1,
 in the private `sgttomas/chirality` repository, retains the published first edition at its identified source, with its download
 and change account.
 

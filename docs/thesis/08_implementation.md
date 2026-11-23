@@ -68,7 +68,7 @@ continuing responsibilities need not imply a separate managerial tier.
 
 ### 8.2.2 Exercised Permission Behaviour
 
-[PR #1223](https://github.com/sgttomas/chirality/pull/1223) couples the
+PR #1223 (earlier Chirality repository, not public) couples the
 HELP_HUMAN authorization interpretation with resolver boundary tests. The resolver
 retains authorized write targets while denying unauthorized targets and respecting
 a read-only host. Tests cover absent authorization and escaping targets, including
@@ -111,8 +111,8 @@ and actual contents within the assignment.
 
 ### 8.3.2 Preservation of Meaning Through Transformation
 
-[App v4 PR #1213](https://github.com/sgttomas/chirality/pull/1213) and
-[Piping PR #1216](https://github.com/sgttomas/chirality/pull/1216) provide bounded
+App v4 PR #1213 and
+Piping PR #1216 provide bounded
 evidence about preservation of dependency conditions. Source-row accounting and
 comparison with identified graph bases detect omitted or changed declarations.
 Independent examination of meanings complements those mechanical checks.
@@ -163,7 +163,7 @@ Unrelated jobs can be skipped explicitly. A selected job that fails, is cancelle
 or is missing must prevent the aggregate from passing. Selection and failure
 propagation are distinct properties requiring examination.
 
-[PR #1214](https://github.com/sgttomas/chirality/pull/1214) supplies recorded
+PR #1214 supplies recorded
 checks of that selection. Applicable prior passes can be reused, with the explicit
 qualification that no new tests executed. A build cache is not a prior test result;
 manual runs can obtain fresh evidence. Reuse depends on applicability to the
@@ -184,7 +184,7 @@ establish that the next invocation of the generator would remain usable. The
 connecting path, rather than the isolated component, was the subject requiring
 examination.
 
-[App PR #1240](https://github.com/sgttomas/chirality/pull/1240) supplies a different
+App PR #1240 supplies a different
 witness: actual native interaction exposed role-header accumulation and input
 autocorrection defects, followed by repair. This supports exercising the assembled
 application, but it does not establish general usability or the absence of other
@@ -201,17 +201,17 @@ person's act of reliance.
 
 ### 8.5.1 Operative Perspective: The App
 
-The [App PRD](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-app-v4/docs/PRD.md) and
-[architecture](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-app-v4/docs/ARCHITECTURE.md) define the
+The App PRD (`projects/chirality-app-v4/docs/PRD.md` at `a602024416`) and
+architecture (`projects/chirality-app-v4/docs/ARCHITECTURE.md` at `a602024416`) define the
 application-specific inquiry. Conversations, request cards, workflow authoring,
 trial runs and inspection of returned work supply operative paths through which
 intent and methods can be tried and revised.
 
-The [host-integration contract](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-app-v4/docs/HOST_INTEGRATION.md)
+The host-integration contract (`projects/chirality-app-v4/docs/HOST_INTEGRATION.md` at `a602024416`)
 proposes making application capabilities discoverable. A common catalog does not
 establish correct domain behaviour, good interfaces, recovery or every transport
 adapter.
-[PR #1244](https://github.com/sgttomas/chirality/pull/1244) assigns file and record
+PR #1244 assigns file and record
 writes, supplier interaction and capture of human acts to the Rust host, while
 the web view presents and sends human-initiated requests. This ruling is a product
 commitment; its text alone does not establish that all paths conform to it.
@@ -228,7 +228,7 @@ attachment-based trials supplied instructions differently from a registered
 workflow run. A successful trial could therefore depend on context or wording
 that would not be present when the workflow was used.
 
-The [App's workflow design](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-app-v4/execution/PKG-02/DEL-02-02/Design/WORKSPACE_AND_REGISTRATION.md)
+The App's workflow design (`projects/chirality-app-v4/execution/PKG-02/DEL-02-02/Design/WORKSPACE_AND_REGISTRATION.md` at `a602024416`)
 made this difference explicit. At the identified evidence basis, preparation
 snapshots the draft and compares trial text with the text used for a registered
 run. A trial label and its own references identify the different activity.
@@ -244,7 +244,7 @@ identified basis.
 
 #### An interrupted turn does not prove that its command stopped
 
-The [October 10 native App observation](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-app-v4/execution/PKG-01/DEL-01-02/Design/NATIVE_WITNESS_2026-10-10.md)
+The October 10 native App observation (`projects/chirality-app-v4/execution/PKG-01/DEL-01-02/Design/NATIVE_WITNESS_2026-10-10.md` at `a602024416`)
 recorded an interrupted turn running `sleep 90`. The live turn ended as
 interrupted, but later supplier history showed that the command completed with
 exit zero after about ninety seconds. The App retained these observations
@@ -259,7 +259,7 @@ not a claim about every later App or supplier version.
 
 ### 8.5.2 Evaluative Perspective: Piping
 
-The [Piping PRD](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-piping/docs/PRD.md) distinguishes
+The Piping PRD (`projects/chirality-piping/docs/PRD.md` at `a602024416`) distinguishes
 physical models, analytical models, analysis runs, comparison and handoff. These
 objects need domain definitions, numerical implementation and evidence. The cases below examine limits of the software operations and calculations.
 
@@ -277,7 +277,7 @@ its numerical results do not establish economical transfer to all domains.
 
 #### Missing inputs must remain visible
 
-The [solver-boundary tests](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-piping/tests/test_analytical_solver_boundary_adapter.py)
+The solver-boundary tests (`projects/chirality-piping/tests/test_analytical_solver_boundary_adapter.py` at `a602024416`)
 examine missing properties, unrecognized loads and invalid orientations. An
 unknown property must not become an unexplained default merely to make a solve
 possible. The agent can help locate a source or propose an assumption, but its
@@ -286,7 +286,7 @@ an internal path; they do not establish every graphical or agent entry path.
 
 #### Tests must reach the implementation used for the work
 
-The [operation-engine decision](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-piping/docs/architecture/adr/ADR-0001_operation_seam_engine_unification.md)
+The operation-engine decision (`projects/chirality-piping/docs/architecture/adr/ADR-0001_operation_seam_engine_unification.md` at `a602024416`)
 describes a native Rust engine and an earlier separate TypeScript implementation.
 Testing each did not establish that both applied the same validation or produced
 the same model. Replacing the browser implementation with a WebAssembly build of
@@ -299,7 +299,7 @@ A common interface alone cannot establish those results.
 
 #### A numerical repair has a defined scope
 
-The [curved-element numerical account](https://github.com/sgttomas/chirality/blob/a602024416ace9652f61bb2043889c307fd4e09d/projects/chirality-piping/execution/PKG-04/DEL-04-01/Design/curved-numerical-integrity.md)
+The curved-element numerical account (`projects/chirality-piping/execution/PKG-04/DEL-04-01/Design/curved-numerical-integrity.md` at `a602024416`)
 describes cancellation in small-angle expressions and repairs using a stable
 half-angle form, explicit geometry and scaled inversion. Short-arc tests compare
 with high-precision references and examine rigid motion and coordinate changes.
@@ -324,9 +324,9 @@ examination through the deliverables.
 
 | Stage | Evidence | Finding |
 |---|---|---|
-| Working predecessor | [v3 execution record](https://github.com/sgttomas/chirality/blob/2b0572fe049c8ffaa02d61b7dbbc3ae41bc589f6/projects/chirality-app-dev/execution/_Coordination/AgentRuns/APP_V3_CODEX_HOST_REPLATFORM_20260912/spike/EVIDENCE.md), September 12 | Native planning, real tool execution, conversational workflow creation, reuse/refinement, interruption and relaunch were exercised. A failed refinement path was repaired and exercised successfully. |
+| Working predecessor | v3 execution record (`projects/chirality-app-dev/execution/_Coordination/AgentRuns/APP_V3_CODEX_HOST_REPLATFORM_20260912/spike/EVIDENCE.md` at `2b0572fe04`), September 12 | Native planning, real tool execution, conversational workflow creation, reuse/refinement, interruption and relaunch were exercised. A failed refinement path was repaired and exercised successfully. |
 | Abstraction for a successor | [Investigation record](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/conceptual/WORKING_RECORD.md) and [exemplars and lessons](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/conceptual/EXEMPLARS_AND_LESSONS.md), September 25 | Existing behavior, requirements, failures and unrealized intentions were distinguished. Useful relationships were selected for preservation while obsolete runtime mechanisms were reconsidered. |
-| Accepted production basis | [Composite acceptance](https://github.com/sgttomas/chirality/blob/cea76c2f469350d237c5d579b765113f7569f0e5/projects/chirality-app-v4/execution/_Coordination/Acceptances/APP-V4-BASIS-20260926/ACCEPTANCE.md), [final decomposition decision](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/execution/_Decomposition/checkpoint_snapshots/GROUP3-20260928T001055Z/DECISION.md) and [DEL-02-02](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/execution/PKG-02/DEL-02-02/ScopeOfWork.md) | The successor basis became 11 packages and 41 deliverables, with explicit ownership of the complete create–trial–review–register–reuse–refine experience. The counts identify the subject; they are not outcome measures. |
+| Accepted production basis | Composite acceptance (`projects/chirality-app-v4/execution/_Coordination/Acceptances/APP-V4-BASIS-20260926/ACCEPTANCE.md` at `cea76c2f46`), [final decomposition decision](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/execution/_Decomposition/checkpoint_snapshots/GROUP3-20260928T001055Z/DECISION.md) and [DEL-02-02](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/execution/PKG-02/DEL-02-02/ScopeOfWork.md) | The successor basis became 11 packages and 41 deliverables, with explicit ownership of the complete create–trial–review–register–reuse–refine experience. The counts identify the subject; they are not outcome measures. |
 | Realized successor behavior | [Native walkthrough](https://github.com/sgttomas/chirality-app/blob/032725d32b67e117b8e1fb2b5fa9aa47b30de12e/execution/PKG-02/DEL-02-02/Work/NATIVE_WALKTHROUGH_2026-10-14.md), October 14–16 | Four registered revisions remained in one lineage. The workflow was tried, reviewed, registered, reused on new inputs and continued after relaunch. Summary and source-line-reference outputs were added while earlier reports remained compatible. |
 | Feedback into production | App changes [08c67c4b](https://github.com/sgttomas/chirality-app/commit/08c67c4bf2dbb33b587931282d21681151b7b6e1), [e1a8e3e7](https://github.com/sgttomas/chirality-app/commit/e1a8e3e7c5e3aac7107f66700ab11abb1bf00083) and [687c78ea](https://github.com/sgttomas/chirality-app/commit/687c78ead04d70cbf2d4bea0a3dec732a9c27829) | Revised trial intent reached requirements, acceptance/verification criteria and Work design; native findings reached implementation and tests; later declaration findings reached supplied guidance and its checks. |
 
@@ -350,7 +350,7 @@ Human direction, examination and correction are constitutive of this
 undertaking. They connect its purpose to what is built and to what experience
 changes next.
 
-The development method was itself revised in use. The [October 4 direction](https://github.com/sgttomas/chirality/blob/24e9117b9c2d9d10f57642da4eef0d13c90bb166/projects/chirality-app-v4/execution/_Coordination/AgentRuns/APP-V4-GRAPH-CLOSURE-20261004/OWNER_DECISIONS.md)
+The development method was itself revised in use. The October 4 direction (`projects/chirality-app-v4/execution/_Coordination/AgentRuns/APP-V4-GRAPH-CLOSURE-20261004/OWNER_DECISIONS.md` at `24e9117b9c`)
 redirected dependency rewording toward a coupled contract core, a working
 skeleton and subsequent parallel implementation. The deliverable basis remained,
 while the means of carrying it out changed in response to purpose. This is a
@@ -417,7 +417,7 @@ meaning in this longitudinal case. Repository instructions, role files, selected
 methods, deliverable sources and the query CLI are in use; the relevant Git and
 CI paths have been exercised. More substantively, the App's selected meanings
 and behaviors reached a redeveloped implementation and were extended in use.
-[PR #1238](https://github.com/sgttomas/chirality/pull/1238) provides the accepted
+PR #1238 provides the accepted
 manuals describing that working model, but their existence does not imply that
 the whole system is fully validated.
 

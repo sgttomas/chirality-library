@@ -40,9 +40,9 @@ participants produce and revise later artifacts.
 The October work included revising instructions, migrating dependencies,
 selecting verifications and preserving live conditions before records were
 archived.
-[PR #1212](https://github.com/sgttomas/chirality/pull/1212),
-[App v4 PR #1213](https://github.com/sgttomas/chirality/pull/1213),
-[Piping PR #1216](https://github.com/sgttomas/chirality/pull/1216) and the archive
+PR #1212 (earlier Chirality repository, not public),
+App v4 PR #1213,
+Piping PR #1216 and the archive
 batches document that work. Recoverable Git tags preserve prior material.
 Independent reviews found omissions, including technical conditions and frozen
 numerical references with maintained consumers. Repairs support an account of
@@ -119,7 +119,7 @@ praxeology. All four questions remain mutually corrective.
 ## E.4 Roles, Context and Continuity
 
 The earlier registry made HELP_HUMAN read-only, and some accounts treated a mandatory
-agent hierarchy as the source of human authority. [PR #1223](https://github.com/sgttomas/chirality/pull/1223)
+agent hierarchy as the source of human authority. PR #1223
 revised the role interpretation and resolver together. Authorized write targets
 remain bounded by the assignment and host, with tests for absent authorization
 and escaping targets, including symlink escapes. These checks concern the
@@ -157,7 +157,7 @@ work; design and operational conditions; risks; technical accuracy; requirements
 quality assurance; and intended reliance. Neither completed gates nor a count
 of reviewers establishes adequate examination.
 
-[PR #1214](https://github.com/sgttomas/chirality/pull/1214) revised check selection
+PR #1214 revised check selection
 around consequential behaviour and exercised selection and failure propagation.
 Later reuse of evidence distinguishes an applicable prior pass from a build
 cache and states when no new tests executed. The evidence-management mechanism
@@ -168,7 +168,7 @@ removals. Relocation and consumer repair were necessary even when generated
 product results were already committed. A passing product suite alone would not
 establish that the next generator invocation remained usable.
 
-[PR #1224](https://github.com/sgttomas/chirality/pull/1224) removed App v3, Runtime
+PR #1224 removed App v3, Runtime
 and PEC from the working tree after accounting for active consumers. Their
 recovery references (`sgttomas/chirality:projects/FROZEN.md`, private archive) preserve access without creating
 current verification targets. App v2 and v3 included evolution and redesign;
@@ -176,14 +176,14 @@ v4 identifies reuse candidates. A new PRD and version do not prove retained
 learning: tests, native-use findings, interfaces and owner decisions need to be
 examined for their present relevance.
 
-[PR #1240](https://github.com/sgttomas/chirality/pull/1240) records native-use
+PR #1240 records native-use
 findings about role-header accumulation and input autocorrection, followed by
 repair. This supports the value of actual interaction with the application, but
 it does not establish general usability.
-[PR #1244](https://github.com/sgttomas/chirality/pull/1244) records the App's
+PR #1244 records the App's
 host-placement commitment for writes, supplier interaction and human-act
 capture. A commitment is not evidence that all implementation paths
-conform. [PR #1238](https://github.com/sgttomas/chirality/pull/1238) provides the
+conform. PR #1238 provides the
 accepted manuals for the working model at the source basis.
 
 ## E.6 Corrections of Earlier Claims
