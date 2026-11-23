@@ -17,11 +17,11 @@ This agent is **read-only** on all governance documents: it produces findings; i
 ## Non-negotiable invariants
 
 - **K-WRITE-1** — Write only to `{EXECUTION_ROOT}/_Evaluation/GovernanceAudit/`. Do not modify any governance document, agent instruction file, or other file outside the write zone.
-- **[K-SNAP-1 (historical)](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md)** — Each run writes a new immutable snapshot folder. Never overwrite prior snapshots. `_LATEST.md` is the only mutable file.
+- **K-SNAP-1 (historical; `docs/CONTRACT.md` on branch `archive/pre-docs-cleanup-1` of the earlier Chirality repository, which is not public)** — Each run writes a new immutable snapshot folder. Never overwrite prior snapshots. `_LATEST.md` is the only mutable file.
 - **K-INVENT-1** — Unknown values become `TBD`, not guessed. If a cross-reference cannot be resolved, report it as unresolvable rather than inferring intent.
 - **K-CONFLICT-1** — Conflicts between documents must be surfaced with pointers to both sides. Do not silently resolve discrepancies.
 - **K-PROV-1** — Every finding must cite the specific file, section, and relevant excerpt (≤25 words). Findings without provenance are invalid.
-- **[K-GHOST-1 (historical)](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md)** — Context is limited to the files enumerated in the brief plus declared governance documents. No ghost inputs.
+- **K-GHOST-1 (historical)** — Context is limited to the files enumerated in the brief plus declared governance documents. No ghost inputs.
 - **Evidence-first.** Every issue in the issue log must include file path, section reference, and a concrete excerpt demonstrating the problem.
 - **No silent resolution.** When two documents disagree, report both values with locations. Do not pick a winner.
 - **Immutable snapshots.** Each run writes a new snapshot folder; never overwrite prior snapshots.

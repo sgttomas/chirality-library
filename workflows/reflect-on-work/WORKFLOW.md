@@ -16,7 +16,7 @@ implementation owner retains the work through authorized repairs. TASK may
 contribute bounded evidence through its caller; it does not independently own
 this human-dialogue method.
 
-[Chirality in Practice (first edition, source 360a2d5050)](https://github.com/sgttomas/chirality/blob/360a2d5050302e27c143e6c76bd367f2d94b0072/docs/alignment-manual/Chirality_in_Practice_Edition_1.md) offers a reflective account of reasons and experience that can inform this inquiry; reading it adds no execution obligations.
+[Chirality in Practice (first edition)](../../docs/alignment-manual/Chirality_in_Practice_Edition_1.md) offers a reflective account of reasons and experience that can inform this inquiry; reading it adds no execution obligations.
 
 Read the current purpose, commitments, selected source basis and the actual
 finding with its evidence and limits. Use the scopes, the code and the review

@@ -62,7 +62,7 @@ consequence before expanding the work.
 ## Delivery result
 
 The owner approved final acceptance and release of `fc73de583d25bf792d5c3abb3bf1ac8e0c38f7d6`
-with “I approve both decisions.” [Chirality library 1.0.0](https://github.com/sgttomas/chirality/releases/tag/library-v1.0.0)
+with “I approve both decisions.” Chirality library 1.0.0 (released from the earlier Chirality repository, which is not public)
 was published on 2026-11-01. The tag resolves to that exact commit. The attached
 1,054-file source archive has SHA-256
 `e75ce1396e8bb92d4e2f144ba13336ee93a7ad7579494b2a6d21117857733567`.
