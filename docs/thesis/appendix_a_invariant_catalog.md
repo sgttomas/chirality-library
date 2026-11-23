@@ -13,9 +13,9 @@ binding development duties**. It does not reinstate retired lifecycle status,
 run approval, receipts, registers, agent personas or snapshot requirements.
 
 The original definitions are recoverable at `archive/pre-docs-cleanup-1` in the
-[workflow-component standard](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/WORKFLOW_COMPONENT_STANDARD.md),
-[decomposition standard](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/DECOMPOSITION_STANDARD.md)
-and [CONTRACT.md](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md).
+workflow-component standard (`docs/WORKFLOW_COMPONENT_STANDARD.md` on branch `archive/pre-docs-cleanup-1`, earlier Chirality repository, not public),
+decomposition standard (`docs/DECOMPOSITION_STANDARD.md` on branch `archive/pre-docs-cleanup-1`)
+and CONTRACT.md (`docs/CONTRACT.md` on branch `archive/pre-docs-cleanup-1`).
 These sources contain different historical amendments; the table below explains
 the families rather than claiming to reproduce a single original catalog as it
 stood at one time.
