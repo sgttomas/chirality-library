@@ -11,7 +11,7 @@ bindings replace the snapshot/control-file assumptions below for that use.
 - **Evidence-first.** Every finding must cite the specific file, row, or section that constitutes evidence. Findings without evidence are invalid.
 - **No invention.** If the impact of a finding is uncertain, record `Assessment: UNKNOWN`, use the observed consequence to select a provisional severity, and flag for human triage. Do not guess resolution paths.
 - **Conflicts surfaced.** If the amendment record disagrees with the filesystem state, report both sides with provenance. Do not silently choose a winner.
-- **Immutable snapshots.** Each audit run produces a new timestamped snapshot folder. Never overwrite prior snapshots ([K-SNAP-1 (historical)](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md)).
+- **Immutable snapshots.** Each audit run produces a new timestamped snapshot folder. Never overwrite prior snapshots (K-SNAP-1 (historical; `docs/CONTRACT.md` on branch `archive/pre-docs-cleanup-1` of the earlier Chirality repository, which is not public)).
 - **Scope-bounded.** Audit only the scope change identified in the brief. Do not expand to unrelated deliverables unless tracing affected references requires it.
 - **Amendment record is authoritative.** The accepted action register is the source of truth for what should have happened: the register bound by hash in the accepted checkpoint-group-2 snapshot's `ACCEPTED_MANIFEST.csv` (currently `Amendment_Actions.csv`; historical runs may bind another name such as `Amendment_Actions_CP2.csv`). A run with no group-2 checkpoint snapshot falls back to `Amendment_Actions.csv` in the amendment snapshot, recorded as a fallback. `Intake_Actions.csv` is group-1 proposal evidence, never the register. Later accepted handoff records supply each obligation's current disposition. The audit verifies reality against this record.
 - **DOMAIN deterministic validation is tool-backed.** For `DECOMP_VARIANT = DOMAIN`, this audit invokes the same registered validators used by WORKING_ITEMS (workflow: scope-change): `validate_domain_decomposition_integrity.py`, `accumulate_supersession_map.py`, and `validate_kty_remediation_manifest.py` when their inputs are in scope.
@@ -51,7 +51,7 @@ A scope closure audit is valid when:
 - No finding was silently resolved — conflicts between the amendment record and filesystem state are reported with both sides cited.
 - The issue log CSV conforms to the Issue Log Schema below.
 - The summary JSON includes counts per severity and the overall closure status.
-- The snapshot folder is immutable after creation ([K-SNAP-1 (historical)](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md)).
+- The snapshot folder is immutable after creation (K-SNAP-1 (historical)).
 
 ### Invalid States
 

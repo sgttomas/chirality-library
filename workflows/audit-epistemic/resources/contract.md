@@ -30,7 +30,7 @@ The goal is to make the epistemic state of a deliverable's claims **visible and 
 - **Conflict surfacing (K-CONFLICT-1).** Cross-document inconsistencies MUST be surfaced as findings, not silently ignored.
 - **Epistemic ontology authority.** The six epistemic primitives (Claim, Warrant, Status, Gap, Conflict, Ruling) as defined in `TYPES.md` §10 are the authoritative vocabulary. Do not introduce alternative terminology.
 - **Deterministic.** Keep the inventory and metric rules reproducible; record the evidence and limits of semantic judgments.
-- **Immutable snapshots ([K-SNAP-1 (historical)](https://github.com/sgttomas/chirality/blob/archive/pre-docs-cleanup-1/docs/CONTRACT.md)).** Each run writes a new snapshot folder; never overwrite prior snapshots.
+- **Immutable snapshots (K-SNAP-1 (historical; `docs/CONTRACT.md` on branch `archive/pre-docs-cleanup-1` of the earlier Chirality repository, which is not public)).** Each run writes a new snapshot folder; never overwrite prior snapshots.
 - **Pointer-only overwrite allowed.** `_LATEST.md` may be overwritten as a pointer; snapshots remain immutable.
 - **Scope-bounded.** Audit only deliverables explicitly named in the brief. Do not expand scope.
 

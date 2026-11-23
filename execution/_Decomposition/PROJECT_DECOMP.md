@@ -33,7 +33,7 @@ verified all three manifest entries before using the
 | Independent Group 3 audit | [GROUP3_AUDIT.md](GROUP3_AUDIT.md), SHA-256 `b3394ea4c36720b6452fe92976bd18c8f54a1e55acef4377738e38d57d876436`. No substantive blockers; N-01's stale checkpoint wording is corrected in this mutable candidate. |
 | Accepted product intent | [docs/PRD.md](../../docs/PRD.md), revision 2026-10-31, SHA-256 `95c3c25ee36d4d4ddadf54d266a47a2ee58c6b37fbbdef75ad20a97986a718ca`, originally fixed at `d5ca6594ce6010c94c7981fe35cc540a822e9aa8`. |
 | Current inspection basis | `6865c6eaeed2bbf6b87f96ec45da18d837c6eb7b`, branch `codex/library-decomposition-20261031`, incorporating the merged repair. Affected §6 observations are refreshed against this basis; unchanged observations reuse the earlier inspection at `cd81b47b6ba1a29a606caec3d1be691f4691c4e7`. No global census. |
-| Reused repair basis | [PR #1779](https://github.com/sgttomas/chirality/pull/1779), merge `a052783460f60c76e6fa229500f59a51f67c5265`; final checked head `a0bb0dc77a53b041262571f658f9fd9590d44269`. Source inspection and reused verification are distinguished in §6.1. |
+| Reused repair basis | PR #1779 (earlier Chirality repository, not public), merge `a052783460f60c76e6fa229500f59a51f67c5265`; final checked head `a0bb0dc77a53b041262571f658f9fd9590d44269`. Source inspection and reused verification are distinguished in §6.1. |
 | Selected method | [Workflow](../../workflows/project-decomp/WORKFLOW.md), [contract](../../workflows/project-decomp/resources/contract.md), [decomposition method](../../workflows/project-decomp/resources/method.md). Same bytes as the original Group 1 method basis. |
 | Authority and entry | [AGENTS.md](../../AGENTS.md), [TASK](../../agents/AGENT_TASK.md), the Root entry `execution/_Coordination/LOOP_INIT.md` as it stood at this basis, and this assignment. That path is no longer in the tree. The entry as it stood at this basis is in the private repository. This repository's earliest copy of the full entry is at its first revision, [`f002cb96`](https://github.com/sgttomas/chirality-library/blob/f002cb9670468737f3c8e0d7d4ca1f6854c46e96/execution/_Coordination/LOOP_INIT.md) (2026-11-04), which is later than this basis; from 2026-11-07 the file here is a short pointer to `loop/LOOP_INIT.md`, last held at `c685c604`. Its successor is the [development entry](../../AGENTS.md#chirality-library-development-entry) in AGENTS.md, which did not govern this formation. Owner steering retains Agent 0 coordination/review and this directly managed Type 2 author; no Type 1 layer is introduced. |
 | Historical transition | PR #1778; [recovery route](../../projects/FROZEN.md#pre-library-root-execution); tag `archive/pre-library-execution-2026-10-31` at `f80f1510fb50799764720303b86c36da64b75d19`. Reset already executed; retention only, no repeated removal job. |
@@ -278,7 +278,7 @@ need for another manual, monitoring service or routine review ceremony.
 
 ### 6.1 Repair evidence available for reuse
 
-[PR #1779](https://github.com/sgttomas/chirality/pull/1779) supplies an actual
+PR #1779 supplies an actual
 maintenance change, not an unperformed build requirement. The author inspected
 the affected current instructions, current_locality.py, wrapper selection and
 ScopeOfWork changes, verified their identity against the repair, and confirmed
